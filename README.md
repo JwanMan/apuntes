@@ -12,11 +12,18 @@ son las siguientes:
 * `algl`: Álgebra Lineal.
 * `cyn`: Conjuntos y Números.
 * `fuvr1`: Funciones de Una Variable Real I.
+* `fuvr2`: Funciones de Una Variable Real II.
+* `gae`: Geometría Afín y Euclídea.
+* `tem`: Topología de Espacios Métricos.
 
 Las asignaturas de ingeniería informática que se incluyen son las siguientes:
+
 * `fc`: Fundamentos de Computadores.
 * `ip`: Introducción a la Programación.
 * `logic`: Fundamentos Lógicos de la Informática.
+* `etc`: Estructura y Tecnología de Computadores.
+* `ffi`: Fundamentos Físicos de la Informática.
+* `tp`: Tecnología de la Programación.
 
 Los apuntes están escritos con [LyX](https://www.lyx.org/). En cada directorio,
 el fichero `n.lyx` es el fichero principal con los apuntes de la asignatura.
