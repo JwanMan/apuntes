@@ -1,0 +1,652 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una 
+\series bold
+ecuación lineal
+\series default
+ en las 
+\begin_inset Formula $n$
+\end_inset
+
+ 
+\series bold
+incógnitas
+\series default
+ 
+\begin_inset Formula $x_{1},\dots,x_{n}$
+\end_inset
+
+ sobre el cuerpo 
+\begin_inset Formula $K$
+\end_inset
+
+ es una expresión de la forma 
+\begin_inset Formula $a_{1}x_{1}+\dots+a_{n}x_{n}=b$
+\end_inset
+
+, con los 
+\begin_inset Formula $a_{i}\in K$
+\end_inset
+
+ (
+\series bold
+coeficientes
+\series default
+) y 
+\begin_inset Formula $b\in K$
+\end_inset
+
+ (
+\series bold
+término independiente
+\series default
+).
+ Un 
+\series bold
+sistema de 
+\begin_inset Formula $m$
+\end_inset
+
+ ecuaciones lineales
+\series default
+ con 
+\begin_inset Formula $n$
+\end_inset
+
+ incógnitas sobre el cuerpo 
+\series bold
+
+\begin_inset Formula $K$
+\end_inset
+
+
+\series default
+ tiene la forma
+\begin_inset Formula 
+\[
+\left.\begin{array}{ccccccc}
+a_{11}x_{1} & + & \dots & + & a_{1n}x_{n} & = & b_{1}\\
+ &  &  &  &  & \vdots\\
+a_{m1}x_{1} & + & \dots & + & a_{mn}x_{n} & = & b_{m}
+\end{array}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Puede expresarse matricialmente de la forma 
+\begin_inset Formula $AX=B$
+\end_inset
+
+, donde 
+\begin_inset Formula $A=(a_{ij})\in M_{m,n}(K)$
+\end_inset
+
+ es la 
+\series bold
+matriz de los coeficientes
+\series default
+, 
+\begin_inset Formula $B=(b_{i})\in M_{m,1}(K)$
+\end_inset
+
+ es la 
+\series bold
+matriz de los términos independientes
+\series default
+ y 
+\begin_inset Formula $X=(x_{i})\in M_{n,1}(K)$
+\end_inset
+
+ es la matriz de incógnitas.
+ A la matriz 
+\begin_inset Formula $(A|B)\in M_{m,n+1}(K)$
+\end_inset
+
+ se le llama 
+\series bold
+matriz ampliada
+\series default
+ del sistema.
+ Un sistema es 
+\series bold
+homogéneo
+\series default
+ si 
+\begin_inset Formula $B=0$
+\end_inset
+
+, y a cada sistema 
+\begin_inset Formula $AX=B$
+\end_inset
+
+ se le puede asociar el sistema homogéneo 
+\begin_inset Formula $AX=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Se llama 
+\series bold
+solución
+\series default
+ a toda 
+\begin_inset Formula $n$
+\end_inset
+
+-upla 
+\begin_inset Formula $(r_{1},\dots,r_{n})\in K^{n}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $R=(r_{i})\in M_{n,1}(K)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $AR=B$
+\end_inset
+
+.
+ Un sistema es 
+\series bold
+compatible
+\series default
+ si tiene alguna solución, 
+\series bold
+determinado
+\series default
+ si tiene solo una e 
+\series bold
+indeterminado
+\series default
+ si tiene más; o 
+\series bold
+incompatible
+\series default
+ si no tiene ninguna.
+ 
+\series bold
+Discutir
+\series default
+ un sistema es determinar su compatibilidad, y 
+\series bold
+resolverlo
+\series default
+ es encontrar las soluciones.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema:
+\series default
+ Si un sistema 
+\begin_inset Formula $AX=B$
+\end_inset
+
+ tiene una solución 
+\begin_inset Formula $P$
+\end_inset
+
+, todas las soluciones son de la forma 
+\begin_inset Formula $P+M$
+\end_inset
+
+, donde 
+\begin_inset Formula $M$
+\end_inset
+
+ es solución de 
+\begin_inset Formula $AX=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Teorema de Rouché-Frobenius
+\end_layout
+
+\begin_layout Standard
+Un sistema 
+\begin_inset Formula $AX=B$
+\end_inset
+
+ es compatible si y sólo si 
+\begin_inset Formula $\text{rang}(A)=\text{rang}(A|B)$
+\end_inset
+
+, en cuyo caso es determinado si 
+\begin_inset Formula $\text{rang}(A)=n$
+\end_inset
+
+.
+ En concreto, si 
+\begin_inset Formula $k=n-\text{rang}(A)>0$
+\end_inset
+
+, existen 
+\begin_inset Formula $u_{1},\dots,u_{k}$
+\end_inset
+
+ soluciones linealmente independientes de 
+\begin_inset Formula $AX=0$
+\end_inset
+
+ tales que cualquier solución del sistema es de la forma 
+\begin_inset Formula $x_{0}+\lambda_{1}u_{1}+\dots+\lambda_{k}u_{k}$
+\end_inset
+
+.
+ Decimos del sistema que 
+\series bold
+depende de 
+\begin_inset Formula $k$
+\end_inset
+
+ parámetros
+\series default
+ 
+\begin_inset Formula $\lambda_{1},\dots,\lambda_{k}$
+\end_inset
+
+ o que tiene 
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\series bold
+grados de libertad
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Si tenemos la aplicación 
+\begin_inset Formula $f_{A}:K^{n}\rightarrow K^{m}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $A=M_{{\cal C^{0}},{\cal C}}(f)$
+\end_inset
+
+, entonces si 
+\begin_inset Formula $K^{n}=<u_{1},\dots,u_{n}>$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ es el vector definido por 
+\begin_inset Formula $B$
+\end_inset
+
+, el conjunto de soluciones es 
+\begin_inset Formula $f^{-1}(v)=\{x\in K^{n}|f(x)=v\}$
+\end_inset
+
+.
+ Entonces,
+\begin_inset Formula 
+\begin{multline*}
+\exists x\in U:f(x)=v\iff v\in\text{Im}(f)\iff<f(u_{1}),\dots,f(u_{n}),v>=<f(u_{1}),\dots,f(u_{n})>\iff\\
+\iff\dim(<f(u_{1}),\dots,f(u_{n}),v>)=\dim(<f(u_{1}),\dots,f(u_{n})>)=\dim(\text{Im}(f))=\text{rang}(f)
+\end{multline*}
+
+\end_inset
+
+Por tanto 
+\begin_inset Formula $AX=B$
+\end_inset
+
+ es compatible si y sólo si 
+\begin_inset Formula $\text{rang}(A)=\text{rang}(A|B)$
+\end_inset
+
+.
+ Por otro lado, si 
+\begin_inset Formula $f(x_{0})=v$
+\end_inset
+
+, las soluciones serán 
+\begin_inset Formula $f^{-1}(v)=\{u\in U|f(u)=v\}=x_{0}+\text{Nuc}(f)$
+\end_inset
+
+.
+ Como además 
+\begin_inset Formula $\dim(K^{n})=\text{rang}(f)+\dim(\text{Nuc}(f))$
+\end_inset
+
+, entonces 
+\begin_inset Formula $k:=\dim(\text{Nuc}(f))=n-\text{rang}(f)$
+\end_inset
+
+, por lo que existen 
+\begin_inset Formula $k$
+\end_inset
+
+ soluciones linealmente independientes de 
+\begin_inset Formula $AX=0$
+\end_inset
+
+ (una base de 
+\begin_inset Formula $\text{Nuc}(f)$
+\end_inset
+
+).
+ Por tanto las soluciones del sistema homogéneo serán combinaciones lineales
+ de dicha base.
+\end_layout
+
+\begin_layout Section
+Resolución de sistemas de ecuaciones lineales.
+ Método de Gauss
+\end_layout
+
+\begin_layout Standard
+Dos sistemas de 
+\begin_inset Formula $m$
+\end_inset
+
+ ecuaciones lineales con 
+\begin_inset Formula $n$
+\end_inset
+
+ incógnitas sobre un mismo cuerpo son 
+\series bold
+e
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+qui
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+va
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+len
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+tes
+\series default
+ si tienen las mismas soluciones.
+ Si 
+\begin_inset Formula $P\in M_{m}(K)$
+\end_inset
+
+, 
+\begin_inset Formula $(PA)X=PB$
+\end_inset
+
+ es equivalente a 
+\begin_inset Formula $AX=B$
+\end_inset
+
+, y en particular, si 
+\begin_inset Formula $E\in M_{m}(K)$
+\end_inset
+
+ es una matriz elemental, 
+\begin_inset Formula $(EA)X=EB$
+\end_inset
+
+ también lo es, por lo que al hacer operaciones elementales por filas sobre
+ 
+\begin_inset Formula $(A|B)$
+\end_inset
+
+ se obtiene un sistema con las mismas soluciones.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+método de Gauss
+\series default
+ comienza por convertir la matriz ampliada a una escalonada reducida por
+ filas 
+\begin_inset Formula $(A'|B')$
+\end_inset
+
+.
+ Si obtenemos que 
+\begin_inset Formula $\text{rang}(A|B)>\text{rang}(A)$
+\end_inset
+
+, el sistema es incompatible.
+ Si 
+\begin_inset Formula $r=\text{rang}(A)=\text{rang}(A|B)$
+\end_inset
+
+, las filas nulas de 
+\begin_inset Formula $A'$
+\end_inset
+
+ lo son de 
+\begin_inset Formula $B'$
+\end_inset
+
+.
+ Reordenamos las incógnitas, lo que equivale a reordenar las columnas de
+ 
+\begin_inset Formula $A'$
+\end_inset
+
+, para conseguir un sistema de la forma
+\begin_inset Formula 
+\[
+\left(\begin{array}{c|c}
+I_{r} & C\\
+\hline 0 & 0
+\end{array}\right)\left(\begin{array}{c}
+y_{1}\\
+\vdots\\
+y_{r}\\
+\hline y_{r+1}\\
+\vdots\\
+y_{n}
+\end{array}\right)=\left(\begin{array}{c}
+b_{1}^{\prime}\\
+\vdots\\
+b_{r}^{\prime}\\
+\hline 0\\
+\vdots\\
+0
+\end{array}\right)
+\]
+
+\end_inset
+
+Donde 
+\begin_inset Formula $y_{1},\dots,y_{n}$
+\end_inset
+
+ son los 
+\begin_inset Formula $x_{1},\dots,x_{n}$
+\end_inset
+
+ reordenados de la misma forma que las columnas.
+ Esto equivale a
+\begin_inset Formula 
+\[
+I_{r}\left(\begin{array}{c}
+y_{1}\\
+\vdots\\
+y_{r}
+\end{array}\right)+C\left(\begin{array}{c}
+y_{r+1}\\
+\vdots\\
+y_{n}
+\end{array}\right)=\left(\begin{array}{c}
+b_{1}^{\prime}\\
+\vdots\\
+b_{r}^{\prime}
+\end{array}\right)\implies\left(\begin{array}{c}
+y_{1}\\
+\vdots\\
+y_{r}
+\end{array}\right)=\left(\begin{array}{c}
+b_{1}^{\prime}\\
+\vdots\\
+b_{r}^{\prime}
+\end{array}\right)-C\left(\begin{array}{c}
+y_{r+1}\\
+\vdots\\
+y_{n}
+\end{array}\right)
+\]
+
+\end_inset
+
+De modo que al asignar valores arbitrarios a 
+\begin_inset Formula $y_{r+1},\dots,y_{n}$
+\end_inset
+
+, que llamamos 
+\series bold
+incógnitas libres
+\series default
+, obtenemos valores de 
+\begin_inset Formula $y_{1},\dots,y_{r}$
+\end_inset
+
+, que llamamos 
+\series bold
+incógnitas principales
+\series default
+.
+\end_layout
+
+\end_body
+\end_document

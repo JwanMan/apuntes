@@ -1,0 +1,1323 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Semejanza de matrices
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A,B\in M_{n}(K)$
+\end_inset
+
+ son 
+\series bold
+semejantes
+\series default
+ si 
+\begin_inset Formula $\exists P\in M_{n}(K):B=P^{-1}AP$
+\end_inset
+
+.
+ Esta relación es de equivalencia, y si dos matrices son semejantes también
+ son equivalentes y por tanto tienen el mismo rango, si bien el recíproco
+ no se cumple.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $A\in M_{n}(K)$
+\end_inset
+
+ una matriz formada por 
+\series bold
+bloques
+\series default
+ cuadrados en la diagonal y ceros en el resto:
+\begin_inset Formula 
+\[
+A=\left(\begin{array}{ccc}
+\boxed{A_{1}} &  & 0\\
+ & \ddots\\
+0 &  & \boxed{A_{t}}
+\end{array}\right)
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $A_{i}\in M_{n_{i}}(K)$
+\end_inset
+
+ y 
+\begin_inset Formula $n_{1}+\dots+n_{t}=n$
+\end_inset
+
+.
+ Por el desarrollo de Laplace, su determinante es 
+\begin_inset Formula $|A|=|A_{1}|\cdots|A_{t}|$
+\end_inset
+
+; su rango es la suma de los rangos de los 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+, y su potencia 
+\begin_inset Formula $k$
+\end_inset
+
+-ésima es
+\begin_inset Formula 
+\[
+A^{k}=\left(\begin{array}{ccc}
+\boxed{A_{1}^{k}} &  & 0\\
+ & \ddots\\
+0 &  & \boxed{A_{t}^{k}}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Entonces, si 
+\begin_inset Formula $B$
+\end_inset
+
+ es semejante a 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $|B|=|P^{-1}AP|=|P|^{-1}|A||P|=|A|$
+\end_inset
+
+, su rango es el de 
+\begin_inset Formula $A$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+B^{k}=\underset{k\text{ veces}}{(P^{-1}AP)\cdots(P^{-1}AP)}=P^{-1}A^{k}P
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Subespacios invariantes
+\end_layout
+
+\begin_layout Standard
+Dado 
+\begin_inset Formula $f\in\text{End}_{K}(V)$
+\end_inset
+
+ y 
+\begin_inset Formula $W\leq V$
+\end_inset
+
+, 
+\begin_inset Formula $W$
+\end_inset
+
+ es 
+\series bold
+invariante
+\series default
+ por 
+\begin_inset Formula $f$
+\end_inset
+
+ si 
+\begin_inset Formula $f(W)\subseteq W$
+\end_inset
+
+.
+ Entonces la restricción de 
+\begin_inset Formula $f$
+\end_inset
+
+ a 
+\begin_inset Formula $W$
+\end_inset
+
+ es 
+\begin_inset Formula $f|_{W}\in\text{End}_{K}(W)$
+\end_inset
+
+.
+ También se tiene que 
+\begin_inset Formula $\{0\}$
+\end_inset
+
+ y 
+\begin_inset Formula $V$
+\end_inset
+
+ son invariantes de cada 
+\begin_inset Formula $f\in\text{End}_{K}(V)$
+\end_inset
+
+, y la suma e intersección de subespacios invariantes por 
+\begin_inset Formula $f$
+\end_inset
+
+ también son subespacios invariantes por 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ Ahora supongamos que 
+\begin_inset Formula $V=W_{1}\oplus\dots\oplus W_{t}$
+\end_inset
+
+, donde cada 
+\begin_inset Formula $W_{i}$
+\end_inset
+
+ es un subespacio invariante no nulo por 
+\begin_inset Formula $f\in\text{End}(V)$
+\end_inset
+
+.
+ Si tomamos 
+\begin_inset Formula ${\cal B}={\cal B}_{1}\cup\dots\cup{\cal B}_{t}$
+\end_inset
+
+, siendo cada 
+\begin_inset Formula ${\cal B}_{i}$
+\end_inset
+
+ una base de 
+\begin_inset Formula $W_{i}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+M_{{\cal B}}(f)=\left(\begin{array}{ccc}
+\boxed{A_{1}} &  & 0\\
+ & \ddots\\
+0 &  & \boxed{A_{t}}
+\end{array}\right)
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $A_{i}=M_{{\cal B}_{i}}(f|_{W})\in M_{n_{i}}(K)$
+\end_inset
+
+ para 
+\begin_inset Formula $n_{i}=\dim(W_{i})$
+\end_inset
+
+.
+ Recíprocamente, si 
+\begin_inset Formula $M_{{\cal B}}(f)$
+\end_inset
+
+ tiene dicha forma y
+\begin_inset Formula 
+\[
+{\cal B}=\{v_{1},\dots,v_{n_{1}},v_{n_{1}+1},\dots,v_{n_{1}+n_{2}},\dots,v_{n_{1}+\dots+n_{t-1}+1},\dots,v_{n_{1}+\dots+n_{t}}\}
+\]
+
+\end_inset
+
+entonces 
+\begin_inset Formula $W_{1}=<v_{1},\dots,v_{n_{1}}>$
+\end_inset
+
+, 
+\begin_inset Formula $W_{2}=<v_{n_{1}+1},\dots,v_{n_{1}+n_{2}}>$
+\end_inset
+
+, etc.
+ son subespacios vectoriales invariantes por 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Endomorfismos y matrices diagonalizables
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f\in\text{End}_{K}(V)$
+\end_inset
+
+ es 
+\series bold
+diagonalizable
+\series default
+ si existe una base 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ de 
+\begin_inset Formula $V$
+\end_inset
+
+ tal que 
+\begin_inset Formula $M_{{\cal B}}(f)$
+\end_inset
+
+ es diagonal, y una matriz cuadrada es diagonalizable si lo es el endomorfismo
+ de 
+\begin_inset Formula $K^{n}$
+\end_inset
+
+ que cuya matriz respecto a la base canónica es 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Equivalentemente, una matriz cuadrada es diagonalizable si y sólo si es
+ semejante a una matriz diagonal, y un endomorfismo es diagonalizable si
+ su matriz asociada respecto a cualquier base lo es.
+ Denotamos las matrices diagonales como
+\begin_inset Formula 
+\[
+\left(\begin{array}{ccc}
+\lambda_{1} &  & 0\\
+ & \ddots\\
+0 &  & \lambda_{n}
+\end{array}\right)=\text{Diag}(\lambda_{1},\dots,\lambda_{n})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Vectores y valores propios
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula ${\cal B}=\{u_{1,}\dots,u_{n}\}$
+\end_inset
+
+ y 
+\begin_inset Formula $M_{{\cal B}}(f)=\text{Diag}(\lambda_{1},\dots,\lambda_{n})$
+\end_inset
+
+, se tiene que 
+\begin_inset Formula $f(u_{i})=\lambda_{1}u_{1}$
+\end_inset
+
+.
+ Así:
+\end_layout
+
+\begin_layout Itemize
+Un 
+\series bold
+vector propio
+\series default
+, 
+\series bold
+autovector
+\series default
+ o 
+\series bold
+vector característico
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ es un vector 
+\begin_inset Formula $v\neq0$
+\end_inset
+
+ para el que existe un 
+\begin_inset Formula $\lambda\in K$
+\end_inset
+
+ con 
+\begin_inset Formula $f(v)=\lambda v$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Un 
+\series bold
+valor propio
+\series default
+, 
+\series bold
+autovalor
+\series default
+ o 
+\series bold
+valor característico
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ es un escalar 
+\begin_inset Formula $\lambda\in K$
+\end_inset
+
+ para el que existe un 
+\begin_inset Formula $v\in V\backslash\{0\}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f(v)=\lambda v$
+\end_inset
+
+.
+ Decimos que 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ es 
+\series bold
+\emph on
+el
+\emph default
+ valor propio asociado al vector propio 
+\begin_inset Formula $v$
+\end_inset
+
+
+\series default
+, o que 
+\begin_inset Formula $v$
+\end_inset
+
+ es 
+\series bold
+\emph on
+un
+\emph default
+ vector propio asociado al valor propio 
+\begin_inset Formula $\lambda$
+\end_inset
+
+
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Así, 
+\begin_inset Formula $f\in\text{End}(V)$
+\end_inset
+
+ es diagonalizable si y sólo si existe una base de 
+\begin_inset Formula $V$
+\end_inset
+
+ formada por vectores propios de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Subespacios propios.
+ Polinomio característico
+\end_layout
+
+\begin_layout Standard
+Los vectores propios de 
+\begin_inset Formula $f$
+\end_inset
+
+ asociados a 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ son todos los vectores no nulos de 
+\begin_inset Formula $\text{Nuc}(f-\lambda Id)$
+\end_inset
+
+.
+ Así, 
+\begin_inset Formula $V_{\lambda}=\text{Nuc}(f-\lambda Id)=\{v\in V:(f-\lambda Id)(v)=0\}=\{v\in V:f(v)=\lambda v\}$
+\end_inset
+
+ es el 
+\series bold
+subespacio propio
+\series default
+ o 
+\series bold
+característico
+\series default
+ correspondiente al valor propio 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ Así, 
+\begin_inset Formula $\lambda\in K$
+\end_inset
+
+ es un valor propio de 
+\begin_inset Formula $f$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\det(f-\lambda Id)=0$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $\lambda\in K$
+\end_inset
+
+ es valor propio si y sólo si existe 
+\begin_inset Formula $0\neq v\in V_{\lambda}$
+\end_inset
+
+, es decir, si 
+\begin_inset Formula $\text{Nuc}(f-\lambda Id)\neq\{0\}$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $0<\dim(\text{Nuc}(\lambda Id-f))=\dim(V)-\text{rang}(\lambda Id-f)$
+\end_inset
+
+, es decir, 
+\begin_inset Formula $\text{rang}(\lambda Id-f)<\dim(V)$
+\end_inset
+
+ o, equivalentemente, 
+\begin_inset Formula $\det(\lambda Id-f)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P_{f}(x):=\det(xId-f)$
+\end_inset
+
+ es el 
+\series bold
+polinomio característico
+\series default
+ de 
+\series bold
+
+\begin_inset Formula $f$
+\end_inset
+
+
+\series default
+, y 
+\begin_inset Formula $P_{A}(x):=\det(xI_{n}-A)$
+\end_inset
+
+ es el polinomio característico de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Podemos comprobar que
+\begin_inset Formula 
+\[
+P_{A}(x)=x^{n}-\text{tr}(A)x^{n-1}+\dots+(-1)^{n}\det(A)
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $\text{tr}(A)$
+\end_inset
+
+ es la 
+\series bold
+traza
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+, la suma de los elementos de su diagonal.
+ Obtenemos como resultado que los valores propios de 
+\begin_inset Formula $f\in\text{End}(V)$
+\end_inset
+
+ son las raíces de 
+\begin_inset Formula $P_{f}(x)$
+\end_inset
+
+, y que 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene a lo sumo 
+\begin_inset Formula $\dim(V)$
+\end_inset
+
+ valores propios distintos.
+\end_layout
+
+\begin_layout Section
+Independencia de los subespacios propios
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\lambda_{1},\dots,\lambda_{s}$
+\end_inset
+
+ son valores propios de 
+\begin_inset Formula $f$
+\end_inset
+
+ distintos dos a dos, entonces 
+\begin_inset Formula $\text{Nuc}(\lambda_{1}Id-f)+\dots+\text{Nuc}(\lambda_{s}Id-f)$
+\end_inset
+
+ es suma directa, y en particular, vectores propios correspondientes a valores
+ propios distintos dos a dos son linealmente independientes.
+ 
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $s=2$
+\end_inset
+
+, sean 
+\begin_inset Formula $v_{1}\in\text{Nuc}(\lambda_{1}Id-f)$
+\end_inset
+
+ y 
+\begin_inset Formula $v_{2}\in\text{Nuc}(\lambda_{2}Id-f)$
+\end_inset
+
+ con 
+\begin_inset Formula $0=v_{1}+v_{2}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $0=f(0)=f(v_{1}+v_{2})=f(v_{1})+f(v_{2})=\lambda_{1}v_{1}+\lambda_{2}v_{2}$
+\end_inset
+
+, pero también 
+\begin_inset Formula $0=\lambda_{2}(v_{1}+v_{2})=\lambda_{2}v_{1}+\lambda_{2}v_{2}$
+\end_inset
+
+.
+ Restando, 
+\begin_inset Formula $0=(\lambda_{2}-\lambda_{1})v_{1}$
+\end_inset
+
+, pero como 
+\begin_inset Formula $\lambda_{2}\neq\lambda_{1}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $v_{1}=0$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $v_{2}$
+\end_inset
+
+ también.
+ Ahora sea 
+\begin_inset Formula $s>2$
+\end_inset
+
+ y supongamos el resultado cierto para 
+\begin_inset Formula $s-1$
+\end_inset
+
+.
+ Sean ahora 
+\begin_inset Formula $v_{1}\in\text{Nuc}(\lambda_{1}Id-f),\dots,v_{s}\in\text{Nuc}(\lambda_{s}Id-f)$
+\end_inset
+
+ con 
+\begin_inset Formula $0=v_{1}+\dots+v_{s}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $0=f(0)=f(v_{1}+\dots+v_{s})=f(v_{1})+\dots+f(v_{s})=\lambda_{1}v_{1}+\dots+\lambda_{s}v_{s}$
+\end_inset
+
+, pero también 
+\begin_inset Formula $0=\lambda_{s}v_{1}+\dots+\lambda_{s}v_{k-1}+\lambda_{s}v_{s}$
+\end_inset
+
+.
+ Restando, 
+\begin_inset Formula $0=(\lambda_{s}-\lambda_{1})v_{1}+\dots+(\lambda_{s}-\lambda_{s-1})v_{s-1}$
+\end_inset
+
+.
+ Aplicando la hipótesis de inducción, queda que 
+\begin_inset Formula $v_{1}=\dots=v_{s-1}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $v_{s}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+También, si 
+\begin_inset Formula $f\in\text{End}(V)$
+\end_inset
+
+ tiene 
+\begin_inset Formula $\dim(V)$
+\end_inset
+
+ autovalores, entonces es diagonalizable.
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $\lambda_{1},\dots,\lambda_{n}$
+\end_inset
+
+ son valores propios de 
+\begin_inset Formula $f$
+\end_inset
+
+ distintos dos a dos y 
+\begin_inset Formula $v_{1},\dots,v_{n}$
+\end_inset
+
+ son vectores propios asociados a cada uno, entonces 
+\begin_inset Formula $v_{1},\dots,v_{n}$
+\end_inset
+
+ son 
+\begin_inset Formula $n$
+\end_inset
+
+ vectores linealmente independientes en un espacio de dimensión 
+\begin_inset Formula $n$
+\end_inset
+
+, por lo que constituyen una base formada por vectores propios de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Caracterización de los endomorfismos diagonalizables
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $P(x)$
+\end_inset
+
+ es un polinomio con coeficientes en 
+\begin_inset Formula $K$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda\in K$
+\end_inset
+
+ es una raíz de 
+\begin_inset Formula $P(x)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ tiene 
+\series bold
+multiplicidad
+\series default
+ 
+\begin_inset Formula $m$
+\end_inset
+
+ en 
+\begin_inset Formula $P(x)$
+\end_inset
+
+ si 
+\begin_inset Formula $(x-\lambda)^{m}|P(x)$
+\end_inset
+
+ pero 
+\begin_inset Formula $\neg((x-\lambda)^{m+1}|P(x))$
+\end_inset
+
+.
+ Si una raíz tiene multiplicidad 1, es una raíz 
+\series bold
+simple
+\series default
+\SpecialChar endofsentence
+ De lo contrario es una raíz
+\series bold
+ múltiple
+\series default
+\SpecialChar endofsentence
+
+\end_layout
+
+\begin_layout Standard
+Dado 
+\begin_inset Formula $f\in\text{End}_{K}(V)$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ un valor propio de 
+\begin_inset Formula $f$
+\end_inset
+
+, si 
+\begin_inset Formula $d=\dim(\text{Nuc}(\lambda Id-f))$
+\end_inset
+
+ y 
+\begin_inset Formula $m$
+\end_inset
+
+ es la multiplicidad de 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ en 
+\begin_inset Formula $P_{f}(x)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $d\leq m$
+\end_inset
+
+.
+ En particular, si el valor propio es una raíz simple, entonces 
+\begin_inset Formula $d=m=1$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $\{v_{1},\dots,v_{d}\}$
+\end_inset
+
+ una base de 
+\begin_inset Formula $\text{Nuc}(\lambda Id-f)$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal B}=\{v_{1},\dots,v_{d},v_{d+1},\dots,v_{n}\}$
+\end_inset
+
+ una base de 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $M_{{\cal B}}(f)$
+\end_inset
+
+ tiene forma
+\begin_inset Formula 
+\[
+\left(\begin{array}{ccc|c}
+\lambda &  & 0\\
+ & \ddots &  & C\\
+0 &  & \lambda\\
+\hline  &  & \\
+ & 0 &  & D\\
+ &  & \\
+\end{array}\right)
+\]
+
+\end_inset
+
+por lo que 
+\begin_inset Formula $P_{f}(x)=(x-\lambda)^{d}\det(xI_{n-d}-D)=(x-\lambda)^{d}Q(x)$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $d\leq m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de diagonalización:
+\series default
+ 
+\begin_inset Formula $f$
+\end_inset
+
+ es diagonalizable si y sólo si
+\begin_inset Formula 
+\[
+P_{f}(x)=(x-\lambda_{1})^{d_{1}}\cdots(x-\lambda_{r})^{d_{r}}
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $\lambda_{1},\dots,\lambda_{r}\in K$
+\end_inset
+
+ distintos dos a dos, y 
+\begin_inset Formula $d_{i}=\dim(\text{Nuc}(\lambda_{i}Id-f))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $\lambda_{1},\dots,\lambda_{r}$
+\end_inset
+
+ los valores propios de 
+\begin_inset Formula $f$
+\end_inset
+
+, existirá una base 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ de vectores propios en los que cada vector tendrá asociado un valor propio
+ y pertenecerá por tanto al subespacio propio correspondiente.
+ Agrupando, 
+\begin_inset Formula $M_{{\cal B}}(f)$
+\end_inset
+
+ tendrá forma
+\begin_inset Formula 
+\[
+\left(\begin{array}{ccccccc}
+\lambda_{1}\\
+ & \ddots &  &  &  & 0\\
+ &  & \lambda_{1}\\
+ &  &  & \ddots\\
+ &  &  &  & \lambda_{r}\\
+ & 0 &  &  &  & \ddots\\
+ &  &  &  &  &  & \lambda_{r}
+\end{array}\right)
+\]
+
+\end_inset
+
+donde cada 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+ se repetirá 
+\begin_inset Formula $m_{i}$
+\end_inset
+
+ veces, el número de vectores propios de la base del subespacio.
+ Por tanto, 
+\begin_inset Formula $P_{f}(x)=(x-\lambda_{1})^{m_{1}}\cdots(x-\lambda_{r})^{m_{r}}$
+\end_inset
+
+ tiene todas sus raíces en 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ Además, si 
+\begin_inset Formula $d_{i}=\dim(\text{Nuc}(\lambda_{i}Id-f))$
+\end_inset
+
+, se tiene que 
+\begin_inset Formula $\sum d_{i}=\dim(\text{Nuc}(\lambda_{1}Id-f)\oplus\cdots\oplus\text{Nuc}(\lambda_{r}Id-f))\leq\dim(V)=n$
+\end_inset
+
+, y como en la base hay 
+\begin_inset Formula $m_{i}$
+\end_inset
+
+ vectores linealmente independientes de 
+\begin_inset Formula $\text{Nuc}(\lambda_{i}Id-f)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $m_{i}\leq d_{i}$
+\end_inset
+
+, luego 
+\begin_inset Formula $n=\text{gr}(P_{f}(x))=\sum m_{i}\leq\sum d_{i}\leq n$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $m_{i}=d_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $P_{f}(x)=(x-\lambda_{1})^{d_{1}}\cdots(x-\lambda_{r})^{d_{r}}$
+\end_inset
+
+ con 
+\begin_inset Formula $d_{i}=\dim(\text{Nuc}(f-\lambda Id))$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\dim(\text{Nuc}(\lambda_{1}Id-f)\oplus\cdots\oplus\text{Nuc}(\lambda_{r}Id-f))=d_{1}+\dots+d_{r}=\text{gr}(P_{f}(x))=\dim(V)$
+\end_inset
+
+, luego 
+\begin_inset Formula $V=\text{Nuc}(f-\lambda_{1}Id)\oplus\cdots\oplus\text{Nuc}(f-\lambda_{r}Id)$
+\end_inset
+
+ y la unión de las bases de cada subespacio será una base de 
+\begin_inset Formula $V$
+\end_inset
+
+ formada por vectores propios.
+\end_layout
+
+\begin_layout Standard
+Así, para diagonalizar una matriz 
+\begin_inset Formula $A\in M_{n}(K)$
+\end_inset
+
+ en matrices 
+\begin_inset Formula $A=M_{{\cal CB}}DM_{{\cal BC}}$
+\end_inset
+
+, con 
+\begin_inset Formula $D$
+\end_inset
+
+ diagonal, obtenemos su polinomio característico, hallamos sus raíces, que
+ serán los autovalores de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Si la suma de sus multiplicidades da 
+\begin_inset Formula $n$
+\end_inset
+
+, resolvemos cada ecuación 
+\begin_inset Formula $(\lambda Id-f)X=0$
+\end_inset
+
+ para obtener las bases de los subespacios propios, cuya dimensión debería
+ coincidir con la multiplicidad del autovalor si 
+\begin_inset Formula $A$
+\end_inset
+
+ es diagonalizable.
+ Entonces añadimos cada raíz en 
+\begin_inset Formula $D$
+\end_inset
+
+ tantas veces como sea su multiplicidad y razonamos que los vectores correspondi
+entes de la base 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+, y por tanto las correspondientes columnas de 
+\begin_inset Formula $M_{{\cal CB}}$
+\end_inset
+
+, son los de la base de dicho subespacio propio.
+\end_layout
+
+\begin_layout Section
+Aplicaciones
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(x_{n})_{n}\subseteq K$
+\end_inset
+
+ verifica una 
+\series bold
+ecuación en diferencias lineales con coeficientes constantes
+\series default
+ (homogénea) si para todo 
+\begin_inset Formula $n$
+\end_inset
+
+ satisface que 
+\begin_inset Formula $x_{n+r}+a_{1}x_{n+r-1}+\dots+a_{r}x_{n}=0$
+\end_inset
+
+.
+ Llamamos a 
+\begin_inset Formula $r$
+\end_inset
+
+ el 
+\series bold
+orden
+\series default
+ de la ecuación.
+ Podemos definir entonces una sucesión auxiliar 
+\begin_inset Formula $(Y_{n})_{n}\subseteq M_{r,1}(K)$
+\end_inset
+
+ con 
+\begin_inset Formula $(Y_{n})_{i}=x_{n+r-i}$
+\end_inset
+
+.
+ Se tiene entonces que 
+\begin_inset Formula $x_{n+r}=-a_{1}x_{n+r-1}-\dots-a_{r}x_{n}$
+\end_inset
+
+, luego
+\begin_inset Formula 
+\[
+\begin{array}{c}
+Y_{n+1}=\left(\begin{array}{c}
+x_{n+r}\\
+\vdots\\
+x_{n+1}
+\end{array}\right)=\left(\begin{array}{c}
+-a_{1}x_{n+r-1}-\dots-a_{r}x_{n}\\
+x_{n+r-1}\\
+\vdots\\
+x_{n+1}
+\end{array}\right)=\\
+=\left(\begin{array}{cccc}
+-a_{1} & -a_{2} & \cdots & -a_{r}\\
+1 &  & 0 & 0\\
+ & \ddots &  & \vdots\\
+0 &  & 1 & 0
+\end{array}\right)\left(\begin{array}{c}
+x_{n+r-1}\\
+\vdots\\
+x_{n}
+\end{array}\right)=AY_{n}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+sistema de ecuaciones en diferencias lineales de primer orden con coeficientes
+ constantes
+\series default
+ (homogéneo) es una relación entre los términos de unas sucesiones y sus
+ términos inmediatamente anteriores:
+\begin_inset Formula 
+\[
+\left.\begin{array}{ccc}
+x_{n+1} & = & a_{11}x_{n}+a_{12}y_{n}+a_{13}z_{n}\\
+y_{n+1} & = & a_{21}x_{n}+a_{22}y_{n}+a_{23}z_{n}\\
+z_{n+1} & = & a_{31}x_{n}+a_{32}y_{n}+a_{33}z_{n}
+\end{array}\right\} 
+\]
+
+\end_inset
+
+Estos pueden expresarme matricialmente de la forma 
+\begin_inset Formula $Y_{n+1}=AY_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $A=(a_{ij})$
+\end_inset
+
+.
+ Por re
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+cu
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+rren
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+cia, en ambos casos se tiene que 
+\begin_inset Formula $Y_{n}=A^{n-1}Y_{1}=A^{n}Y_{0}$
+\end_inset
+
+.
+ Entonces es útil diagonalizar 
+\begin_inset Formula $A$
+\end_inset
+
+, si es posible, para poder calcular las potencias rápidamente.
+\end_layout
+
+\end_body
+\end_document

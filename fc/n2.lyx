@@ -1,0 +1,979 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Representación de enteros
+\end_layout
+
+\begin_layout Standard
+En un sistema de numeración posicional en base 
+\begin_inset Formula $b$
+\end_inset
+
+, 
+\begin_inset Formula $N=\dots+n_{2}b^{2}+n_{1}b^{1}+n_{0}b^{0}+n_{-1}b^{-1}+\dots$
+\end_inset
+
+.
+ Nos centraremos en las bases 2 (binario), 8 (octal), 10 (decimal) y 16
+ (hexadecimal).
+ Decimos 
+\begin_inset Formula $011)_{2}=3)_{10}$
+\end_inset
+
+.
+ Para convertir de decimal a binario, dividimos sucesivamente entre 2 la
+ parte entera hasta obtener cociente binario, y tomamos los restos y el
+ último cociente.
+ Este es el bit más significativo, y el primer resto el menos significativo.
+ Para la parte fraccionaria, multiplicamos por 2 la parte fraccionaria del
+ número decimal, y el número binario se forma con lo que se va obteniendo.
+\end_layout
+
+\begin_layout Standard
+El desplazamiento a la izquierda (añadir un 0 a la izquierda) multiplica
+ por 2, y el desplazamiento a la derecha (eliminarlo) divide entre 2.
+ También encontramos las operaciones lógicas 
+\family typewriter
+\lang american
+OR
+\family default
+\lang spanish
+ (
+\begin_inset Formula $0+0=0$
+\end_inset
+
+, 
+\begin_inset Formula $0+1=1+0=1+1=1$
+\end_inset
+
+), 
+\family typewriter
+\lang american
+AND
+\family default
+\lang spanish
+ (
+\begin_inset Formula $0\cdot0=0\cdot1=1\cdot0=0$
+\end_inset
+
+; 
+\begin_inset Formula $1\cdot1=1$
+\end_inset
+
+) y 
+\family typewriter
+\lang american
+NOT
+\family default
+\lang spanish
+ (
+\begin_inset Formula $\overline{0}=1$
+\end_inset
+
+; 
+\begin_inset Formula $\overline{1}=0$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Los valores sin signo se representan añadiendo 
+\begin_inset Formula $0$
+\end_inset
+
+s a la izquierda del número en binario hasta completar los 
+\begin_inset Formula $8$
+\end_inset
+
+, 
+\begin_inset Formula $16$
+\end_inset
+
+, 
+\begin_inset Formula $32$
+\end_inset
+
+, 
+\begin_inset Formula $64$
+\end_inset
+
+, etc.
+ bits.
+ Para los enteros con signo existen las siguientes representaciones:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Signo y magnitud:
+\series default
+ El bit más significativo es de signo, y vale 
+\begin_inset Formula $1$
+\end_inset
+
+ si el nº es negativo.
+ El problema es que el 
+\begin_inset Formula $0$
+\end_inset
+
+ tiene dos representaciones.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Sesgada:
+\series default
+ Se añade una constante 
+\begin_inset Formula $S$
+\end_inset
+
+ (sesgo) al nº a representar para hacerlo positivo.
+ Normalmente 
+\begin_inset Formula $S=2^{\text{nº de bits}-1}$
+\end_inset
+
+.
+ Permite realizar restas como sumas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Complemento a 2:
+\series default
+ Si tenemos 
+\begin_inset Formula $n$
+\end_inset
+
+ bits, permite representar desde 
+\begin_inset Formula $-2^{n-1}$
+\end_inset
+
+ hasta 
+\begin_inset Formula $2^{n-1}-1$
+\end_inset
+
+.
+ Los positivos se representan normalmente.
+ Para los negativos, se niegan todos los bits (
+\family typewriter
+\lang american
+NOT
+\family default
+\lang spanish
+) del opuesto y se suma 1 al resultado.
+ Así, además de poder realizar restas como sumas (despreciando los bits
+ restantes), los números positivos se representan igual a como se representarían
+ sin signo.
+ Si el resultado de una operación sale del rango, se denomina 
+\series bold
+desbordamiento
+\series default
+, y la operación no funciona.
+ Para representar un número con mayor cantidad de bits, se replica el bit
+ de signo hacia la izquierda.
+\end_layout
+
+\begin_layout Section
+Códigos intermedios
+\end_layout
+
+\begin_layout Standard
+Para expresar secuencias de bits de forma más concisa usamos la base 
+\series bold
+octal
+\series default
+ (
+\begin_inset Formula $\unit[8=2^{3}]{dígitos}$
+\end_inset
+
+, 
+\begin_inset Formula $\{0,\dots,7\}$
+\end_inset
+
+) agrupando los bits de 3 en 3 empezando por la coma decimal, así como la
+ base 
+\series bold
+hexadecimal
+\series default
+ (
+\begin_inset Formula $\unit[16=2^{4}]{dígitos}$
+\end_inset
+
+, 
+\begin_inset Formula $\{0,\dots,9,A,\dots,F\}$
+\end_inset
+
+), agrupándolos de 4 en 4.
+ Las conversiones se realizan de forma similar a la conversión entre binario
+ y decimal, pero con distinta base.
+\end_layout
+
+\begin_layout Section
+Representación de reales
+\end_layout
+
+\begin_layout Standard
+Se usa la 
+\series bold
+notación exponencial
+\series default
+, en
+\series bold
+ coma flotante
+\series default
+ o en
+\series bold
+ punto flotante:
+\series default
+ 
+\begin_inset Formula $N=M\cdot B^{E}$
+\end_inset
+
+, donde 
+\begin_inset Formula $M$
+\end_inset
+
+ es la mantisa, 
+\begin_inset Formula $B=2$
+\end_inset
+
+ es la base y 
+\begin_inset Formula $E$
+\end_inset
+
+ es el exponente.
+ Se representa en tres campos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Signo (
+\begin_inset Formula $S$
+\end_inset
+
+):
+\series default
+ 
+\begin_inset Formula $0$
+\end_inset
+
+: positivo; 
+\begin_inset Formula $1$
+\end_inset
+
+: negativo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Exponente (
+\begin_inset Formula $E$
+\end_inset
+
+):
+\series default
+ Entero sesgado, con sesgo 
+\begin_inset Formula $S=2^{n_{E}-1}-1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Mantisa (
+\begin_inset Formula $M$
+\end_inset
+
+):
+\series default
+ Solo se representa la parte fraccionaria; la parte entera siempre es 
+\begin_inset Formula $1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La norma IEEE 754 especifica reales de 
+\series bold
+simple precisión
+\series default
+ (32 bits, 
+\begin_inset Formula $n_{E}=8$
+\end_inset
+
+), y de 
+\series bold
+doble precisión
+\series default
+ (64 bits, 
+\begin_inset Formula $n_{E}=11$
+\end_inset
+
+).
+ Situaciones especiales:
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $E=0$
+\end_inset
+
+, el 
+\begin_inset Formula $1$
+\end_inset
+
+ no está implícito.
+ Así, si 
+\begin_inset Formula $E=0$
+\end_inset
+
+ y 
+\begin_inset Formula $M=0$
+\end_inset
+
+, el número es 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $E=2^{n_{E}}-1$
+\end_inset
+
+, entonces 
+\begin_inset Formula $n=+\infty\text{ o }-\infty$
+\end_inset
+
+ si 
+\begin_inset Formula $M=0$
+\end_inset
+
+ o 
+\begin_inset Formula $NaN$
+\end_inset
+
+ (
+\emph on
+\lang american
+Not a Number
+\emph default
+\lang spanish
+) si 
+\begin_inset Formula $M\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Cuando un número como el resultado de una operación no se puede representar
+ de forma exacta, se aplica el redondeo al par: Se toman los dos primeros
+ bits que 
+\begin_inset Quotes cld
+\end_inset
+
+no caben
+\begin_inset Quotes crd
+\end_inset
+
+ en la mantisa (en orden, 
+\series bold
+bit de redondeo
+\series default
+ y 
+\series bold
+bit retenedor
+\series default
+).
+ Si el de redondeo es 
+\begin_inset Formula $0$
+\end_inset
+
+, se trunca.
+ Si ambos son 
+\begin_inset Formula $1$
+\end_inset
+
+, se redondea al alza.
+ En el caso restante, se redondea al par más cercano.
+\end_layout
+
+\begin_layout Standard
+Algunos números que en decimal son exactos no se pueden representar con
+ total exactitud porque en binario son periódicos, y algunas propiedades
+ como la asociatividad de la suma pueden no cumplirse debido a errores de
+ aproximación.
+\end_layout
+
+\begin_layout Section
+Representación de caracteres
+\end_layout
+
+\begin_layout Standard
+Para representar un carácter entre un conjunto de 
+\begin_inset Formula $n$
+\end_inset
+
+ caracteres necesitamos 
+\begin_inset Formula $\left\lceil \log_{2}n\right\rceil $
+\end_inset
+
+ bits, de forma que a cada carácter le corresponde una combinación.
+ El código es arbitrario, pero existen códigos normalizados:
+\end_layout
+
+\begin_layout Itemize
+El ASCII (
+\emph on
+\lang american
+American Standard Code for Information Interchange
+\emph default
+\lang spanish
+) codifica desde los años 60 la mayoría de caracteres del idioma inglés.
+ Usa 
+\begin_inset Formula $7$
+\end_inset
+
+ bits para 
+\begin_inset Formula $128$
+\end_inset
+
+ caracteres.
+ Para rellenar 1 byte, el bit adicional se usaba para control de errores.
+ Un ejemplo es el 
+\series bold
+bit de paridad
+\series default
+, que garantiza que el total de unos en el byte debe ser par.
+ Si no lo es, ha habido un error en la transmisión.
+\end_layout
+
+\begin_layout Itemize
+Más recientemente, este último bit se usa para extensiones de determinados
+ idiomas.
+ El ISO-8859-1 (
+\lang american
+Latin
+\lang spanish
+ 1) incluye extensiones como acentos y 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $ñ$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+.
+ El ISO-8859-15 es similar pero añade el signo del euro.
+\end_layout
+
+\begin_layout Itemize
+El Unicode permite representar cualquier sistema de escritura del mundo.
+ Empezó siendo de 16 bits y actualmente define más de 1 millón de símbolos.
+ A cada uno se le asigna un 
+\emph on
+\lang american
+code point
+\emph default
+\lang spanish
+ en el rango de 
+\begin_inset Formula $0$
+\end_inset
+
+ a 
+\begin_inset Formula $0x10FFFF$
+\end_inset
+
+, que se representa como U+número.
+ El conjunto de 
+\emph on
+\lang american
+code points
+\emph default
+\lang spanish
+ que caben en 16 bits se denomina 
+\emph on
+\lang american
+Basic Multilingual Plane
+\emph default
+\lang spanish
+ (BMP).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Los primeros 256 
+\emph on
+\lang american
+code points
+\emph default
+\lang spanish
+ corresponden al ISO-8859-1.
+\end_layout
+
+\begin_layout Itemize
+Todos los 
+\emph on
+\lang american
+code points
+\emph default
+\lang spanish
+ se representan como secuencias de bits de varias formas, como el UTF-8
+ y el UTF-16 (
+\emph on
+\lang american
+Unicode Transformation Format
+\emph default
+\lang spanish
+).
+ En UTF-8, cada carácter ASCII ocupa 1 byte, por compatibilidad.
+ Para otros caracteres, se usan de 2 a 4 bytes.
+\end_layout
+
+\begin_layout Itemize
+En UTF-16, para distinguir entre 
+\emph on
+Big-Endian
+\emph default
+ y 
+\emph on
+Little-Endian
+\emph default
+, se usa la llamada 
+\emph on
+\lang american
+Byte Order Mark
+\emph default
+\lang spanish
+ (BOM) al principio del texto, codificado como 
+\begin_inset Formula $0xFEFF$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Representación de imágenes
+\end_layout
+
+\begin_layout Standard
+Las imágenes se pueden representar mediante mapas de bits o de forma vectorial.
+ Un 
+\series bold
+mapa de bits
+\series default
+ está formado por una matriz de píxeles 
+\begin_inset Formula $M_{m,n}(px.)$
+\end_inset
+
+ con resolución 
+\begin_inset Formula $n\times m$
+\end_inset
+
+, de los cuales a cada uno se le asocia un color o un tono de gris.
+ Se almacenan los píxeles sucesivamente.
+ Algunos formatos de mapa de bits son BMP (Windows), PICT (Macintosh), PPM
+ (
+\emph on
+\lang american
+Portable Pix-Map
+\emph default
+\lang spanish
+, de codificación sencilla) y JPEG (compresión normalmente con pérdida,
+ buena calidad para fotos).
+\end_layout
+
+\begin_layout Standard
+Mientras tanto, una 
+\series bold
+imagen vectorial
+\series default
+ se representa como una colección de objetos como líneas, polígonos o textos,
+ que se modelan mediante vectores y ecuaciones que se evalúan al visualizar
+ las ecuaciones en pantalla.
+ Son adecuados para gráficos geométricos e ideales para aplicaciones CAD,
+ se pueden escalar a cualquier tamaño y suelen ocupar mucho menos espacio
+ que los mapas de bits.
+ Sin embargo, no son adecuadas para imágenes reales y suelen tener menor
+ calidad de imagen.
+ Algunos formatos son DXF (
+\emph on
+\lang american
+Document eXchange Format
+\emph default
+\lang spanish
+, para imágenes CAD), EPS (
+\emph on
+\lang american
+Encapsulated PostScript
+\emph default
+\lang spanish
+, de Adobe) y ODG (LibreOffice).
+ A menudo estos pueden incluir mapas de bits embebidos.
+\end_layout
+
+\begin_layout Standard
+El color se representa mediante escalas.
+ En 
+\series bold
+escala de grises
+\series default
+, cada píxel toma un valor de gris.
+ El modelo de color 
+\series bold
+RGB
+\series default
+ es aditivo (la suma de los colores genera el blanco), se usa sobre todo
+ en pantallas y representa la intensidad de rojo, verde y azul.
+ El modelo 
+\series bold
+CMYK
+\series default
+ es sustractivo (la suma de los colores genera el negro), se usa principalmente
+ en impresoras y representa el cían, magenta, amarillo y negro.
+\end_layout
+
+\begin_layout Section
+Algunos formatos de archivo
+\end_layout
+
+\begin_layout Subsection
+PPM
+\end_layout
+
+\begin_layout Standard
+El 
+\begin_inset Quotes cld
+\end_inset
+
+
+\lang american
+Portable Pixel Map
+\lang spanish
+
+\begin_inset Quotes crd
+\end_inset
+
+ está formado por un 
+\begin_inset Quotes cld
+\end_inset
+
+número mágico
+\begin_inset Quotes crd
+\end_inset
+
+ que identifica el tipo de archivo (caracteres 
+\series bold
+P6
+\series default
+), una cabecera y una ristra de bytes.
+ La cabecera indica, entre otras cosas, el ancho y alto de la imagen y el
+ valor máximo de un color, en decimal mediante caracteres ASCII (normalmente
+ estos son los tres últimos elementos de la cabecera, los cuales suelen
+ separarse por 0x0A).
+ La ristra de bytes contiene los píxeles uno por uno, de arriba a abajo
+ de izquierda a derecha, representados por los valores de intensidad del
+ rojo, verde y azul.
+ Normalmente el valor máximo es 255.
+ Si es más, se especifican en 
+\emph on
+\lang american
+big endian
+\emph default
+\lang spanish
+.
+ Así, en general, 
+\begin_inset Formula $\text{Offset}=(y\cdot\text{ancho}+x)\cdot3+\text{fin\_cabecera}+1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+HTML
+\end_layout
+
+\begin_layout Standard
+El 
+\emph on
+\lang american
+HyperText Markup Language
+\emph default
+\lang spanish
+ se usa para crear páginas web.
+ Se usan etiquetas con forma 
+\family typewriter
+<
+\emph on
+nombre
+\emph default
+ 
+\emph on
+attr
+\emph default
+="
+\emph on
+val
+\emph default
+" ...>...</
+\emph on
+nombre
+\emph default
+>
+\family default
+, como 
+\family typewriter
+<b>Hola</b>
+\family default
+, que indica que el texto está en negrita.
+ Así:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+<HTML>
+\family default
+ envuelve a todo el documento.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+<
+\lang american
+HEAD
+\lang spanish
+>
+\family default
+ contiene la cabecera.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+<
+\lang american
+TITLE
+\lang spanish
+>
+\family default
+ indica el título.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+<
+\lang american
+META NAME="AUTHOR" CONTENT=
+\lang spanish
+"
+\family default
+(autor)
+\family typewriter
+">
+\family default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\family typewriter
+<
+\lang american
+BODY
+\lang spanish
+>
+\family default
+ contiene al cuerpo del documento.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+<P>
+\family default
+ indica un párrafo.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+<
+\lang american
+BR
+\lang spanish
+>
+\family default
+ introduce una línea en blanco.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+<A 
+\lang american
+HREF
+\lang spanish
+="
+\family default
+(URL)
+\family typewriter
+">
+\family default
+ muestra un enlace.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+ODF
+\end_layout
+
+\begin_layout Standard
+El formato 
+\emph on
+\lang american
+OpenDocument
+\emph default
+\lang spanish
+ es un formato estándar y libre para documentos, hojas de cálculo, gráficos,
+ presentaciones...
+ Es un archivo comprimido en ZIP que contiene varios ficheros y directorios,
+ siendo los más importantes:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+content.xml
+\family default
+: Almacena el contenido real del documento, salvo datos binarios como imágenes,
+ y su formato es similar al HTML aunque bastante más complejo.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+styles.xml
+\family default
+: Almacena los estilos para el formato y disposición del contenido, y existen
+ varios tipos como los de carácter, párrafo, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+meta.xml
+\family default
+: Contiene metadatos como el autor, la última persona que lo modificó, fecha
+ de la última modificación, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+settings.xml
+\family default
+: Incluye propiedades como el factor de zoom o la posición del cursor, pero
+ no afectan al contenido.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,1257 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+En electrónica digital distinguimos dos niveles de tensión (alta y baja),
+ que abstraemos con el sistema binario.
+ Tipos de circuitos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Combinacionales (sin memoria):
+\series default
+ Las salidas solo dependen de las entradas actuales.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Secuenciales (con memoria):
+\series default
+ Las salidas dependen de las entradas y un valor almacenado (
+\series bold
+estado
+\series default
+).
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+álgebra de Boole
+\series default
+ sirve para expresar circuitos lógicos.
+ Tenemos las operaciones 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+ (negación), 
+\begin_inset Formula $A+B$
+\end_inset
+
+ (o) y 
+\begin_inset Formula $A\cdot B$
+\end_inset
+
+ (y), y podemos expresar funciones de 
+\begin_inset Formula $n$
+\end_inset
+
+ variables 
+\begin_inset Formula $f:\{0,1\}^{n}\rightarrow\{0,1\}$
+\end_inset
+
+ como 
+\begin_inset Formula $F(A,B,C)=\dots$
+\end_inset
+
+, o bien como tabla de verdad.
+ Si a cada entrada 
+\begin_inset Formula $(A,B,C)$
+\end_inset
+
+ le asignamos su valor 
+\begin_inset Formula $ABC_{b}$
+\end_inset
+
+, tenemos las 
+\series bold
+formas normalizadas:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Suma de productos (minitérminos):
+\series default
+ 
+\begin_inset Formula $F(A,B,C)=\overline{A}\cdot B\cdot\overline{C}+\overline{A}\cdot B\cdot C+\dots=m_{2}+m_{3}+\dots=\sum m(2,3,\dots)$
+\end_inset
+
+.
+ Tomamos las combinaciones en las que la salida es 1.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Producto de sumas (maxitérminos):
+\series default
+ 
+\begin_inset Formula $F(A,B,C)=(A+B+C)\cdot(A+B+\overline{C})\cdot\dots=M_{0}\cdot M_{1}\cdot\dots=\prod M(0,1,\dots)$
+\end_inset
+
+.
+ Tomamos las combinaciones en las que la salida es 0 y negamos cada letra.
+\end_layout
+
+\begin_layout Section
+Mapas de Karnaugh
+\end_layout
+
+\begin_layout Standard
+Representación gráfica de una tabla de verdad.
+ Si la función tiene 
+\begin_inset Formula $m+n$
+\end_inset
+
+ variables, realizamos una tabla 
+\begin_inset Formula $2^{m}\times2^{n}$
+\end_inset
+
+ y en las cabeceras de fila y columna ponemos los nombres de estas variables
+ con sus posibles combinaciones, de forma que dos celdas adyacentes solo
+ se diferencien en 1 byte.
+ Ponemos 
+\begin_inset Formula $1$
+\end_inset
+
+, 
+\begin_inset Formula $0$
+\end_inset
+
+ o 
+\begin_inset Formula $X$
+\end_inset
+
+ (valor no determinado) en cada celda según el valor de salida para las
+ variables.
+ Un cuadrado tiene 
+\begin_inset Formula $n$
+\end_inset
+
+ cuadrados adyacentes (que se diferencien en solo una entrada), y estos
+ se combinan en grupos de 
+\begin_inset Formula $2^{k}$
+\end_inset
+
+ celdas con igual valor de salida eliminando 
+\begin_inset Formula $k$
+\end_inset
+
+ variables.
+ Debemos intentar cubrir todos los unos (o ceros) en el menor número de
+ grupos posible.
+ Una celda puede estar en varios grupos.
+\end_layout
+
+\begin_layout Standard
+Terminología:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Implicante:
+\series default
+ Producto de variables.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Implicante primo:
+\series default
+ Implicante no contenido en otro.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Implicante primo esencial:
+\series default
+ Implicante primo con al menos un 1 cubierto solo por él.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Cubierta:
+\series default
+ Conjunto de implicantes primos que cubren todos los unos.
+\end_layout
+
+\begin_layout Standard
+Al simplificar, las 
+\begin_inset Formula $X$
+\end_inset
+
+ pueden interpretarse a conveniencia como 1s o 0s.
+\end_layout
+
+\begin_layout Section
+Puertas lógicas
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $A\cdot B$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename AND_ANSI_Labelled.svg
+	height 14pt
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AND
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ 
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $A+B$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename OR_ANSI_Labelled.svg
+	height 14pt
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+OR
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ 
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $A\oplus B$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename XOR_ANSI.svg
+	height 14pt
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+XOR
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename NAND_ANSI_Labelled.svg
+	height 14pt
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NAND
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ 
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename NOR_ANSI_Labelled.svg
+	height 14pt
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NOR
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Xnor-gate-en.svg
+	height 14pt
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+XNOR
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{A}:$
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Not-gate-en.svg
+	height 14pt
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NOT
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\align left
+A veces la puerta NOT se representa simplemente con el círculo pequeño,
+ pegado a otra puerta.
+ Las puertas NAND, NOR y XNOR equivalen a una puerta AND, OR o XOR, respectivame
+nte, seguida de una puerta NOT.
+ La mayoría de circuitos actualmente se encuentran en chips (circuitos integrado
+s) todo lo grandes o pequeños que queramos.
+ Según el número de puertas lógicas:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+SSI:
+\series default
+ 1-10 puertas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+MSI:
+\series default
+ 10-100 puertas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+LSI:
+\series default
+ 100-100000 puertas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+VLSI:
+\series default
+ >100000 puertas.
+\end_layout
+
+\begin_layout Section
+Retardo
+\end_layout
+
+\begin_layout Standard
+Existe un 
+\series bold
+retardo
+\series default
+ de algunos nanosegundos desde que cambia la señal a la entrada hasta que
+ se estabiliza la señal de salida en el valor deseado.
+ Podemos considerar que este es el máximo que debe 
+\begin_inset Quotes cld
+\end_inset
+
+recorrer
+\begin_inset Quotes crd
+\end_inset
+
+ una señal dentro del circuito una vez sabemos el retardo de cada puerta
+ lógica.
+\end_layout
+
+\begin_layout Section
+Implementación con puertas NAND/NOR
+\end_layout
+
+\begin_layout Standard
+Para implementar una función en forma de suma de productos sólo con puertas
+ NAND, simplificamos, negamos dos veces y aplicamos De Morgan una vez, obteniend
+o un resultado que se puede interpretar con puertas NAND.
+ El proceso es el mismo para implementar una función en forma de producto
+ de sumas sólo con puertas NOR.
+\end_layout
+
+\begin_layout Section
+Bloques lógicos
+\end_layout
+
+\begin_layout Standard
+Son bloques que contienen una parte del circuito y se usan para simplificar
+ la representación.
+ Se representan como un cuadrado con flechas entrantes a un lado y salientes
+ a otro con un indicador textual del bloque.
+\end_layout
+
+\begin_layout Subsection
+Codificador
+\end_layout
+
+\begin_layout Standard
+Circuito con 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ líneas de entrada y 
+\begin_inset Formula $n$
+\end_inset
+
+ de salida.
+ Solo una línea de entrada se activa en cada momento y su nº se representa
+ en binario en la salida.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename image.RAWR9Y.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Decodificador
+\end_layout
+
+\begin_layout Standard
+Circuito con 
+\begin_inset Formula $n$
+\end_inset
+
+ líneas de entrada y 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ de salida que activa la línea de salida cuyo nº corresponde a la entrada
+ en binario.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename image.V5MB9Y.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos implementar una función con un decodificador conectando las salidas
+ correspondientes a un 
+\begin_inset Formula $F(\dots)=1$
+\end_inset
+
+ como entrada de una puerta OR.
+\end_layout
+
+\begin_layout Subsection
+Multiplexores
+\end_layout
+
+\begin_layout Standard
+Circuito con 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ líneas de entrada de datos, 
+\begin_inset Formula $n$
+\end_inset
+
+ de entrada de control y una de salida.
+ Las líneas de control seleccionan qué entrada de datos pasa a la salida.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename image.0PXO9Y.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos implementar funciones como multiplexores conectando a cada entrada
+ de datos el valor de la salida correspondiente y conectando las entradas
+ como entradas de control.
+ Si el multiplexor tiene una entrada de control menos que la función, elegimos
+ una variable que no se conecta como entrada de control, agrupamos en el
+ mapa de Karnaugh las celdas que tienen el resto de entradas iguales y como
+ entradas conectamos 0, 1 o la variable en cuestión, negada o no.
+\end_layout
+
+\begin_layout Subsection
+Memorias ROM
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+ROM
+\series default
+ (
+\emph on
+Read Only Memory
+\emph default
+) es un circuito combinacional con 
+\begin_inset Formula $m$
+\end_inset
+
+ entradas y 
+\begin_inset Formula $n$
+\end_inset
+
+ salidas que almacena 
+\begin_inset Formula $2^{m}$
+\end_inset
+
+ celdas (
+\series bold
+altura
+\series default
+ de la ROM) de 
+\begin_inset Formula $n$
+\end_inset
+
+ bits (
+\series bold
+anchura
+\series default
+ de la ROM).
+ Se implementa con un plano AND con 
+\begin_inset Formula $2^{m}$
+\end_inset
+
+ puertas de 
+\begin_inset Formula $m$
+\end_inset
+
+ entradas cada una y un plano OR con 
+\begin_inset Formula $n$
+\end_inset
+
+ puertas de salida:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename image.Y3EN9Y.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Variantes:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+PROM:
+\series default
+ 
+\emph on
+Programmable ROM
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+EPROM:
+\series default
+ 
+\emph on
+Erasable PROM
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+EEPROM:
+\series default
+ 
+\emph on
+Electronically Erasable PROM
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+Memorias flash (permiten borrado y reescritura por bloques, miles de veces).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+PLA:
+\series default
+ 
+\emph on
+Programmable Logic Array
+\emph default
+.
+ Como una ROM, pero solo se implementan los productos (puertas AND) necesarios.
+ Útil cuando pocas combinaciones se usan realmente.
+\end_layout
+
+\end_body
+\end_document

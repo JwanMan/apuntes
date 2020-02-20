@@ -1,0 +1,1512 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Algoritmos que no requieren cláusulas
+\end_layout
+
+\begin_layout Subsection
+Tablas de verdad
+\end_layout
+
+\begin_layout Standard
+Construimos una tabla de verdad por filas, y si en una fila obtenemos que
+ la oración es cierta para dicha interpretación, la oración es satisfacible.
+ Si no es cierta en ninguna, la oración es insatisfacible.
+\end_layout
+
+\begin_layout Subsection
+Árboles semánticos
+\end_layout
+
+\begin_layout Standard
+Una hoja de un árbol semántico es un 
+\series bold
+nodo fallo
+\series default
+ si su etiqueta es 
+\begin_inset Formula $F$
+\end_inset
+
+, y 
+\series bold
+nodo éxito
+\series default
+ si es 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ Representamos el árbol como 
+\begin_inset Formula $\vernal$
+\end_inset
+
+, y observamos que, para comprobar la satisfacibilidad, basta con encontrar
+ un nodo éxito, y entonces no es necesario seguir desarrollando.
+\end_layout
+
+\begin_layout Subsection
+Tableaux semánticos
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+tableaux semántico
+\series default
+ es un árbol en el cual cada nodo está formado por una lista de oraciones
+ (sin paréntesis de ningún tipo), y su raíz es la lista formada por la oración
+ 
+\begin_inset Formula $\phi$
+\end_inset
+
+ a desarrollar.
+ Una oración puede tener 
+\series bold
+comportamiento conjuntivo
+\series default
+ (se le puede aplicar una 
+\begin_inset Formula $\alpha$
+\end_inset
+
+-fórmula) o 
+\series bold
+disyuntivo
+\series default
+ (se le puede aplicar una 
+\begin_inset Formula $\beta$
+\end_inset
+
+-fórmula), o ser un literal.
+ Para cada rama del árbol:
+\end_layout
+
+\begin_layout Enumerate
+Seleccionamos una oración que no sea un literal, preferiblemente con comportamie
+nto conjuntivo.
+\end_layout
+
+\begin_layout Enumerate
+Si no encontramos ninguna, el nodo es un nodo hoja.
+ Lo marcamos como 
+\series bold
+cerrado
+\series default
+ si contiene un literal y su contrario, de lo contrario como 
+\series bold
+abierto
+\series default
+.
+\end_layout
+
+\begin_layout Enumerate
+Si tiene comportamiento conjuntivo, aplicamos la 
+\begin_inset Formula $\alpha$
+\end_inset
+
+-fórmula correspondiente y dibujamos una rama con la etiqueta 
+\begin_inset Formula $\alpha:\text{(nom. de fórmula)}$
+\end_inset
+
+ y el nodo resultado de sustituir 
+\begin_inset Formula $\alpha,\phi_{1},\dots,\phi_{n}$
+\end_inset
+
+ por 
+\begin_inset Formula $\alpha_{1},\alpha_{2},\phi_{1},\dots,\phi_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si tiene comportamiento disyuntivo, aplicamos la 
+\begin_inset Formula $\beta$
+\end_inset
+
+-fórmula correspondiente y dibujamos dos ramas.
+ La división se marca con la etiqueta 
+\begin_inset Formula $\beta:\text{(nom. de fórmula)}$
+\end_inset
+
+ y los nodos son los resultantes de sustituir 
+\begin_inset Formula $\beta,\phi_{1},\dots,\phi_{n}$
+\end_inset
+
+ por 
+\begin_inset Formula $\beta_{1},\phi_{1},\dots,\phi_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta_{2},\phi_{1},\dots,\phi_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha$
+\end_inset
+
+-fórmulas
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\beta$
+\end_inset
+
+-fórmulas
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\beta_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\neg\neg\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha\land\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\neg(\alpha\land\beta)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\neg\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\neg\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\neg(\alpha\lor\beta)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\neg\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\neg\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha\lor\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\neg(\alpha\rightarrow\beta)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\neg\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha\rightarrow\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\neg\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha\leftrightarrow\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha\rightarrow\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\beta\rightarrow\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\neg(\alpha\leftrightarrow\beta)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\neg(\alpha\rightarrow\beta)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\neg(\beta\rightarrow\alpha)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+tableaux completado
+\series default
+ o 
+\series bold
+completo
+\series default
+ es aquel cuya construcción ha terminado.
+ Decimos que es 
+\series bold
+cerrado
+\series default
+ cuando todas las hojas son cerradas, y 
+\series bold
+abierto
+\series default
+ cuando hay alguna abierta.
+ Así, 
+\begin_inset Formula $\phi$
+\end_inset
+
+ es satisfacible si y sólo si su tableau completado es abierto.
+ Este método no detecta tautologías, pero podemos determinar que 
+\begin_inset Formula $\phi$
+\end_inset
+
+ es tautológica cuando 
+\begin_inset Formula $\neg\phi$
+\end_inset
+
+ es insatisfacible.
+\end_layout
+
+\begin_layout Section
+Algoritmos que requieren cláusulas
+\end_layout
+
+\begin_layout Standard
+Una fórmula 
+\begin_inset Formula $\xi$
+\end_inset
+
+ está en 
+\series bold
+forma normal conjuntiva
+\series default
+ si es una cláusula o conjunción de cláusulas.
+ Una 
+\series bold
+cláusula
+\series default
+ es un literal o disyunción de dos o más literales (quitando todos los paréntesi
+s).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Cláusula unitaria:
+\series default
+ Con un solo literal.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Cláusula vacía:
+\series default
+ Sin literales.
+ Se denota por 
+\begin_inset Formula $\square$
+\end_inset
+
+ y es insatisfacible.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Cláusula de Horn:
+\series default
+ Aquella que tiene como máximo un literal positivo.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+conjunto clausal
+\series default
+ o 
+\series bold
+clausulado
+\series default
+ al conjunto de dichas cláusulas, y decimos que está en 
+\series bold
+forma clausal
+\series default
+.
+\end_layout
+
+\begin_layout Subsection
+Obtención de FNC
+\end_layout
+
+\begin_layout Enumerate
+Aplicar las reglas de eliminación de 
+\begin_inset Formula $\leftrightarrow$
+\end_inset
+
+ y 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ hasta tener solo 
+\begin_inset Formula $\neg$
+\end_inset
+
+, 
+\begin_inset Formula $\land$
+\end_inset
+
+ y 
+\begin_inset Formula $\lor$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Aplicar De Morgan hasta que las negaciones solo afecten a átomos.
+\end_layout
+
+\begin_layout Enumerate
+Eliminar las negaciones múltiples (
+\begin_inset Formula $\neg\neg$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Aplicar distributividad de 
+\begin_inset Formula $\lor$
+\end_inset
+
+ sobre 
+\begin_inset Formula $\land$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Reducir la cantidad de paréntesis.
+\end_layout
+
+\begin_layout Standard
+Si queremos simplificar:
+\end_layout
+
+\begin_layout Enumerate
+Eliminar literales opuestos: 
+\begin_inset Formula $\ell\lor\neg\ell\equiv V$
+\end_inset
+
+; 
+\begin_inset Formula $\ell\land\neg\ell\equiv F$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Eliminar constantes y expresiones repetidas: 
+\begin_inset Formula $V\lor\alpha\equiv V$
+\end_inset
+
+; 
+\begin_inset Formula $F\lor\alpha\equiv V\land\alpha\equiv\alpha$
+\end_inset
+
+; 
+\begin_inset Formula $F\land\alpha\equiv F$
+\end_inset
+
+; 
+\begin_inset Formula $\alpha\lor\alpha\equiv\alpha\land\alpha\equiv\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Quedarnos con expresiones subsumidas: 
+\begin_inset Formula $(\alpha\lor\beta)\land\alpha\equiv\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Algoritmo DPLL
+\end_layout
+
+\begin_layout Standard
+Al propagar un literal en una expresión en FNC, lo que hacemos es eliminar
+ las cláusulas en las que aparezca (
+\series bold
+cláusula cancelada
+\series default
+) y las ocurrencias de literales complementarios (
+\series bold
+ocurrencia eliminada
+\series default
+).
+ Al aplicar DPLL, representamos el conjunto clausulado como un conjunto
+ de conjuntos.
+ Por ejemplo, si 
+\begin_inset Formula $\phi\equiv p\land(q\lor\neg r)$
+\end_inset
+
+, entonces su conjunto clausal es 
+\begin_inset Formula $\Omega_{\phi}=\{p,q\lor\neg r\}$
+\end_inset
+
+, y lo representamos como 
+\begin_inset Formula $\Omega_{\phi FNC}=\{p,\{q,\neg r\}\}$
+\end_inset
+
+.
+ Entonces consideramos 5 reglas:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Regla de la cláusula unitaria:
+\series default
+ Si hay una cláusula unitaria, propagar su literal.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Regla del literal puro:
+\series default
+ Si hay un literal para el que no se da su complementario, propagarlo.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Regla de la tautología:
+\series default
+ Eliminar las cláusulas que contengan literales complementarios.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Regla de la inclusión:
+\series default
+ Si existen conjuntos clausales 
+\begin_inset Formula $C_{1},C_{2}\in\Omega_{\phi}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $C_{1}\subseteq C_{2}$
+\end_inset
+
+, eliminar 
+\begin_inset Formula $C_{2}$
+\end_inset
+
+ de 
+\begin_inset Formula $\Omega_{\phi}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Regla de ramificación:
+\series default
+ Considerar un literal 
+\begin_inset Formula $l$
+\end_inset
+
+ (normalmente el que aparece más veces) y propagar 
+\begin_inset Formula $l$
+\end_inset
+
+ por un lado y 
+\begin_inset Formula $\neg l$
+\end_inset
+
+ por otro.
+\end_layout
+
+\begin_layout Standard
+El algoritmo consiste en:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\Omega_{\phi}=\{\}$
+\end_inset
+
+, devolver 
+\family typewriter
+true
+\family default
+ (se indica mediante una flecha de la expresión derivada a la original etiquetad
+a 
+\begin_inset Quotes cld
+\end_inset
+
+true
+\begin_inset Quotes crd
+\end_inset
+
+), indicando que es satisfacible.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\square\in\Omega_{\phi}$
+\end_inset
+
+, devolver 
+\family typewriter
+false
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+En caso contrario, aplicar la primera de las reglas que sea aplicable y
+ devolver su va
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+lor.
+ Para la regla de ramificación: Si la primera rama devuelve 
+\family typewriter
+true
+\family default
+, devolverlo.
+ Si no, proceder con la segunda rama y devolver el valor devuelto.
+ Esto es lo que se denomina 
+\begin_inset Quotes cld
+\end_inset
+
+
+\lang american
+backtracking
+\lang spanish
+
+\begin_inset Quotes crd
+\end_inset
+
+ (a partir de un algoritmo recursivo).
+\end_layout
+
+\begin_layout Standard
+Lo representamos con un grafo, similar al del árbol semántico.
+\end_layout
+
+\begin_layout Subsection
+Método de resolución
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+resolvente
+\series default
+ de dos cláusulas 
+\begin_inset Formula $\psi\equiv l_{1}\lor\dots\lor l_{n}\lor j$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{\phi}\equiv k_{1}\lor\dots\lor k_{m}\lor\neg j$
+\end_inset
+
+ es la cláusula 
+\begin_inset Formula $R_{j}(\psi,\phi)\equiv l_{1}\lor\dots\lor l_{n}\lor k_{1}\lor\dots\lor k_{m}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\psi$
+\end_inset
+
+ y 
+\begin_inset Formula $\phi$
+\end_inset
+
+ son las 
+\series bold
+cláusulas padres
+\series default
+ de 
+\begin_inset Formula $R_{j}(\psi,\phi)$
+\end_inset
+
+, y 
+\begin_inset Formula $\{\psi,\phi\}$
+\end_inset
+
+ es satisfacible si y sólo si 
+\begin_inset Formula $R_{j}(\psi,\phi)$
+\end_inset
+
+ lo es.
+ Para resolver por resolución:
+\end_layout
+
+\begin_layout Enumerate
+Definimos el conjunto 
+\begin_inset Formula ${\cal C}=\Omega_{\phi}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal C}_{0}^{*}={\cal C}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Por cada par de cláusulas 
+\begin_inset Formula $C_{1}=l\lor\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $C_{2}=\neg l\lor\beta$
+\end_inset
+
+ en 
+\begin_inset Formula ${\cal C}^{*}$
+\end_inset
+
+, obtenemos su resolvente y la añadimos a 
+\begin_inset Formula ${\cal C}^{*}$
+\end_inset
+
+.
+ Si obtenemos la resolvente 
+\begin_inset Formula $\square$
+\end_inset
+
+, el conjunto 
+\begin_inset Formula ${\cal C}^{*}$
+\end_inset
+
+ es insatisfacible y por tanto 
+\begin_inset Formula ${\cal C}$
+\end_inset
+
+ también.
+\end_layout
+
+\begin_layout Enumerate
+Una vez obtenidas todas las resolventes, si 
+\begin_inset Formula $\square\notin{\cal C}^{*}$
+\end_inset
+
+, entonces 
+\begin_inset Formula ${\cal C}^{*}$
+\end_inset
+
+ es satisfacible y por tanto 
+\begin_inset Formula ${\cal C}$
+\end_inset
+
+ también (solo en L0).
+\end_layout
+
+\begin_layout Standard
+Podemos expresar este algoritmo mediante un 
+\series bold
+grafo de resolución
+\series default
+, en el que de cada par de cláusulas posible parte una línea hacia abajo
+ hacia su resolvente y tenemos cuidado de no incluir un resolvente igual
+ a una cláusula ya existente.
+\end_layout
+
+\begin_layout Standard
+En dicho grafo, las premisas se dice que están en el nivel 0 (
+\begin_inset Formula ${\cal C}$
+\end_inset
+
+), y si 
+\begin_inset Formula $C_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $C_{2}$
+\end_inset
+
+ están en los niveles 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+, su resolvente está en el nivel 
+\begin_inset Formula $\max\{x_{1},x_{2}\}+1$
+\end_inset
+
+, de forma que cada nivel se representa en una misma línea horizontal, y
+ los resolventes se numeran empezando por el nivel más alto (el nivel 0).
+\end_layout
+
+\begin_layout Standard
+Un grafo de resolución es 
+\series bold
+básico
+\series default
+ si solo muestra dos cláusulas y su resolvente; 
+\series bold
+completo
+\series default
+ si contiene la unión de todos los grafos de resolución básicos, y es un
+ 
+\series bold
+grafo de refutación
+\series default
+ si aparece 
+\begin_inset Formula $\square$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para la elección de los pares de cláusulas padres, existen principalmente
+ dos 
+\series bold
+estrategias de resolución:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Búsqueda en anchura:
+\series default
+ Se obtienen todas las resolventes de un nivel antes de pasar al siguiente.
+ Orden 
+\begin_inset Formula $(2,1)$
+\end_inset
+
+, 
+\begin_inset Formula $(3,1)$
+\end_inset
+
+, 
+\begin_inset Formula $(3,2)$
+\end_inset
+
+, 
+\begin_inset Formula $(4,1)$
+\end_inset
+
+, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Búsqueda en profundidad:
+\series default
+ Una vez obtenida una resolvente de nivel 
+\begin_inset Formula $i$
+\end_inset
+
+, intenta obtener una de nivel 
+\begin_inset Formula $i+1$
+\end_inset
+
+ a partir de ella.
+ Orden 
+\begin_inset Formula $(2,1)\rightarrow i$
+\end_inset
+
+, 
+\begin_inset Formula $(i,1)$
+\end_inset
+
+, 
+\begin_inset Formula $(i,2)$
+\end_inset
+
+, 
+\begin_inset Formula $(i,3)\rightarrow j$
+\end_inset
+
+, 
+\begin_inset Formula $(j,1)$
+\end_inset
+
+, etc.
+ No es completa.
+\end_layout
+
+\begin_layout Standard
+En la práctica se utiliza la 
+\series bold
+notación
+\series default
+ o 
+\series bold
+representación Fitting
+\series default
+: Se crea una lista numerada de las cláusulas de 
+\begin_inset Formula ${\cal C}$
+\end_inset
+
+, con la indicación 
+\begin_inset Quotes cld
+\end_inset
+
+Premisa
+\begin_inset Quotes crd
+\end_inset
+
+ o 
+\begin_inset Quotes cld
+\end_inset
+
+C.E.
+\begin_inset Quotes crd
+\end_inset
+
+ (conjunto de entrada) a la derecha de cada una.
+ Después, se van comprobando los pares de cláusulas en la lista, empezando
+ por 
+\begin_inset Formula $(2,1)$
+\end_inset
+
+, 
+\begin_inset Formula $(3,1)$
+\end_inset
+
+, 
+\begin_inset Formula $(3,2)$
+\end_inset
+
+, etc., y se va ampliando con los resolventes, que tendrán la indicación
+ 
+\begin_inset Formula $R_{l}(i,j)$
+\end_inset
+
+, siendo 
+\begin_inset Formula $i$
+\end_inset
+
+ y 
+\begin_inset Formula $j$
+\end_inset
+
+ los ordinales de las cláusulas padres.
+ Para optimizar, se pueden tachar cláusulas por los siguientes motivos:
+\end_layout
+
+\begin_layout Itemize
+Literal puro (
+\begin_inset Formula $l$
+\end_inset
+
+) [después de tachar (
+\begin_inset Formula $n$
+\end_inset
+
+)].
+\end_layout
+
+\begin_layout Itemize
+Subsumida en (
+\begin_inset Formula $n$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+Tautología (
+\begin_inset Formula $l\lor\neg l$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+El motivo debe indicarse a la derecha.
+ Si al final queda 
+\begin_inset Formula ${\cal C}^{*}=\{\}$
+\end_inset
+
+, la oración es satisfacible.
+\end_layout
+
+\begin_layout Section
+Razonamiento automático
+\end_layout
+
+\begin_layout Standard
+Un razonamiento es válido (
+\begin_inset Formula $\{\alpha_{1},\dots,\alpha_{n}\}\vDash\beta$
+\end_inset
+
+) cuando 
+\begin_inset Formula $\vDash\alpha_{1}\land\dots\land\alpha_{n}\rightarrow\beta$
+\end_inset
+
+, es decir, cuando 
+\begin_inset Formula $\alpha_{1}\land\dots\land\alpha_{n}\land\neg\beta$
+\end_inset
+
+ es insatisfacible.
+ Así, mediante tablas de verdad o árboles semánticos, podemos determinar
+ la validez de un razonamiento demostrando que 
+\begin_inset Formula $\alpha_{1}\land\dots\land\alpha_{n}\rightarrow\beta$
+\end_inset
+
+ es una tautología.
+ Para el resto de los métodos, comprobamos que 
+\begin_inset Formula $\alpha_{1}\land\dots\land\alpha_{n}\land\neg\beta$
+\end_inset
+
+ es una contradicción.
+\end_layout
+
+\begin_layout Standard
+En el caso de demostración por resolución, las cláusulas de 
+\begin_inset Formula $\neg\beta$
+\end_inset
+
+ se denominan 
+\begin_inset Quotes cld
+\end_inset
+
+conjunto soporte de entrada
+\begin_inset Quotes crd
+\end_inset
+
+.
+ Se marcan con un 
+\begin_inset Formula $*$
+\end_inset
+
+ a la izquierda del ordinal tanto estas como las resolventes de alguna cláusula
+ marcada con 
+\begin_inset Formula $*$
+\end_inset
+
+, de forma recursiva.
+\end_layout
+
+\end_body
+\end_document

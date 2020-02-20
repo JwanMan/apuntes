@@ -1,0 +1,609 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+sistema deductivo
+\series default
+ es un conjunto de axiomas y reglas de inferencia sintácticas (
+\begin_inset Formula $\vdash$
+\end_inset
+
+).
+ Una 
+\series bold
+demostración
+\series default
+ o 
+\series bold
+prueba formal
+\series default
+ es una secuencia de conjuntos de fórmulas en las que cada fórmula es un
+ axioma o puede obtenerse del conjunto anterior mediante una regla de inferencia.
+ Cada elemento 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ del último conjunto de la secuencia se llama 
+\series bold
+teorema por deducción
+\series default
+, y se dice que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es 
+\series bold
+demostrable
+\series default
+, lo que escribimos como 
+\begin_inset Formula $\vdash\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un sistema deductivo en L0 y L1 es 
+\series bold
+sólido
+\series default
+ si y sólo si 
+\begin_inset Formula $\vdash\alpha\implies\vDash\alpha$
+\end_inset
+
+, es decir, si cualquier conclusión 
+\series bold
+derivable
+\series default
+ o 
+\series bold
+deducible 
+\series default
+a partir de las reglas es válida, y es 
+\series bold
+completo
+\series default
+ cuando 
+\begin_inset Formula $\vDash\alpha\implies\vdash\alpha$
+\end_inset
+
+.
+ Un conjunto de reglas es 
+\series bold
+inconsistente
+\series default
+ si 
+\begin_inset Formula $\vdash\alpha\land\neg\alpha$
+\end_inset
+
+, y es 
+\series bold
+consistente
+\series default
+ si no es inconsistente.
+\end_layout
+
+\begin_layout Standard
+Dada una oración 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y un conjunto de oraciones 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+, 
+\begin_inset Formula $\vDash\alpha$
+\end_inset
+
+ significa que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es válida y 
+\begin_inset Formula ${\cal F}\vDash\alpha$
+\end_inset
+
+ significa que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es consecuencia lógica de 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+.
+ Por su parte 
+\begin_inset Formula $\vdash\alpha$
+\end_inset
+
+ significa que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es demostrable y 
+\begin_inset Formula ${\cal F}\vdash\alpha$
+\end_inset
+
+ significa que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es deducible de 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+, y representa una 
+\series bold
+deducción
+\series default
+ o 
+\series bold
+razonamiento
+\series default
+, donde 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es la conclusión o 
+\series bold
+derivación
+\series default
+ y las 
+\begin_inset Formula $\psi\in{\cal F}$
+\end_inset
+
+ son las premisas, las fórmulas usadas para llegar a 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Decimos que un conjunto de oraciones 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ es una 
+\series bold
+teoría
+\series default
+ si 
+\begin_inset Formula $\forall\alpha({\cal T}\vDash\alpha\implies\alpha\in{\cal T})$
+\end_inset
+
+, y entonces cada 
+\begin_inset Formula $\alpha\in{\cal T}$
+\end_inset
+
+ es un 
+\series bold
+teorema
+\series default
+.
+ Una teoría es 
+\series bold
+axiomatizable
+\series default
+ si existe un subconjunto 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+ tal que 
+\begin_inset Formula ${\cal T}=\{\alpha|{\cal F}\vDash\alpha\}$
+\end_inset
+
+, y cada 
+\begin_inset Formula $\alpha\in{\cal F}$
+\end_inset
+
+ es un 
+\series bold
+axioma
+\series default
+, y es 
+\series bold
+contradictoria
+\series default
+ o 
+\series bold
+inconsistente
+\series default
+ cuando 
+\begin_inset Formula ${\cal T}\vDash\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal T}\vDash\neg\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una teoría es 
+\series bold
+decidible
+\series default
+ si se puede determinar la consistencia o inconsistencia de una fórmula
+ mediante un algoritmo; 
+\series bold
+semidecidible
+\series default
+ si hay fórmulas cuya inconsistencia no puede ser probada algorítmicamente,
+ e 
+\series bold
+indecidible
+\series default
+ si no es posible crear un algoritmo que determine la consistencia o inconsisten
+cia de una fórmula.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Hilbert
+\series default
+ opinaba que todo sistema fundamental matemático debía ser consistente,
+ completo y decidible, pero Kurt
+\series bold
+ Gödel
+\series default
+ demostró que ningún sistema capaz de representar los números naturales
+ puede ser a la vez consistente y completo, y que la consistencia no puede
+ probarse con los propios axiomas del sistema, por lo que habrá verdades
+ que no se pueden demostrar.
+ Alan 
+\series bold
+Turing
+\series default
+, por su parte, demostró que solo sistemas muy restrictivos son decidibles.
+\end_layout
+
+\begin_layout Standard
+Un sistema deductivo cumple el 
+\series bold
+teorema de la deducción
+\series default
+ si verifica que, dado el conjunto 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+ y las fórmulas 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal F}\cup\{\alpha\}\vdash\beta\iff{\cal F}\vdash\alpha\rightarrow\beta$
+\end_inset
+
+.
+ Así, 
+\begin_inset Formula ${\cal F}\cup\{\alpha_{1},\dots,\alpha_{n}\}\vdash\beta\iff{\cal F}\cup\{\alpha_{1},\dots,\alpha_{n-1}\}\vdash\alpha_{n}\rightarrow\beta\iff\dots\iff{\cal F}\vdash\alpha_{1}\rightarrow(\alpha_{2}\rightarrow\cdots(\alpha_{n}\rightarrow\beta)\cdots)$
+\end_inset
+
+.
+ Este teorema simplifica mucho las demostraciones, si bien no se probó su
+ corrección hasta 1930.
+ No todos los sistemas cumplen en teorema de la deducción, si bien el Teorema
+ de la Deducción Semántica (
+\begin_inset Formula ${\cal F}\cup\{a\}\vDash\beta\iff{\cal F}\vDash\alpha\rightarrow\beta$
+\end_inset
+
+) se cumple siempre.
+ Decimos que 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+ es 
+\series bold
+sintácticamente completo
+\series default
+ si para todo 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal F}\vdash\alpha$
+\end_inset
+
+ o 
+\begin_inset Formula ${\cal F}\vdash\neg\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+razonamiento deductivo
+\series default
+ es el que parte de unas hipótesis básicas para obtener unas consecuencias
+ (
+\begin_inset Formula $\alpha\vDash\beta$
+\end_inset
+
+).
+ Normalmente parte de premisas sobre aspectos generales para concluir aspectos
+ particulares.
+ La relación entre premisas y conclusión es de implicación (
+\begin_inset Formula $\alpha\vDash\beta\iff\vDash\alpha\rightarrow\beta$
+\end_inset
+
+).
+ Algunos tipos de 
+\series bold
+demostración
+\series default
+ deductiva (de 
+\begin_inset Formula $\vDash\alpha\rightarrow\beta$
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Vacía
+\series default
+ de 
+\begin_inset Formula $\alpha\rightarrow\beta$
+\end_inset
+
+: 
+\begin_inset Formula $\forall v_{I},v(\alpha)=F$
+\end_inset
+
+ (no se usa 
+\begin_inset Formula $\beta$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Trivial
+\series default
+: 
+\begin_inset Formula $\forall v_{I},v(\beta)=V$
+\end_inset
+
+ (no se usa 
+\begin_inset Formula $\alpha$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Directa
+\series default
+: Probar que 
+\begin_inset Formula $\alpha\vDash\beta$
+\end_inset
+
+ usando definiciones o teoremas ya probados, como el Modus Ponens.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Por contrarrecíproco
+\series default
+: 
+\begin_inset Formula $\alpha\rightarrow\beta\equiv\neg\beta\rightarrow\neg\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Por contradicción
+\series default
+: 
+\begin_inset Formula $\alpha\rightarrow\beta\equiv\alpha\land\neg\beta\rightarrow\gamma\land\neg\gamma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Indirecta
+\series default
+: Si 
+\begin_inset Formula $\alpha\vDash\gamma$
+\end_inset
+
+ y 
+\begin_inset Formula $\gamma\vDash\beta$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\alpha\vDash\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+refutación por contraejemplo
+\series default
+ consiste en buscar 
+\begin_inset Formula $a$
+\end_inset
+
+ tal que 
+\begin_inset Formula $v(\alpha[a]\rightarrow\beta[a])=F$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+razonamiento inductivo
+\series default
+ consiste en obtener reglas generales a partir de casos particulares.
+ Para ello se observan, registran y analizan hechos y se formulan leyes
+ universales a modo de hipótesis o conjeturas, tras lo cual se diseñan experimen
+tos para ver que estas leyes se cumplen.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+inducción matemática
+\series default
+, sin embargo, se puede probar de forma deductiva, si bien esto requiere
+ lógica de segundo orden.
+ En 
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+, para un 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+, tenemos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Principio de inducción débil
+\series default
+: 
+\begin_inset Formula $\{P(n_{0})\}\cup\bigcup_{n\geq n_{0}}\{P(n)\rightarrow P(n+1)\}\vDash\forall n\geq n_{0},P(n)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Principio de inducción fuerte
+\series default
+: 
+\begin_inset Formula $\{P(n_{0})\}\cup\bigcup_{n\geq n_{0}}\{P(n_{0})\land\dots\land P(n)\rightarrow P(n+1)\}\vDash\forall n\geq n_{0},P(n)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+principio de inducción estructural
+\series default
+ para 
+\series bold
+demostración por recursión
+\series default
+ es una generalización de la inducción y afirma que, dado un conjunto de
+ elementos definido por recursión con una serie de casos base y reglas de
+ recursión sobre estos, si una propiedad se cumple para cada caso base,
+ y si en cada regla de recursión si la propiedad se cumple para los parámetros
+ de entrada también se cumple para el elemento resultante de aplicarla,
+ entonces esta propiedad la cumplen todos los elementos del conjunto.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,954 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Polinomios con coeficientes en un cuerpo
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+polinomio
+\series default
+ con coeficientes en el cuerpo 
+\begin_inset Formula $K$
+\end_inset
+
+ es una expresión de la forma
+\begin_inset Formula 
+\[
+a_{0}+a_{1}X+a_{2}X^{2}+\dots+a_{n}X^{n}=\sum_{i=0}^{n}a_{i}X_{i}
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $a_{0},\dots,a_{n}\in K$
+\end_inset
+
+.
+ El símbolo 
+\begin_inset Formula $X$
+\end_inset
+
+ se llama 
+\series bold
+indeterminada
+\series default
+ y llamamos 
+\series bold
+coeficiente
+\series default
+ de grado 
+\begin_inset Formula $i$
+\end_inset
+
+ a 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+, 
+\series bold
+término independiente
+\series default
+ a 
+\begin_inset Formula $a_{0}$
+\end_inset
+
+ y 
+\series bold
+coeficiente principal
+\series default
+ o 
+\series bold
+líder
+\series default
+ a 
+\begin_inset Formula $a_{n}$
+\end_inset
+
+ si es 
+\begin_inset Formula $a_{n}\neq0$
+\end_inset
+
+.
+ Un polinomio es 
+\series bold
+mónico
+\series default
+ si 
+\begin_inset Formula $a_{n}=1$
+\end_inset
+
+.
+ Los polinomios de forma 
+\begin_inset Formula $a_{0}$
+\end_inset
+
+ se llaman 
+\series bold
+constantes
+\series default
+ y los identificamos con los elementos de 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ El conjunto de todos los polinomios con coeficientes en 
+\begin_inset Formula $K$
+\end_inset
+
+ se denota 
+\begin_inset Formula $K[X]$
+\end_inset
+
+, y dos polinomios 
+\begin_inset Formula $P=a_{0}+\dots+a_{n}X^{n},Q=b_{0}+\dots+b_{m}X^{m}\in K[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $n\leq m$
+\end_inset
+
+ son iguales si 
+\begin_inset Formula $a_{i}=b_{i}$
+\end_inset
+
+ para 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{j}=0$
+\end_inset
+
+ para 
+\begin_inset Formula $j\in\{n+1,\dots,m\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Definimos 
+\begin_inset Formula $P+Q=(a_{0}+b_{0})+(a_{1}+b_{1})X+\dots+(a_{n}+b_{n})X^{n}$
+\end_inset
+
+, y 
+\begin_inset Formula $PQ=c_{0}+c_{1}X+\dots+c_{n+m}X^{n+m}$
+\end_inset
+
+ si 
+\begin_inset Formula $c_{k}=\sum_{i+j=k}a_{i}b_{j}=a_{0}b_{k}+a_{1}b_{k-1}+\dots+a_{k}b_{0}$
+\end_inset
+
+.
+ Así, 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ es un anillo conmutativo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P$
+\end_inset
+
+ tiene 
+\series bold
+grado
+\series default
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ si 
+\begin_inset Formula $P=\sum_{i=0}^{n}a_{i}X^{i}$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{n}\neq0$
+\end_inset
+
+, y se denota con 
+\begin_inset Formula $\text{gr}(P)$
+\end_inset
+
+.
+ Por convención, si 
+\begin_inset Formula $P(X)=0$
+\end_inset
+
+, 
+\begin_inset Formula $\text{gr}(P)=-\infty$
+\end_inset
+
+.
+ Si tomamos el convenio de que 
+\begin_inset Formula $-\infty+n=-\infty$
+\end_inset
+
+, 
+\begin_inset Formula $(-\infty)+(-\infty)=-\infty$
+\end_inset
+
+ y 
+\begin_inset Formula $-\infty<n$
+\end_inset
+
+, se tiene que:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{gr}(PQ)=\text{gr}(P)+\text{gr}(Q)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{gr}(P+Q)\leq\max\{\text{gr}(P),\text{gr}(Q)\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $PQ=0\implies P=0\lor Q=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\exists P^{-1}:P^{-1}P=1\iff\text{gr}(P)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Se define el 
+\series bold
+valor de 
+\begin_inset Formula $P(x)$
+\end_inset
+
+ en 
+\begin_inset Formula $b$
+\end_inset
+
+
+\series default
+ como 
+\begin_inset Formula $P(b)=a_{0}+a_{1}b+\dots+a_{n}b^{n}\in K$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $P$
+\end_inset
+
+ define una aplicación 
+\begin_inset Formula $P:K\rightarrow K$
+\end_inset
+
+ que llamamos 
+\series bold
+función polinomial asociada a 
+\begin_inset Formula $K$
+\end_inset
+
+
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de la división:
+\series default
+ Para 
+\begin_inset Formula $A,B\in K[X]$
+\end_inset
+
+ existen dos únicos polinomios, 
+\begin_inset Formula $Q$
+\end_inset
+
+ (
+\series bold
+cociente
+\series default
+) y 
+\begin_inset Formula $R$
+\end_inset
+
+ (
+\series bold
+resto
+\series default
+) en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ tales que 
+\begin_inset Formula $A=BQ+R$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{gr}(R)<\text{gr}(B)$
+\end_inset
+
+.
+ 
+\series bold
+Teorema del resto:
+\series default
+ El resto de la división de 
+\begin_inset Formula $P/X-a$
+\end_inset
+
+ es 
+\begin_inset Formula $P(a)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Decimos que 
+\begin_inset Formula $A$
+\end_inset
+
+ divide a 
+\begin_inset Formula $B$
+\end_inset
+
+, o que 
+\begin_inset Formula $B$
+\end_inset
+
+ es múltiplo de 
+\begin_inset Formula $A$
+\end_inset
+
+ (
+\begin_inset Formula $A|B$
+\end_inset
+
+) si 
+\begin_inset Formula $\exists C:B=AC$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $A|B\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $A$
+\end_inset
+
+ es un 
+\series bold
+divisor
+\series default
+ de 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Propiedades:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A|B\land A|C\implies A|PB+QC$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A|B\land B|C\implies A|C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A|B\land B|A\implies\exists\mu\in K\backslash\{0\}:A=\mu B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Los polinomios de la forma 
+\begin_inset Formula $\lambda A$
+\end_inset
+
+ para 
+\begin_inset Formula $0\neq\lambda\in K$
+\end_inset
+
+ se llaman 
+\series bold
+polinomios asociados
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Cada polinomio tiene un único polinomio asociado mónico.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D$
+\end_inset
+
+ es el máximo común divisor de 
+\begin_inset Formula $A,B\in K[X]$
+\end_inset
+
+ si 
+\begin_inset Formula $D|A,B$
+\end_inset
+
+, 
+\begin_inset Formula $S|A,B\implies S|D$
+\end_inset
+
+ y 
+\begin_inset Formula $D$
+\end_inset
+
+ es mónico.
+ Si 
+\begin_inset Formula $D'$
+\end_inset
+
+ verifica las dos primeras condiciones, entonces es asociado a 
+\begin_inset Formula $D$
+\end_inset
+
+.
+ Además, si 
+\begin_inset Formula $A,B\neq0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $D$
+\end_inset
+
+ es el único polinomio mónico de grado mínimo que es combinación lineal
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A,B\in K[X]$
+\end_inset
+
+ son coprimos o primos entre sí si 
+\begin_inset Formula $\text{mcd}(A,B)=1$
+\end_inset
+
+, es decir, si existen 
+\begin_inset Formula $S,T\in K[X]$
+\end_inset
+
+ tales que 
+\begin_inset Formula $SA+TB=1$
+\end_inset
+
+.
+ En tal caso, 
+\begin_inset Formula $A|BC\implies A|C$
+\end_inset
+
+.
+ Además, si 
+\begin_inset Formula $A,B\in K[X]$
+\end_inset
+
+ con alguno de los dos no nulo y 
+\begin_inset Formula $D=\text{mcd}(A,B)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\frac{A}{D}$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{B}{D}$
+\end_inset
+
+ son coprimos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $M$
+\end_inset
+
+ es el mínimo común múltiplo de 
+\begin_inset Formula $A,B\in K[X]$
+\end_inset
+
+ si 
+\begin_inset Formula $A,B|M$
+\end_inset
+
+, 
+\begin_inset Formula $A,B|N\implies M|N$
+\end_inset
+
+ y 
+\begin_inset Formula $M$
+\end_inset
+
+ es mónico.
+ Si 
+\begin_inset Formula $M'$
+\end_inset
+
+ cumple las dos primeras condiciones, entonces es asociado a 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ Además, existe 
+\begin_inset Formula $\mu\in K$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\text{mcm}(A,B)=\mu\frac{AB}{\text{mcd}(A,B)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Raíces de polinomios
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $r\in K$
+\end_inset
+
+ es una 
+\series bold
+raíz
+\series default
+ de 
+\begin_inset Formula $P\in K[X]$
+\end_inset
+
+ si 
+\begin_inset Formula $P(r)=0$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\frac{p}{q}$
+\end_inset
+
+, con 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $q$
+\end_inset
+
+ coprimos, es raíz de 
+\begin_inset Formula $P$
+\end_inset
+
+, entonces 
+\begin_inset Formula $p|a_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $q|a_{n}$
+\end_inset
+
+.
+ La 
+\series bold
+regla de Ruffini
+\series default
+ se basa en que 
+\begin_inset Formula $a$
+\end_inset
+
+ es raíz de 
+\begin_inset Formula $P$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $X-a|P$
+\end_inset
+
+.
+ Así, decimos que 
+\begin_inset Formula $a$
+\end_inset
+
+ es una raíz de 
+\series bold
+multiplicidad 
+\begin_inset Formula $s\geq1$
+\end_inset
+
+
+\series default
+ de 
+\begin_inset Formula $P$
+\end_inset
+
+ si 
+\begin_inset Formula $(X-a)^{s}|P$
+\end_inset
+
+ pero no 
+\begin_inset Formula $(X-a)^{s+1}|P$
+\end_inset
+
+.
+ Una raíz es 
+\series bold
+múltiple
+\series default
+ si tiene multiplicidad mayor que 1, de lo contrario es una raíz 
+\series bold
+simple
+\series default
+.
+ Si 
+\begin_inset Formula $\text{gr}(P)=n\neq-\infty$
+\end_inset
+
+, entonces 
+\begin_inset Formula $P$
+\end_inset
+
+ tiene a lo sumo 
+\begin_inset Formula $n$
+\end_inset
+
+ raíces en 
+\begin_inset Formula $K$
+\end_inset
+
+, contando cada raíz tantas veces como su multiplicidad.
+ Así:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\text{gr}(P)=n$
+\end_inset
+
+ y existen 
+\begin_inset Formula $m>n$
+\end_inset
+
+ raíces de 
+\begin_inset Formula $P$
+\end_inset
+
+ en 
+\begin_inset Formula $K$
+\end_inset
+
+, entonces 
+\begin_inset Formula $P=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\text{gr}(P)=n\geq0$
+\end_inset
+
+ y existen 
+\begin_inset Formula $a_{1},\dots,a_{m}\in K$
+\end_inset
+
+ tales que 
+\begin_inset Formula $P(a_{i})=Q(a_{i})$
+\end_inset
+
+ con 
+\begin_inset Formula $m>n$
+\end_inset
+
+, entonces 
+\begin_inset Formula $P=Q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $K$
+\end_inset
+
+ es un cuerpo infinito y 
+\begin_inset Formula $P,Q\in K[X]$
+\end_inset
+
+ son distintos, entonces las funciones 
+\begin_inset Formula $P,Q:K\rightarrow K$
+\end_inset
+
+ son distintas.
+\end_layout
+
+\begin_layout Enumerate
+Sea 
+\begin_inset Formula $P=a_{0}+\dots+a_{n}X^{n}\in K[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{gr}(P)=n$
+\end_inset
+
+ y raíces 
+\begin_inset Formula $r_{1},\dots,r_{n}$
+\end_inset
+
+ (no necesariamente distintas), entonces 
+\begin_inset Formula $P=a_{n}(X-r_{1})\cdots(X-r_{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Factorización y raíces de polinomios
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P\in K[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{gr}(P)>0$
+\end_inset
+
+ es 
+\series bold
+irreducible
+\series default
+ o 
+\series bold
+primo
+\series default
+ si 
+\begin_inset Formula $Q|P\implies\text{gr}(Q)=0\lor\exists k\in K:Q=kP$
+\end_inset
+
+.
+ Así:
+\begin_inset Formula 
+\[
+P\text{ es irreducible}\iff(P|QR\implies P|Q\lor P|R)\iff(P|Q_{1}\cdots Q_{n}\implies\exists i:P|Q_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema:
+\series default
+ Todo 
+\begin_inset Formula $P\in K[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{gr}(P)\geq1$
+\end_inset
+
+ factoriza como producto de polinomios irreducibles, y esta factorización
+ es única salvo asociados y orden.
+\end_layout
+
+\begin_layout Section
+Polinomios irreducibles en 
+\begin_inset Formula $\mathbb{R}[X]$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbb{C}[X]$
+\end_inset
+
+.
+ Teorema Fundamental del Álgebra
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+Teorema Fundamental del Álgebra
+\series default
+ afirma que todo 
+\begin_inset Formula $P\in\mathbb{C}[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{gr}(P)>0$
+\end_inset
+
+ tiene al menos una raíz en 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+.
+ Así:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $P\in\mathbb{C}[X]$
+\end_inset
+
+ es irreducible si y sólo si 
+\begin_inset Formula $\text{gr}(P)=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall P\in\mathbb{C}[X],\text{gr}(P)=n\geq1,\exists r,r_{1},\dots,r_{n}\in\mathbb{C}:P=r(X-r_{1})\cdots(X-r_{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $z\in\mathbb{C}$
+\end_inset
+
+ es raíz de 
+\begin_inset Formula $P\in\mathbb{R}[X]$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\overline{z}$
+\end_inset
+
+ también lo es.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $P\in\mathbb{R}[X]$
+\end_inset
+
+ es irreducible, entonces, o 
+\begin_inset Formula $\text{gr}(P)=1$
+\end_inset
+
+, o 
+\begin_inset Formula $\text{gr}(P)=2$
+\end_inset
+
+ y no tiene raíces reales.
+\end_layout
+
+\end_body
+\end_document

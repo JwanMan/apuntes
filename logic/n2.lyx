@@ -1,0 +1,1518 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Las oraciones lógicas en lógica proposicional (
+\series bold
+L0
+\series default
+) se llaman 
+\series bold
+proposiciones
+\series default
+.
+ Las proposiciones atómicas, también llamadas 
+\series bold
+sentencias
+\series default
+ o 
+\series bold
+átomos
+\series default
+, se agrupan mediante 
+\series bold
+operadores lógicos
+\series default
+ para formar oraciones compuestas.
+\end_layout
+
+\begin_layout Section
+Sintaxis
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Constantes:
+\series default
+ Verdadero (
+\begin_inset Formula $V$
+\end_inset
+
+) o falso (
+\begin_inset Formula $F$
+\end_inset
+
+).
+ 
+\begin_inset Formula $\mathbb{B}=\{V,F\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Sentencias:
+\series default
+ Se representan por un conjunto de letras latinas.
+ El conjunto de todos se denota por 
+\begin_inset Formula ${\cal P}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Operadores lógicos:
+\series default
+ Negación (
+\begin_inset Formula $\neg$
+\end_inset
+
+) y conectivos.
+ Los conectivos son: conjunción (
+\begin_inset Formula $\land$
+\end_inset
+
+), disyunción (
+\begin_inset Formula $\lor$
+\end_inset
+
+), implicación (
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+) y doble implicación (
+\begin_inset Formula $\leftrightarrow$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Paréntesis
+\series default
+ o corchetes, para agrupar expresiones.
+\end_layout
+
+\begin_layout Standard
+Definición recursiva de una f.b.f.:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Forma básica:
+\series default
+ Todo átomo es una f.b.f.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Forma recursiva:
+\series default
+ Si 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta$
+\end_inset
+
+ son f.b.f., también lo son 
+\begin_inset Formula $\neg\alpha$
+\end_inset
+
+, 
+\begin_inset Formula $(\alpha\land\beta)$
+\end_inset
+
+, 
+\begin_inset Formula $(\alpha\lor\beta)$
+\end_inset
+
+, 
+\begin_inset Formula $(\alpha\rightarrow\beta)$
+\end_inset
+
+ y 
+\begin_inset Formula $(\alpha\leftrightarrow\beta)$
+\end_inset
+
+.
+ La presencia o ausencia de paréntesis es importante.
+\end_layout
+
+\begin_layout Standard
+En la práctica, podemos eliminar paréntesis según estas reglas:
+\end_layout
+
+\begin_layout Itemize
+Se pueden eliminar los paréntesis exteriores.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Prioridad:
+\series default
+ De mayor a menor: 
+\begin_inset Formula $\neg$
+\end_inset
+
+, (
+\begin_inset Formula $\land$
+\end_inset
+
+, 
+\begin_inset Formula $\lor$
+\end_inset
+
+), (
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+, 
+\begin_inset Formula $\leftrightarrow$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Asociatividad:
+\series default
+ A igual prioridad de operadores, se asocia por la izquierda.
+\end_layout
+
+\begin_layout Standard
+También podemos añadir paréntesis a cualquier expresión que no sea una negación.
+\end_layout
+
+\begin_layout Section
+Formalización
+\end_layout
+
+\begin_layout Itemize
+Los átomos corresponden a oraciones enunciativas afirmativas, en forma presente
+ y con sujeto (salvo verbos impersonales).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\neg\alpha$
+\end_inset
+
+: No 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, no es el caso de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, no es cierto que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, es falso que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, no sucede que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, la negación de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha\land\beta$
+\end_inset
+
+: 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta$
+\end_inset
+
+ (pero, aunque, además, sin embargo, también, a la vez, aún, no obstante).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha\lor\beta$
+\end_inset
+
+: O 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ o 
+\begin_inset Formula $\beta$
+\end_inset
+
+; ya 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, ya 
+\begin_inset Formula $\beta$
+\end_inset
+
+, ya ambas.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha\rightarrow\beta$
+\end_inset
+
+: Si 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ 
+\begin_inset Formula $\beta$
+\end_inset
+
+, si 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\beta$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ solo si 
+\begin_inset Formula $\beta$
+\end_inset
+
+, solo 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ si 
+\begin_inset Formula $\beta$
+\end_inset
+
+, es suficiente 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ para que 
+\begin_inset Formula $\beta$
+\end_inset
+
+, siempre que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\beta$
+\end_inset
+
+, no 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ a menos que 
+\begin_inset Formula $\beta$
+\end_inset
+
+, es necesario 
+\begin_inset Formula $\beta$
+\end_inset
+
+ para que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, a no ser que 
+\begin_inset Formula $\beta$
+\end_inset
+
+ no 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha\leftrightarrow\beta$
+\end_inset
+
+: 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\beta$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ equivale a 
+\begin_inset Formula $\beta$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ cuando y sólo cuando 
+\begin_inset Formula $\beta$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ cuando únicamente 
+\begin_inset Formula $\beta$
+\end_inset
+
+ , 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es condición suficiente y necesaria para que 
+\begin_inset Formula $\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Interpretación
+\end_layout
+
+\begin_layout Standard
+Procedimiento que traduce las fórmulas 
+\series bold
+atómicas
+\series default
+ a oraciones naturales.
+ Una 
+\series bold
+asignación
+\series default
+ 
+\begin_inset Formula $v_{I}$
+\end_inset
+
+ es el procedimiento que establece un valor de verdad a una fórmula atómica
+ según una interpretación 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ En L0 no se suele hacer distinción, y hace referencia a una función 
+\begin_inset Formula $v_{I}:{\cal P_{\alpha}}\rightarrow\mathbb{B}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $V\mapsto V$
+\end_inset
+
+ y 
+\begin_inset Formula $F\mapsto F$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+evaluación
+\series default
+ es la obtención del valor de verdad de una oración 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ Decimos 
+\begin_inset Formula $V(\alpha)=V$
+\end_inset
+
+ o 
+\begin_inset Formula $V(\alpha)=F$
+\end_inset
+
+, según corresponda.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Regla base:
+\series default
+ Si 
+\begin_inset Formula $\alpha\in{\cal P}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $V(\alpha)=v_{I}(\alpha)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Regla recursiva:
+\series default
+
+\begin_inset Formula 
+\begin{eqnarray*}
+V(\neg\alpha) & = & \begin{cases}
+V & \text{si }V(\alpha)=F\\
+F & \text{si }V(\alpha)=V
+\end{cases}\\
+V(\alpha\land\beta) & = & \begin{cases}
+V & \text{si }V(\alpha)=V\text{ y }V(\beta)=V\\
+F & \text{en otro caso}
+\end{cases}\\
+V(\alpha\lor\beta) & = & \begin{cases}
+F & \text{si }V(\alpha)=F\text{ y }V(\beta)=F\\
+V & \text{en otro caso}
+\end{cases}\\
+V(\alpha\rightarrow\beta) & = & \begin{cases}
+F & \text{si }V(\alpha)=V\text{ y }V(\beta)=F\\
+V & \text{en otro caso}
+\end{cases}\\
+V(\alpha\leftrightarrow\beta) & = & \begin{cases}
+V & \text{si }V(\alpha)=V(\beta)\\
+F & \text{en otro caso}
+\end{cases}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Grafos semánticos
+\end_layout
+
+\begin_layout Standard
+Un grafo semántico es un árbol que representa una f.b.f.
+ El nodo principal contiene el operador principal (o el único átomo).
+ De cada conectivo parten dos ramas (o una si es 
+\begin_inset Formula $\neg$
+\end_inset
+
+) con las subfórmulas que conecta, y los átomos son hojas.
+\end_layout
+
+\begin_layout Section
+Decidibilidad
+\end_layout
+
+\begin_layout Standard
+Una oración puede ser:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Satisfacible
+\series default
+ si 
+\begin_inset Formula $V(\alpha)=V$
+\end_inset
+
+ en alguna interpretación.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Falseable
+\series default
+ si 
+\begin_inset Formula $V(\alpha)=F$
+\end_inset
+
+ en alguna interpretación.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Contingente
+\series default
+ o 
+\series bold
+contingencia
+\series default
+ si es a la vez satisfacible y falseable.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Tautológica
+\series default
+, 
+\series bold
+válida
+\series default
+ o 
+\series bold
+tautología
+\series default
+ si 
+\begin_inset Formula $V(\alpha)=V$
+\end_inset
+
+ en todas las interpretaciones.
+ Escribimos 
+\begin_inset Formula $\vDash\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Insatisfacible
+\series default
+ o 
+\series bold
+contradicción
+\series default
+ si 
+\begin_inset Formula $V(\alpha)=F$
+\end_inset
+
+ en todas las interpretaciones.
+\end_layout
+
+\begin_layout Standard
+El problema SAT, determinar si una oración lógica es satisfacible, es el
+ primer problema conocido NP-completo, y de hecho todos los problemas NP-complet
+os se pueden reducir a SAT, de modo que si uno de resuelve como P, se resuelven
+ todos.
+\end_layout
+
+\begin_layout Standard
+Un conjunto de fórmulas 
+\begin_inset Formula ${\cal F}=\{\alpha_{1},\dots,\alpha_{n}\}$
+\end_inset
+
+ es satisfacible si su conjunción lo es, y llamamos 
+\series bold
+modelo
+\series default
+ de 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+ a cualquier interpretación en la que 
+\begin_inset Formula $V(\alpha_{1}\land\dots\land\alpha_{n})=V$
+\end_inset
+
+.
+ Definimos del mismo modo conjunto insatisfacible.
+ El conjunto 
+\begin_inset Formula ${\cal F}=\{\}$
+\end_inset
+
+ es modelo en todas las interpretaciones.
+\end_layout
+
+\begin_layout Standard
+Para hallar los valores de verdad de una oración en función de la interpretación
+, podemos construir una 
+\series bold
+tabla de verdad.
+
+\series default
+ Si 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ tiene 
+\begin_inset Formula $n$
+\end_inset
+
+ átomos y 
+\begin_inset Formula $m$
+\end_inset
+
+ operadores, construimos una tabla con 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ filas (más la cabecera) y 
+\begin_inset Formula $n+m$
+\end_inset
+
+ columnas.
+ En cada fila establecemos una asignación hasta establecer todas las asignacione
+s posibles y obtenemos las evaluaciones para las oraciones definidas por
+ cada operador, en orden de evaluación y terminando con el operador principal,
+ que establece el valor de verdad.
+ Debemos indicar el orden de evaluación.
+\end_layout
+
+\begin_layout Standard
+Otra forma es la 
+\series bold
+propagación de literales.
+
+\series default
+ Un literal es un átomo o la negación de un átomo.
+ Dada una fórmula 
+\begin_inset Formula $\phi$
+\end_inset
+
+, definimos 
+\begin_inset Formula $\phi(p)\equiv\phi_{|V(p)=V}$
+\end_inset
+
+ a la fórmula más simplificada que, en las interpretaciones en las que 
+\begin_inset Formula $V(p)=V$
+\end_inset
+
+, tenga los mismos valores de verdad que 
+\begin_inset Formula $\phi$
+\end_inset
+
+.
+ Por ejemplo, dada la oración 
+\begin_inset Formula $\phi\equiv(p\rightarrow q)\rightarrow(\neg p\rightarrow\neg q)$
+\end_inset
+
+, tendríamos que 
+\begin_inset Formula $\phi(p)\equiv\phi_{|V(p)=V}\equiv(V\rightarrow q)\rightarrow(\neg V\rightarrow\neg q)\equiv q\rightarrow(F\rightarrow q)\equiv q\rightarrow V\equiv V$
+\end_inset
+
+, mientras que 
+\begin_inset Formula $\phi(\neg p)\equiv\phi_{|V(\neg p)=V}\equiv\phi_{|V(p)=F}\equiv(F\rightarrow q)\rightarrow(\neg F\rightarrow\neg q)\equiv V\rightarrow(V\rightarrow\neg q)\equiv V\rightarrow\neg q\equiv\neg q$
+\end_inset
+
+.
+ En el segundo caso, tendríamos, por ejemplo, que 
+\begin_inset Formula $\phi(\neg p)(q)\equiv\phi(\neg p,q)\equiv\phi(\neg p)_{|V(q)=V}\equiv\neg V\equiv F$
+\end_inset
+
+.
+ En la práctica bastaría con escribir 
+\begin_inset Formula $\phi(\neg p,q)\equiv\neg V\equiv F$
+\end_inset
+
+ para este último caso.
+\end_layout
+
+\begin_layout Standard
+Para comprobar los valores de verdad realizaríamos un 
+\series bold
+árbol semántico.
+
+\series default
+ En este, la raíz sería la fórmula inicial, y de cada nodo, que contendrá
+ una fórmula 
+\begin_inset Formula $\xi$
+\end_inset
+
+, partirán dos ramas con 
+\begin_inset Formula $\xi(p)$
+\end_inset
+
+ y 
+\begin_inset Formula $\xi(\neg p)$
+\end_inset
+
+ para algún átomo 
+\begin_inset Formula $l$
+\end_inset
+
+ en 
+\begin_inset Formula $\xi$
+\end_inset
+
+ (normalmente el que más aparece), salvo si 
+\begin_inset Formula $\xi\equiv V$
+\end_inset
+
+ o 
+\begin_inset Formula $\xi\equiv F$
+\end_inset
+
+.
+ A la hora de dibujarlo, la línea que une una expresión con otra derivada
+ se etiqueta con el literal a propagar.
+\end_layout
+
+\begin_layout Section
+Equivalencias
+\end_layout
+
+\begin_layout Standard
+Dos expresiones 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta$
+\end_inset
+
+ son lógicamente equivalentes si y sólo si 
+\begin_inset Formula $V(\alpha)=V(\beta)$
+\end_inset
+
+ para cualquier interpretación.
+ Escribimos 
+\begin_inset Formula $\alpha\equiv\beta$
+\end_inset
+
+.
+ Así, 
+\begin_inset Formula $\alpha\equiv\beta\iff\vDash\alpha\leftrightarrow\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Propiedades conmutativas:
+\series default
+ 
+\begin_inset Formula $\alpha\land\beta\equiv\beta\land\alpha$
+\end_inset
+
+; 
+\begin_inset Formula $\alpha\lor\beta\equiv\beta\land\alpha$
+\end_inset
+
+; 
+\begin_inset Formula $\alpha\leftrightarrow\beta\equiv\beta\leftrightarrow\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Propiedades asociativas:
+\series default
+ 
+\begin_inset Formula $\alpha\land(\beta\land\gamma)\equiv(\alpha\land\beta)\land\gamma$
+\end_inset
+
+; 
+\begin_inset Formula $\alpha\lor(\beta\lor\gamma)\equiv(\alpha\lor\beta)\lor\gamma$
+\end_inset
+
+; 
+\begin_inset Formula $\alpha\leftrightarrow(\beta\leftrightarrow\gamma)\equiv(\alpha\leftrightarrow\beta)\leftrightarrow\gamma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Propiedades de De Morgan:
+\series default
+ 
+\begin_inset Formula $\neg(\alpha\land\beta)\equiv\neg\alpha\lor\neg\beta$
+\end_inset
+
+; 
+\begin_inset Formula $\neg(\alpha\lor\beta)\equiv\neg\alpha\land\neg\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Propiedades distributivas:
+\series default
+ 
+\begin_inset Formula $\alpha\land(\beta\lor\gamma)\equiv(\alpha\land\beta)\lor(\alpha\land\gamma)$
+\end_inset
+
+; 
+\begin_inset Formula $\alpha\lor(\beta\land\gamma)\equiv(\alpha\lor\beta)\land(\alpha\lor\gamma)$
+\end_inset
+
+; 
+\begin_inset Formula $\alpha\rightarrow(\beta\lor\gamma)\equiv(\alpha\rightarrow\beta)\lor(\alpha\rightarrow\gamma)$
+\end_inset
+
+; 
+\begin_inset Formula $\alpha\rightarrow(\beta\land\gamma)\equiv(\alpha\rightarrow\beta)\land(\alpha\rightarrow\gamma)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Propiedades de absorción:
+\series default
+ 
+\begin_inset Formula $\alpha\lor(\alpha\land\beta)\equiv\alpha\land(\alpha\lor\beta)\equiv\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Expresión booleana:
+\series default
+ 
+\begin_inset Formula $\alpha\lor(\neg\beta\land\beta)\equiv\alpha\land(\neg\beta\lor\beta)\equiv\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Reducción al absurdo:
+\series default
+ 
+\begin_inset Formula $\neg\alpha\rightarrow(\beta\land\neg\beta)\equiv\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Propiedad de contraposición
+\series default
+ o 
+\series bold
+transposición:
+\series default
+ 
+\begin_inset Formula $\alpha\rightarrow\beta\equiv\neg\beta\rightarrow\neg\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Exportación:
+\series default
+ 
+\begin_inset Formula $(\alpha\land\beta)\rightarrow\gamma\equiv\alpha\rightarrow(\beta\rightarrow\gamma)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Idempotencia:
+\series default
+ 
+\begin_inset Formula $\alpha\equiv\neg(\neg\alpha)\equiv\alpha\lor\alpha\equiv\alpha\land\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Eliminación del condicional:
+\series default
+ 
+\begin_inset Formula $\alpha\rightarrow\beta\equiv\neg\alpha\lor\beta\equiv\neg(\alpha\land\neg\beta)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Eliminación del bicondicional:
+\series default
+ 
+\begin_inset Formula $\alpha\leftrightarrow\beta\equiv(\alpha\rightarrow\beta)\land(\beta\rightarrow\alpha)\equiv(\alpha\land\beta)\lor(\neg\beta\land\neg\alpha)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Propiedades sobre tautologías:
+\series default
+ 
+\begin_inset Formula $\alpha\lor\neg\alpha\equiv V$
+\end_inset
+
+; 
+\begin_inset Formula $V\lor\beta\equiv V$
+\end_inset
+
+; 
+\begin_inset Formula $V\land\beta\equiv\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Propiedades sobre insatisfacibilidad:
+\series default
+ 
+\begin_inset Formula $\alpha\land\neg\alpha\equiv F$
+\end_inset
+
+; 
+\begin_inset Formula $F\lor\beta\equiv\beta$
+\end_inset
+
+; 
+\begin_inset Formula $F\land\beta\equiv F$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Razonamientos válidos
+\end_layout
+
+\begin_layout Standard
+Un razonamiento es válido si y sólo si en todas las interpretaciones en
+ las que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es verdad, 
+\begin_inset Formula $\beta$
+\end_inset
+
+ también lo es.
+ Igualmente, 
+\begin_inset Formula $\beta$
+\end_inset
+
+ es 
+\series bold
+consecuencia lógica
+\series default
+ de 
+\begin_inset Formula ${\cal F}=\{\alpha_{1},\dots,\alpha_{n}\}$
+\end_inset
+
+ si 
+\begin_inset Formula $\beta$
+\end_inset
+
+ es verdad siempre que 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+ sea un modelo.
+ Escribimos 
+\begin_inset Formula $\alpha\vDash\beta$
+\end_inset
+
+ o 
+\begin_inset Formula ${\cal F}\vDash\beta$
+\end_inset
+
+, y sabemos que 
+\begin_inset Formula $\alpha\vDash\beta\iff\vDash\alpha\rightarrow\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de la deducción semántica:
+\series default
+ 
+\begin_inset Formula ${\cal F}\cup\{\alpha\}\vDash\beta\iff{\cal F}\vDash\alpha\rightarrow\beta$
+\end_inset
+
+.
+ Corolario: 
+\begin_inset Formula ${\cal F}\vDash\beta\iff\vDash\alpha_{1}\land\dots\land\alpha_{n}\rightarrow\beta\iff\vDash\neg(\alpha_{1}\land\dots\land\alpha_{n}\land\neg\beta)\iff\alpha_{1}\land\dots\land\alpha_{n}\land\neg\beta\text{ es insatisfacible}$
+\end_inset
+
+.
+ Propiedades generales de 
+\begin_inset Formula $\vDash$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Reflexividad:
+\series default
+ 
+\begin_inset Formula $\alpha\vDash\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Transitividad:
+\series default
+ Si 
+\begin_inset Formula ${\cal F}\vDash\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha\vDash\beta$
+\end_inset
+
+ entonces 
+\begin_inset Formula ${\cal F}\vDash\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Monotonía:
+\series default
+ Si 
+\begin_inset Formula ${\cal F}\vDash\alpha$
+\end_inset
+
+ entonces 
+\begin_inset Formula ${\cal F}\cup\{\beta\}\vDash\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula ${\cal F}\vDash\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $\vDash\beta$
+\end_inset
+
+, entonces 
+\begin_inset Formula ${\cal F}\backslash\{\beta\}\vDash\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha\equiv\beta\iff\alpha\vDash\beta\text{ y }\beta\vDash\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Algunas propiedades:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Simplificación
+\series default
+ o 
+\series bold
+eliminación de la conjunción:
+\series default
+ 
+\begin_inset Formula $\alpha\land\beta\vDash\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Adición
+\series default
+ o 
+\series bold
+introducción de la disyunción:
+\series default
+ 
+\begin_inset Formula $\alpha\vDash\alpha\lor\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Silogismos:
+\series default
+ Forma de razonamiento deductivo con dos premisas y una conclusión.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Categóricos
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Combinación
+\series default
+ o 
+\series bold
+introducción de la conjunción:
+\series default
+ 
+\begin_inset Formula $\{\alpha,\beta\}\vDash\alpha\land\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Inconsistencia:
+\series default
+ 
+\begin_inset Formula $\{\alpha,\neg\alpha\}\vDash\beta$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Hipotéticos
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Silogismo hipotético:
+\series default
+ 
+\begin_inset Formula $\{\alpha\rightarrow\beta,\beta\rightarrow\gamma\}\vDash\alpha\rightarrow\gamma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Demostración por casos:
+\series default
+ 
+\begin_inset Formula $\{\alpha\rightarrow\gamma,\beta\rightarrow\gamma\}\vDash\alpha\lor\beta\rightarrow\gamma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Prueba por casos:
+\series default
+ 
+\begin_inset Formula $\{\alpha\rightarrow\beta,\neg\alpha\rightarrow\beta\}\vDash\beta$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Hipotéticos mixtos
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Modus Ponens:
+\series default
+ 
+\begin_inset Formula $\{\alpha\rightarrow\beta,\alpha\}\vDash\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Modus Tollens:
+\series default
+ 
+\begin_inset Formula $\{\alpha\rightarrow\beta,\neg\beta\}\vDash\neg\alpha$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Disyuntivo:
+\series default
+ 
+\begin_inset Formula $\{\alpha\lor\beta,\neg\beta\}\vDash\alpha$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Dilemas:
+\series default
+ Forma de razonamiento con una premisa disyunción que representa las opciones,
+ normalmente contrarias.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Constructivo:
+\series default
+ 
+\begin_inset Formula $\{\alpha\lor\beta,\alpha\rightarrow\gamma,\beta\rightarrow\delta\}\vDash\gamma\lor\delta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Destructivo:
+\series default
+ 
+\begin_inset Formula $\{\neg\gamma\lor\neg\delta,\alpha\rightarrow\gamma,\beta\rightarrow\delta\}\vDash\neg\alpha\lor\neg\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Transposición:
+\series default
+ 
+\begin_inset Formula $\alpha\rightarrow\beta\vDash\neg\beta\rightarrow\neg\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Eliminación de la equivalencia:
+\series default
+ 
+\begin_inset Formula $\alpha\leftrightarrow\beta\vDash\{\alpha\rightarrow\beta,\beta\rightarrow\alpha\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Introducción de la equivalencia:
+\series default
+ 
+\begin_inset Formula $\{\alpha\rightarrow\beta,\beta\rightarrow\alpha\}\vDash\alpha\leftrightarrow\beta$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+El Corolario del Teorema de la Deducción Semántica y las propiedades básicas
+ de equivalencia y razonamientos nos permiten considerar al menos dos estrategia
+s de razonamiento deductivo: la 
+\series bold
+demostración directa
+\series default
+, comprobando que 
+\begin_inset Formula $\beta$
+\end_inset
+
+ es consecuencia lógica de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ mediante definiciones, tautologías, teoremas o propiedades, y 
+\series bold
+refutación
+\series default
+ o demostración por contradicción (
+\begin_inset Formula $\alpha\rightarrow\beta\equiv\alpha\land\neg\beta\implies\gamma\land\neg\gamma$
+\end_inset
+
+), buscando contraejemplos o encontrando un 
+\begin_inset Formula $a$
+\end_inset
+
+ tal que 
+\begin_inset Formula $V(\alpha[a]\rightarrow\beta[a])=F$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

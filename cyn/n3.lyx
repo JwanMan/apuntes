@@ -1,0 +1,725 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Relaciones de orden
+\end_layout
+
+\begin_layout Standard
+Una relación 
+\begin_inset Formula $R$
+\end_inset
+
+ en un conjunto 
+\begin_inset Formula $A$
+\end_inset
+
+ se dice que es:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Reflexiva
+\series default
+ si 
+\begin_inset Formula $(a,a)\in R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Transitiva
+\series default
+ si 
+\begin_inset Formula $(a,b),(b,c)\in R\implies(a,c)\in R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Simétrica
+\series default
+ si 
+\begin_inset Formula $(a,b)\in R\implies(b,a)\in R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Antisimétrica
+\series default
+ si 
+\begin_inset Formula $(a,b),(b,a)\in R\implies a=b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una relación 
+\begin_inset Formula $\leq$
+\end_inset
+
+ en 
+\begin_inset Formula $A$
+\end_inset
+
+ es 
+\series bold
+de orden parcial
+\series default
+ (o un orden parcial) si es reflexiva, transitiva y antisimétrica.
+ Un ejemplo es el 
+\series bold
+orden lexicográfico
+\series default
+ en 
+\begin_inset Formula $K^{n}$
+\end_inset
+
+: 
+\begin_inset Formula $(x_{1},\dots,x_{n})\leq(y_{1},\dots,y_{n})$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $x_{1}<y_{1}$
+\end_inset
+
+, o 
+\begin_inset Formula $x_{1}=y_{1}$
+\end_inset
+
+ y bien los vectores son de un elemento o bien 
+\begin_inset Formula $(x_{2},\dots,x_{n})\leq(y_{2},\dots,y_{n})$
+\end_inset
+
+ en 
+\begin_inset Formula $K^{n-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+conjunto parcialmente ordenado
+\series default
+ (
+\series bold
+CPO
+\series default
+ o 
+\series bold
+COPO
+\series default
+) es un par 
+\begin_inset Formula $(A,\leq)$
+\end_inset
+
+ donde 
+\begin_inset Formula $A$
+\end_inset
+
+ es un conjunto y 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $\leq$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+ una relación de orden en 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Si el contexto no deja dudas, diremos que 
+\begin_inset Formula $A$
+\end_inset
+
+ es un COPO.
+ 
+\series bold
+Notación:
+\series default
+ 
+\begin_inset Formula $a<b:\iff a\leq b\land a\neq b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A$
+\end_inset
+
+ es un 
+\series bold
+conjunto totalmente
+\series default
+ o 
+\series bold
+linealmente ordenado
+\series default
+, y 
+\begin_inset Formula $\leq$
+\end_inset
+
+ un 
+\series bold
+orden total
+\series default
+ o 
+\series bold
+lineal
+\series default
+, si se satisface la 
+\series bold
+ley de la tricotomía
+\series default
+, es decir, si dados 
+\begin_inset Formula $a,b\in A$
+\end_inset
+
+, ocurre que 
+\begin_inset Formula $a=b$
+\end_inset
+
+, 
+\begin_inset Formula $a<b$
+\end_inset
+
+ o 
+\begin_inset Formula $b<a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Podemos representar conjuntos ordenados mediante 
+\series bold
+diagramas de Hasse
+\series default
+, también llamados 
+\begin_inset Quotes cld
+\end_inset
+
+
+\lang english
+upward drawing
+\lang spanish
+
+\begin_inset Quotes crd
+\end_inset
+
+ o diagramas de grafo de un orden parcial.
+ Se representan los elementos de 
+\begin_inset Formula $A$
+\end_inset
+
+ y se unen con una línea las que tienen relación de equivalencia entre sí,
+ sin contar las que se puedan deducir de la reflexividad o transitividad,
+ y con el elemento mayor situado más arriba.
+ También se pueden representar mediante 
+\series bold
+
+\begin_inset Formula $\zeta$
+\end_inset
+
+-matrices
+\series default
+, matrices 
+\begin_inset Formula $\zeta_{A}$
+\end_inset
+
+ con índices en 
+\begin_inset Formula $A$
+\end_inset
+
+, de forma que
+\begin_inset Formula 
+\[
+\zeta_{a,b}=\begin{cases}
+1 & \text{si }a<b\\
+0 & \text{en otro caso}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Elementos notables en un COPO
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $(A,\leq)$
+\end_inset
+
+ un conjunto parcialmente ordenado y 
+\begin_inset Formula $a\in A$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a$
+\end_inset
+
+ es 
+\series bold
+máximo
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ cuando 
+\begin_inset Formula $a\geq b\forall b\in A$
+\end_inset
+
+.
+ Si existe, es único, pues si fueran 
+\begin_inset Formula $a,a'\in A$
+\end_inset
+
+ máximos de 
+\begin_inset Formula $A$
+\end_inset
+
+, se tendría que 
+\begin_inset Formula $a\leq a'$
+\end_inset
+
+ y 
+\begin_inset Formula $a'\leq a$
+\end_inset
+
+, y por tanto 
+\begin_inset Formula $a=a'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a$
+\end_inset
+
+ es 
+\series bold
+mínimo
+\series default
+ o 
+\series bold
+primer elemento
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ cuando 
+\begin_inset Formula $a\leq b\forall b\in A$
+\end_inset
+
+.
+ Si existe, es único, y la demostración es análoga.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a$
+\end_inset
+
+ es un 
+\series bold
+elemento maximal
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ cuando 
+\begin_inset Formula $b\geq a\implies b=a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a$
+\end_inset
+
+ es un 
+\series bold
+elemento minimal
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ cuando 
+\begin_inset Formula $b\leq a\implies b=a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Además, si 
+\begin_inset Formula $B\subseteq A$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a$
+\end_inset
+
+ es 
+\series bold
+cota superior
+\series default
+ de 
+\begin_inset Formula $B$
+\end_inset
+
+ en 
+\begin_inset Formula $A$
+\end_inset
+
+ si 
+\begin_inset Formula $a\geq b\forall b\in B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a$
+\end_inset
+
+ es 
+\series bold
+cota inferior
+\series default
+ de 
+\begin_inset Formula $B$
+\end_inset
+
+ en 
+\begin_inset Formula $A$
+\end_inset
+
+ si 
+\begin_inset Formula $a\leq b\forall b\in B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a$
+\end_inset
+
+ es 
+\series bold
+supremo
+\series default
+ o 
+\series bold
+extremo superior
+\series default
+ de 
+\begin_inset Formula $B$
+\end_inset
+
+ en 
+\begin_inset Formula $A$
+\end_inset
+
+ si es el mínimo de las cotas superiores de 
+\begin_inset Formula $B$
+\end_inset
+
+ en 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Si existe es único, pues el mínimo de las cuotas superiores, al ser un
+ mínimo, es único.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a$
+\end_inset
+
+ es 
+\series bold
+ínfimo
+\series default
+ o 
+\series bold
+extremo inferior
+\series default
+ de 
+\series bold
+
+\begin_inset Formula $B$
+\end_inset
+
+
+\series default
+ en 
+\begin_inset Formula $A$
+\end_inset
+
+ si es el máximo de las cotas inferiores de 
+\begin_inset Formula $B$
+\end_inset
+
+ en 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Si existe es único, por razonamiento análogo al anterior.
+\end_layout
+
+\begin_layout Standard
+Dado 
+\begin_inset Formula $b\in B$
+\end_inset
+
+, 
+\begin_inset Formula $b$
+\end_inset
+
+ es máximo de 
+\begin_inset Formula $B$
+\end_inset
+
+ si y sólo si es el supremo de 
+\begin_inset Formula $B$
+\end_inset
+
+ en 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Al ser máximo se tiene que 
+\begin_inset Formula $b'\geq b\forall b\in B$
+\end_inset
+
+ y por tanto también es cota superior, pero si hubiera una cota superior
+ menor, a la que llamaremos 
+\begin_inset Formula $c$
+\end_inset
+
+, entonces 
+\begin_inset Formula $c<b\in B$
+\end_inset
+
+ y por tanto no es cota superior
+\begin_inset Formula $\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Al ser supremo, es cota superior, por lo que 
+\begin_inset Formula $a\geq b\forall b\in B$
+\end_inset
+
+.
+ Si a esto le unimos que 
+\begin_inset Formula $a\in B$
+\end_inset
+
+, tenemos la definición de máximo.
+\end_layout
+
+\begin_layout Standard
+Esta propiedad se cumple de forma análoga si en vez del máximo y el supremo
+ tomamos el mínimo y el ínfimo.
+\end_layout
+
+\begin_layout Section
+Conjuntos bien ordenados
+\end_layout
+
+\begin_layout Standard
+Un CPO es 
+\series bold
+bien ordenado
+\series default
+ si todo subconjunto suyo no vacío tiene primer elemento.
+ Todo conjunto bien ordenado es totalmente ordenado.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $A$
+\end_inset
+
+ bien ordenado y 
+\begin_inset Formula $B=\{a,b\}\subseteq A$
+\end_inset
+
+, como 
+\begin_inset Formula $\{a,b\}\neq\emptyset$
+\end_inset
+
+, tiene primer elemento, de lo que se desprende la tricotomía.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Principio de la Buena Ordenación:
+\series default
+ Si 
+\begin_inset Formula $A\neq\emptyset$
+\end_inset
+
+, existe un orden 
+\begin_inset Formula $\leq$
+\end_inset
+
+ tal que 
+\begin_inset Formula $(A,\leq)$
+\end_inset
+
+ es un conjunto bien ordenado.
+ Esto es equivalente al Axioma de Elección.
+\end_layout
+
+\end_body
+\end_document

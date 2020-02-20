@@ -1,0 +1,346 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+La lógica estudia las oraciones y los razonamientos, y existen tantas como
+ tipos de oraciones y razonamientos.
+ En informática, es la base de la programación, representa el conocimiento
+ en inteligencia artificial, sirve para demostraciones de resultados teóricos
+ y diseño de circuitos lógicos y define los problemas NP-completos (SAT).
+ Existen distintas lógicas, como las lógicas clásicas (proposicional, categórica
+, de primer orden...) y la lógica difusa.
+\end_layout
+
+\begin_layout Section
+Oraciones
+\end_layout
+
+\begin_layout Standard
+Dentro de una misma lógica, una oración lógica es una oración del lenguaje
+ natural que cumpla ciertas condiciones.
+ En las lógicas clásicas, es aquella que es 
+\series bold
+enunciativa
+\series default
+ y cumple la 
+\series bold
+ley del tercero excluido
+\series default
+ (solo puede ser verdadera [
+\begin_inset Formula $V$
+\end_inset
+
+] o falsa [
+\begin_inset Formula $F$
+\end_inset
+
+]) y la 
+\series bold
+ley de no contradicción
+\series default
+ (no puede ser 
+\begin_inset Formula $V$
+\end_inset
+
+ y 
+\begin_inset Formula $F$
+\end_inset
+
+ a la vez).
+ Estas pueden ser 
+\series bold
+simples
+\series default
+ (
+\series bold
+atómicas
+\series default
+) o 
+\series bold
+compuestas
+\series default
+ (
+\series bold
+moleculares
+\series default
+), dependiendo de si tienen uno o más predicados.
+\end_layout
+
+\begin_layout Section
+Razonamientos
+\end_layout
+
+\begin_layout Standard
+Un razonamiento es una estructura que enlaza oraciones, de las cuales una
+ es la 
+\series bold
+conclusión
+\series default
+ de otras (
+\series bold
+premisas
+\series default
+) y todas (salvo ella misma) proporcionan evidencias para justificarla.
+ Así, un razonamiento está formado por 
+\series bold
+axiomas
+\series default
+ o 
+\series bold
+premisas
+\series default
+; 
+\series bold
+conclusiones
+\series default
+ o 
+\series bold
+teoremas
+\series default
+, y una 
+\series bold
+demostración
+\series default
+.
+ Existen dos tipos de razonamiento:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Deductivo:
+\series default
+ Se basa en la implicación.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Inductivo:
+\series default
+ Parte de casos y llega a una conclusión general.
+ Sólo es válido si se consideran todos los casos; de lo contrario la conclusión
+ es probablemente, pero no necesariamente, cierta.
+\end_layout
+
+\begin_layout Standard
+Un razonamiento es válido si la conclusión es necesariamente cierta cuando
+ lo son las premisas, y se escribe como 
+\begin_inset Formula $\underset{\text{Premisas}}{\{\alpha_{1},\alpha_{2},\dots,\alpha_{n}\}}\vDash\underset{\text{Conclusión}}{\beta}$
+\end_inset
+
+.
+ Para representarlo:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Representación gráfica:
+\series default
+
+\begin_inset Formula 
+\[
+\begin{array}{ccccc}
+P_{1} & \land & P_{2}\\
+\hline  & \downarrow\\
+ & C_{1} &  & \land & P_{3}\\
+\hline  &  &  & \downarrow\\
+ &  &  & C_{2}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Representación estándar:
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+ & P_{1}\\
+ & P_{2}\\
+\hline \therefore & C_{1} & P_{1}\text{ y }P_{2}\\
+ & P_{3}\\
+\hline \therefore & C_{2} & C_{1}\text{ y }P_{3}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Tipos de definiciones
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Extensiva
+\series default
+ o 
+\series bold
+extensional:
+\series default
+ Lista de elementos que cumplen la condición.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Comprensiva
+\series default
+ o 
+\series bold
+intensional:
+\series default
+ Lista de propiedades necesarias.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Recursiva:
+\series default
+ Formada por una 
+\series bold
+regla base
+\series default
+, que define casos concretos, y una 
+\series bold
+regla recursiva
+\series default
+, que define todos los demás casos a partir de casos ya conocidos mediante
+ una relación.
+ También puede contener una 
+\series bold
+regla de exclusión
+\series default
+.
+\end_layout
+
+\begin_layout Section
+Lenguajes formales
+\end_layout
+
+\begin_layout Standard
+El lenguaje natural es ambiguo, y suele ser vago, paradójico, complicado...
+ Por tanto, en ciencia es imprescindible un lenguaje formal para obtener
+ rigor.
+ Un lenguaje formal consta de un conjunto de símbolos (
+\series bold
+alfabeto
+\series default
+ o 
+\series bold
+vocabulario
+\series default
+) y una definición recursiva para conectarlos (
+\series bold
+gramática
+\series default
+ o 
+\series bold
+sintaxis
+\series default
+), y es el conjunto de todas las fórmulas bien formadas (f.b.f.) obtenidas
+ a partir de estas.
+ En la práctica, necesitamos un sistema de codificación (formalización)
+ y de interpretación.
+\end_layout
+
+\begin_layout Section
+Formalización e interpretación
+\end_layout
+
+\begin_layout Standard
+Formalizar es obtener una oración o f.b.f.
+ en lenguaje formal a partir del lenguaje natural, mientras que interpretar
+ es entender una f.b.f.
+ expresándola en lenguaje natural.
+\end_layout
+
+\end_body
+\end_document

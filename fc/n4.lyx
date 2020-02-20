@@ -1,0 +1,2821 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un sistema operativo es una capa de software situada entre el hardware y
+ las aplicaciones, que se encarga de 
+\begin_inset Quotes cld
+\end_inset
+
+enmascarar
+\begin_inset Quotes crd
+\end_inset
+
+ la complejidad del software a usuarios y programadores, administrando:
+\end_layout
+
+\begin_layout Itemize
+La CPU, que se comparte entre los procesos y el núcleo del SO.
+\end_layout
+
+\begin_layout Itemize
+La memoria, que también se comparte, impidiendo que un proceso acceda a
+ la de otro indebidamente.
+\end_layout
+
+\begin_layout Itemize
+Los dispositivos, que también se comparten, protegiendo de accesos indebidos
+ y ofreciendo una interfaz uniforme a los distintos tipos de dispositivos.
+\end_layout
+
+\begin_layout Standard
+Ejemplos: Windows (2000, XP, Vista...), Linux (Ubuntu, Fedora...), Unix, FreeBSD,
+ MacOS, etc.
+ Una distribución de un sistema operativo incluye al núcleo del SO junto
+ con software adicional.
+ Tipos de SO: De propósito general, de servidores, de tiempo real, integrados,
+ de tarjeta inteligente, de supercomputadores, etc.
+ Conceptos:
+\end_layout
+
+\begin_layout Description
+Usuario Persona que trabaja en el sistema.
+\end_layout
+
+\begin_layout Description
+Sesión Periodo de tiempo en el que un usuario interactúa con el sistema.
+\end_layout
+
+\begin_layout Description
+Programa Código ejecutable almacenado en disco.
+ Concepto estático.
+\end_layout
+
+\begin_layout Description
+Proceso Programa en ejecución, que necesita recursos.
+ Concepto dinámico con estado cambiante.
+ Unidad de trabajo del SO.
+\end_layout
+
+\begin_layout Description
+Fichero Unidad lógica de almacenamiento de datos persistentes.
+ Secuencia de bytes con un formato determinado.
+\end_layout
+
+\begin_layout Description
+Programas
+\begin_inset space ~
+\end_inset
+
+del
+\begin_inset space ~
+\end_inset
+
+sistema Programas que suelen acompañar al SO, como administrador de archivos,
+ intérprete de comandos, programas para información de estado, aplicaciones
+ básicas o utilidades de programación.
+\end_layout
+
+\begin_layout Description
+
+\series bold
+Interfaz
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+usuario 
+\series default
+Permite al usuario dar órdenes al sistema.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\lang english
+GUI
+\begin_inset space ~
+\end_inset
+
+(
+\emph on
+Graphical
+\begin_inset space ~
+\end_inset
+
+User
+\begin_inset space ~
+\end_inset
+
+Interface
+\emph default
+)
+\lang spanish
+ Presenta una visión intuitiva del sistema.
+ Se basa en un gestor de ventanas que permite arrancar y terminar aplicaciones
+ y trabajar con varias al mismo tiempo.
+\end_layout
+
+\begin_layout Description
+Línea
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+comandos Órdenes tecleadas.
+ Permite llamar a 
+\series bold
+órdenes internas
+\series default
+ reconocidas por el intérprete y 
+\series bold
+programas externos
+\series default
+, en su propio ejecutable.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Funcionamiento de un SO
+\end_layout
+
+\begin_layout Subsection
+El arranque
+\end_layout
+
+\begin_layout Standard
+Al encender, la CPU ejecuta un programa en ROM (
+\series bold
+iniciador ROM
+\series default
+ o 
+\series bold
+ROM BIOS
+\series default
+) que realiza un autodiagnóstico rápido del hardware y lee el 
+\series bold
+disco
+\series default
+ el programa 
+\series bold
+cargador
+\series default
+, que posiblemente permita seleccionar entre varios SO.
+ Este se encarga de cargar el kernel del SO en memoria, que toma el control,
+ establece sus estructuras internas básicas (tabla de procesos, memoria,
+ E/S, etc.) y ejecuta el 
+\series bold
+proceso inicial
+\series default
+, que empieza a lanzar procesos auxiliares y 
+\series bold
+demonios
+\series default
+ (para impresión, red, etc.) según esté configurado y, finalmente, lanza
+ uno (o varios) procesos de login, que permiten al usuario autenticarse
+ y comenzar a trabajar.
+\end_layout
+
+\begin_layout Subsection
+Interrupciones
+\end_layout
+
+\begin_layout Standard
+Las 
+\series bold
+interrupciones
+\series default
+ son un mecanismo que permite pasar el control al núcleo del SO.
+ Tipos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Interrupciones software
+\series default
+, 
+\series bold
+llamadas al sistema
+\series default
+ o 
+\series bold
+traps:
+\series default
+ Las inicia un proceso para llamar a un servicio del sistema.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Interrupciones hardware:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Excepciones
+\series default
+ o 
+\series bold
+desvíos:
+\series default
+ Las produce un error en la ejecución, como una instrucción errónea, acceso
+ indebido, error numérico, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Interrupciones
+\series default
+ propiamente dichas: Las causa un evento externo como el reloj del sistema
+ o un dispositivo de E/S, y llegan a la CPU mediante el bus de control.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Algunos tipos de llamadas al sistema:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Procesos:
+\series default
+ Creación y terminación de procesos e hilos...
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Acceso a dispositivos:
+\series default
+ Apertura, cierre, lectura y escritura de ficheros y dispositivos de E/S...
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Gestión de la memoria:
+\series default
+ Solicitud y liberación de espacio...
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Manipulación del sistema de ficheros:
+\series default
+ Creación y borrado de ficheros y directorios, movimiento por directorios,
+ manipulación de permisos, acceso a metadatos...
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Otros:
+\series default
+ Sincronización y comunicación entre procesos...
+\end_layout
+
+\begin_layout Subsection
+El subsistema de gestión de procesos
+\end_layout
+
+\begin_layout Standard
+Los SO permiten la 
+\series bold
+multiprogramación
+\series default
+, el uso compartido de la CPU entre varios procesos, y de esta forma permite
+ múltiples usuarios.
+ Periódicamente, el reloj interrumpe al proceso en ejecución para ejecutar
+ código del kernel, que cambia el 
+\series bold
+contexto
+\series default
+ para ejecutar otro proceso.
+ Los procesos van avanzando con sensación de simultaneidad, y los que quedan
+ a la espera de E/S ceden la CPU a otro proceso.
+ La parte del kernel encargada de optimizar el uso de CPU es el 
+\series bold
+planificador
+\series default
+ o 
+\series bold
+\emph on
+scheduler
+\series default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Todos los procesos son creados por otro, llamado 
+\series bold
+proceso padre
+\series default
+, siendo la raíz de la jerarquía el proceso inicial (en Linux, 
+\family typewriter
+init
+\family default
+), y terminan de forma voluntaria o externa.
+ Los procesos también pueden ser monitorizados, y se autorizan intentos
+ de comunicación entre procesos.
+\end_layout
+
+\begin_layout Subsection
+El subsistema de gestión de memoria
+\end_layout
+
+\begin_layout Standard
+La RAM es compartida por todos los procesos y el propio kernel, el cual
+ aísla a unos procesos de otros ubicándolos en 
+\series bold
+espacios de direccionamiento
+\series default
+ independientes.
+ Cada proceso tiene un 
+\series bold
+espacio de direcciones virtual
+\series default
+, que es mapeado por el sistema (con ayuda del hardware) a distintas 
+\series bold
+direcciones físicas
+\series default
+.
+ Si es necesario, parte del espacio virtual de un proceso se mantiene en
+ disco.
+ El SO se encarga de controlar las zonas de memoria libres y ocupadas, asignar
+ y recuperar espacio y mover datos y código entre la RAM y el disco según
+ sea necesario.
+\end_layout
+
+\begin_layout Subsection
+El subsistema de gestión de E/S
+\end_layout
+
+\begin_layout Standard
+El SO oculta las particularidades de distintos tipos de dispositivos.
+ Por ejemplo, mientras que el usuario ve un sistema de ficheros organizado
+ jerárquicamente, el disco en el que este está almacenado, con el que interactúa
+ el SO, se muestra como una inmensa tabla de sectores de 512 bytes cada
+ uno.
+\end_layout
+
+\begin_layout Standard
+Los dispositivos se manejan mediante una 
+\series bold
+controladora
+\series default
+, un CI en el propio dispositivo que lo controla físicamente y acepta comandos
+ elementales, y un 
+\series bold
+manejador de dispositivo
+\series default
+ o 
+\series bold
+
+\begin_inset Quotes cld
+\end_inset
+
+driver
+\begin_inset Quotes crd
+\end_inset
+
+
+\series default
+, un software ejecutado por el kernel del SO en 
+\series bold
+modo privilegiado
+\series default
+ (uso no restringido del procesador) que se comunica con la controladora.
+\end_layout
+
+\begin_layout Standard
+Las operaciones de E/S tardan un cierto tiempo en ejecutarse, por lo que
+ al enviar un comando a la controladora, el SO suspende el proceso en ejecución
+ y otorga la CPU a otro proceso, de forma que cuando termina la transferencia
+ de datos, se envía una 
+\series bold
+interrupción
+\series default
+ al procesador, causando que el SO vuelva a tomar el control y despierte
+ al proceso bloqueado.
+\end_layout
+
+\begin_layout Section
+Linux
+\end_layout
+
+\begin_layout Standard
+Es un clon de Unix creado por Linus Torvalds en 1991.
+ Su código fuente está disponible bajo GPL (puede usarse, modificarse y
+ distribuirse libremente).
+ Es multiplataforma, pues funciona en gran cantidad de procesadores por
+ estar escrito casi todo en C, multiusuario, multitarea y multinúcleo.
+ Usa memoria virtual con espacios de direccionamiento diferentes, y soporta
+ múltiples sistemas de archivos, protocolos de red e infinidad de dispositivos.
+ Existen múltiples distribuciones y miles de aplicaciones disponibles, libres
+ y comerciales.
+\end_layout
+
+\begin_layout Standard
+Se accede al sistema mediante nombre de usuario y contraseña, y solo el
+ usuario 
+\family typewriter
+root
+\family default
+ tiene el control total.
+ El 
+\emph on
+prompt
+\emph default
+ de la línea de comandos, configurable, proporciona información del usuario,
+ la máquina y el directorio actual:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\family typewriter
+\emph on
+usuario
+\emph default
+@
+\emph on
+máquina
+\emph default
+:
+\emph on
+directorio_actual
+\emph default
+$
+\end_layout
+
+\begin_layout Standard
+La interfaz gráfica más común es X-Window, que actúa como proceso 
+\begin_inset Quotes cld
+\end_inset
+
+servidor
+\begin_inset Quotes crd
+\end_inset
+
+ al que se conectan las aplicaciones gráficas 
+\begin_inset Quotes cld
+\end_inset
+
+cliente
+\begin_inset Quotes crd
+\end_inset
+
+.
+ Su diseño en red permite ejecutar aplicaciones gráficas remotas siempre
+ que en nuestra máquina se ejecute el servidor X.
+ Este captura los eventos de teclado y ratón y los envía a la aplicación,
+ a la vez que muestra la salida gráfica de la misma en ventanas.
+ Se arranca con 
+\family typewriter
+startx
+\family default
+, aunque la mayoría de distribuciones ya lo ejecutan al inicio.
+\end_layout
+
+\begin_layout Standard
+El principal cliente de X-Window es el gestor de ventanas, que determina
+ la apariencia del escritorio y ventanas.
+ En Linux son populares KDE y GNOME, que cuentan con aplicaciones de todo
+ tipo las cuales son compatibles entre sí por funcionar con X, aunque existen
+ muchos más, como otros más ligeros.
+\end_layout
+
+\begin_layout Subsection
+La línea de comandos
+\end_layout
+
+\begin_layout Standard
+La consola de texto, terminal, intérprete, línea de comandos o 
+\emph on
+shell
+\emph default
+ de Linux es un programa denominado 
+\family typewriter
+bash
+\family default
+.
+ Permite usar, configurar, personalizar y monitorizar el sistema de forma
+ muy avanzada, y realizar tareas repetitivas mediante 
+\begin_inset Quotes cld
+\end_inset
+
+guiones shell
+\begin_inset Quotes crd
+\end_inset
+
+ o 
+\emph on
+scripts
+\emph default
+, series de órdenes que se almacenan en un archivo para ser ejecutadas posterior
+mente con una sola orden.
+\end_layout
+
+\begin_layout Standard
+Los caracteres 
+\family typewriter
+/|
+\backslash
+!?*<>&~()[];#
+\family default
+, así como el espacio, tienen un significado especial en 
+\family typewriter
+bash
+\family default
+, por lo que no es conveniente usarlos en nombres de archivos y directorios.
+\end_layout
+
+\begin_layout Standard
+Los comandos se especifican como 
+\begin_inset Quotes cld
+\end_inset
+
+
+\family typewriter
+<comando> [parámetros...]
+\family default
+
+\begin_inset Quotes crd
+\end_inset
+
+.
+ Los comandos que aceptan varias opciones (con 
+\family typewriter
+-
+\begin_inset Formula $(letra)$
+\end_inset
+
+
+\family default
+) permiten ponerlos separados por espacios o juntos, en cuyo caso solo se
+ indica el guión en el primero.
+\end_layout
+
+\begin_layout Standard
+El tabulador completa una ruta o una orden cuando ya hemos escrito suficientes
+ caracteres para distinguirla.
+ Las teclas arriba y abajo permiten navegar por el historial de órdenes,
+ al que podemos acceder con 
+\family typewriter
+CTRL-R
+\family default
+ y tecleando una subcadena, con el comando 
+\family typewriter
+history
+\family default
+ o con 
+\family typewriter
+!
+\emph on
+número_de_orden
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Para evitar la interpretación de cualquier caracter reservado, se introduce
+ 
+\family typewriter
+
+\backslash
+
+\family default
+ delante o se encierra todo (el parámetro o parte de él) entre comillas
+ simples o dobles (la interpretación de estas, y del 
+\family typewriter
+
+\backslash
+
+\family default
+, también pueden ser anuladas por 
+\family typewriter
+
+\backslash
+
+\family default
+).
+\end_layout
+
+\begin_layout Standard
+Para salir de la línea de comandos se usa el comando interno 
+\family typewriter
+exit
+\family default
+.
+ Linux tiene una serie de terminales virtuales.
+ Para acceder a una, se pulsa 
+\family typewriter
+CTRL-ALT-F
+\begin_inset Formula $n$
+\end_inset
+
+
+\family default
+, donde 
+\begin_inset Formula $n$
+\end_inset
+
+ es el número de la terminal.
+ En una de ellas está la interfaz gráfica, en el caso de Ubuntu, en la 7.
+ Para copiar y pegar en dichas terminales virtuales, se marca el texto a
+ copiar de principio a fin pulsando el botón izquierdo del ratón y después,
+ con el cursor situado donde se quiere pegar el texto, se pulsa el botón
+ central.
+\end_layout
+
+\begin_layout Subsection
+Órdenes de ayuda
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+man 
+\emph on
+page
+\family default
+\emph default
+: Muestra un manual de la orden que se le indica como parámetro, del que
+ se sale pulsando 
+\family typewriter
+q
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+info 
+\emph on
+page
+\family default
+\emph default
+: Misma función, aunque funciona de forma distinta.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+help 
+\emph on
+command
+\family default
+\emph default
+: Muestra algo de información sobre un comando interno.
+\end_layout
+
+\begin_layout Itemize
+También se puede obtener información llamando al comando con 
+\family typewriter
+-h
+\family default
+, 
+\family typewriter
+-?
+\family default
+ o 
+\family typewriter
+--help
+\family default
+.
+\end_layout
+
+\begin_layout Subsection
+El sistema de ficheros
+\end_layout
+
+\begin_layout Standard
+Todo el almacenamiento se considera un sistema único de ficheros jerárquico
+ que parte del directorio raíz (
+\family typewriter
+/
+\family default
+) y cuyas entradas pueden ser ficheros (regulares, por caracteres, por bloques
+ o enlaces simbólicos) u otros directorios.
+\end_layout
+
+\begin_layout Itemize
+Los 
+\series bold
+enlaces simbólicos
+\series default
+ son 
+\begin_inset Quotes cld
+\end_inset
+
+punteros
+\begin_inset Quotes crd
+\end_inset
+
+ a otras entradas del sistema de ficheros, que almacenan la ruta de estas.
+ Si el archivo original cambia de lugar o es eliminado, el enlace queda
+ 
+\begin_inset Quotes cld
+\end_inset
+
+colgando
+\begin_inset Quotes crd
+\end_inset
+
+, apuntado a nada.
+\end_layout
+
+\begin_layout Itemize
+Los 
+\series bold
+enlaces físicos
+\series default
+ o 
+\series bold
+duros
+\series default
+ se diferencian en que el fichero creado originalmente es indistinguible
+ del enlace, de forma que solo al borrar el último enlace se libera el espacio
+ en disco.
+ Sin embargo, no se puede crear un enlace físico a un fichero en otro disco.
+\end_layout
+
+\begin_layout Standard
+Al indicar una ruta, se usa el caracter 
+\family typewriter
+/
+\family default
+ para separar directorios y ficheros.
+ El punto (
+\family typewriter
+.
+\family default
+) en un nombre de archivo se usa opcionalmente para agrupar archivos que
+ serán abiertos con la misma aplicación, diferenciando por 
+\series bold
+extensiones
+\series default
+, y si se pone al principio de un archivo o directorio, este cuenta como
+ 
+\series bold
+oculto
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Una ruta que empiece por 
+\family typewriter
+/
+\family default
+ es 
+\series bold
+absoluta
+\series default
+ y parte de la raíz.
+ Cualquier otra ruta es 
+\series bold
+relativa
+\series default
+ y parte del directorio actual.
+ El directorio actual se denota por 
+\family typewriter
+.
+\family default
+, el directorio 
+\begin_inset Quotes cld
+\end_inset
+
+padre
+\begin_inset Quotes crd
+\end_inset
+
+ de otro por 
+\family typewriter
+..
+
+\family default
+ y el directorio 
+\begin_inset Quotes cld
+\end_inset
+
+home
+\begin_inset Quotes crd
+\end_inset
+
+ (del usuario que ha iniciado sesión) por 
+\family typewriter
+~
+\family default
+.
+ Los nombres de archivos diferencian mayúsculas de minúsculas.
+\end_layout
+
+\begin_layout Standard
+Los directorios importantes son los siguientes:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+/bin
+\family default
+: Programas básicos del sistema.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+/usr/bin
+\family default
+: Aplicaciones y otros programas.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+/sbin
+\family default
+: Programas de administración (para superusuario).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+/lib
+\family default
+: Bibliotecas del sistema.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+/usr/lib
+\family default
+ Bibliotecas de aplicaciones.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+/etc
+\family default
+: Ficheros de configuración.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+/home
+\family default
+: Directorios de usuarios.
+ En general, cada usuario tiene una carpeta 
+\family typewriter
+/home/<user>
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+/tmp
+\family default
+: Ficheros temporales.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+/dev
+\family default
+: Dispositivos.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+/proc
+\family default
+: Visión dinámica del sistema.
+\end_layout
+
+\begin_layout Standard
+Los dos últimos directorios mencionados no existen en el disco, sino que
+ el SO proporciona esta percepción por comodidad.
+ A veces 
+\family typewriter
+/tmp
+\family default
+ tampoco está en disco, sino que solo existe en la RAM.
+\end_layout
+
+\begin_layout Standard
+Los discos 
+\begin_inset Quotes cld
+\end_inset
+
+tal cual
+\begin_inset Quotes crd
+\end_inset
+
+ se representan como archivos, que habitualmente se denominan 
+\family typewriter
+/dev/sda
+\family default
+, 
+\family typewriter
+/dev/sdb
+\family default
+, etc., y sus particiones 
+\family typewriter
+/dev/sda1
+\family default
+, 
+\family typewriter
+/dev/sda2
+\family default
+, etc., y 
+\family typewriter
+/dev/null
+\family default
+ indica un archivo virtual que descarta todo lo que se escribe en él.
+\end_layout
+
+\begin_layout Standard
+En 
+\family typewriter
+bash, 
+\family default
+si un parámetro es una ruta, podemos usar comodines, y el parámetro se sustituye
+ por la lista de rutas de archivo que cumplen la condición (si existen).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+*
+\family default
+: Cero o más caracteres.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+?
+\family default
+: Un caracter.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+[
+\begin_inset Formula $a$
+\end_inset
+
+-
+\begin_inset Formula $z$
+\end_inset
+
+]
+\family default
+: Un caracter en el rango.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+[!
+\begin_inset Formula $a$
+\end_inset
+
+-
+\begin_inset Formula $z$
+\end_inset
+
+]
+\family default
+: Un caracter que no esté en el rango.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+{
+\begin_inset Formula $n1$
+\end_inset
+
+,
+\begin_inset Formula $n2$
+\end_inset
+
+,
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\family default
+}: Cualquier secuencia de caracteres de la lista.
+\end_layout
+
+\begin_layout Standard
+Comandos:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+pwd
+\family default
+.
+ Indica el directorio en que nos encontramos (ruta completa).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+cd [-|dir]
+\family default
+.
+ Cambia al directorio especificado (o a 
+\family typewriter
+~
+\family default
+).
+ Si se indica 
+\family typewriter
+-
+\family default
+, vuelve al último directorio en que estuvimos.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+ls [-dlrRaStu] [dir]
+\family default
+.
+ Lista las entradas del directorio 
+\family typewriter
+dir
+\family default
+ o del actual:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+-l
+\family default
+: Formato largo.
+ En vez de mostrar solo el nombre, muestra el total y a con
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ti
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+nua
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ción, para cada archivo:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Tipo (
+\family typewriter
+-
+\family default
+: Archivo; 
+\family typewriter
+d
+\family default
+: Directorio; 
+\family typewriter
+l
+\family default
+: Enlace simbólico; 
+\family typewriter
+c
+\family default
+: Fichero por caracteres; 
+\family typewriter
+b
+\family default
+: Fichero por bloques) y permisos.
+\end_layout
+
+\begin_layout Itemize
+Número de enlaces duros.
+\end_layout
+
+\begin_layout Itemize
+Usuario.
+\end_layout
+
+\begin_layout Itemize
+Grupo.
+\end_layout
+
+\begin_layout Itemize
+Tamaño (bytes).
+\end_layout
+
+\begin_layout Itemize
+Fecha y hora de modificación.
+\end_layout
+
+\begin_layout Itemize
+Nombre.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\family typewriter
+-R
+\family default
+: Lista recursiva.
+ Muestra también el contenido de todos los subdirectorios.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-a
+\family default
+: Muestra también las entradas ocultas (cuyo nombre empieza por 
+\family typewriter
+.
+\family default
+).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-S
+\family default
+: Ordena por tamaño.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-t
+\family default
+: Ordena por fecha y hora de última modificación.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-u
+\family default
+: Ordena por fecha y hora de último acceso.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-U
+\family default
+: Ordena por fecha y hora de creación.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-r
+\family default
+: Invierte el orden escogido por 
+\family typewriter
+-S|t|u|U
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-d
+\family default
+: Lista la entrada correspondiente al subdirectorio indicado en lugar de
+ las entradas que este contiene.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\family typewriter
+cat [file]
+\family default
+.
+ Muestra el contenido del 
+\family typewriter
+file
+\family default
+, o de la entrada estándar.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+more [file]
+\family default
+.
+ Igual pero permite mostrarlo poco a poco.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+less [file]
+\family default
+.
+ Igual pero permite desplazarse arriba y abajo y buscar palabras con 
+\family typewriter
+/
+\begin_inset Formula $palabra$
+\end_inset
+
+
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+hexdump -C [file]
+\family default
+: Muestra el contenido de 
+\family typewriter
+file
+\family default
+, o de la entrada estándar, en he
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+xa
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+de
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ci
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+mal con formato.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+find [path] [match] [expr]
+\family default
+.
+ Busca en 
+\family typewriter
+path
+\family default
+ (o en el directorio actual) y sus subdirectorios, archivos que cumplan
+ los criterios (
+\family typewriter
+match
+\family default
+) (o todos) y hace lo que indique la expresión (
+\family typewriter
+expr
+\family default
+) (o muestra el nombre por la salida).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Criterios:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+-name 
+\begin_inset Formula $nombre$
+\end_inset
+
+
+\family default
+: Nombre de la entrada (se pueden usar comodines, pero de forma que no los
+ sustituya la 
+\emph on
+shell
+\emph default
+).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-iname 
+\begin_inset Formula $nombre$
+\end_inset
+
+
+\family default
+: Similar pero sin distinguir mayúsculas y minúsculas.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-user 
+\begin_inset Formula $usuario$
+\end_inset
+
+
+\family default
+: Usuario al que pertenece.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-group 
+\begin_inset Formula $grupo$
+\end_inset
+
+
+\family default
+: Grupo al que pertenece.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-type [c|b|d|l|f]
+\family default
+: Tipo de fichero (igual que en 
+\family typewriter
+ls -l
+\family default
+, salvo que 
+\family typewriter
+f
+\family default
+ para fichero regular).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-mtime [+|-]
+\begin_inset Formula $n$
+\end_inset
+
+
+\family default
+: Modificado hace más (
+\family typewriter
++
+\family default
+), menos (
+\family typewriter
+-
+\family default
+) o exactamente 
+\begin_inset Formula $n$
+\end_inset
+
+ días.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-atime [+|-]
+\begin_inset Formula $n$
+\end_inset
+
+
+\family default
+: Igual pero con el último acceso.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-amin [+|-]
+\begin_inset Formula $n$
+\end_inset
+
+
+\family default
+: Igual que 
+\family typewriter
+-atime
+\family default
+ pero en minutos.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-size [+|-]
+\begin_inset Formula $n$
+\end_inset
+
+
+\family default
+: Tamaño de más (
+\family typewriter
++
+\family default
+), menos (
+\family typewriter
+-
+\family default
+) o exactamente 
+\begin_inset Formula $512n$
+\end_inset
+
+ bytes.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+!
+\family default
+: Negación de lo siguiente.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-o
+\family default
+: Disyunción lógica.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-a
+\family default
+: Conjunción lógica (por defecto cuando se usan varios criterios).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Expresiones:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+-printf 
+\begin_inset Formula $\dots$
+\end_inset
+
+
+\family default
+: Imprime la secuencia de caracteres que se indica.
+ Secuencias de escape: 
+\family typewriter
+%s
+\family default
+: Tamaño; 
+\family typewriter
+%u
+\family default
+: Usuario; 
+\family typewriter
+%p
+\family default
+: Ruta completa; etc.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+
+\family typewriter
+which 
+\emph on
+command
+\family default
+\emph default
+.
+ Muestra la ubicación en el sistema de ficheros de un comando externo.
+ La lista de directorios donde la 
+\emph on
+shell
+\emph default
+ busca comandos externos se denomina 
+\family typewriter
+PATH
+\family default
+ y se puede consultar con 
+\family typewriter
+echo $PATH
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+touch <file>
+\family default
+.
+ Crea un fichero o, si ya existía, actualiza su fecha de modificación.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+cp [-iprRu] srcfile ...
+ destfile|destdir
+\family default
+.
+ Copia un fichero a otro, o varios ficheros a un directorio.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+-R
+\family default
+, 
+\family typewriter
+-r
+\family default
+: Copia recursiva, para copiar directorios.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-i
+\family default
+: Pide confirmación si el fichero de destino ya existía, para evitar sobreescrib
+irlo.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-p
+\family default
+: Conserva la fecha de modificación al copiar.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-u
+\family default
+: No se copia si el destino tiene una fecha de modificación igual o posterior
+ al origen.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\family typewriter
+mv srcfile|dirfile ...
+ destfile|destdir
+\family default
+.
+ Como 
+\family typewriter
+cp
+\family default
+ pero cambia la posición del archivo en vez de copiarlo.
+ Se puede usar para cambiar el nombre de un fichero o directorio.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+rm [-ifrv] file|dir ...
+\family default
+.
+ Elimina ficheros y directorios.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+-v
+\family default
+: Muestra los nombres de las entradas conforme se eliminan.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-i
+\family default
+: Pide confirmación para cada entrada.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-r
+\family default
+: Borrado recursivo, para eliminar directorios.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-f
+\family default
+: Nunca pide confirmación.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\family typewriter
+mkdir dir
+\family default
+.
+ Crea un directorio vacío en la ruta especificada.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+rmdir dir
+\family default
+.
+ Elimina el directorio indiciado si está vacío.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+tar ...
+\family default
+.
+ Para manipulación de archivos.
+ Estos suelen tener la extensión 
+\family typewriter
+.tar
+\family default
+ o 
+\family typewriter
+.tar.gz
+\family default
+ (comprimido, también 
+\family typewriter
+.tgz
+\family default
+).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+tar c[zv][f archive] [files|dirs ...]
+\family default
+.
+ Comprime los ficheros y directorios indicados.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+tar t[zv][f archive]
+\family default
+.
+ Lista los contenidos del archivo.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+tar x[zv][f archive]
+\family default
+.
+ Extrae el contenido del archivo, recuperando también los permisos, estructura
+ de directorios, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+z
+\family default
+: Indica compresión GZip (
+\family typewriter
+\SpecialChar endofsentence
+gz
+\family default
+).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+v
+\family default
+: Muestra los archivos conforme se comprimen o descomprimen.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+f archive
+\family default
+: Indica el nombre del archivo.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\family typewriter
+ln [-s] target link
+\family default
+.
+ Crea un enlace llamado 
+\family typewriter
+link
+\family default
+ al fichero 
+\family typewriter
+target
+\family default
+.
+ Si 
+\family typewriter
+link
+\family default
+ es un directorio existente, se crea dentro el enlace con el nombre de 
+\family typewriter
+target
+\family default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+-s
+\family default
+: El enlace es simbólico (si no se especifica, se crea un enlace duro).
+ En tal caso, la ruta del fichero 
+\family typewriter
+target
+\family default
+ se indica de forma relativa al directorio en que está 
+\family typewriter
+link
+\family default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\family typewriter
+df
+\family default
+.
+ Informa del espacio total y libre en todos los sistemas de archivos montados.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+du [-hs] dir ...
+\family default
+.
+ Muestra lo que ocupan realmente en el disco los directorios indicados junto
+ con todos sus ficheros y subdirectorios de forma recursiva.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+-h
+\family default
+: Muestra en unidades más legibles como KB, MB o GB, en vez de en bloques
+ de 1024 bytes.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-s
+\family default
+: Muestra sólo el tamaño total para cada argumento en lugar de mostrar lo
+ que ocuparía cada entrada dentro de estos.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Usuarios, grupos y permisos
+\end_layout
+
+\begin_layout Standard
+Existen tres tipos de 
+\series bold
+usuarios
+\series default
+: normales; del sistema, vinculados a ciertas tareas del SO, y 
+\family typewriter
+root
+\family default
+ o 
+\series bold
+superusuario
+\series default
+, que tiene control total y en el prompt aparece con 
+\family typewriter
+#
+\family default
+ en vez de 
+\family typewriter
+$
+\family default
+.
+ La información sobre los usuarios se guarda en 
+\family typewriter
+/etc/passwd
+\family default
+ y las contraseñas cifradas en 
+\family typewriter
+/etc/shadow
+\family default
+.
+ Los usuarios se pueden organizar en 
+\series bold
+grupos
+\series default
+, con diferentes permisos.
+ Cada usuario tiene un grupo principal, pero puede pertenecer a varios.
+ La información se almacena en 
+\family typewriter
+/etc/group
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Un usuario puede tener tres permisos sobre un fichero o directorio:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $r$
+\end_inset
+
+: Lectura.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $w$
+\end_inset
+
+: Escritura.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x$
+\end_inset
+
+: Ejecución de un fichero o acceso al contenido de un directorio.
+\end_layout
+
+\begin_layout Standard
+Cada entrada del sistema de ficheros lleva asociado un usuario y un grupo,
+ y existen permisos distintos para el usuario, el grupo y 
+\begin_inset Quotes cld
+\end_inset
+
+el resto
+\begin_inset Quotes crd
+\end_inset
+
+.
+ Se suelen indicar con tres secuencias 
+\family typewriter
+rwx
+\family default
+ (para usuario, grupo y resto, en orden), de forma que para los permisos
+ que no se concedan se sustituye la letra por un 
+\family typewriter
+-
+\family default
+.
+ Así es como se indica en 
+\family typewriter
+ls -l
+\family default
+.
+ Comandos:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+chmod perms file|dir
+\family default
+.
+ Cambia los permisos de un fichero o directorio.
+ El campo 
+\family typewriter
+perms
+\family default
+ indica los permisos en octal, asignando 1's a los permisos que se desea
+ conceder y 0's al resto, en el orden en que se muestran en 
+\family typewriter
+ls -l
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+chown user file|dir
+\family default
+.
+ Cambia el propietario de un fichero o directorio.
+ Requiere permisos de superusuario.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+chgrp group file|dir
+\family default
+.
+ Igual pero con el grupo.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+whoami
+\family default
+.
+ Muestra nuestro nombre de usuario.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+who
+\family default
+.
+ Muestra los usuarios actualmente conectados, con sus horas y lugares (terminale
+s) de inicio de sesión.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+w
+\family default
+.
+ Similar, pero además muestra qué está ejecutando cada usuario.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+groups
+\family default
+.
+ Muestra a que grupos pertenecemos.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+sudo command pars ...
+\family default
+.
+ Ejecuta el comando dado como superusuario (pide contraseña).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+-s
+\family default
+: Si se indica esto (sin especificar un comando), simplemente cambia a su
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+per
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+u
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+sua
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+rio.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\family typewriter
+login user
+\family default
+.
+ Cambia al usuario especificado (pide su contraseña).
+\end_layout
+
+\begin_layout Subsection
+Los procesos
+\end_layout
+
+\begin_layout Standard
+Los comandos separados por 
+\family typewriter
+;
+\family default
+ se ejecutan uno detrás de otro, y situar 
+\family typewriter
+&
+\family default
+ detrás de un comando (o entre dos comandos, en cuyo caso afecta al de la
+ izquierda) lanza un proceso en segundo plano, ejecutando lo que va delante
+ sin esperar o permitiendo usar la shell sin que termine de ejecutarse.
+ 
+\family typewriter
+bash
+\family default
+ muestra entonces el PID (identificador de proceso, entero único para cada
+ uno).
+ 
+\family typewriter
+CTRL-C
+\family default
+ 
+\begin_inset Quotes cld
+\end_inset
+
+mata
+\begin_inset Quotes crd
+\end_inset
+
+ a un proceso en primer plano, y 
+\family typewriter
+CTRL-Z
+\family default
+ lo pausa (lo 
+\begin_inset Quotes cld
+\end_inset
+
+duerme
+\begin_inset Quotes crd
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+El directorio virtual 
+\family typewriter
+/proc
+\family default
+ se consulta como un sistema de ficheros normal, pero realmente lo mantiene
+ el núcleo en tiempo real, y contiene un subdirectorio por cada PID de proceso
+ activo, con información sobre el mismo como ficheros abiertos, mapa de
+ memoria, etc.
+ También contiene:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+/proc/cpuinfo
+\family default
+: Información sobre la CPU.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+/proc/meminfo
+\family default
+: Información sobre la memoria.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+/proc/version
+\family default
+: Versión del núcleo.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+/proc/sys
+\family default
+: Directorio con los parámetros de distintos subsistemas del núcleo.
+ Si se tienen los permisos, se puede hasta cambiar el comportamento del
+ núcleo en tiempo de ejecución.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+kill [-9] PID
+\family default
+: Lanza una señal para terminar el proceso con el PID indicado.
+ Este puede 
+\begin_inset Quotes cld
+\end_inset
+
+capturar
+\begin_inset Quotes crd
+\end_inset
+
+ dicha señal evitando su finalización (puede ser útil en ciertos casos).
+ Si aun así se desea terminar dicho proceso, la opción 
+\family typewriter
+-9
+\family default
+ manda una señal 
+\begin_inset Quotes cld
+\end_inset
+
+no capturable
+\begin_inset Quotes crd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Cada proceso tiene una entrada estándar (
+\family typewriter
+stdin
+\family default
+, por defecto el teclado), una salida estándar (
+\family typewriter
+stdout
+\family default
+, por defecto la pantalla) y una salida estándar de error (
+\family typewriter
+stderr
+\family default
+).
+ En 
+\family typewriter
+bash
+\family default
+, detrás de un comando, 
+\family typewriter
+> 
+\begin_inset Formula $archivo$
+\end_inset
+
+
+\family default
+ redirige 
+\family typewriter
+stdout
+\family default
+ a un archivo, que sobreescribe en caso de existir, y 
+\family typewriter
+>> 
+\begin_inset Formula $archivo$
+\end_inset
+
+
+\family default
+ hace lo mismo pero, si el archivo ya existe, en vez de sobreescribirlo
+ añade la salida al final.
+ Igualmente, 
+\family typewriter
+2>
+\family default
+ y 
+\family typewriter
+2>>
+\family default
+ hacen lo mismo pero con 
+\family typewriter
+stderr
+\family default
+, y <
+\family typewriter
+ 
+\begin_inset Formula $archivo$
+\end_inset
+
+
+\family default
+ toma 
+\family typewriter
+stdin
+\family default
+ de ese archivo.
+\end_layout
+
+\begin_layout Standard
+Otra forma de comunicación entre procesos son las 
+\series bold
+tuberías
+\series default
+ que permiten redireccionar el 
+\family typewriter
+stdout
+\family default
+ de un fichero con el 
+\family typewriter
+stdin
+\family default
+ del siguiente.
+ En 
+\family typewriter
+bash
+\family default
+ se indican con 
+\family typewriter
+/
+\family default
+.
+ Existe un repertorio de comandos útiles, llamados 
+\series bold
+filtros
+\series default
+, especialmente diseñados para comunicarse mediante tuberías.
+\end_layout
+
+\begin_layout Standard
+Comandos:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+ps [-Af]
+\family default
+.
+ Lista los procesos activos.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+-A
+\family default
+: Muestra todos los procesos en lugar de solo los lanzados desde ese terminal.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-f
+\family default
+: Muestra información adicional de interes, como el PID, el consumo de CPU,
+ el PID del proceso padre (PPID), hora de lanzamiento, etc.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\family typewriter
+top
+\family default
+.
+ Monitoriza en tiempo real los procesos activos, mostrando información de
+ ellos similar a 
+\family typewriter
+ps -Af
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+fg
+\family default
+: Pasa el último proceso pausado (despertándolo) o el último en ser iniciado
+ en segundo plano al primer plano.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+bg
+\family default
+: Despierta un proceso pausado pasándolo al segundo plano.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Itemize
+
+\family typewriter
+sort [-n]
+\family default
+.
+ Ordena alfabéticamente las líneas de la entrada.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+-n
+\family default
+: Ordena numéricamente.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\family typewriter
+grep <pattern>
+\family default
+.
+ Muestra solo las líneas de la entrada que contengan cierto patrón.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+cut -c
+\family default
+
+\begin_inset Formula $start$
+\end_inset
+
+
+\family typewriter
+-
+\begin_inset Formula $end$
+\end_inset
+
+
+\family default
+.
+ Muestra solo las columnas 
+\begin_inset Formula $start$
+\end_inset
+
+–
+\begin_inset Formula $end$
+\end_inset
+
+ de cada fila.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+head [-
+\begin_inset Formula $n$
+\end_inset
+
+]
+\family default
+.
+ Muestra solo las primeras 
+\begin_inset Formula $n$
+\end_inset
+
+ (10) líneas.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+tail [-
+\begin_inset Formula $n$
+\end_inset
+
+]
+\family default
+.
+ Muestra solo las últimas 
+\begin_inset Formula $n$
+\end_inset
+
+ (10) líneas.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+uniq
+\family default
+.
+ Elimina líneas repetidas.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+wc [-lcw]
+\family default
+.
+ Cuenta las líneas (
+\family typewriter
+-l
+\family default
+), caracteres (
+\family typewriter
+-c
+\family default
+) y/o palabras (
+\family typewriter
+-w
+\family default
+).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+tr
+\family default
+.
+ Ejemplos:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+tr "-z" "A-Z"
+\family default
+.
+ Convierte minúsculas a mayúsculas.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+tr -d "0-9"
+\family default
+.
+ Elimina caracteres numéricos.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+tr -d -c "0-9"
+\family default
+.
+ Elimina caracteres no numéricos o espacios.
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Otros comandos
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+date
+\family default
+.
+ Devuelve la fecha y hora actuales.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+cal
+\family default
+.
+ Calendario del mes/año actual.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+clear
+\family default
+.
+ 
+\begin_inset Quotes cld
+\end_inset
+
+Limpia
+\begin_inset Quotes crd
+\end_inset
+
+ la pantalla del terminal.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+reset
+\family default
+.
+ Resetea el terminal (para cuando se queda con caracteres extraños, como
+ tras hacer 
+\family typewriter
+cat
+\family default
+ de un fichero binario).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+expr
+\family default
+.
+ Para cálculos aritméticos.
+ Ejemplo: 
+\family typewriter
+expr 101 + 12
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+xargs ...
+\family default
+.
+ Toma lo que se le pasa como parámetros (algún comando), le añade lo que
+ le llega por la entrada estándar, lo interpreta como comando + parámetros
+ y lo ejecuta.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+split [-d] -b
+\begin_inset Formula $n$
+\end_inset
+
+ [file [prefix]]
+\family default
+.
+ Divide el archivo 
+\family typewriter
+file
+\family default
+ (o la entrada estándar) en trozos de tamaño 
+\begin_inset Formula $n$
+\end_inset
+
+ (por defecto bytes salvo que le suceda una 
+\family typewriter
+k
+\family default
+ (KB), etc.) cuyo nombre empieza por 
+\family typewriter
+prefix
+\family default
+ (o 
+\family typewriter
+x
+\family default
+).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+-d
+\family default
+: Usa sufijos numéricos en vez de por letras.
+\end_layout
+
+\end_deeper
+\end_body
+\end_document

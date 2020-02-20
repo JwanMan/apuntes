@@ -1,0 +1,2202 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Límite de una función en un punto
+\end_layout
+
+\begin_layout Standard
+Una función es una terna 
+\begin_inset Formula $(D,F,f)$
+\end_inset
+
+, escrita como 
+\begin_inset Formula $f:D\rightarrow F$
+\end_inset
+
+, donde 
+\begin_inset Formula $f$
+\end_inset
+
+ asigna a cada 
+\begin_inset Formula $x\in D$
+\end_inset
+
+ un único valor 
+\begin_inset Formula $f(x)\in F$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+recta real ampliada
+\series default
+ al conjunto 
+\begin_inset Formula $\overline{\mathbb{R}}:=\mathbb{R}\cup\{+\infty,-\infty\}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $V$
+\end_inset
+
+ es un 
+\series bold
+entorno
+\series default
+ de 
+\begin_inset Formula $x\in K$
+\end_inset
+
+ si 
+\begin_inset Formula $\exists r>0:B(x,r)\subseteq V$
+\end_inset
+
+, y 
+\begin_inset Formula $x$
+\end_inset
+
+ es un 
+\series bold
+punto de acumulación
+\series default
+ de 
+\begin_inset Formula $A\subseteq K$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall r>0,\exists x^{\prime}\neq x:x^{\prime}\in B(x,r)\cap A$
+\end_inset
+
+.
+ Se tiene entonces que 
+\begin_inset Formula $x$
+\end_inset
+
+ es un punto de acumulación de 
+\begin_inset Formula $A\neq\emptyset$
+\end_inset
+
+ si y sólo si existe 
+\begin_inset Formula $(x_{n})_{n}\subseteq A$
+\end_inset
+
+ con 
+\begin_inset Formula $x_{n}\neq x\forall n$
+\end_inset
+
+ y 
+\begin_inset Formula $x=\lim_{n}x_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $B(x,\frac{1}{n})\cap A$
+\end_inset
+
+ debe contener algún punto distinto de 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ es uno de esos puntos, 
+\begin_inset Formula $\lim_{n}x_{n}=x$
+\end_inset
+
+, pues 
+\begin_inset Formula $|x_{n}-x|<\frac{1}{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $r>0$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $n>n_{0}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $|x_{n}-x|<r$
+\end_inset
+
+, es decir, 
+\begin_inset Formula $x_{n}\in B(x,r)$
+\end_inset
+
+, luego 
+\begin_inset Formula $x_{n}\in B(x,r)\cap A$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{n}\neq x$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $f:D\subseteq K\rightarrow K$
+\end_inset
+
+ y 
+\begin_inset Formula $c$
+\end_inset
+
+ un punto de acumulación de 
+\begin_inset Formula $D$
+\end_inset
+
+, 
+\begin_inset Formula $L$
+\end_inset
+
+ es el límite de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $c$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\lim_{x\rightarrow c}f(x)=L
+\]
+
+\end_inset
+
+si 
+\begin_inset Formula $\forall\varepsilon>0,\exists\delta>0:\forall x\in D,(0<|x-c|<\delta\implies|f(x)-L|<\varepsilon)$
+\end_inset
+
+.
+ Dicho de otro modo, si 
+\begin_inset Formula $\forall B(L,\varepsilon),\exists B(c,\delta):f((B(c,\delta)\cap D)\backslash\{c\})\subseteq B(L,\varepsilon)$
+\end_inset
+
+.
+ Se tiene entonces que 
+\begin_inset Formula $L=\lim_{x\rightarrow c}f(x)\iff\forall(x_{n})_{n}\subseteq D,(\lim_{n}x_{n}=c\land\forall n\in\mathbb{N},x_{n}\neq c\implies L=\lim_{n}f(x_{n}))$
+\end_inset
+
+.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+La implicación directa se demuestra ayudándose de un esquema, y la inversa
+ se realiza por reducción al absurdo.
+\end_layout
+
+\end_inset
+
+ Si existe el límite de una función en un punto, este es único.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Condición de Cauchy:
+\series default
+ Dados 
+\begin_inset Formula $f:D\subseteq K\rightarrow K$
+\end_inset
+
+ y 
+\begin_inset Formula $c$
+\end_inset
+
+ un punto de acumulación de 
+\begin_inset Formula $D$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\exists\lim_{x\rightarrow c}f(x)\in K\iff\forall\varepsilon>0,\exists\delta>0:\forall x,y\in B(c,\delta)\backslash\{c\},|f(x)-f(y)|<\varepsilon$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $L:=\lim_{x\rightarrow c}f(x)$
+\end_inset
+
+.
+ Fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $0\leq|x-c|<\delta$
+\end_inset
+
+ (es decir, 
+\begin_inset Formula $x\in B(c,\delta)\backslash\{c\}$
+\end_inset
+
+), 
+\begin_inset Formula $|L-f(x)|<\frac{\varepsilon}{2}$
+\end_inset
+
+.
+ Análogamente, para 
+\begin_inset Formula $y\in B(c,\delta)\backslash\{c\}$
+\end_inset
+
+, 
+\begin_inset Formula $|L-f(y)|<\frac{\varepsilon}{2}$
+\end_inset
+
+, luego 
+\begin_inset Formula $|f(x)-f(y)|=|f(x)-L|+|L-f(y)|<\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, tomamos 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ con 
+\begin_inset Formula $x,y\in B(c,\delta)\backslash\{c\}\implies|f(x)-f(y)|<\varepsilon$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $(x_{n})_{n}\subseteq D$
+\end_inset
+
+ con 
+\begin_inset Formula $\lim_{n}x_{n}=c$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{n}\neq c$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n,m>n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $x_{n},x_{m}\in B(c,\delta)\backslash\{c\}$
+\end_inset
+
+.
+ Pero entonces 
+\begin_inset Formula $|f(x_{n})-f(x_{m})|<\varepsilon$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $(f(x_{n}))_{n}$
+\end_inset
+
+ es de Cauchy y por tanto convergente, por lo que existe 
+\begin_inset Formula $L:=\lim_{n}f(x_{n})$
+\end_inset
+
+ y solo queda probar que 
+\begin_inset Formula $L$
+\end_inset
+
+ no depende de 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+.
+ Dada 
+\begin_inset Formula $(x_{n}^{\prime})_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $\lim_{n}x_{n}^{\prime}=c$
+\end_inset
+
+, 
+\begin_inset Formula $x_{n}^{\prime}\neq c$
+\end_inset
+
+ y 
+\begin_inset Formula $L^{\prime}:=\lim_{n}f(x_{n}^{\prime})$
+\end_inset
+
+ se tendría 
+\begin_inset Formula $|L-L^{\prime}|=|\lim_{n}f(x_{n})-\lim_{n}f(x_{n}^{\prime})|\leq\varepsilon$
+\end_inset
+
+ para cualquier 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, ya que al ser 
+\begin_inset Formula $\lim_{n}x_{n}=c=\lim_{n}x_{n}^{\prime}$
+\end_inset
+
+, se cumple para 
+\begin_inset Formula $n>n_{0}^{\prime}$
+\end_inset
+
+ que 
+\begin_inset Formula $|x_{n}-x_{n}^{\prime}|<\delta$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Tomando límites de sucesiones, podemos concluir que:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall k\in\mathbb{N},\lim_{x\rightarrow c}x^{k}=c^{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall k\in\mathbb{N},\lim_{x\rightarrow c}\sqrt[k]{x}=\sqrt[k]{c}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lim_{x\rightarrow c}\sin x=\sin c$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Como 
+\begin_inset Formula $\forall x\in[0,\frac{\pi}{2}],\sin x\leq x\leq\tan x$
+\end_inset
+
+, 
+\begin_inset Formula $|\sin x-\sin c|=2\left|\sin\frac{x-c}{2}\cos\frac{x+c}{2}\right|\leq2\left|\frac{x-c}{2}\right|=|x-c|$
+\end_inset
+
+.
+ Por tanto para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, tomando 
+\begin_inset Formula $\delta=\varepsilon$
+\end_inset
+
+, se tiene que para 
+\begin_inset Formula $|x-c|<\delta$
+\end_inset
+
+, 
+\begin_inset Formula $|\sin x-\sin c|<\varepsilon$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lim_{x\rightarrow0}\frac{\sin x}{x}=1$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $1\leq\frac{x}{\sin x}\leq\frac{1}{\cos x}$
+\end_inset
+
+, y aplicando el teorema del sandwich, 
+\begin_inset Formula $\lim_{x\rightarrow0}\frac{x}{\sin x}=1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lim_{x\rightarrow c}e^{x}=e^{c}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $c\in(0,+\infty)$
+\end_inset
+
+, 
+\begin_inset Formula $\lim_{x\rightarrow c}\log x=\log c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $c\notin\mathbb{Z}$
+\end_inset
+
+, 
+\begin_inset Formula $\lim_{x\rightarrow c}[x]=[c]$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $c\in\mathbb{Z}$
+\end_inset
+
+, 
+\begin_inset Formula $\nexists\lim_{x\rightarrow c}[x]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\nexists\lim_{x\rightarrow0}\sin\frac{1}{x}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Si fuera 
+\begin_inset Formula $L:=\lim_{x\rightarrow0}\sin\frac{1}{x}$
+\end_inset
+
+, se tendría que para toda 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $\lim_{n}x_{n}=0$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{n}\neq0$
+\end_inset
+
+ que 
+\begin_inset Formula $\lim_{n}\sin\frac{1}{x_{n}}=L$
+\end_inset
+
+, pero las sucesiones 
+\begin_inset Formula $x_{n}^{\prime}=\frac{1}{n\pi}$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{n}^{\prime\prime}=\frac{1}{2n\pi+\frac{\pi}{2}}$
+\end_inset
+
+ cumplen que 
+\begin_inset Formula $\lim_{n}x_{n}^{\prime}=\lim_{n}x_{n}^{\prime\prime}=0$
+\end_inset
+
+, pero 
+\begin_inset Formula $\lim_{n}\sin\frac{1}{x_{n}^{\prime}}=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{n}\sin\frac{1}{x_{n}^{\prime\prime}}=1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lim_{x\rightarrow0}x\sin\frac{1}{x}=0$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $|x\sin\frac{1}{x}-0|\leq|x|$
+\end_inset
+
+, por lo que tomando 
+\begin_inset Formula $\delta=\varepsilon$
+\end_inset
+
+ se cumple la definición.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $f,g:D\subseteq\mathbb{R}\rightarrow\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $c$
+\end_inset
+
+ un punto de acumulación de 
+\begin_inset Formula $D$
+\end_inset
+
+ tales que 
+\begin_inset Formula $L_{1}=\lim_{x\rightarrow c}f(x)\in K$
+\end_inset
+
+ y 
+\begin_inset Formula $L_{2}=\lim_{x\rightarrow c}g(x)\in K$
+\end_inset
+
+, entonces:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lim_{x\rightarrow c}f(x)+g(x)=L_{1}+L_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lim_{x\rightarrow c}f(x)g(x)=L_{1}L_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $L_{2}\neq0\implies\lim_{x\rightarrow c}\frac{f(x)}{g(x)}=\frac{L_{1}}{L_{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f(x)\leq g(x)\implies L_{1}\leq L_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Regla del sandwich:
+\series default
+ Dada 
+\begin_inset Formula $h:D\rightarrow\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $f(x)\leq h(x)\leq g(x)$
+\end_inset
+
+ y 
+\begin_inset Formula $L_{1}=L_{2}=L$
+\end_inset
+
+ entonces 
+\begin_inset Formula $L=\lim_{x\rightarrow c}h(x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Equivalencias importantes:
+\begin_inset Formula 
+\[
+\lim_{x\rightarrow0}\frac{e^{x}-1}{x}=\lim_{x\rightarrow0}\frac{\log(1+x)}{x}=\lim_{x\rightarrow0}\frac{\sin x}{x}=\lim_{x\rightarrow0}\frac{1-\cos x}{\frac{x^{2}}{2}}=1
+\]
+
+\end_inset
+
+
+\series bold
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Las tres primeras se siguen de las propiedades y equivalencias de sucesiones.
+ Para la cuarta,
+\begin_inset Formula 
+\[
+\lim_{x\rightarrow0}\frac{1-\cos x}{\frac{x^{2}}{2}}=\lim_{x\rightarrow0}\frac{2}{1+\cos x}\frac{1-\cos^{2}x}{x^{2}}=\lim_{x\rightarrow0}\frac{2}{1+\cos x}\frac{\sin^{2}x}{x^{2}}=\frac{2}{1+1}\left(\lim_{x\rightarrow0}\frac{\sin x}{x}\right)^{2}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Límites laterales:
+\series default
+ Dados 
+\begin_inset Formula $f:D\subseteq\mathbb{R}\rightarrow\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $c$
+\end_inset
+
+ un punto de acumulación de 
+\begin_inset Formula $D$
+\end_inset
+
+, llamamos 
+\series bold
+límite por la derecha
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $c$
+\end_inset
+
+ a 
+\begin_inset Formula $f(c^{+})=\lim_{x\rightarrow c^{+}}f(x):=\lim_{x\rightarrow c}g(x)$
+\end_inset
+
+ con 
+\begin_inset Formula $g:D\cap(c,+\infty)\rightarrow\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $g(x)=f(x)$
+\end_inset
+
+, y 
+\series bold
+límite por la izquierda
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $c$
+\end_inset
+
+ a 
+\begin_inset Formula $f(c^{-})=\lim_{x\rightarrow c^{-}}f(x):=\lim_{x\rightarrow c}g(x)$
+\end_inset
+
+ con 
+\begin_inset Formula $g:D\cap(-\infty,c)\rightarrow\mathbb{R}$
+\end_inset
+
+.
+ Así,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\lim_{x\rightarrow c^{+}}f(x)=L$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall\varepsilon>0,\exists\delta>0:\forall x\in D,(c<x<c+\delta\implies|f(x)-L|<\varepsilon)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\lim_{x\rightarrow c^{-}}f(x)=L$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall\varepsilon>0,\exists\delta>0:\forall x\in D,(c<x<c+\delta\implies|f(x)-L|<\varepsilon)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Por tanto, el límite de una función en un punto existe si y sólo si existen
+ los dos límites laterales y coinciden, en cuyo caso coinciden también con
+ el límite de la función en dicho punto.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Límites infinitos y en el infinito:
+\series default
+ Sea 
+\begin_inset Formula $f:(a,+\infty)\rightarrow\mathbb{R}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\lim_{x\rightarrow\infty}f(x)=l\in\mathbb{R}$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall\varepsilon>0,\exists M>0:\forall x\in(a,+\infty),(x>M\implies|f(x)-l|<\varepsilon)$
+\end_inset
+
+, y 
+\begin_inset Formula $\lim_{x\rightarrow\infty}f(x)=+\infty$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall K>0,\exists M>0:\forall x\in(a,+\infty),(x>M\implies f(x)>K)$
+\end_inset
+
+.
+ De igual modo, si 
+\begin_inset Formula $f:D\rightarrow\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $c$
+\end_inset
+
+ es un punto de acumulación de 
+\begin_inset Formula $D$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\lim_{x\rightarrow c}f(x)=+\infty$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall K>0,\exists\delta>0:\forall x\in D,(0<|x-c|<\delta\implies f(x)>K)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Funciones continuas
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f:D\subseteq K\rightarrow K$
+\end_inset
+
+ es 
+\series bold
+continua
+\series default
+ en 
+\begin_inset Formula $c$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall\varepsilon>0,\exists\delta>0:\forall x\in D,(|x-c|<\delta\implies|f(x)-f(c)|<\varepsilon)$
+\end_inset
+
+.
+ Así, 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $c$
+\end_inset
+
+ si y sólo si para cada 
+\begin_inset Formula $(x_{n})_{n}\subseteq D$
+\end_inset
+
+ con 
+\begin_inset Formula $c=\lim_{n}x_{n}$
+\end_inset
+
+ se tiene que 
+\begin_inset Formula $f(c)=\lim_{n}f(x_{n})$
+\end_inset
+
+.
+ En particular,
+\begin_inset Formula 
+\[
+f(\lim_{n}x_{n})=\lim_{n}f(x_{n})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dadas 
+\begin_inset Formula $f,g:D\subseteq K\rightarrow K$
+\end_inset
+
+ continuas en 
+\begin_inset Formula $c\in D$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f+g$
+\end_inset
+
+ y 
+\begin_inset Formula $fg$
+\end_inset
+
+ también son continuas en 
+\begin_inset Formula $c$
+\end_inset
+
+, y si 
+\begin_inset Formula $g(c)\neq0$
+\end_inset
+
+, también es continua 
+\begin_inset Formula $\frac{f}{g}$
+\end_inset
+
+.
+ Por otro lado, si 
+\begin_inset Formula $f:D\subseteq\mathbb{R}\rightarrow\mathbb{R}$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $c\in D$
+\end_inset
+
+ y 
+\begin_inset Formula $f(c)\neq0$
+\end_inset
+
+ entonces existe un 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $x\in B(c,\delta)\cap D$
+\end_inset
+
+, 
+\begin_inset Formula $f(x)\neq0$
+\end_inset
+
+ y tiene el mismo signo que 
+\begin_inset Formula $f(c)$
+\end_inset
+
+.
+ 
+\series bold
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $c$
+\end_inset
+
+ es un punto aislado de 
+\begin_inset Formula $D$
+\end_inset
+
+, es obvio.
+ Sea entonces 
+\begin_inset Formula $c$
+\end_inset
+
+ un punto de acumulación de 
+\begin_inset Formula $D$
+\end_inset
+
+ con 
+\begin_inset Formula $f(c)\neq0$
+\end_inset
+
+.
+ Dado 
+\begin_inset Formula $\varepsilon=\frac{|f(c)|}{2}>0$
+\end_inset
+
+, por la continuidad de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $c$
+\end_inset
+
+, existirá un 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $x\in B(c,\delta)$
+\end_inset
+
+, 
+\begin_inset Formula $|f(x)-f(c)|<\varepsilon$
+\end_inset
+
+, luego 
+\begin_inset Formula $f(c)-\varepsilon<f(x)<f(c)+\varepsilon$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $f(c)>0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f(x)>f(c)-\varepsilon=f(c)-\frac{|f(c)|}{2}=\frac{f(c)}{2}>0$
+\end_inset
+
+, mientras que si 
+\begin_inset Formula $f(c)<0$
+\end_inset
+
+, 
+\begin_inset Formula $f(x)<f(c)+\varepsilon=f(c)+\frac{|f(c)|}{2}=f(c)-\frac{f(c)}{2}=\frac{f(c)}{2}<0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dadas 
+\begin_inset Formula $f_{1}:D_{1}\subseteq K\rightarrow D_{2}\subseteq K$
+\end_inset
+
+ continua en 
+\begin_inset Formula $c\in D_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{2}:D_{2}\rightarrow K$
+\end_inset
+
+ continua en 
+\begin_inset Formula $f_{1}(c)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f_{2}\circ f_{1}:D_{1}\rightarrow K$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $c$
+\end_inset
+
+.
+\series bold
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $(x_{n})_{n}\subseteq D$
+\end_inset
+
+ con 
+\begin_inset Formula $c=\lim_{n}x_{n}$
+\end_inset
+
+, por la continuidad de 
+\begin_inset Formula $f_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $f_{1}(c)=\lim_{n}f_{1}(x_{n})$
+\end_inset
+
+, pero al ser 
+\begin_inset Formula $f_{2}$
+\end_inset
+
+ continua en 
+\begin_inset Formula $f_{1}(c)$
+\end_inset
+
+, 
+\begin_inset Formula $f_{2}(f_{1}(c))=\lim_{n}f_{2}(f_{1}(x_{n}))$
+\end_inset
+
+, es decir, 
+\begin_inset Formula $(f_{2}\circ f_{1})(c)=\lim_{n}(f_{2}\circ f_{1})(x_{n})$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $f_{2}\circ f_{1}$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $c$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f:D\subseteq K\rightarrow K$
+\end_inset
+
+ es 
+\series bold
+continua en 
+\begin_inset Formula $D$
+\end_inset
+
+
+\series default
+ si es continua en cada punto de 
+\begin_inset Formula $D$
+\end_inset
+
+.
+ Así, las funciones polinómicas, la exponencial, el seno y el coseno son
+ funciones continuas en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+, mientras que el logaritmo es continuo en 
+\begin_inset Formula $(0,+\infty)$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+¿Incluir las funciones de Dirichlet (3.2.7.8–9)? 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Funciones reales continuas en un intervalo
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+teorema de Weierstrass
+\series default
+ afirma que si 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ es continua, entonces:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f$
+\end_inset
+
+ es acotada.
+\begin_inset Newline newline
+\end_inset
+
+Si no lo fuera, para cada 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ existiría 
+\begin_inset Formula $x_{n}\in[a,b]$
+\end_inset
+
+ tal que 
+\begin_inset Formula $|f(x_{n})|>n$
+\end_inset
+
+.
+ Por el teorema de Bolzano-Weierstrass, existe una subsucesión 
+\begin_inset Formula $(x_{n_{k}})_{k}$
+\end_inset
+
+ de 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ convergente a un 
+\begin_inset Formula $c\in[a,b]$
+\end_inset
+
+.
+ Pero entonces, como 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $c$
+\end_inset
+
+, 
+\begin_inset Formula $\lim_{n}f(x_{n_{k}})_{k}=f(c)$
+\end_inset
+
+, luego la sucesión es acotada.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Existen 
+\begin_inset Formula $c,d\in[a,b]$
+\end_inset
+
+ con 
+\begin_inset Formula $f(c)\leq f(x)\leq f(d)$
+\end_inset
+
+, es decir, 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene máximo y mínimo.
+\begin_inset Newline newline
+\end_inset
+
+Si 
+\begin_inset Formula $\alpha:=\sup\{f(x):x\in[a,b]\}$
+\end_inset
+
+, existe 
+\begin_inset Formula $(x_{n})_{n}\subseteq[a,b]$
+\end_inset
+
+ con 
+\begin_inset Formula $\alpha=\lim_{n}f(x_{n})$
+\end_inset
+
+, por lo que existe una subsucesión 
+\begin_inset Formula $(x_{n_{k}})_{k}$
+\end_inset
+
+ de 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ convergente a un 
+\begin_inset Formula $d\in[a,b]$
+\end_inset
+
+.
+ Pero por la continuidad de 
+\begin_inset Formula $f$
+\end_inset
+
+, 
+\begin_inset Formula $f(d)=\lim_{k}f(x_{n_{k}})=\alpha$
+\end_inset
+
+, luego 
+\begin_inset Formula $f$
+\end_inset
+
+ alcanza su máximo absoluto en 
+\begin_inset Formula $d$
+\end_inset
+
+.
+ La demostración de que alcanza su mínimo absoluto es análoga.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+teorema de Bolzano
+\series default
+ afirma que si 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ es continua con 
+\begin_inset Formula $f(a)f(b)<0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\exists c\in(a,b):f(c)=0$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Supongamos 
+\begin_inset Formula $f(a)<0$
+\end_inset
+
+ y 
+\begin_inset Formula $f(b)>0$
+\end_inset
+
+ y sean 
+\begin_inset Formula $a_{0}:=a$
+\end_inset
+
+, 
+\begin_inset Formula $b_{0}:=b$
+\end_inset
+
+ y 
+\begin_inset Formula $m:=\frac{a+b}{2}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $f(m)=0$
+\end_inset
+
+, hemos terminado.
+ Si 
+\begin_inset Formula $f(m)>0$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $a_{1}:=a_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{1}:=m$
+\end_inset
+
+, y si 
+\begin_inset Formula $f(m)<0$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a_{1}:=m$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{1}:=b_{0}$
+\end_inset
+
+.
+ Procediendo recursivamente, o bien se encuentra un cero de 
+\begin_inset Formula $f$
+\end_inset
+
+, o se obtiene una sucesión 
+\begin_inset Formula $[a_{n},b_{n}]$
+\end_inset
+
+ de intervalos en las condiciones del principio de encaje de Cantor, por
+ lo que 
+\begin_inset Formula $\exists!c\in\bigcap_{n=1}^{\infty}[a_{n},b_{n}]$
+\end_inset
+
+ y 
+\begin_inset Formula $c=\lim_{n}a_{n}=\lim_{n}b_{n}$
+\end_inset
+
+.
+ La continuidad de 
+\begin_inset Formula $f$
+\end_inset
+
+ junto con que 
+\begin_inset Formula $f(a_{n})<0$
+\end_inset
+
+ y 
+\begin_inset Formula $f(b_{n})>0$
+\end_inset
+
+ implica que 
+\begin_inset Formula $0\leq\lim_{n}f(b_{n})=f(c)=\lim_{n}f(a_{n})\leq0$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $f(c)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+método de bisección
+\series default
+ para resolución de ecuaciones es un algoritmo para aproximar raíces de
+ una función continua, y consiste en localizar un intervalo 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ con 
+\begin_inset Formula $f(a)f(b)<0$
+\end_inset
+
+ y proceder según la demostración del teorema de Bolzano.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+propiedad de Darboux
+\series default
+ o 
+\series bold
+de los valores intermedios
+\series default
+ afirma que si 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $f(a)<z<f(b)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\exists c\in[a,b]:f(c)=z$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $I$
+\end_inset
+
+ es un intervalo de 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $f:I\rightarrow\mathbb{R}$
+\end_inset
+
+ es continua, entonces 
+\begin_inset Formula $f(I)$
+\end_inset
+
+ es un intervalo, y si 
+\begin_inset Formula $I$
+\end_inset
+
+ es además cerrado y acotado, también lo es 
+\begin_inset Formula $f(I)$
+\end_inset
+
+.
+ 
+\series bold
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Necesitamos demostrar que dados 
+\begin_inset Formula $y_{1},y_{2}\in f(I)$
+\end_inset
+
+ con 
+\begin_inset Formula $y_{1}<y_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $y_{1}<z<y_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $z\in f(I)$
+\end_inset
+
+, inmediato de la propiedad de los valores intermedios.
+ Entonces, si 
+\begin_inset Formula $I$
+\end_inset
+
+ es cerrado y acotado, por el teorema de Weierstrass, 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene máximo 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y mínimo 
+\begin_inset Formula $\beta$
+\end_inset
+
+, por lo que al ser un intervalo, 
+\begin_inset Formula $f(I)=[\alpha,\beta]$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Decimos que 
+\begin_inset Formula $f:I\rightarrow\mathbb{R}$
+\end_inset
+
+ es 
+\series bold
+monótona creciente
+\series default
+ si 
+\begin_inset Formula $\forall x_{1}<x_{2}\in I,f(x_{1})\leq f(x_{2})$
+\end_inset
+
+, 
+\series bold
+monótona decreciente
+\series default
+ si 
+\begin_inset Formula $\forall x_{1}<x_{2}\in I,f(x_{1})\geq f(x_{2})$
+\end_inset
+
+, 
+\series bold
+monótona
+\series default
+ si es monótona creciente o decreciente; 
+\series bold
+estrictamente creciente
+\series default
+ si 
+\begin_inset Formula $\forall x_{1}<x_{2}\in I,f(x_{1})<f(x_{2})$
+\end_inset
+
+, 
+\series bold
+estrictamente decreciente
+\series default
+ si 
+\begin_inset Formula $\forall x_{1}<x_{2}\in I,f(x_{1})>f(x_{2})$
+\end_inset
+
+, y 
+\series bold
+estrictamente monótona
+\series default
+ si es estrictamente creciente o decreciente.
+ Además, 
+\begin_inset Formula $f^{-1}:Y\rightarrow X$
+\end_inset
+
+ es la inversa de 
+\begin_inset Formula $f:X\rightarrow Y$
+\end_inset
+
+ si 
+\begin_inset Formula $f^{-1}\circ f=Id_{X}$
+\end_inset
+
+ y 
+\begin_inset Formula $f\circ f^{-1}=Id_{Y}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de la función inversa:
+\series default
+ Dada 
+\begin_inset Formula $f:I\rightarrow\mathbb{R}$
+\end_inset
+
+ continua, entonces:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f$
+\end_inset
+
+ es inyectiva si y sólo si es estrictamente monótona.
+\begin_inset Note Comment
+status open
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Supongamos por reducción al absurdo que siendo 
+\begin_inset Formula $f$
+\end_inset
+
+ inyectiva no fuera estrictamente monótona.
+ Entonces, para 
+\begin_inset Formula $x_{1}<x_{2}<x_{3}$
+\end_inset
+
+, 
+\begin_inset Formula $f(x_{1})$
+\end_inset
+
+, 
+\begin_inset Formula $f(x_{2})$
+\end_inset
+
+ y 
+\begin_inset Formula $f(x_{3})$
+\end_inset
+
+ son distintos dos a dos.
+ Si fuera 
+\begin_inset Formula $f$
+\end_inset
+
+ estrictamente monótona se tendría que 
+\begin_inset Formula $f(x_{1})<f(x_{2})<f(x_{3})$
+\end_inset
+
+ o 
+\begin_inset Formula $f(x_{1})>f(x_{2})>f(x_{3})$
+\end_inset
+
+, por lo que si no lo es, entonces 
+\begin_inset Formula $f(x_{1})<f(x_{2})>f(x_{3})$
+\end_inset
+
+ o 
+\begin_inset Formula $f(x_{1})>f(x_{2})<f(x_{3})$
+\end_inset
+
+.
+ En el caso en que 
+\begin_inset Formula $f(x_{1})\leq f(x_{3})<f(x_{2})$
+\end_inset
+
+, por la propiedad de los valores intermedios, debe existir 
+\begin_inset Formula $c\in(x_{1},x_{2})$
+\end_inset
+
+ con 
+\begin_inset Formula $f(c)=f(x_{3})$
+\end_inset
+
+.
+ Los otros tres casos son análogos.
+ Por tanto 
+\begin_inset Formula $f$
+\end_inset
+
+ no es inyectiva.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $x_{1}<x_{2}$
+\end_inset
+
+ no puede ser 
+\begin_inset Formula $f(x_{1})=f(x_{2})$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es estrictamente monótona, también lo es 
+\begin_inset Formula $f^{-1}$
+\end_inset
+
+ que, además, es continua.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Al ser 
+\begin_inset Formula $f$
+\end_inset
+
+ estrictamente monótona es inyectiva, y al ser 
+\begin_inset Formula $J:=f(I)$
+\end_inset
+
+ un intervalo, existe la inversa 
+\begin_inset Formula $f^{-1}:J\rightarrow I$
+\end_inset
+
+, que también es una biyección estrictamente monótona.
+ Supongamos que es estrictamente creciente y sea 
+\begin_inset Formula $d\in J$
+\end_inset
+
+ que no sea un extremo del intervalo.
+ Sea 
+\begin_inset Formula $c=f^{-1}(d)$
+\end_inset
+
+ (
+\begin_inset Formula $f(c)=d$
+\end_inset
+
+), que por la monotonía no puede ser un extremo de 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ Dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, como 
+\begin_inset Formula $c$
+\end_inset
+
+ no es un extremo, existe 
+\begin_inset Formula $0<\varepsilon^{\prime}<\varepsilon$
+\end_inset
+
+ con 
+\begin_inset Formula $(c-\varepsilon^{\prime},c+\varepsilon^{\prime})\subseteq I$
+\end_inset
+
+, y por ser 
+\begin_inset Formula $f$
+\end_inset
+
+ estrictamente creciente, 
+\begin_inset Formula $d:=f(c)\in(f(c-\varepsilon^{\prime}),f(c+\varepsilon^{\prime}))=f((c-\varepsilon^{\prime},c+\varepsilon^{\prime}))$
+\end_inset
+
+, por lo que existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $B(d,\delta)\subseteq f((c-\varepsilon^{\prime},c+\varepsilon^{\prime}))$
+\end_inset
+
+, y por el crecimiento escrito de 
+\begin_inset Formula $f^{-1}$
+\end_inset
+
+, 
+\begin_inset Formula $f^{-1}(B(d,\delta))\subseteq(c-\varepsilon^{\prime},c+\varepsilon^{\prime})\subseteq(c-\varepsilon,c+\varepsilon)=B(c,\varepsilon)$
+\end_inset
+
+, lo que demuestra la continuidad de 
+\begin_inset Formula $f^{-1}$
+\end_inset
+
+ salvo en los extremos.
+ En estos casos, si 
+\begin_inset Formula $d$
+\end_inset
+
+ es un extremo de 
+\begin_inset Formula $J$
+\end_inset
+
+ y 
+\begin_inset Formula $c:=f^{-1}(d)$
+\end_inset
+
+ lo es por tanto de 
+\begin_inset Formula $I$
+\end_inset
+
+, es posible modificar ligeramente la prueba anterior para obtener el mismo
+ resultado.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f:I\rightarrow J$
+\end_inset
+
+ es biyectiva, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua si y sólo si es estrictamente monótona.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Contenido en el apartado anterior.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Por ser 
+\begin_inset Formula $f$
+\end_inset
+
+ estrictamente monótona, existen 
+\begin_inset Formula $f(x_{0}^{-})$
+\end_inset
+
+ y 
+\begin_inset Formula $f(x_{0}^{+})$
+\end_inset
+
+ en cada 
+\begin_inset Formula $x_{0}\in I$
+\end_inset
+
+.
+ Si para algún 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ fueran distintos (por ejemplo, 
+\begin_inset Formula $f(x_{0}^{-})<f(x_{0}^{+})$
+\end_inset
+
+, entonces los puntos de 
+\begin_inset Formula $(f(x_{0}^{-}),f(x_{0}^{+}))\subseteq J$
+\end_inset
+
+ deberían tener preimagen, pero por la monotonía no la tienen, con lo que
+ 
+\begin_inset Formula $f$
+\end_inset
+
+ no sería biyectiva.
+ Por tanto debe ser 
+\begin_inset Formula $f(x_{0}^{-})=f(x_{0}^{+})$
+\end_inset
+
+ y la función es continua.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Continuidad uniforme
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f:D\subseteq K\rightarrow K$
+\end_inset
+
+ es 
+\series bold
+uniformemente continua
+\series default
+ en 
+\begin_inset Formula $D$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall\varepsilon>0,\exists\delta>0:\forall x,y\in D,(|x-y|<\delta\implies|f(x)-f(y)|<\varepsilon)$
+\end_inset
+
+.
+ El 
+\series bold
+teorema de Heine
+\series default
+ afirma que toda 
+\begin_inset Formula $f:B[a,r]\rightarrow K$
+\end_inset
+
+ continua es uniformemente continua.
+ 
+\series bold
+Demostración:
+\series default
+ Si no lo fuera, existiría 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall\delta>0,\exists x,y\in D:(|x-y|<\delta\land|f(x)-f(y)|>\varepsilon)$
+\end_inset
+
+, por lo que existirían 
+\begin_inset Formula $(x_{n})_{n},(x_{n}^{\prime})_{n}\subseteq B[a,r]$
+\end_inset
+
+ tales que 
+\begin_inset Formula $|x_{n}-x_{n}^{\prime}|<\frac{1}{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $|f(x_{n})-f(x_{n}^{\prime})|\geq\varepsilon$
+\end_inset
+
+.
+ Pero entonces existirían subsucesiones 
+\begin_inset Formula $(x_{n_{k}})_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $(x_{n_{k}}^{\prime})_{k}$
+\end_inset
+
+ de estas que convergen al mismo 
+\begin_inset Formula $z\in B[a,r]$
+\end_inset
+
+.
+ Por la continuidad de 
+\begin_inset Formula $f$
+\end_inset
+
+, 
+\begin_inset Formula $\lim_{k}f(x_{n_{k}})=f(z)=\lim_{k}f(x_{n_{k}}^{\prime})$
+\end_inset
+
+, pero por otra parte 
+\begin_inset Formula $|f(x_{n_{k}})-f(x_{n_{k}}^{\prime})|\geq\varepsilon>0$
+\end_inset
+
+.
+ Tomando límites, se tiene que 
+\begin_inset Formula $0\geq\varepsilon>0\#$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

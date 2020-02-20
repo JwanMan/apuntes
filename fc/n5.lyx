@@ -1,0 +1,1515 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una 
+\series bold
+instrucción
+\series default
+ es un conjunto de símbolos que representan una operación a realizar por
+ la CPU, y un 
+\series bold
+programa
+\series default
+ es un conjunto ordenado de instrucciones que debe ejecutar el computador
+ sobre unos datos para procesarlos y obtener un resultado.
+ Las instrucciones se almacenan en memoria principal y se ejecutan en secuencia,
+ salvo por instrucciones de salto.
+ Tipos de instrucciones:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De movimiento de datos
+\series default
+ entre registros de la CPU y direcciones de memoria.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Aritmético-lógicas:
+\series default
+ Suma, resta, multiplicación, división, AND, OR, desplazamientos, ...
+ y operaciones de punto flotante.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Instrucciones de salto:
+\series default
+ Condicionales, incondicionales y de manejo de subrutinas.
+\end_layout
+
+\begin_layout Standard
+Las instrucciones se organizan en campos de bits, que indican, en un determinado
+ formato, la operación a ejecutar, los operandos de entrada y el lugar donde
+ dejar el resultado.
+ Distintos tipos de instrucción utilizan distintos formatos, pues necesitan
+ codificar información distinta.
+\end_layout
+
+\begin_layout Standard
+La CPU está formada por un 
+\series bold
+camino de datos
+\series default
+ (
+\series bold
+CD
+\series default
+), encargado del procesamiento, y una 
+\series bold
+unidad de control
+\series default
+ (
+\series bold
+UC
+\series default
+), que decodifica las instrucciones y 
+\begin_inset Quotes cld
+\end_inset
+
+controla
+\begin_inset Quotes crd
+\end_inset
+
+ al camino de datos.
+ En todo momento, la UC mantiene un 
+\series bold
+contador de programa
+\series default
+ (
+\series bold
+PC
+\series default
+, 
+\emph on
+program counter
+\emph default
+ o 
+\series bold
+IP
+\series default
+, 
+\emph on
+instruction pointer
+\emph default
+) que contiene la dirección de la siguiente instrucción a ejecutar, y un
+ 
+\series bold
+registro de instrucción
+\series default
+ (
+\series bold
+RI
+\series default
+), que contiene la instrucción a ejecutar.
+ A mayor número de instrucciones mayor complejidad de la UC y más número
+ de bits necesarios en el campo de código.
+ Dos tendencias:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RISC
+\series default
+ (
+\series bold
+\emph on
+Reduced Instruction Set Computers
+\series default
+\emph default
+): pocas instrucciones, sencillas y que se ejecutan en pocos ciclos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+CISC
+\series default
+ (
+\series bold
+\emph on
+Complex Instruction Set Computers
+\series default
+\emph default
+): muchas instrucciones, complejas y que requieren muchos ciclos de reloj.
+\end_layout
+
+\begin_layout Section
+Jerarquía de traducción
+\end_layout
+
+\begin_layout Standard
+Las instrucciones de la CPU, llamadas 
+\series bold
+instrucciones máquina
+\series default
+, se almacenan en binario.
+ Programarlas directamente en 
+\series bold
+lenguaje
+\series default
+ o 
+\series bold
+código máquina
+\series default
+ es muy difícil y propenso a errores, por lo que los 
+\series bold
+lenguajes de programación
+\series default
+ representan las instrucciones de forma simbólica.
+ Existen principalmente dos tipos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Lenguaje ensamblador:
+\series default
+ Instrucciones representadas simbólicamente, en ASCII, que se corresponden
+ directamente con instrucciones máquina y datos binarios.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Lenguajes de alto nivel:
+\series default
+ Permiten expresar los programas de forma más cercana a la forma de pensar
+ del programador, con variables, tipos de datos, funciones/procedimientos,
+ condiciones, bucles, etc.
+ Existen multitud de paradigmas (imperativo, orientado a objetos, funcional...)
+ y de lenguajes (C, C++, Java, Haskell, ...).
+ El lenguaje C, aun siendo de alto nivel, es más cercano a la máquina, y
+ es el lenguaje nativo de UNIX/Linux.
+\end_layout
+
+\begin_layout Standard
+El programa 
+\series bold
+compilador
+\series default
+ traduce el código en un lenguaje de alto nivel a ensamblador, y el 
+\series bold
+ensamblador
+\series default
+ convierte este código a un 
+\series bold
+fichero objeto
+\series default
+, que contiene:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Segmento de código (
+\family typewriter
+.text
+\family default
+),
+\series default
+ con instrucciones máquina.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Segmento de datos (
+\family typewriter
+.data
+\family default
+),
+\series default
+ con enteros, reales en punto flotante, cadenas de caracteres, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Información de reubicación:
+\series default
+ Para accesos a memoria, saltos, etc.
+ Necesaria a la hora de unir los distintos ficheros objeto.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+biblioteca
+\series default
+ (en los apuntes pone 
+\series bold
+librería
+\series default
+ pero es una mala traducción) es un conjunto de módulos de código relacionados
+ que pueden ser usados en distintos programas.
+ Por ejemplo, en C existe una biblioteca estándar con funciones de E/S,
+ funciones matemáticas, etc., pero también existen bibliotecas para cálculo
+ matricial, gráficos en 3D, acceso a redes, etc.
+ Hay dos tipos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Estáticas:
+\series default
+ El código se incluye dentro del fichero ejecutable final.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Dinámicas:
+\series default
+ El código no se incluye en el ejecutable, sino que este almacena la información
+ necesaria para cargar dicho código cuando va a ejecutarse.
+ Estas pueden ser usadas por varios ejecutables al mismo tiempo usando el
+ mismo espacio en memoria, y tampoco se desperdicia espacio en disco al
+ no tener que copiarse en cada ejecutable que las use, pero al cambiar el
+ ejecutable de máquina, este puede no funcionar por no tener una biblioteca
+ necesaria.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+enlazador
+\series default
+ o 
+\series bold
+\emph on
+linker
+\series default
+\emph default
+ une los distintos ficheros objeto generados junto con las funciones de
+ bibliotecas estáticas utilizadas, para generar un 
+\series bold
+fichero ejecutable
+\series default
+ final.
+ Entonces el 
+\series bold
+cargador
+\series default
+ o 
+\series bold
+\emph on
+loader
+\series default
+\emph default
+, una parte del SO, lee este fichero del disco, lo ubica en memoria, realiza
+ las transformaciones necesarias y le pasa el control.
+\end_layout
+
+\begin_layout Section
+Ensamblador de x86-64
+\end_layout
+
+\begin_layout Standard
+Los archivos de código ensamblador están formados por segmentos como el
+ segmento de datos, indicado por 
+\family typewriter
+.data
+\family default
+, y el segmento de código, indicado por 
+\family typewriter
+.text
+\family default
+.
+ En cualquier punto se puede usar una 
+\series bold
+etiqueta
+\series default
+ (identificador seguido de 
+\family typewriter
+:
+\family default
+) para representar una dirección de memoria y referirnos a ella en otra
+ parte del código.
+\end_layout
+
+\begin_layout Standard
+El segmento de datos contiene directivas como 
+\family typewriter
+.long 
+\begin_inset Formula $n$
+\end_inset
+
+
+\family default
+, que indica un número de 32 bits, o 
+\family typewriter
+.string "
+\begin_inset Formula $\dots$
+\end_inset
+
+"
+\family default
+ que genera una secuencia de caracteres acabada en un byte 0.
+ El segmento de código contiene instrucciones en ensamblador.
+ Sus operandos pueden ser:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Registros:
+\series default
+ Son de acceso muy rápido, al estar en la propia CPU, y contienen valores
+ intermedios de los cálculos.
+ En x86-64, son de 64 bits, y son los siguientes:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+De uso general: 
+\family typewriter
+RAX
+\family default
+, 
+\family typewriter
+RBX
+\family default
+, 
+\family typewriter
+RCX
+\family default
+, 
+\family typewriter
+RDX
+\family default
+, 
+\family typewriter
+R8
+\family default
+–
+\family typewriter
+R15
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+Índices: 
+\family typewriter
+RSI
+\family default
+, 
+\family typewriter
+RDI
+\family default
+, para acceder a posiciones de una tabla.
+\end_layout
+
+\begin_layout Itemize
+Para la pila: 
+\family typewriter
+RSP
+\family default
+ (puntero de pila), 
+\family typewriter
+RBP
+\family default
+ (puntero base de pila).
+\end_layout
+
+\begin_layout Itemize
+Puntero de instrucción: 
+\family typewriter
+RIP
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+Registro de estado: 
+\family typewriter
+RFLAGS
+\family default
+, contiene información sobre el estado del procesador y el resultado de
+ la ejecución de instrucciones, y afecta a los saltos condicionales.
+\end_layout
+
+\begin_layout Itemize
+También se puede trabajar con menos de 64 bits.
+ Así, 
+\family typewriter
+EAX
+\family default
+ son los 32 bits inferiores de 
+\family typewriter
+RAX
+\family default
+, 
+\family typewriter
+AX
+\family default
+ los 16 bits inferiores de 
+\family typewriter
+EAX
+\family default
+, 
+\family typewriter
+AL
+\family default
+ los 8 bits inferiores y 
+\family typewriter
+AH
+\family default
+ los 8 bits superiores de 
+\family typewriter
+AX
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+En ensamblador, se representan con 
+\family typewriter
+%
+\emph on
+nombre_en_minúsculas
+\family default
+\emph default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Memoria:
+\series default
+ Hay hasta 
+\begin_inset Formula $2^{64}$
+\end_inset
+
+ celdas de memoria direccionables de 1 byte.
+ Realmente los programas se mueven en un espacio virtual de direcciones
+ que el hardware transforma a direcciones físicas.
+ En x86-64 se puede trabajar muchas veces directamente en memoria, sin pasar
+ por registros, aunque el acceso es más lento.
+ En ensamblador, para hacer re
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+fe
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ren
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+cia a una dirección de memoria, se usa 
+\family typewriter
+\emph on
+dirección
+\emph default
+(
+\emph on
+%reg1
+\emph default
+,
+\emph on
+%reg2
+\emph default
+,
+\emph on
+potencia_de_2
+\emph default
+)
+\family default
+ para acceder a la celda 
+\begin_inset Formula $dirección+\%reg1+\%reg2\cdot potencia\_de\_2$
+\end_inset
+
+, donde la potencia de 2 debe ser pequeña y todos los campos son opcionales.
+ Abreviaturas: 
+\family typewriter
+(
+\emph on
+%reg1
+\emph default
+)
+\family default
+, 
+\family typewriter
+\emph on
+dirección
+\family default
+\emph default
+\SpecialChar endofsentence
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Constantes:
+\series default
+ Números enteros directamente en el código, que en ensamblador se escriben
+ 
+\family typewriter
+$
+\begin_inset Formula $n$
+\end_inset
+
+
+\family default
+.
+ Se les suele llamar 
+\series bold
+inmediatos
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+A continuación vemos el 
+\series bold
+repertorio de instrucciones
+\series default
+ o ISA (
+\emph on
+Instruction Set Architecture
+\emph default
+) de la arquitectura Intel x86-64, CISC, presente en los procesadores de
+ los PCs de 64 bits.
+ Los objetivos de un ISA son permitir que el diseño del procesador y del
+ compilador sean sencillos, maximizar el rendimiento y minimizar el coste.
+ En el caso de Intel, otro objetivo fue mantener la compatibilidad con procesado
+res anteriores, lo que llevó a soluciones menos elegantes y eficientes pero
+ ayudó a mantener la cuota de mercado.
+\end_layout
+
+\begin_layout Standard
+Algunos tipos de instrucciones:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Aritmético-lógicas:
+\series default
+ 
+\family typewriter
+add
+\family default
+, 
+\family typewriter
+sub
+\family default
+, 
+\family typewriter
+imul
+\family default
+, 
+\family typewriter
+and
+\family default
+, 
+\family typewriter
+or
+\family default
+, 
+\family typewriter
+xor
+\family default
+, ...
+ 
+\family typewriter
+\emph on
+(instr.)
+\emph default
+ 
+\emph on
+src
+\emph default
+, 
+\emph on
+dst
+\family default
+\emph default
+.
+ 
+\begin_inset Formula $dst=dst\circ src$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Incrementos y decrementos:
+\series default
+ 
+\family typewriter
+inc
+\family default
+, 
+\family typewriter
+dec
+\family default
+.
+ 
+\family typewriter
+\emph on
+(instr.)
+\emph default
+ 
+\emph on
+dst
+\family default
+\emph default
+.
+ 
+\begin_inset Formula $dst=dst\pm1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Desplazamiento de bits:
+\series default
+ 
+\family typewriter
+shr
+\family default
+ (despl.
+ lógico a la der.), 
+\family typewriter
+shl
+\family default
+ (despl.
+ lógico a la izq.), 
+\family typewriter
+sar
+\family default
+ (despl.
+ aritmético a la der.), 
+\family typewriter
+sal
+\family default
+ (despl.
+ aritmético a la izq.) ...
+ 
+\family typewriter
+\emph on
+(instr.)
+\emph default
+ 
+\emph on
+n
+\emph default
+, 
+\emph on
+dst
+\family default
+\emph default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+De movimiento de datos:
+\series default
+ 
+\family typewriter
+mov 
+\emph on
+src
+\emph default
+, 
+\emph on
+dst
+\family default
+\emph default
+.
+ 
+\begin_inset Formula $dst\leftarrow src$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Saltos incondicionales:
+\series default
+ 
+\family typewriter
+jmp 
+\emph on
+pos
+\family default
+\emph default
+.
+ 
+\begin_inset Formula $\text{\texttt{RIP}}\leftarrow pos$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Saltos condicionales:
+\series default
+ 
+\family typewriter
+je
+\family default
+ (
+\begin_inset Formula $=$
+\end_inset
+
+), 
+\family typewriter
+jne
+\family default
+ (
+\begin_inset Formula $\neq$
+\end_inset
+
+), 
+\family typewriter
+jg
+\family default
+ (
+\begin_inset Formula $>$
+\end_inset
+
+), 
+\family typewriter
+jge
+\family default
+ (
+\begin_inset Formula $\geq$
+\end_inset
+
+), 
+\family typewriter
+jl
+\family default
+ (
+\begin_inset Formula $<$
+\end_inset
+
+), 
+\family typewriter
+jle
+\family default
+ (
+\begin_inset Formula $\leq$
+\end_inset
+
+), 
+\family typewriter
+ja
+\family default
+ (
+\begin_inset Formula $u>$
+\end_inset
+
+), 
+\family typewriter
+jae
+\family default
+ (
+\begin_inset Formula $u\geq$
+\end_inset
+
+), 
+\family typewriter
+jb
+\family default
+ (
+\begin_inset Formula $u<$
+\end_inset
+
+), 
+\family typewriter
+jbe
+\family default
+ (
+\begin_inset Formula $u\leq$
+\end_inset
+
+)...
+ donde 
+\begin_inset Formula $u$
+\end_inset
+
+ en la notación signfica 
+\begin_inset Quotes cld
+\end_inset
+
+sin signo
+\begin_inset Quotes crd
+\end_inset
+
+.
+ 
+\family typewriter
+\emph on
+(instr.)
+\emph default
+ 
+\emph on
+pos
+\family default
+\emph default
+.
+ Si la instrucción anterior es 
+\family typewriter
+cmp 
+\emph on
+a
+\emph default
+, 
+\emph on
+b
+\family default
+\emph default
+, entonces esta hace 
+\begin_inset Formula $\text{\texttt{RIP}}\leftarrow pos$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $bRa$
+\end_inset
+
+ (al revés de lo lógico).
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+pila
+\series default
+ es una zona de memoria RAM gestionada como una estructura LIFO (
+\emph on
+Last In First Out
+\emph default
+) con dos operaciones posibles:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Apilar:
+\series default
+ 
+\family typewriter
+push 
+\emph on
+src
+\family default
+\emph default
+, guarda el contenido de un registro sobre la cima de la pila.
+ Equivale a 
+\family typewriter
+sub $8,%rsp
+\family default
+ + 
+\family typewriter
+mov 
+\emph on
+src
+\emph default
+,(%rsp)
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Desapilar:
+\series default
+ 
+\family typewriter
+pop 
+\emph on
+dst
+\family default
+\emph default
+, extrae lo que hay en la cima de la pila a un registro.
+ Equivale a 
+\family typewriter
+mov (%rsp),
+\emph on
+dst
+\family default
+\emph default
+ + 
+\family typewriter
+add $8,%rsp
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+subrutina
+\series default
+ es una secuencia de instrucciones que recibe (o no) unos parámetros, realiza
+ alguna acción y devuelve (o no) un resultado al código que 
+\begin_inset Quotes cld
+\end_inset
+
+llamó
+\begin_inset Quotes crd
+\end_inset
+
+ a la subrutina.
+ Para dar soporte a subrutinas se utiliza la pila, que se divide en 
+\series bold
+marcos de pila
+\series default
+ o 
+\series bold
+\emph on
+stack frames
+\series default
+\emph default
+, formados por:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+8(%rbp)
+\family default
+: Dirección de retorno.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+(%rbp)
+\family default
+: 
+\family typewriter
+%rbp
+\family default
+ del marco de pila anterior.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+-
+\begin_inset Formula $\dots$
+\end_inset
+
+(%rbp)
+\family default
+: Variables locales, valores de registros guardados (usados por la subrutina
+ anterior).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
++
+\begin_inset Formula $\dots$
+\end_inset
+
+(%rsp)
+\family default
+: Argumentos de salida para otras subrutinas (hasta 6 se pasan por registros).
+\end_layout
+
+\begin_layout Standard
+Manejo implícito:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+call 
+\emph on
+sub
+\family default
+\emph default
+: Llama a una subrutina.
+ Equivale a 
+\family typewriter
+push %rip
+\family default
+ + 
+\family typewriter
+jmp 
+\emph on
+sub
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+ret
+\family default
+: Vuelve de una subrutina.
+ Equivale a 
+\family typewriter
+pop %rip
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+leave
+\family default
+: Desapila todo el marco de pila salvo la dirección de retorno y restablece
+ 
+\family typewriter
+%rbp
+\family default
+.
+ Equivale a 
+\family typewriter
+mov %rbp, %rsp
+\family default
+ + 
+\family typewriter
+pop %rbp
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Los mnemónicos vistos de instrucciones que admiten parámetros de distintos
+ tamaños (todos salvo saltos y manejo implícito de subrutinas) realmente
+ son versiones generales de otros que son iguales pero se le añade una letra
+ detrás al nombre de la instrucción: 
+\family typewriter
+b
+\family default
+ (byte) 8 bits, 
+\family typewriter
+w
+\family default
+ (word) 16 bits, 
+\family typewriter
+l
+\family default
+ (long) 32 bits y 
+\family typewriter
+q
+\family default
+ (quad) 64 bits.
+ Otros caso es el de, por ejemplo, 
+\family typewriter
+movslq
+\family default
+ (
+\emph on
+Move Signed Long to Quad
+\emph default
+, mover entero con signo de 32 bits a 64).
+\end_layout
+
+\begin_layout Section
+Codificación de las instrucciones
+\end_layout
+
+\begin_layout Standard
+Las instrucciones de x86-64 (CISC) son de longitud variable, mientras que
+ las de MIPS 32 (RISC) son todas de 32 bits.
+ En x86-64, el código de operación es el primer byte, en el que a veces
+ se codifica el registro involucrado.
+\end_layout
+
+\begin_layout Standard
+En un fichero objeto, el código se encuentra sin reubicar, de forma que
+ los campos de las instrucciones correspondientes a las direcciones de memoria
+ están vacíos o contienen direcciones relativas.
+ Tras el enlazado y la carga, el programa se dice que se 
+\series bold
+reubica
+\series default
+, es decir, los campos de direcciones de memoria son modificados de acuerdo
+ a la posición de la memoria (virtual) en la que se carga el programa.
+ La memoria virtual es administrada por la 
+\series bold
+unidad de manejo de memoria
+\series default
+ (
+\series bold
+MMU
+\series default
+).
+\end_layout
+
+\begin_layout Section
+Herramientas de GNU
+\end_layout
+
+\begin_layout Standard
+El comando 
+\family typewriter
+gcc
+\family default
+ es el compilador GNU de C, el más utilizado en Linux.
+ El comando 
+\family typewriter
+gcc main.c -o main
+\family default
+ compila el archivo 
+\family typewriter
+main.c
+\family default
+ y genera el ejecutable 
+\family typewriter
+main
+\family default
+.
+ Para generar sólo el código en ensamblador, usamos 
+\family typewriter
+gcc main.c -fno-asynchronous-unwind-tables -S -o main.s
+\family default
+, que genera el archivo 
+\family typewriter
+main.s
+\family default
+ en ensamblador, donde 
+\family typewriter
+-S
+\family default
+ indica salida en ensamblador y 
+\family typewriter
+-fno-asynchronous-unwind-tables
+\family default
+ sirve para generar un código bastante más limpio que es más útil para su
+ estudio.
+\end_layout
+
+\begin_layout Standard
+La opción 
+\family typewriter
+-c
+\family default
+ indica salida como fichero objeto (sin enlazarlo).
+ Si hacemos 
+\family typewriter
+gcc main.c -c -o main.o
+\family default
+ y luego 
+\family typewriter
+objdump -d main.o
+\family default
+, nos aparece una versión desensamblada del fichero objeto en el que podemos
+ ver cómo este se organiza.
+ A continuación podemos enlazar el fichero objeto con 
+\family typewriter
+gcc main.o -o main
+\family default
+.
+ Entonces podemos usar 
+\family typewriter
+ldd main
+\family default
+ para ver la lista de bibliotecas dinámicas que necesita el programa y la
+ dirección virtual del programa a la que estas son mapeadas.
+ En particular, un programa sencillo necesita 
+\family typewriter
+libc
+\family default
+, la biblioteca estándar de C, y 
+\family typewriter
+linux-vdso
+\family default
+ y 
+\family typewriter
+linux-x86-64
+\family default
+, que se corresponden con las llamadas al sistema de Linux.
+ La opción 
+\family typewriter
+-static
+\family default
+ de 
+\family typewriter
+gcc
+\family default
+ (
+\family typewriter
+gcc -static main.o -o main
+\family default
+) enlaza solo con bibliotecas estáticas (lo que aumenta considerablemente
+ el tamaño).
+\end_layout
+
+\begin_layout Standard
+La opción 
+\family typewriter
+-g
+\family default
+ añade al ejecutable la información necesaria para depurar el programa (es
+ decir, cargarlo en memoria, reubicado, y ejecutarlo de manera controlada).
+ Entonces podemos usar 
+\family typewriter
+gdb
+\family default
+, el depurador de GNU, llamándolo con 
+\family typewriter
+gdb main
+\family default
+.
+ Este tiene su propio intérprete, en el cual:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+l
+\family default
+ lista el código original.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+disassemble 
+\emph on
+
+\begin_inset Formula $sub$
+\end_inset
+
+
+\family default
+\emph default
+ lista el desensamblado de la subrutina 
+\begin_inset Formula $sub$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+x/
+\begin_inset Formula $n$
+\end_inset
+
+bx 
+\begin_inset Formula $tag$
+\end_inset
+
+
+\family default
+ muestra los 
+\begin_inset Formula $n$
+\end_inset
+
+ primeros bytes a partir de la etiqueta 
+\begin_inset Formula $tag$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+x/
+\begin_inset Formula $n$
+\end_inset
+
+w 
+\begin_inset Formula $tag$
+\end_inset
+
+
+\family default
+ hace lo mismo pero con los 
+\begin_inset Formula $n$
+\end_inset
+
+ primeros 
+\emph on
+words
+\emph default
+ (grupos de 4 bytes).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+b 
+\begin_inset Formula $n$
+\end_inset
+
+
+\family default
+ introduce un punto de interrupción (
+\emph on
+breakpoint
+\emph default
+) en la línea 
+\begin_inset Formula $n$
+\end_inset
+
+ del programa.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+r
+\family default
+ ejecuta el programa.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+p 
+\begin_inset Formula $var$
+\end_inset
+
+
+\family default
+ muestra el valor de una variable.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+c
+\family default
+ continúa la ejecución del programa por donde se dejó.
+\end_layout
+
+\end_body
+\end_document

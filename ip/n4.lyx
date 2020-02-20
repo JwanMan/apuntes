@@ -1,0 +1,302 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un esquema algorítmico es una 
+\begin_inset Quotes cld
+\end_inset
+
+plantilla
+\begin_inset Quotes crd
+\end_inset
+
+ de algoritmo aplicable no a un problema sino a una 
+\emph on
+clase
+\emph default
+ de problemas.
+ Estudiaremos los siguientes:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Recorrido
+\series default
+ o 
+\series bold
+enumeración secuencial:
+\series default
+ Aplicación del mismo tratamiento a todos los elementos de una colección.
+ Debemos estudiar si podemos tratar la secuencia vacía como el resto (
+\begin_inset Formula $H_{1}$
+\end_inset
+
+) y si podemos tratar al primer elemento como el resto (
+\begin_inset Formula $H_{2}$
+\end_inset
+
+).
+ Dado que 
+\begin_inset Formula $H_{1}\implies H_{2}$
+\end_inset
+
+, tenemos tres esquemas: (1) 
+\begin_inset Formula $H_{1}\land H_{2}$
+\end_inset
+
+, (2) 
+\begin_inset Formula $\neg H_{1}\land H_{2}$
+\end_inset
+
+ y (3) 
+\begin_inset Formula $\neg H_{1}\land\neg H_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Búsqueda:
+\series default
+ Encontrar el primer elemento 
+\begin_inset Formula $e$
+\end_inset
+
+ en la colección 
+\begin_inset Formula $P$
+\end_inset
+
+ que cumpla cierta propiedad.
+ Puede que dicha propiedad no dependa solo de 
+\begin_inset Formula $e$
+\end_inset
+
+ sino también de los elementos anteriores (
+\begin_inset Formula $P_{iz}$
+\end_inset
+
+), en cuyo caso habrá que hacer los tratamientos necesarios.
+ Una vez encontrado el elemento buscado, la iteración se detiene.
+\end_layout
+
+\begin_layout Standard
+Es muy importante identificar la clase de cada problema, pues de lo contrario
+ se podría confundir una búsqueda con un recorrido.
+ Un mismo problema puede combinar búsqueda y recorrido, bien de manera secuencia
+l o uno dentro del otro.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+iteración
+\series default
+ define una sucesión de valores dados por el conjunto de variables implicadas,
+ que denotamos 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ La secuencia se caracteriza por un valor inicial 
+\begin_inset Formula $V_{0}$
+\end_inset
+
+ (
+\series bold
+inicialización
+\series default
+), una 
+\series bold
+condición de continuación
+\series default
+ 
+\begin_inset Formula $P(V)$
+\end_inset
+
+ y un conjunto de funciones que modifican el valor de 
+\begin_inset Formula $V$
+\end_inset
+
+ en cada iteración, 
+\begin_inset Formula $f(V)$
+\end_inset
+
+ (
+\series bold
+cuerpo
+\series default
+).
+ Para saber que la iteración finaliza después de un número finito de pasos,
+ definimos una 
+\series bold
+función de terminación
+\series default
+ 
+\begin_inset Formula $T$
+\end_inset
+
+ entera que dependa de las variables y sea estrictamente decreciente respecto
+ al progreso de la iteración con una cota inferior.
+\end_layout
+
+\begin_layout Standard
+Existen dos formas de definir una sucesión:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Explícita
+\series default
+ o 
+\series bold
+calculada
+\series default
+: 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ se expresa como una fórmula o algoritmo desde 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Implícita
+\series default
+ o 
+\series bold
+recurrente
+\series default
+: 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ se expresa mediante una relación de inducción, a partir de 
+\begin_inset Formula $a_{i-r},\dots,a_{i-1}$
+\end_inset
+
+, donde 
+\begin_inset Formula $r$
+\end_inset
+
+ es la 
+\series bold
+profundidad
+\series default
+, y los valores 
+\begin_inset Formula $a_{0},\dots,a_{r-1}$
+\end_inset
+
+ son dados.
+\end_layout
+
+\begin_layout Standard
+Dada una sucesión 
+\begin_inset Formula $a_{n}$
+\end_inset
+
+, definimos la sucesión de 
+\series bold
+sumas parciales
+\series default
+ o 
+\series bold
+serie
+\series default
+ como 
+\begin_inset Formula $S_{1}=a_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $S_{n}=S_{n-1}+a_{n}$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

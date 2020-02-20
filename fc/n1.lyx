@@ -1,0 +1,763 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+La 
+\series bold
+informática
+\series default
+ es la ciencia que estudia el procesamiento automático de la información.
+ Su consolidación como ciencia se produce a partir de los años 40 con el
+ desarrollo de los 
+\series bold
+computadores
+\series default
+, con los cuales esta se ha podido desarrollar.
+\end_layout
+
+\begin_layout Standard
+Un computador es una máquina que procesa información siguiendo las instrucciones
+ de un programa, y se comunica a través de los dispositivos de entrada y
+ de salida.
+ También dispone de dispositivos para almacenar información y procesarla.
+ Esta está expresada en forma binaria (0's y 1's).
+ Distinguimos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Hardware:
+\series default
+ Conjunto de componentes que integran la parte material de un computador,
+ incluyendo componentes eléctricos, electrónicos y mecánicos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Software:
+\series default
+ Conjunto de programas e instrucciones para ejecutar ciertas tareas en un
+ computador.
+ Es intangible, aunque se encuentren almacenados en hardware.
+\end_layout
+
+\begin_layout Section
+Hardware
+\end_layout
+
+\begin_layout Standard
+Tradicionalmente, los computadores siguen el 
+\series bold
+esquema de Von Neumann
+\series default
+, que consiste en una unidad central de proceso (CPU), constituida por una
+ unidad de control (UC) y un camino de datos (CD); la memoria principal,
+ y los dispositivos de entrada y salida, incluyendo almacenamiento.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename buses.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los 
+\series bold
+buses
+\series default
+ son un conjunto de hilos paralelos que conectan unidades, como se muestra
+ en la figura.
+ Cada hilo transmite 1 bit a la vez, y el 
+\series bold
+ancho de bus
+\series default
+ es el nº de hilos que tiene un bus.
+ En concreto:
+\end_layout
+
+\begin_layout Itemize
+El 
+\series bold
+bus de direcciones
+\series default
+ transmite la dirección en memoria, por lo que su ancho define la máxima
+ memoria instalable como 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ bytes.
+\end_layout
+
+\begin_layout Itemize
+El 
+\series bold
+bus de datos
+\series default
+ transmite información, por lo que a mayor ancho, mayor cantidad de información
+ se puede transmitir en una sola operación.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+memoria
+\series default
+ está formada por un conjunto de celdas, normalmente de 1 byte, en la que
+ se guardan datos e instrucciones.
+ Cada celda tiene una 
+\series bold
+dirección
+\series default
+ única y correlativa.
+ Para leerla, la CPU 
+\begin_inset Quotes cld
+\end_inset
+
+pone
+\begin_inset Quotes crd
+\end_inset
+
+ la dirección en el bus de direcciones, activa el hilo de lectura en el
+ bus de control y la memoria 
+\begin_inset Quotes cld
+\end_inset
+
+deja
+\begin_inset Quotes crd
+\end_inset
+
+ el contenido de la(s) celda(s) en el bus de datos.
+ Para escribir, la CPU 
+\begin_inset Quotes cld
+\end_inset
+
+pone
+\begin_inset Quotes crd
+\end_inset
+
+ la dirección en el bus de direcciones, el dato en el bus de datos y activa
+ el hilo de escritura en el bus de control.
+\end_layout
+
+\begin_layout Section
+Software
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+sistema operativo
+\series default
+ un programa que gestiona los recursos del computador.
+ Es el primer programa en ejecutarse (*), gestiona a todos los demás y actúa
+ de intermediario con el hardware.
+ Es un 
+\series bold
+programa de sistema
+\series default
+, al igual que el compilador y el ensamblador.
+ Por contra, las 
+\series bold
+aplicaciones
+\series default
+ son programas orientados al usuario, como procesadores de texto, hojas
+ de cálculo, navegadores web, reproductores multimedia, etc.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+firmware
+\series default
+ es software de bajo nivel, almacenado de forma semipermanente.
+ En general, puede cambiarse, pero no tan fácilmente como el resto de software.
+\end_layout
+
+\begin_layout Section
+Internet
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Internet
+\series default
+ es un conjunto descentralizado de redes de comunicación interconectadas
+ mediante protocolos estandarizados, de forma que las redes físicas que
+ las componen funcionan como una única red lógica mundial.
+ Existen muchos 
+\series bold
+servicios
+\series default
+ proporcionados a través de la red, como la Web, correo electrónico, transmisión
+ de archivos, chats, acceso remoto, etc.
+\end_layout
+
+\begin_layout Section
+Conceptos
+\end_layout
+
+\begin_layout Standard
+La unidad mínima de información es el 
+\series bold
+bit
+\series default
+, que puede valer 0 o 1.
+ Se pueden almacenar como tensión alta o baja en un circuito, superficie
+ magnetizada en uno u otro sentido, superficie perforada, señal de alta
+ o baja frecuencia en un cable, presencia o no de señal luminosa en un cable
+ de fibra óptica, etc.
+ Generalmente se usan secuencias de bits: 1 
+\series bold
+byte
+\series default
+ = 8 bits, codifica 
+\begin_inset Formula $2^{8}=256$
+\end_inset
+
+ estados distintos.
+\end_layout
+
+\begin_layout Standard
+Múltiplos del byte: 
+\begin_inset Formula $\unit[1]{KB}\text{(kilobyte)}=\unit[2^{10}]{B}$
+\end_inset
+
+, 
+\begin_inset Formula $\unit[1]{MB}\text{(megabyte)}=\unit[2^{20}]{B}$
+\end_inset
+
+, 
+\begin_inset Formula $\unit[1]{GB}\text{(gigabyte)}=\unit[2^{30}]{B}$
+\end_inset
+
+, 
+\begin_inset Formula $\unit[1]{TB}\text{(terabyte)}=\unit[2^{40}]{B}$
+\end_inset
+
+, 
+\begin_inset Formula $\unit[1]{PB}\text{(petabyte)}=\unit[2^{50}]{B}$
+\end_inset
+
+, 
+\begin_inset Formula $\unit[1]{EB}\text{(exabyte)}=\unit[2^{60}]{B}$
+\end_inset
+
+.
+ Los prefijos también se aplican a bits.
+\end_layout
+
+\begin_layout Standard
+Las variables numéricas que ocupan más de un byte se pueden guardar en memoria
+ como:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Little endian
+\series default
+\emph default
+: El byte menos significativo está en la posición de memoria más baja.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Big endian
+\series default
+\emph default
+: En la posición más alta.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+La terminología procede de una escena de Los Viajes de Gulliver en la que
+ dos personas discuten sobre cuál es el extremo correcto para romper un
+ huevo, si el grande (
+\emph on
+big endian
+\emph default
+) o el pequeño (
+\emph on
+little endian
+\emph default
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+tiempo de ejecución
+\series default
+ o 
+\series bold
+de respuesta
+\series default
+ es lo que tarda el computador en realizar una tarea, incluyendo E/S, mientras
+ que el 
+\series bold
+tiempo de CPU
+\series default
+ se refiere solo al tiempo que tarda el procesador en realizar un cálculo,
+ y se calcula como:
+\begin_inset Formula 
+\[
+{Tiempo}_{CPU}=\frac{{Instrucciones}_{APLICACIÓN}\cdot\frac{Ciclos(Media)}{Instrucción}}{Frecuencia\ procesador}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Historia
+\end_layout
+
+\begin_layout Standard
+En 1791-1871, Babbage intentó diseñar una máquina mecánica capaz de resolver
+ problemas matemáticos, la cual nunca fue terminada.
+ Podemos dividir la historia de la informática en varias generaciones de
+ ordenadores:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Primera generación (1943-62):
+\series default
+ A principios de siglo, Fleming inventó la válvula de vacío, permitiendo
+ el desarrollo de la electrónica y los primeros ordenadores, de los que
+ destacamos:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Proyecto ENIAC (Eckert y Mauchly, 1943-46):
+\series default
+ 
+\emph on
+Electronic Numerical Integrator and Calculator
+\emph default
+: 
+\begin_inset Formula $30$
+\end_inset
+
+ toneladas, 
+\begin_inset Formula $\unit[180]{m^{2}}$
+\end_inset
+
+, 
+\begin_inset Formula $18000$
+\end_inset
+
+ válvulas de vacío, frecuencia 
+\begin_inset Formula $\unit[0.1]{MHz}$
+\end_inset
+
+, 20 registros de 10 dígitos decimales, programación cableando directamente,
+ 1900 sumas por segundo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+UNIVAC:
+\series default
+ 
+\emph on
+Universal Automatic Computer
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Proyecto EDVAC (Von Neumann, 1952):
+\series default
+ 
+\emph on
+Electronic Discrete Variable Automatic Computer
+\emph default
+: El primero con programas almacenados; saltos condicionales, válvulas de
+ vacío.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Segunda generación (1962-67):
+\series default
+ Tras la invención del transistor en 1947; IBM System 360, PDP-8 (primer
+ minicomputador, 
+\emph on
+Digital Equipment Corporation
+\emph default
+).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Tercera generación (1967-78):
+\series default
+ En 1958 se inventa el circuito integrado, con el que se integran varios
+ elementos electrónicos en el mismo bloque.
+ Aparece la microprogramación (propuesta por Wilkes en los 50) y el primer
+ supercomputador (CDC 6000, 
+\emph on
+Control Data Corporation
+\emph default
+, Seymour Cray, 1964), y en 1965 Wilkes propone el concepto de caché.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Cuarta generación (1971-):
+\series default
+ En 1971 se diseña el primer microprocesador: Intel 4004, con 2300 transistores.
+ Desde el 1981 y con el desarrollo de CPUs de Intel como el 8088 se desarrolla
+ la informática de consumo.
+\end_layout
+
+\begin_layout Standard
+Desde la mitad de los 90 con la aparición de la web, hay 3 grupos de ordenadores
+:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Ordenadores personales:
+\series default
+ PCs, 
+\emph on
+tablets
+\emph default
+, etc., para uso individual, con buen rendimiento a bajo coste.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Servidores:
+\series default
+ Para muchos usuarios, buscan fiabilidad y escalabilidad.
+ Distinguimos de clase baja (servidores de archivos, de impresión, etc.),
+ media (centros de datos,
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Quotes cld
+\end_inset
+
+datacenters
+\begin_inset Quotes crd
+\end_inset
+
+) y alta (supercomputadores con aplicaciones científicas).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Ordenadores embebidos
+\series default
+ o 
+\series bold
+empotrados:
+\series default
+ Ordenadores de coches, 
+\emph on
+gadgets
+\emph default
+, etc.
+ Para una sola aplicación, con grandes limitaciones, consumo de energía
+ y fiabilidad.
+\end_layout
+
+\begin_layout Standard
+En 2005, para ahorrar energía, aumentar el rendimiento sin aumentar el ciclo
+ de reloj y mejorar la fiabilidad del diseño, surgen los procesadores 
+\series bold
+multinúcleo,
+\series default
+ aunque requieren 
+\series bold
+programación paralela.
+\end_layout
+
+\begin_layout Section
+Organización de un PC
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Factor de forma
+\series default
+ o 
+\series bold
+geometría:
+\series default
+ Largo, ancho, ubicación de agujeros de montaje, tipo y ubicación de conectores
+ y componentes, etc.
+ Normalmente ATX, aunque los servidores suelen usar factores de forma como
+ WTX, que tienen mayores dimensiones y permiten alojar varias CPUs y más
+ memoria.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+CPUs soportadas:
+\series default
+ Depende del tipo de 
+\emph on
+socket
+\emph default
+ de CPU.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Módulos de memoria soportados:
+\series default
+ Tipos (DDR [
+\lang american
+Double Data Rate
+\lang spanish
+], DDR2, DDR3, DDR4...), frecuencia del reloj de la memoria, nº de ranuras,
+ capacidad máxima, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Chipset:
+\series default
+ Formado por:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\lang american
+Memory Controller Hub
+\series default
+\lang spanish
+ o 
+\series bold
+Northbridge:
+\series default
+ Comunica la CPU, tarjeta gráfica, módulos de memoria y el Southbridge.
+ Últimamente su funcionalidad se integra en el procesador.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\lang american
+I/O Controller Hub
+\series default
+\lang spanish
+ o 
+\series bold
+Southbridge:
+\series default
+ Comunica el resto de elementos del sistema.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Ranuras de expansión:
+\series default
+ PCI (más antiguo, siendo el más usado un bus de 32 bits a 
+\begin_inset Formula $\unit[33]{MHz}$
+\end_inset
+
+), PCI-X (servidores, 
+\begin_inset Formula $\unit[66]{MHz}$
+\end_inset
+
+ o más) y PCI Express (más rápido, hasta 
+\begin_inset Formula $\unit[250]{MB/s}$
+\end_inset
+
+ 
+\lang american
+full duplex
+\lang spanish
+ por canal, con ranuras de hasta 16 canales).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Interfaces de almacenamiento:
+\series default
+ ATA (paralela, hasta 
+\begin_inset Formula $\unit[133]{MB/s}$
+\end_inset
+
+), actualmente sustituida por SATA (en serie, hasta 
+\begin_inset Formula $\unit[150]{MB/s}$
+\end_inset
+
+ en la versión original), y SCSI (paralela), que será sustituida por SAS
+ (serie).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Interfaces de audio y red.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Puertos de conexión periféricos
+\series default
+ como USB y Firewire.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Protección de la BIOS:
+\series default
+ La BIOS (
+\lang american
+Basic Input/Output System
+\lang spanish
+) se encarga de arrancar el PC y dar soporte para ciertos dispositivos de
+ entrada y salida.
+ También ofrece una interfaz gráfica para configurar parámetros del PC.
+ Actualmente la BIOS se almacena muchas veces en una Flash, por lo que se
+ puede actualizar, pero de hacerse incorrectamente podría dejar el equipo
+ inutilizable hasta cambiar el chip.
+ Actualmente está siendo sustituida por UEFI (
+\lang american
+Unified Extensible Firmware Interface
+\lang spanish
+).
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename image.TZVI9Y.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

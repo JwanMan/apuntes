@@ -1,0 +1,1759 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Determinante de una matriz.
+ Propiedades
+\end_layout
+
+\begin_layout Standard
+Una aplicación 
+\begin_inset Formula $f:U_{1}\times\dots\times U_{n}\rightarrow V$
+\end_inset
+
+ es una 
+\series bold
+aplicación multilineal
+\series default
+ si es lineal en cada una de las 
+\begin_inset Formula $n$
+\end_inset
+
+ variables, es decir, si 
+\begin_inset Formula 
+\[
+f(u_{1},\dots,\alpha u_{i}+\beta u_{i}^{\prime},\dots,u_{n})=\alpha f(u_{1},\dots,u_{i},\dots,u_{n})+\beta f(u_{1},\dots,u_{i}^{\prime},\dots,u_{n})
+\]
+
+\end_inset
+
+Una aplicación multilineal 
+\begin_inset Formula $f:U^{n}\rightarrow V$
+\end_inset
+
+ se llama 
+\series bold
+aplicación 
+\begin_inset Formula $n$
+\end_inset
+
+-lineal
+\series default
+.
+ Si además 
+\begin_inset Formula $V=K$
+\end_inset
+
+ es una 
+\series bold
+forma 
+\begin_inset Formula $n$
+\end_inset
+
+-lineal
+\series default
+.
+ Una forma 
+\begin_inset Formula $n$
+\end_inset
+
+-lineal 
+\begin_inset Formula $f:U^{n}\rightarrow K$
+\end_inset
+
+ es 
+\series bold
+alternada
+\series default
+ si se anula en cada 
+\begin_inset Formula $n$
+\end_inset
+
+-upla con dos componentes iguales, es decir, tal que 
+\begin_inset Formula $f(u_{1},\dots,u_{k},\dots,u_{l},\dots,u_{n})=0$
+\end_inset
+
+ cuando 
+\begin_inset Formula $u_{k}=u_{l}$
+\end_inset
+
+ (con 
+\begin_inset Formula $k\neq l$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+aplicación determinante
+\series default
+ 
+\begin_inset Formula $\det:M_{n}(K)\rightarrow K$
+\end_inset
+
+ es una forma 
+\begin_inset Formula $n$
+\end_inset
+
+-lineal alternada que a cada matriz cuadrada 
+\begin_inset Formula $A$
+\end_inset
+
+ le asigna un escalar, llamado 
+\series bold
+determinante
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+, que denotamos 
+\begin_inset Formula $\det(A)$
+\end_inset
+
+, 
+\begin_inset Formula $|A|$
+\end_inset
+
+ o 
+\begin_inset Formula $\det(A_{1},\dots,A_{n})$
+\end_inset
+
+ (donde 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+ son las columnas de 
+\begin_inset Formula $A$
+\end_inset
+
+), tal que 
+\begin_inset Formula $|I_{n}|=1$
+\end_inset
+
+.
+ Algunas aplicaciones determinantes son:
+\end_layout
+
+\begin_layout Enumerate
+La aplicación 
+\begin_inset Formula $||:M_{2}(K)\rightarrow K$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+\left|\begin{array}{cc}
+a_{11} & a_{12}\\
+a_{21} & a_{22}
+\end{array}\right|=a_{11}a_{22}-a_{12}a_{21}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+La 
+\series bold
+regla de Sarrus
+\series default
+, aplicación 
+\begin_inset Formula $||:M_{3}(K)\rightarrow K$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+\left|\begin{array}{ccc}
+a_{11} & a_{12} & a_{13}\\
+a_{21} & a_{22} & a_{23}\\
+a_{31} & a_{32} & a_{33}
+\end{array}\right|=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{11}a_{23}a_{32}-a_{13}a_{22}a_{31}-a_{12}a_{21}a_{33}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las aplicaciones determinantes verifican que:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left|\begin{array}{cccc}
+a_{1} & 0 & \cdots & 0\\
+0 & a_{2} & \cdots & 0\\
+\vdots & \vdots & \ddots & \vdots\\
+0 & 0 & \cdots & a_{n}
+\end{array}\right|=a_{1}a_{2}\cdots a_{n}
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $\{e_{1},\dots,e_{n}\}$
+\end_inset
+
+ es la base canónica de 
+\begin_inset Formula $K^{n}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\left|\begin{array}{cccc}
+a_{1} & 0 & \cdots & 0\\
+0 & a_{2} & \cdots & 0\\
+\vdots & \vdots & \ddots & \vdots\\
+0 & 0 & \cdots & a_{n}
+\end{array}\right|=\det(a_{1}e_{1},\dots,a_{n}e_{n})=a_{1}\cdots a_{n}\det(e_{1},\dots,e_{n})=a_{1}\cdots a_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ tiene una columna nula entonces 
+\begin_inset Formula $\det(A)=0$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Si 
+\begin_inset Formula $A_{i}=0$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\begin{array}{c}
+\det(A_{1},\dots,A_{i-1},0,A_{i+1},\dots,A_{n})=\det(A_{1},\dots,A_{i-1},0+0,A_{i+1},\dots,A_{n})=\\
+=\det(A_{1},\dots,A_{i-1},0,A_{i+1},\dots,A_{n})+\det(A_{1},\dots,A_{i-1},0,A_{i+1},\dots,A_{n})
+\end{array}
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $\det A=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Al intercambiar dos columnas, el determinante cambia de signo.
+\begin_inset Formula 
+\[
+\begin{array}{c}
+0=\det(A_{1},\dots,A_{i}+A_{j},\dots,A_{i}+A_{j},\dots,A_{n})=\\
+=\det(A_{1},\dots,A_{i},\dots,A_{i},\dots,A_{n})+\det(A_{1},\dots,A_{i},\dots,A_{j},\dots,A_{n})+\\
++\det(A_{1},\dots,A_{j},\dots,A_{i},\dots,A_{n})+\det(A_{1},\dots,A_{j},\dots,A_{j},\dots,A_{n})=\\
+=\det(A_{1},\dots,A_{i},\dots,A_{j},\dots,A_{n})+\det(A_{1},\dots,A_{j},\dots,A_{i},\dots,A_{n})
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si a una columna se le añade otra multiplicada por un escalar, el determinante
+ no varía.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{array}{c}
+\det(A_{1},\dots,A_{i}+\alpha A_{j},\dots,A_{j},\dots,A_{n})=\\
+=\det(A_{1},\dots,A_{i},\dots,A_{j},\dots,A_{n})+\alpha\det(A_{1},\dots,A_{j},\dots,A_{j},\dots,A_{n})=\\
+=\det(A_{1},\dots,A_{i},\dots,A_{j},\dots,A_{n})
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si las columnas de una matriz cuadrada son linealmente dependientes, su
+ determinante es 0.
+ Por tanto una matriz no invertible tiene determinante 0.
+\begin_inset Newline newline
+\end_inset
+
+Habrá una columna que será combinación lineal del resto: 
+\begin_inset Formula $A_{k}=\sum_{j\neq k}\alpha_{j}A_{j}$
+\end_inset
+
+.
+ Así,
+\begin_inset Formula 
+\[
+\begin{array}{c}
+\det(A_{1},\dots,A_{k},\dots,A_{n})=\det(A_{1},\dots,\sum_{j\neq k}\alpha_{j}A_{j},\dots,A_{n})=\\
+=\sum_{j\neq k}\alpha_{j}\det(A_{1},\dots,A_{j},\dots,A_{n})=0
+\end{array}
+\]
+
+\end_inset
+
+Ya que cada matriz del último sumatorio tiene dos columnas iguales.
+\end_layout
+
+\begin_layout Standard
+De aquí podemos deducir que 
+\begin_inset Formula $|E_{n}(i,j)|=-1$
+\end_inset
+
+, 
+\begin_inset Formula $|E_{n}(\alpha[i])|=\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $|E_{n}([i]+\alpha[j])|=1$
+\end_inset
+
+, y que si 
+\begin_inset Formula $A,E\in M_{n}(K)$
+\end_inset
+
+, siendo 
+\begin_inset Formula $E$
+\end_inset
+
+ una matriz elemental, entonces 
+\begin_inset Formula $|AE|=|A||E|$
+\end_inset
+
+.
+ Se deducen los siguientes teoremas:
+\end_layout
+
+\begin_layout Enumerate
+Una matriz cuadrada 
+\begin_inset Formula $A$
+\end_inset
+
+ es invertible si y sólo si 
+\begin_inset Formula $|A|\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Toda matriz invertible es producto de matrices elementales, y por lo anterior,
+ 
+\begin_inset Formula $|A|=|I_{n}E_{1}\cdots E_{k}|=|I_{n}||E_{1}|\cdots|E_{k}|=|E_{1}|\cdots|E_{k}|$
+\end_inset
+
+.
+ Como ninguno de los factores es nulo, se tiene que 
+\begin_inset Formula $|A|\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Inmediato de la última propiedad.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A,B\in M_{n}(K)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $|AB|=|A||B|$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Si alguna de las dos no es invertible, su producto tampoco (pues si lo fuera,
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ serían invertibles).
+ En tal caso, 
+\begin_inset Formula $|AB|=0=|A||B|$
+\end_inset
+
+.
+ Si son ambas invertibles, existen matrices elementales 
+\begin_inset Formula $E_{1},\dots,E_{k}$
+\end_inset
+
+ con 
+\begin_inset Formula $B=E_{1}\cdots E_{k}$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $|AB|=|AE_{1}\cdots E_{k}|=|A||E_{1}|\cdots|E_{k}|=|A||B|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+De aquí tenemos que 
+\begin_inset Formula $|A^{-1}|=|A|^{-1}$
+\end_inset
+
+, pues 
+\begin_inset Formula $1=|I_{n}|=|AA^{-1}|=|A||A^{-1}|$
+\end_inset
+
+.
+ Tenemos también que la aplicación determinante es única, pues 
+\begin_inset Formula $\det(A)=0$
+\end_inset
+
+ para matrices no invertibles y 
+\begin_inset Formula $\det(A)=|E_{1}|\cdots|E_{k}|$
+\end_inset
+
+ para aquellas que sí lo son, y podemos entonces comprobar que esta operación
+ está bien definida.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema:
+\series default
+ 
+\begin_inset Formula $|A^{t}|=|A|$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $A$
+\end_inset
+
+ no es invertible, 
+\begin_inset Formula $A^{t}$
+\end_inset
+
+ tampoco, por lo que 
+\begin_inset Formula $|A^{t}|=0=|A|$
+\end_inset
+
+.
+ Si lo es, existen 
+\begin_inset Formula $E_{1},\dots,E_{k}$
+\end_inset
+
+ con 
+\begin_inset Formula $A=E_{1}\cdots E_{k}$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $|A^{t}|=|(E_{1}\cdots E_{k})^{t}|=|E_{k}^{t}\cdots E_{1}^{t}|=|E_{k}^{t}|\cdots|E_{1}^{t}|=|E_{1}|\cdots|E_{k}|=|E_{1}\cdots E_{k}|=|A|$
+\end_inset
+
+.
+ Esto significa que todo lo relativo a determinantes que se diga para columnas
+ también es válido para filas.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A=(a_{ij})\in M_{n}(K)$
+\end_inset
+
+ e 
+\begin_inset Formula $i,j\in\{1,\dots,n\}$
+\end_inset
+
+, llamamos 
+\series bold
+menor complementario
+\series default
+ del elemento 
+\begin_inset Formula $a_{ij}$
+\end_inset
+
+ al determinante 
+\begin_inset Formula $|A_{ij}|$
+\end_inset
+
+ de la matriz 
+\begin_inset Formula $A_{ij}\in M_{n-1}(K)$
+\end_inset
+
+ resultado de eliminar la fila 
+\begin_inset Formula $i$
+\end_inset
+
+ y la columna 
+\begin_inset Formula $j$
+\end_inset
+
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+adjunto
+\series default
+ de 
+\begin_inset Formula $a_{ij}$
+\end_inset
+
+ en 
+\begin_inset Formula $A$
+\end_inset
+
+ al escalar 
+\begin_inset Formula $\Delta_{ij}:=(-1)^{i+j}|A_{ij}|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema:
+\series default
+ Las aplicaciones 
+\begin_inset Formula $||:M_{n}(K)\rightarrow K$
+\end_inset
+
+ definidas para 
+\begin_inset Formula $n=1$
+\end_inset
+
+ como 
+\begin_inset Formula $|(a)|=a$
+\end_inset
+
+ y para 
+\begin_inset Formula $n>1$
+\end_inset
+
+ como 
+\begin_inset Formula $|(a_{ij})|=a_{11}\Delta_{11}+\dots+a_{1n}\Delta_{1n}$
+\end_inset
+
+ son aplicaciones determinante.
+ 
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $n=1$
+\end_inset
+
+ es trivial.
+ Ahora supongamos que la aplicación determinante está definida para 
+\begin_inset Formula $n-1$
+\end_inset
+
+ y probamos que se cumplen las condiciones para 
+\begin_inset Formula $n-1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Multilineal: Sea 
+\begin_inset Formula $A=(a_{ij})=(A_{1},\dots,A_{n})\in M_{n}(K)$
+\end_inset
+
+ y 
+\begin_inset Formula $A^{\prime}=(a_{ij}^{\prime})=(A_{1},\dots,\alpha A_{k},\dots,A_{n})$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $a_{ik}^{\prime}=\alpha a_{ik}$
+\end_inset
+
+ y para 
+\begin_inset Formula $j\neq k$
+\end_inset
+
+, 
+\begin_inset Formula $a_{ij}^{\prime}=a_{ij}$
+\end_inset
+
+.
+ Si llamamos 
+\begin_inset Formula $\Delta_{ij}$
+\end_inset
+
+ y 
+\begin_inset Formula $\Delta_{ij}^{\prime}$
+\end_inset
+
+ a los correspondientes adjuntos, 
+\begin_inset Formula $\Delta_{ik}^{\prime}=\Delta_{ik}$
+\end_inset
+
+ y para 
+\begin_inset Formula $j\neq k$
+\end_inset
+
+, 
+\begin_inset Formula $\Delta_{ij}^{\prime}=\alpha\Delta_{ij}$
+\end_inset
+
+.
+ Así,
+\begin_inset Formula 
+\[
+\begin{array}{c}
+|A^{\prime}|=a_{11}^{\prime}\Delta_{11}^{\prime}+\dots+a_{1n}^{\prime}\Delta_{1n}^{\prime}=\\
+=a_{11}\alpha\Delta_{11}+\dots+a_{1(k-1)}\alpha\Delta_{1(k-1)}+\alpha a_{1k}\Delta_{ik}+a_{1(k+1)}\alpha\Delta_{i(k+1)}+\dots+a_{1n}\alpha\Delta_{in}=\\
+=\alpha(a_{11}\Delta_{11}+\dots+a_{1n}\Delta_{1n})=\alpha|A|
+\end{array}
+\]
+
+\end_inset
+
+Del mismo modo, sea 
+\begin_inset Formula $A=(a_{ij})=(A_{1},\dots,A_{k}^{\prime}+A_{k}^{\prime\prime},\dots,A_{n})$
+\end_inset
+
+ y sean 
+\begin_inset Formula $A^{\prime}=(a_{ij}^{\prime})=(A_{1},\dots,A_{k}^{\prime},\dots,A_{n})$
+\end_inset
+
+ y 
+\begin_inset Formula $A^{\prime\prime}=(a_{ij}^{\prime\prime})=(A_{1},\dots,A_{k}^{\prime\prime},\dots,A_{n})$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $a_{ik}=a_{ik}^{\prime}+a_{ik}^{\prime\prime}$
+\end_inset
+
+ y si 
+\begin_inset Formula $j\neq k$
+\end_inset
+
+, 
+\begin_inset Formula $a_{ij}=a_{ij}^{\prime}=a_{ij}^{\prime\prime}$
+\end_inset
+
+.
+ Del mismo modo, 
+\begin_inset Formula $\Delta_{ik}=\Delta_{ik}^{\prime}=\Delta_{ik}^{\prime\prime}$
+\end_inset
+
+ y si 
+\begin_inset Formula $j\neq k$
+\end_inset
+
+, 
+\begin_inset Formula $\Delta_{ij}=\Delta_{ij}^{\prime}+\Delta_{ij}^{\prime\prime}$
+\end_inset
+
+, por lo que
+\begin_inset Formula 
+\[
+\begin{array}{c}
+|A|=a_{11}\Delta_{11}+\dots+a_{1n}\Delta_{1n}=\\
+=a_{11}(\Delta_{11}^{\prime}+\Delta_{11}^{\prime\prime})+\dots+a_{1(k-1)}(\Delta_{1(k-1)}^{\prime}+\Delta_{1(k-1)}^{\prime\prime})+(a_{1k}^{\prime}+a_{1k}^{\prime\prime})\Delta_{1k}+\\
++a_{1(k+1)}(\Delta_{1(k+1)}^{\prime}+\Delta_{1(k+1)}^{\prime\prime})+\dots+a_{1n}(\Delta_{1n}^{\prime}+\Delta_{1n}^{\prime\prime})=\\
+=a_{11}^{\prime}\Delta_{11}^{\prime}+\dots+a_{1n}\Delta_{1n}^{\prime}+a_{11}^{\prime\prime}\Delta_{11}^{\prime\prime}+\dots+a_{1n}\Delta_{1n}^{\prime\prime}=|A^{\prime}|+|A^{\prime\prime}|
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Alternada: Sea 
+\begin_inset Formula $A=(a_{ij})=(A_{1},\dots,A_{n})\in M_{n}(K)$
+\end_inset
+
+.
+ Si para 
+\begin_inset Formula $r<s$
+\end_inset
+
+ se tiene que 
+\begin_inset Formula $A_{r}=A_{s}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $a_{r}=a_{s}$
+\end_inset
+
+ y para 
+\begin_inset Formula $j\neq r,s$
+\end_inset
+
+, se tiene que 
+\begin_inset Formula $\Delta_{1j}=0$
+\end_inset
+
+, pues el menor complementario posee dos columnas iguales, por lo que 
+\begin_inset Formula $|A|=a_{11}\Delta_{11}+\dots+a_{1n}\Delta_{1n}=a_{1r}\Delta_{1r}+a_{1s}\Delta_{1s}$
+\end_inset
+
+.
+ Por otro lado, si llamamos 
+\begin_inset Formula $A_{j}^{\prime}$
+\end_inset
+
+ al elemento de 
+\begin_inset Formula $A_{j}$
+\end_inset
+
+ resultado de eliminar 
+\begin_inset Formula $a_{1j}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\begin{array}{c}
+|A_{1s}|=|(A_{1}^{\prime},\dots,A_{r-1}^{\prime},A_{r}^{\prime},A_{r+1}^{\prime},\dots,A_{s-1}^{\prime},A_{s+1}^{\prime},\dots,A_{n}^{\prime})|=\\
+=-|(A_{1}^{\prime},\dots,A_{r-1}^{\prime},A_{r+1}^{\prime},A_{r}^{\prime},\dots,A_{s-1}^{\prime},A_{s+1}^{\prime},\dots,A_{n}^{\prime})|=\dots=\\
+=(-1)^{s-r-1}|(A_{1}^{\prime},\dots,A_{r-1}^{\prime},A_{r+1}^{\prime},\dots,A_{s-1}^{\prime},A_{r}^{\prime},A_{s+1}^{\prime},\dots,A_{n})|=(-1)^{s-r-1}|A_{1r}|
+\end{array}
+\]
+
+\end_inset
+
+pues 
+\begin_inset Formula $A_{r}^{\prime}=A_{s}^{\prime}$
+\end_inset
+
+.
+ Por tanto
+\begin_inset Formula 
+\[
+\begin{array}{c}
+|A|=a_{1r}(-1)^{1+r}|A_{1r}|+a_{1s}(-1)^{1+s}(-1)^{s-r-1}|A_{1r}|=\\
+=a_{1r}|A_{1r}|((-1)^{1+r}+(-1)^{1+2s-r-1})=a_{1r}|A_{1r}|((-1)^{1+r}+(-1)^{-r})=0
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $|I_{n}|=\delta_{11}\Delta_{11}+\dots+\delta_{1n}\Delta_{1n}=\Delta_{11}=(-1)^{1+1}|I_{n-1}|=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Se puede probar que, para 
+\begin_inset Formula $1\leq i\leq n$
+\end_inset
+
+, cada aplicación dada por 
+\begin_inset Formula $|A|=a_{i1}\Delta_{i1}+\dots+a_{in}\Delta_{in}$
+\end_inset
+
+, que llamamos 
+\series bold
+desarrollo del determinante
+\series default
+ de la matriz 
+\begin_inset Formula $A$
+\end_inset
+
+ por la 
+\begin_inset Formula $i$
+\end_inset
+
+-ésima fila, también cumple las condiciones.
+ Por otro lado, como 
+\begin_inset Formula $|A|=|A^{t}|$
+\end_inset
+
+, también se puede desarrollar por filas.
+ En la práctica se pueden hacer operaciones elementales para obtener ceros
+ en una fila o columna y luego desarrollar por ella.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Determinantes de Vandermonde:
+\series default
+ Restando a cada fila la anterior por 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+, desarrollando, dividiendo lo resultante por cada elemento de la primera
+ fila y repitiendo el proceso, se tiene que:
+\begin_inset Formula 
+\[
+\begin{array}{c}
+\left|\begin{array}{cccc}
+1 & 1 & \cdots & 1\\
+x_{1} & x_{2} & \cdots & x_{n}\\
+\vdots & \vdots &  & \vdots\\
+x_{1}^{n-1} & x_{2}^{n-1} & \cdots & x_{n}^{n-1}
+\end{array}\right|=\left|\begin{array}{cccc}
+1 & 1 & \cdots & 1\\
+0 & x_{2}-x_{1} & \cdots & x_{n}-x_{1}\\
+\vdots & \vdots &  & \vdots\\
+0 & x_{2}^{n-1}-x_{1}x_{2}^{n-2} & \cdots & x_{n}^{n-1}-x_{1}x_{n}^{n-2}
+\end{array}\right|=\\
+=(x_{2}-x_{1})\cdots(x_{n}-x_{1})\left|\begin{array}{ccc}
+1 & \cdots & 1\\
+x_{2} & \cdots & x_{n}\\
+\vdots &  & \vdots\\
+x_{2}^{n-2} & \cdots & x_{n}^{n-2}
+\end{array}\right|=\dots=\prod_{1\leq j<i\leq n}(x_{i}-x_{j})
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Desarrollo de un determinante por menores, de
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+sa
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+rro
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+llo de Laplace
+\end_layout
+
+\begin_layout Standard
+Se llama 
+\series bold
+submatriz
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ a la obtenida al eliminar determinadas filas y columnas de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Toda matriz es submatriz de sí misma.
+ Un 
+\series bold
+menor de orden 
+\begin_inset Formula $n$
+\end_inset
+
+
+\series default
+ es el determinante de una submatriz de tamaño 
+\begin_inset Formula $n\times n$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es cuadrada, el 
+\series bold
+menor complementario
+\series default
+ 
+\begin_inset Formula $M^{\prime}$
+\end_inset
+
+ del menor 
+\begin_inset Formula $M$
+\end_inset
+
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ es el determinante de la matriz formada por las filas y columnas restantes.
+ Un menor es de 
+\series bold
+clase par
+\series default
+ o de 
+\series bold
+clase impar
+\series default
+ según lo sea la suma de los índices de sus filas (
+\begin_inset Formula $i_{1},\dots,i_{p}$
+\end_inset
+
+) y columnas (
+\begin_inset Formula $j_{1},\dots,j_{p}$
+\end_inset
+
+).
+ La 
+\series bold
+signatura
+\series default
+ de un menor 
+\begin_inset Formula $M$
+\end_inset
+
+ es 
+\begin_inset Formula $\varepsilon(M)=(-1)^{(i_{1}+\dots+i_{p})+(j_{1}+\dots+j_{p})}$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $(1+\dots+n)+(1+\dots+n)$
+\end_inset
+
+ es par, todo menor tiene la misma signatura que su complementario.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\begin_inset Formula $\chi_{r}$
+\end_inset
+
+ al conjunto de combinaciones de 
+\begin_inset Formula $r$
+\end_inset
+
+ filas o columnas:
+\begin_inset Formula 
+\[
+\chi_{r}=\{(i_{1},\dots,i_{r}):1\leq i_{1}<\dots<i_{r}\leq n\}
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $I,J\in\chi_{r}$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $A_{IJ}$
+\end_inset
+
+ al menor determinado por las filas 
+\begin_inset Formula $I$
+\end_inset
+
+ y las columnas 
+\begin_inset Formula $J$
+\end_inset
+
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Entonces:
+\end_layout
+
+\begin_layout Itemize
+Dado 
+\begin_inset Formula $I\in\chi_{r}$
+\end_inset
+
+, 
+\begin_inset Formula $|A|=\sum_{J\in\chi_{r}}\varepsilon(A_{IJ})A_{IJ}A_{IJ}^{\prime}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Dado 
+\begin_inset Formula $J\in\chi_{r}$
+\end_inset
+
+, 
+\begin_inset Formula $|A|=\sum_{I\in\chi_{r}}\varepsilon(A_{IJ})A_{IJ}A_{IJ}^{\prime}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Esto es útil cuando 
+\begin_inset Formula $A$
+\end_inset
+
+ está formada por bloques de tamaño adecuado alguno de los cuales es nulo.
+ De aquí se tiene que 
+\begin_inset Formula $\left|\left(\begin{array}{c|c}
+P & Q\\
+\hline 0 & R
+\end{array}\right)\right|=|P||R|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Determinante de un endomorfismo
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal B}^{\prime}$
+\end_inset
+
+ son bases de 
+\begin_inset Formula $V$
+\end_inset
+
+ y 
+\begin_inset Formula $f\in\text{End}(V)$
+\end_inset
+
+, entonces 
+\begin_inset Formula 
+\[
+M_{{\cal B}}(f)=M_{{\cal B}{\cal B}^{\prime}}M_{{\cal B}^{\prime}}(f)M_{{\cal B}^{\prime}{\cal B}}=P^{-1}M_{{\cal B}^{\prime}}(f)P
+\]
+
+\end_inset
+
+por lo que 
+\begin_inset Formula $|M_{{\cal B}}(f)|=|P|^{-1}|M_{{\cal B}^{\prime}}(f)||P|=|M_{{\cal B}^{\prime}}(f)|$
+\end_inset
+
+.
+ Así, llamamos 
+\series bold
+determinante del endomorfismo 
+\begin_inset Formula $f$
+\end_inset
+
+
+\series default
+ al de la matriz asociada a 
+\begin_inset Formula $f$
+\end_inset
+
+ respecto de cualquier base de 
+\begin_inset Formula $V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Matriz adjunta.
+ Aplicación al cálculo de la inversa
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+matriz adjunta
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ a la matriz 
+\begin_inset Formula $\hat{A}=(\Delta_{ij})\in M_{n}(K)$
+\end_inset
+
+.
+ 
+\series bold
+Teorema:
+\series default
+ Si 
+\begin_inset Formula $A\in M_{n}(K)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $A\cdot\hat{A}^{t}=\hat{A}^{t}\cdot A=|A|I_{n}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $A=(a_{ij})$
+\end_inset
+
+, 
+\begin_inset Formula $\hat{A}=(\Delta_{ij})$
+\end_inset
+
+ y 
+\begin_inset Formula $\hat{A}^{t}=(b_{ij})$
+\end_inset
+
+, entonces 
+\begin_inset Formula $b_{ij}=\Delta_{ji}$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $C=(c_{ij})=A\cdot\hat{A}^{t}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $c_{ij}=\sum_{k=1}^{n}a_{ik}b_{kj}=\sum_{k=1}^{n}a_{ik}\Delta_{jk}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+, esto corresponde al desarrollo por la fila 
+\begin_inset Formula $j$
+\end_inset
+
+-ésima del determinante de la matriz que se diferencia de 
+\begin_inset Formula $A$
+\end_inset
+
+ en que tiene la fila 
+\begin_inset Formula $i$
+\end_inset
+
+-ésima copiada en la 
+\begin_inset Formula $j$
+\end_inset
+
+-ésima, por lo que entonces 
+\begin_inset Formula $c_{ij}=0$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+, este es el desarrollo por la fila 
+\begin_inset Formula $j$
+\end_inset
+
+-ésima de 
+\begin_inset Formula $A$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $c_{ii}=|A|$
+\end_inset
+
+ y 
+\begin_inset Formula $C=|A|I_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como consecuencia, se tiene el 
+\series bold
+teorema
+\series default
+ de que 
+\begin_inset Formula $A$
+\end_inset
+
+ es invertible si y sólo si 
+\begin_inset Formula $|A|\neq0$
+\end_inset
+
+ y entonces
+\begin_inset Formula 
+\[
+A^{-1}=\frac{1}{|A|}\hat{A}^{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Cálculo del rango de una matriz por determinantes
+\end_layout
+
+\begin_layout Standard
+El rango de 
+\begin_inset Formula $A$
+\end_inset
+
+ es el mayor de los órdenes de los menores no nulos de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $A=(a_{ij})\in M_{m,n}(K)$
+\end_inset
+
+ con 
+\begin_inset Formula $A\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $r=\text{rang}(A)$
+\end_inset
+
+ y 
+\begin_inset Formula $p$
+\end_inset
+
+ el mayor de los tamaños de los menores no nulos, que existe si 
+\begin_inset Formula $A\neq0$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $A^{\prime}$
+\end_inset
+
+ es una submatriz cuadrada de 
+\begin_inset Formula $A$
+\end_inset
+
+ de tamaño 
+\begin_inset Formula $p\times p$
+\end_inset
+
+ con 
+\begin_inset Formula $|A^{\prime}|\neq0$
+\end_inset
+
+, entonces la submatriz 
+\begin_inset Formula $B$
+\end_inset
+
+ formada por las filas de 
+\begin_inset Formula $A^{\prime}$
+\end_inset
+
+ pero con todas las columnas de 
+\begin_inset Formula $A$
+\end_inset
+
+ tiene 
+\begin_inset Formula $p$
+\end_inset
+
+ columnas linealmente independientes (las de 
+\begin_inset Formula $A^{\prime}$
+\end_inset
+
+) y por tanto también tiene 
+\begin_inset Formula $p$
+\end_inset
+
+ filas linealmente independientes, pero entonces 
+\begin_inset Formula $A$
+\end_inset
+
+ tiene al menos 
+\begin_inset Formula $p$
+\end_inset
+
+ filas linealmente independientes y 
+\begin_inset Formula $r\geq p$
+\end_inset
+
+.
+ Por otro lado, si 
+\begin_inset Formula $A_{i_{1}},\dots,A_{i_{r}}$
+\end_inset
+
+ son filas linealmente independientes de 
+\begin_inset Formula $A$
+\end_inset
+
+ y tomamos la submatriz 
+\begin_inset Formula $B\in M_{r,n}(K)$
+\end_inset
+
+ formada por estas filas y todas las columnas, 
+\begin_inset Formula $B$
+\end_inset
+
+ tendrá rango 
+\begin_inset Formula $r$
+\end_inset
+
+, luego tendrá 
+\begin_inset Formula $r$
+\end_inset
+
+ columnas 
+\begin_inset Formula $j_{1},\dots,j_{r}$
+\end_inset
+
+ linealmente independientes.
+ Si tomamos la submatriz 
+\begin_inset Formula $A^{\prime}\in M_{r}(K)$
+\end_inset
+
+ formada por estas columnas, al ser linealmente independientes, 
+\begin_inset Formula $|A^{\prime}|\neq0$
+\end_inset
+
+, luego 
+\begin_inset Formula $p\geq r$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $p=r$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $A_{i}=(a_{1i},\dots,a_{ni})\in K^{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $A_{1},\dots,A_{r}$
+\end_inset
+
+ linealmente independientes y
+\begin_inset Formula 
+\[
+\left|\begin{array}{ccc}
+a_{i_{1}1} & \cdots & a_{i_{1}r}\\
+\vdots & \ddots & \vdots\\
+a_{i_{r}1} & \cdots & a_{i_{r}r}
+\end{array}\right|\neq0
+\]
+
+\end_inset
+
+
+\begin_inset Formula $B=(b_{1},\dots,b_{n})$
+\end_inset
+
+ es combinación lineal de 
+\begin_inset Formula $A_{1},\dots,A_{r}$
+\end_inset
+
+ si y sólo si para todo 
+\begin_inset Formula $j$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\left|\begin{array}{cccc}
+a_{i_{1}1} & \dots & a_{i_{1}r} & b_{i_{1}}\\
+\vdots & \ddots & \vdots & \vdots\\
+a_{i_{r}1} & \cdots & a_{i_{r}r} & b_{i_{r}}\\
+a_{j1} & \cdots & a_{jr} & b_{j}
+\end{array}\right|=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si son linealmente dependientes, los determinantes son nulos.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si todos son nulos, desarrollando por la última fila, se obtiene, para cada
+ 
+\begin_inset Formula $j$
+\end_inset
+
+, que
+\begin_inset Formula 
+\[
+a_{j1}\left|\begin{array}{cccc}
+a_{i_{1}2} & \cdots & a_{i_{1}r} & b_{i_{1}}\\
+\vdots & \ddots & \vdots & \vdots\\
+a_{i_{r}2} & \cdots & a_{i_{r}r} & b_{i_{r}}
+\end{array}\right|\pm\dots\pm b_{j}\left|\begin{array}{ccc}
+a_{i_{1}1} & \cdots & a_{i_{1}r}\\
+\vdots & \ddots & \vdots\\
+a_{i_{r}1} & \cdots & a_{i_{r}r}
+\end{array}\right|=0
+\]
+
+\end_inset
+
+Por lo que
+\begin_inset Formula 
+\[
+b_{j}=\frac{1}{\left|\begin{array}{ccc}
+a_{i_{1}1} & \cdots & a_{i_{1}r}\\
+\vdots & \ddots & \vdots\\
+a_{i_{r}1} & \cdots & a_{i_{r}r}
+\end{array}\right|}\left(\pm a_{j1}\left|\begin{array}{ccc}
+a_{i_{1}2} & \cdots & b_{i_{1}}\\
+\vdots & \ddots & \vdots\\
+a_{i_{r}2} & \cdots & b_{i_{r}}
+\end{array}\right|\pm\dots\pm a_{j_{r}}\left|\begin{array}{ccc}
+a_{i_{1}1} & \cdots & b_{i1}\\
+\vdots & \ddots & \vdots\\
+a_{i_{r}1} & \cdots & b_{i_{r}}
+\end{array}\right|\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A efectos prácticos, esto significa que, una vez encontrado un menor no
+ nulo de orden 
+\begin_inset Formula $k$
+\end_inset
+
+ en una matriz 
+\begin_inset Formula $A$
+\end_inset
+
+, podemos 
+\emph on
+orlarlo
+\emph default
+ (obtener otro añadiendo una fila y una columna a la submatriz) de todas
+ las formas posibles y, si todos los menores resultantes son nulos, entonces
+ 
+\begin_inset Formula $\text{rang}(A)=k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Regla de Cramer
+\end_layout
+
+\begin_layout Standard
+Un sistema de ecuaciones lineales 
+\begin_inset Formula $AX=B$
+\end_inset
+
+ es un 
+\series bold
+sistema de Cramer
+\series default
+ si 
+\begin_inset Formula $A$
+\end_inset
+
+ es invertible.
+ En tal caso tiene solución única 
+\begin_inset Formula $X=A^{-1}B$
+\end_inset
+
+.
+ 
+\series bold
+Regla de Cramer:
+\series default
+ si las columnas de 
+\begin_inset Formula $A$
+\end_inset
+
+ son 
+\begin_inset Formula $(A_{1},\dots,A_{n})$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+x_{i}=\frac{\det(A_{1},\dots,A_{i-1},B,A_{i+1},\dots,A_{n})}{\det(A)}
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $A^{-1}=\frac{1}{|A|}\hat{A}^{t}$
+\end_inset
+
+, y si 
+\begin_inset Formula $X=(x_{i})$
+\end_inset
+
+, 
+\begin_inset Formula $A=(a_{ij})$
+\end_inset
+
+ y 
+\begin_inset Formula $\hat{A}=(\Delta_{ij})$
+\end_inset
+
+, entonces 
+\begin_inset Formula $x_{i}=\sum_{j=1}^{n}\frac{1}{|A|}\Delta_{ji}b_{j}=\frac{1}{|A|}\sum_{j=1}^{n}\Delta_{ji}b_{j}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A\in M_{m,n}(K)$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{rang}(A)=r$
+\end_inset
+
+, habrá un menor 
+\begin_inset Formula $M\neq0$
+\end_inset
+
+ de orden 
+\begin_inset Formula $r$
+\end_inset
+
+, por lo que las 
+\begin_inset Formula $n-r$
+\end_inset
+
+ últimas filas serán combinaciones lineales de las 
+\begin_inset Formula $r$
+\end_inset
+
+ primeras, y moviendo al lado derecho los 
+\begin_inset Formula $m-r$
+\end_inset
+
+ coeficientes que no están en la submatriz de 
+\begin_inset Formula $M$
+\end_inset
+
+, nos queda el sistema
+\begin_inset Formula 
+\[
+\left.\begin{array}{ccc}
+a_{11}x_{1}+\dots+a_{1r}x_{r} & = & b_{1}-(a_{1r+1}x_{r+1}+\dots+a_{1n}x_{n})\\
+ & \vdots\\
+a_{r1}x_{1}+\dots+a_{rr}x_{r} & = & b_{r}-(a_{rr+1}x_{r+1}+\dots+a_{rn}x_{n})
+\end{array}\right\} 
+\]
+
+\end_inset
+
+que podemos resolver por Cramer.
+\end_layout
+
+\end_body
+\end_document

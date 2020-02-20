@@ -1,0 +1,5306 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Resultados importantes:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ecuación ciclotómica:
+\series default
+ 
+\begin_inset Formula $(x-y)^{n}=(x-y)(x^{n-1}+x^{n-2}y+\dots+xy^{n-2}+y^{n-1})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Desigualdad de Bernoulli:
+\series default
+ 
+\begin_inset Formula $\forall x>-1,x\neq0,n\in\mathbb{N},(1+x)^{n}>1+nx$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Convergencia
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+sucesión
+\series default
+ en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ o 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ (
+\begin_inset Formula $K$
+\end_inset
+
+) es una aplicación 
+\begin_inset Formula $\phi:\mathbb{N}\rightarrow K$
+\end_inset
+
+ que denotamos como 
+\begin_inset Formula $(a_{n})_{n\in\mathbb{N}}$
+\end_inset
+
+ o 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+, con elementos 
+\begin_inset Formula $a_{n}:=\phi(n)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $a_{n}$
+\end_inset
+
+ es el 
+\series bold
+término general
+\series default
+ de la sucesión, y puede venir dado, por ejemplo, mediante una fórmula explícita
+ o por recurrencia (
+\series bold
+sucesión recurrente
+\series default
+), como es el caso de la 
+\series bold
+sucesión de Fibonacci
+\series default
+ (
+\begin_inset Formula $a_{1}=a_{2}=1$
+\end_inset
+
+; 
+\begin_inset Formula $a_{n}=a_{n-1}+a_{n-2}\forall n\geq3$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ tiene límite 
+\begin_inset Formula $a\in K$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall\varepsilon>0,\exists n_{\varepsilon}\in\mathbb{N}:\forall n\in\mathbb{N}(n\geq n_{\varepsilon}\implies|a_{n}-a|<\varepsilon)$
+\end_inset
+
+.
+ Escribimos
+\begin_inset Formula 
+\[
+a=\lim_{n\rightarrow\infty}a_{n}=\lim_{n}a_{n}
+\]
+
+\end_inset
+
+y decimos que 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ es convergente con límite 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ Así:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lim_{n}a=a$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+\forall\varepsilon>0,|a_{n}-a|=|a-a|=0<\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lim_{n}\frac{1}{n}=0$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, se trata de demostrar que 
+\begin_inset Formula $\exists n_{0}\in\mathbb{N}:\forall n>n_{0},|a_{n}-0|=\frac{1}{n}<\varepsilon$
+\end_inset
+
+, pero como 
+\begin_inset Formula $\frac{1}{n}<\frac{1}{n_{0}}$
+\end_inset
+
+, entonces basta encontrar un 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\frac{1}{n_{0}}<\varepsilon$
+\end_inset
+
+, es decir, 
+\begin_inset Formula $1<n_{0}\varepsilon$
+\end_inset
+
+, que existe por la propiedad arquimediana.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lim_{n}|a_{n}|=|\lim_{n}a_{n}|$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Si 
+\begin_inset Formula $a=\lim_{n}a_{n}$
+\end_inset
+
+, fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, 
+\begin_inset Formula $\exists n_{0}\in\mathbb{N}:\forall n>n_{0},|a-a_{n}|<\varepsilon$
+\end_inset
+
+, pero entonces
+\begin_inset Formula 
+\[
+\left||a|-|a_{n}|\right|\leq|a-a_{n}|<\varepsilon
+\]
+
+\end_inset
+
+por lo que 
+\begin_inset Formula $|a|=\lim_{n}|a_{n}|$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lim_{n}\sqrt{a_{n}}=\sqrt{\lim_{n}a_{n}}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Si 
+\begin_inset Formula $a=\lim_{n}a_{n}$
+\end_inset
+
+, fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, 
+\begin_inset Formula $\exists n_{0}\in\mathbb{N}:\forall n>n_{0},|a-a_{n}|<\varepsilon$
+\end_inset
+
+, pero
+\begin_inset Formula 
+\[
+\left|\sqrt{a}-\sqrt{a_{n}}\right|=\frac{|a-a_{n}|}{\sqrt{a}+\sqrt{a_{n}}}\leq\frac{|a-a_{n}|}{\sqrt{a}}<\frac{\sqrt{a}\varepsilon}{\sqrt{a}}=\varepsilon
+\]
+
+\end_inset
+
+Nótese que el caso 
+\begin_inset Formula $a=0$
+\end_inset
+
+ debe ser tratado de forma especial.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $a,b\in\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $a\leq b$
+\end_inset
+
+, llamamos 
+\series bold
+intervalo cerrado
+\series default
+ de extremos 
+\begin_inset Formula $a,b$
+\end_inset
+
+ al conjunto 
+\begin_inset Formula $[a,b]:=\{x\in\mathbb{R}:a\leq x\leq b\}$
+\end_inset
+
+, 
+\series bold
+intervalo abierto
+\series default
+ a 
+\begin_inset Formula $(a,b):=\{x\in\mathbb{R}:a<x<b\}$
+\end_inset
+
+ e 
+\series bold
+intervalos semiabiertos
+\series default
+ por la derecha e izquierda, respectivamente, a 
+\begin_inset Formula $[a,b):=\{x\in\mathbb{R}:a\leq x<b\}$
+\end_inset
+
+ y 
+\begin_inset Formula $(a,b]:=\{x\in\mathbb{R}:a<x\leq b\}$
+\end_inset
+
+.
+ La 
+\series bold
+longitud
+\series default
+ del intervalo es 
+\begin_inset Formula $b-a$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+bola cerrada
+\series default
+ de centro 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ y radio 
+\begin_inset Formula $r>0$
+\end_inset
+
+ al conjunto 
+\begin_inset Formula $B[x_{0},r]:=\{x\in K:|x-x_{0}|\leq r\}$
+\end_inset
+
+, y 
+\series bold
+bola abierta
+\series default
+ a 
+\begin_inset Formula $B(x_{0},r):=\{x\in K:|x-x_{0}|<r\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El límite de una sucesión convergente es único.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Supongamos por reducción al absurdo que 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ tuviera límites 
+\begin_inset Formula $a\neq b$
+\end_inset
+
+.
+ Entonces, dado 
+\begin_inset Formula $\varepsilon=\frac{|a-b|}{4}>0$
+\end_inset
+
+, existen 
+\begin_inset Formula $n_{1},n_{2}\in\mathbb{N}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $|a_{n}-a|<\varepsilon$
+\end_inset
+
+ si 
+\begin_inset Formula $n>n_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $|a_{n}-b|<\varepsilon$
+\end_inset
+
+ si 
+\begin_inset Formula $n>n_{2}$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $n_{0}:=\max\{n_{1},n_{2}\}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $|a_{n}-a|,|a_{n}-b|<\varepsilon$
+\end_inset
+
+ si 
+\begin_inset Formula $n>n_{0},$
+\end_inset
+
+ por lo que
+\begin_inset Formula 
+\[
+|a-b|=|a-a_{n}+a_{n}-b|\leq|a-a_{n}|+|a_{n}-b|<\varepsilon+\varepsilon=\frac{|a-b|}{2}\implies1<\frac{1}{2}\#
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Toda sucesión convergente es acotada, es decir 
+\begin_inset Formula $\{a_{n}:n\in\mathbb{N}\}$
+\end_inset
+
+ es un conjunto acotado.
+ 
+\series bold
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $a=\lim_{n}a_{n}$
+\end_inset
+
+.
+ Dado 
+\begin_inset Formula $\varepsilon=1$
+\end_inset
+
+, 
+\begin_inset Formula $\exists n_{0}\in\mathbb{N}:\forall n>n_{0},|a_{n}-a|<1$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $|a_{n}|=|a_{n}-a+a|\leq|a_{n}-a|+|a|<1+|a|$
+\end_inset
+
+.
+ Llamando 
+\begin_inset Formula $M:=\max\{|a_{1}|,\dots,|a_{n_{0}}|,1+|a|\}$
+\end_inset
+
+, se tiene que 
+\begin_inset Formula $\forall n\in\mathbb{N},|a_{n}|\leq M$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ es acotada.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $(b_{n})_{n}$
+\end_inset
+
+ son convergentes:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lim_{n}a_{n}+b_{n}=\lim_{n}a_{n}+\lim_{n}b_{n}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sean 
+\begin_inset Formula $a=\lim_{n}a_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $b=\lim_{n}b_{n}$
+\end_inset
+
+.
+ Dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, existen 
+\begin_inset Formula $n_{1},n_{2}\in\mathbb{N}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $|a-a_{n}|<\frac{\varepsilon}{2}$
+\end_inset
+
+ si 
+\begin_inset Formula $n>n_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $|b-b_{n}|<\frac{\varepsilon}{2}$
+\end_inset
+
+ si 
+\begin_inset Formula $n>n_{2}$
+\end_inset
+
+.
+ Así, dado 
+\begin_inset Formula $n_{0}=\max\{n_{1},n_{2}\}$
+\end_inset
+
+, para todo 
+\begin_inset Formula $n>n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+|(a+b)-(a_{n}+b_{n})|\leq|a-a_{n}|+|b-b_{n}|<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lim_{n}(a_{n}b_{n})=\lim_{n}a_{n}\cdot\lim_{n}b_{n}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Tenemos que 
+\begin_inset Formula $\exists\alpha>0:\forall n\in\mathbb{N},|a_{n}|\leq\alpha$
+\end_inset
+
+, luego
+\begin_inset Formula 
+\[
+|ab-a_{n}b_{n}|=|ab-a_{n}b+a_{n}b-a_{n}b_{n}|\leq|a-a_{n}||b|+|a_{n}||b-b_{n}|\leq|a-a_{n}||b|+\alpha|b-b_{n}|
+\]
+
+\end_inset
+
+Pero entonces, fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, existen 
+\begin_inset Formula $n_{1},n_{2}\in\mathbb{N}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $|a-a_{n}|<\frac{\varepsilon}{2(|b|+1)}$
+\end_inset
+
+ si 
+\begin_inset Formula $n>n_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $|b-b_{n}|<\frac{\varepsilon}{2a}$
+\end_inset
+
+ si 
+\begin_inset Formula $n>n_{2}$
+\end_inset
+
+, si 
+\begin_inset Formula $n>n_{0}:=\max\{n_{1},n_{2}\}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+|ab-a_{n}b_{n}|\leq|a-a_{n}||b|+\alpha|b-b_{n}|<\frac{\varepsilon}{2(|b|+1)}|b|+\alpha\frac{\varepsilon}{2\alpha}<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $b_{n}\neq0$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{n}b_{n}\neq0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\lim_{n}\frac{a_{n}}{b_{n}}=\frac{\lim_{n}a_{n}}{\lim_{n}b_{n}}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Enumerate
+Si tomamos 
+\begin_inset Formula $\varepsilon=\frac{|b|}{2}$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{1}\in\mathbb{N}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\alpha:=\frac{|b|}{2}<|b_{n}|$
+\end_inset
+
+ para 
+\begin_inset Formula $n>n_{1}$
+\end_inset
+
+.
+ Pero entonces
+\begin_inset Formula 
+\[
+\left|\frac{a}{b}-\frac{a_{n}}{b_{n}}\right|=\frac{|ab_{n}-a_{n}b|}{|b||b_{n}|}=\frac{|ab_{n}-ab+ab-a_{n}b|}{|b||b_{n}|}\leq\frac{|a||b_{n}-b|+|a-a_{n}||b|}{|b|\alpha}
+\]
+
+\end_inset
+
+Ahora, fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, existen 
+\begin_inset Formula $n_{2},n_{3}\in\mathbb{N}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $|b-b_{n}|<\frac{\varepsilon}{2(|a|+1)}|b|\alpha$
+\end_inset
+
+ si 
+\begin_inset Formula $n>n_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $|a-a_{n}|<\frac{\varepsilon}{2|b|}|b|\alpha$
+\end_inset
+
+ si 
+\begin_inset Formula $n>n_{3}$
+\end_inset
+
+.
+ Ahora, si 
+\begin_inset Formula $n>n_{0}:=\max\{n_{1},n_{2},n_{\text{3}}\}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\left|\frac{a}{b}-\frac{a_{n}}{b_{n}}\right|\leq\frac{|a||b_{n}-b|+|a-a_{n}||b|}{|b|\alpha}<|a|\frac{\varepsilon}{2(|a|+1)}+|b|\frac{\varepsilon}{2|b|}<\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Aunque aquí hemos usado la definición de límite con valores de 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ complicados, esto es innecesario, pues si suponemos 
+\begin_inset Formula $\forall\varepsilon>0,\exists n_{0}\in\mathbb{N}:\forall n>n_{0},|a_{n}-a|<M\varepsilon$
+\end_inset
+
+ para un 
+\begin_inset Formula $M$
+\end_inset
+
+ fijo (independiente de 
+\begin_inset Formula $n$
+\end_inset
+
+), entonces podemos aplicar lo demostrado para 
+\begin_inset Formula $\varepsilon^{\prime}=\frac{\varepsilon}{M}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\exists n_{0}^{\prime}\in\mathbb{N}:\forall n>n_{0}^{\prime},|a_{n}-a|<M\varepsilon^{\prime}=\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $a_{n}\leq b_{n}\forall n\implies\lim_{n}a_{n}\leq\lim_{n}b_{n}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sean 
+\begin_inset Formula $a:=\lim_{n}a_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $b:=\lim_{n}b_{n}$
+\end_inset
+
+, y supongamos por reducción al absurdo que 
+\begin_inset Formula $a>b$
+\end_inset
+
+.
+ Tomando 
+\begin_inset Formula $\varepsilon:=\frac{a-b}{4}$
+\end_inset
+
+, debería existir 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $|a-a_{n}|<\varepsilon$
+\end_inset
+
+ y 
+\begin_inset Formula $|b-b_{n}|<\varepsilon$
+\end_inset
+
+ para todo 
+\begin_inset Formula $n>n_{0}$
+\end_inset
+
+.
+ Por tanto, en tal caso,
+\begin_inset Formula 
+\[
+b_{n}=b_{n}-b+b\leq|b_{n}-b|+b<\varepsilon+b<a-\varepsilon<a_{n}\#
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lim_{n}a_{n}<\lim_{n}b_{n}\implies\exists n_{0}\in\mathbb{N}:\forall n>n_{0},a_{n}<b_{n}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Tomemos un 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ tal que 
+\begin_inset Formula $a+\varepsilon<b-\varepsilon$
+\end_inset
+
+.
+ Entonces existe un 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a_{n}\in(a-\varepsilon,a+\varepsilon)$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{n}\in(b-\varepsilon,b+\varepsilon)$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $a_{n}<b_{n}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Regla del sandwich: 
+\series default
+
+\begin_inset Formula $a_{n}\leq c_{n}\leq b_{n}\land\lim_{n}a_{n}=\lim_{n}b_{n}=\alpha\implies\lim_{n}c_{n}=\alpha$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $n>n_{0}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a_{n},b_{n}\in B(\alpha,\varepsilon)$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $c_{n}\in B(\alpha,\varepsilon)$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $|\alpha-c_{n}|<\varepsilon$
+\end_inset
+
+ para 
+\begin_inset Formula $n>n_{0}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Sucesiones monótonas acotadas
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ es 
+\series bold
+creciente
+\series default
+ o 
+\series bold
+monótona creciente
+\series default
+ si 
+\begin_inset Formula $a_{n}\leq a_{n+1}\forall n\in\mathbb{N}$
+\end_inset
+
+, y es 
+\series bold
+decreciente
+\series default
+ o 
+\series bold
+monótona decreciente
+\series default
+ si 
+\begin_inset Formula $a_{n}\geq a_{n+1}\forall n\in\mathbb{N}$
+\end_inset
+
+.
+ Decimos que es 
+\series bold
+monótona
+\series default
+ si es creciente o decreciente.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ es creciente y acotada superiormente entonces converge a 
+\begin_inset Formula $\sup\{a_{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+, y si es decreciente y acotada inferiormente, converge a 
+\begin_inset Formula $\inf\{a_{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ es creciente y acotada superiormente, existe 
+\begin_inset Formula $\alpha:=\sup\{a_{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+.
+ Entonces, fijado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\alpha-\varepsilon<a_{n_{0}}$
+\end_inset
+
+, y al ser creciente, 
+\begin_inset Formula $\alpha-\varepsilon<a_{n}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $n>n_{0}$
+\end_inset
+
+.
+ El segundo caso es análogo.
+\end_layout
+
+\begin_layout Standard
+A continuación definimos el número 
+\begin_inset Formula $e$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $a_{n}=\left(1+\frac{1}{n}\right)^{n}$
+\end_inset
+
+ es creciente y acotada.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $b_{n}=\left(1+\frac{1}{n}\right)^{n+1}$
+\end_inset
+
+ es decreciente y acotada.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $e:=\lim_{n}a_{n}=\lim_{n}b_{n}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+De la desigualdad de Bernoulli, para 
+\begin_inset Formula $n>1$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\frac{a_{n}}{b_{n-1}}=\left(\frac{n^{2}-1}{n^{2}}\right)^{n}=\left(1-\frac{1}{n^{2}}\right)^{n}>1-n\frac{1}{n^{2}}=\frac{n-1}{n}=\left(1+\frac{1}{n-1}\right)^{-1}
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $a_{n}>b_{n-1}\left(1+\frac{1}{n-1}\right)^{-1}=\left(1+\frac{1}{n-1}\right)^{n-1}=a_{n-1}$
+\end_inset
+
+ y 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ es creciente.
+ Análogamente,
+\begin_inset Formula 
+\[
+\frac{b_{n-1}}{a_{n}}=\left(\frac{n^{2}}{n^{2}-1}\right)^{n}=\left(1+\frac{1}{n^{2}-1}\right)^{n}>\left(1+\frac{1}{n^{2}}\right)^{n}>1+n\frac{1}{n^{2}}=1+\frac{1}{n}
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $b_{n-1}>a_{n}(1+\frac{1}{n})=\left(1+\frac{1}{n}\right)^{n+1}=b_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $(b_{n})_{n}$
+\end_inset
+
+ es decreciente.
+ Además, 
+\begin_inset Formula $2=a_{1}<a_{n}<b_{n}<b_{1}=4$
+\end_inset
+
+ para todo 
+\begin_inset Formula $n$
+\end_inset
+
+, por lo que ambas son monótonas acotadas y por tanto convergen.
+ Pero como 
+\begin_inset Formula $b_{n}=(1+\frac{1}{n})a_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{n}(1+\frac{1}{n})=1$
+\end_inset
+
+, se concluye que convergen al mismo límite, que llamamos 
+\begin_inset Formula $e$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $S_{n}=1+\frac{1}{1!}+\frac{1}{2!}+\dots+\frac{1}{n!}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\lim_{n}S_{n}=e$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Desarrollamos según el binomio de Newton:
+\begin_inset Formula 
+\[
+a_{n}=\left(1+\frac{1}{n}\right)^{n}=\binom{n}{0}+\frac{1}{n}\binom{n}{1}+\frac{1}{n^{2}}\binom{n}{2}+\dots+\frac{1}{n^{n-1}}\binom{n}{n-1}+\frac{1}{n^{n}}\binom{n}{n}
+\]
+
+\end_inset
+
+Ahora, para 
+\begin_inset Formula $1\leq k\leq n$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\frac{1}{n^{k}}\binom{n}{k}=\frac{1}{k!}\frac{n(n-1)\cdots(n-k+1)}{n^{k}}=\frac{1}{k!}\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right)\cdots\left(1-\frac{k-1}{n}\right)
+\]
+
+\end_inset
+
+Entonces
+\begin_inset Formula 
+\[
+a_{n}=1+1+\frac{1}{2!}\left(1-\frac{1}{n}\right)+\cdots+\frac{1}{n!}\left(1-\frac{1}{n}\right)\cdots\left(1-\frac{n-1}{n}\right)\leq
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\leq\sum_{k=0}^{n}\frac{1}{k!}=S_{n}<1+1+\frac{1}{2}+\frac{1}{2^{2}}+\dots+\frac{1}{2^{n-1}}<3
+\]
+
+\end_inset
+
+
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ es creciente y acotada superiormente, luego converge.
+ Además, para cada 
+\begin_inset Formula $m$
+\end_inset
+
+ fijo, si 
+\begin_inset Formula $n>m$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+a_{n}=1+\dots+\frac{1}{m!}\left(1-\frac{1}{n}\right)\cdots\left(1-\frac{m-1}{n}\right)+\dots+\frac{1}{n!}\left(1-\frac{1}{n}\right)\cdots\left(1-\frac{n-1}{n}\right)>
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+>1+1+\frac{1}{2!}\left(1-\frac{1}{n}\right)+\dots+\frac{1}{m!}\left(1-\frac{1}{n}\right)\cdots\left(1-\frac{m-1}{n}\right)
+\]
+
+\end_inset
+
+Tomando límites en 
+\begin_inset Formula $n$
+\end_inset
+
+, se obtiene que 
+\begin_inset Formula $e=\lim_{n}a_{n}\geq S_{m}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $m$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $a_{n}\leq S_{n}\leq e$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\lim_{n}S_{n}=e$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $e$
+\end_inset
+
+ es irracional.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Observamos que
+\begin_inset Formula 
+\[
+e-S_{n}=\lim_{p}\sum_{k=n+1}^{p}\frac{1}{k!}
+\]
+
+\end_inset
+
+Ahora bien,
+\begin_inset Formula 
+\[
+\sum_{k=n+1}^{p}\frac{1}{k!}=\frac{1}{n!}\sum_{k=1}^{q}\frac{1}{(n+1)\cdots(n+k)}<\frac{1}{n!}\sum_{k=1}^{q}\frac{1}{(n+1)^{k}}
+\]
+
+\end_inset
+
+Y usando la fórmula de la suma de una progresión geométrica,
+\begin_inset Formula 
+\[
+e-S_{n}=\lim_{q\rightarrow\infty}\sum_{k=n+1}^{n+q}\frac{1}{k!}\leq\frac{1}{n!}\lim_{q}\sum_{k=1}^{q}\frac{1}{(n+1)^{k}}=\frac{1}{n!}\frac{\frac{1}{n+1}}{1-\frac{1}{n+1}}=\frac{1}{n!}\frac{1}{n}
+\]
+
+\end_inset
+
+Si fuese 
+\begin_inset Formula $e=\frac{p}{q}$
+\end_inset
+
+, tomando 
+\begin_inset Formula $n=q$
+\end_inset
+
+ se tendría que
+\begin_inset Formula 
+\[
+0<\frac{p}{q}-S_{q}<\frac{1}{q!q}\implies0<q!\frac{p}{q}-q!S_{q}<\frac{1}{q}
+\]
+
+\end_inset
+
+Pero como entonces 
+\begin_inset Formula $q!\frac{p}{q},q!S_{q}\in\mathbb{N}$
+\end_inset
+
+, se tendría que 
+\begin_inset Formula $\exists n\in\mathbb{N}:n<1$
+\end_inset
+
+.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Teorema de Bolzano-Weierstrass
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+principio de encaje de Cantor
+\series default
+ dice que si 
+\begin_inset Formula $(I_{n})_{n}$
+\end_inset
+
+ es una sucesión de intervalos cerrados de 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $I_{n+1}\subseteq I_{n}$
+\end_inset
+
+ y el límite de la longitud de 
+\begin_inset Formula $I_{n}$
+\end_inset
+
+ es 0, entonces 
+\begin_inset Formula $\exists!a\in\bigcap_{n\in\mathbb{N}}I_{n}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $I_{n}:=[a_{n},b_{n}]$
+\end_inset
+
+.
+ Entonces para cualquier 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $b_{k}$
+\end_inset
+
+ es cota superior de 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+, pues para todo 
+\begin_inset Formula $n\geq k$
+\end_inset
+
+, 
+\begin_inset Formula $a_{1}\leq\dots\leq a_{n}\leq b_{n}\leq b_{k}$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ converge.
+ Si 
+\begin_inset Formula $a:=\lim_{n}a_{n}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a\leq b_{k}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $k$
+\end_inset
+
+, y como 
+\begin_inset Formula $a_{k}\leq a\leq b_{k}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $a\in\bigcap_{n\in\mathbb{N}}I_{n}\neq\emptyset$
+\end_inset
+
+.
+ Por otra parte, si suponemos que 
+\begin_inset Formula $\exists\alpha<\beta:\alpha,\beta\in\bigcap_{n\in\mathbb{N}}I_{n}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $[\alpha,\beta]\subseteq\bigcap_{n\in\mathbb{N}}I_{n}$
+\end_inset
+
+.
+ Pero entonces la longitud de todos los 
+\begin_inset Formula $I_{n}$
+\end_inset
+
+ sería mayor o igual a 
+\begin_inset Formula $\beta-\alpha>0\#$
+\end_inset
+
+, de donde se desprende la unicidad.
+\end_layout
+
+\begin_layout Standard
+Dadas las sucesiones 
+\begin_inset Formula $\phi:\mathbb{N}\rightarrow K$
+\end_inset
+
+ y 
+\begin_inset Formula $\tau:\mathbb{N}\rightarrow\mathbb{N}$
+\end_inset
+
+ estrictamente creciente, la sucesión 
+\begin_inset Formula $\phi\circ\tau:\mathbb{N}\rightarrow K$
+\end_inset
+
+ es una 
+\series bold
+subsucesión
+\series default
+ de 
+\begin_inset Formula $\phi$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $(a_{n})_{n\in\mathbb{N}}:=(\phi(n))_{n\in\mathbb{N}}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $(a_{n_{k}})_{k\in\mathbb{N}}:=(\phi\circ\tau(k))_{k\in\mathbb{N}}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ es convergente, cualquier subsucesión suya converge al mismo límite.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $a=\lim_{n}(a_{n})_{n}$
+\end_inset
+
+.
+ Entonces, fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, 
+\begin_inset Formula $\exists p\in\mathbb{N}:\forall n>p,|a_{n}-a|<\varepsilon$
+\end_inset
+
+.
+ Entonces, si 
+\begin_inset Formula $(a_{n_{k}})_{k\in\mathbb{N}}$
+\end_inset
+
+ es una subsucesión de 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+, necesariamente 
+\begin_inset Formula $k\leq n_{k}$
+\end_inset
+
+ para cualquier 
+\begin_inset Formula $k$
+\end_inset
+
+, por lo que si 
+\begin_inset Formula $k>p$
+\end_inset
+
+ entonces 
+\begin_inset Formula $|a_{n_{k}}-a|<\varepsilon$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{k}a_{n_{k}}=a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+teorema de Bolzano-Weierstrass
+\series default
+ afirma que cualquier sucesión acotada en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ posee una subsucesión convergente.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ acotada y 
+\begin_inset Formula $c_{0},d_{0}\in\mathbb{R}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $c_{0}\leq a_{n}\leq d_{0}\forall n$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $I_{0}:=[c_{0},d_{0}]$
+\end_inset
+
+ y 
+\begin_inset Formula $m_{0}:=\frac{c_{0}+d_{0}}{2}$
+\end_inset
+
+.
+ Entonces uno de los conjuntos 
+\begin_inset Formula $\{n\in\mathbb{N}:a_{n}\in[c_{0},m_{0}]\}$
+\end_inset
+
+ o 
+\begin_inset Formula $\{n\in\mathbb{N}:a_{n}\in[m_{0},d_{0}]\}$
+\end_inset
+
+ es infinito.
+ Llamamos a este 
+\begin_inset Formula $I_{1}:=[c_{1},d_{1}]$
+\end_inset
+
+ y tomamos 
+\begin_inset Formula $n_{1}\in\mathbb{N}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $a_{n_{1}}\in I_{1}$
+\end_inset
+
+.
+ Entonces dividimos 
+\begin_inset Formula $I_{1}$
+\end_inset
+
+ por 
+\begin_inset Formula $m_{1}:=\frac{c_{1}+d_{1}}{2}$
+\end_inset
+
+ y obtenemos, del mismo modo que antes, 
+\begin_inset Formula $I_{2}=[c_{2},d_{2}]$
+\end_inset
+
+.
+ Como es infinito podemos elegir 
+\begin_inset Formula $n_{2}>n_{1}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $a_{n_{2}}\in I_{2}$
+\end_inset
+
+.
+ Por inducción obtenemos una serie de intervalos 
+\begin_inset Formula $(I_{k})_{k}$
+\end_inset
+
+ y una subsucesión 
+\begin_inset Formula $(a_{n_{k}})_{k\in\mathbb{N}}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $I_{k+1}\subsetneq I_{k}$
+\end_inset
+
+ con 
+\begin_inset Formula $L(I_{k})=\frac{1}{2^{k-1}}L(I_{0})=0$
+\end_inset
+
+, y 
+\begin_inset Formula $a_{n_{k}}\in I_{k}$
+\end_inset
+
+.
+ Por el principio de encaje de Cantor, se tiene que 
+\begin_inset Formula $\exists!z\in\bigcap_{k}I_{k}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $z=\lim_{k}a_{n_{k}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+De aquí obtenemos que si 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ es una sucesión acotada y todas sus subsucesiones convergen a 
+\begin_inset Formula $a$
+\end_inset
+
+, entonces 
+\begin_inset Formula $a=\lim_{n}a_{n}$
+\end_inset
+
+.
+ 
+\series bold
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $a$
+\end_inset
+
+ no fuera el límite de la sucesión, existiría 
+\begin_inset Formula $\varepsilon_{0}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\left|B(a,\varepsilon_{0})^{\complement}\cap\{a_{n}\}_{n\in\mathbb{N}}\right|=\infty$
+\end_inset
+
+.
+ Por tanto existiría una subsucesión 
+\begin_inset Formula $(b_{n})_{n}$
+\end_inset
+
+ de 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ en 
+\begin_inset Formula $B(a,\varepsilon_{0})^{\complement}$
+\end_inset
+
+.
+ Como esta es acotada, entonces por el teorema de Bolzano-Weierstrass, poseería
+ una subsucesión 
+\begin_inset Formula $(b_{n_{k}})_{k}$
+\end_inset
+
+—que también lo sería de 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+—convergente a 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ Pero entonces 
+\begin_inset Formula $|b_{n}-a|\geq\varepsilon_{0}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $n$
+\end_inset
+
+ contradiciendo la hipótesis de que cualquier subsucesión que converja tenga
+ límite 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Sucesiones de Cauchy: completitud
+\end_layout
+
+\begin_layout Standard
+Una sucesión 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ es 
+\series bold
+de Cauchy
+\series default
+ si 
+\begin_inset Formula $\forall\varepsilon>0,\exists n_{0}\in\mathbb{N}:\forall n,m\in\mathbb{N}(n,m\geq n_{0}\implies|a_{m}-a_{n}|<\varepsilon)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de completitud de 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+:
+\series default
+ 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ es convergente si y sólo si es de Cauchy.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $a:=\lim_{n}a_{n}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\forall\varepsilon>0,\exists n_{0}\in\mathbb{N}:\forall n>n_{0},|a_{n}-a|<\frac{\varepsilon}{2}$
+\end_inset
+
+.
+ Por tanto, si 
+\begin_inset Formula $n,m>n_{0}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $|a_{m}-a_{n}|=|a_{m}-a+a-a_{n}|\leq|a_{m}-a|+|a-a_{n}|<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Primero probamos que una sucesión de Cauchy es acotada: Dado 
+\begin_inset Formula $\varepsilon=1$
+\end_inset
+
+, 
+\begin_inset Formula $\exists n_{0}\in\mathbb{N}:\forall n>n_{0},|a_{n}-a_{n_{0}}|<\varepsilon=1$
+\end_inset
+
+, de donde
+\begin_inset Formula 
+\[
+|a_{n}|=|a_{n}-a_{n_{0}}+a_{n_{0}}|\leq|a_{n}-a_{n_{0}}|+|a_{n_{0}}|<1+|a_{n_{0}}|
+\]
+
+\end_inset
+
+y si llamamos 
+\begin_inset Formula $M:=\max\{|a_{1}|,\dots,|a_{n_{0}}|,1+|a_{n_{0}}|\}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a_{1}\leq|a_{n}|\leq M\forall n$
+\end_inset
+
+.
+ Ahora, aplicando el teorema de Bolzano-Weierstrass, sabemos que existe
+ una subsucesión 
+\begin_inset Formula $(a_{n_{k}})_{k}$
+\end_inset
+
+ convergente, digamos, a 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ es de Cauchy, fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $n,m>n_{0}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $|a_{n}-a_{m}|<\frac{\varepsilon}{2}$
+\end_inset
+
+.
+ Por otra parte, como 
+\begin_inset Formula $\lim_{k}a_{n_{k}}=b$
+\end_inset
+
+, existe 
+\begin_inset Formula $k_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $k>k_{0}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $|a_{n_{k}}-b|<\frac{\varepsilon}{2}$
+\end_inset
+
+.
+ Ahora, si 
+\begin_inset Formula $p>\max\{n_{0},k_{0}\}$
+\end_inset
+
+ y 
+\begin_inset Formula $n>p$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+|a_{n}-b|=|a_{n}-a_{n_{p}}+a_{n_{p}}-b|\leq|a_{n}-a_{n_{p}}|+|a_{n_{p}}-b|\overset{(n_{p}>p)}{<}\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Funciones elementales
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $a\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, definimos 
+\begin_inset Formula $a^{n}:=a\cdots a$
+\end_inset
+
+ (
+\begin_inset Formula $n$
+\end_inset
+
+ veces).
+ Esta definición puede extenderse a 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ definiendo 
+\begin_inset Formula $a^{0}:=1$
+\end_inset
+
+ y 
+\begin_inset Formula $a^{n}=\frac{1}{a^{-n}}$
+\end_inset
+
+ para 
+\begin_inset Formula $n\in\mathbb{Z}^{-}$
+\end_inset
+
+.
+ Con exponentes racionales, se define 
+\begin_inset Formula $a^{\frac{m}{n}}:=\sqrt[n]{a^{m}}$
+\end_inset
+
+, y podemos probar fácilmente que si 
+\begin_inset Formula $\frac{p}{q}=\frac{m}{n}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a^{\frac{p}{q}}=a^{\frac{m}{n}}$
+\end_inset
+
+, para lo cual necesitamos las propiedades de la exponencial:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $a^{r+s}=a^{r}a^{s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(ab)^{r}=a^{r}b^{r}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(a^{r})^{s}=a^{rs}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $r<s\implies(a>1\implies a^{r}<a^{s})\land(0<a<1\implies a^{r}>a^{s})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $0<a<b\implies(r>0\implies a^{r}<b^{r})\land(r<0\implies a^{r}>b^{r})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Podemos demostrar estas propiedades de forma sencilla demostrándolas primero
+ para exponentes naturales y luego generalizando en 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+.
+ Para exponentes reales, definimos
+\begin_inset Formula 
+\[
+a^{x}=\lim_{n}a^{r_{n}}
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $(r_{n})_{n}$
+\end_inset
+
+ es una sucesión de racionales que converge a 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Este límite existe y es independiente de la sucesión 
+\begin_inset Formula $(r_{n})_{n}$
+\end_inset
+
+ escogida.
+ 
+\series bold
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Primero demostraremos que 
+\begin_inset Formula $\forall a>0,\varepsilon>0,\exists n_{0}\in\mathbb{N}:\forall r\in\mathbb{Q},0<r<\frac{1}{n_{0}},|a^{r}-1|<\varepsilon$
+\end_inset
+
+.
+ Fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, como 
+\begin_inset Formula $\lim_{n}a^{\frac{1}{n}}=1$
+\end_inset
+
+, 
+\begin_inset Formula $\exists n_{0}\in\mathbb{N}:\forall n>n_{0},|a^{\frac{1}{n}}-1|<\varepsilon$
+\end_inset
+
+.
+ Entonces, si 
+\begin_inset Formula $a>1$
+\end_inset
+
+, 
+\begin_inset Formula $0<a^{r}-1<a^{\frac{1}{n_{0}}}-1<\varepsilon$
+\end_inset
+
+, y si 
+\begin_inset Formula $0<a<1$
+\end_inset
+
+, 
+\begin_inset Formula $a^{r}>a^{\frac{1}{n_{0}}}$
+\end_inset
+
+ luego 
+\begin_inset Formula $0<1-a^{r}<1-a^{\frac{1}{n_{0}}}<\varepsilon$
+\end_inset
+
+.
+ Pasemos a demostrar la existencia de 
+\begin_inset Formula $\lim_{n}a^{r_{n}}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $x>0$
+\end_inset
+
+, como 
+\begin_inset Formula $(r_{n})_{n}$
+\end_inset
+
+ es convergente entonces es acotada, por lo que 
+\begin_inset Formula $\exists K\in\mathbb{Q}:0\leq r_{n}\leq K$
+\end_inset
+
+ a partir de cierto elemento, y entonces 
+\begin_inset Formula $a^{r_{n}}\leq a^{K}:=M$
+\end_inset
+
+ si 
+\begin_inset Formula $a>1$
+\end_inset
+
+ o 
+\begin_inset Formula $a^{r_{n}}<a^{0}=1:=M$
+\end_inset
+
+.
+ Así, si 
+\begin_inset Formula $r_{m}\geq r_{n}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $|a^{r_{n}}-a^{r_{m}}|=a^{r_{n}}(a^{r_{m}-r_{n}}-1)\leq M(a^{r_{m}-r_{n}}-1)$
+\end_inset
+
+, y en general, 
+\begin_inset Formula $|a^{r_{n}}-a^{r_{m}}|\leq M(a^{|r_{m}-r_{n}|}-1)$
+\end_inset
+
+, y aplicando lo anteriormente demostrado sobre el lado derecho, se tiene
+ que 
+\begin_inset Formula $(a^{r_{n}})_{n}$
+\end_inset
+
+ es de Cauchy.
+ El caso para 
+\begin_inset Formula $x<0$
+\end_inset
+
+ es análogo.
+ Así, fijado 
+\begin_inset Formula $\frac{1}{m_{1}}>0$
+\end_inset
+
+, existe 
+\begin_inset Formula $k_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n,m\geq k_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $|r_{n}-r_{m}|<\frac{1}{m_{1}}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $|a^{r_{n}}-a^{r_{m}}|\leq M(a^{|r_{m}-r_{n}|}-1)\leq M\frac{\varepsilon}{M}=\varepsilon$
+\end_inset
+
+.
+ Sea ahora 
+\begin_inset Formula $y:=\lim_{n}a^{r_{n}}$
+\end_inset
+
+ y 
+\begin_inset Formula $(p_{n})_{n}$
+\end_inset
+
+ otra sucesión de racionales con 
+\begin_inset Formula $x=\lim_{n}p_{n}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $|a^{r_{n}}-a^{p_{n}}|\leq M(a^{|p_{n}-r_{n}|}-1)$
+\end_inset
+
+, y fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $n>n_{0}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $|p_{n}-r_{n}|\leq|p_{n}-x|+|x-r_{n}|<\frac{1}{2m_{1}}+\frac{1}{2m_{1}}=\frac{1}{m_{1}}$
+\end_inset
+
+, y finalmente 
+\begin_inset Formula $|a^{p_{n}}-y|\leq|a^{p_{n}}-a^{r_{n}}|+|a^{r_{n}}-y|\leq\varepsilon+\varepsilon=2\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A continuación vemos las propiedades de la exponencial para exponentes reales:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $a^{x+y}=a^{x}a^{y}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Como 
+\begin_inset Formula $\lim_{n}(q_{n}+r_{n})=\lim_{n}q_{n}+\lim_{n}r_{n}=x+y$
+\end_inset
+
+, entonces 
+\begin_inset Formula 
+\[
+a^{x+y}=\lim_{n}a^{q_{n}+r_{n}}=\lim_{n}(a^{q_{n}}a^{r_{n}})=\lim_{n}a^{q_{n}}+\lim_{n}a^{r_{n}}=a^{x}+a^{y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(ab)^{x}=a^{x}b^{x}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+(ab)^{x}=\lim_{n}(ab)^{q_{n}}=\lim_{n}a^{q_{n}}b^{q_{n}}=\lim_{n}a^{q_{n}}\lim_{n}b^{q_{n}}=a^{x}b^{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(a^{x})^{y}=a^{xy}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Primero probamos que si 
+\begin_inset Formula $a=\lim_{n}a_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $q\in\mathbb{Q}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\lim_{n}a_{n}^{q}=a^{q}$
+\end_inset
+
+, es decir, que 
+\begin_inset Formula $\lim_{n}a_{n}^{q}=(\lim_{n}a_{n})^{q}$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $q=\frac{r}{k}>0$
+\end_inset
+
+ y 
+\begin_inset Formula $a>0$
+\end_inset
+
+.
+ Comenzamos probando que 
+\begin_inset Formula $\lim_{n}a_{n}^{\frac{1}{k}}=a^{\frac{1}{k}}$
+\end_inset
+
+, para lo que usaremos la ecuación ciclotómica:
+\begin_inset Formula 
+\[
+|a_{n}^{\frac{1}{k}}-a^{\frac{1}{k}}|=\frac{|a_{n}-a|}{a_{n}^{\frac{k-1}{k}}+a_{n}^{\frac{k-2}{k}}a+\dots+a_{n}a^{\frac{k-2}{k}}+a^{\frac{k-1}{k}}}\leq\frac{|a_{n}-a|}{a^{\frac{k-1}{k}}}\leq\frac{a^{\frac{k-1}{k}}\varepsilon}{a^{\frac{k-1}{k}}}=\varepsilon
+\]
+
+\end_inset
+
+De aquí deducimos que
+\begin_inset Formula 
+\[
+\lim_{n}a_{n}^{q}=\lim_{n}a_{n}^{\frac{r}{k}}=\lim_{n}(a^{\frac{1}{k}})^{r}=\left(\lim_{n}a_{n}^{\frac{1}{k}}\right)^{r}=(a^{\frac{1}{k}})^{r}=a^{\frac{r}{k}}=a^{q}
+\]
+
+\end_inset
+
+El caso en que 
+\begin_inset Formula $a<0$
+\end_inset
+
+ es análogo.
+ Ahora, si 
+\begin_inset Formula $a=\lim_{n}a_{n}=0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\forall\varepsilon>0,\exists n_{1}\in\mathbb{N}:\forall n>n_{1},a_{n}<\varepsilon^{\frac{1}{q}}$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $|a_{n}^{q}-0|=a_{n}^{q}<(\varepsilon^{\frac{1}{q}})^{q}=\varepsilon$
+\end_inset
+
+.
+ Pasemos a demostrar que 
+\begin_inset Formula $(a^{x})^{y}=a^{xy}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $a>1$
+\end_inset
+
+ y tomamos 
+\begin_inset Formula $\lim_{n}r_{n}=x$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{n}q_{n}=y$
+\end_inset
+
+ sucesiones crecientes de racionales, usando las propiedades de monotonía
+ y límites,
+\begin_inset Formula 
+\[
+(a^{x})^{y}=\sup\{(a^{x})^{q_{m}}\}_{m\in\mathbb{N}}=\sup\{\sup\{(a^{r_{n}})^{q_{m}}\}_{n\in\mathbb{N}}\}_{m\in\mathbb{N}}=
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\sup\{\sup\{a^{r_{n}q_{m}}\}_{n\in\mathbb{N}}\}_{m\in\mathbb{N}}=\sup\{a^{xq_{m}}\}_{m\in\mathbb{N}}=a^{xy}
+\]
+
+\end_inset
+
+El caso 
+\begin_inset Formula $a<1$
+\end_inset
+
+ se reduce a este tomando inversos, y el caso 
+\begin_inset Formula $a=1$
+\end_inset
+
+ es trivial.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x<y\implies(a>1\implies a^{x}<a^{y})\land(0<a<1\implies a^{x}>a^{y})$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Para 
+\begin_inset Formula $a>1$
+\end_inset
+
+, sean 
+\begin_inset Formula $\varepsilon=\frac{y-x}{3}$
+\end_inset
+
+ y 
+\begin_inset Formula $s,t\in\mathbb{Q}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $x+\varepsilon<s<t<y-\varepsilon$
+\end_inset
+
+.
+ Existe entonces 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $q_{n}<s$
+\end_inset
+
+ y 
+\begin_inset Formula $t<r_{n}$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $a^{q_{n}}<a^{s}<a^{t}<a^{r_{n}}$
+\end_inset
+
+, y tomando límites, 
+\begin_inset Formula $a^{x}\leq a^{s}<a^{t}\leq a^{y}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $0<a<1$
+\end_inset
+
+, la demostración es análoga.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $0<a<b\implies(x>0\implies a^{x}<b^{x})\land(x<0\implies a^{x}>b^{x})$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Para 
+\begin_inset Formula $x>0$
+\end_inset
+
+, se trata de demostrar que 
+\begin_inset Formula $\left(\frac{b}{a}\right)^{x}=\frac{b^{x}}{a^{x}}>1$
+\end_inset
+
+ dado 
+\begin_inset Formula $\frac{b}{a}>1$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $(p_{n})_{n}$
+\end_inset
+
+ una sucesión creciente con límite 
+\begin_inset Formula $x$
+\end_inset
+
+ tal que 
+\begin_inset Formula $p_{n}>0$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\left(\frac{b}{a}\right)^{r_{n}}\geq\left(\frac{b}{a}\right)^{r_{1}}>\left(\frac{b}{a}\right)^{0}=1$
+\end_inset
+
+, y tomando límites, 
+\begin_inset Formula $\left(\frac{b}{a}\right)^{x}\geq\left(\frac{b}{a}\right)^{r_{1}}>1$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $x<0$
+\end_inset
+
+, como 
+\begin_inset Formula $a^{y}>0\forall y\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $a^{-x}<b^{-x}\implies\frac{1}{a^{x}}<\frac{1}{b^{x}}\implies b^{x}<a^{x}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lim_{n}a^{x_{n}}=a^{\lim_{n}x_{n}}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sea 
+\begin_inset Formula $x:=\lim_{n}x_{n}$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $|a^{x}-a^{x_{n}}|=|a^{x}||1-a^{x_{n}-x}|$
+\end_inset
+
+, basta probar que para 
+\begin_inset Formula $(y_{m})_{m}$
+\end_inset
+
+ con 
+\begin_inset Formula $\lim_{m}y_{m}=0$
+\end_inset
+
+, se cumple que 
+\begin_inset Formula $\lim_{n}a^{y_{m}}=a^{0}=1$
+\end_inset
+
+.
+ Ahora, dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $a^{\frac{1}{n_{0}}}-1<\varepsilon$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $y_{m}>0\forall m$
+\end_inset
+
+, existe 
+\begin_inset Formula $m_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $m>m_{0}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $0<y_{m}<\frac{1}{n_{0}}$
+\end_inset
+
+ y 
+\begin_inset Formula $a^{y_{m}}-1<a^{\frac{1}{n_{0}}}-1<\varepsilon$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $y_{m}<0\forall m$
+\end_inset
+
+, existe 
+\begin_inset Formula $m_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $m>m_{0}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $0<|y_{m}|<\frac{1}{n_{0}}$
+\end_inset
+
+ y 
+\begin_inset Formula $1-a^{y_{m}}=1-\frac{1}{a^{-y_{m}}}=\frac{a^{-y_{m}}-1}{a^{-y_{m}}}<\frac{\varepsilon}{1}=\varepsilon$
+\end_inset
+
+ por ser 
+\begin_inset Formula $a^{-y_{m}}>1$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $y_{m}$
+\end_inset
+
+ puede cambiar de signo, combinamos ambas pruebas y obtenemos que 
+\begin_inset Formula $\forall\varepsilon>0,\exists m_{0}\in\mathbb{N}:\forall m>m_{0},|a^{y_{m}}-1|<\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $a^{x}$
+\end_inset
+
+ no está acotada superiormente para 
+\begin_inset Formula $a>1$
+\end_inset
+
+: 
+\begin_inset Formula $a>1\implies\forall k\in\mathbb{R},\exists t\in\mathbb{R}:(x>t\implies a^{x}>k)$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Supongamos por reducción al absurdo que 
+\begin_inset Formula $\exists K\in\mathbb{R}:\forall x\in\mathbb{R},a^{x}\leq K$
+\end_inset
+
+.
+ En particular, existe 
+\begin_inset Formula $K\in\mathbb{R}$
+\end_inset
+
+ tal que para todo 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $a^{n}\leq K$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $a\leq K^{\frac{1}{n}}$
+\end_inset
+
+.
+ Por otro lado, como 
+\begin_inset Formula $\lim_{n}K^{\frac{1}{n}}=1$
+\end_inset
+
+ y 
+\begin_inset Formula $a>1$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $K^{\frac{1}{n}}<a$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $a^{n_{0}}>K\#$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\inf\{a^{x}\}_{x\in\mathbb{R}}=0$
+\end_inset
+
+ para 
+\begin_inset Formula $a<1$
+\end_inset
+
+: 
+\begin_inset Formula $a<1\implies\forall\varepsilon>0,\exists t\in\mathbb{R}:(x>t\implies a^{x}<\varepsilon)$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Tomamos 
+\begin_inset Formula $b:=\frac{1}{a}>1$
+\end_inset
+
+ y aplicamos el apartado anterior.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $0<a\neq1$
+\end_inset
+
+ y 
+\begin_inset Formula $x>0$
+\end_inset
+
+, 
+\begin_inset Formula $\exists!y\in\mathbb{R}:a^{y}=x$
+\end_inset
+
+.
+ 
+\series bold
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Supongamos 
+\begin_inset Formula $a>1$
+\end_inset
+
+ y sea 
+\begin_inset Formula $A:=\{z\in\mathbb{R}:a^{z}\leq x\}$
+\end_inset
+
+, que sabemos acotado superiormente.
+ Sea entonces 
+\begin_inset Formula $y:=\sup A$
+\end_inset
+
+ y 
+\begin_inset Formula $(x_{n})_{n\in\mathbb{N}}$
+\end_inset
+
+ una sucesión de elementos de 
+\begin_inset Formula $A$
+\end_inset
+
+ que converge a 
+\begin_inset Formula $y$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $a^{x_{n}}\leq x$
+\end_inset
+
+.
+ Si fuera 
+\begin_inset Formula $a^{y}<x$
+\end_inset
+
+, dado que 
+\begin_inset Formula $\frac{x}{a^{y}}>1$
+\end_inset
+
+, existe un 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ con 
+\begin_inset Formula $a^{\frac{1}{n}}<\frac{x}{a^{y}}$
+\end_inset
+
+, y si tomamos 
+\begin_inset Formula $\varepsilon=\frac{1}{n}$
+\end_inset
+
+, se tiene que 
+\begin_inset Formula $a^{\varepsilon}<\frac{x}{a^{y}}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $a^{y+\varepsilon}<x$
+\end_inset
+
+.
+ Pero esto contradice la definición de 
+\begin_inset Formula $y$
+\end_inset
+
+ como supremo de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Ahora supongamos 
+\begin_inset Formula $0<a<1$
+\end_inset
+
+ y sea 
+\begin_inset Formula $a^{\prime}:=\frac{1}{a}>1$
+\end_inset
+
+ y 
+\begin_inset Formula $x^{\prime}:=\frac{1}{x}$
+\end_inset
+
+.
+ Aplicando lo anterior, existe un único 
+\begin_inset Formula $y\in\mathbb{R}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $(a^{\prime})^{y}=x^{\prime}$
+\end_inset
+
+, es decir, 
+\begin_inset Formula $\left(\frac{1}{a}\right)^{y}=\frac{1}{a^{y}}=\frac{1}{x}$
+\end_inset
+
+, luego 
+\begin_inset Formula $a^{y}=x$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+logaritmo
+\series default
+ en 
+\series bold
+base
+\series default
+ 
+\begin_inset Formula $a$
+\end_inset
+
+ de 
+\begin_inset Formula $x$
+\end_inset
+
+ (
+\begin_inset Formula $\log_{a}x$
+\end_inset
+
+) al único 
+\begin_inset Formula $y\in\mathbb{R}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $a^{y}=x$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $a=e$
+\end_inset
+
+, lo llamamos 
+\series bold
+logaritmo neperiano
+\series default
+, escrito 
+\begin_inset Formula $\log x$
+\end_inset
+
+ o 
+\begin_inset Formula $\ln x$
+\end_inset
+
+.
+ Propiedades:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\log_{a}a^{x}=x$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sea 
+\begin_inset Formula $z=\log_{a}a^{x}$
+\end_inset
+
+, este es el único real con 
+\begin_inset Formula $a^{z}=a^{x}$
+\end_inset
+
+, luego 
+\begin_inset Formula $z=x$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $a^{\log_{a}x}=x$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sea 
+\begin_inset Formula $z=\log_{a}x$
+\end_inset
+
+, este es el único real con 
+\begin_inset Formula $a^{z}=x$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\log_{a}xy=\log_{a}x+\log_{a}y$
+\end_inset
+
+; 
+\begin_inset Formula $\log_{a}\frac{x}{y}=\log_{a}x-\log_{a}y$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sean 
+\begin_inset Formula $\alpha=\log_{a}x$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta=\log_{a}y$
+\end_inset
+
+, entonces 
+\begin_inset Formula $a^{\alpha+\beta}=a^{\alpha}a^{\beta}=xy$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\log_{a}xy=\alpha+\beta=\log_{a}x+\log_{a}y$
+\end_inset
+
+.
+ 
+\begin_inset Formula $a^{\alpha-\beta}=\frac{a^{\alpha}}{a^{\beta}}=\frac{x}{y}$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\log_{a}\frac{x}{y}=\alpha-\beta=\log_{a}x-\log_{a}y$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\log_{a}x^{y}=y\log_{a}x$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+a^{y\log_{a}x}=(a^{\log_{a}x})^{y}=x^{y}\implies\log_{a}x^{y}=y\log_{a}x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $a>1\land0<x<y\implies\log_{a}x<\log_{a}y$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Si fuera 
+\begin_inset Formula $\alpha\geq\beta$
+\end_inset
+
+, como 
+\begin_inset Formula $a>1$
+\end_inset
+
+, se tendría que 
+\begin_inset Formula $x=a^{\alpha}\geq a^{\beta}=y\#$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $0<a<1\land0<x<y\implies\log_{a}x>\log_{a}y$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Newline newline
+\end_inset
+
+Si fuera 
+\begin_inset Formula $\beta\geq\alpha$
+\end_inset
+
+, como 
+\begin_inset Formula $0<a<1$
+\end_inset
+
+, se tendría que 
+\begin_inset Formula $y=a^{\beta}\leq a^{\alpha}=x\#$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lim_{n}x_{n}>0\land\forall n,x_{n}>0\implies\lim_{n}\log_{a}x_{n}=\log_{a}\lim_{n}x_{n}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sea 
+\begin_inset Formula $x:=\lim_{n}x_{n}>0$
+\end_inset
+
+ y queremos demostrar que 
+\begin_inset Formula $\lim_{n}\log_{a}x_{n}=\log_{a}x$
+\end_inset
+
+, lo que equivale a que 
+\begin_inset Formula $\lim_{n}(\log_{a}x_{n}-\log_{a}x)=0$
+\end_inset
+
+ y por tanto a que 
+\begin_inset Formula $\lim_{n}\log_{a}\frac{x_{n}}{x}=0$
+\end_inset
+
+.
+ Para esto basta probar que si 
+\begin_inset Formula $(c_{n})_{n}$
+\end_inset
+
+ es una sucesión con 
+\begin_inset Formula $c_{n}>0$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{n}c_{n}=1$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\lim_{n}\log_{a}c_{n}=0$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $\beta_{n}:=\log_{a}c_{n}$
+\end_inset
+
+ y supongamos que 
+\begin_inset Formula $\lim_{n}\beta_{n}\neq0$
+\end_inset
+
+.
+ Debe existir por tanto un 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ tal que para todo 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ exista un 
+\begin_inset Formula $m>n$
+\end_inset
+
+ con 
+\begin_inset Formula $|\beta_{m}|>\varepsilon$
+\end_inset
+
+.
+ Así, para 
+\begin_inset Formula $n=1$
+\end_inset
+
+ existe 
+\begin_inset Formula $n_{1}>1$
+\end_inset
+
+ con 
+\begin_inset Formula $|\beta_{n_{1}}|>\varepsilon$
+\end_inset
+
+, y podemos encontrar 
+\begin_inset Formula $n_{2}>n_{1}$
+\end_inset
+
+ con 
+\begin_inset Formula $|\beta_{n_{2}}|>\varepsilon$
+\end_inset
+
+.
+ Definimos por recurrencia una subsucesión 
+\begin_inset Formula $(\beta_{n_{k}})_{k}$
+\end_inset
+
+ con 
+\begin_inset Formula $|\beta_{n_{k}}|>\varepsilon$
+\end_inset
+
+.
+ Podemos suponer que todos son positivos o negativos.
+ Pero entonces, para el primer caso, 
+\begin_inset Formula $c_{n_{k}}=a^{\beta_{n_{k}}}>a^{\varepsilon}:=M>a^{0}=1$
+\end_inset
+
+.
+ En el segundo caso, 
+\begin_inset Formula $\beta_{n_{k}}<-\varepsilon$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $c_{n_{k}}=a^{\beta_{n_{k}}}<a^{-\varepsilon}:=M<a^{0}=1$
+\end_inset
+
+.
+ Para ambos casos se tiene que 
+\begin_inset Formula $\lim_{n}c_{n_{k}}\neq1\#$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\lim_{n}\sin x_{n}=\sin\lim_{n}x_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{n}\cos x_{n}=\cos\lim_{n}x_{n}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $c=\lim_{n}x_{n}$
+\end_inset
+
+, y se tiene que 
+\begin_inset Formula $\sin x\leq x\leq\tan x$
+\end_inset
+
+ para 
+\begin_inset Formula $x\in[0,\frac{\pi}{2}]$
+\end_inset
+
+.
+ Así,
+\begin_inset Formula 
+\[
+|\sin x-\sin c|=2\left|\sin\frac{x-c}{2}\cos\frac{x+c}{2}\right|\leq2\left|\sin\frac{x-c}{2}\right|\leq2\frac{|x-c|}{2}=|x-c|
+\]
+
+\end_inset
+
+Por tanto, fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, sea 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $|x_{n}-c|<\varepsilon$
+\end_inset
+
+.
+ Entonces, para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $|\sin x_{n}-\sin c|\leq|x-c|<\varepsilon$
+\end_inset
+
+.
+ Para el coseno,
+\begin_inset Formula 
+\[
+|\cos x-\cos c|=\left|-2\sin\frac{x+c}{2}\sin\frac{x-c}{2}\right|\leq2\left|\sin\frac{x-c}{2}\right|\leq|x-c|
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Límites infinitos
+\end_layout
+
+\begin_layout Standard
+La sucesión 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ de números reales tiene límite 
+\begin_inset Quotes cld
+\end_inset
+
+más infinito
+\begin_inset Quotes crd
+\end_inset
+
+ (
+\begin_inset Formula $\lim_{n}a_{n}=+\infty$
+\end_inset
+
+) si 
+\begin_inset Formula $\forall M>0,\exists n_{0}\in\mathbb{N}:\forall n>n_{0},a_{n}>M$
+\end_inset
+
+, y tiene límite 
+\begin_inset Quotes cld
+\end_inset
+
+menos infinito
+\begin_inset Quotes crd
+\end_inset
+
+ (
+\begin_inset Formula $\lim_{n}a_{n}=-\infty$
+\end_inset
+
+) si 
+\begin_inset Formula $\forall M<0,\exists n_{0}\in\mathbb{N}:\forall n>n_{0},a_{n}<M$
+\end_inset
+
+.
+ Podemos generalizar el álgebra de límites con:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+a+(-\infty)=-\infty & a-(+\infty)=-\infty & a-(-\infty)=+\infty\\
+\frac{a}{\pm\infty}=0 & a>0\implies a(+\infty)=+\infty & a>0\implies a(-\infty)=-\infty\\
+a<0\implies a(+\infty)=-\infty & a<0\implies a(-\infty)=+\infty & (+\infty)+(+\infty)=+\infty\\
+(-\infty)+(-\infty)=-\infty & (+\infty)(+\infty)=+\infty & (-\infty)(-\infty)=+\infty\\
+(+\infty)(-\infty)=-\infty & (+\infty)^{+\infty}=+\infty & (+\infty)^{-\infty}=0
+\end{array}
+\]
+
+\end_inset
+
+Además, si 
+\begin_inset Formula $\lim_{n}a_{n}=0$
+\end_inset
+
+, 
+\begin_inset Formula $a_{n}>0\forall n$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{n}b_{n}=+\infty$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\lim_{n}a_{n}^{b_{n}}=0$
+\end_inset
+
+.
+ Sin embargo, nada puede decirse en general de:
+\begin_inset Formula 
+\[
+\begin{array}{llll}
+(+\infty)+(-\infty) & (\pm\infty)\cdot0 & \frac{\pm\infty}{\pm\infty} & \frac{0}{0}\\
+\frac{a}{0} & 1^{\pm\infty} & (\pm\infty)^{0} & 0^{0}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos a estas situaciones 
+\series bold
+indeterminaciones
+\series default
+\SpecialChar endofsentence
+
+\end_layout
+
+\begin_layout Section
+Algunas sucesiones notables.
+ Jerarquía de sucesiones divergentes
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\lim_{n}x_{n}=\pm\infty$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\lim_{n}\left(1+\frac{1}{x_{n}}\right)^{x_{n}}=e$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{n}\left(1-\frac{1}{x_{n}}\right)^{x_{n}}=e^{-1}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Para 
+\begin_inset Formula $x_{n}=n$
+\end_inset
+
+ es cierto.
+ Como 
+\begin_inset Formula $[x_{n}]\leq x_{n}<[x_{n}]+1$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\frac{1}{1+[x_{n}]}<\frac{1}{x_{n}}\leq\frac{1}{[x_{n}]}$
+\end_inset
+
+, se tiene que 
+\begin_inset Formula $\left(1+\frac{1}{[x_{n}]+1}\right)^{[x_{n}]}\leq\left(1+\frac{1}{x_{n}}\right)^{[x_{n}]}\leq\left(1+\frac{1}{x_{n}}\right)^{x_{n}}\leq\left(1+\frac{1}{[x_{n}]}\right)^{x_{n}}\leq\left(1+\frac{1}{[x_{n}]}\right)^{[x_{n}]+1}$
+\end_inset
+
+.
+ Sabemos además que 
+\begin_inset Formula $\lim_{n}\left(1+\frac{1}{n+1}\right)^{n}=\lim_{n}\left(1+\frac{1}{n}\right)^{n+1}=e$
+\end_inset
+
+.
+ Fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n>n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\left|\left(1+\frac{1}{n+1}\right)^{n}-e\right|<\varepsilon$
+\end_inset
+
+, luego 
+\begin_inset Formula $e-\varepsilon<\left(1+\frac{1}{n+1}\right)^{n}<e+\varepsilon$
+\end_inset
+
+, y 
+\begin_inset Formula $\left|\left(1+\frac{1}{n}\right)^{n+1}-e\right|<\varepsilon$
+\end_inset
+
+, luego 
+\begin_inset Formula $e-\varepsilon<\left(1+\frac{1}{n}\right)^{n+1}<e+\varepsilon$
+\end_inset
+
+.
+ Ahora, como 
+\begin_inset Formula $\lim_{n}x_{n}=+\infty$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{1}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n>n_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $n_{0}<[x_{n}]\in\mathbb{N}$
+\end_inset
+
+, luego lo anterior se cumple, por lo que 
+\begin_inset Formula $\left|\left(1+\frac{1}{x_{n}}\right)^{x_{n}}-e\right|<\varepsilon$
+\end_inset
+
+.
+ La segunda parte se obtiene de que 
+\begin_inset Formula $\left(1-\frac{1}{x_{n}}\right)^{x_{n}}=\left(\frac{x_{n}}{x_{n}-1}\right)^{-x_{n}}=\frac{1}{\left(1+\frac{1}{x_{n}-1}\right)^{x_{n}}}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si existe 
+\begin_inset Formula $\lim_{n}\frac{z_{n+1}}{z_{n}}=w\in\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $|w|<1$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\lim_{n}z_{n}=0$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Se tendría que existe 
+\begin_inset Formula $0<a<1$
+\end_inset
+
+ y 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\left|\frac{z_{n+1}}{z_{n}}\right|<a<1$
+\end_inset
+
+.
+ En particular, 
+\begin_inset Formula $|z_{n_{0}+1}|<|z_{n_{0}}|a$
+\end_inset
+
+, 
+\begin_inset Formula $|z_{n_{0}+2}|<|z_{n_{0}+1}|a<|z_{n_{0}}|a^{2}$
+\end_inset
+
+, y en general, 
+\begin_inset Formula $|z_{n_{0}+k}|<|z_{n_{0}}|a^{k}$
+\end_inset
+
+.
+ Pero 
+\begin_inset Formula $\lim_{n}a_{n}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\lim_{n}|z_{n}|=0$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\lim_{n}z_{n}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lim_{n}\frac{a_{k}n^{k}+\dots+a_{0}}{b_{r}n^{r}+\dots+b_{0}}=\begin{cases}
+\frac{a_{k}}{b_{r}} & \text{si }k=r\\
+0 & \text{si }k<r\\
+\pm\infty & \text{si }k>r\text{, dependiendo del signo de \ensuremath{\frac{a_{k}}{b_{r}}}.}
+\end{cases}$
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Para demostrarlo, en cada caso, dividimos numerador y denominador por 
+\begin_inset Formula $\min\{k,r\}$
+\end_inset
+
+ y aplicamos propiedades de los límites para 
+\begin_inset Formula $k=r$
+\end_inset
+
+ (pues ambos existen y son no nulos) y de los límites infinitos para 
+\begin_inset Formula $k\neq r$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\lim_{n}a_{n}=\infty$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{n}b_{n}=\infty$
+\end_inset
+
+, entonces 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ es un infinito 
+\series bold
+de orden superior
+\series default
+ a 
+\begin_inset Formula $(b_{n})_{n}$
+\end_inset
+
+ y escribimos 
+\begin_inset Formula $b_{n}\ll a_{n}$
+\end_inset
+
+ si 
+\begin_inset Formula $\lim_{n}\frac{a_{n}}{b_{n}}=\infty$
+\end_inset
+
+.
+ Si existen 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta$
+\end_inset
+
+ con 
+\begin_inset Formula $0<\alpha\leq\frac{a_{n}}{b_{n}}\leq\beta$
+\end_inset
+
+ para 
+\begin_inset Formula $n>n_{0}$
+\end_inset
+
+, se dice que ambas tienen el 
+\series bold
+mismo orden de infinitud
+\series default
+.
+ Y si además 
+\begin_inset Formula $\lim_{n}\frac{a_{n}}{b_{n}}=1$
+\end_inset
+
+, se dice que son 
+\series bold
+equivalentes
+\series default
+.
+ Así, si 
+\begin_inset Formula $b>0$
+\end_inset
+
+, 
+\begin_inset Formula $c>1$
+\end_inset
+
+ y 
+\begin_inset Formula $d>0$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\log n\ll n^{b}\ll c^{n}\ll n^{dn}
+\]
+
+\end_inset
+
+Si además 
+\begin_inset Formula $d\geq1$
+\end_inset
+
+, entonces 
+\begin_inset Formula $c^{n}\ll n!\ll n^{dn}$
+\end_inset
+
+.
+ 
+\series bold
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Todas, salvo la primera, son consecuencia del apartado (2) anterior.
+ Así, para demostrar 
+\begin_inset Formula $n^{b}\ll c^{n}$
+\end_inset
+
+, tomamos 
+\begin_inset Formula $z_{n}:=\frac{n^{b}}{c^{n}}$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $\lim_{n}\frac{z_{n+1}}{z_{n}}=\lim_{n}\frac{(n+1)^{b}c^{n}}{n^{b}c^{n+1}}=\lim_{n}\left(1+\frac{1}{n}\right)^{b}\frac{1}{c}=\frac{1}{c}<1$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\lim_{n}z_{n}=0$
+\end_inset
+
+.
+ Para demostrar que 
+\begin_inset Formula $\log n\ll n^{b}$
+\end_inset
+
+ para 
+\begin_inset Formula $b>0$
+\end_inset
+
+, tomamos 
+\begin_inset Formula $b=1$
+\end_inset
+
+ y tenemos en cuenta que 
+\begin_inset Formula $\log n=M\log_{10}n$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $10^{k-1}\leq n<10^{k}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $0\leq\frac{log_{10}n}{n}\leq\frac{k}{10^{k-1}}=10\frac{k}{10^{k}}$
+\end_inset
+
+.
+ Aplicando el apartado (2) anterior y la regla del sándwich se obtiene el
+ resultado.
+ Para 
+\begin_inset Formula $b>1$
+\end_inset
+
+ el resultado es consecuencia de esto y de que 
+\begin_inset Formula $n<n^{b}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $b<1$
+\end_inset
+
+, tomamos 
+\begin_inset Formula $m\in\mathbb{N}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\frac{1}{m}<b$
+\end_inset
+
+.
+ Para cada 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ existe 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $(k-1)^{m}\leq n<k^{m}$
+\end_inset
+
+, y además 
+\begin_inset Formula $\lim_{n}k=+\infty$
+\end_inset
+
+.
+ Ahora, puesto que 
+\begin_inset Formula $0<\frac{\log_{10}n}{n^{b}}\leq\frac{\log_{10}n}{\sqrt[m]{n}}\leq\frac{m\log_{10}k}{k-1}$
+\end_inset
+
+ y hemos probado que 
+\begin_inset Formula $\lim_{k}\frac{\log_{10}k}{k}=0$
+\end_inset
+
+, se obtiene que, también en este caso, 
+\begin_inset Formula $\lim_{n}\log\frac{n}{n^{b}}=0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Equivalencias
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\lim_{n}x_{n}=0$
+\end_inset
+
+ con 
+\begin_inset Formula $0<|x_{n}|<1$
+\end_inset
+
+, entonces:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\log(1+x_{n})\sim x_{n}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Supongamos 
+\begin_inset Formula $0<x_{n}<1\forall n$
+\end_inset
+
+.
+ Entonces, si 
+\begin_inset Formula $y_{n}:=\frac{1}{x_{n}}$
+\end_inset
+
+, 
+\begin_inset Formula $\lim_{n}\frac{\log(1+x_{n})}{x_{n}}=\lim_{n}\log(1+x_{n})^{\frac{1}{x_{n}}}=\lim_{n}\log\left(1+\frac{1}{y_{n}}\right)^{y_{n}}=\log\lim_{n}\left(1+\frac{1}{y_{n}}\right)^{y_{n}}=\log e=1$
+\end_inset
+
+.
+ Cuando 
+\begin_inset Formula $0>x_{n}>-1$
+\end_inset
+
+, la prueba es idéntica, pues 
+\begin_inset Formula $\lim_{n}y_{n}=-\infty$
+\end_inset
+
+.
+ Para el caso general, los términos de 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ se dividen en dos subsucesiones distintas: 
+\begin_inset Formula $(x_{n}^{\prime})_{n}$
+\end_inset
+
+ de términos positivos y 
+\begin_inset Formula $(x_{n}^{\prime\prime})_{n}$
+\end_inset
+
+ de negativos.
+ Entonces 
+\begin_inset Formula $\lim_{n}\frac{\log(1+x_{n}^{\prime})}{x_{n}^{\prime}}=1$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{n}\frac{\log(1+x_{n}^{\prime\prime})}{x_{n}^{\prime\prime}}=1$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\lim_{n}\frac{\log(1+x_{n})}{x_{n}}=1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $e^{x_{n}}-1\sim x_{n}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sea 
+\begin_inset Formula $y_{n}:=e^{x_{n}}-1$
+\end_inset
+
+, entonces 
+\begin_inset Formula $y_{n}+1=e^{x_{n}}$
+\end_inset
+
+, luego 
+\begin_inset Formula $x_{n}=\log(1+y_{n})$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $\lim_{n}y_{n}=0$
+\end_inset
+
+, por el apartado anterior, 
+\begin_inset Formula $\lim_{n}\frac{e^{x_{n}}-1}{x_{n}}=\lim_{n}\frac{y_{n}}{\log(1+y_{n})}=1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\lim_{n}x_{n}=1$
+\end_inset
+
+ con 
+\begin_inset Formula $x_{n}\neq1$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{n}y_{n}=\pm\infty$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\lim_{n}x_{n}^{y_{n}}=e^{\lim_{n}y_{n}(x_{n}-1)}
+\]
+
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $(x_{n})^{y_{n}}=e^{y_{n}\log x_{n}}=e^{y_{n}\log(1+(x_{n}-1))}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\lim_{n}(x_{n})^{y_{n}}=e^{\lim_{n}y_{n}\log(1+(x_{n}-1))}$
+\end_inset
+
+.
+ Así, como 
+\begin_inset Formula $\lim_{n}(x_{n}-1)=0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\lim_{n}y_{n}\log(1+(x_{n}-1))=\lim_{n}y_{n}(x_{n}-1)\frac{\log(1+(x_{n}-1))}{x_{n-1}}=\lim_{n}y_{n}(x_{n}-1)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\lim_{n}x_{n}=0$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{n}\neq0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\sin x_{n}\sim x_{n}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+ 
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $x\in(0,\frac{\pi}{2})$
+\end_inset
+
+, se tiene que 
+\begin_inset Formula $\sin x\leq x\leq\tan x$
+\end_inset
+
+, luego 
+\begin_inset Formula $1\leq\frac{x}{\sin x}\leq\frac{1}{\cos x}$
+\end_inset
+
+, y si 
+\begin_inset Formula $x_{n}>0\forall n\in\mathbb{N}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $1\leq\frac{x_{n}}{\sin x_{n}}\leq\frac{1}{\cos x_{n}}$
+\end_inset
+
+.
+ Dado que 
+\begin_inset Formula $\lim_{n}\cos x_{n}=\cos0=1$
+\end_inset
+
+, por la regla del sandwich, 
+\begin_inset Formula $\lim_{n}\frac{x_{n}}{\sin x_{n}}=1$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $x\in(-\frac{\pi}{2},0)$
+\end_inset
+
+, 
+\begin_inset Formula $\tan x\leq x\leq\sin x$
+\end_inset
+
+, luego 
+\begin_inset Formula $\frac{1}{\cos x}\geq\frac{x}{\sin x}\geq1$
+\end_inset
+
+ por ser 
+\begin_inset Formula $\sin x>0$
+\end_inset
+
+ y llegamos a la misma conclusión.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Criterios de Stolz:
+\series default
+ Si 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $(b_{n})_{n}$
+\end_inset
+
+ son sucesiones de reales tales que 
+\begin_inset Formula $(b_{n})_{n}$
+\end_inset
+
+ es estrictamente creciente o decreciente y bien 
+\begin_inset Formula $\lim_{n}a_{n}=\lim_{n}b_{n}=0$
+\end_inset
+
+, bien 
+\begin_inset Formula $\lim_{n}b_{n}=\infty$
+\end_inset
+
+, si existe 
+\begin_inset Formula $\lim_{n}\frac{a_{n+1}-a_{n}}{b_{n+1}-b_{n}}=L\in\overline{\mathbb{R}}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\lim_{n}\frac{a_{n}}{b_{n}}=L$
+\end_inset
+
+.
+ 
+\series bold
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $L:=\lim_{n}\frac{a_{n+1}-a_{n}}{b_{n+1}-b_{n}}$
+\end_inset
+
+.
+ Primero vemos que 
+\begin_inset Formula $\lim_{n}c_{n}=L\in\overline{\mathbb{R}}$
+\end_inset
+
+ puede caracterizarse como que dados 
+\begin_inset Formula $\alpha<L<\beta$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha<c_{n}<\beta$
+\end_inset
+
+, donde si 
+\begin_inset Formula $L=+\infty$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\beta$
+\end_inset
+
+ está ausente y si 
+\begin_inset Formula $L=-\infty$
+\end_inset
+
+ lo está 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ Por otro lado, si 
+\begin_inset Formula $\alpha<\frac{a}{b},\frac{c}{d}<\beta$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\alpha<\frac{a+c}{b+d}<\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\alpha<L<\beta$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+ se tiene que 
+\begin_inset Formula $\alpha<\frac{a_{n+1}-a_{n}}{b_{n+1}-b_{n}}<\beta$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha<\frac{a_{n+m}-a_{n+m-1}}{b_{n+m}-b_{n+m-1}}<\beta$
+\end_inset
+
+, luego sumando, 
+\begin_inset Formula $\alpha<\frac{a_{n+m}-a_{n}}{b_{n+m}-b_{n}}<\beta$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $\lim_{m}a_{n+m}=\lim_{m}b_{n+m}=0$
+\end_inset
+
+, entonces para todo 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha\leq\frac{a_{n}}{b_{n}}\leq\beta$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\lim_{n}\frac{a_{n}}{b_{n}}=L$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Dados 
+\begin_inset Formula $\alpha<L<\beta$
+\end_inset
+
+, tomamos 
+\begin_inset Formula $\alpha<\alpha^{\prime}<L<\beta^{\prime}<\beta$
+\end_inset
+
+.
+ Procediendo como antes con 
+\begin_inset Formula $n=n_{0}$
+\end_inset
+
+, se tiene que 
+\begin_inset Formula $\alpha^{\prime}<\frac{\frac{a_{n_{0}+m}}{b_{n_{0}+m}}-\frac{a_{n_{0}}}{b_{n_{0}+m}}}{1-\frac{b_{n_{0}}}{b_{n_{0}+m}}}<\beta^{\prime}$
+\end_inset
+
+, de donde 
+\begin_inset Formula $\left(1-\frac{b_{n_{0}}}{b_{n_{0}+m}}\right)\alpha^{\prime}+\frac{a_{n_{0}}}{b_{n_{0}+m}}<\frac{a_{n_{0}+m}}{b_{n_{0}+m}}<\left(1-\frac{b_{n_{0}}}{b_{n_{0}+m}}\right)\beta^{\prime}+\frac{a_{n_{0}}}{b_{n_{0}+m}}$
+\end_inset
+
+, pero existe 
+\begin_inset Formula $m_{0}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $m\geq m_{0}$
+\end_inset
+
+ se tiene que 
+\begin_inset Formula $\alpha<\left(1-\frac{b_{n_{0}}}{b_{n_{0}+m}}\right)\alpha^{\prime}+\frac{a_{n_{0}}}{b_{n_{0}+m}}$
+\end_inset
+
+ y 
+\begin_inset Formula $\left(1-\frac{b_{n_{0}}}{b_{n_{0}+m}}\right)\beta^{\prime}+\frac{a_{n_{0}}}{b_{n_{0}+m}}<\beta$
+\end_inset
+
+ lo que, finalmente, establece que 
+\begin_inset Formula $\lim_{n}\frac{a_{n}}{b_{n}}=L$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como consecuencia:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ converge, entonces
+\begin_inset Formula 
+\[
+\lim_{n}\frac{a_{1}+\dots+a_{n}}{n}=\lim_{n}a_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ converge y 
+\begin_inset Formula $a_{n}>0$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\lim_{n}\sqrt[n]{a_{1}\cdots a_{n}}=\lim_{n}a_{n}
+\]
+
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sea 
+\begin_inset Formula $a=\lim_{n}(a_{n})_{n}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $a\neq0$
+\end_inset
+
+, tomando logaritmos, 
+\begin_inset Formula 
+\[
+\lim_{n}\log(\sqrt[n]{a_{1}\cdots a_{n}})=\lim_{n}\frac{\log a_{1}+\dots+\log a_{n}}{n}=\lim_{n}\log a_{n}=\log a
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $a=0$
+\end_inset
+
+, sea 
+\begin_inset Formula $0<\varepsilon<1$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n>n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $a_{n}<\varepsilon$
+\end_inset
+
+, luego 
+\begin_inset Formula 
+\[
+\sqrt[n]{a_{1}\cdots a_{n_{0}}a_{n_{0}+1}\cdots a_{n}}=\sqrt[n]{a_{1}\cdots a_{n_{0}}}\sqrt[n]{a_{n_{0}+1}\cdots a_{n}}\leq\sqrt[n]{M}\sqrt[n]{\varepsilon^{n-n_{0}}}
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $M:=a_{1}\cdots a_{n_{0}}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\alpha_{n}:=\varepsilon\frac{n-n_{0}}{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\lim_{n}\alpha_{n}=\varepsilon$
+\end_inset
+
+, luego 
+\begin_inset Formula $\lim_{n}\sqrt[n]{M}=1$
+\end_inset
+
+.
+ Existe 
+\begin_inset Formula $n_{1}\in\mathbb{N}$
+\end_inset
+
+ con 
+\begin_inset Formula $n_{1}>n_{0}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n>n_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $|M^{\frac{1}{n}}-1|<\varepsilon$
+\end_inset
+
+, luego 
+\begin_inset Formula $M^{\frac{1}{n}}<1+\varepsilon$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $\lim_{n}\alpha_{n}=\varepsilon$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{2}>n_{1}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n>n_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $|\alpha_{n}-\varepsilon|<\frac{\varepsilon}{1+\varepsilon}$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\alpha_{n}<\varepsilon+\frac{\varepsilon}{1+\varepsilon}=\frac{\varepsilon^{2}+2\varepsilon}{1+\varepsilon}\leq\frac{3\varepsilon}{1+\varepsilon}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\sqrt[n]{a_{1}\cdots a_{n}}\leq\sqrt[n]{M}\sqrt[n]{\varepsilon^{n-n_{0}}}\leq(1+\varepsilon)\frac{3\varepsilon}{1+\varepsilon}=3\varepsilon$
+\end_inset
+
+, lo que prueba que 
+\begin_inset Formula $\lim_{n}\sqrt[n]{a_{1}\cdots a_{n}}=0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $a_{n}>0$
+\end_inset
+
+ y existe 
+\begin_inset Formula $\lim_{n}\frac{a_{n}}{a_{n-1}}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\lim_{n}\sqrt[n]{a_{n}}=\lim_{n}\frac{a_{n}}{a_{n-1}}
+\]
+
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Se tiene que 
+\begin_inset Formula $\sqrt[n]{a_{n}}=\sqrt[n]{\frac{a_{1}}{1}\frac{a_{2}}{a_{1}}\cdots\frac{a_{n}}{a_{n-1}}}$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $A_{n}:=\frac{a_{n}}{a_{n-1}}$
+\end_inset
+
+, para 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+ y 
+\begin_inset Formula $A_{1}=a_{1}$
+\end_inset
+
+, se obtiene que 
+\begin_inset Formula $\lim_{n}\sqrt[n]{a_{n}}=\lim_{n}\sqrt[n]{A_{1}\cdots A_{n}}=\lim_{n}A_{n}=\lim_{n}\frac{a_{n}}{a_{n-1}}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Series numéricas
+\end_layout
+
+\begin_layout Standard
+Dada una sucesión 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ de números reales, podemos formar una sucesión 
+\begin_inset Formula $(S_{n})_{n}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $S_{n}=\sum_{1\leq i\leq n}a_{i}$
+\end_inset
+
+, que llamamos 
+\series bold
+serie
+\series default
+ asociada de 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+.
+ Sus términos se denominan 
+\series bold
+sumas parciales
+\series default
+ de la serie (
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ es la suma parcial 
+\begin_inset Formula $n$
+\end_inset
+
+-ésima), y los de 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+, términos de la serie (el término genérico 
+\begin_inset Formula $a_{n}$
+\end_inset
+
+ se denomina 
+\series bold
+término general
+\series default
+).
+ A 
+\begin_inset Formula $(S_{n})_{n}$
+\end_inset
+
+ la denotamos como 
+\begin_inset Formula $a_{1}+\dots+a_{n}+\dots$
+\end_inset
+
+ o 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\lim_{n}S_{n}=S\in\mathbb{R}$
+\end_inset
+
+, la serie es 
+\series bold
+convergente
+\series default
+ y escribimos 
+\begin_inset Formula $\sum_{n=1}^{\infty}a_{n}=S$
+\end_inset
+
+.
+ De lo contrario es 
+\series bold
+divergente
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+condición de Cauchy
+\series default
+ nos dice que 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+ es convergente si y sólo si 
+\begin_inset Formula $\forall\varepsilon>0,\exists n_{0}\in\mathbb{N}:\forall p,q\in\mathbb{N},(n_{0}\leq p\leq q\implies|a_{p+1}+\dots+a_{q}|<\varepsilon)$
+\end_inset
+
+.
+ 
+\series bold
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ A partir de la condición de Cauchy para la existencia de límite y que 
+\begin_inset Formula $|S_{q}-S_{p}|=\left|\sum_{n=1}^{q}a_{n}-\sum_{n=1}^{p}a_{n}\right|=|a_{p+1}+\dots+a_{q}|$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De aquí, tomando 
+\begin_inset Formula $q=p+1$
+\end_inset
+
+, se tiene que si 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ converge, entonces 
+\begin_inset Formula $\lim_{n}a_{n}=0$
+\end_inset
+
+.
+ También se tiene que la convergencia de una serie no se altera modificando
+ un número finito de términos de esta.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Linealidad de la suma:
+\series default
+ Si 
+\begin_inset Formula $\sum_{n=1}^{\infty}a_{n}=A$
+\end_inset
+
+ y 
+\begin_inset Formula $\sum_{n=1}^{\infty}b_{n}=B$
+\end_inset
+
+, entonces para 
+\begin_inset Formula $\lambda,\mu\in\mathbb{R}$
+\end_inset
+
+, se tiene que 
+\begin_inset Formula $\sum_{n=1}^{\infty}(\lambda a_{n}+\mu b_{n})=\lambda A+\mu B$
+\end_inset
+
+.
+ 
+\series bold
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Para cada 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $S_{n}:=\lambda A_{n}+\mu B_{n}=\sum_{k=1}^{n}\lambda a_{n}+\sum_{k=1}^{n}\mu b_{n}=\sum_{k=1}^{n}(\lambda a_{n}+\mu b_{n})$
+\end_inset
+
+.
+ Aplicando las propiedades de límites, 
+\begin_inset Formula $\lim_{n}S_{n}=\lim_{n}(\lambda A_{n}+\mu B_{n})=\lambda A+\mu B$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dada una serie 
+\begin_inset Formula $\sum_{n=1}^{\infty}a_{n}$
+\end_inset
+
+ de términos 
+\begin_inset Formula $a_{n}\geq0$
+\end_inset
+
+, esta es convergente si y sólo si la sucesión de sumas parciales es acotada,
+ pues esta es monótona creciente.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Criterios de comparación:
+\end_layout
+
+\begin_layout Enumerate
+Dadas 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sum_{n}b_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{n},b_{n}\geq0$
+\end_inset
+
+, si existe 
+\begin_inset Formula $M>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $a_{n}\leq Mb_{n}\forall n$
+\end_inset
+
+, entonces la convergencia de 
+\begin_inset Formula $\sum_{n=1}^{\infty}b_{n}$
+\end_inset
+
+ implica la de 
+\begin_inset Formula $\sum_{n=1}^{\infty}a_{n}$
+\end_inset
+
+, pues significa que esta última es acotada.
+\end_layout
+
+\begin_layout Enumerate
+Dadas 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sum_{n}b_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{n},b_{n}>0$
+\end_inset
+
+ y existe 
+\begin_inset Formula $l:=\lim_{n}\frac{a_{n}}{b_{n}}\in\mathbb{R}\cup\{+\infty\}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $0<l<\infty$
+\end_inset
+
+, ambas series tienen el mismo carácter.
+\begin_inset Newline newline
+\end_inset
+
+Para 
+\begin_inset Formula $\varepsilon=\frac{l}{2}>0$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\left|\frac{a_{n}}{b_{n}}-l\right|\leq\frac{l}{2}$
+\end_inset
+
+, lo que equivale a que 
+\begin_inset Formula $\frac{l}{2}\leq\frac{a_{n}}{b_{n}}\leq\frac{3}{2}l$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{l}{2}b_{n}\leq a_{n}\leq\frac{3l}{2}b_{n}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+ es convergente, tenemos que 
+\begin_inset Formula $\sum_{n}b_{n}$
+\end_inset
+
+ también, y si 
+\begin_inset Formula $\sum_{n}b_{n}$
+\end_inset
+
+ es convergente, también lo es 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $l=0$
+\end_inset
+
+ entonces la convergencia de 
+\begin_inset Formula $\sum_{n}b_{n}$
+\end_inset
+
+ implica la de 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Para 
+\begin_inset Formula $\varepsilon=1$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{a_{n}}{b_{n}}\leq1$
+\end_inset
+
+, luego 
+\begin_inset Formula $a_{n}\leq b_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $l=+\infty$
+\end_inset
+
+ entonces la convergencia de 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+ implica la de 
+\begin_inset Formula $\sum_{n}b_{n}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Para 
+\begin_inset Formula $k=1>0$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{a_{n}}{b_{n}}\geq1$
+\end_inset
+
+, luego 
+\begin_inset Formula $a_{n}\geq b_{n}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\series bold
+Criterio de la raíz:
+\series default
+ Dada 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{n}>0$
+\end_inset
+
+ y 
+\begin_inset Formula $a:=\lim_{n}\sqrt[n]{a_{n}}\in\mathbb{R}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a<1$
+\end_inset
+
+, la serie converge.
+\begin_inset Newline newline
+\end_inset
+
+Sea 
+\begin_inset Formula $r\in\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $a<r<1$
+\end_inset
+
+.
+ Existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\sqrt[n]{a_{n}}<r$
+\end_inset
+
+, es decir, 
+\begin_inset Formula $a_{n}<r^{n}$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $r<1$
+\end_inset
+
+, la serie geométrica 
+\begin_inset Formula $\sum_{n}r^{n}$
+\end_inset
+
+ es convergente, y el criterio de comparación nos da la convergencia de
+ 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a>1$
+\end_inset
+
+, la serie diverge.
+\begin_inset Newline newline
+\end_inset
+
+Existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $a_{n}>1$
+\end_inset
+
+, luego 
+\begin_inset Formula $\lim_{n}a_{n}\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a=1$
+\end_inset
+
+ no se puede afirmar nada.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Criterio del cociente:
+\series default
+ Sea 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{n}>0$
+\end_inset
+
+ y 
+\begin_inset Formula $a:=\lim_{n}\frac{a_{n+1}}{a_{n}}\in\mathbb{R}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $a=\lim_{n}\sqrt[n]{a_{n}}$
+\end_inset
+
+.
+ Por tanto:
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a<1$
+\end_inset
+
+, la serie converge.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a>1$
+\end_inset
+
+, la serie diverge.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Criterio de condensación:
+\series default
+ Dada una sucesión 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ monótona decreciente con 
+\begin_inset Formula $a_{n}>0$
+\end_inset
+
+.
+ Entonces
+\begin_inset Formula 
+\[
+\sum_{n=1}^{\infty}a_{n}\in\mathbb{R}\iff\sum_{n=1}^{\infty}2^{n}a_{2^{n}}\in\mathbb{R}
+\]
+
+\end_inset
+
+
+\series bold
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $A_{n}=\sum_{k=1}^{n}a_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $B_{n}=\sum_{k=1}^{n}2^{k}a_{2^{k}}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{gather*}
+\begin{array}{c}
+B_{n}=2a_{2}+4a_{4}+\dots+2^{n}a_{2^{n}}=2(a_{2}+2a_{4}+\dots+2^{n-1}a_{2^{n}})\leq\\
+\leq2(a_{1}+a_{2}+(a_{3}+a_{4})+\dots+(a_{2^{n-1}+1}+\dots+a_{2^{n}}))=2(a_{1}+\dots+a_{2^{n}})=\\
+=2A_{2^{n}}=2(a_{1}+(a_{2}+a_{3})+(a_{4}+a_{5}+a_{6}+a_{7})+\dots+a_{2^{n}})\leq\\
+\leq2(a_{1}+2a_{2}+4a_{4}+\dots+2^{n-1}a_{2^{n-1}}+a_{2^{n}})=2B_{n-1}+a_{2^{n}}
+\end{array}
+\end{gather*}
+
+\end_inset
+
+Luego para todo 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $B_{n}\leq2A_{2^{n}}\leq2B_{n-1}+a_{1}$
+\end_inset
+
+, luego si una de las dos está acotada la otra también.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una serie 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{n}\in\mathbb{R}$
+\end_inset
+
+ es 
+\series bold
+absolutamente convergente
+\series default
+ si 
+\begin_inset Formula $\sum_{n}|a_{n}|$
+\end_inset
+
+ es convergente.
+ Toda serie absolutamente convergente es convergente.
+ 
+\series bold
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, por ser 
+\begin_inset Formula $\sum_{n}|a_{n}|$
+\end_inset
+
+ convergente, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $p\geq q>n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $|a_{q+1}|+\dots+|a_{p}|<\varepsilon$
+\end_inset
+
+.
+ Pero 
+\begin_inset Formula $|a_{q+1}+\dots+a_{p}|\leq|a_{q+1}|+\dots+|a_{p}|<\varepsilon$
+\end_inset
+
+, luego 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+ cumple la condición de Cauchy y es pues convergente.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una serie es 
+\series bold
+incondicionalmente convergente
+\series default
+ si todas sus reordenadas son convergentes y tienen la misma suma.
+ 
+\series bold
+Teorema:
+\series default
+ Esta condición equivale a ser absolutamente convergente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+La 
+\series bold
+serie alternada
+\series default
+ 
+\begin_inset Formula $\sum_{n}\frac{(-1)^{n+1}}{n}$
+\end_inset
+
+ es convergente.
+ Además, si 
+\begin_inset Formula $S$
+\end_inset
+
+ es la suma total y 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ la suma parcial 
+\begin_inset Formula $n$
+\end_inset
+
+-ésima, 
+\begin_inset Formula $S_{2n}\leq S\leq S_{2n+1}$
+\end_inset
+
+ y 
+\begin_inset Formula $|S_{n}-S|<\frac{1}{n+1}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $S_{2n}=\sum_{k=1}^{2n}\frac{(-1)^{k+1}}{k}\leq\sum_{k=1}^{2n}\frac{(-1)^{k+1}}{k}+\frac{1}{2n+1}=S_{2n+1}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $S_{2n}\leq S_{2n}+\frac{1}{2n+1}-\frac{1}{2n+2}=S_{2n+2}$
+\end_inset
+
+, luego 
+\begin_inset Formula $(S_{2n})_{n}$
+\end_inset
+
+ es creciente.
+ De forma análoga tenemos que 
+\begin_inset Formula $(S_{2n+1})_{n}$
+\end_inset
+
+ es decreciente.
+ Definimos la sucesión de intervalos cerrados acotados y encajados 
+\begin_inset Formula $I_{n}:=[S_{2n},S_{2n+1}]$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $L(I_{n})=|S_{2n+1}-S_{2n}|=\frac{1}{2n+1}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\lim_{n}L(I_{n})=0$
+\end_inset
+
+, y por Cantor se tiene que existe un único 
+\begin_inset Formula $S=\bigcap_{n\in\mathbb{N}}I_{n}$
+\end_inset
+
+, que es 
+\begin_inset Formula $S=\lim_{n}S_{2n}=\lim_{n}S_{2n+1}=\lim_{n}S_{n}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $n=2k$
+\end_inset
+
+, 
+\begin_inset Formula $S_{2k}\leq S\leq S_{2k+1}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $|S-S_{2k}|<\frac{1}{2k+1}$
+\end_inset
+
+, y si 
+\begin_inset Formula $n=2k+1$
+\end_inset
+
+, 
+\begin_inset Formula $S_{2k+2}\leq S\leq S_{2k+1}$
+\end_inset
+
+ y 
+\begin_inset Formula $|S-S_{2k+1}|\leq|S_{2k+1}-S_{2k+2}|\leq\frac{1}{2k+2}$
+\end_inset
+
+.
+ Esto prueba la segunda afirmación.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+serie geométrica
+\series default
+ 
+\begin_inset Formula $\sum_{n=0}^{\infty}r^{n}$
+\end_inset
+
+ es convergente si 
+\begin_inset Formula $|r|<1$
+\end_inset
+
+ con suma 
+\begin_inset Formula $\frac{1}{1-r}$
+\end_inset
+
+ y divergente si 
+\begin_inset Formula $|r|\geq1$
+\end_inset
+
+.
+ La 
+\series bold
+serie armónica
+\series default
+ 
+\begin_inset Formula $\sum_{n=1}^{\infty}\frac{1}{n^{k}}$
+\end_inset
+
+ es convergente si 
+\begin_inset Formula $k>1$
+\end_inset
+
+ y divergente si 
+\begin_inset Formula $k\leq1$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

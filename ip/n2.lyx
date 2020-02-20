@@ -1,0 +1,571 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Acciones
+\end_layout
+
+\begin_layout Standard
+Permiten conseguir 
+\series bold
+generalidad
+\series default
+ representando un conjunto potencialmente infinito de cálculos con el mismo
+ algoritmo, que es una 
+\series bold
+abstracción
+\series default
+ de estos.
+ Las acciones son la base para 
+\series bold
+descomposición
+\series default
+ de programas en el paradigma imperativo.
+ También mejoran la legibilidad, el mantenimiento y la reutilización de
+ partes del programa.
+ La abstracción proporcionada es por 
+\series bold
+especificación
+\series default
+ (separa el qué hace del cómo lo hace) y por 
+\series bold
+parametrización
+\series default
+ (definición general contra caso específico).
+ En lenguaje algorítmico, las acciones se definen como:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="40text%">
+<column alignment="left" valignment="top" width="50text%">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Lenguaje algorítmico
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pascal
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+nombre
+\emph default
+ : una acción (
+\begin_inset Formula $tp_{1}$
+\end_inset
+
+ 
+\begin_inset Formula $par_{1}$
+\end_inset
+
+ : 
+\begin_inset Formula $td_{1}$
+\end_inset
+
+; 
+\begin_inset Formula $\dots$
+\end_inset
+
+; 
+\begin_inset Formula $tp_{n}$
+\end_inset
+
+ 
+\begin_inset Formula $par_{n}$
+\end_inset
+
+ : 
+\begin_inset Formula $td_{n}$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+procedure 
+\emph on
+nombre
+\emph default
+(
+\family default
+[
+\family typewriter
+var
+\family default
+] 
+\begin_inset Formula $par_{1}$
+\end_inset
+
+
+\family typewriter
+ : 
+\begin_inset Formula $td_{1}$
+\end_inset
+
+; 
+\begin_inset Formula $\dots$
+\end_inset
+
+; 
+\family default
+[
+\family typewriter
+var
+\family default
+] 
+\family typewriter
+
+\begin_inset Formula $par_{n}$
+\end_inset
+
+ : 
+\begin_inset Formula $td_{n}$
+\end_inset
+
+);
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A esto le sigue la implementación, similar a la del algoritmo en sí.
+ Aquí, 
+\begin_inset Formula $par_{i}$
+\end_inset
+
+ es el nombre del parámetro, 
+\begin_inset Formula $td_{i}$
+\end_inset
+
+ es su tipo de dato y 
+\begin_inset Formula $tp_{i}$
+\end_inset
+
+ puede ser 
+\begin_inset Quotes cld
+\end_inset
+
+DATO
+\begin_inset Quotes crd
+\end_inset
+
+ (entrada), 
+\begin_inset Quotes cld
+\end_inset
+
+RESULTADO
+\begin_inset Quotes crd
+\end_inset
+
+ (salida) o 
+\begin_inset Quotes cld
+\end_inset
+
+DATO-RESULTADO
+\begin_inset Quotes crd
+\end_inset
+
+ (entrada y salida), y en Pascal los dos últimos casos se indican con 
+\family typewriter
+var
+\family default
+.
+ En 
+\begin_inset Formula $par_{i}$
+\end_inset
+
+ se pueden agrupar varios parámetros separados por comas.
+\end_layout
+
+\begin_layout Standard
+Los nombres de los parámetros forman parte de su 
+\series bold
+léxico local
+\series default
+.
+ Pueden 
+\series bold
+enmascarar
+\series default
+ elementos del léxico global y no son utilizables fuera de la acción.
+ Llamamos 
+\series bold
+parámetros formales
+\series default
+ a los parámetros de una acción (
+\begin_inset Formula $par_{1},\dots,par_{n}$
+\end_inset
+
+) y 
+\series bold
+argumentos
+\series default
+ o 
+\series bold
+parámetros reales
+\series default
+ a los valores con los que se invoca la acción, mediante la notación 
+\begin_inset Quotes cld
+\end_inset
+
+
+\emph on
+nombre
+\emph default
+(
+\begin_inset Formula $expr_{1},\dots,expr_{n}$
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Funciones
+\end_layout
+
+\begin_layout Standard
+Se diferencian de las acciones en que:
+\end_layout
+
+\begin_layout Itemize
+Las acciones modifican el estado del proceso, mientras que las funciones
+ establecen una relación entre los elementos del 
+\series bold
+dominio
+\series default
+ y el 
+\series bold
+codominio
+\series default
+ (
+\begin_inset Formula $f:A\rightarrow B$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+Las acciones definen procedimientos complejos a partir de otros más simples,
+ mientras que las funciones extienden el repertorio de operadores.
+\end_layout
+
+\begin_layout Standard
+Se definen de forma similar a las acciones:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="50text%">
+<column alignment="left" valignment="top" width="40text%">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Lenguaje algorítmico
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pascal
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+nombre
+\emph default
+: Función (
+\begin_inset Formula $par_{1}$
+\end_inset
+
+: 
+\begin_inset Formula $td_{1}$
+\end_inset
+
+; ...; 
+\begin_inset Formula $par_{n}$
+\end_inset
+
+ : 
+\begin_inset Formula $td_{n}$
+\end_inset
+
+) 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ tipo_retorno;
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+function 
+\emph on
+nombre
+\emph default
+(
+\family default
+
+\begin_inset Formula $par_{1}$
+\end_inset
+
+
+\family typewriter
+ : 
+\begin_inset Formula $td_{1}$
+\end_inset
+
+; 
+\begin_inset Formula $\dots$
+\end_inset
+
+;
+\family default
+ 
+\family typewriter
+
+\begin_inset Formula $par_{n}$
+\end_inset
+
+ : 
+\begin_inset Formula $td_{n}$
+\end_inset
+
+): 
+\emph on
+tipo_retorno
+\emph default
+;
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para devolver un valor, se asigna al propio nombre de la función, que se
+ comporta como una variable de tipo 
+\begin_inset Quotes cld
+\end_inset
+
+tipo_retorno
+\begin_inset Quotes crd
+\end_inset
+
+ de solo escritura.
+ En exámenes y prácticas, no podemos hacer esto a mitad de la función, aun
+ cuando en Pascal este nombre se comporta como cualquier otra variable local.
+\end_layout
+
+\begin_layout Section
+Enumerado
+\end_layout
+
+\begin_layout Standard
+Solo en Pascal.
+ Ejemplo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+type colors = (red, green, blue);
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+var color : colors;
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \hspace{}
+\length 8ex
+\end_inset
+
+color := red;
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+end.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
