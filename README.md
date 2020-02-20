@@ -18,10 +18,10 @@ Las asignaturas de ingeniería informática que se incluyen son las siguientes:
 * `ip`: Introducción a la Programación.
 * `logic`: Fundamentos Lógicos de la Informática.
 
-Los apuntes están escritos con [https://www.lyx.org/](LyX). En cada directorio,
+Los apuntes están escritos con [LyX](https://www.lyx.org/). En cada directorio,
 el fichero `n.lyx` es el fichero principal con los apuntes de la asignatura.
 En distribuciones basadas en Debian, LyX y todo lo necesario de
-[https://www.tug.org/texlive/](TeX Live) se pueden instalar mediante
+[TeX Live](https://www.tug.org/texlive/) se pueden instalar mediante
 `sudo apt install lyx texlive-full`, si bien realmente muchos de los paquetes
 que se instalan con esta orden no son necesarios.
 
