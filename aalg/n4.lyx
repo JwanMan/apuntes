@@ -1,0 +1,4335 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{tikz}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una 
+\series bold
+forma bilineal
+\series default
+ en un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial 
+\begin_inset Formula $V$
+\end_inset
+
+ es una aplicación 
+\begin_inset Formula $\langle\cdot\rangle:V\times V\rightarrow\mathbb{K}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall u,u_{1},u_{2},v,v_{1},v_{2}\in V,\lambda\in\mathbb{K}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\langle u_{1}+u_{2},v\rangle=\langle u_{1},v\rangle+\langle u_{2},v\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\langle u,v_{1}+v_{2}\rangle=\langle u,v_{1}\rangle+\langle u,v_{2}\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\langle\lambda u,v\rangle=\langle u,\lambda v\rangle=\lambda\langle u,v\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una forma bilineal es 
+\series bold
+simétrica
+\series default
+ si 
+\begin_inset Formula $\forall u,v\in V,\langle u,v\rangle=\langle v,u\rangle$
+\end_inset
+
+, y es 
+\series bold
+alternada
+\series default
+ si 
+\begin_inset Formula $\forall u\in V,\langle u,u\rangle=0$
+\end_inset
+
+.
+ En 
+\begin_inset Formula $\mathbb{K}=\mathbb{R}$
+\end_inset
+
+, una forma bilineal simétrica tal que 
+\begin_inset Formula $\forall u\neq0,\langle u,u\rangle>0$
+\end_inset
+
+ es un 
+\series bold
+producto escalar
+\series default
+.
+ Llamamos 
+\series bold
+espacio bilineal
+\series default
+ o 
+\series bold
+cuadrático
+\series default
+ a un par 
+\begin_inset Formula $(V,\langle\cdot\rangle)$
+\end_inset
+
+ formado por un espacio vectorial 
+\begin_inset Formula $V$
+\end_inset
+
+ y una forma bilineal simétrica 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ en él.
+ Llamamos 
+\begin_inset Formula ${\cal B}(V)$
+\end_inset
+
+ al conjunto de formas bilineales simétricas en 
+\begin_inset Formula $V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ una forma bilineal sobre el espacio vectorial 
+\begin_inset Formula $V$
+\end_inset
+
+ con base 
+\begin_inset Formula $(e_{1},\dots,e_{n})$
+\end_inset
+
+ y 
+\begin_inset Formula $A:=(a_{ij}:=\langle e_{i},e_{j}\rangle)\in{\cal M}_{n}(\mathbb{K})$
+\end_inset
+
+, entonces si 
+\begin_inset Formula $x=\sum x_{i}e_{i}$
+\end_inset
+
+ e 
+\begin_inset Formula $y=\sum y_{i}e_{i}$
+\end_inset
+
+, se tiene 
+\begin_inset Formula 
+\[
+\langle x,y\rangle=\langle\sum_{i}x_{i}e_{i},\sum_{j}y_{j}e_{j}\rangle=\sum_{i,j}\langle x_{i}e_{i},y_{j}e_{j}\rangle=\sum_{i,j}x_{i}y_{j}a_{ij}
+\]
+
+\end_inset
+
+y por tanto 
+\begin_inset Formula $\langle X,Y\rangle=X^{t}AY$
+\end_inset
+
+.
+ La matriz 
+\begin_inset Formula $A$
+\end_inset
+
+ es simétrica si 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ lo es, y se llama 
+\series bold
+matriz de la forma bilineal
+\series default
+ en la base dada.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+forma cuadrática
+\series default
+ en un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial 
+\begin_inset Formula $V$
+\end_inset
+
+ es una aplicación 
+\begin_inset Formula $q:V\rightarrow\mathbb{K}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall u\in V,\lambda\in\mathbb{K}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $q(\lambda u)=\lambda^{2}q(u)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\langle\cdot\rangle:V\times V\rightarrow K$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\langle u,v\rangle:=\frac{1}{2}(q(u+v)-q(u)-q(v))$
+\end_inset
+
+ es una forma bilineal simétrica en 
+\begin_inset Formula $V$
+\end_inset
+
+, la 
+\series bold
+forma bilineal asociada
+\series default
+ o 
+\series bold
+forma polar
+\series default
+ de 
+\begin_inset Formula $q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\begin_inset Formula ${\cal Q}(V)$
+\end_inset
+
+ al conjunto de formas cuadráticas en 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ La aplicación 
+\begin_inset Formula ${\cal Q}(V)\rightarrow{\cal B}(V)$
+\end_inset
+
+ que asocia a cada forma cuadrática su forma polar es biyectiva y su inversa
+ asocia a cada forma bilineal simétrica la forma cuadrática dada por 
+\begin_inset Formula $q(u):=\langle u,u\rangle$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $\langle\cdot\rangle\in{\cal B}(V)$
+\end_inset
+
+ y 
+\begin_inset Formula $q(u):=\langle u,u\rangle$
+\end_inset
+
+, es claro que 
+\begin_inset Formula $q(\lambda u)=\lambda^{2}q(u)$
+\end_inset
+
+.
+ Por otra parte,
+\begin_inset Formula 
+\begin{multline*}
+\frac{1}{2}(q(u+v)-q(u)-q(v))=\frac{1}{2}(\langle u+v,u+v\rangle-\langle u,u\rangle-\langle v,v\rangle)=\frac{1}{2}\cdot2\langle u,v\rangle=\langle u,v\rangle
+\end{multline*}
+
+\end_inset
+
+Sean ahora 
+\begin_inset Formula $q$
+\end_inset
+
+ una forma cuadrática, 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ su forma bilineal asociada y 
+\begin_inset Formula $q'\in{\cal Q}(V)$
+\end_inset
+
+ dada por 
+\begin_inset Formula $q'(u)=\langle u,u\rangle$
+\end_inset
+
+, 
+\begin_inset Formula $q'(u)=\langle u,u\rangle=\frac{1}{2}(q(2u)-q(u)-q(u))=\frac{1}{2}(4q(u)-2q(u))=q(u)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Esta correspondencia permite asociar una matriz 
+\begin_inset Formula $A:=(a_{ij})\in{\cal M}_{n}(\mathbb{K})$
+\end_inset
+
+ a una forma cuadrática 
+\begin_inset Formula $q$
+\end_inset
+
+ en un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial de dimensión 
+\begin_inset Formula $n<+\infty$
+\end_inset
+
+, pues si 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ es la forma polar de 
+\begin_inset Formula $q$
+\end_inset
+
+, 
+\begin_inset Formula $q(u)=\langle u,u\rangle=u^{t}Au$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Cambios de base
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $(V,\langle\cdot\rangle)$
+\end_inset
+
+ un espacio bilineal, 
+\begin_inset Formula ${\cal C}:=(u_{1},\dots,u_{n})$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal B}:=(v_{1},\dots,v_{n})$
+\end_inset
+
+ bases de 
+\begin_inset Formula $V$
+\end_inset
+
+ donde 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ tiene matrices respectivas 
+\begin_inset Formula $A:=(a_{ij})$
+\end_inset
+
+ y 
+\begin_inset Formula $B:=(b_{ij})$
+\end_inset
+
+, 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+ las matrices columna de las coordenadas de dos vectores en la base 
+\begin_inset Formula ${\cal C}$
+\end_inset
+
+, 
+\begin_inset Formula $X'$
+\end_inset
+
+ e 
+\begin_inset Formula $Y'$
+\end_inset
+
+ las de los mismos vectores en la base 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ y 
+\begin_inset Formula $P$
+\end_inset
+
+ la matriz de cambio de base de 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ a 
+\begin_inset Formula ${\cal C}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $X=PX'$
+\end_inset
+
+ e 
+\begin_inset Formula $Y=PY'$
+\end_inset
+
+, luego 
+\begin_inset Formula $X^{t}AY=(PX')^{t}A(PY')=(X')^{t}(P^{t}AP)Y'$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $B=P^{t}AP$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Dos matrices 
+\begin_inset Formula $A,B\in{\cal M}_{n}(\mathbb{K})$
+\end_inset
+
+ son 
+\series bold
+congruentes
+\series default
+ si existe una matriz invertible 
+\begin_inset Formula $P$
+\end_inset
+
+ tal que 
+\begin_inset Formula $B=P^{t}AP$
+\end_inset
+
+, y escribimos 
+\begin_inset Formula $A\sim B$
+\end_inset
+
+.
+ Esta es una relación de equivalencia.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{AlgL}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A,B\in M_{n}(K)$
+\end_inset
+
+ son 
+\series bold
+semejantes
+\series default
+ si 
+\begin_inset Formula $\exists P\in M_{n}(K):B=P^{-1}AP$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dos formas bilineales 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ en 
+\begin_inset Formula $V$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle\cdot\rangle'$
+\end_inset
+
+ en 
+\begin_inset Formula $V'$
+\end_inset
+
+ son 
+\series bold
+equivalentes
+\series default
+, escrito 
+\begin_inset Formula $\langle\cdot\rangle\sim\langle\cdot\rangle'$
+\end_inset
+
+, si existen bases respectivas de 
+\begin_inset Formula $V$
+\end_inset
+
+ y 
+\begin_inset Formula $V'$
+\end_inset
+
+ respecto de las cuales las formas bilineales tiene la misma matriz asociada.
+\end_layout
+
+\begin_layout Standard
+Dos espacios bilineales 
+\begin_inset Formula $(V,\langle\cdot\rangle)$
+\end_inset
+
+ y 
+\begin_inset Formula $(V',\langle\cdot\rangle')$
+\end_inset
+
+ son 
+\series bold
+isométricos
+\series default
+ si existe un isomorfismo 
+\begin_inset Formula $f:V\rightarrow V'$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall u,v\in V,\langle u,v\rangle=\langle f(u),f(v)\rangle'$
+\end_inset
+
+, y decimos que 
+\begin_inset Formula $f$
+\end_inset
+
+ es una 
+\series bold
+isometría
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Dados dos espacios bilineales 
+\begin_inset Formula $(V,\langle\cdot\rangle)$
+\end_inset
+
+ y 
+\begin_inset Formula $(V',\langle\cdot\rangle')$
+\end_inset
+
+, si 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal B}'$
+\end_inset
+
+ son bases respectivas de 
+\begin_inset Formula $V$
+\end_inset
+
+ y 
+\begin_inset Formula $V'$
+\end_inset
+
+ y 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $A'$
+\end_inset
+
+ son las matrices respectivas de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle\cdot\rangle'$
+\end_inset
+
+ respecto de 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal B}'$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+A\sim A'\iff\langle\cdot\rangle\sim\langle\cdot\rangle'\iff(V,\langle\cdot\rangle),(V',\langle\cdot\rangle')\text{ isométricos}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Existe 
+\begin_inset Formula $P$
+\end_inset
+
+ invertible tal que 
+\begin_inset Formula $A'=P^{t}AP$
+\end_inset
+
+, luego en la base 
+\begin_inset Formula ${\cal B}''$
+\end_inset
+
+ en la que 
+\begin_inset Formula $P$
+\end_inset
+
+ es matriz de cambio de 
+\begin_inset Formula ${\cal B}''$
+\end_inset
+
+ a 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+, 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ tiene matriz 
+\begin_inset Formula $A'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $2\implies3]$
+\end_inset
+
+ Si 
+\begin_inset Formula ${\cal C}=:(v_{1},\dots,v_{n})$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal C}'=:(v'_{1},\dots,v'_{n})$
+\end_inset
+
+ son bases en las que 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle\cdot\rangle'$
+\end_inset
+
+ tienen la misma matriz asociada 
+\begin_inset Formula $C:=(c_{ij})$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\langle v_{i},v_{j}\rangle=c_{ij}=\langle v'_{i},v'_{j}\rangle$
+\end_inset
+
+, luego el isomorfismo 
+\begin_inset Formula $v_{i}\mapsto v'_{i}$
+\end_inset
+
+ es una isometría.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $3\implies1]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $f:V\rightarrow V'$
+\end_inset
+
+ una isometría y 
+\begin_inset Formula ${\cal B}:=(v_{1},\dots,v_{n})$
+\end_inset
+
+, entonces 
+\begin_inset Formula ${\cal B}':=(f(v_{1}),\dots,f(v_{n}))$
+\end_inset
+
+ es una base de 
+\begin_inset Formula $V'$
+\end_inset
+
+ y, como 
+\begin_inset Formula $\langle v_{i},v_{j}\rangle=\langle f(v_{i}),f(v_{j})\rangle'=:c_{ij}$
+\end_inset
+
+, ambas formas bilineales tienen la misma matriz 
+\begin_inset Formula $C:=(c_{ij})$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $A\sim C\sim A'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Ortogonalidad
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $(V,\langle\cdot\rangle)$
+\end_inset
+
+ un espacio bilineal y 
+\begin_inset Formula $E$
+\end_inset
+
+ un subespacio de 
+\begin_inset Formula $V$
+\end_inset
+
+, llamamos 
+\series bold
+subespacio ortogonal
+\series default
+ a 
+\begin_inset Formula $E$
+\end_inset
+
+ al subespacio 
+\begin_inset Formula $E^{\bot}:=\{v\in V:\forall e\in E,\langle v,e\rangle=0\}$
+\end_inset
+
+.
+ Dos vectores 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+ son 
+\series bold
+ortogonales
+\series default
+, 
+\series bold
+perpendiculares
+\series default
+ o 
+\series bold
+conjugados
+\series default
+ si 
+\begin_inset Formula $\langle u,v\rangle=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+radical
+\series default
+ de 
+\begin_inset Formula $V$
+\end_inset
+
+ a 
+\begin_inset Formula $Rad(V):=V^{\bot}$
+\end_inset
+
+.
+ Una forma bilineal simétrica 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ en 
+\begin_inset Formula $V$
+\end_inset
+
+ es 
+\series bold
+no degenerada
+\series default
+ si 
+\begin_inset Formula $Rad(V)=0$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es la matriz asociada a 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ en la base 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ de 
+\begin_inset Formula $V$
+\end_inset
+
+, 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ es no degenerada si y sólo si 
+\begin_inset Formula $|A|\neq0$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula ${\cal B}=:(u_{1},\dots,u_{n})$
+\end_inset
+
+, un vector 
+\begin_inset Formula 
+\begin{multline*}
+u:=\sum\alpha_{i}u_{i}\in Rad(V)\iff\langle u,v\rangle=0\forall v\in V\iff\langle u,u_{i}\rangle=0\forall i\iff\\
+\iff\forall i,\left(\begin{array}{ccccc}
+0 & \cdots & \overset{\underset{\downarrow}{i}}{1} & \cdots & 0\end{array}\right)A\left(\begin{array}{c}
+x_{1}\\
+\vdots\\
+x_{n}
+\end{array}\right)=0
+\end{multline*}
+
+\end_inset
+
+Por tanto el radical está formado por los vectores cuyas coordenadas constituyen
+ el núcleo de 
+\begin_inset Formula $A$
+\end_inset
+
+, que se reduce al vector 0 si y sólo si 
+\begin_inset Formula $|A|\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un vector es 
+\series bold
+isótropo
+\series default
+ si 
+\begin_inset Formula $\langle u,u\rangle=0$
+\end_inset
+
+, y un subespacio 
+\begin_inset Formula $U\leq V$
+\end_inset
+
+ es (
+\series bold
+totalmente
+\series default
+) 
+\series bold
+isótropo
+\series default
+ si todo vector de 
+\begin_inset Formula $U$
+\end_inset
+
+ es isótropo, y es 
+\series bold
+anisótropo
+\series default
+ si no contiene vectores isótropos no nulos.
+ Si todos los vectores son isótropos, entonces 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ es idénticamente nula, pues en tal caso 
+\begin_inset Formula $0=\langle u+v,u+v\rangle=\langle u,u\rangle+\langle v,v\rangle+2\langle u,v\rangle=2\langle u,v\rangle$
+\end_inset
+
+ para cualesquiera 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Diagonalización
+\end_layout
+
+\begin_layout Standard
+Dado un espacio bilineal 
+\begin_inset Formula $(V,\langle\cdot\rangle)$
+\end_inset
+
+ y 
+\begin_inset Formula $E\leq V$
+\end_inset
+
+, si 
+\begin_inset Formula $\langle\cdot\rangle|_{E}$
+\end_inset
+
+ es no degenerada entonces 
+\begin_inset Formula $V=E\oplus E^{\bot}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ La suma es directa porque 
+\begin_inset Formula $E\cap E^{\bot}=Rad(E)=0$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula ${\cal B}:=(e_{1},\dots,e_{m})$
+\end_inset
+
+ una base de 
+\begin_inset Formula $E$
+\end_inset
+
+ y 
+\begin_inset Formula $A\in{\cal M}_{m}(\mathbb{R})$
+\end_inset
+
+ la matriz de 
+\begin_inset Formula $\langle\cdot\rangle|_{E}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $|A|\neq0$
+\end_inset
+
+ y, dado 
+\begin_inset Formula $u\in V$
+\end_inset
+
+, el sistema
+\begin_inset Formula 
+\[
+A\left(\begin{array}{c}
+x_{1}\\
+\vdots\\
+x_{m}
+\end{array}\right)=\left(\begin{array}{c}
+\langle u,e_{1}\rangle\\
+\vdots\\
+\langle u,e_{m}\rangle
+\end{array}\right)
+\]
+
+\end_inset
+
+tiene solución única y 
+\begin_inset Formula $x:=\sum x_{i}e_{i}\in E$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $v:=u-x$
+\end_inset
+
+, 
+\begin_inset Formula $v\in E^{\bot}\iff\forall i,\langle e_{i},v\rangle=0$
+\end_inset
+
+, pero 
+\begin_inset Formula $\langle e_{i},v\rangle=\langle e_{i},u\rangle-\sum_{j}x_{j}\langle e_{i},e_{j}\rangle=\langle e_{i},u\rangle-\sum_{j}a_{ij}x_{j}=0$
+\end_inset
+
+, luego todo vector 
+\begin_inset Formula $u\in V$
+\end_inset
+
+ se puede descomponer en un vector 
+\begin_inset Formula $x\in E$
+\end_inset
+
+ y otro 
+\begin_inset Formula $v\in E^{\bot}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, para todo espacio bilineal 
+\begin_inset Formula $(V,\langle\cdot\rangle)$
+\end_inset
+
+ existe una base ortogonal, y por tanto la matriz de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ es siempre de la forma 
+\begin_inset Formula $\text{diag}(d_{1},\dots,d_{m},0,\dots,0)$
+\end_inset
+
+ (matriz diagonal) con 
+\begin_inset Formula $d_{i}\neq0\forall i\in\{1,\dots,m\}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $V$
+\end_inset
+
+ tiene dimensión 1 toda base es ortogonal.
+ Supongamos que la dimensión de 
+\begin_inset Formula $V$
+\end_inset
+
+ es 
+\begin_inset Formula $n>1$
+\end_inset
+
+ y el teorema se cumple para dimensión 
+\begin_inset Formula $n-1$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ es nula, toda base es ortogonal.
+ De lo contrario existe un vector 
+\begin_inset Formula $e_{1}$
+\end_inset
+
+ no isótropo y, si 
+\begin_inset Formula $E:=<e_{1}>$
+\end_inset
+
+, 
+\begin_inset Formula $\langle\cdot\rangle|_{E}$
+\end_inset
+
+ es no degenerada, por lo que tenemos 
+\begin_inset Formula $V=E\oplus E^{\bot}$
+\end_inset
+
+ y, por la hipótesis de inducción, 
+\begin_inset Formula $E^{\bot}$
+\end_inset
+
+ tiene una base 
+\begin_inset Formula $(e_{2},\dots,e_{n})$
+\end_inset
+
+ ortogonal y la base 
+\begin_inset Formula $(e_{1},\dots,e_{n})$
+\end_inset
+
+ de 
+\begin_inset Formula $V$
+\end_inset
+
+ también lo es.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A,B\in{\cal M}_{n}(\mathbb{K})$
+\end_inset
+
+ son congruentes si y sólo si una se puede obtener de la otra por operaciones
+ elementales, las mismas por filas que por columnas.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Existe 
+\begin_inset Formula $P$
+\end_inset
+
+ invertible tal que 
+\begin_inset Formula $P^{t}AP=B$
+\end_inset
+
+.
+ Al ser invertible debe ser producto de matrices elementales, 
+\begin_inset Formula $P^{t}=:E_{1}\cdots E_{k}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $B=E_{k}\cdots E_{1}AE_{1}^{t}\cdots E_{k}^{t}$
+\end_inset
+
+, pero la traspuesta de una matriz elemental que representa una operación
+ por filas representa la misma operación por columnas.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $B=E_{k}\cdots E_{1}AE_{1}^{t}\cdots E_{k}^{t}$
+\end_inset
+
+, basta tomar 
+\begin_inset Formula $P:=E_{1}^{t}\cdots E_{k}^{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Así, para obtener a partir de una matriz simétrica 
+\begin_inset Formula $A$
+\end_inset
+
+ una matriz diagonal congruente:
+\end_layout
+
+\begin_layout Standard
+
+\family sans
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+operación
+\series default
+ diagonalizar(var 
+\begin_inset Formula $A$
+\end_inset
+
+: 
+\begin_inset Formula ${\cal M}_{n}(\mathbb{K})$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\series bold
+si
+\series default
+ 
+\begin_inset Formula $n>1$
+\end_inset
+
+ 
+\series bold
+y
+\series default
+ 
+\begin_inset Formula $A\neq0$
+\end_inset
+
+ 
+\series bold
+entonces
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\series bold
+si
+\series default
+ la primera columna es no nula 
+\series bold
+entonces
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\series bold
+si
+\series default
+ no hay ningún 
+\begin_inset Formula $i$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{ii}\neq0$
+\end_inset
+
+ 
+\series bold
+entonces
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+Sumar a la fila 
+\begin_inset Formula $1$
+\end_inset
+
+ la fila 
+\begin_inset Formula $i$
+\end_inset
+
+, para algún 
+\begin_inset Formula $i$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{i1}\neq0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+Sumar a la columna 
+\begin_inset Formula $1$
+\end_inset
+
+ la columna 
+\begin_inset Formula $i$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\series bold
+finsi
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+Tomar 
+\begin_inset Formula $i$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{ii}\neq0$
+\end_inset
+
+; intercambiar filas 1 e 
+\begin_inset Formula $i$
+\end_inset
+
+ y columnas 1 e 
+\begin_inset Formula $i$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+Hacer ceros en la primera columna con operaciones fila
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+Hacer las mismas operaciones columna 
+\begin_inset Formula $//$
+\end_inset
+
+ 
+\emph on
+Lo que hace ceros en la primera fila
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\series bold
+finsi
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+diagonalizar(A[2..n,2..n])
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\series bold
+finsi
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para recordar los cambios, escribimos una matriz identidad al lado de 
+\begin_inset Formula $A$
+\end_inset
+
+ y registramos en ella las operaciones elementales de filas, o bien las
+ de columnas.
+ La 
+\series bold
+diagonalización por completación de cuadrados
+\series default
+ es igual pero trabajando con la forma cuadrática:
+\end_layout
+
+\begin_layout Standard
+
+\family sans
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+operación
+\series default
+ diagonalizar(var 
+\begin_inset Formula $q$
+\end_inset
+
+: 
+\begin_inset Formula ${\cal Q}(\mathbb{K}^{n})$
+\end_inset
+
+) 
+\begin_inset Formula $//$
+\end_inset
+
+ 
+\emph on
+Trabajamos con coordenadas
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\series bold
+si
+\series default
+ 
+\begin_inset Formula $n>1$
+\end_inset
+
+ 
+\series bold
+y
+\series default
+ 
+\begin_inset Formula $q\neq0$
+\end_inset
+
+ 
+\series bold
+entonces
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\series bold
+si
+\series default
+ el valor de 
+\begin_inset Formula $q$
+\end_inset
+
+ depende de 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ 
+\series bold
+entonces
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\series bold
+si
+\series default
+ no hay ningún elemento 
+\begin_inset Formula $a_{ii}x_{i}^{2}$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{ii}\neq0$
+\end_inset
+
+ 
+\series bold
+entonces
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+Tomar un término 
+\begin_inset Formula $a_{ij}x_{i}x_{j}$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{ij}\neq0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+Hacer el cambio 
+\begin_inset Formula $x_{i}=:x'_{i}+x'_{j}$
+\end_inset
+
+, 
+\begin_inset Formula $x_{j}=:x'_{i}-x'_{j}$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{k}=:x'_{k},k\neq i,j$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\series bold
+finsi
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+Tomar 
+\begin_inset Formula $i$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{ii}\neq0$
+\end_inset
+
+; intercambiar 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+Tomar 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $r$
+\end_inset
+
+ de 
+\begin_inset Formula $q(x_{1},\dots,x_{n})=:a_{11}x_{1}^{2}+x_{1}p(x_{2},\dots,x_{n})+r(x_{2},\dots,x_{n})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+Reescribir 
+\begin_inset Formula $q$
+\end_inset
+
+ como 
+\begin_inset Formula $a_{11}(x_{1}+\frac{p(x_{2},\dots,x_{n})}{2a_{11}})^{2}-\frac{p(x_{2},\dots,x_{n})}{4a_{11}}+r(x_{2},\dots,x_{n})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+Hacer el cambio 
+\begin_inset Formula $x'_{1}:=x_{1}+\frac{p(x_{2},\dots,x_{n})}{2a_{11}}$
+\end_inset
+
+ y 
+\begin_inset Formula $x'_{j}:=x_{j},j\neq1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\series bold
+finsi
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+diagonalizar(
+\begin_inset Formula $q(0,x_{2},\dots,x_{n})$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \hspace{}
+\length 5ex
+\end_inset
+
+
+\series bold
+finsi
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, todo endomorfismo simétrico 
+\begin_inset Formula $f:V\rightarrow V$
+\end_inset
+
+ diagonaliza con una base ortonormal de vectores propios.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $\alpha_{1},\dots,\alpha_{m}$
+\end_inset
+
+ los valores propios de 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $U:=V_{(\alpha_{1})}\oplus\dots\oplus V_{(\alpha_{m})}$
+\end_inset
+
+, siendo 
+\begin_inset Formula $V_{(\alpha_{i})}$
+\end_inset
+
+ el subespacio propio correspondiente al valor propio 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+.
+ Para ver que 
+\begin_inset Formula $U=V$
+\end_inset
+
+, primero observamos que 
+\begin_inset Formula $f(U)\subseteq U$
+\end_inset
+
+, pues si 
+\begin_inset Formula $v_{i}\in V_{(\alpha_{i})}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f(\sum\lambda_{i}v_{i})=\sum\lambda_{i}\alpha_{i}v_{i}\in U$
+\end_inset
+
+.
+ Por otro lado, si 
+\begin_inset Formula $u\in U$
+\end_inset
+
+ y 
+\begin_inset Formula $w\in U^{\bot}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f(u)\in U$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle f(w),u\rangle=0=\langle w,f(u)\rangle$
+\end_inset
+
+.
+ Consideremos el endomorfismo simétrico 
+\begin_inset Formula $f|_{U^{\bot}}$
+\end_inset
+
+.
+ Como todos los vectores propios de 
+\begin_inset Formula $f$
+\end_inset
+
+ están en 
+\begin_inset Formula $U$
+\end_inset
+
+, el endomorfismo 
+\begin_inset Formula $f|_{U^{\bot}}$
+\end_inset
+
+ no tiene vectores propios y por tanto 
+\begin_inset Formula $U^{\bot}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $U=V$
+\end_inset
+
+.
+ Si tomamos una base ortonormal de cada 
+\begin_inset Formula $V_{(\alpha_{i})}$
+\end_inset
+
+, al juntarlas obtenemos una base de 
+\begin_inset Formula $V$
+\end_inset
+
+ ortonormal.
+\end_layout
+
+\begin_layout Standard
+De aquí que toda matriz simétrica real 
+\begin_inset Formula $A\in{\cal M}_{m\times n}(\mathbb{R})$
+\end_inset
+
+ admite una matriz ortogonal 
+\begin_inset Formula $P$
+\end_inset
+
+ tal que 
+\begin_inset Formula $P^{-1}AP=P^{t}AP$
+\end_inset
+
+ es diagonal.
+\end_layout
+
+\begin_layout Section
+Rango
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $(V,\langle\cdot\rangle)$
+\end_inset
+
+ un espacio bilineal y 
+\begin_inset Formula $A$
+\end_inset
+
+ la matriz de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ en cierta base, llamamos 
+\series bold
+rango
+\series default
+ de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{rg}(\langle\cdot\rangle):=\text{rg}(A)=\dim(V)-\dim Rad(\langle\cdot\rangle)$
+\end_inset
+
+.
+ Dadas las formas bilineales 
+\begin_inset Formula $\langle\cdot\rangle\sim\langle\cdot\rangle'$
+\end_inset
+
+ en un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial 
+\begin_inset Formula $V$
+\end_inset
+
+, 
+\begin_inset Formula $\text{rg}(\langle\cdot\rangle)=\text{rg}(\langle\cdot\rangle')$
+\end_inset
+
+ y, si 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ son las matrices respectivas de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle\cdot\rangle'$
+\end_inset
+
+, existe 
+\begin_inset Formula $\lambda\in\mathbb{K}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $|B|=\lambda^{2}|A|$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $A\sim B$
+\end_inset
+
+, existe 
+\begin_inset Formula $P$
+\end_inset
+
+ invertible tal que 
+\begin_inset Formula $B=P^{t}AP$
+\end_inset
+
+, luego 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ tienen igual rango y 
+\begin_inset Formula $|B|=\lambda^{2}|A|$
+\end_inset
+
+ con 
+\begin_inset Formula $\lambda:=|P|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un cuerpo es 
+\series bold
+algebraicamente cerrado
+\series default
+ si cualquier polinomio con coeficientes en 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+ tiene todas sus raíces en 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+.
+ Como 
+\series bold
+teorema
+\series default
+, dos formas bilineales simétricas 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle\cdot\rangle'$
+\end_inset
+
+ con igual rango en un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial 
+\begin_inset Formula $V$
+\end_inset
+
+, siendo 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+ algebraicamente cerrado, son equivalentes.
+ 
+\series bold
+Demostración:
+\series default
+ Sabemos que en cierta base, la matriz de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ es 
+\begin_inset Formula $D:=\text{diag}(d_{1},\dots,d_{m},0,\dots,0)$
+\end_inset
+
+, siendo 
+\begin_inset Formula $m:=\text{rg}(\langle\cdot\rangle)$
+\end_inset
+
+, con 
+\begin_inset Formula $d_{1},\dots,d_{m}\neq0$
+\end_inset
+
+.
+ Tomando la matriz in
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ver
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ti
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ble 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+P:=\text{diag}(\frac{1}{\sqrt{d_{1}}},\dots,\frac{1}{\sqrt{d_{m}}},1,\dots,1)
+\]
+
+\end_inset
+
+ tenemos que 
+\begin_inset Formula 
+\[
+P^{t}DP=\text{diag}(\overset{m}{\overbrace{1,\dots,1}},0,\dots,0)
+\]
+
+\end_inset
+
+Haciendo lo mismo con 
+\begin_inset Formula $\langle\cdot\rangle'$
+\end_inset
+
+ obtenemos que su matriz en cierta base también es congruente con esta misma
+ matriz, luego ambas son congruentes.
+\end_layout
+
+\begin_layout Standard
+Por tanto, dadas dos matrices simétricas 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ sobre un cuerpo algebraicamente cerrado, 
+\begin_inset Formula $A\sim B\iff\text{rg}(A)=\text{rg}(B)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Cuerpos ordenados y signatura
+\end_layout
+
+\begin_layout Standard
+Un cuerpo 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+ es 
+\series bold
+ordenado
+\series default
+ si existe un 
+\begin_inset Formula $P\subseteq\mathbb{K}$
+\end_inset
+
+, cuyos elementos se llaman 
+\series bold
+positivos
+\series default
+, tal que:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{K}=P\dot{\cup}\{0\}\dot{\cup}-P$
+\end_inset
+
+.
+ A los elementos de 
+\begin_inset Formula $-P:=\{-x\}_{x\in P}$
+\end_inset
+
+ los llamamos 
+\series bold
+negativos
+\series default
+.
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $x,y\in P$
+\end_inset
+
+, 
+\begin_inset Formula $x+y,xy\in P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Por ejemplo, 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ son ordenados, mientras que 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ no lo es.
+ Escribimos 
+\begin_inset Formula $x\geq0$
+\end_inset
+
+ si 
+\begin_inset Formula $x$
+\end_inset
+
+ es positivo o 
+\begin_inset Formula $x=0$
+\end_inset
+
+, y definimos la relación de orden total 
+\begin_inset Formula $x\leq y:\iff y-x\geq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una forma bilineal 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ en un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial 
+\begin_inset Formula $V$
+\end_inset
+
+, siendo 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+ ordenado, es:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Semidefinida positiva
+\series default
+ si 
+\begin_inset Formula $\forall u\in V,\langle u,u\rangle\geq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Semidefinida negativa
+\series default
+ si 
+\begin_inset Formula $\forall u\in V,\langle u,u\rangle\leq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Definida positiva
+\series default
+ si 
+\begin_inset Formula $\forall u\neq0,\langle u,u\rangle>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Definida negativa
+\series default
+ si 
+\begin_inset Formula $\forall u\neq0,\langle u,u\rangle<0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Las mismas definiciones se aplican a una forma cuadrática.
+ Sean 
+\begin_inset Formula $(V,\langle\cdot\rangle)$
+\end_inset
+
+ un espacio bilineal sobre un cuerpo 
+\begin_inset Formula $\mathbb{\mathbb{K}}$
+\end_inset
+
+, 
+\begin_inset Formula $A:=(a_{ij})$
+\end_inset
+
+ la matriz de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ en cierta base 
+\begin_inset Formula ${\cal C}:=(e_{1},\dots,e_{n})$
+\end_inset
+
+ y definimos
+\begin_inset Formula 
+\[
+d_{1}=a_{11},d_{2}=\left|\begin{array}{cc}
+a_{11} & a_{12}\\
+a_{21} & a_{22}
+\end{array}\right|,\dots,d_{n}=|A|
+\]
+
+\end_inset
+
+ Si los 
+\begin_inset Formula $d_{1},\dots,d_{n}$
+\end_inset
+
+ son todos no nulos, hay una base en que la matriz de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ es 
+\begin_inset Formula $\text{diag}(d_{1},\frac{d_{2}}{d_{1}},\dots,\frac{d_{n}}{d_{n-1}})$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $E:=<e_{1},\dots,e_{n-1}>$
+\end_inset
+
+, la matriz de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ en 
+\begin_inset Formula $E$
+\end_inset
+
+ es la matriz 
+\begin_inset Formula $A$
+\end_inset
+
+ sin la última fila y columna, cuyo determinante es 
+\begin_inset Formula $d_{n-1}\neq0$
+\end_inset
+
+, luego es no degenerada y 
+\begin_inset Formula $V=E\oplus E^{\bot}$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $v\in E^{\bot}\backslash\{0\}$
+\end_inset
+
+, 
+\begin_inset Formula $(e_{1},\dots,e_{n-1},v)$
+\end_inset
+
+ es una base de 
+\begin_inset Formula $V$
+\end_inset
+
+, y la matriz de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ en esta base es
+\begin_inset Formula 
+\[
+B:=\left(\begin{array}{cccc}
+a_{11} & \cdots & a_{1,n-1} & 0\\
+\vdots & \ddots & \vdots & \vdots\\
+a_{n-1,1} & \cdots & a_{n-1,n-1} & 0\\
+0 & \cdots & 0 & b
+\end{array}\right)
+\]
+
+\end_inset
+
+Tenemos 
+\begin_inset Formula $A\sim B$
+\end_inset
+
+, luego existe 
+\begin_inset Formula $P$
+\end_inset
+
+ invertible con 
+\begin_inset Formula $A=P^{t}BP$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $\lambda:=|P|$
+\end_inset
+
+, 
+\begin_inset Formula $|A|=\lambda^{2}|B|$
+\end_inset
+
+ y 
+\begin_inset Formula $d_{n}=\lambda^{2}d_{n-1}b$
+\end_inset
+
+, y entonces la matriz de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ en la base 
+\begin_inset Formula $(e_{1},\dots,e_{n-1},w:=\lambda v)$
+\end_inset
+
+ es como 
+\begin_inset Formula $B$
+\end_inset
+
+ pero cambiando 
+\begin_inset Formula $b$
+\end_inset
+
+ por 
+\begin_inset Formula $\frac{d_{n}}{d_{n-1}}$
+\end_inset
+
+.
+ El resultado sigue por inducción.
+\end_layout
+
+\begin_layout Standard
+De aquí que, si además 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+ es ordenado, la forma bilineal es definida positiva si y sólo si 
+\begin_inset Formula $d_{1},\dots,d_{n}>0$
+\end_inset
+
+, y es definida negativa si y sólo si 
+\begin_inset Formula $d_{1}<0$
+\end_inset
+
+, 
+\begin_inset Formula $d_{2}>0$
+\end_inset
+
+, 
+\begin_inset Formula $d_{3}<0$
+\end_inset
+
+, etc.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+teorema de Sylvester
+\series default
+ afirma que si 
+\begin_inset Formula $(V,\langle\cdot\rangle)$
+\end_inset
+
+ es un espacio bilineal sobre un cuerpo 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+ ordenado, 
+\begin_inset Formula $V$
+\end_inset
+
+ se descompone en suma directa ortogonal como 
+\begin_inset Formula $V=V_{+}\oplus V_{-}\oplus V_{0}$
+\end_inset
+
+, donde 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ restringida a 
+\begin_inset Formula $V_{+}$
+\end_inset
+
+, a 
+\begin_inset Formula $V_{-}$
+\end_inset
+
+ y a 
+\begin_inset Formula $V_{0}$
+\end_inset
+
+ es definida positiva, definida negativa y nula, respectivamente.
+ Además, 
+\begin_inset Formula $p:=\dim(V_{+})$
+\end_inset
+
+ y 
+\begin_inset Formula $m:=\dim(V_{-})$
+\end_inset
+
+ son únicos, y al par 
+\begin_inset Formula $(p,m)$
+\end_inset
+
+ lo llamamos la 
+\series bold
+signatura
+\series default
+ de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula ${\cal C}:=(e_{1},\dots,e_{n})$
+\end_inset
+
+ una base de 
+\begin_inset Formula $V$
+\end_inset
+
+ donde la matriz de la forma bilineal es 
+\begin_inset Formula 
+\[
+\text{diag}(d_{1},\dots,d_{p},d_{p+1},\dots,d_{p+m},0,\dots,0)
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $d_{i}>0$
+\end_inset
+
+ para 
+\begin_inset Formula $i\in\{1,\dots,p\}$
+\end_inset
+
+ y 
+\begin_inset Formula $d_{i}<0$
+\end_inset
+
+ para 
+\begin_inset Formula $i\in\{p+1,\dots,p+m\}$
+\end_inset
+
+.
+ Es claro que la descomposición dada por 
+\begin_inset Formula 
+\begin{eqnarray*}
+V_{+}:=<e_{1},\dots,e_{p}>, & V_{-}:=<e_{p+1},\dots,e_{p+m}>, & V_{0}:=<e_{p+m+1},\dots,e_{n}>
+\end{eqnarray*}
+
+\end_inset
+
+ cumple las condiciones.
+ Para la unicidad, supongamos 
+\begin_inset Formula $V=V_{+}\oplus V_{-}\oplus V_{0}=W_{+}\oplus W_{-}\oplus W_{0}$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $\pi_{+}:V\rightarrow V_{+}$
+\end_inset
+
+ la proyección canónica de 
+\begin_inset Formula $V$
+\end_inset
+
+ sobre 
+\begin_inset Formula $V_{+}$
+\end_inset
+
+, 
+\begin_inset Formula $\ker(\pi|_{W_{+}})=\ker(\pi)\cap W_{+}=(V_{-}\oplus V_{0})\cap W_{+}$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $u\in(V_{-}\oplus V_{0})\cap W_{+}$
+\end_inset
+
+, tenemos que 
+\begin_inset Formula $u=u_{-}+u_{0}$
+\end_inset
+
+ con 
+\begin_inset Formula $u_{-}\in V_{-}$
+\end_inset
+
+ y 
+\begin_inset Formula $u_{0}\in V_{0}$
+\end_inset
+
+ y como 
+\begin_inset Formula $u\in W_{+}$
+\end_inset
+
+, 
+\begin_inset Formula $\langle u,u\rangle\geq0$
+\end_inset
+
+, pero 
+\begin_inset Formula 
+\[
+0\leq\langle u,u\rangle=\langle u_{-},u_{-}\rangle+2\langle u_{-},u_{0}\rangle+\langle u_{0},u_{0}\rangle=\langle u_{-},u_{-}\rangle\leq0
+\]
+
+\end_inset
+
+de donde 
+\begin_inset Formula $\langle u,u\rangle=0$
+\end_inset
+
+ y, por ser 
+\begin_inset Formula $u\in W_{+}$
+\end_inset
+
+, 
+\begin_inset Formula $u=0$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $\pi|_{W_{+}}$
+\end_inset
+
+ es inyectiva y 
+\begin_inset Formula $\dim W_{+}\leq\dim V_{+}$
+\end_inset
+
+.
+ De forma parecida podemos probar que 
+\begin_inset Formula $\dim W_{-}\leq\dim V_{-}$
+\end_inset
+
+ y 
+\begin_inset Formula $\dim W_{0}\leq\dim W_{0}$
+\end_inset
+
+, probando el teorema.
+\end_layout
+
+\begin_layout Standard
+De aquí que, si 
+\begin_inset Formula $(V,\langle\cdot\rangle)$
+\end_inset
+
+ y 
+\begin_inset Formula $(V,\langle\cdot\rangle')$
+\end_inset
+
+ son espacios bilineales isométricos sobre un cuerpo 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+ ordenado, entonces 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle\cdot\rangle'$
+\end_inset
+
+ tienen la misma signatura.
+ La 
+\series bold
+ley de inercia de Sylvester
+\series default
+ afirma que, si 
+\begin_inset Formula $\mathbb{K}=\mathbb{R}$
+\end_inset
+
+, el recíproco de esto también se cumple.
+ En efecto, si 
+\begin_inset Formula $(p,m)$
+\end_inset
+
+ es la signatura de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle\cdot\rangle'$
+\end_inset
+
+, existe una base de 
+\begin_inset Formula $V$
+\end_inset
+
+ en que la matriz de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ es 
+\begin_inset Formula $\text{diag}(d_{1},\dots,d_{p},d_{p+1},\dots,d_{p+m},0,\dots,0)$
+\end_inset
+
+, siendo 
+\begin_inset Formula $d_{1},\dots,d_{p}>0$
+\end_inset
+
+ y 
+\begin_inset Formula $d_{p+1},\dots,d_{p+m}<0$
+\end_inset
+
+, pero los positivos difieren de 1 en un cuadrado y los negativos de 
+\begin_inset Formula $-1$
+\end_inset
+
+ en un cuadrado, por lo que hay una base en que la matriz de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ es 
+\begin_inset Formula 
+\[
+D:=\text{diag}(\overset{p}{\overbrace{1,\dots,1}},\overset{m}{\overbrace{-1,\dots,-1}},0,\dots,0)
+\]
+
+\end_inset
+
+y, análogamente, hay una base en que la matriz de 
+\begin_inset Formula $\langle\cdot\rangle'$
+\end_inset
+
+ es 
+\begin_inset Formula $D$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Descomposición de Witt
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $(V,\langle\cdot\rangle)$
+\end_inset
+
+ un espacio bilineal, llamamos 
+\series bold
+simetría respecto al vector
+\series default
+ 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ no isótropo a la isometría 
+\begin_inset Formula $s_{v}:V\rightarrow V$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+s_{v}(u)=-u+2\frac{\langle u,v\rangle}{\langle v,v\rangle}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+ no isótropos con 
+\begin_inset Formula $\langle u,u\rangle=\langle v,v\rangle$
+\end_inset
+
+, existe una isometría 
+\begin_inset Formula $f:V\rightarrow V$
+\end_inset
+
+ con 
+\begin_inset Formula $f(u)=v$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $u+v$
+\end_inset
+
+ es no isótropo,
+\begin_inset Formula 
+\[
+s_{u+v}(u)=-u+\frac{2\langle u,u\rangle+2\langle u,v\rangle}{\langle u,u\rangle+\langle v,v\rangle+2\langle u,v\rangle}(u+v)=-u+\frac{2\langle u,u\rangle+2\langle u,v\rangle}{2\langle u,u\rangle+2\langle u,v\rangle}(u+v)=v
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $u+v$
+\end_inset
+
+ es isótropo, 
+\begin_inset Formula $u-v$
+\end_inset
+
+ no lo es, pues 
+\begin_inset Formula $\langle u+v,u+v\rangle+\langle u-v,u-v\rangle=4\langle u,u\rangle\neq0$
+\end_inset
+
+, y entonces definimos 
+\begin_inset Formula $t(w):=-w$
+\end_inset
+
+ y vemos que 
+\begin_inset Formula $(t\circ s_{u-v})(u)=v$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $D_{1}:=\text{diag}(a_{1},\dots,a_{r},b_{r+1},\dots,b_{n})$
+\end_inset
+
+ y 
+\begin_inset Formula $D_{2}:=\text{diag}(a_{1},\dots,a_{r},c_{r+1},\dots,c_{n})$
+\end_inset
+
+ son matrices con 
+\begin_inset Formula $a_{1},\dots,a_{r}\neq0$
+\end_inset
+
+, si 
+\begin_inset Formula $D_{1}$
+\end_inset
+
+ es congruente con 
+\begin_inset Formula $D_{2}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\text{diag}(b_{r+1},\dots,b_{n})$
+\end_inset
+
+ lo es con 
+\begin_inset Formula $\text{diag}(c_{r+1},\dots,c_{n})$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Basta ver que esto se cumple con 
+\begin_inset Formula $r=1$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $D_{1}=\text{diag}(a,b_{2},\dots,b_{n})$
+\end_inset
+
+ y 
+\begin_inset Formula $D_{2}=\text{diag}(a,c_{2},\dots,c_{n})$
+\end_inset
+
+ matrices de una forma bilineal 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ en las bases 
+\begin_inset Formula $(u_{1},\dots,u_{n})$
+\end_inset
+
+ y 
+\begin_inset Formula $(v_{1},\dots,v_{n})$
+\end_inset
+
+, respectivamente.
+ Entonces 
+\begin_inset Formula $\langle u_{1},u_{1}\rangle=a=\langle v_{1},v_{1}\rangle\neq0$
+\end_inset
+
+ y existe una isometría 
+\begin_inset Formula $s$
+\end_inset
+
+ con 
+\begin_inset Formula $s(u_{1})=v_{1}$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\{s(u_{1}),\dots,s(u_{n})\}$
+\end_inset
+
+ es base ortogonal de 
+\begin_inset Formula $V$
+\end_inset
+
+ y 
+\begin_inset Formula $E:=<s(u_{2}),\dots,s(u_{n})>=<s(u_{1})>^{\bot}=<v_{1}>^{\bot}=<v_{2},\dots,v_{n}>$
+\end_inset
+
+.
+ La matriz de 
+\begin_inset Formula $\langle\cdot\rangle|_{E}$
+\end_inset
+
+ es 
+\begin_inset Formula $\text{diag}(b_{2},\dots,b_{n})$
+\end_inset
+
+ en 
+\begin_inset Formula $(s(u_{2}),\dots,s(u_{n}))$
+\end_inset
+
+ y es 
+\begin_inset Formula $\text{diag}(c_{2},\dots,c_{n})$
+\end_inset
+
+ en 
+\begin_inset Formula $(v_{2},\dots,v_{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+corolario de cancelación de Witt
+\series default
+ afirma que si 
+\begin_inset Formula $U_{1},U_{2}\leq V$
+\end_inset
+
+ son tales que 
+\begin_inset Formula $\langle\cdot\rangle|_{U_{1}}$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle\cdot\rangle|_{U_{2}}$
+\end_inset
+
+ son no degeneradas y 
+\begin_inset Formula $U_{1}$
+\end_inset
+
+ es isométrico a 
+\begin_inset Formula $U_{2}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $U_{1}^{\bot}$
+\end_inset
+
+ es isométrico a 
+\begin_inset Formula $U_{2}^{\bot}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Tenemos 
+\begin_inset Formula $V=U_{1}\oplus U_{1}^{\bot}=U_{2}\oplus U_{2}^{\bot}$
+\end_inset
+
+, existen bases respectivas 
+\begin_inset Formula $(u_{1},\dots,u_{r})$
+\end_inset
+
+ y 
+\begin_inset Formula $(v_{1},\dots,v_{r})$
+\end_inset
+
+ de 
+\begin_inset Formula $U_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $U_{2}$
+\end_inset
+
+ respecto de las cuales la matriz de 
+\begin_inset Formula $\langle\cdot\rangle|_{U_{1}}$
+\end_inset
+
+ y de 
+\begin_inset Formula $\langle\cdot\rangle|_{U_{2}}$
+\end_inset
+
+ es 
+\begin_inset Formula $\text{diag}(a_{1},\dots,a_{r})$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{1},\dots,a_{r}\neq0$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $(u_{r+1},\dots,u_{n})$
+\end_inset
+
+ y 
+\begin_inset Formula $(v_{r+1},\dots,v_{n})$
+\end_inset
+
+ bases respectivas de 
+\begin_inset Formula $U_{1}^{\bot}$
+\end_inset
+
+ y 
+\begin_inset Formula $U_{2}^{\bot}$
+\end_inset
+
+, si 
+\begin_inset Formula $D_{1}:=\text{diag}(a_{1},\dots,a_{r},b_{r+1},\dots,b_{n})$
+\end_inset
+
+ y 
+\begin_inset Formula $D_{2}:=\text{diag}(a_{1},\dots,a_{r},c_{r+1},\dots,c_{n})$
+\end_inset
+
+ son las matrices de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ res
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+pec
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+to de 
+\begin_inset Formula $(u_{1},\dots,u_{n})$
+\end_inset
+
+ y 
+\begin_inset Formula $(v_{1},\dots,v_{n})$
+\end_inset
+
+, respectivamente, entonces 
+\begin_inset Formula $D_{1}\sim D_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{diag}(b_{r+1},\dots,b_{n})\sim\text{diag}(c_{r+1},\dots,c_{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+plano hiperbólico
+\series default
+ es un espacio bilineal 
+\begin_inset Formula $(V,\langle\cdot\rangle)$
+\end_inset
+
+ de dimensión 2 donde 
+\begin_inset Formula $V$
+\end_inset
+
+ contiene vectores isótropos no nulos y 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ es no degenerada.
+ Un espacio bilineal 
+\begin_inset Formula $(V,\langle\cdot\rangle)$
+\end_inset
+
+ de dimensión 2 es un plano hiperbólico si y sólo si existe una base de
+ 
+\begin_inset Formula $V$
+\end_inset
+
+ respecto la cual la matriz de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ es 
+\begin_inset Formula $\text{diag}(1,-1)$
+\end_inset
+
+.
+ Por tanto todos los planos hiperbólicos sobre un mismo cuerpo son isométricos.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $u\neq0$
+\end_inset
+
+ isótropo, 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ tal que 
+\begin_inset Formula $(u,v)$
+\end_inset
+
+ es una base y 
+\begin_inset Formula $v':=\frac{v}{\langle u,v\rangle}$
+\end_inset
+
+, la matriz de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ en 
+\begin_inset Formula $(u,v')$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+A:=\left(\begin{array}{cc}
+0 & 1\\
+1 & a
+\end{array}\right)
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $a:=\langle v',v'\rangle$
+\end_inset
+
+.
+ Sea ahora 
+\begin_inset Formula $w:=xu+v'$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\langle w,w\rangle=1$
+\end_inset
+
+, entonces 
+\begin_inset Formula $1=\langle xu+v',xu+v'\rangle=x^{2}\langle u,u\rangle+\langle v',v'\rangle+2x\langle u,v'\rangle=a+2x$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $w=\frac{1-a}{2}u+v'$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $w'\in<w>^{\bot}$
+\end_inset
+
+, la matriz de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ en la base 
+\begin_inset Formula $(w,w')$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+B:=\left(\begin{array}{cc}
+1 & 0\\
+0 & b
+\end{array}\right)
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $b:=\langle w',w'\rangle$
+\end_inset
+
+.
+ Las matrices 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ son congruentes, luego sus determinantes difieren en un cuadrado y 
+\begin_inset Formula $b=-\lambda^{2}$
+\end_inset
+
+ para cierto 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $w''=\frac{w'}{\lambda}$
+\end_inset
+
+, 
+\begin_inset Formula $\langle w'',w''\rangle=-1$
+\end_inset
+
+ y la matriz de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ en 
+\begin_inset Formula $(w,w'')$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si identificamos los vectores con sus coordenadas respecto a la base en
+ la que la matriz de 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ es 
+\begin_inset Formula $\text{diag}(1,-1)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $(1,-1)$
+\end_inset
+
+ es isótropo no nulo y, si hubiera un 
+\begin_inset Formula $v:=(v_{1},v_{2})$
+\end_inset
+
+ con 
+\begin_inset Formula $\langle u,v\rangle=0\forall u$
+\end_inset
+
+, en particular 
+\begin_inset Formula $\langle(1,0),v\rangle=v_{1}=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle(0,1),v\rangle=-v_{2}=0$
+\end_inset
+
+ y sería 
+\begin_inset Formula $v=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ es no degenerada.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\dim(V)\geq2$
+\end_inset
+
+, 
+\begin_inset Formula $V$
+\end_inset
+
+ contiene vectores isótropos no nulos y 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ es no degenerada, entonces 
+\begin_inset Formula $V$
+\end_inset
+
+ contiene un plano hiperbólico.
+ En efecto, sea 
+\begin_inset Formula $u\neq0$
+\end_inset
+
+ isótropo, existe 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ con 
+\begin_inset Formula $\langle u,v\rangle=0$
+\end_inset
+
+, pues de lo contrario 
+\begin_inset Formula $u\in\text{Rad}(V)=0$
+\end_inset
+
+, y podemos ver que 
+\begin_inset Formula $<u,v>$
+\end_inset
+
+ es un plano hiperbólico.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+teorema de descomposición de Witt
+\series default
+ afirma que, sea 
+\begin_inset Formula $(V,\langle\cdot\rangle)$
+\end_inset
+
+ un espacio bilineal con 
+\begin_inset Formula $\langle\cdot\rangle$
+\end_inset
+
+ no degenerada, entonces 
+\begin_inset Formula 
+\[
+V=:P_{1}\oplus\dots\oplus P_{s}\oplus W
+\]
+
+\end_inset
+
+siendo 
+\begin_inset Formula $P_{1},\dots,P_{k}$
+\end_inset
+
+ planos hiperbólicos y 
+\begin_inset Formula $W$
+\end_inset
+
+ anisótropo, y si 
+\begin_inset Formula $V=Q_{1}\oplus\dots\oplus Q_{t}\oplus W'$
+\end_inset
+
+ es otra descomposición ortogonal de 
+\begin_inset Formula $V$
+\end_inset
+
+ con 
+\begin_inset Formula $Q_{1},\dots,Q_{t}$
+\end_inset
+
+ planos hiperbólicos y 
+\begin_inset Formula $W'$
+\end_inset
+
+ anisótropo, entonces 
+\begin_inset Formula $s=t$
+\end_inset
+
+ y 
+\begin_inset Formula $W$
+\end_inset
+
+ es isométrico a 
+\begin_inset Formula $W'$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+descomposición de Witt
+\series default
+ a cualquiera de este tipo, y llamamos a 
+\begin_inset Formula $s$
+\end_inset
+
+ el 
+\series bold
+índice de Witt
+\series default
+.
+ 
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $\dim(V)=1$
+\end_inset
+
+, si hubiera un vector 
+\begin_inset Formula $u\neq0$
+\end_inset
+
+ isótropo, sería 
+\begin_inset Formula $\langle\lambda u,u\rangle=0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\text{Rad}(V)\neq0\#$
+\end_inset
+
+, luego 
+\begin_inset Formula $V$
+\end_inset
+
+ es anisótropo.
+ Si 
+\begin_inset Formula $n:=\dim(V)\geq2$
+\end_inset
+
+ y 
+\begin_inset Formula $V$
+\end_inset
+
+ no es anisótropo, debe contener un plano hiperbólico 
+\begin_inset Formula $P$
+\end_inset
+
+ y 
+\begin_inset Formula $V=P\oplus P^{\bot}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\langle\cdot\rangle|_{P^{\bot}}$
+\end_inset
+
+ es no degenerada y por tanto el resultado sigue por inducción.
+ Para la unicidad, sea 
+\begin_inset Formula $V=P_{1}\oplus\dots\oplus P_{s}\oplus W=Q_{1}\oplus\dots\oplus Q_{t}\oplus W'$
+\end_inset
+
+ y supongamos 
+\begin_inset Formula $t\geq s$
+\end_inset
+
+.
+ Como todos los planos hiperbólicos sobre un mismo cuerpo son isométricos,
+ 
+\begin_inset Formula $P_{1}\oplus\dots\oplus P_{s}$
+\end_inset
+
+ es isométrico a 
+\begin_inset Formula $Q_{1}\oplus\dots\oplus Q_{s}$
+\end_inset
+
+ y, por el teorema de cancelación de Witt, 
+\begin_inset Formula $W$
+\end_inset
+
+ es isométrico a 
+\begin_inset Formula $Q_{s+1}\oplus\dots\oplus Q_{t}\oplus W'$
+\end_inset
+
+.
+ Entonces debe ser 
+\begin_inset Formula $t=s$
+\end_inset
+
+ porque de lo contrario tendríamos un subespacio anisótropo isométrico a
+ uno que no lo es, y por tanto 
+\begin_inset Formula $W$
+\end_inset
+
+ debe ser isométrico a 
+\begin_inset Formula $W'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Cónicas proyectivas y formas cuadráticas
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+cónica proyectiva
+\series default
+ en 
+\begin_inset Formula $\mathbb{P}^{2}(\mathbb{K})$
+\end_inset
+
+ es una clase de equivalencia en el conjunto de polinomios homogéneos de
+ grado 2 en 
+\begin_inset Formula $\mathbb{K}[x,y,z]$
+\end_inset
+
+, o de formas cuadráticas no nulas de dimensión 3, bajo la relación 
+\begin_inset Formula $q\sim q':\iff\exists\lambda\in\mathbb{K}\backslash\{0\}:q'=\lambda q$
+\end_inset
+
+.
+ Escribimos 
+\begin_inset Formula ${\cal C}_{q}:=[q]$
+\end_inset
+
+, y la identificamos con el conjunto de puntos 
+\begin_inset Formula $[a,b,c]$
+\end_inset
+
+ en los que 
+\begin_inset Formula $q(a,b,c)=0$
+\end_inset
+
+.
+ En 
+\begin_inset Formula $\mathbb{P}^{2}(\mathbb{R})$
+\end_inset
+
+, una cónica proyectiva es la ampliación proyectiva de una cónica afín de
+ matriz proyectiva igual a la matriz de la forma cuadrática:
+\end_layout
+
+\begin_layout Itemize
+Dada una elipse de ecuación 
+\begin_inset Formula $\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}=1$
+\end_inset
+
+, su homogeneización es 
+\begin_inset Formula $\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}=z^{2}$
+\end_inset
+
+.
+ Los puntos del infinito son aquellos en que 
+\begin_inset Formula $z=0$
+\end_inset
+
+, siendo la única solución cuando 
+\begin_inset Formula $x=y=0$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $[0,0,0]$
+\end_inset
+
+ no existe, la elipse no tiene puntos en el infinito.
+\end_layout
+
+\begin_layout Itemize
+Dada una hipérbola de ecuación 
+\begin_inset Formula $\frac{x^{2}}{a^{2}}-\frac{y^{2}}{b^{2}}=1$
+\end_inset
+
+, su homogeneización es 
+\begin_inset Formula $\frac{x^{2}}{a^{2}}-\frac{y^{2}}{b^{2}}=z^{2}$
+\end_inset
+
+ y vemos que sus puntos del infinito son aquellos en que 
+\begin_inset Formula $z=0$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $x=\pm\frac{a}{b}y$
+\end_inset
+
+, con lo que la hipérbola tiene dos puntos del infinito correspondientes
+ a sus asíntotas.
+\end_layout
+
+\begin_layout Itemize
+Dada una parábola de ecuación 
+\begin_inset Formula $y^{2}=2px$
+\end_inset
+
+, su homogeneización es 
+\begin_inset Formula $y^{2}=2pxz$
+\end_inset
+
+, siendo los puntos en el infinito aquellos en que 
+\begin_inset Formula $y=z=0$
+\end_inset
+
+, con lo que la parábola tiene un punto en el infinito correspondiente a
+ su eje.
+\end_layout
+
+\begin_layout Standard
+Dos puntos 
+\begin_inset Formula $P,Q\in\mathbb{P}^{2}(\mathbb{K})$
+\end_inset
+
+ son 
+\series bold
+conjugados
+\series default
+ respecto de una cónica proyectiva de matriz proyectiva 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+ si 
+\begin_inset Formula $[P]^{t}\overline{A}[Q]=0$
+\end_inset
+
+.
+ 
+\begin_inset Formula $P\in\mathbb{P}^{2}(\mathbb{K})$
+\end_inset
+
+ es un punto 
+\series bold
+singular
+\series default
+ respecto de una cónica proyectiva si es conjugado de cualquier 
+\begin_inset Formula $Q\in\mathbb{P}^{2}(\mathbb{K})$
+\end_inset
+
+, y es 
+\series bold
+regular
+\series default
+ en caso contrario.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula ${\cal Q}$
+\end_inset
+
+ una cónica no degenerada de matriz 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+, llamamos 
+\series bold
+recta polar
+\series default
+ de 
+\begin_inset Formula $P\in\mathbb{P}^{2}(\mathbb{K})$
+\end_inset
+
+ respecto de 
+\begin_inset Formula ${\cal Q}$
+\end_inset
+
+ a 
+\begin_inset Formula $r_{P}:=\{X\in\mathbb{P}^{2}(\mathbb{K}):[P]^{t}\overline{A}[X]=0\}$
+\end_inset
+
+, y decimos que 
+\begin_inset Formula $P$
+\end_inset
+
+ es el 
+\series bold
+polo
+\series default
+ de la recta 
+\begin_inset Formula $r_{P}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una recta es 
+\series bold
+tangente
+\series default
+ a una cónica si la corta en un único punto.
+ Por el principio de dua
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+li
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+dad del plano proyectivo, podemos describir una cónica mediante los puntos
+ que le pertenecen o como el conjunto de todas sus tangentes.
+\end_layout
+
+\begin_layout Standard
+Una cónica es 
+\series bold
+no degenerada
+\series default
+ si 
+\begin_inset Formula $\Delta:=|\overline{A}|\neq0$
+\end_inset
+
+.
+ Dos cónicas 
+\begin_inset Formula ${\cal C}_{q}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal C}_{q'}$
+\end_inset
+
+ son 
+\series bold
+proyectivamente equivalentes
+\series default
+ si podemos transformar una en la otra mediante un cambio de coordenadas
+ proyectivas, si y sólo si la signatura de la forma bilineal asociada a
+ una es igual u opuesta a la de la otra.
+ Esto resulta en los siguientes tipos de cónicas:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Rango
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Signatura
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ecuación reducida
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tipo de cónica
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(3,0)/(0,3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x^{2}+y^{2}+z^{2}=0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+No degenerada imaginaria
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(2,1)/(1,2)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x^{2}+y^{2}-z^{2}=0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+No degenerada real
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(2,0)/(0,2)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x^{2}+y^{2}=0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Punto
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(1,1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x^{2}-y^{2}=0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Par de rectas distintas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(1,0)/(0,1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x^{2}=0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recta doble
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

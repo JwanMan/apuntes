@@ -1,0 +1,1570 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{tikz}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Fijado un referencial ortonormal en un plano afín euclídeo, llamamos 
+\series bold
+cónica
+\series default
+ al conjunto de puntos 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ con ecuación 
+\begin_inset Formula 
+\[
+ax^{2}+2bxy+cy^{2}+2ex+2fy+d=0
+\]
+
+\end_inset
+
+ donde al menos uno de los valores 
+\begin_inset Formula $a$
+\end_inset
+
+, 
+\begin_inset Formula $b$
+\end_inset
+
+ o 
+\begin_inset Formula $c$
+\end_inset
+
+ no es nulo.
+ Distintas ecuaciones de este tipo pueden definir la misma cónica, como
+ múltiplos de esta por 
+\begin_inset Formula $\lambda\neq0$
+\end_inset
+
+, o las que dan lugar a la cónica vacía.
+ Esta ecuación se puede expresar como
+\begin_inset Formula 
+\[
+\left(\begin{array}{ccc}
+x & y & 1\end{array}\right)\left(\begin{array}{cc|c}
+a & b & e\\
+b & c & f\\
+\hline e & f & d
+\end{array}\right)\left(\begin{array}{c}
+x\\
+y\\
+1
+\end{array}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+matriz 
+\series default
+(
+\series bold
+proyectiva
+\series default
+)
+\series bold
+ de la cónica
+\series default
+ a 
+\begin_inset Formula 
+\[
+\overline{A}=\left(\begin{array}{ccc}
+a & b & e\\
+b & c & f\\
+e & f & d
+\end{array}\right)
+\]
+
+\end_inset
+
+y 
+\series bold
+matriz principal de la cónica
+\series default
+ a 
+\begin_inset Formula 
+\[
+A=\left(\begin{array}{cc}
+a & b\\
+b & c
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula 
+\begin{align*}
+\overline{A} & =\left(\begin{array}{c|c}
+A & B\\
+\hline B^{t} & d
+\end{array}\right) & B & =\left(\begin{array}{c}
+e\\
+f
+\end{array}\right) & X & =\left(\begin{array}{c}
+x\\
+y
+\end{array}\right) & \overline{X} & =\left(\begin{array}{c}
+X\\
+\hline 1
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+podemos expresar la ecuación como 
+\begin_inset Formula $\overline{X}^{t}\overline{A}\overline{X}=0$
+\end_inset
+
+ o como 
+\begin_inset Formula $X^{t}AX+2B^{t}X+d=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Forma reducida
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{GAE}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para cambiar coordenadas entre dos referenciales 
+\begin_inset Formula $\Re=(O,{\cal B})$
+\end_inset
+
+ y 
+\begin_inset Formula $\Re'=(O',{\cal B}')$
+\end_inset
+
+ de 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+, si llamamos 
+\begin_inset Formula $X_{0}:=[O]_{\Re'}=[\overrightarrow{O'O}]_{{\cal B}'}$
+\end_inset
+
+ y 
+\begin_inset Formula $M:=M_{{\cal B}'{\cal B}}$
+\end_inset
+
+, se tiene que:
+\begin_inset Formula 
+\[
+\text{[...]}X'=\text{[...]}=X_{0}+MX
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos emplear la expresión matricial equivalente:
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+X'\\
+\hline 1
+\end{array}\right)=\left(\begin{array}{c|c}
+M & X_{0}\\
+\hline 0 & 1
+\end{array}\right)\left(\begin{array}{c}
+X\\
+\hline 1
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{AlgL}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los vectores propios de 
+\begin_inset Formula $f$
+\end_inset
+
+ asociados a 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ son todos los vectores no nulos de 
+\begin_inset Formula $\text{Nuc}(f-\lambda Id)$
+\end_inset
+
+.
+ Así, 
+\begin_inset Formula $V_{\lambda}=\text{Nuc}(f-\lambda Id)=\{v\in V:(f-\lambda Id)(v)=0\}=\{v\in V:f(v)=\lambda v\}$
+\end_inset
+
+ es el 
+\series bold
+subespacio propio
+\series default
+ o 
+\series bold
+característico
+\series default
+ correspondiente al valor propio 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ Así, 
+\begin_inset Formula $\lambda\in K$
+\end_inset
+
+ es un valor propio de 
+\begin_inset Formula $f$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\det(f-\lambda Id)=0$
+\end_inset
+
+.
+ [...]
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P_{f}(x):=\det(xId-f)$
+\end_inset
+
+ es el 
+\series bold
+polinomio característico
+\series default
+ de 
+\series bold
+
+\begin_inset Formula $f$
+\end_inset
+
+
+\series default
+, y 
+\begin_inset Formula $P_{A}(x):=\det(xI_{n}-A)$
+\end_inset
+
+ es el polinomio característico de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Podemos comprobar que
+\begin_inset Formula 
+\[
+P_{A}(x)=x^{n}-\text{tr}(A)x^{n-1}+\dots+(-1)^{n}\det(A)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de diagonalización:
+\series default
+ 
+\begin_inset Formula $f$
+\end_inset
+
+ es diagonalizable si y sólo si
+\begin_inset Formula 
+\[
+P_{f}(x)=(x-\lambda_{1})^{d_{1}}\cdots(x-\lambda_{r})^{d_{r}}
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $\lambda_{1},\dots,\lambda_{r}\in K$
+\end_inset
+
+ distintos dos a dos, y 
+\begin_inset Formula $d_{i}=\dim(\text{Nuc}(\lambda_{i}Id-f))$
+\end_inset
+
+.
+ [...]
+\end_layout
+
+\begin_layout Standard
+Así, para diagonalizar una matriz 
+\begin_inset Formula $A\in M_{n}(K)$
+\end_inset
+
+ en matrices 
+\begin_inset Formula $A=M_{{\cal CB}}DM_{{\cal BC}}$
+\end_inset
+
+, con 
+\begin_inset Formula $D$
+\end_inset
+
+ diagonal, obtenemos su polinomio característico, hallamos sus raíces, que
+ serán los autovalores de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Si la suma de sus multiplicidades da 
+\begin_inset Formula $n$
+\end_inset
+
+, resolvemos cada ecuación 
+\begin_inset Formula $(\lambda Id-f)X=0$
+\end_inset
+
+ para obtener las bases de los subespacios propios, cuya dimensión debería
+ coincidir con la multiplicidad del autovalor si 
+\begin_inset Formula $A$
+\end_inset
+
+ es diagonalizable.
+ Entonces añadimos cada raíz en 
+\begin_inset Formula $D$
+\end_inset
+
+ tantas veces como sea su multiplicidad y razonamos que los vectores correspondi
+entes de la base 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+, y por tanto las correspondientes columnas de 
+\begin_inset Formula $M_{{\cal CB}}$
+\end_inset
+
+, son los de la base de dicho subespacio propio.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $A\in M_{2}(\mathbb{R})$
+\end_inset
+
+ simétrica, existe una matriz ortogonal 
+\begin_inset Formula $Q$
+\end_inset
+
+ de determinante 1 tal que 
+\begin_inset Formula $Q^{t}AQ$
+\end_inset
+
+ es diagonal.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula 
+\[
+A=\left(\begin{array}{cc}
+a & b\\
+b & c
+\end{array}\right)\implies P_{A}(x)=\left|\begin{array}{cc}
+a-x & b\\
+b & c-x
+\end{array}\right|=x^{2}-(a+c)x+(ac-b^{2})
+\]
+
+\end_inset
+
+y el discriminante de 
+\begin_inset Formula $P_{A}(x)=0$
+\end_inset
+
+, 
+\begin_inset Formula $(a-c)^{2}+4b^{2}$
+\end_inset
+
+, es siempre mayor que 0 salvo que 
+\begin_inset Formula $A$
+\end_inset
+
+ ya sea diagonal con 
+\begin_inset Formula $a=c$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $A$
+\end_inset
+
+ tiene dos valores propios distintos y por tanto diagonaliza.
+ Si 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ son vectores propios de valores propios respectivos 
+\begin_inset Formula $\alpha\neq\beta$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\alpha(u\cdot v)=(\alpha u)\cdot v=f_{A}(u)\cdot v=(Au)^{t}v=u^{t}A^{t}v=u^{t}Av=u\cdot f_{A}(v)=u\cdot\beta v=\beta(u\cdot v)$
+\end_inset
+
+, luego 
+\begin_inset Formula $(\alpha-\beta)(u\cdot v)=0$
+\end_inset
+
+ y como 
+\begin_inset Formula $\alpha\neq\beta$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $u\bot v$
+\end_inset
+
+, luego la base en que diagonaliza 
+\begin_inset Formula $A$
+\end_inset
+
+ se puede escoger ortonormal.
+ Finalmente, si 
+\begin_inset Formula $Q$
+\end_inset
+
+ es la matriz cuyas columnas son estos vectores propios y su determinante
+ es 
+\begin_inset Formula $-1$
+\end_inset
+
+, podemos cambiar el signo de una de las columnas para que el determinante
+ sea 1.
+\end_layout
+
+\begin_layout Standard
+Con esto podemos hacer dos reducciones a cualquier cónica 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+ y encontrar un referencial ortonormal en que esta tenga ecuación reducida.
+\end_layout
+
+\begin_layout Standard
+Para la primera reducción, sea 
+\begin_inset Formula 
+\[
+\overline{A}=\left(\begin{array}{c|c}
+A & B\\
+\hline B^{t} & d
+\end{array}\right)
+\]
+
+\end_inset
+
+ la matriz de 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+ en un referencial ortonormal 
+\begin_inset Formula $\Re$
+\end_inset
+
+ y 
+\begin_inset Formula $Q$
+\end_inset
+
+ una matriz ortogonal con 
+\begin_inset Formula $|Q|=1$
+\end_inset
+
+ tal que 
+\begin_inset Formula $Q^{t}AQ=Q^{-1}AQ$
+\end_inset
+
+ sea diagonal.
+ Entonces, si consideramos el referencial 
+\begin_inset Formula $\Re'$
+\end_inset
+
+ tal que
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(\begin{array}{c}
+X\\
+\hline 1
+\end{array}\right)=N\left(\begin{array}{c}
+X'\\
+\hline 1
+\end{array}\right) & \text{con} & N:=\left(\begin{array}{c|c}
+Q & 0\\
+\hline 0 & 1
+\end{array}\right)
+\end{eqnarray*}
+
+\end_inset
+
+la ecuación de 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+ queda como
+\begin_inset Formula 
+\[
+\left(N\left(\begin{array}{c}
+X'\\
+\hline 1
+\end{array}\right)\right)^{t}\overline{A}N\left(\begin{array}{c}
+X'\\
+\hline 1
+\end{array}\right)=\left(\begin{array}{c|c}
+X'^{t} & 1\end{array}\right)N^{t}\overline{A}N\left(\begin{array}{c}
+X'\\
+\hline 1
+\end{array}\right)=0
+\]
+
+\end_inset
+
+ y la matriz de 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+ en 
+\begin_inset Formula $\Re'$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\left(\begin{array}{c|c}
+A' & B'\\
+\hline B'^{t} & d'
+\end{array}\right)=N^{t}\overline{A}N=\left(\begin{array}{c|c}
+Q^{t} & 0\\
+\hline 0 & 1
+\end{array}\right)\left(\begin{array}{c|c}
+A & B\\
+\hline B^{t} & d
+\end{array}\right)\left(\begin{array}{c|c}
+Q & 0\\
+\hline 0 & 1
+\end{array}\right)=\left(\begin{array}{c|c}
+Q^{t}AQ & Q^{t}B\\
+\hline B^{t}Q & d
+\end{array}\right)
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $A'=Q^{t}AQ$
+\end_inset
+
+, 
+\begin_inset Formula $B'=Q^{t}B$
+\end_inset
+
+ y 
+\begin_inset Formula $d'=d$
+\end_inset
+
+ y el término 
+\begin_inset Formula $xy$
+\end_inset
+
+ se anula en la ecuación de 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+, lo que nos deja con 
+\begin_inset Formula 
+\[
+\lambda_{1}x'^{2}+\lambda_{2}y'^{2}+2mx'+2ny'+d=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este cambio es solo vectorial, pues no modifica el origen de coordenadas,
+ y como 
+\begin_inset Formula $|Q|=1$
+\end_inset
+
+, se trata de un giro.
+ Para la segunda reducción, sea 
+\begin_inset Formula $\delta:=\lambda_{1}\lambda_{2}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+, podemos suponer 
+\begin_inset Formula $\lambda_{1},\lambda_{2}>0$
+\end_inset
+
+ (de lo contrario cambiamos de signo la ecuación), y completando cuadrados
+ tenemos que 
+\begin_inset Formula $\lambda_{1}x'^{2}+2mx'=\lambda_{1}(x'+\frac{m}{\lambda_{1}})^{2}-\frac{m^{2}}{\lambda_{1}}$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda_{2}y'^{2}+2ny=\lambda_{2}(y+\frac{n}{\lambda_{2}})^{2}-\frac{n^{2}}{\lambda_{2}}$
+\end_inset
+
+.
+ Nos queda entonces 
+\begin_inset Formula $\lambda_{1}(x'+\frac{m}{\lambda_{1}})^{2}+\lambda_{2}(y'+\frac{n}{\lambda_{2}})^{2}-\frac{m^{2}}{\lambda_{1}}-\frac{n^{2}}{\lambda_{2}}+d=0$
+\end_inset
+
+ y, haciendo la traslación de vector 
+\begin_inset Formula $(\frac{m}{\lambda_{1}},\frac{n}{\lambda_{2}})$
+\end_inset
+
+, nos queda 
+\begin_inset Formula $\lambda_{1}x''^{2}+\lambda_{2}y''^{2}=q$
+\end_inset
+
+, lo que nos deja con una cónica de 
+\series bold
+tipo elíptico
+\series default
+.
+ Si 
+\begin_inset Formula $q>0$
+\end_inset
+
+ es una 
+\series bold
+elipse real
+\series default
+, si 
+\begin_inset Formula $q=0$
+\end_inset
+
+ es un 
+\series bold
+punto
+\series default
+ y si 
+\begin_inset Formula $q<0$
+\end_inset
+
+ es una 
+\series bold
+elipse imaginaria
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $\delta<0$
+\end_inset
+
+, por el mismo procedimiento llegamos a que 
+\begin_inset Formula $\lambda_{1}x''^{2}+\lambda_{2}y''^{2}=:q$
+\end_inset
+
+ y, como 
+\begin_inset Formula $\lambda_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+ tienen signos opuestos, la ecuación es de 
+\series bold
+tipo hiperbólico
+\series default
+.
+ Si 
+\begin_inset Formula $q=0$
+\end_inset
+
+ tenemos un 
+\series bold
+par de rectas que se cortan
+\series default
+, dadas por 
+\begin_inset Formula $y''=\pm\sqrt{-\frac{\lambda_{1}}{\lambda_{2}}}x''$
+\end_inset
+
+; de lo contrario es una 
+\series bold
+hipérbola
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $\delta=0$
+\end_inset
+
+, podemos suponer 
+\begin_inset Formula $\lambda_{1}=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda_{2}\neq0$
+\end_inset
+
+ (no pueden ser ambos 0 porque entonces sería 
+\begin_inset Formula $A=0$
+\end_inset
+
+).
+ Nos queda entonces que 
+\begin_inset Formula $\lambda_{2}y'^{2}+2mx'+2ny'+d=0$
+\end_inset
+
+ y, completando cuadrados, que 
+\begin_inset Formula $\lambda_{2}(y'+\frac{n}{\lambda_{2}})^{2}-\frac{n^{2}}{\lambda_{2}}+2mx'+d=0$
+\end_inset
+
+, una ecuación de 
+\series bold
+tipo parabólico
+\series default
+.
+ Si 
+\begin_inset Formula $m\neq0$
+\end_inset
+
+ podemos escribir la ecuación como 
+\begin_inset Formula $\lambda_{2}(y'+\frac{n}{\lambda_{2}})^{2}+2m(x'-\frac{n^{2}}{2m\lambda_{2}}+\frac{d}{2m})=0$
+\end_inset
+
+, y la traslación de vector 
+\begin_inset Formula $(\frac{d}{2m}-\frac{n^{2}}{2m\lambda_{2}},\frac{n}{\lambda_{2}})$
+\end_inset
+
+ nos lleva la ecuación a 
+\begin_inset Formula $\lambda_{2}y''^{2}+2mx''=0$
+\end_inset
+
+, y tenemos una parábola.
+ Si 
+\begin_inset Formula $m=0$
+\end_inset
+
+, nos queda 
+\begin_inset Formula $\lambda_{2}(y'+\frac{n}{\lambda_{2}})^{2}-\frac{n^{2}}{\lambda_{2}}+d=0$
+\end_inset
+
+ y la traslación de vector 
+\begin_inset Formula $(0,\frac{n}{\lambda_{2}})$
+\end_inset
+
+ nos lleva la ecuación a 
+\begin_inset Formula $\lambda_{2}y''^{2}=q$
+\end_inset
+
+, con lo que tenemos 
+\series bold
+dos rectas paralelas
+\series default
+ si 
+\begin_inset Formula $\frac{q}{\lambda_{2}}>0$
+\end_inset
+
+, una 
+\series bold
+recta doble
+\series default
+ si 
+\begin_inset Formula $q=0$
+\end_inset
+
+ o 
+\series bold
+dos rectas paralelas imaginarias
+\series default
+ si 
+\begin_inset Formula $\frac{q}{\lambda_{2}}<0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Nótese que la ecuación reducida obtenida no es exactamente como las que
+ vimos en el tema anterior para las cónicas no degeneradas.
+ Para obtener estas dividiríamos entre 
+\begin_inset Formula $q$
+\end_inset
+
+ para 
+\begin_inset Formula $\delta\neq0$
+\end_inset
+
+ o entre 
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+ para 
+\begin_inset Formula $\delta=0$
+\end_inset
+
+, intercambiaríamos coordenadas si fuera necesario (negando una de las dos
+ para que el cambio sea ortonormal) y, para el caso de la parábola, la giraríamo
+s 
+\begin_inset Formula $\unit[180]{\mathring{}}$
+\end_inset
+
+ en su caso.
+\end_layout
+
+\begin_layout Section
+Invariantes métricos
+\end_layout
+
+\begin_layout Standard
+Dada una cónica con matriz proyectiva 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+ y matriz principal 
+\begin_inset Formula $A$
+\end_inset
+
+, las cantidades 
+\begin_inset Formula $\Delta:=|\overline{A}|$
+\end_inset
+
+, 
+\begin_inset Formula $\delta:=|A|$
+\end_inset
+
+ y 
+\begin_inset Formula $s:=\text{tr}(A)$
+\end_inset
+
+, llamadas 
+\series bold
+invariantes métricos de la cónica
+\series default
+, se mantienen invariantes al cambiar a otro referencial ortonormal.
+ 
+\series bold
+Demostración:
+\series default
+ Consideremos el cambio de referencial dado por
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(\begin{array}{c}
+X\\
+\hline 1
+\end{array}\right)=N\left(\begin{array}{c}
+X'\\
+\hline 1
+\end{array}\right) & \text{con} & N:=\left(\begin{array}{c|c}
+Q & R\\
+\hline 0 & 1
+\end{array}\right)
+\end{eqnarray*}
+
+\end_inset
+
+con 
+\begin_inset Formula $Q$
+\end_inset
+
+ ortogonal.
+ Entonces la matriz de la cónica en la nueva referencia es 
+\begin_inset Formula $N^{t}\overline{A}N$
+\end_inset
+
+ y la matriz principal es 
+\begin_inset Formula $Q^{t}AQ$
+\end_inset
+
+, y como 
+\begin_inset Formula $|N|=|Q|$
+\end_inset
+
+ y 
+\begin_inset Formula $Q^{t}=Q^{-1}$
+\end_inset
+
+, se tiene 
+\begin_inset Formula $|N^{t}\overline{A}N|=|Q^{t}\overline{A}Q|=|\overline{A}|$
+\end_inset
+
+, 
+\begin_inset Formula $|Q^{t}AQ|=|A|$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{tr}(Q^{t}AQ)=\text{tr}(A)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="middle" width="24text%">
+<column alignment="center" valignment="middle" width="33text%">
+<column alignment="center" valignment="middle" width="33text%">
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Delta\neq0$
+\end_inset
+
+: No degenerada
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Delta=0$
+\end_inset
+
+: Degenerada
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta>0$
+\end_inset
+
+: Ecuación elíptica
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Elipse, imaginaria si 
+\begin_inset Formula $s\Delta>0$
+\end_inset
+
+ o real si 
+\begin_inset Formula $s\Delta<0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Punto
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta<0$
+\end_inset
+
+: Ecuación hiperbólica
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hipérbola
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dos rectas secantes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta=0$
+\end_inset
+
+: Ecuación parabólica
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Parábola
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recta doble, o dos rectas paralelas reales o imaginarias
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Además, si 
+\begin_inset Formula $\delta\neq0$
+\end_inset
+
+, la ecuación reducida es 
+\begin_inset Formula $\lambda_{1}x^{2}+\lambda_{2}y^{2}=-\frac{\Delta}{\delta}$
+\end_inset
+
+, mientras que si 
+\begin_inset Formula $\delta=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\Delta\neq0$
+\end_inset
+
+ la ecuación reducida es 
+\begin_inset Formula $y^{2}+2\sqrt{-\frac{\Delta}{s^{3}}}x=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Consideremos 
+\begin_inset Formula $\delta\neq0$
+\end_inset
+
+.
+ Entonces tenemos una cónica de tipo elíptica o hiperbólica que tras la
+ doble reducción es 
+\begin_inset Formula $\lambda_{1}x^{2}+\lambda_{2}y^{2}=q$
+\end_inset
+
+, con lo que
+\begin_inset Formula 
+\[
+\Delta=\left|\begin{array}{ccc}
+\lambda_{1} &  & 0\\
+ & \lambda_{2}\\
+0 &  & -q
+\end{array}\right|=-\lambda_{1}\lambda_{2}q=-\delta q
+\]
+
+\end_inset
+
+y entonces 
+\begin_inset Formula $q=-\frac{\Delta}{\delta}$
+\end_inset
+
+.
+ Así, si 
+\begin_inset Formula $\Delta=0$
+\end_inset
+
+ entonces 
+\begin_inset Formula $q=0$
+\end_inset
+
+ y estamos en un caso degenerado, mientras que si 
+\begin_inset Formula $\Delta\neq0$
+\end_inset
+
+ estamos en el correspondiente caso no degenerado.
+ Si 
+\begin_inset Formula $\delta=0$
+\end_inset
+
+, tras la primera reducción y suponiendo 
+\begin_inset Formula $\lambda_{1}=0$
+\end_inset
+
+ tendríamos
+\begin_inset Formula 
+\[
+\Delta=\left|\begin{array}{ccc}
+0 & 0 & m\\
+0 & \lambda_{2} & n\\
+m & n & d
+\end{array}\right|=-m^{2}\lambda_{2}
+\]
+
+\end_inset
+
+Así, si 
+\begin_inset Formula $\Delta=0$
+\end_inset
+
+ tenemos 
+\begin_inset Formula $m=0$
+\end_inset
+
+ y estamos en un caso degenerado, mientras que si 
+\begin_inset Formula $\Delta\neq0$
+\end_inset
+
+ entonces 
+\begin_inset Formula $m^{2}\neq0$
+\end_inset
+
+ y la ecuación se reduce a 
+\begin_inset Formula $\lambda_{2}y^{2}+2mx=0$
+\end_inset
+
+, es decir, 
+\begin_inset Formula $y^{2}+2\frac{m}{\lambda_{2}}x=0$
+\end_inset
+
+, y la ecuación se debe a que 
+\begin_inset Formula $\frac{m}{\lambda_{2}}=\frac{1}{\lambda_{2}}\sqrt{-\frac{\Delta}{\lambda_{2}}}=\sqrt{-\frac{\Delta}{\lambda_{2}^{3}}}=\sqrt{-\frac{\Delta}{s^{3}}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Elementos geométricos
+\end_layout
+
+\begin_layout Standard
+Una cónica es 
+\series bold
+centrada
+\series default
+ si 
+\begin_inset Formula $\delta\neq0$
+\end_inset
+
+, y llamamos 
+\series bold
+centro de simetría
+\series default
+ de una cónica a todo punto 
+\begin_inset Formula $(x_{0},y_{0})$
+\end_inset
+
+ tal que la traslación dada por 
+\begin_inset Formula $x'=x-x_{0}$
+\end_inset
+
+ e 
+\begin_inset Formula $y'=y-y_{0}$
+\end_inset
+
+ elimina los términos en 
+\begin_inset Formula $x$
+\end_inset
+
+ e 
+\begin_inset Formula $y$
+\end_inset
+
+ de la ecuación.
+ Una cónica centrada tiene un único centro de simetría que es la solución
+ del sistema
+\begin_inset Formula 
+\[
+AX=-B
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Si escribimos la traslación como
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(\begin{array}{c}
+X\\
+\hline 1
+\end{array}\right)=N\left(\begin{array}{c}
+X'\\
+\hline 1
+\end{array}\right) & N=\left(\begin{array}{c|c}
+I & X_{0}\\
+\hline 0 & 1
+\end{array}\right) & X_{0}=\left(\begin{array}{c}
+x_{0}\\
+y_{0}
+\end{array}\right)
+\end{eqnarray*}
+
+\end_inset
+
+la matriz de la cónica tras la traslación es
+\begin_inset Formula 
+\[
+N^{t}\overline{A}N=\left(\begin{array}{c|c}
+* & AX_{0}+B\\
+\hline * & *
+\end{array}\right)
+\]
+
+\end_inset
+
+luego debe ser 
+\begin_inset Formula $AX_{0}+B=0$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $AX=-B$
+\end_inset
+
+, sistema que tiene solución única porque 
+\begin_inset Formula $|A|\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+ejes
+\series default
+ de una cónica a los del referencial ortonormal en que la cónica tiene ecuación
+ reducida.
+ Las direcciones de los ejes son los subespacios propios de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Las direcciones de los ejes tras la doble reducción son 
+\begin_inset Formula $<(1,0)>$
+\end_inset
+
+ y 
+\begin_inset Formula $<(0,1)>$
+\end_inset
+
+ y multiplicando por la matriz de cambio de base 
+\begin_inset Formula $Q$
+\end_inset
+
+, cuyas columnas son los vectores propios de 
+\begin_inset Formula $A$
+\end_inset
+
+, obtenemos los ejes en el referencial actual.
+\end_layout
+
+\begin_layout Standard
+Dada una elipse real o hipérbola 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+ de matriz 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+, si 
+\begin_inset Formula $\lambda_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+ son los valores propios de 
+\begin_inset Formula $A$
+\end_inset
+
+, los semiejes principal y secundario de la cónica son 
+\begin_inset Formula $\{a,b\}=\left\{ \sqrt{\left|\frac{\Delta}{\delta\lambda_{1}}\right|},\sqrt{\left|\frac{\Delta}{\delta\lambda_{1}}\right|}\right\} $
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Llevamos 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+ a un referencial ortonormal donde 
+\begin_inset Formula ${\cal G}\equiv\lambda_{1}x^{2}+\lambda_{2}y^{2}=q$
+\end_inset
+
+ con 
+\begin_inset Formula $q\neq0$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\frac{x^{2}}{\frac{q}{\lambda_{1}}}+\frac{y^{2}}{\frac{q}{\lambda_{2}}}=1$
+\end_inset
+
+, luego 
+\begin_inset Formula $\{a,b\}=\left\{ \sqrt{\left|\frac{q}{\lambda_{1}}\right|},\sqrt{\left|\frac{q}{\lambda_{2}}\right|}\right\} $
+\end_inset
+
+, pero 
+\begin_inset Formula $q=-\frac{\Delta}{\delta}$
+\end_inset
+
+, de donde se deduce la ecuación.
+\end_layout
+
+\begin_layout Standard
+El eje de una parábola tiene por dirección el subespacio de vectores propios
+ correspondiente al valor propio nulo.
+ Para hallar el vértice, si el eje tiene pendiente 
+\begin_inset Formula $k$
+\end_inset
+
+, lo más fácil es derivar implícitamente 
+\begin_inset Formula $y$
+\end_inset
+
+ en función de 
+\begin_inset Formula $x$
+\end_inset
+
+ y buscar un punto de la parábola en el que esta valga 
+\begin_inset Formula $-\frac{1}{k}$
+\end_inset
+
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+La validez de este procedimiento se desprende del teorema de la función
+ implícita, estudiado en FVV3.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

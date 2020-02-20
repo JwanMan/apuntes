@@ -1,0 +1,1680 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una 
+\series bold
+abstracción
+\series default
+ consiste en dejar a un lado lo irrelevante y centrarse en lo importante.
+ Distinguimos 
+\series bold
+niveles de abstracción
+\series default
+ según el nivel de detalle.
+ El 
+\series bold
+diseño mediante abs
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+trac
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+cio
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+nes
+\series default
+ consiste en identificar los subproblemas de cierto problema, especificar
+ cada uno de forma abstracta, resolverlos de forma separada, unir las soluciones
+ y verificar la solución para el problema original.
+ Esto se hace de forma recursiva.
+\end_layout
+
+\begin_layout Standard
+Junto con el concepto de abstracción viene el de 
+\series bold
+especificación
+\series default
+ de dicha abstracción.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Mecanismos de abstracción
+\series default
+:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Por especificación
+\series default
+: Nos quedamos con la descripción del efecto o resultado, in
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+de
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+pen
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+dien
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+te
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+men
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+te de cómo calcularlo (
+\series bold
+principio de ocultación de la implementación
+\series default
+).
+ Da lugar a la 
+\series bold
+encapsulación
+\series default
+, agrupar un conjunto de operaciones o tipos relacionados en un mismo módulo
+ o paquete.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Por parametrización
+\series default
+: El significado de la abstracción no es fijo, sino que depende de parámetros.
+ En la 
+\series bold
+parametrización de tipo
+\series default
+, el parámetro es un tipo de datos.
+\end_layout
+
+\begin_layout Section
+Especificaciones informales
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+especificación
+\series default
+ es la descripción de una abstracción, bien textualmente mediante el lenguaje
+ natural (especificación 
+\series bold
+informal
+\series default
+) o bien con una notación precisa de las propiedades de la abstracción (especifi
+cación 
+\series bold
+formal
+\series default
+), mediante una 
+\series bold
+notación
+\series default
+.
+ A continuación vemos los tipos de abstracciones y una notación propuesta
+ para su especificación informal.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Funcionales
+\series default
+: Abstraemos un trozo de código en una 
+\series bold
+rutina
+\series default
+, 
+\series bold
+procedimiento
+\series default
+ o 
+\series bold
+función
+\series default
+, al que asignamos un nombre.
+ Su especificación indica los parámetros de entrada, los de salida y el
+ efecto que tendrá su ejecución.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="90text%">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Especificación informal
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+Operación
+\series default
+ 
+\emph on
+nombre
+\emph default
+ 
+\family default
+[
+\family sans
+[
+\emph on
+T
+\emph default
+,
+\family default
+...
+\family sans
+:
+\emph on
+TipoDeTipo
+\emph default
+; 
+\family default
+...
+\family sans
+]
+\family default
+]
+\family sans
+ (
+\family default
+[
+\family sans
+\series bold
+ent
+\series default
+ 
+\emph on
+v1
+\emph default
+, 
+\family default
+...
+\family sans
+:
+\emph on
+Tipo
+\emph default
+1; 
+\emph on
+vn
+\emph default
+, 
+\family default
+...
+\family sans
+:
+\emph on
+Tipo2
+\emph default
+; 
+\family default
+...[
+\family sans
+;
+\family default
+]]
+\family sans
+ 
+\family default
+[
+\family sans
+\series bold
+sal
+\series default
+ 
+\emph on
+tipoResultado
+\family default
+\emph default
+]
+\family sans
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+Require:
+\series default
+ 
+\emph on
+Opcional, requisitos y restricciones de uso de la operación.
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+Modifica:
+\series default
+ 
+\emph on
+Opcional, lista de parámetros de entrada que pueden ser
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\emph on
+modificados.
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+Calcula:
+\series default
+ 
+\emph on
+Descripción del resultado de la operación.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Donde el 
+\family sans
+\emph on
+TipoDeTipo
+\family default
+\emph default
+ suele ser 
+\family sans
+tipo
+\family default
+.
+ Tanto en la especificación informal como en el pseudocódigo, los tipos
+ tanto de los parámetros de tipo como los propios de la función pueden depender
+ de parámetros anteriores.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De datos
+\series default
+: Se abstrae un dominio de valores, junto con operaciones sobre ese dominio
+ con 
+\series bold
+ocultación de la implementación
+\series default
+, en un 
+\series bold
+tipo abstracto de datos
+\series default
+ (
+\series bold
+TAD
+\series default
+).
+ Un 
+\series bold
+tipo contenedor
+\series default
+ es un TAD compuesto por un número arbitrario de valores de otro tipo.
+ Generalmente están 
+\series bold
+parametrizados
+\series default
+: dependen de un parámetro que indica el tipo de objetos almacenados.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="90text%">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Especificación informal
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+TAD
+\series default
+ 
+\emph on
+nombre
+\emph default
+ 
+\series bold
+es
+\series default
+ 
+\emph on
+listaDeOperaciones
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+Descripción
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\emph on
+Descripción del significado, comportamiento y modo de uso del TAD.
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+Operaciones
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\emph on
+Especificación informal de cada operación de la lista, según el punto anterior.
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+Fin
+\series default
+ 
+\emph on
+nombre
+\emph default
+.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Así, un 
+\series bold
+tipo de datos
+\series default
+ es un concepto de implementación que debe ajustarse al comportamiento de
+ un TAD, y una 
+\series bold
+estructura de datos
+\series default
+ es la disposición en memoria de estos datos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De iteradores
+\series default
+: Permiten realizar un recorrido de forma abstracta sobre los elementos
+ de una colección.
+ La especificación informal puede ser:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Similar a la de una abstracción funcional, cambiando 
+\family sans
+\series bold
+Operación
+\family default
+\series default
+ por 
+\family sans
+\series bold
+Iterador
+\family default
+\series default
+ y añadiendo un parámetro de entrada de tipo 
+\family sans
+Operacion
+\family default
+.
+ La función puede devolver un valor si, por ejemplo, el iterador filtra
+ una colección de valores de un cierto tipo.
+\end_layout
+
+\begin_layout Itemize
+Similar a la de un TAD, cambiando 
+\family sans
+\series bold
+TAD
+\family default
+\series default
+ por 
+\family sans
+\series bold
+TipoIterador
+\family default
+\series default
+ y añadiendo operaciones como 
+\family sans
+Iniciar
+\family default
+, 
+\family sans
+Actual
+\family default
+, 
+\family sans
+Avanzar
+\family default
+ y 
+\family sans
+EsUltimo
+\family default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+La abstracción en lenguajes de programación generalmente consiste en ofrecer
+ características más próximas al concepto teórico de TAD.
+ Los lenguajes primitivos como Fortran o BASIC ofrecían un conjunto predefinido
+ de tipos elementales, pero no permitían definir nuevos tipos, con lo que
+ el programador debía definir y manejar las variables adecuadas de forma
+ manual.
+ Posteriormente, lenguajes como C y Pascal permiten agrupar un conjunto
+ de variables bajo un mismo nombre, aunque no hay ocultación.
+ Los módulos o paquetes permiten agrupar bajo un mismo nombre una serie
+ de tipos y operaciones relacionados, y en algunos casos como en Modula-2,
+ estos ofrecen ocultación de la implementación: los tipos definidos en un
+ módulo sólo se pueden usar a través de las operaciones de este.
+\end_layout
+
+\begin_layout Standard
+Finalmente, en la programación orientada a objetos surge el concepto de
+ clase, que es al mismo tiempo un tipo definido por el usuario y un módulo
+ donde se encapsulan sus datos y operaciones, y soportan ocultación.
+ Un objeto es una instancia de una clase.
+ El 
+\series bold
+principio de acceso uniforme
+\series default
+ consiste en que los atributos y operaciones de una clase están conceptualmente
+ al mismo nivel, y se accede con 
+\family typewriter
+\emph on
+objeto
+\emph default
+.
+\emph on
+atributo
+\family default
+\emph default
+ u 
+\family typewriter
+\emph on
+objeto
+\emph default
+.
+\emph on
+operación
+\emph default
+(
+\family default
+...
+\family typewriter
+)
+\family default
+.
+ Algunos lenguajes orientados a objetos permiten parametrización de tipo,
+ dando lugar a TAD genéricos o parametrizados.
+\end_layout
+
+\begin_layout Standard
+Una implementación es 
+\series bold
+robusta
+\series default
+ si se autoprotege de valores inconsistentes de entrada, bien lanzando una
+ excepción o mediante programación por contrato, en la que el usuario se
+ compromete, de forma comprobable, a no pasar un valor inconsistente según
+ la especificación de la función.
+ 
+\end_layout
+
+\begin_layout Section
+Especificaciones formales
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+especificación formal
+\series default
+ define un TAD u operación de forma precisa, permitiendo la verificación
+ automática y formal de la corrección del programa y el uso de la especificación
+ en distintos ámbitos.
+ Estas especificaciones pueden llegar a ser ejecutables.
+ Distinguimos entre el 
+\series bold
+método axiomático
+\series default
+ o 
+\series bold
+algebraico
+\series default
+, que establece el significado de las operaciones de forma implícita mediante
+ 
+\series bold
+axiomas
+\series default
+ que especifican sus relaciones, y el 
+\series bold
+método constructivo
+\series default
+ u 
+\series bold
+operacional
+\series default
+, en el que cada operación se define por sí misma con significado explícito.
+\end_layout
+
+\begin_layout Standard
+Veremos un método constructivo al que llamaremos método axiomático, y que
+ escribimos en lenguaje Maude, describiendo un TAD del siguiente modo:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="45text%">
+<column alignment="left" valignment="top" width="45text%">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Especificación formal
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Maude
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+NOMBRE
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\emph on
+NombreTAD
+\family default
+\emph default
+ [
+\family sans
+[
+\emph on
+T1
+\emph default
+,
+\family default
+...
+\family sans
+]
+\family default
+]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+fmod
+\series default
+ 
+\emph on
+NOMBRETAD
+\emph default
+ 
+\series bold
+is
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+CONJUNTOS
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\emph on
+CONJ
+\emph default
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\emph on
+Descripción
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \qquad{}
+\end_inset
+
+
+\family default
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \qquad{}
+\end_inset
+
+protecting 
+\emph on
+TADIMPORTADO
+\emph default
+ .
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \qquad{}
+\end_inset
+
+sort 
+\emph on
+CONJ
+\emph default
+ .
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \qquad{}
+\end_inset
+
+subsort 
+\emph on
+A
+\emph default
+ < 
+\emph on
+B
+\emph default
+ .
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \qquad{}
+\end_inset
+
+
+\family default
+...
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+SINTAXIS
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \qquad{}
+\end_inset
+
+
+\family sans
+\emph on
+operación
+\emph default
+:
+\family default
+ [
+\family sans
+\emph on
+conjPar1
+\family default
+\emph default
+
+\begin_inset Formula $\times$
+\end_inset
+
+...]
+\family sans
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 
+\emph on
+conjResultado
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \qquad{}
+\end_inset
+
+
+\family default
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \qquad{}
+\end_inset
+
+op 
+\emph on
+operación
+\emph default
+ : 
+\family default
+[
+\family typewriter
+\emph on
+conjPar11
+\emph default
+ 
+\begin_inset Formula $\times$
+\end_inset
+
+ ...
+\family default
+]
+\family typewriter
+ -> 
+\emph on
+conjResultado1
+\emph default
+ .
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \qquad{}
+\end_inset
+
+ops 
+\emph on
+op1
+\emph default
+ 
+\family default
+...
+
+\family typewriter
+ : 
+\family default
+[
+\family typewriter
+\emph on
+conjPar21
+\emph default
+ 
+\begin_inset Formula $\times$
+\end_inset
+
+ ...
+\family default
+]
+\family typewriter
+ -> 
+\emph on
+conjResultado2
+\emph default
+ .
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \qquad{}
+\end_inset
+
+
+\family default
+...
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+SEMÁNTICA
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\forall$
+\end_inset
+
+
+\family sans
+\emph on
+ var1
+\emph default
+, 
+\family default
+...
+
+\family sans
+ 
+\begin_inset Formula $\in$
+\end_inset
+
+
+\emph on
+ CONJ
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\emph on
+ExprA
+\emph default
+ = 
+\emph on
+ExprB
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\family default
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \qquad{}
+\end_inset
+
+var 
+\emph on
+v
+\emph default
+ : 
+\emph on
+CONJ
+\emph default
+ .
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \qquad{}
+\end_inset
+
+vars 
+\emph on
+v1
+\emph default
+ 
+\family default
+...
+
+\family typewriter
+ : 
+\emph on
+CONJ
+\emph default
+ .
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \qquad{}
+\end_inset
+
+
+\family default
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \qquad{}
+\end_inset
+
+eq 
+\emph on
+ExprA
+\emph default
+ = 
+\emph on
+ExprB
+\emph default
+ .
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \qquad{}
+\end_inset
+
+
+\family default
+...
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+endfm
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El nombre de los conjuntos suele ser de una letra, y debe haber un conjunto
+ asociado al TAD, y si el TAD es genérico, uno para cada parámetro con el
+ mismo nombre dado en la sección anterior (
+\family sans
+\emph on
+T1
+\family default
+\emph default
+, etc.).
+ También, en la especificación se declaran conjuntos asociados a otros TADs
+ pero que se usan en este, mientras que en Maude se usa 
+\family typewriter
+protecting
+\family default
+ para importar todos los conjuntos, junto con sus operaciones, de otro TAD.
+ Para tipos finitos en la especificación, si en la 
+\family sans
+\emph on
+Descripción
+\family default
+\emph default
+ se añade al final 
+\family sans
+{
+\emph on
+valor1
+\emph default
+, 
+\family default
+...
+\family sans
+}
+\family default
+, estos valores se pueden usar en la semántica.
+\end_layout
+
+\begin_layout Standard
+Entre las operaciones encontramos 
+\series bold
+constructores
+\series default
+, operaciones cuya semántica no se define y que sirven para definir elementos
+ del TAD, y tales que, si es posible, un elemento del TAD debería tener
+ representación única en términos de estos.
+ El resto son de 
+\series bold
+modificación
+\series default
+ o de 
+\series bold
+consulta
+\series default
+ según si devuelven un elemento del conjunto asociado al TAD o de otro tipo,
+ respectivamente.
+\end_layout
+
+\begin_layout Standard
+Si una operación que normalmente devuelve valores de tipo 
+\family sans
+T
+\family default
+ no esta definida para cierta entrada, se crea un conjunto 
+\family sans
+M
+\family default
+ de mensajes cuya descripción contiene al final 
+\family sans
+{
+\begin_inset Quotes fls
+\end_inset
+
+
+\emph on
+Texto mensaje 1
+\emph default
+
+\begin_inset Quotes frs
+\end_inset
+
+, 
+\family default
+...
+\family sans
+}
+\family default
+, y el conjunto resultado de la operación se declara 
+\family sans
+T
+\begin_inset Formula $\cup$
+\end_inset
+
+M
+\family default
+, mientras que en Maude se crea un tipo de errores 
+\family typewriter
+NoT
+\family default
+ con un constructor sin parámetros para cada tipo de error y se usa 
+\family typewriter
+subsort No
+\emph on
+T
+\emph default
+ < 
+\emph on
+T
+\family default
+\emph default
+ para indicar que toda operación que toda operación que devuelva un valor
+ de 
+\family typewriter
+\emph on
+T
+\family default
+\emph default
+ también puede devolver uno de 
+\family typewriter
+No
+\emph on
+T
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+La semántica consiste en una serie de reglas que, dada una expresión, Maude
+ va comprobando de arriba a abajo sucesivamente para ver si parte de la
+ expresión coincide con 
+\family sans
+\emph on
+ExprA
+\family default
+\emph default
+ y sustituirla en tan caso por 
+\family sans
+\emph on
+ExprB
+\family default
+\emph default
+ hasta que no queden sustituciones por hacer, momento en que la expresión
+ debería estar en términos de constructores.
+ Una expresión tiene sintaxis 
+\family typewriter
+\emph on
+op
+\family default
+\emph default
+[
+\family typewriter
+(
+\emph on
+par1
+\emph default
+, 
+\family default
+...
+\family typewriter
+)
+\family default
+], donde los parámetros de la operación son a su vez otras expresiones.
+ 
+\family sans
+\emph on
+ExprB
+\family default
+\emph default
+ o alguna de sus subexpresiones puede ser 
+\family sans
+\series bold
+SI
+\series default
+ 
+\emph on
+condición
+\emph default
+ 
+\begin_inset Formula $\implies$
+\end_inset
+
+ 
+\emph on
+valorSiCierto
+\emph default
+ | 
+\emph on
+valorSiFalso
+\family default
+\emph default
+, o en Maude, 
+\family typewriter
+if 
+\emph on
+condición
+\emph default
+ then 
+\emph on
+valorSiCierto
+\emph default
+ else 
+\emph on
+valorSiFalso
+\emph default
+ fi
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+En Maude, fuera de la definición de un TAD podemos usar 
+\family typewriter
+in 
+\emph on
+nombre
+\emph default
+ .
+
+\family default
+ para leer todo lo que hay en un fichero llamado 
+\family typewriter
+\emph on
+nombre
+\family default
+\emph default
+ o 
+\family typewriter
+\emph on
+nombre
+\emph default
+.maude
+\family default
+ o 
+\family typewriter
+red 
+\emph on
+expr
+\family default
+\emph default
+ para reducir una expresión según la semántica de las operaciones.
+ Un fallo en Maude puede tiene consecuencias impredecibles porque Maude
+ es una mierda.
+\end_layout
+
+\begin_layout Standard
+Si el orden de las reglas no es relevante las llamamos axiomas
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Cada vez que llamas axiomas a algo que depende del orden muere un matemático
+ y un gatito.
+\end_layout
+
+\end_inset
+
+, y estos deben cumplir las propiedades de 
+\series bold
+completitud
+\series default
+ (deben ser suficientes para deducir el significado de cualquier expresión)
+ y 
+\series bold
+corrección
+\series default
+; dicho de otra forma, se deben considerar todos los casos al definir cada
+ operación no constructora.
+\end_layout
+
+\begin_layout Section
+Órdenes de ejecución
+\end_layout
+
+\begin_layout Standard
+Medimos el tiempo que tarda en ejecutarse un algoritmo con una función 
+\begin_inset Formula $t:\mathbb{N}\rightarrow\mathbb{R}^{\geq0}$
+\end_inset
+
+ para cada uno de los casos mejor, peor y promedio, que toma el tamaño del
+ problema medido de algún modo y devuelve el tiempo que tarda en realizarse
+ en cierta máquina, el número de instrucciones total o el de un tipo de
+ instrucción que sabemos que es la más relevante.
+ En la práctica se usan 
+\series bold
+notaciones asintóticas
+\series default
+:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f(x)=O(g(x)):\iff\exists x_{0},k>0:\forall x\geq x_{0},|f(x)|\leq k|g(x)|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f(x)=\Omega(g(x)):\iff\exists x_{0},k>0:\forall x\geq x_{0},kg(x)\leq f(x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Itemize
+\begin_inset Formula $f(x)=\Theta(g(x)):\iff f(x)=O(g(x))\land f(x)=\Omega(g(x))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f(x)=o(g(x)):\iff\lim_{x\rightarrow+\infty}\frac{f(x)}{g(x)}=0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Estas definiciones sólo son válidas cuando 
+\begin_inset Formula $x$
+\end_inset
+
+ tiende a 
+\begin_inset Formula $+\infty$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

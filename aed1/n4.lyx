@@ -1,0 +1,3547 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+grafo dirigido
+\series default
+ o 
+\series bold
+digrafo
+\series default
+ es un par 
+\begin_inset Formula $(V,E)$
+\end_inset
+
+ formado por un conjunto de 
+\series bold
+vértices
+\series default
+ o 
+\series bold
+nodos
+\series default
+ 
+\begin_inset Formula $V\neq\emptyset$
+\end_inset
+
+ y un conjunto de 
+\series bold
+aristas
+\series default
+ 
+\begin_inset Formula $E\subseteq\{(a,b)\in V\times V:a\neq b\}$
+\end_inset
+
+, mientras que uno 
+\series bold
+no dirigido
+\series default
+ es un par 
+\begin_inset Formula $(V,E)$
+\end_inset
+
+ con 
+\begin_inset Formula $V\neq\emptyset$
+\end_inset
+
+ y 
+\begin_inset Formula $E\subseteq\{x\in{\cal P}(V):|x|=2\}$
+\end_inset
+
+.
+ Algunas definiciones permiten 
+\series bold
+bucles
+\series default
+, aristas de un nodo a sí mismo, y entonces basta que sea 
+\begin_inset Formula $E\subseteq V\times V$
+\end_inset
+
+ para que el grafo sea dirigido o que 
+\begin_inset Formula $E\subseteq\{x\in{\cal P}(V):|x|\in\{1,2\}\}$
+\end_inset
+
+ para que sea no dirigido.
+ En adelante identificamos los grafos no dirigidos 
+\begin_inset Formula $(V,E)$
+\end_inset
+
+ con los correspondientes grafos dirigidos 
+\begin_inset Formula $(V,\bigcup_{\{u,v\}\in E}\{(u,v),(v,u)\})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+grafo etiquetado
+\series default
+ es una terna 
+\begin_inset Formula $(V,E,\sigma)$
+\end_inset
+
+ donde 
+\begin_inset Formula $(V,E)$
+\end_inset
+
+ es un grafo (dirigido o no) y 
+\begin_inset Formula $\sigma:E\rightarrow X$
+\end_inset
+
+ es una función que relaciona cada arista con una 
+\series bold
+etiqueta
+\series default
+.
+ Un 
+\series bold
+grafo con pesos
+\series default
+ es un grafo etiquetado 
+\begin_inset Formula $(V,E,\sigma)$
+\end_inset
+
+ con 
+\begin_inset Formula $\sigma:E\rightarrow\mathbb{R}$
+\end_inset
+
+.
+ Un grafo es 
+\series bold
+finito
+\series default
+ si 
+\begin_inset Formula $V$
+\end_inset
+
+ lo es.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+subgrafo
+\series default
+ de un grafo 
+\begin_inset Formula $G:=(V,E)$
+\end_inset
+
+ es un grafo 
+\begin_inset Formula $(V',E')$
+\end_inset
+
+ con 
+\begin_inset Formula $V'\subseteq V$
+\end_inset
+
+ y 
+\begin_inset Formula $E'\subseteq E$
+\end_inset
+
+.
+ Un subgrafo de un grafo etiquetado 
+\begin_inset Formula $G:=(V,E,\sigma)$
+\end_inset
+
+ es un grafo etiquetado 
+\begin_inset Formula $(V',E',\sigma|_{E'})$
+\end_inset
+
+ donde 
+\begin_inset Formula $(V',E')$
+\end_inset
+
+ es subgrafo de 
+\begin_inset Formula $(V,E)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un nodo 
+\begin_inset Formula $u\in V$
+\end_inset
+
+ es 
+\series bold
+adyacente a
+\series default
+ 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ si 
+\begin_inset Formula $(v,u)\in E$
+\end_inset
+
+, y es 
+\series bold
+adyacente de
+\series default
+ 
+\begin_inset Formula $v$
+\end_inset
+
+ si 
+\begin_inset Formula $(u,v)\in E$
+\end_inset
+
+.
+ Un 
+\series bold
+camino
+\series default
+ de 
+\begin_inset Formula $u$
+\end_inset
+
+ a 
+\begin_inset Formula $v$
+\end_inset
+
+ es una secuencia 
+\begin_inset Formula $(w_{1},\dots,w_{q})$
+\end_inset
+
+ de elementos de 
+\begin_inset Formula $V$
+\end_inset
+
+ con 
+\begin_inset Formula $(w_{i-1},w_{i})\in E\forall i\in\{2,\dots,q\}$
+\end_inset
+
+, y es 
+\series bold
+simple
+\series default
+ si para 
+\begin_inset Formula $i,j\in\{1,\dots,q\}$
+\end_inset
+
+ con 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+ e 
+\begin_inset Formula $\{i,j\}\neq\{1,q\}$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $w_{i}\neq w_{j}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $w_{1}=w_{q}$
+\end_inset
+
+, el camino es un 
+\series bold
+ciclo
+\series default
+.
+ Un grafo es 
+\series bold
+acíclico
+\series default
+ si no contiene ciclos.
+\end_layout
+
+\begin_layout Standard
+Es 
+\series bold
+conexo
+\series default
+ o 
+\series bold
+conectado
+\series default
+ si existe un camino entre cualquier par de vértices, y es 
+\series bold
+fuertemente conexo
+\series default
+ si además es dirigido.
+ Un 
+\series bold
+componente conexo
+\series default
+ de un grafo (también 
+\series bold
+fuertemente conexo
+\series default
+ si el grafo es dirigido) es un subgrafo conexo que no es subgrafo de ningún
+ otro subgrafo conexo del grafo.
+\end_layout
+
+\begin_layout Standard
+Un grafo es 
+\series bold
+completo
+\series default
+ si existe una arista entre cualquier par de vértices.
+ En un grafo no dirigido 
+\begin_inset Formula $(V,E)$
+\end_inset
+
+, el 
+\series bold
+grado
+\series default
+ de un vértice 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ es el número de arcos adyacentes a él (
+\begin_inset Formula $|\{X\in E:v\in X\}|$
+\end_inset
+
+), mientras que en uno dirigido 
+\begin_inset Formula $(V,A)$
+\end_inset
+
+, definimos el 
+\series bold
+grado de entrada
+\series default
+ de un vértice 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ como 
+\begin_inset Formula $|\{(a,b)\in A:b=v\}|$
+\end_inset
+
+ y el 
+\series bold
+grado de salida
+\series default
+ como 
+\begin_inset Formula $|\{(a,b)\in A:a=v\}|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Operaciones elementales:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{rr}
+\mathsf{Vacío}:\rightarrow G & \mathsf{Crear}:\mathbb{N}\rightarrow G\\
+\mapsto(\emptyset,\emptyset) & n\mapsto(\{1,\dots,n\},\emptyset)\\
+\\
+\mathsf{IntertarNodo}:G\times{\cal U}\rightarrow G & \mathsf{InsertarArista}:G\times({\cal U}\times{\cal U})\rightarrow G\\
+((V,E),v)\mapsto(V\cup\{v\},E) & ((V,E),(a,b))\overset{a,b\in V}{\mapsto}(V,E\cup\{e\})\\
+\\
+\mathsf{EliminarNodo}:G\times{\cal U}\rightarrow G & \mathsf{EliminarArista}:G\times({\cal U}\times{\cal U})\rightarrow G\\
+((V,E),v)\mapsto(V\backslash\{e\},\{(a,b)\in E:a,b\neq v\}) & ((V,E),e)\mapsto(V,E\backslash\{e\})\\
+\\
+\mathsf{ConsultarArista}:G\times({\cal U}\times{\cal U})\rightarrow B\\
+((V,E),(a,b))\mapsto(a,b)\in A
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde 
+\begin_inset Formula ${\cal U}$
+\end_inset
+
+ es el conjunto de los vértices.
+ Definimos también iteradores sobre los nodos adyacentes a un cierto 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ o adyacentes de este.
+\end_layout
+
+\begin_layout Section
+Representación
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename graph.svg
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Grafo no dirigido.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos dibujar un grafo indicando los nodos mediante círculos con etiqueta
+ (o cualquier otra forma) y uniendo con una línea los vértices de cada arista.
+ Si el grafo es dirigido, cada línea es una flecha que apunta al segundo
+ elemento del par.
+ Si es etiquetado, cada línea tendrá su etiqueta indicada.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+En un ordenador podemos representar un grafo finito 
+\begin_inset Formula $(V:=\{1,\dots,n\},E)$
+\end_inset
+
+ o 
+\begin_inset Formula $(V:=\{1,\dots,n\},E,\sigma:E\rightarrow X)$
+\end_inset
+
+ mediante:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Matrices de adyacencia
+\series default
+: Matriz 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ de booleanos 
+\begin_inset Formula $((i,j)\in E)_{ij}$
+\end_inset
+
+.
+ Si el grafo es etiquetado, cuando 
+\begin_inset Formula $(i,j)\in E$
+\end_inset
+
+ se añade en la celda la etiqueta, lo que en general se hace tomando un
+ valor 
+\begin_inset Formula $c\notin X$
+\end_inset
+
+ que representa que 
+\begin_inset Formula $(i,j)\notin E$
+\end_inset
+
+ y entendiendo que cualquier otro valor implica 
+\begin_inset Formula $(i,j)\in E$
+\end_inset
+
+.
+ Si el grafo es no dirigido, la matriz es simétrica.
+ Las operaciones son sencillas y el acceso a una arista dada es 
+\begin_inset Formula $O(1)$
+\end_inset
+
+, pero si 
+\begin_inset Formula $|E|\ll n^{2}$
+\end_inset
+
+ (
+\series bold
+matriz escasa
+\series default
+) se usa mucha memoria (
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Listas de adyacencia
+\series default
+: 
+\begin_inset Formula $n$
+\end_inset
+
+ conjuntos 
+\begin_inset Formula $(C_{1},\dots,C_{n})$
+\end_inset
+
+ (representados como listas enlazadas en una lista contigua) de los que
+ 
+\begin_inset Formula $C_{i}=\{j:(i,j)\in E\}$
+\end_inset
+
+.
+ Si el grafo es etiquetado, 
+\begin_inset Formula $C_{i}=\{(j,\sigma(i,j)):(i,j)\in E\}$
+\end_inset
+
+.
+ Esto es más adecuado si 
+\begin_inset Formula $|E|\ll n^{2}$
+\end_inset
+
+, pues la memoria usada es 
+\begin_inset Formula $O(n+|E|)$
+\end_inset
+
+, pero la representación es más compleja y es ineficiente para encontrar
+ las aristas adyacentes de un cierto nodo.
+\end_layout
+
+\begin_layout Standard
+En adelante, salvo que se indique lo contrario, suponemos un grafo 
+\begin_inset Formula $(V:=\{1,\dots,n\},E,\sigma:E\rightarrow X)$
+\end_inset
+
+, y que las variables en pseudocódigo se inicializan con su valor por defecto.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Para 
+\family sans
+booleano
+\family default
+ es 
+\family sans
+falso
+\family default
+; para 
+\family sans
+entero
+\family default
+, 
+\family sans
+real
+\family default
+ y 
+\begin_inset Formula $[0,+\infty]$
+\end_inset
+
+ es 
+\family sans
+0
+\family default
+; para 
+\family sans
+\series bold
+array
+\family default
+\series default
+s y 
+\family sans
+\series bold
+registro
+\family default
+\series default
+s se inicializa con el valor por defecto de cada campo; para tipos contenedor
+ se crea una instancia vacía, y para 
+\family sans
+RelEquiv
+\family default
+ las clases de equivalencia son de un solo elemento.
+ Las variables del resto de tipos no se inicializan por defecto.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Recorridos
+\end_layout
+
+\begin_layout Standard
+Ambos son 
+\begin_inset Formula $O(|V|^{2})$
+\end_inset
+
+ con matrices de adyacencia y 
+\begin_inset Formula $O(|V|+|E|)$
+\end_inset
+
+ con listas de adyacencia.
+\end_layout
+
+\begin_layout Subsubsection*
+
+\series bold
+Búsqueda primero en profundidad
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+var
+\series default
+ visitado: 
+\series bold
+array
+\series default
+ [1..n]
+\series bold
+ de
+\series default
+ booleano()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+operación
+\series default
+ dfs(u: [1..n])
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+visitado[u] 
+\begin_inset Formula $:=$
+\end_inset
+
+ verdadero; visitar(u)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+para cada
+\series default
+ nodo v adyacente a u 
+\series bold
+hacer si no
+\series default
+ visitado[v] 
+\series bold
+entonces
+\series default
+ dfs(u)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+para
+\series default
+ i 
+\begin_inset Formula $:=$
+\end_inset
+
+ 1 
+\series bold
+hasta
+\series default
+ n 
+\series bold
+hacer si no 
+\series default
+visitado[i] 
+\series bold
+entonces
+\series default
+ dfs(i)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos ver el órden de visita de unos nodos a otros como un 
+\series bold
+árbol de expansión en profundidad
+\series default
+ asociado al grafo o, si aparecen varios árboles, como un 
+\series bold
+bosque de expansión en profundidad
+\series default
+.
+ Para construirlo, hacemos que cada elemento de 
+\family sans
+visitado
+\family default
+ pueda almacenar un valor 
+\family sans
+[1..n]
+\family default
+ indicando el padre del nodo, lo que nos permite encontrar los componentes
+ conexos de un grafo no dirigido.
+ Decimos que 
+\begin_inset Formula $(a,b)\in E$
+\end_inset
+
+ es:
+\end_layout
+
+\begin_layout Itemize
+Un 
+\series bold
+arco de avance
+\series default
+ si 
+\begin_inset Formula $a$
+\end_inset
+
+ es padre a 
+\begin_inset Formula $b$
+\end_inset
+
+ en uno de los árboles del bosque.
+\end_layout
+
+\begin_layout Itemize
+Un 
+\series bold
+arco de retroceso
+\series default
+ si 
+\begin_inset Formula $a$
+\end_inset
+
+ es hijo de 
+\begin_inset Formula $b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Un 
+\series bold
+arco de cruce
+\series default
+ si no es de avance ni de retroceso.
+\end_layout
+
+\begin_layout Standard
+Un grafo no dirigido contiene un ciclo si y sólo si algún arco no está en
+ el árbol de expansión.
+ Un grafo dirigido contiene un ciclo si y sólo si algún arco es de retroceso.
+\end_layout
+
+\begin_layout Subsubsection*
+Búsqueda primero en anchura o amplitud
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+var
+\series default
+ visitado: 
+\series bold
+array
+\series default
+ [1..n] 
+\series bold
+de
+\series default
+ booleano
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+C: Cola[[1..n]]
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+operación
+\series default
+ bfs(u: [1..n])
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+visitado[u] 
+\begin_inset Formula $:=$
+\end_inset
+
+ verdadero; C.meter(u); visitar(u)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+mientras no
+\series default
+ C.vacía 
+\series bold
+hacer
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+v 
+\begin_inset Formula $:=$
+\end_inset
+
+ C.cabeza; C.sacar
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+para cada
+\series default
+ nodo w adyacente a v 
+\series bold
+hacer
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+si no
+\series default
+ visitado[w] 
+\series bold
+entonces
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+visitado[w] 
+\begin_inset Formula $:=$
+\end_inset
+
+ verdadero; C.meter(w); visitar(w)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+para
+\series default
+ i 
+\begin_inset Formula $:=$
+\end_inset
+
+ 1 
+\series bold
+hasta
+\series default
+ n 
+\series bold
+hacer si no
+\series default
+ visitado[i] 
+\series bold
+entonces
+\series default
+ bfs(i)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Árboles de expansión mínimos
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+árbol de expansión
+\series default
+ de un grafo no dirigido y conexo es un subgrafo acíclico conexo.
+ El 
+\series bold
+coste
+\series default
+ de un grafo con pesos
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+En general, de un grafo etiquetado por elementos de algún grupo.
+\end_layout
+
+\end_inset
+
+ es la suma de los costes de las aristas.
+ Los siguientes algoritmos obtienen coste del árbol de expansión de coste
+ mínimo de un grafo, donde la variable 
+\family sans
+coste
+\family default
+ contiene dicho coste.
+\end_layout
+
+\begin_layout Subsubsection*
+Algoritmo de Prim
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+var
+\series default
+ visitado: 
+\series bold
+array
+\series default
+ [1..n] 
+\series bold
+de
+\series default
+ booleano
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+C: ColaPrioridad[
+\series bold
+registro
+\series default
+ coste: real; nodo: [1..n]] 
+\begin_inset Formula $//$
+\end_inset
+
+ 
+\emph on
+A menor coste, mayor prioridad
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+coste: real
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+operación
+\series default
+ procesar(u: [1..n])
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+visitado[u] 
+\begin_inset Formula $:=$
+\end_inset
+
+ verdadero
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+para cada
+\series default
+ nodo v adyancente a u con peso w 
+\series bold
+hacer
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+si no
+\series default
+ visitado[v] 
+\series bold
+entonces
+\series default
+ C.meter((w, v))
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+procesar(0)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+mientras no
+\series default
+ C.vacía 
+\series bold
+hacer
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+p 
+\begin_inset Formula $:=$
+\end_inset
+
+ C.cabeza; C.sacar
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+si no
+\series default
+ visitado(p.nodo) 
+\series bold
+entonces
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+coste 
+\begin_inset Formula $:=$
+\end_inset
+
+ coste 
+\begin_inset Formula $+$
+\end_inset
+
+ p.coste
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+procesar(p.nodo)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como introducir y extraer elementos de la cola de prioridad es 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+, siendo 
+\begin_inset Formula $n$
+\end_inset
+
+ el total de elementos de la cola que será proporcional a 
+\begin_inset Formula $|E|$
+\end_inset
+
+, el algoritmo se ejecuta en 
+\begin_inset Formula $O(|E|\log|E|)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Algoritmo de Kruskal
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+var
+\series default
+ RE: RelEquiv[[1..n]]
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+coste: real
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+para cada
+\series default
+ arista (u, v) con peso w ordenadas por peso ascendente 
+\series bold
+hacer
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+si
+\series default
+ RE.encuentra(u) 
+\begin_inset Formula $\ne$
+\end_inset
+
+ RE.encuentra(v) 
+\series bold
+entonces
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+coste 
+\begin_inset Formula $:=$
+\end_inset
+
+ coste 
+\begin_inset Formula $+$
+\end_inset
+
+ w
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+RE.unión(u, v)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El algoritmo se ejecuta en 
+\begin_inset Formula $O(|E|\log|E|)$
+\end_inset
+
+, pues es lo que se tarda en ordenar las aristas.
+\end_layout
+
+\begin_layout Section
+Caminos mínimos
+\end_layout
+
+\begin_layout Standard
+El coste de un camino es la suma de los costes de las aristas por las que
+ pasa, y el 
+\series bold
+camino mínimo
+\series default
+ entre dos nodos es el que tiene menor coste de entre los que empiezan en
+ el primero y terminan en el segundo.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+algoritmo de Dijkstra
+\series default
+ obtiene el mínimo coste del camino de cierto nodo (que supondremos que
+ es el 1) y todos los demás.
+ Para ello trabaja con un conjunto de nodos 
+\series bold
+escogidos
+\series default
+, para los cuales se conoce ya el camino mínimo desde el origen, y otro
+ de 
+\series bold
+candidatos
+\series default
+, de los que no sabemos el camino mínimo salvo si nos restringimos a 
+\series bold
+caminos especiales
+\series default
+, los que pasan solo por nodos escogidos (más él mismo al final).
+ En cada paso el algoritmo toma el nodo candidato con menor distancia al
+ origen, lo añade a los candidatos y recalcula los caminos mínimos del resto
+ de candidatos.
+ Tras repetir esto 
+\begin_inset Formula $n-1$
+\end_inset
+
+ veces, el camino mínimo de cada nodo coincide con su camino especial.
+ La siguiente versión del algoritmo funciona con una matriz de adyacencia
+ 
+\family sans
+C
+\family default
+ que usa 
+\begin_inset Formula $+\infty$
+\end_inset
+
+ para indicar la ausencia de arista:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+var
+\series default
+ coste: 
+\series bold
+array
+\series default
+ [2..n] 
+\series bold
+de 
+\begin_inset Formula $\mathsf{real}\cup\{+\infty\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+paso: 
+\series bold
+array
+\series default
+ [2..n] 
+\series bold
+de
+\series default
+ [1..n]
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+escogido: 
+\series bold
+array
+\series default
+ [2..n] 
+\series bold
+de
+\series default
+ booleano
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+para
+\series default
+ i 
+\begin_inset Formula $:=$
+\end_inset
+
+ 2 
+\series bold
+hasta
+\series default
+ n 
+\series bold
+hacer
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+coste[i] 
+\begin_inset Formula $:=$
+\end_inset
+
+ C[1, i]; paso[i] 
+\begin_inset Formula $:=$
+\end_inset
+
+ 1; escogido[v] 
+\begin_inset Formula $:=$
+\end_inset
+
+ falso
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+para
+\series default
+ i 
+\begin_inset Formula $:=$
+\end_inset
+
+ 1 
+\series bold
+hasta
+\series default
+ n
+\begin_inset Formula $-$
+\end_inset
+
+1 
+\series bold
+hacer
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+u 
+\begin_inset Formula $:=$
+\end_inset
+
+ i 
+\series bold
+si no
+\series default
+ escogido[i] 
+\series bold
+minimizando
+\series default
+ coste[i]
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+escogido[u] 
+\begin_inset Formula $:=$
+\end_inset
+
+ verdadero
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+para cada
+\series default
+ nodo v adyacente a u 
+\series bold
+hacer
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+si no
+\series default
+ escogido[v] 
+\series bold
+y
+\series default
+ coste[u] 
+\begin_inset Formula $+$
+\end_inset
+
+ C[u, v] 
+\begin_inset Formula $<$
+\end_inset
+
+ coste[v] 
+\series bold
+entonces
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+coste[v] 
+\begin_inset Formula $:=$
+\end_inset
+
+ coste[u] 
+\begin_inset Formula $+$
+\end_inset
+
+ C[u, v]
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+paso[v] 
+\begin_inset Formula $:=$
+\end_inset
+
+ u
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El algoritmo almacena en 
+\family sans
+coste[i]
+\family default
+ el coste del camino mínimo del nodo 
+\family sans
+1
+\family default
+ al 
+\family sans
+i
+\family default
+, y en 
+\family sans
+paso[i]
+\family default
+ el vértice que precede a 
+\family sans
+i
+\family default
+ en este camino, con lo que accediendo sucesivamente podemos encontrar el
+ camino mínimo
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Los caminos mínimos desde un único nodo al resto forman una estructura de
+ árbol.
+\end_layout
+
+\end_inset
+
+.
+ Si solo necesitamos el coste, podemos omitir del algoritmo la obtención
+ del camino.
+\end_layout
+
+\begin_layout Standard
+Esta implementación ejecuta 
+\begin_inset Formula $n-1$
+\end_inset
+
+ veces un código que busca un mínimo de entre 
+\begin_inset Formula $n$
+\end_inset
+
+ valores y actualiza hasta 
+\begin_inset Formula $n$
+\end_inset
+
+ candidatos, luego en total el algoritmo se ejecuta en 
+\begin_inset Formula $O(|V|^{2})$
+\end_inset
+
+.
+ Otra versión con listas de adyacencia consigue llegar a 
+\begin_inset Formula $O(|E|\log|V|)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para los caminos mínimos entre todos los pares, aplicamos el 
+\series bold
+algoritmo de 
+\color pink
+Floyd
+\series default
+\color inherit
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+var
+\series default
+ coste: 
+\series bold
+array
+\series default
+ [1..n, 1..n] 
+\series bold
+de
+\series default
+ 
+\begin_inset Formula $\mathsf{real}\cup\{+\infty\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+paso: 
+\series bold
+array
+\series default
+ [1..n, 1..n] 
+\series bold
+de
+\series default
+ [1..n]
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+coste 
+\begin_inset Formula $:=$
+\end_inset
+
+ C
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+para
+\series default
+ k 
+\begin_inset Formula $:=$
+\end_inset
+
+ 1 
+\series bold
+hasta
+\series default
+ n 
+\series bold
+hacer
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+para
+\series default
+ i 
+\begin_inset Formula $:=$
+\end_inset
+
+ 1 
+\series bold
+hasta
+\series default
+ n 
+\series bold
+hacer
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+para
+\series default
+ j 
+\begin_inset Formula $:=$
+\end_inset
+
+ 1 
+\series bold
+hasta
+\series default
+ n 
+\series bold
+hacer
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+si
+\series default
+ coste[i, k] 
+\begin_inset Formula $+$
+\end_inset
+
+ coste[k, j] 
+\begin_inset Formula $<$
+\end_inset
+
+ coste[i, j] 
+\series bold
+entonces
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+coste[i, j] 
+\begin_inset Formula $:=$
+\end_inset
+
+ coste[i, k] 
+\begin_inset Formula $+$
+\end_inset
+
+ coste[k, j]
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+paso[i, j] 
+\begin_inset Formula $:=$
+\end_inset
+
+ k
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este algoritmo 
+\begin_inset Formula $O(n^{3})$
+\end_inset
+
+ funciona hallando, en cada iteración del bucle externo, los caminos mínimos
+ pasando por un máximo de 
+\begin_inset Formula $k$
+\end_inset
+
+ vértices.
+ El camino de un vértice 
+\family sans
+a
+\family default
+ a otro 
+\family sans
+b
+\family default
+ distintos se obtiene como el camino mínimo de 
+\family sans
+a
+\family default
+ a 
+\family sans
+paso[a, b]
+\family default
+ y aquí a 
+\family sans
+b
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+algoritmo de Warshall
+\series default
+ permite obtener el 
+\series bold
+cierre transitivo
+\series default
+ de un grafo, una matriz de booleanos 
+\begin_inset Formula $(a_{ij}:=\text{existe un camino de \ensuremath{i} a \ensuremath{j}})$
+\end_inset
+
+, y es similar al de Floyd pero cambiando la condición dentro de los bucles
+ por 
+\family sans
+A[i, j] 
+\begin_inset Formula $:=$
+\end_inset
+
+ A[i, j] 
+\series bold
+o
+\series default
+ (A[i, k] 
+\series bold
+y
+\series default
+ A[k, j])
+\family default
+.
+\end_layout
+
+\begin_layout Section
+Componentes fuertemente conexos
+\end_layout
+
+\begin_layout Standard
+Para hallarlos, usamos el 
+\series bold
+algoritmo de Tarjan
+\series default
+:
+\end_layout
+
+\begin_layout Enumerate
+Hacer búsqueda en profundidad del grafo numerando los vértices.
+\end_layout
+
+\begin_layout Enumerate
+Construir el grafo invertido: 
+\begin_inset Formula $(V,E)\mapsto(V,\{(b,a)\}_{(a,b)\in E})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Hacer búsqueda en profundidad del grafo invertido, empezando en el nodo
+ con mayor número en el paso 1.
+ Mientras queden nodos por visitar, seguir con el nodo no visitado de mayor
+ número.
+\end_layout
+
+\begin_layout Enumerate
+Cada árbol del bosque resultante del paso 3 es un componente fuertemente
+ conexo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+var
+\series default
+ componentes: Conjunto[Conjunto[entero]]
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+tiempo: entero
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+número: 
+\series bold
+array
+\series default
+ [1..n] 
+\series bold
+de
+\series default
+ entero
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+enlace: 
+\series bold
+array
+\series default
+ [1..n] 
+\series bold
+de
+\series default
+ entero
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+pila: Pila[[1..n]]
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+apilado: 
+\series bold
+array
+\series default
+ [1..n] 
+\series bold
+de
+\series default
+ booleano
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+operación
+\series default
+ tarjan(u: [1..n])
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+número[u] 
+\begin_inset Formula $:=$
+\end_inset
+
+ tiempo; enlace[u] 
+\begin_inset Formula $:=$
+\end_inset
+
+ tiempo
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+tiempo 
+\begin_inset Formula $:=$
+\end_inset
+
+ tiempo 
+\begin_inset Formula $+$
+\end_inset
+
+ 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+pila.insertar(u); apilado[u] 
+\begin_inset Formula $:=$
+\end_inset
+
+ verdadero
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+para cada
+\series default
+ nodo v adyacente a u 
+\series bold
+hacer
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+si
+\series default
+ número[v] 
+\begin_inset Formula $=$
+\end_inset
+
+ 0 
+\series bold
+entonces
+\series default
+ tarjan(v)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+si
+\series default
+ apilado[v] 
+\series bold
+entonces
+\series default
+ enlace[u] 
+\begin_inset Formula $=$
+\end_inset
+
+ mín(enlace[u], enlace[v])
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+si
+\series default
+ enlace[u] 
+\begin_inset Formula $=$
+\end_inset
+
+ visitado[u] 
+\series bold
+entonces
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+s: Conjunto[entero]
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+repetir
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+v 
+\begin_inset Formula $:=$
+\end_inset
+
+ pila.tope; pila.sacar; apilado[v] 
+\begin_inset Formula $:=$
+\end_inset
+
+ falso
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+s.inserta(v)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+mientras
+\series default
+ u 
+\begin_inset Formula $\neq$
+\end_inset
+
+ v
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+componentes.inserta(s)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+para
+\series default
+ i 
+\begin_inset Formula $:=$
+\end_inset
+
+ 1 
+\series bold
+hasta
+\series default
+ n 
+\series bold
+hacer
+\series default
+ 
+\series bold
+si
+\series default
+ número[i] 
+\begin_inset Formula $=$
+\end_inset
+
+ 0 
+\series bold
+entonces
+\series default
+ conectar(i)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tras ejecutar el algoritmo, 
+\family sans
+componentes
+\family default
+ es el conjunto de componentes conexos del grafo.
+ Llamamos 
+\series bold
+grafo reducido
+\series default
+ 
+\begin_inset Formula $G_{R}:=(V_{R},E_{R})$
+\end_inset
+
+ de 
+\begin_inset Formula $G:=(V,E)$
+\end_inset
+
+ al grafo dirigido acíclico dado por 
+\begin_inset Formula $V_{R}:=\{\text{componentes fuertemente conexos de \ensuremath{G}}\}$
+\end_inset
+
+ y 
+\begin_inset Formula $E_{R}:=\{(A,B)\in V_{R}:\exists a\in A,b\in B:(a,b)\in E\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Los grafos dirigidos acíclicos sirven, por ejemplo, para representar órdenes
+ parciales.
+ El 
+\series bold
+recorrido en orden topológico
+\series default
+ de un GDA es aquel en que un vértice solo se visita tras visitar todos
+ los nodos adyacentes a él.
+ La 
+\series bold
+numeración en orden topológico
+\series default
+ consiste en numerar los nodos de un GDA de forma que, si 
+\begin_inset Formula $a$
+\end_inset
+
+ es adyacente a 
+\begin_inset Formula $b$
+\end_inset
+
+, el número asignado a 
+\begin_inset Formula $a$
+\end_inset
+
+ es menor que el asignado a 
+\begin_inset Formula $b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+var
+\series default
+ orden: Pila[[1..n]]
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+visitado: 
+\series bold
+array
+\series default
+ [1..n] 
+\series bold
+de
+\series default
+ booleano
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+operación
+\series default
+ numerar(u: [1..n])
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+visitado[u] 
+\begin_inset Formula $:=$
+\end_inset
+
+ verdadero
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+para cada
+\series default
+ nodo v adyacente a u 
+\series bold
+hacer si no 
+\series default
+visitado[v] 
+\series bold
+entonces
+\series default
+ numerar(v)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+orden.insertar(u)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+para
+\series default
+ i 
+\begin_inset Formula $:=$
+\end_inset
+
+ 1 
+\series bold
+hasta
+\series default
+ n 
+\series bold
+hacer si no
+\series default
+ visitado[i] 
+\series bold
+entonces
+\series default
+ numerar(i)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esto guarda un orden topológico en la pila 
+\family sans
+orden
+\family default
+ de forma que el elemento en la cima es el primero, el siguiente el segundo,
+ etc.
+\end_layout
+
+\begin_layout Section
+Grafos eulerianos
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+punto de articulación
+\series default
+ de un grafo no dirigido es un vértice que, al eliminarlo del grafo (junto
+ a las aristas incidentes) se divide un componente conexo en dos o más.
+ Un grafo no dirigido es 
+\series bold
+biconexo
+\series default
+ si no tiene puntos de articulación.
+ Un 
+\series bold
+componente biconexo
+\series default
+ de un grafo es un subgrafo biconexo de este que no es subgrafo de otro
+ subgrafo biconexo.
+\end_layout
+
+\begin_layout Standard
+Un grafo tiene 
+\series bold
+conectividad
+\series default
+ 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+ si es necesario eliminar 
+\begin_inset Formula $k$
+\end_inset
+
+ nodos para que el grafo no sea conexo, por lo que un grafo es biconexo
+ si tiene conectividad 2 o más.
+ El siguiente algoritmo busca puntos de articulación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+var
+\series default
+ tiempo: entero
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+raíz: entero
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+hijosRaíz: entero
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+número: 
+\series bold
+array
+\series default
+ [1..n] 
+\series bold
+de
+\series default
+ entero
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+enlace: 
+\series bold
+array
+\series default
+ [1..n] 
+\series bold
+de
+\series default
+ entero
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+padre: 
+\series bold
+array
+\series default
+ [1..n] 
+\series bold
+de
+\series default
+ entero
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+articulación: 
+\series bold
+array
+\series default
+ [1..n] 
+\series bold
+de
+\series default
+ booleano
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+operación
+\series default
+ puntosArticulación(u: [1..n])
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+número[u] 
+\begin_inset Formula $:=$
+\end_inset
+
+ tiempo; enlace[u] 
+\begin_inset Formula $:=$
+\end_inset
+
+ tiempo
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+tiempo 
+\begin_inset Formula $:=$
+\end_inset
+
+ tiempo 
+\begin_inset Formula $+$
+\end_inset
+
+ 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+para cada
+\series default
+ nodo v adyacente a u 
+\series bold
+hacer
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+si
+\series default
+ número[v] 
+\begin_inset Formula $=$
+\end_inset
+
+ 0 
+\series bold
+entonces
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+padre[v] 
+\begin_inset Formula $:=$
+\end_inset
+
+ u
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+si
+\series default
+ u 
+\begin_inset Formula $=$
+\end_inset
+
+ raíz 
+\series bold
+entonces 
+\series default
+hijosRaíz 
+\begin_inset Formula $:=$
+\end_inset
+
+ hijosRaíz 
+\begin_inset Formula $+$
+\end_inset
+
+ 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+puntosArticulación(v)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+si
+\series default
+ enlace[v] 
+\begin_inset Formula $\geq$
+\end_inset
+
+ número[u] 
+\series bold
+entonces
+\series default
+ articulación[u] 
+\begin_inset Formula $:=$
+\end_inset
+
+ verdadero
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+enlace[u] 
+\begin_inset Formula $:=$
+\end_inset
+
+ mín(enlace[u], enlace[v])
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+sino si
+\series default
+ v 
+\begin_inset Formula $\neq$
+\end_inset
+
+ padre(u) 
+\series bold
+entonces
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+enlace[u] 
+\begin_inset Formula $:=$
+\end_inset
+
+ mín(enlace[u], número[v])
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+para
+\series default
+ i 
+\begin_inset Formula $:=$
+\end_inset
+
+ 1 
+\series bold
+hasta
+\series default
+ n 
+\series bold
+hacer
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+si
+\series default
+ número[i] 
+\begin_inset Formula $=$
+\end_inset
+
+ 0 
+\series bold
+entonces
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+raíz 
+\begin_inset Formula $:=$
+\end_inset
+
+ i; hijosRaíz 
+\begin_inset Formula $:=$
+\end_inset
+
+ 0; puntosArticulación(i)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+articulación[raíz] 
+\begin_inset Formula $:=$
+\end_inset
+
+ hijosRaíz 
+\begin_inset Formula $>$
+\end_inset
+
+ 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+camino de Euler
+\series default
+ es aquel que visita todas las aristas exactamente una vez.
+ Si además es un ciclo, se llama 
+\series bold
+circuito de Euler
+\series default
+.
+ Un grafo no dirigido tiene un circuito de Euler si y sólo si todos los
+ nodos tienen grado par y, tras eliminar los de grado 0, es conexo.
+ El siguiente algoritmo busca un ciclo de Euler, supuesto que exista, a
+ partir del vértice 1, supuesto que cada arista 
+\family sans
+(u, v)
+\family default
+ tiene una marca 
+\family sans
+disponible(u, v)
+\family default
+ que inicialmente está establecida a verdadero.
+ Insertar un elemento en un iterador lo inserta antes del elemento al que
+ apunta y devuelve un iterador al elemento insertado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+var
+\series default
+ ciclo: Lista[entero]
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+visitado: 
+\series bold
+array
+\series default
+ [1..n] 
+\series bold
+de
+\series default
+ booleano
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+v: entero
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+j: Iterador[Lista[entero]]
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+operación
+\series default
+ circuito(i: Iterador[Lista[entero]], u: entero)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+para cada
+\series default
+ nodo v adyacente a u 
+\series bold
+hacer
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\series bold
+si
+\series default
+ disponible(u, v) 
+\series bold
+entonces
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+disponible(u, v) 
+\begin_inset Formula $:=$
+\end_inset
+
+ falso; disponible(v, u) 
+\begin_inset Formula $:=$
+\end_inset
+
+ falso
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+tour(i.insertar(u), v)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+circuito(iterar(ciclo), 1)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La idea es partir de un vértice, tomar una arista no visitada, añadirla
+ al ciclo y repetir el proceso partiendo de este nuevo vértice.
+\end_layout
+
+\begin_layout Section
+Otros problemas
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Flujo máximo
+\series default
+: Los nodos representan puntos de una red, las aristas son canales de comunicaci
+ón entre ellos y los pesos de estas son el caudal máximo que puede circular.
+ El problema es hallar el flujo (caudal) máximo que puede haber desde un
+ cierto nodo (origen) a otro (destino), con las restricciones de que la
+ suma del flujo que entra a cada nodo interior (no origen ni destino) debe
+ ser igual a la que sale y el flujo en cada arista no puede superar el máximo.
+\begin_inset Newline newline
+\end_inset
+
+Un posible algoritmo es encontrar un camino del origen al destino, sumar
+ al flujo el mínimo caudal de las aristas que lo forman, restar dicho flujo
+ de estas aristas y repetir hasta que no haya caminos con peso no nulo,
+ si bien esto no garantiza solución óptima.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Ciclo hamiltoniano
+\series default
+ o 
+\series bold
+de Hamilton
+\series default
+: Es un ciclo simple que visita todos los nodos.
+ Determinar si existe en un grafo es un problema NP-completo, y en la práctica
+ se usan 
+\series bold
+heurísticas
+\series default
+, soluciones aproximadas que pueden o no funcionar.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Problema del viajero
+\series default
+ o 
+\series bold
+del viajante
+\series default
+: Dado un grafo no dirigido, completo y con pesos, encontrar el ciclo de
+ menor coste que pase por todos los nodos.
+ También es NP-completo, y podemos usar heurísticas, técnicas probabilísticas,
+ algoritmos genéticos, etc.
+ para obtener aproximaciones.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Coloración de grafos
+\series default
+: Asignar un color o etiqueta a cada nodo de forma que dos nodos unidos
+ por una arista no tengan el mismo color, usando un mínimo número de colores.
+ Es NP-completo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Isomorfismo
+\series default
+: Dos grafos 
+\begin_inset Formula $G:=(V,E)$
+\end_inset
+
+ y 
+\begin_inset Formula $G':=(V',E')$
+\end_inset
+
+ son 
+\series bold
+isomorfos
+\series default
+ si existe una biyección 
+\begin_inset Formula $\sigma:V\rightarrow V'$
+\end_inset
+
+ tal que 
+\begin_inset Formula $(v,w)\in E\iff(\sigma(v),\sigma(w))\in E'$
+\end_inset
+
+.
+ Determinar si existe es NP-completo.
+\end_layout
+
+\end_body
+\end_document

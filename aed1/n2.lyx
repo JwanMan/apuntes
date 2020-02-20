@@ -1,0 +1,788 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Conjuntos
+\end_layout
+
+\begin_layout Standard
+Un conjunto es una colección no ordenada de elementos distintos.
+ El TAD 
+\family sans
+Conjunto[
+\begin_inset Formula $T$
+\end_inset
+
+]
+\family default
+ define conjuntos finitos con elementos de un cierto tipo.
+ Operaciones comunes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{rrr}
+\mathsf{Vacío}:\rightarrow C & \mathsf{Unión}:C\times C\rightarrow C & \mathsf{Intersección}:C\times C\rightarrow C\\
+\mapsto\emptyset & (a,b)\mapsto a\cup b & (a,b)\mapsto a\cap b\\
+\\
+\mathsf{Diferencia}:C\times C\rightarrow C & \mathsf{Combina}:C\times C\rightarrow C & \mathsf{Miembro}:T\times C\rightarrow B\\
+(a,b)\mapsto a\backslash b & (a,b)\rightarrow a\dot{\cup}b & (x,a)\mapsto x\in a\\
+\\
+\mathsf{Inserta}:T\times C\rightarrow C & \mathsf{Suprime}:T\times C\rightarrow C & \mathsf{Igual}:C\times C\rightarrow B\\
+(x,a)\mapsto a\cup\{x\} & (x,a)\mapsto a\backslash\{x\} & (a,b)\mapsto a=b
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si además tenemos un orden total sobre 
+\begin_inset Formula $T$
+\end_inset
+
+, podemos definir 
+\begin_inset Formula $\mathsf{Min}:C\rightarrow T$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathsf{Max}:C\rightarrow T$
+\end_inset
+
+ para conjuntos no vacíos.
+ Implementaciones básicas:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Tabla de booleanos
+\series default
+, donde cada elemento de 
+\family sans
+T
+\family default
+ se representa con un bit 1 si pertenece al conjunto o 0 en caso contrario.
+ La unión, intersección, diferencia y comprobación de igualdad son 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ con 
+\begin_inset Formula $n:=|T|$
+\end_inset
+
+, mientras que la inserción y eliminación y comprobación de pertenencia
+ son 
+\begin_inset Formula $O(1)$
+\end_inset
+
+.
+ Las operaciones son muy sencillas de implementar y no hace falta memoria
+ dinámica, pero el tamaño de un conjunto es proporcional a 
+\begin_inset Formula $|T|$
+\end_inset
+
+ y por tanto solo es adecuado cuando 
+\begin_inset Formula $|T|$
+\end_inset
+
+ es pequeño.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Lista de elementos
+\series default
+.
+
+\series bold
+ 
+\series default
+La unión, intersección y diferencia son 
+\begin_inset Formula $O(mn)$
+\end_inset
+
+ siendo 
+\begin_inset Formula $m$
+\end_inset
+
+ y 
+\begin_inset Formula $n$
+\end_inset
+
+ el tamaño de los conjuntos de entrada, mientras que la comprobación de
+ pertenencia, inserción y eliminación son 
+\begin_inset Formula $O(n)$
+\end_inset
+
+.
+ La comprobación de igualdad es 
+\begin_inset Formula $O(1)$
+\end_inset
+
+ en el caso mejor (
+\begin_inset Formula $m\neq n$
+\end_inset
+
+) y 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+ en el peor.
+ Se usa un espacio proporcional al del conjunto representado, pero es más
+ complejo de implementar, y las operaciones son menos eficientes si el conjunto
+ es grande o 
+\begin_inset Formula $|T|$
+\end_inset
+
+ es pequeño.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\series bold
+Lista de elementos ordenada
+\series default
+.
+ La unión, intersección y diferencia pasan a ser 
+\begin_inset Formula $O(\max\{m,n\})$
+\end_inset
+
+ en el caso mejor y 
+\begin_inset Formula $O(m+n)$
+\end_inset
+
+ en el peor, y la comprobación de igualdad en el caso peor pasa a ser 
+\begin_inset Formula $O(n)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diccionarios
+\end_layout
+
+\begin_layout Standard
+Una asociación es un par clave-valor, y un diccionario es un conjunto de
+ asociaciones sin más de un valor para una misma clave.
+ Nos limitamos a 
+\family sans
+Diccionario[
+\begin_inset Formula $T_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $T_{v}$
+\end_inset
+
+]
+\family default
+, diccionarios finitos con claves de un cierto tipo 
+\begin_inset Formula $T_{k}$
+\end_inset
+
+ y valores de tipo 
+\begin_inset Formula $T_{v}$
+\end_inset
+
+.
+ Operaciones comunes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{rr}
+\mathsf{Inserta}:T_{k}\times T_{v}\times D\rightarrow D & \mathsf{Consulta}:T_{k}\times D\rightarrow T_{v}\\
+(k,v,d)\overset{k\notin\text{Dom}(d)}{\mapsto}D\cup\{(k,v)\} & (k,d)\overset{k\in\text{Dom}(d)}{\mapsto}d(k)\\
+\mathsf{}\\
+\mathsf{Suprime}:T_{k}\times D\rightarrow D & \mathsf{Vacío}:\rightarrow D\\
+(k,d)\mapsto\{(a,b)\in d:a\neq k\} & \mapsto\emptyset
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La representación más sencilla es mediante una lista de asociaciones.
+\end_layout
+
+\begin_layout Section
+Tablas de dispersión
+\end_layout
+
+\begin_layout Standard
+Permiten una representación más eficiente de conjuntos y diccionarios mediante
+ una lista contigua de 
+\begin_inset Formula $M$
+\end_inset
+
+ elementos y una 
+\series bold
+función
+\series default
+ 
+\series bold
+\emph on
+hash
+\series default
+\emph default
+ o 
+\series bold
+de dispersión
+\series default
+ 
+\begin_inset Formula $h:T\rightarrow\{0,\dots,M-1\}$
+\end_inset
+
+.
+ La idea es que, para diccionarios, 
+\begin_inset Formula $h$
+\end_inset
+
+ solo dependa de la clave de la asociación, no del valor.
+ Se dice que 
+\begin_inset Formula $x\neq y\in T$
+\end_inset
+
+ son sinónimos si 
+\begin_inset Formula $h(x)=h(y)$
+\end_inset
+
+.
+ Existen dos formas de dispersión:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Abierta
+\series default
+: Los elementos de la tabla son apuntadores a listas (enlazadas) de elementos,
+ llamadas 
+\series bold
+cubetas
+\series default
+, que contienen los elementos 
+\begin_inset Formula $\{e\in c:h(e)=k\}$
+\end_inset
+
+, siendo 
+\begin_inset Formula $c$
+\end_inset
+
+ el conjunto y 
+\begin_inset Formula $k$
+\end_inset
+
+ el índice de la cubeta.
+\begin_inset Newline newline
+\end_inset
+
+El tamaño de las cubetas en un reparto uniforme (lo ideal) es 
+\begin_inset Formula $\frac{n}{M}$
+\end_inset
+
+, siendo 
+\begin_inset Formula $n$
+\end_inset
+
+ el número de elementos del conjunto, luego en este caso la búsqueda es
+ 
+\begin_inset Formula $O(\frac{n}{M})$
+\end_inset
+
+ y la inserción es 
+\begin_inset Formula $O(1+\frac{n}{M})$
+\end_inset
+
+.
+ El uso de memoria es el de 
+\begin_inset Formula $M+n$
+\end_inset
+
+ apuntadores y 
+\begin_inset Formula $n$
+\end_inset
+
+ elementos.
+ Así, a más cubetas las operaciones son más rápidas, pero se usa más memoria.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Cerrada
+\series default
+: Los elementos de la tabla son del tipo 
+\begin_inset Formula $T$
+\end_inset
+
+, y si al ir a insertar un elemento 
+\begin_inset Formula $e$
+\end_inset
+
+ en el índice 
+\begin_inset Formula $h(e)$
+\end_inset
+
+ este ya está ocupado se dice que ocurre una 
+\series bold
+colisión
+\series default
+, y se hace una 
+\series bold
+redispersión
+\series default
+: se aplican sucesivamente los elementos de una sucesión de funciones 
+\begin_inset Formula $(h_{n}:T\rightarrow\{0,\dots,M-1\})_{n}$
+\end_inset
+
+ sobre 
+\begin_inset Formula $e$
+\end_inset
+
+ hasta que devuelva un índice de la tabla no ocupado, donde se guarda 
+\begin_inset Formula $e$
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Llamamos 
+\series bold
+cadena
+\series default
+ o 
+\series bold
+secuencia de búsqueda
+\series default
+ a la secuencia 
+\begin_inset Formula $h(e),h_{1}(e),\dots$
+\end_inset
+
+ de posiciones recorridas en este proceso.
+ Al consultar un elemento se recorre esta secuencia hasta encontrar el elemento
+ o una celda vacía, que indica que este no está.
+ En la eliminación, para no romper la secuencia, se sustituye el elemento
+ por una marca de eliminado, que se trata como celda libre en la inserción
+ pero no en la búsqueda, o bien se mueven elementos cuya secuencia de búsqueda
+ pase por la posición eliminada.
+\begin_inset Newline newline
+\end_inset
+
+Como la probabilidad de colisión es 
+\begin_inset Formula $\frac{n}{M}$
+\end_inset
+
+ y se ha de encontrar un elemento libre, el coste de una inserción es 
+\begin_inset Formula $O(\frac{1}{1-\frac{n}{M}})$
+\end_inset
+
+, que tiende a infinito cuando 
+\begin_inset Formula $n\rightarrow M$
+\end_inset
+
+, mientras que el de búsqueda es de 
+\begin_inset Formula $O(\frac{1}{1-\frac{n-1}{M}})$
+\end_inset
+
+.
+ El uso de memoria es el de 
+\begin_inset Formula $M$
+\end_inset
+
+ elementos, o el de 
+\begin_inset Formula $M$
+\end_inset
+
+ apuntadores más 
+\begin_inset Formula $n$
+\end_inset
+
+ elementos si se decide que la tabla almacene apuntadores.
+\end_layout
+
+\begin_layout Standard
+Para evitar la pérdida de eficiencia cuando 
+\begin_inset Formula $n$
+\end_inset
+
+ aumenta, la tabla se puede 
+\series bold
+reestructurar
+\series default
+, creando una nueva con distinto 
+\begin_inset Formula $M$
+\end_inset
+
+ y copiando los elementos, por ejemplo cuando 
+\begin_inset Formula $n>2M$
+\end_inset
+
+ en dispersión abierta o cuando 
+\begin_inset Formula $n>\frac{3}{4}M$
+\end_inset
+
+ en cerrada.
+ Para que las tablas de dispersión sean eficientes se debe usar una buena
+ función, que reparta los elementos de la forma más aleatoria pero a la
+ vez sea fácil de calcular.
+\end_layout
+
+\begin_layout Standard
+Métodos para enteros:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+División
+\series default
+: 
+\begin_inset Formula $h(k):=k\mod M$
+\end_inset
+
+, siendo 
+\begin_inset Formula $M$
+\end_inset
+
+ normalmente primo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Multiplicación
+\series default
+: 
+\begin_inset Formula $h(k):=\lfloor Ck\rfloor\mod M,C\in\mathbb{R}$
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Variante: 
+\begin_inset Formula $h(k):=\lfloor\text{d}(\frac{Ak}{W})M\rfloor,\text{mcd}(A,K)=1$
+\end_inset
+
+, donde 
+\begin_inset Formula $\text{d}(x)$
+\end_inset
+
+ es la parte decimal de 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Centro del cuadrado
+\series default
+: 
+\begin_inset Formula $h(k):=\lfloor\frac{k^{2}}{C}\rfloor\mod M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para secuencias:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Suma
+\series default
+: 
+\begin_inset Formula $h(k):=\sum_{i}x_{i}\mod M$
+\end_inset
+
+.
+ Muchas colisiones.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Suma posicional
+\series default
+: 
+\begin_inset Formula $h(k):=\sum_{i}k^{i}x_{i}\mod M$
+\end_inset
+
+, siendo 
+\begin_inset Formula $k$
+\end_inset
+
+ normalmente primo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Plegado
+\series default
+ (
+\emph on
+folding
+\emph default
+): 
+\begin_inset Formula $h(k):=\sum_{i=0}^{\lfloor n/p\rfloor}\prod_{j=1}^{p}x_{ip+j}\mod M$
+\end_inset
+
+, tomando 
+\begin_inset Formula $x_{k}=1\forall k>n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Extracción
+\series default
+: 
+\begin_inset Formula $h(k):=x_{n_{1}}\cdots x_{n_{k}}\mod M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Iterativos
+\series default
+: Tomar un valor inicial y, para cada 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+, en orden, multiplicar por un valor base y combinar el resultado con 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ mediante alguna operación.
+ Devolver esto módulo 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ Así, la suma posicional toma como valor inicial, base y combinación, respectiva
+mente, 0, 
+\begin_inset Formula $k$
+\end_inset
+
+ y 
+\begin_inset Formula $+$
+\end_inset
+
+; djb2 toma 5381, 33 y 
+\begin_inset Formula $+$
+\end_inset
+
+; djb2a toma 5381, 33 y XOR, y FNV-1 toma 2166136261, 16777619 y XOR.
+\end_layout
+
+\begin_layout Standard
+Funciones de redispersión:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Lineal
+\series default
+: 
+\begin_inset Formula $h_{i}(k):=h(k)+i\mod M$
+\end_inset
+
+.
+ Sufre 
+\series bold
+agrupamiento
+\series default
+: Si se llenan varias cubetas consecutivas y hay colisión, se debe consultar
+ todo el grupo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Con saltos
+\series default
+: 
+\begin_inset Formula $h_{i}(k):=h(k)+Ci\mod M$
+\end_inset
+
+.
+ Sufre agrupamiento.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Cuadrática
+\series default
+: 
+\begin_inset Formula $h_{i}(k):=h(k)+D(i)\mod M$
+\end_inset
+
+ con
+\begin_inset Formula 
+\[
+D(i)=\begin{cases}
+\left(\frac{i+1}{2}\right)^{2} & \text{si }x\text{ es impar}\\
+-\left(\frac{i}{2}\right)^{2} & \text{si }x\text{ es par}
+\end{cases}
+\]
+
+\end_inset
+
+Funciona cuando 
+\begin_inset Formula $M=4R+3$
+\end_inset
+
+ para algún 
+\begin_inset Formula $R\in\mathbb{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Doble
+\series default
+: 
+\begin_inset Formula $h_{i}(k)=h(k)+C(k)i\mod M$
+\end_inset
+
+ para 
+\begin_inset Formula $C:T\rightarrow\{1,\dots,M-1\}$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

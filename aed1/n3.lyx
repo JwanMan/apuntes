@@ -1,0 +1,753 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Árboles Trie
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $A$
+\end_inset
+
+ un conjunto llamado 
+\series bold
+alfabeto
+\series default
+, un árbol Trie o 
+\series bold
+de prefijos
+\series default
+ es aquél en que la raíz del árbol representa una cadena vacía (
+\begin_inset Formula $()$
+\end_inset
+
+) y un nodo puede tener un hijo etiquetado para cada elemento de 
+\begin_inset Formula $A\cup\{\$\}$
+\end_inset
+
+, con la condición de que un nodo etiquetado con 
+\begin_inset Formula $\$$
+\end_inset
+
+, la 
+\series bold
+marca de fin
+\series default
+, es hoja.
+ Llamamos 
+\series bold
+palabra
+\series default
+ a la tupla de etiquetas desde la raíz hasta un nodo con 
+\begin_inset Formula $\$$
+\end_inset
+
+, sin contarlo.
+ Un 
+\family sans
+ArbolTrie[
+\begin_inset Formula $A$
+\end_inset
+
+]
+\family default
+ (
+\begin_inset Formula $T$
+\end_inset
+
+) es un apuntador a un 
+\family sans
+NodoTrie[
+\begin_inset Formula $A$
+\end_inset
+
+]
+\family default
+ (
+\begin_inset Formula $N$
+\end_inset
+
+), un 
+\family sans
+Diccionario[
+\begin_inset Formula $A$
+\end_inset
+
+,ArbolTrie[
+\begin_inset Formula $A$
+\end_inset
+
+]]
+\family default
+.
+ Operaciones:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{rrr}
+\mathsf{Consulta}:N\times A\rightarrow T & \mathsf{Inserta}:N\times A\rightarrow N & \mathsf{PonMarca}:N\rightarrow N\\
+(n,x)\overset{x\in Dom(n)}{\mapsto}n(x) & (n,x)\overset{x\notin Dom(n)}{\mapsto}n\cup\{(x,\emptyset)\} & n\mapsto n\cup\{(\$,\emptyset)\}\\
+\\
+\mathsf{QuitaMarca}:N\rightarrow N & \mathsf{HayMarca}:N\rightarrow B\\
+n\mapsto n\backslash\{(\$,\emptyset)\} & n\mapsto(\$,\emptyset)\in n
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los objetos devueltos por 
+\family sans
+Consulta
+\family default
+ son apuntadores, luego se puede insertar sobre ellos.
+ Otra operación es 
+\family sans
+
+\begin_inset Formula $\mathsf{Inserta}:T\times\bigcup_{n=1}^{\infty}A^{n}\rightarrow T$
+\end_inset
+
+
+\family default
+, que inserta una palabra en un árbol.
+ Podemos implementar un nodo trie:
+\end_layout
+
+\begin_layout Itemize
+Como una tupla de apuntadores en la que cada índice corresponde a un elemento
+ de 
+\begin_inset Formula $A\cup\{\$\}$
+\end_inset
+
+ de forma biyectiva.
+ Permite un acceso a los valores en 
+\begin_inset Formula $O(n)$
+\end_inset
+
+, siendo 
+\begin_inset Formula $n$
+\end_inset
+
+ la longitud de la palabra, pero si 
+\begin_inset Formula $p$
+\end_inset
+
+ es el total de prefijos y 
+\begin_inset Formula $d=|A\cup\{\$\}|$
+\end_inset
+
+, esto requerirá la memoria usada por 
+\begin_inset Formula $(p+1)d$
+\end_inset
+
+ apuntadores (mucha).
+\end_layout
+
+\begin_layout Itemize
+Como una lista enlazada de asociaciones.
+ Presenta un uso de memoria razonable, el usado por 
+\begin_inset Formula $4p+2$
+\end_inset
+
+ apuntadores y 
+\begin_inset Formula $2p+1$
+\end_inset
+
+ caracteres de 
+\begin_inset Formula $A$
+\end_inset
+
+, pero el acceso es 
+\begin_inset Formula $O(ns)$
+\end_inset
+
+ en promedio, siendo 
+\begin_inset Formula $s$
+\end_inset
+
+ la longitud media de las listas (normalmente despreciable).
+\end_layout
+
+\begin_layout Standard
+Si el total de la longitud de las palabras entre el número de prefijos es
+ grande, digamos mayor que 6, las palabras comparten muchos prefijos y suele
+ ser conveniente una representación como tupla, mientras que de lo contrario
+ es mejor usar una lista enlazada.
+\end_layout
+
+\begin_layout Section
+Relaciones de equivalencia
+\end_layout
+
+\begin_layout Standard
+Definimos el TAD 
+\family sans
+RelEquiv[
+\begin_inset Formula $T$
+\end_inset
+
+]
+\family default
+ como el de las relaciones de equivalencia en un 
+\family sans
+Conjunto[
+\begin_inset Formula $T$
+\end_inset
+
+]
+\family default
+.
+ Operaciones:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathsf{Crear}:C\rightarrow R$
+\end_inset
+
+: Crea una relación de equivalencia con 
+\begin_inset Formula $x\approx y:\iff x=y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathsf{Encuentra}:R\times T\rightarrow R$
+\end_inset
+
+: Devuelve un representante canónico de la clase del elemento dado.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathsf{Unión}:R\times T\times T\rightarrow R$
+\end_inset
+
+: Hace equivalentes a los dos elementos dados de 
+\begin_inset Formula $T$
+\end_inset
+
+, combinando sus clases de equivalencia.
+ En el análisis posterior supondremos que los elementos dados son representantes
+ canónicos.
+\end_layout
+
+\begin_layout Standard
+Representaciones básicas:
+\end_layout
+
+\begin_layout Itemize
+Mediante una tabla en la que cada índice corresponde a un elemento del conjunto
+ y contiene el índice de su representante canónico.
+ La búsqueda de clase de equivalencia es 
+\begin_inset Formula $O(1)$
+\end_inset
+
+ pero la unión es 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ con 
+\begin_inset Formula $n$
+\end_inset
+
+ el cardinal del conjunto.
+\end_layout
+
+\begin_layout Itemize
+Mediante listas (enlazadas) de clases, con una lista para cada clase cuyo
+ nombre es el del representante canónico.
+ La unión es 
+\begin_inset Formula $O(1)$
+\end_inset
+
+ con una representación adecuada de las listas, pero la búsqueda es 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ con 
+\begin_inset Formula $n$
+\end_inset
+
+ el cardinal del conjunto.
+\end_layout
+
+\begin_layout Standard
+Otra forma es una estructura de árboles disjuntos, una representación por
+ tabla en la que cada índice contiene el índice del padre en su árbol (o
+ un valor especial si es la raíz), cada árbol es una clase de equivalencia
+ y el representante canónico es la raíz del árbol.
+ De esta forma la unión es 
+\begin_inset Formula $O(1)$
+\end_inset
+
+ y la búsqueda es 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+ en caso promedio, siendo 
+\begin_inset Formula $n$
+\end_inset
+
+ el cardinal de la clase de equivalencia, aunque sigue siendo 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ en el caso peor.
+ Para evitar esto:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Balanceo
+\series default
+: Al unir los árboles 
+\begin_inset Formula $a$
+\end_inset
+
+ y 
+\begin_inset Formula $b$
+\end_inset
+
+, podemos poner como hijo al menos alto, para lo cual guardamos en la raíz
+ (indicando apropiadamente que es la raíz, por ejemplo, con números negativos)
+ la altura del árbol.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Compresión de caminos
+\series default
+: Al hacer una búsqueda, poner la raíz del árbol como el padre del elemento
+ buscado, y del resto de elementos recorridos.
+\end_layout
+
+\begin_layout Standard
+Así, la búsqueda es 
+\begin_inset Formula $O(1)$
+\end_inset
+
+ en el caso mejor y 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+ en el peor.
+\end_layout
+
+\begin_layout Section
+Árboles AVL
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+árbol binario de búsqueda
+\series default
+ (ABB) es un árbol binario en que, para cada nodo, los elementos del subárbol
+ izquierdo son menores que el valor del nodo y los del derecho son mayores.
+ El recorrido ordenado es 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ y la búsqueda e inserción son 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+ en el caso promedio, pero 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ en el peor.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+ABB perfectamente balanceado
+\series default
+ es aquel en que, para cada nodo, la cantidad de elementos en sus dos subárboles
+ difiere como mucho en 1.
+ La búsqueda es 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+ en el peor caso, pero en este caso la inserción es 
+\begin_inset Formula $O(n)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+árbol balanceado
+\series default
+ o 
+\series bold
+Adelson-Velskii-Landis
+\series default
+ (
+\series bold
+AVL
+\series default
+) es un ABB en que, para cada nodo, la altura de sus subárboles difiere
+ como mucho en 1.
+ La búsqueda es 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+ en el caso peor y se hace igual que en un ABB.
+ La inserción y eliminación requieren 
+\series bold
+rebalancear
+\series default
+ el árbol a la vuelta de la llamada recursiva usada para insertar o eliminar
+ el elemento, lo que se hace almacenando la altura de cada nodo en el propio
+ nodo y mediante 
+\series bold
+rotaciones
+\series default
+:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RSI
+\series default
+ (rotación simple a la izquierda): Sobre un nodo 
+\family typewriter
+A
+\family default
+, el proceso es:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\mathtt{B}\leftarrow\mathtt{LEFT[A]}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathtt{LEFT[A]}\leftarrow\mathtt{RIGHT[B]}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathtt{RIGHT[B]}\leftarrow\mathtt{A}$
+\end_inset
+
+,
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\mathtt{HEIGHT[A]}\leftarrow1+\max\{\mathtt{HEIGHT[LEFT[A]]},\mathtt{HEIGHT[RIGHT[A]]\}}$
+\end_inset
+
+,
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\mathtt{HEIGHT[B]}\leftarrow1+\max\{\mathtt{HEIGHT[LEFT[B]]},\mathtt{HEIGHT[A]}\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathtt{A}\leftarrow\mathtt{B}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RSD
+\series default
+ (rotación simple a la derecha): Simétrico de RSI.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RDI
+\series default
+ (rotación doble a la izquierda): Equivale a 
+\begin_inset Formula $\mathtt{RSD(LEFT[A])}$
+\end_inset
+
+ seguido de 
+\begin_inset Formula $\mathtt{RSI(A)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RDD
+\series default
+ (rotación doble a la derecha): Simétrico de RDI.
+\end_layout
+
+\begin_layout Standard
+Tras la inserción, si 
+\begin_inset Formula $|\mathtt{HEIGHT[LEFT[A]]}-\mathtt{HEIGHT[RIGHT[A]]}|>1$
+\end_inset
+
+ se rebalancea, con 4 situaciones según cuál de las ramas que hay 2 niveles
+ bajo 
+\family typewriter
+A
+\family default
+ tiene mayor altura (dónde se ha insertado).
+ Si es la rama II (izquierda-izquierda) se hace RSI, para DD se hace RSD,
+ para ID (izquierda y después derecha) se hace RDI y para DI se hace RDD.
+ Ninguno de los casos cambia la altura final del árbol.
+\end_layout
+
+\begin_layout Standard
+Para la eliminación, si el nodo a eliminar es hoja, se elimina directamente.
+ Si solo tiene un hijo, se conecta el padre del nodo eliminado con este
+ hijo.
+ Si tiene dos hijos, se escoge el más a la derecha del subárbol izquierdo,
+ o el más a la izquierda del derecho, para sustituirlo.
+ 
+\end_layout
+
+\begin_layout Standard
+Tras esto puede ser necesario rebalancear, para lo cual hay 3 casos de eliminaci
+ón en el subárbol izquierdo según las alturas 
+\begin_inset Formula $h_{l}$
+\end_inset
+
+ y 
+\begin_inset Formula $h_{r}$
+\end_inset
+
+ de los subárboles respectivos izquierdo y derecho del hijo derecho, más
+ sus 3 casos simétricos de eliminación en el derecho.
+ Así, si 
+\begin_inset Formula $h_{l}=h_{r}$
+\end_inset
+
+ se aplica 
+\begin_inset Formula $RSD$
+\end_inset
+
+ y la altura final del árbol no cambia; si 
+\begin_inset Formula $h_{l}<h_{r}$
+\end_inset
+
+ se aplica 
+\begin_inset Formula $RSD$
+\end_inset
+
+ y la altura disminuye en 1, y si 
+\begin_inset Formula $h_{l}>h_{r}$
+\end_inset
+
+ se hace RDD y la altura disminuye en 1.
+ Así, la inserción y eliminación son 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+ en todos los casos.
+\end_layout
+
+\begin_layout Section
+Árboles B
+\end_layout
+
+\begin_layout Standard
+Un árbol B de orden 
+\begin_inset Formula $p$
+\end_inset
+
+ o árbol 
+\begin_inset Formula $p$
+\end_inset
+
+-ario de búsqueda es aquel en que cada nodo está formado por hasta 
+\begin_inset Formula $p-1$
+\end_inset
+
+ claves y 
+\begin_inset Formula $p$
+\end_inset
+
+ hijos (siempre una clave menos que hijos), la raíz no tiene hijos o tiene
+ entre 2 y 
+\begin_inset Formula $p$
+\end_inset
+
+, los nodos internos (ni raíz ni hoja) tienen entre 
+\begin_inset Formula $\lceil\frac{p}{2}\rceil$
+\end_inset
+
+ y 
+\begin_inset Formula $p$
+\end_inset
+
+ hijos y los nodos hoja aparecen todos al mismo nivel (condición de balanceo)
+ y, para cada nodo con 
+\begin_inset Formula $M$
+\end_inset
+
+ hijos, las claves del primer subárbol son todas menores que la primera
+ de este, los del 
+\begin_inset Formula $M$
+\end_inset
+
+-ésimo son mayores que las de la última clave, las del 
+\begin_inset Formula $k$
+\end_inset
+
+-ésimo, 
+\begin_inset Formula $1<k<M$
+\end_inset
+
+, están entre la 
+\begin_inset Formula $(k-1)$
+\end_inset
+
+-ésima clave y la 
+\begin_inset Formula $k$
+\end_inset
+
+-ésima, y las claves de un mismo nodo están ordenadas de menor a mayor.
+ Se usan mucho en bases de datos, ajustando 
+\begin_inset Formula $p$
+\end_inset
+
+ para que cada nodo esté en un bloque de disco minimizando las operaciones
+ de E/S, y existen variantes como 
+\begin_inset Formula $B+$
+\end_inset
+
+, 
+\begin_inset Formula $B^{*}$
+\end_inset
+
+, etc.
+\end_layout
+
+\begin_layout Standard
+La búsqueda es igual que en los árboles binarios y es 
+\begin_inset Formula $O(\frac{\log n}{\log p})$
+\end_inset
+
+, siendo 
+\begin_inset Formula $n$
+\end_inset
+
+ el número de elementos.
+ Para la inserción se empieza buscando el nodo hoja donde se debería colocar
+ la entrada.
+ Si quedan huecos libres, se inserta.
+ Si no, la hoja (que ya tiene 
+\begin_inset Formula $p-1$
+\end_inset
+
+ claves) se divide en 2 hojas con 
+\begin_inset Formula $\lceil\frac{p-1}{2}\rceil$
+\end_inset
+
+ y 
+\begin_inset Formula $\lfloor\frac{p-1}{2}\rfloor$
+\end_inset
+
+ claves, añadiendo, de los 
+\begin_inset Formula $p$
+\end_inset
+
+ valores, el que queda en medio en el nodo padre, repitiendo el proceso
+ en este recursivamente si es necesario.
+\end_layout
+
+\end_body
+\end_document

@@ -15,6 +15,7 @@ son las siguientes:
 * `fuvr2`: Funciones de Una Variable Real II.
 * `gae`: Geometría Afín y Euclídea.
 * `tem`: Topología de Espacios Métricos.
+* `aalg`: Ampliación de Álgebra y Geometría.
 
 Las asignaturas de ingeniería informática que se incluyen son las siguientes:
 
@@ -24,6 +25,7 @@ Las asignaturas de ingeniería informática que se incluyen son las siguientes:
 * `etc`: Estructura y Tecnología de Computadores.
 * `ffi`: Fundamentos Físicos de la Informática.
 * `tp`: Tecnología de la Programación.
+* `aed1`: Algoritmos y Estructuras de Datos I.
 
 Los apuntes están escritos con [LyX](https://www.lyx.org/). En cada directorio,
 el fichero `n.lyx` es el fichero principal con los apuntes de la asignatura.
