@@ -1,0 +1,252 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un proceso es 
+\series bold
+recursivo
+\series default
+ si se especifica basándose en su propia definición.
+ Una función es recursiva si se llama a sí misma, y está bien construida
+ si contiene al menos un 
+\series bold
+caso base
+\series default
+ y al menos un 
+\series bold
+caso general
+\series default
+ o 
+\series bold
+de recursión
+\series default
+ en el que los parámetros están cada vez 
+\begin_inset Quotes cld
+\end_inset
+
+más cerca
+\begin_inset Quotes crd
+\end_inset
+
+ del caso base, garantizándose que este se alcanza.
+ Tipos de recursividad:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Directa
+\series default
+ o 
+\series bold
+simple
+\series default
+: La función contiene una llamada explícita a sí misma.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Múltiple
+\series default
+: Hay más de una llamada recursiva en el cuerpo de la función.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Indirecta
+\series default
+ o 
+\series bold
+cruzada
+\series default
+: La función invoca a otra que a su vez acaba llamando a la primera.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De cola
+\series default
+ o 
+\series bold
+de extremo final
+\series default
+: La llamada recursiva es la última instrucción que ejecuta la función.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Anidada
+\series default
+: En algún parámetro de la llamada recursiva hay otra llamada recursiva.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+pila de llamadas
+\series default
+ (
+\emph on
+call stack
+\emph default
+), 
+\series bold
+de ejecución
+\series default
+, 
+\series bold
+de control
+\series default
+, 
+\series bold
+de función
+\series default
+ o 
+\series bold
+de tiempo de ejecución
+\series default
+ es una estructura dinámica que almacena información sobre las subrutinas
+ activas en un programa.
+ Cada llamada añade un 
+\series bold
+marco de pila
+\series default
+ (
+\emph on
+stack frame
+\emph default
+), al que el profesor llama 
+\series bold
+registro de activación
+\series default
+, donde se guardan variables locales, parámetros, dirección de retorno y
+ valor devuelto.
+ Las llamadas recursivas se gestionan igual que el resto, por lo que pueden
+ producir un 
+\series bold
+desbordamiento de pila
+\series default
+ si la recursión es muy profunda.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+árbol de recursión
+\series default
+ es una representación gráfica de un algoritmo recursivo, en el que cada
+ llamada se representa con un nodo, etiquetado con los parámetros que recibe,
+ y de este parte un nodo hijo por cada llamada que hace la función a sí
+ misma, siendo el nodo raíz la llamada inicial y los nodos hoja ejecuciones
+ de los casos base.
+ Este árbol sirve para decidir si el enfoque recursivo es apropiado o es
+ mejor buscar otro enfoque como el iterativo.
+\end_layout
+
+\begin_layout Standard
+El mecanismo de 
+\series bold
+expansión de recurrencias
+\series default
+ sirve para calcular el tiempo de ejecución de un algoritmo recursivo.
+ Para ello, se crea una 
+\series bold
+ecuación de recurrencia
+\series default
+, una función que define el tiempo de ejecución en función de los parámetros
+ y se contiene a sí misma en la definición, y por inducción se obtiene una
+ 
+\series bold
+forma cerrada
+\series default
+ para esta ecuación, que no dependa de sí misma.
+\end_layout
+
+\begin_layout Standard
+La recursión por lo general es más ineficiente que el diseño iterativo,
+ por lo que no se debe usar cuando la recursividad es por cola, el árbol
+ de recursión es lineal o el árbol es ramificado pero con nodos repetidos.
+\end_layout
+
+\end_body
+\end_document

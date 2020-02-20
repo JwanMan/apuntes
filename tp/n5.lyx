@@ -1,0 +1,435 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+árbol
+\series default
+ es un grafo simple conexo no dirigido y acíclico.
+ Trabajaremos con 
+\series bold
+árboles con raíz etiquetados
+\series default
+ finitos, en los que a uno de los nodos lo denominamos raíz y todos los
+ nodos almacenan un valor o un elemento.
+\end_layout
+
+\begin_layout Standard
+Los nodos conectados al nodo raíz son 
+\series bold
+hijos
+\series default
+ del nodo raíz, siendo este el 
+\series bold
+padre
+\series default
+ de estos nodos, e inductivamente llamamos hijos de un nodo 
+\begin_inset Formula $n$
+\end_inset
+
+ a los nodos 
+\begin_inset Formula $\{m_{i}\}_{i\in I}$
+\end_inset
+
+ que estén conectados a él y no son su padre, y decimos que 
+\begin_inset Formula $n$
+\end_inset
+
+ es el padre de los 
+\begin_inset Formula $m_{i}$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+nodo hoja
+\series default
+ a un nodo que no tiene hijos.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+camino
+\series default
+ de 
+\begin_inset Formula $n_{1}$
+\end_inset
+
+ a 
+\begin_inset Formula $n_{k}$
+\end_inset
+
+ es una sucesión de nodos 
+\begin_inset Formula $n_{1},\dots,n_{k}$
+\end_inset
+
+ donde cada nodo 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ es el padre del 
+\begin_inset Formula $n_{i+1}$
+\end_inset
+
+ para 
+\begin_inset Formula $i=1,\dots,k-1$
+\end_inset
+
+, y decimos entonces que el camino tiene 
+\series bold
+longitud
+\series default
+ 
+\begin_inset Formula $k-1$
+\end_inset
+
+.
+ Dados dos nodos 
+\begin_inset Formula $n$
+\end_inset
+
+ y 
+\begin_inset Formula $m$
+\end_inset
+
+, si existe un camino de 
+\begin_inset Formula $n$
+\end_inset
+
+ a 
+\begin_inset Formula $m$
+\end_inset
+
+ se dice que 
+\begin_inset Formula $n$
+\end_inset
+
+ es 
+\series bold
+ancestro
+\series default
+ de 
+\begin_inset Formula $m$
+\end_inset
+
+ y 
+\begin_inset Formula $m$
+\end_inset
+
+ es 
+\series bold
+descendiente
+\series default
+ de 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ El 
+\series bold
+subárbol
+\series default
+ de un árbol por un nodo es el árbol formado por este nodo, que será la
+ nueva raíz, y todos sus descendientes, preservando las aristas entre estos
+ nodos.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+altura
+\series default
+ de un nodo es el máximo de las longitudes de caminos desde este nodo hasta
+ cualquier descendiente suyo, y la 
+\series bold
+altura del árbol
+\series default
+ es la altura de su raíz.
+ La 
+\series bold
+profundidad
+\series default
+ de un nodo es la longitud del camino desde la raíz hasta el nodo.
+ El 
+\series bold
+nivel
+\series default
+ 
+\begin_inset Formula $i$
+\end_inset
+
+ de un árbol es el conjunto de todos los nodos a profundidad 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En general representamos un árbol mediante un apuntador a su raíz, y representam
+os un nodo mediante una estructura con su elemento y, bien su lista de hijos
+ (normalmente), o un apuntador hacia su primer hijo (
+\begin_inset Quotes cld
+\end_inset
+
+hijo izquierdo
+\begin_inset Quotes crd
+\end_inset
+
+) y el hermano siguiente (siguiente hijo del padre, 
+\begin_inset Quotes cld
+\end_inset
+
+hermano derecho
+\begin_inset Quotes crd
+\end_inset
+
+), si bien esto es poco habitual.
+\end_layout
+
+\begin_layout Standard
+Existen tres formas principales de recorrer un árbol:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Preorden
+\series default
+: En cada nodo, se considera primero el elemento del propio nodo y luego
+ cada hijo en preorden.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Inorden
+\series default
+: En cada nodo, se considera primero el primer hijo en inorden, después
+ el elemento del propio nodo y finalmente el resto de hijos en inorden.
+ Esto es útil en 
+\series bold
+árboles binarios
+\series default
+, donde cada nodo tiene un 
+\begin_inset Quotes cld
+\end_inset
+
+hijo izquierdo
+\begin_inset Quotes crd
+\end_inset
+
+ y un 
+\begin_inset Quotes cld
+\end_inset
+
+hijo derecho
+\begin_inset Quotes crd
+\end_inset
+
+ (cada uno puede no existir).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Postorden
+\series default
+: En cada nodo, se considera primero cada uno de los hijos en postorden
+ y finalmente el elemento del propio nodo.
+\end_layout
+
+\begin_layout Standard
+Un árbol se dice que está 
+\series bold
+balanceado
+\series default
+ si su altura es la mínima dado el máximo de hijos por nodo que puede tener.
+ Esto es útil porque minimiza el tiempo de ejecución a la hora de operar
+ con ellos.
+ Algunos tipos de árbol:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Parcialmente ordenado
+\series default
+: Los descendientes de un nodo poseen un valor no mayor al del propio nodo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Árbol binario de búsqueda
+\series default
+: Árbol binario en el que el hijo izquierdo de un nodo y sus descendientes
+ tienen un valor menor o igual al del propio nodo, a su vez menor o igual
+ al del hijo derecho y sus descendientes.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Árboles AVL
+\series default
+: Árbol binario auto-balanceable, que o bien es vacío o cumple que los subárbole
+s por ambos hijos son AVL y la diferencia en la altura de ambos (valor absoluto)
+ es no mayor que 1.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Árboles B
+\series default
+: Un árbol B de orden 
+\begin_inset Formula $M$
+\end_inset
+
+ es aquél en que: cada nodo tiene como máximo 
+\begin_inset Formula $M$
+\end_inset
+
+ hijos; todos los nodos salvo la raíz tienen un valor formado como mínimo
+ por 
+\begin_inset Formula $\frac{M}{2}$
+\end_inset
+
+ claves; la raíz tiene al menos 2 hijos si no es al mismo tiempo hoja; todos
+ los nodos hoja aparecen al mismo nivel; un nodo no hoja con 
+\begin_inset Formula $k$
+\end_inset
+
+ hijos tiene un valor formado por 
+\begin_inset Formula $k-1$
+\end_inset
+
+ claves, y dado un nodo no hoja con claves 
+\begin_inset Formula $r_{1},\dots,r_{m}$
+\end_inset
+
+, las claves de sus nodos hijo (y descendientes respectivos) deben ser:
+ menores que 
+\begin_inset Formula $r_{1}$
+\end_inset
+
+ para el primer hijo, entre 
+\begin_inset Formula $r_{i-1}$
+\end_inset
+
+ y 
+\begin_inset Formula $r_{i}$
+\end_inset
+
+ para el nodo 
+\begin_inset Formula $i$
+\end_inset
+
+-ésimo (
+\begin_inset Formula $i=2,\dots,m$
+\end_inset
+
+), o mayores que 
+\begin_inset Formula $r_{m}$
+\end_inset
+
+ para el último nodo.
+\end_layout
+
+\begin_layout Standard
+Aplicaciones:
+\end_layout
+
+\begin_layout Itemize
+Representación de datos jerárquicos, como sistemas de ficheros y directorios.
+\end_layout
+
+\begin_layout Itemize
+Búsqueda (y otras operaciones) de forma eficiente en colecciones de datos.
+\end_layout
+
+\begin_layout Itemize
+Árboles de decisión en inteligencia artificial.
+\end_layout
+
+\end_body
+\end_document

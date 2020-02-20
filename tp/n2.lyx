@@ -1,0 +1,160 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Muchas veces necesitamos estructuras de datos cuyo tamaño puede ir cambiando
+ con el tiempo.
+ Podemos usar representaciones contiguas (tablas), pero no son eficientes
+ en ciertos casos porque las inserciones y eliminaciones pueden suponer
+ reubicaciones de elementos.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+estructura de datos lineal enlazada con simple enlace
+\series default
+ es una sucesión finita de nodos formados por un elemento y un enlace al
+ siguiente (o una marca de fin como 
+\family typewriter
+NULL
+\family default
+ si es el último).
+\end_layout
+
+\begin_layout Standard
+Una estructura de este tipo se gestiona a través de un apuntador al primer
+ nodo, inicialmente con valor 
+\family typewriter
+NULL
+\family default
+.
+ Podemos definir, por ejemplo, operaciones para:
+\end_layout
+
+\begin_layout Itemize
+Inicializar y liberar una lista enlazada.
+\end_layout
+
+\begin_layout Itemize
+Imprimir sus elementos, comprobar si contiene uno y cuál es su índice, obtener
+ el apuntador al nodo que contiene un elemento.
+\end_layout
+
+\begin_layout Itemize
+Insertar un elemento al principio, al final, en un cierto índice o detrás
+ de otro dado por el apuntador al nodo.
+ Insertar en una lista enlazada ordenada.
+\end_layout
+
+\begin_layout Itemize
+Eliminar un elemento al principio, al final, en un cierto índice o detrás
+ de otro dado por el apuntador al nodo.
+ Eliminar la primera ocurrencia de un elemento si existe, con un caso especial
+ por eficiencia para cuando la lista está ordenada.
+\end_layout
+
+\begin_layout Standard
+Algunas de estas operaciones pueden requerir modificar el apuntador al primer
+ elemento, y por tanto es necesario pasarles un apuntador a dicho apuntador
+ (o que devuelvan el nuevo valor de este).
+ Para estos podemos añadir al principio un 
+\series bold
+nodo de encabezamiento
+\series default
+ que apunta al primer elemento 
+\begin_inset Quotes fld
+\end_inset
+
+real
+\begin_inset Quotes frd
+\end_inset
+
+, simplificando el código a cambio de ocupar más memoria.
+ Por otro lado, para ciertas operaciones conviene tener apuntadores tanto
+ al principio como al final de la estructura enlazada.
+\end_layout
+
+\begin_layout Standard
+También existen 
+\series bold
+estructuras de datos lineales doblemente enlazadas
+\series default
+, en las que los nodos no apuntan sólo al siguiente elemento sino también
+ al anterior, permitiendo operaciones como eliminar un elemento de la lista
+ con un apuntador al nodo correspondiente en vez de al anterior, por ejemplo.
+ 
+\end_layout
+
+\end_body
+\end_document

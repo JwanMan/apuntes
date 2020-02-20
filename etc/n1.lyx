@@ -1,0 +1,741 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Existen dos tipos de circuitos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Combinacionales:
+\series default
+ La salida depende únicamente de la entrada en ese momento.
+ Se pueden representar mediante grafos acíclicos dirigidos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Secuenciales:
+\series default
+ La salida no depende solo de la entrada en ese momento sino también de
+ su 
+\series bold
+estado
+\series default
+, que depende de las entradas anteriores.
+\end_layout
+
+\begin_layout Standard
+Para representar la evolución en el tiempo de un circuito se emplean 
+\series bold
+cronogramas
+\series default
+, diagramas con el tiempo en el eje horizontal y el valor lógico (0 ó 1)
+ de ciertas señales (normalmente las entradas y salidas) en el eje vertical.
+\end_layout
+
+\begin_layout Section
+
+\emph on
+Latches
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+biestable asíncrono
+\series default
+, 
+\series bold
+cerrojo
+\series default
+ o 
+\series bold
+\emph on
+latch
+\series default
+\emph default
+ es un circuito básico capaz de almacenar un bit.
+ Existen dos tipos que se diferencian en su 
+\series bold
+ecuación característica
+\series default
+ o 
+\series bold
+función de transición
+\series default
+, que define el valor de salida (
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+) en función de su entrada y la salida anterior (
+\begin_inset Formula $Q$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tipo 
+\series bold
+S-R
+\series default
+ (
+\emph on
+Set-Reset
+\emph default
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tipo 
+\series bold
+D
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q^{*}=S+\overline{R}\cdot Q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q^{*}=D\cdot C+Q\cdot\overline{C}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pegado1.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pegado2.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\emph on
+Flip-flops
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+biestable síncrono
+\series default
+ o 
+\series bold
+\emph on
+flip-flop
+\series default
+\emph default
+ también almacena un bit, pero las señales de entrada solo tienen efecto
+ durante un instante de tiempo.
+ Este depende de una 
+\series bold
+señal de reloj
+\series default
+, señal periódica encargada de determinar en qué momento el circuito será
+ sensible a su entrada.
+ Llamamos 
+\series bold
+flanco
+\series default
+ a un cambio en la señal de reloj, que puede ser 
+\series bold
+ascendente
+\series default
+ si es de 0 a 1 o 
+\series bold
+descendente
+\series default
+ si es de 1 a 0.
+ Aunque en los cronogramas representamos estas transiciones con líneas verticale
+s, realmente no son instantáneas.
+ Un 
+\emph on
+flip-flop
+\emph default
+ puede ser activo en flanco ascendente o en flanco descendente.
+\end_layout
+
+\begin_layout Standard
+En general, los 
+\emph on
+flip-flops
+\emph default
+ están formados por dos 
+\emph on
+latches
+\emph default
+ en serie, donde el primero se llama 
+\series bold
+maestro
+\series default
+ y el segundo 
+\series bold
+esclavo
+\series default
+.
+ La entrada de reloj se indica con un triángulo, que tiene además un círculo
+ si el 
+\emph on
+flip-flop
+\emph default
+ es activo en flanco descendente.
+ Tipos:
+\end_layout
+
+\begin_layout Standard
+Tipo 
+\series bold
+D
+\series default
+: Puede tener o no una señal de control 
+\begin_inset Formula $W$
+\end_inset
+
+, dependiendo de si queremos actualizar el valor en cada ciclo de reloj
+ o no.
+ 
+\begin_inset Formula $Q^{*}=D\cdot W+Q\cdot\overline{W}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pegado3.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pegado5.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pegado4.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pegado6.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tipo 
+\series bold
+S-R
+\series default
+: 
+\begin_inset Formula $Q^{*}=S+\overline{R}\cdot Q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pegado7.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pegado8.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="45col%">
+<column alignment="center" valignment="top" width="45col%">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tipo 
+\series bold
+J-K
+\series default
+: 
+\begin_inset Formula $Q^{*}=J\cdot\overline{Q}+\overline{K}\cdot Q$
+\end_inset
+
+.
+ Similar al S-R con 
+\begin_inset Formula $J\equiv S$
+\end_inset
+
+ y 
+\begin_inset Formula $K\equiv R$
+\end_inset
+
+, pero si 
+\begin_inset Formula $J=K=1$
+\end_inset
+
+ el estado se alterna.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tipo 
+\series bold
+T
+\series default
+: 
+\begin_inset Formula $Q^{*}=\overline{Q}\cdot T+Q\cdot\overline{T}$
+\end_inset
+
+.
+ Invierte su estado cuando su entrada valga 1.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pegado9.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pegado10.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diseño de un circuito secuencial
+\end_layout
+
+\begin_layout Standard
+Está formado por una serie de 
+\series bold
+entradas
+\series default
+ y 
+\series bold
+salidas
+\series default
+ digitales, así como una serie de bits que determinan su 
+\series bold
+estado actual
+\series default
+ y dos funciones combinacionales:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Función de transición
+\series default
+: Determina el estado siguiente a partir del estado actual y la entrada.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Función de salida
+\series default
+: Determina la salida a partir del estado del circuito (circuito de 
+\series bold
+Moore
+\series default
+) y quizá también de las entradas (de 
+\series bold
+Mealy
+\series default
+).
+\end_layout
+
+\begin_layout Standard
+Fases en el diseño:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Especificación verbal
+\series default
+: Resumen con palabras del funcionamiento deseado.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Especificación del autómata
+\series default
+: Se crea un diagrama de estados llamado 
+\begin_inset Quotes cld
+\end_inset
+
+autómata finito determinista
+\begin_inset Quotes crd
+\end_inset
+
+ (AFD), en el que se representan los posibles estados del sistema, la función
+ de transición y la función de salida.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename pegado11.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ejemplo de AFD.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Minimización del autómata
+\series default
+: Buscar el mismo comportamiento con menos estados, reduciendo la circuitería
+ necesaria.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Codificación de estados:
+\series default
+ Asignar a cada uno de los 
+\begin_inset Formula $M$
+\end_inset
+
+ estados una combinación de 
+\begin_inset Formula $n=\lceil\log_{2}M\rceil$
+\end_inset
+
+ bits, que se almacenan en 
+\begin_inset Formula $n$
+\end_inset
+
+ biestables.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Determinación de las funciones
+\series default
+ de transición y de salida.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Minimización de las funciones
+\series default
+, por ejemplo, mediante mapas de Karnaugh.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Implementación del circuito
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Debemos tener en cuenta que desde un cambio de señal de reloj hasta el siguiente
+, las señales de entrada de los 
+\emph on
+flip-flops
+\emph default
+ deben ser estables, por lo que la frecuencia de esta señal no debe ser
+ mayor al retardo de los circuitos combinacionales, es decir, la máxima
+ suma de los retardos de puertas lógicas que se usan en serie dentro de
+ estos, incluyendo el retardo de otros biestables que son entradas de los
+ circuitos combinacionales.
+\end_layout
+
+\end_body
+\end_document

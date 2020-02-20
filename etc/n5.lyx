@@ -1,0 +1,315 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+La 
+\series bold
+memoria virtual
+\series default
+ es una técnica consistente en usar la memoria principal como caché para
+ almacenamiento secundario, normalmente discos duros.
+ Objetivos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Proporcionar un gran espacio de direcciones:
+\series default
+ Anteriormente, si un programa era demasiado grande, el programador debía
+ dividir el programa en segmentos independientes (
+\emph on
+overlays
+\emph default
+) cargados y liberados de memoria por el propio programa, lo que dificultaba
+ la programación.
+ Además, debía haber un hueco de memoria libre contigua para cargar estos
+ segmentos, pero esta podía estar fragmentada en varios huecos demasiado
+ pequeños.
+ Con memoria virtual, el programador trabaja como si hubiera una gran memoria
+ sólo para el programa.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Permitir la compartición segura y eficiente de memoria entre varios programas:
+\series default
+ La memoria principal sólo tiene que contener lo que se ejecuta en un momento
+ dado, por lo que se aprovecha mejor, y consigue que un proceso sólo pueda
+ leer y escribir la memoria que tiene asignada.
+\end_layout
+
+\begin_layout Standard
+El sistema de memoria virtual crea un 
+\series bold
+espacio de direcciones virtuales
+\series default
+ para cada proceso, de forma que la CPU produce direcciones virtuales y
+ la 
+\series bold
+MMU
+\series default
+ (
+\emph on
+Memory Management Unit
+\emph default
+) realiza la 
+\series bold
+traducción de direcciones
+\series default
+ (
+\emph on
+address translation
+\emph default
+) a 
+\series bold
+direcciones físicas
+\series default
+.
+ Un bloque de memoria virtual es una 
+\series bold
+página
+\series default
+, un acierto es un 
+\series bold
+acierto de página
+\series default
+ y un fallo es un 
+\series bold
+fallo de página
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Las páginas deben ser lo bastante grandes para amortizar el tiempo de acceso
+ a disco, normalmente 
+\begin_inset Formula $\unit[4]{KiB}$
+\end_inset
+
+ para páginas pequeñas y tamaños mucho mas grandes (de megabytes) para ciertos
+ casos.
+ Como la penalización por fallo es muy alta (de millones de ciclos e incluso
+ visible al usuario), es muy importante reducir la tasa de fallos, por lo
+ que se usa un esquema totalmente asociativo, y como los fallos de página
+ los gestiona el sistema operativo (porque la sobrecarga de usar software
+ aquí es despreciable) se pueden usar algoritmos de reemplazo más complejos.
+ Siempre se usa postescritura.
+\end_layout
+
+\begin_layout Section
+La tabla de páginas
+\end_layout
+
+\begin_layout Standard
+Una página virtual puede estar asociada a cualquier página física o a ninguna,
+ y esta información se almacena en la 
+\series bold
+tabla de páginas
+\series default
+, una tabla multinivel manejada por el sistema operativo, almacenada en
+ memoria principal e indexada por el número de página virtual, que en cada
+ entrada contiene el número de página física junto con información adicional
+ como el bit de validez, el bit de sucio, bits de protección (permisos de
+ lectura, escritura y ejecución) y un bit de uso para políticas de reemplazo
+ o direcciones de disco, y su tamaño se redondea por exceso al tamaño de
+ palabra para facilitar el indexado.
+\end_layout
+
+\begin_layout Standard
+La MMU incluye una caché especial, el 
+\series bold
+buffer de traducción adelantada de direcciones
+\series default
+ o 
+\series bold
+TLB
+\series default
+ (
+\emph on
+Translation Lookaside Buffer
+\emph default
+) que guarda traducciones de número de página virtual a número de página
+ física.
+ Suele emplear postescritura (principalmente para actualizar el bit de uso),
+ pues se espera una tasa de fallos pequeña.
+\end_layout
+
+\begin_layout Section
+Tratamiento de los fallos de página
+\end_layout
+
+\begin_layout Standard
+Al producirse un fallo de página se produce una 
+\series bold
+excepción por fallo de página
+\series default
+, transfiriendo el control de la CPU al sistema operativo que, una vez guardado
+ el estado del programa en ejecución, debe encontrar la página solicitada
+ en memoria secundaria y colocarla en la principal, o notificar de un 
+\series bold
+fallo de segmentación
+\series default
+ (
+\emph on
+segmentation fault
+\emph default
+) si la página solicitada no se corresponde con ningún dato del proceso.
+ El sistema operativo mantiene información de la posición en memoria secundaria
+ donde se guarda cada página virtual, bien en la propia tabla de páginas
+ o en una estructura aparte.
+\end_layout
+
+\begin_layout Standard
+Normalmente se usa una política de reemplazo similar a LRU (pseudo-LRU),
+ pues se quieren minimizar los fallos de página pero un LRU puro es demasiado
+ caro por requerir actualizar la estructura en cada acceso a memoria.
+ Por ello algunas MMU proporcionan un 
+\series bold
+bit de uso
+\series default
+ o 
+\series bold
+de referencia
+\series default
+ que se activa por hardware cuando se accede a la página, y periódicamente
+ el sistema operativo desactiva todos los bits de uso, de forma similar
+ a como se hacía en las cachés.
+ Este esquema se puede perfeccionar más si en vez de tener en cuenta el
+ bit de uso en el último periodo se tiene en cuenta el bit de uso en un
+ número fijo de periodos anteriores.
+\end_layout
+
+\begin_layout Section
+Protección
+\end_layout
+
+\begin_layout Standard
+El sistema operativo mantiene separadas las páginas virtuales de programas
+ distintos para que uno no pueda acceder a los datos de otro, y cuando cambia
+ de proceso (
+\series bold
+cambio de contexto
+\series default
+ o
+\series bold
+ de proceso
+\series default
+), cambia el valor del registro de tabla de páginas y, si hay TLB, lo vacía.
+\end_layout
+
+\begin_layout Standard
+Para que esta protección sea efectiva, la CPU tiene (al menos) dos modos
+ de funcionamiento: 
+\series bold
+modo usuario
+\series default
+, para programas de usuario, y 
+\series bold
+modo supervisor
+\series default
+ o 
+\series bold
+núcleo
+\series default
+, para el sistema operativo.
+ Desde el modo usuario, la lectura y escritura queda limitada a su espacio
+ de direcciones virtuales, puede que con ciertas restricciones adicionales,
+ impidiendo además que escriba en la tabla de páginas, la TLB o el registro
+ que apunta a la tabla de páginas, o cambie el modo de la CPU.
+\end_layout
+
+\begin_layout Standard
+La CPU cambia de modo usuario a supervisor si se produce una interrupción,
+ una excepción producida por el programa o una llamada al sistema, basada
+ en una instrucción especial (
+\emph on
+syscall
+\emph default
+) que transfiere el control al sistema operativo.
+ El retorno a modo usuario se realiza mediante una 
+\series bold
+instrucción de retorno de excepción
+\series default
+ (RFE).
+\end_layout
+
+\end_body
+\end_document

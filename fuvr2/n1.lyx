@@ -1,0 +1,4028 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una función 
+\begin_inset Formula $f:I\rightarrow\mathbb{R}$
+\end_inset
+
+, siendo 
+\begin_inset Formula $I$
+\end_inset
+
+ un intervalo abierto, es 
+\series bold
+derivable
+\series default
+ en 
+\begin_inset Formula $c\in I$
+\end_inset
+
+ si existe
+\begin_inset Formula 
+\[
+f'(c):=\lim_{h\rightarrow0}\frac{f(c+h)-f(c)}{h}
+\]
+
+\end_inset
+
+y se dice derivable en 
+\begin_inset Formula $I$
+\end_inset
+
+ si es derivable en cada punto de 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ Al valor 
+\begin_inset Formula $f'(c)$
+\end_inset
+
+ lo llamamos 
+\series bold
+derivada
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $c$
+\end_inset
+
+, y llamamos 
+\series bold
+cociente incremental
+\series default
+ a la expresión 
+\begin_inset Formula $\frac{f(c+h)-f(c)}{h}$
+\end_inset
+
+.
+ Otra definición de derivada es
+\begin_inset Formula 
+\[
+f'(c):=\lim_{x\rightarrow c}\frac{f(x)-f(c)}{x-c}
+\]
+
+\end_inset
+
+ Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es derivable en 
+\begin_inset Formula $I$
+\end_inset
+
+, llamamos 
+\series bold
+derivada de la función
+\series default
+ 
+\begin_inset Formula $f$
+\end_inset
+
+ a la función 
+\begin_inset Formula $f':I\rightarrow\mathbb{R}$
+\end_inset
+
+ que a cada 
+\begin_inset Formula $x\in I$
+\end_inset
+
+ le hace corresponder 
+\begin_inset Formula $f'(x)$
+\end_inset
+
+.
+ Podemos definir la 
+\series bold
+derivada por la izquierda
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $c$
+\end_inset
+
+ como 
+\begin_inset Formula $f'(c^{-}):=f'_{-}(c):=\lim_{h\rightarrow0^{-}}\frac{f(c+h)-f(c)}{h}$
+\end_inset
+
+, y la 
+\series bold
+derivada por la derecha
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $c$
+\end_inset
+
+ como 
+\begin_inset Formula $f'(c^{+}):=f'_{+}(c):=\lim_{h\rightarrow0^{+}}\frac{f(c+h)-f(c)}{h}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es derivable en 
+\begin_inset Formula $c$
+\end_inset
+
+, llamamos 
+\series bold
+recta tangente
+\series default
+ a la curva 
+\begin_inset Formula $y=f(x)$
+\end_inset
+
+ en el punto 
+\begin_inset Formula $(c,f(c))$
+\end_inset
+
+ a la función dada por 
+\begin_inset Formula $g(x)=f(c)+f'(c)(x-c)$
+\end_inset
+
+.
+ Podemos formular que 
+\begin_inset Formula $f'(c)=m$
+\end_inset
+
+ diciendo que
+\begin_inset Formula 
+\[
+f(c+h)=f(c)+mh+h\phi(h)
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $\phi:(-\delta,\delta)\backslash\{0\}\rightarrow\mathbb{R}$
+\end_inset
+
+ es una función tal que 
+\begin_inset Formula $\lim_{h\rightarrow0}\phi(h)=0$
+\end_inset
+
+.
+ Equivalentemente, podemos hacer uso de la 
+\series bold
+
+\begin_inset Quotes cld
+\end_inset
+
+o
+\begin_inset Quotes crd
+\end_inset
+
+ pequeña de Landau
+\series default
+, que representa una función cualquiera definida en un entorno reducido
+ o perforado del origen, 
+\begin_inset Formula $(-\delta,\delta)\backslash\{0\}$
+\end_inset
+
+, y cumple que 
+\begin_inset Formula $\lim_{h\rightarrow0}\frac{o(h)}{h}=0$
+\end_inset
+
+.
+ Así,
+\begin_inset Formula 
+\[
+f(c+h)=f(c)+mh+o(h)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f:I\rightarrow\mathbb{R}$
+\end_inset
+
+ es 
+\series bold
+diferenciable
+\series default
+ en 
+\begin_inset Formula $c\in I$
+\end_inset
+
+ si existe una aplicación 
+\emph on
+lineal
+\emph default
+ 
+\begin_inset Formula $L:\mathbb{R}\rightarrow\mathbb{R}$
+\end_inset
+
+ llamada 
+\series bold
+diferencial
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $c$
+\end_inset
+
+, denotada 
+\begin_inset Formula $df(c)$
+\end_inset
+
+, tal que
+\begin_inset Formula 
+\[
+\lim_{h\rightarrow0}\frac{f(c+h)-f(c)-L(h)}{h}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se tiene que 
+\begin_inset Formula $f$
+\end_inset
+
+ es diferenciable en 
+\begin_inset Formula $c\in I$
+\end_inset
+
+ si y sólo si es derivable en 
+\begin_inset Formula $c$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $df(c)(x)=f'(c)x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $\alpha(h):=\frac{f(c+h)-f(c)-L(h)}{h}=\frac{f(c+h)-f(c)}{h}-L\left(\frac{h}{h}\right)=\frac{f(c+h)-f(c)}{h}-L(1)$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+f'(c)=\lim_{h\rightarrow0}\frac{f(c+h)-f(c)}{h}=\lim_{h\rightarrow0}\alpha(h)+L(1)=L(1)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es derivable en 
+\begin_inset Formula $c$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\lim_{h\rightarrow0}\frac{f(c+h)-f(c)}{h}-f'(c)=\lim_{h\rightarrow0}\frac{f(c+h)-f(c)-f'(c)h}{h}=0
+\]
+
+\end_inset
+
+por lo que 
+\begin_inset Formula $f$
+\end_inset
+
+ es derivable en 
+\begin_inset Formula $c$
+\end_inset
+
+ y 
+\begin_inset Formula $f'(c)=L(1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f:I\subseteq\mathbb{R}\rightarrow\mathbb{R}$
+\end_inset
+
+ es derivable en 
+\begin_inset Formula $c\in I$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $c$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Se tiene que 
+\begin_inset Formula $f(c+h)-f(c)=(f'(c)+\phi(h))h$
+\end_inset
+
+, luego dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, existe 
+\begin_inset Formula $\delta'>0$
+\end_inset
+
+ tal que todo 
+\begin_inset Formula $|h|<\delta'$
+\end_inset
+
+ cumple que 
+\begin_inset Formula $|\phi(h)|<1$
+\end_inset
+
+, y tomando 
+\begin_inset Formula $\delta:=\min\{\delta',\frac{\varepsilon}{|f'(c)|+1}\}$
+\end_inset
+
+, si 
+\begin_inset Formula $|h|<\delta$
+\end_inset
+
+ entonces 
+\begin_inset Formula $|f(c+h)-f(c)|=|f'(c)+\phi(h)||h|\leq(|f'(c)+|\phi(h)|)|h|<\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Cálculo de derivadas
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $f,g:I\rightarrow\mathbb{R}$
+\end_inset
+
+, siendo 
+\begin_inset Formula $I$
+\end_inset
+
+ un intervalo abierto, derivables en 
+\begin_inset Formula $c\in I$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(f+g)'(c)=f'(c)+g'(c)$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\lim_{h\rightarrow0}\frac{(f+g)(c+h)-(f+g)(c)}{h}=\lim_{h\rightarrow0}\frac{f(c+h)-f(c)+g(c+h)-g(c)}{h}=f'(c)+g'(c)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(fg)'(c)=f'(c)g(c)+f(c)g'(c)$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{gather*}
+(fg)'(c)=\lim_{h\rightarrow0}\frac{f(c+h)g(c+h)-f(c)g(c)}{h}=\\
+=\lim_{h\rightarrow0}\frac{f(c+h)g(c+h)-f(c)g(c+h)+f(c)g(c+h)-f(c)g(c)}{h}=\\
+=\lim_{h\rightarrow0}g(c+h)\frac{f(c+h)-f(c)}{h}+\lim_{h\rightarrow0}f(c)\frac{g(c+h)-g(c)}{h}=g(c)f'(c)+f(c)g'(c)
+\end{gather*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $g(x)\neq0\forall x\in I\implies\left(\frac{f}{g}\right)'(c)=\frac{f'(c)g(c)-f(c)g'(c)}{g(c)^{2}}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\begin{gathered}\lim_{h\rightarrow0}\frac{\frac{f(c+h)}{g(c+h)}-\frac{f(c)}{g(c)}}{h}=\lim_{h\rightarrow0}\frac{f(c+h)g(c)-f(c)g(c+h)}{hg(c)g(c+h)}=\\
+=\lim_{h\rightarrow0}\frac{f(c+h)g(c)-f(c)g(c)+f(c)g(c)-f(c)g(c+h)}{hg(c)g(c+h)}=\\
+=\lim_{h\rightarrow0}g(c)\frac{f(c+h)-f(c)}{hg(c)g(c+h)}+f(c)\frac{g(c)-g(c+h)}{hg(c)g(c+h)}=\frac{f'(c)g(c)}{g(c)^{2}}-\frac{f(c)g'(c)}{g(c)^{2}}
+\end{gathered}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(\alpha f)'(c)=\alpha f'(c)\forall\alpha\in\mathbb{R}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Sea 
+\begin_inset Formula $g(x)=\alpha$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in I$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+g'(c)=\lim_{h\rightarrow0}\frac{g(c+h)-g(c)}{h}=\lim_{h\rightarrow0}\frac{\alpha-\alpha}{h}=0
+\]
+
+\end_inset
+
+luego
+\begin_inset Formula 
+\[
+(\alpha f)'(c)=(fg)'(c)=f'(c)g(c)+f(c)g'(c)=f'(c)g(c)=\alpha f'(c)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Regla de la cadena:
+\series default
+ Sean 
+\begin_inset Formula $I,J$
+\end_inset
+
+ intervalos abiertos de 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $f:I\rightarrow\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $g:J\rightarrow\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{Im}f\subseteq J$
+\end_inset
+
+, si 
+\begin_inset Formula $f$
+\end_inset
+
+ es derivable en 
+\begin_inset Formula $c\in I$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ lo es en 
+\begin_inset Formula $f(c)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ es derivable en 
+\begin_inset Formula $c$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+(g\circ f)'(c)=g'(f(c))f'(c)
+\]
+
+\end_inset
+
+Para demostrarlo usamos que 
+\begin_inset Formula $f(c+h)=f(c)+hf'(c)+h\phi(h)$
+\end_inset
+
+ y 
+\begin_inset Formula $g(f(c)+k)=g(f(c))+kg'(f(c))+k\psi(k)$
+\end_inset
+
+.
+ Así,
+\begin_inset Formula 
+\begin{eqnarray*}
+g(f(c+h)) & = & g(f(c)+hf'(c)+h\phi(h))\\
+ & = & g(f(c))+(hf'(c)+h\phi(h))g'(f(c))+(hf'(c)+h\phi(h))\psi(hf'(c)+h\phi(h))\\
+ & = & g(f(c))+hf'(c)g'(f(c))+\\
+ &  & +h(\phi(h)g'(f(c))+(f'(c)+\phi(h))\psi(hf'(c)+h\phi(h)))
+\end{eqnarray*}
+
+\end_inset
+
+Si llamamos 
+\begin_inset Formula $\gamma(h)$
+\end_inset
+
+ al último sumando, vemos que 
+\begin_inset Formula $(g\circ f)(c+h)=(g\circ f)(c)+hf'(c)g'(f(c))+h\gamma(h)$
+\end_inset
+
+ con 
+\begin_inset Formula $\lim_{h\rightarrow0}\gamma(h)=0$
+\end_inset
+
+, lo que prueba el teorema.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f:I\rightarrow J$
+\end_inset
+
+ es una biyección derivable entre los intervalos 
+\begin_inset Formula $I$
+\end_inset
+
+ y 
+\begin_inset Formula $J$
+\end_inset
+
+ con 
+\begin_inset Formula $f^{-1}$
+\end_inset
+
+ continua y 
+\begin_inset Formula $f'(x)\neq0\forall x\in I$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f^{-1}$
+\end_inset
+
+ es derivable y
+\begin_inset Formula 
+\[
+(f^{-1})'(y)=\frac{1}{f'(f^{-1}(y))}
+\]
+
+\end_inset
+
+Sean 
+\begin_inset Formula $y=f(x),y_{0}=f(x_{0})$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\lim_{y\rightarrow y_{0}}\frac{f^{-1}(y)-f^{-1}(y_{0})}{y-y_{0}}=\lim_{y\rightarrow y_{0}}\frac{1}{\frac{y-y_{0}}{f^{-1}(y)-f^{-1}(y_{0})}}=\lim_{x\rightarrow x_{0}}\frac{1}{\frac{f(x)-f(x_{0})}{x-x_{0}}}=\frac{1}{f'(f^{-1}(y_{0}))}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Veamos algunas derivadas importantes.
+\end_layout
+
+\begin_layout Enumerate
+Sea 
+\begin_inset Formula $f:I\rightarrow\mathbb{R}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f(x)=\sin x$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f'(x)=\cos x$
+\end_inset
+
+.
+ Si es 
+\begin_inset Formula $g(x)=\cos x$
+\end_inset
+
+, entonces 
+\begin_inset Formula $g'(x)=-\sin x$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Se tiene que
+\begin_inset Formula 
+\[
+\begin{array}{c}
+\sin x=\sin\left(\frac{x+c}{2}+\frac{x-c}{2}\right)=\cos\frac{x+c}{2}\sin\frac{x-c}{2}+\sin\frac{x+c}{2}\cos\frac{x-c}{2}\\
+\sin c=\sin\left(\frac{x+c}{2}-\frac{x-c}{2}\right)=-\cos\frac{x+c}{2}\sin\frac{x-c}{2}+\sin\frac{x+c}{2}\cos\frac{x-c}{2}
+\end{array}
+\]
+
+\end_inset
+
+Por tanto,
+\begin_inset Formula 
+\[
+\lim_{x\rightarrow c}\frac{\sin x-\sin c}{x-c}=\lim_{x\rightarrow c}\frac{\cos\frac{x+c}{2}\sin\frac{x-c}{2}}{\frac{x-c}{2}}=\lim_{x\rightarrow c}\cos\frac{x+c}{2}\cdot1=\cos c
+\]
+
+\end_inset
+
+La derivada del coseno se obtiene de forma análoga.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f(x)=\tan x$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f'(x)=1+\tan^{2}x=\frac{1}{\cos^{2}x}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Como 
+\begin_inset Formula $f(x)=\frac{\sin x}{\cos x}$
+\end_inset
+
+, partiendo de la derivada del seno y del coseno,
+\begin_inset Formula 
+\[
+f'(x)=\frac{\cos x\cdot\cos x-\sin x\cdot(-\sin x)}{\cos^{2}x}=\frac{\cos^{2}x+\sin^{2}x}{\cos^{2}x}=1+\tan^{2}x=\frac{1}{\cos^{2}x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Sea 
+\begin_inset Formula $f:I\rightarrow\mathbb{R}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f(x)=e^{x}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f'(x)=e^{x}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\lim_{h\rightarrow0}\frac{e^{x+h}-e^{x}}{h}=\lim_{h\rightarrow0}e^{x}\frac{e^{h}-1}{h}=e^{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Sea 
+\begin_inset Formula $f:I\subseteq(0,+\infty)\rightarrow\mathbb{R}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f(x)=\log x$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f'(x)=\frac{1}{x}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+El logaritmo es la inversa de 
+\begin_inset Formula $g(x)=e^{x}$
+\end_inset
+
+, con 
+\begin_inset Formula $g'(x)=e^{x}$
+\end_inset
+
+, luego
+\begin_inset Formula 
+\[
+f'(x)=\frac{1}{e^{\log x}}=\frac{1}{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Sea 
+\begin_inset Formula $f:I\subseteq(-1,1)\rightarrow(-\frac{\pi}{2},\frac{\pi}{2})$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f(x)=\arcsin x$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f'(x)=\frac{1}{\sqrt{1-x^{2}}}$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $g:I\subseteq(-1,1)\rightarrow(0,\pi)$
+\end_inset
+
+ dada por 
+\begin_inset Formula $g(x)=\arccos x$
+\end_inset
+
+, 
+\begin_inset Formula $g'(x)=\frac{-1}{\sqrt{1-x^{2}}}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Al ser 
+\begin_inset Formula $f$
+\end_inset
+
+ la inversa del seno y 
+\begin_inset Formula $\sin'(x)=\cos x$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+f'(x)=\frac{1}{\cos(\arcsin x)}=\frac{1}{\sqrt{1-\sin^{2}(\arcsin x)}}=\frac{1}{\sqrt{1-x^{2}}}
+\]
+
+\end_inset
+
+La derivada del arcocoseno se hace de forma análoga.
+\end_layout
+
+\begin_layout Enumerate
+Sea 
+\begin_inset Formula $f:I\rightarrow(-\frac{\pi}{2},\frac{\pi}{2})$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f(x)=\arctan x$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f'(x)=\frac{1}{1+x^{2}}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Esta función es la inversa de la tangente, y como 
+\begin_inset Formula $\tan'(x)=1+\tan^{2}x$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+f'(x)=\frac{1}{1+\tan^{2}(\arctan x)}=\frac{1}{1+x^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Dado 
+\begin_inset Formula $\alpha\in\mathbb{R}$
+\end_inset
+
+, la derivada de 
+\begin_inset Formula $f(x)=x^{\alpha}$
+\end_inset
+
+ es 
+\begin_inset Formula $f'(x)=\alpha x^{\alpha-1}$
+\end_inset
+
+.
+ Para demostrarlo usamos 
+\series bold
+derivación logarítmica
+\series default
+: Tomamos logaritmos en la definición de 
+\begin_inset Formula $f$
+\end_inset
+
+ y derivamos la expresión resultante.
+\begin_inset Formula 
+\[
+\log(f(x))=\log(x^{\alpha})=\alpha\log x\implies\log(f(x))'=\frac{f'(x)}{f(x)}=\frac{\alpha}{x}\implies f'(x)=f(x)\frac{\alpha}{x}=\alpha x^{\alpha-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Derivabilidad en un intervalo
+\end_layout
+
+\begin_layout Standard
+Una función 
+\begin_inset Formula $f:I\rightarrow\mathbb{R}$
+\end_inset
+
+ definida en un intervalo 
+\begin_inset Formula $I$
+\end_inset
+
+ es 
+\series bold
+creciente
+\series default
+, 
+\series bold
+estrictamente creciente
+\series default
+, 
+\series bold
+decreciente
+\series default
+ o 
+\series bold
+estrictamente decreciente
+\series default
+ en 
+\begin_inset Formula $I$
+\end_inset
+
+ si para cualesquiera 
+\begin_inset Formula $x,y\in I$
+\end_inset
+
+ con 
+\begin_inset Formula $x<y$
+\end_inset
+
+ se tiene, respectivamente, que 
+\begin_inset Formula $f(x)\leq f(y)$
+\end_inset
+
+, 
+\begin_inset Formula $f(x)<f(y)$
+\end_inset
+
+, 
+\begin_inset Formula $f(x)\geq f(y)$
+\end_inset
+
+ o 
+\begin_inset Formula $f(x)>f(y)$
+\end_inset
+
+.
+ Es creciente, estrictamente creciente, decreciente o estrictamente decreciente
+ en un punto 
+\begin_inset Formula $c\in I$
+\end_inset
+
+ si existe un entorno perforado 
+\begin_inset Formula $V$
+\end_inset
+
+ de 
+\begin_inset Formula $c$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $x\in I\cap V$
+\end_inset
+
+, si 
+\begin_inset Formula $m:=\frac{f(x)-f(c)}{x-c}$
+\end_inset
+
+ es, respectivamente, 
+\begin_inset Formula $m\geq0$
+\end_inset
+
+, 
+\begin_inset Formula $m>0$
+\end_inset
+
+, 
+\begin_inset Formula $m\leq0$
+\end_inset
+
+ o 
+\begin_inset Formula $m<0$
+\end_inset
+
+.
+ Se tiene que 
+\begin_inset Formula $f$
+\end_inset
+
+ es creciente o decreciente en 
+\begin_inset Formula $I$
+\end_inset
+
+ si y sólo si lo es en cada punto de 
+\begin_inset Formula $I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Trivial.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $f$
+\end_inset
+
+ creciente en cada 
+\begin_inset Formula $x\in I$
+\end_inset
+
+, es menester demostrar que, dados 
+\begin_inset Formula $x<y$
+\end_inset
+
+, se tiene que 
+\begin_inset Formula $f(x)\leq f(y)$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $A:=\{z\in(x,y]:f(x)\leq f(z)\}$
+\end_inset
+
+, como 
+\begin_inset Formula $A\neq\emptyset$
+\end_inset
+
+ porque 
+\begin_inset Formula $f$
+\end_inset
+
+ es creciente en 
+\begin_inset Formula $x$
+\end_inset
+
+ y 
+\begin_inset Formula $A$
+\end_inset
+
+ es acotado superiormente, podemos definir 
+\begin_inset Formula $\alpha:=\sup A$
+\end_inset
+
+, y basta probar que 
+\begin_inset Formula $\alpha=y$
+\end_inset
+
+ y 
+\begin_inset Formula $f(x)\leq f(\alpha)$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $f$
+\end_inset
+
+ es creciente en 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ con 
+\begin_inset Formula $f(z)\leq f(\alpha)$
+\end_inset
+
+ si 
+\begin_inset Formula $z\in(\alpha-\delta,\alpha)$
+\end_inset
+
+.
+ Pero por definición de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ para alguno de esos valores es 
+\begin_inset Formula $f(x)\leq f(z)$
+\end_inset
+
+, luego 
+\begin_inset Formula $f(x)\leq f(\alpha)$
+\end_inset
+
+.
+ Si fuera 
+\begin_inset Formula $\alpha<y$
+\end_inset
+
+ existiría 
+\begin_inset Formula $z\in(\alpha,y]$
+\end_inset
+
+ con 
+\begin_inset Formula $f(\alpha)\leq f(z)$
+\end_inset
+
+ por el crecimiento de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, pero entonces se tendría que 
+\begin_inset Formula $f(x)\leq f(\alpha)\leq f(z)$
+\end_inset
+
+, contradiciendo la definición de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f$
+\end_inset
+
+ tiene un 
+\series bold
+máximo relativo
+\series default
+ o 
+\series bold
+local
+\series default
+ en 
+\begin_inset Formula $c\in I$
+\end_inset
+
+ si existe un entorno 
+\begin_inset Formula $V$
+\end_inset
+
+ de 
+\begin_inset Formula $c$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f(x)\leq f(c)\forall x\in I\cap V$
+\end_inset
+
+, tiene un 
+\series bold
+mínimo relativo
+\series default
+ o 
+\series bold
+local
+\series default
+ en 
+\begin_inset Formula $c\in I$
+\end_inset
+
+ si existe un entorno 
+\begin_inset Formula $V$
+\end_inset
+
+ de 
+\begin_inset Formula $c$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f(x)\geq f(c)\forall x\in I\cap V$
+\end_inset
+
+, y tiene un 
+\series bold
+extremo relativo
+\series default
+ o 
+\series bold
+local
+\series default
+ en 
+\begin_inset Formula $c$
+\end_inset
+
+ si tiene un máximo o mínimo relativo en 
+\begin_inset Formula $c$
+\end_inset
+
+.
+ Propiedades:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f'(c)>0$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es estrictamente creciente en 
+\begin_inset Formula $c$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+f'(c)=\lim_{x\rightarrow c}\frac{f(x)-f(c)}{x-c}>0
+\]
+
+\end_inset
+
+por lo que existe un entorno reducido 
+\begin_inset Formula $V$
+\end_inset
+
+ de 
+\begin_inset Formula $c$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall x\in I\cap V,\frac{f(x)-f(c)}{x-c}>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f'(c)<0$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es estrictamente decreciente en 
+\begin_inset Formula $c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $c$
+\end_inset
+
+ es un punto interior del intervalo 
+\begin_inset Formula $I$
+\end_inset
+
+ (no es un extremo) y 
+\begin_inset Formula $f$
+\end_inset
+
+ es derivable y tiene un extremo relativo en 
+\begin_inset Formula $c$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f'(c)=0$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Supongamos que el extremo es un máximo.
+ Existe un entorno 
+\begin_inset Formula $V$
+\end_inset
+
+ de 
+\begin_inset Formula $c$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall x\in I\cap V,f(x)\leq f(c)$
+\end_inset
+
+, luego para 
+\begin_inset Formula $x\in I\cap V$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\left\{ \begin{array}{ccccc}
+x<c & \implies & \frac{f(x)-f(c)}{x-c}\geq0 & \implies & f'(c^{-})=\lim_{x\rightarrow c^{-}}\frac{f(x)-f(c)}{x-c}\geq0\\
+x>c & \implies & \frac{f(x)-f(c)}{x-c}\leq0 & \implies & f(c^{+})=\lim_{x\rightarrow c^{+}}\frac{f(x)-f(c)}{x-c}\leq0
+\end{array}\right.
+\]
+
+\end_inset
+
+Pero como 
+\begin_inset Formula $f$
+\end_inset
+
+ es derivable en 
+\begin_inset Formula $c$
+\end_inset
+
+, 
+\begin_inset Formula $0\leq f'(c^{-})=f'(c)=f'(c^{+})\leq0$
+\end_inset
+
+, luego 
+\begin_inset Formula $f'(c)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f:(a,b)\rightarrow\mathbb{R}$
+\end_inset
+
+ derivable, 
+\begin_inset Formula $c\in(a,b)$
+\end_inset
+
+ es un 
+\series bold
+punto crítico
+\series default
+ o 
+\series bold
+estacionario
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ si 
+\begin_inset Formula $f'(c)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Teoremas del valor medio
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Rolle:
+\series default
+ Sea 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ continua en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y derivable en 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+ con 
+\begin_inset Formula $f(a)=f(b)$
+\end_inset
+
+ entonces existe 
+\begin_inset Formula $c\in(a,b)$
+\end_inset
+
+ con 
+\begin_inset Formula $f'(c)=0$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es constante, tomamos 
+\begin_inset Formula $c:=\frac{a+b}{2}$
+\end_inset
+
+.
+ Si no, supongamos por ejemplo que existe 
+\begin_inset Formula $x_{0}\in[a,b]$
+\end_inset
+
+ con 
+\begin_inset Formula $f(x_{0})>f(a)=f(b)$
+\end_inset
+
+.
+ Por el teorema de Weierstrass, 
+\begin_inset Formula $f$
+\end_inset
+
+ alcanza su máximo absoluto en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+, y por lo anterior debe alcanzarse en un punto interior 
+\begin_inset Formula $c\in(a,b)$
+\end_inset
+
+.
+ Pero por ser máximo absoluto es también máximo relativo y por tanto 
+\begin_inset Formula $f'(c)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema del valor medio de Cauchy:
+\series default
+ Sean 
+\begin_inset Formula $f,g:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ continuas en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y derivables en 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+, entonces existe 
+\begin_inset Formula $c\in(a,b)$
+\end_inset
+
+ con 
+\begin_inset Formula $(f(b)-f(a))g'(c)=(g(b)-g(a))f'(c)$
+\end_inset
+
+ (si 
+\begin_inset Formula $g(b)\neq g(a)$
+\end_inset
+
+ y 
+\begin_inset Formula $g'(c)\neq0$
+\end_inset
+
+ podemos expresar esto como 
+\begin_inset Formula $\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(c)}{g'(c)}$
+\end_inset
+
+).
+ 
+\series bold
+Demostración:
+\series default
+ Aplicamos el teorema de Rolle a 
+\begin_inset Formula $h(x):=f(x)(g(b)-g(a))-g(x)(f(b)-f(a))$
+\end_inset
+
+, pues 
+\begin_inset Formula $h(a)=h(b)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema del valor medio de Lagrange:
+\series default
+ Sea 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ continua en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y derivable en 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+, existe 
+\begin_inset Formula $\theta\in(a,b)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f'(\theta)(b-a)=f(b)-f(a)$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Es un caso particular del teorema del valor medio de Cauchy tomando 
+\begin_inset Formula $g(x):=x$
+\end_inset
+
+.
+ El teorema de Rolle es un caso particular de este, por lo que estos tres
+ teoremas son equivalentes.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de los incrementos finitos:
+\series default
+ Sea 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ continua en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y derivable en 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+, si 
+\begin_inset Formula $|f'(x)|\leq M\forall x\in(a,b)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $|f(x)-f(y)|\leq M|x-y|$
+\end_inset
+
+ para cualesquiera 
+\begin_inset Formula $x,y\in[a,b]$
+\end_inset
+
+.
+ A efectos prácticos, esto significa que si 
+\begin_inset Formula $f'$
+\end_inset
+
+ es acotada entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es uniformemente continua.
+ 
+\series bold
+Demostración:
+\series default
+ Basta aplicar el teorema del valor medio de Lagrange a 
+\begin_inset Formula $f|_{[x,y]}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ continuas en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y derivable en 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+ se cumplen las siguientes propiedades:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall x\in(a,b),f'(x)=0\implies\exists k\in\mathbb{R}:\forall x\in(a,b),f(x)=k$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Aplicando el teorema de Lagrange en 
+\begin_inset Formula $[a,x]$
+\end_inset
+
+, existe 
+\begin_inset Formula $c\in(a,x)$
+\end_inset
+
+ con 
+\begin_inset Formula $\frac{f(x)-f(a)}{x-a}=f'(c)=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $f(x)=f(a)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall x\in(a,b),f'(x)=g'(x)\implies\exists k\in\mathbb{R}:\forall x\in(a,b),f(x)=g(x)+k$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Sea 
+\begin_inset Formula $h(x):=f(x)-g(x)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $h'(x)=f'(x)-g'(x)=0$
+\end_inset
+
+ para 
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+, luego 
+\begin_inset Formula $h(x)$
+\end_inset
+
+ es constante.
+\end_layout
+
+\begin_layout Enumerate
+Si para todo 
+\begin_inset Formula $x\in(a,b)$
+\end_inset
+
+ se tiene que 
+\begin_inset Formula $f'(x)\geq0$
+\end_inset
+
+, 
+\begin_inset Formula $f'(x)>0$
+\end_inset
+
+, 
+\begin_inset Formula $f'(x)\leq0$
+\end_inset
+
+ o 
+\begin_inset Formula $f'(x)<0$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es, respectivamente, creciente, estrictamente creciente, decreciente o
+ estrictamente decreciente.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f:(a,b)\rightarrow\mathbb{R}$
+\end_inset
+
+ derivable y 
+\begin_inset Formula $c\in(a,b)$
+\end_inset
+
+ con 
+\begin_inset Formula $f'(c)=0$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\exists\delta>0:(\forall x\in(c-\delta,c)\subseteq(a,b),f'(x)\leq0\land\forall x\in(c,c+\delta)\subseteq(a,b),f'(x)\geq0)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ posee un mínimo relativo en 
+\begin_inset Formula $c$
+\end_inset
+
+.
+ Análogamente, si 
+\begin_inset Formula $\exists\delta>0:(\forall x\in(c-\delta,c)\subseteq(a,b),f'(x)\geq0\land\forall x\in(c,c+\delta)\subseteq(a,b),f'(x)\leq0)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ posee un máximo relativo en 
+\begin_inset Formula $c$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Para el primer caso, si 
+\begin_inset Formula $y\in(c-\delta,c)$
+\end_inset
+
+, existe 
+\begin_inset Formula $\eta\in(y,c)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f(c)-f(y)=f'(\eta)(c-y)\leq0$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $f(c)\leq f(y)$
+\end_inset
+
+, mientras que si 
+\begin_inset Formula $y\in(c,c+\delta)$
+\end_inset
+
+, existe 
+\begin_inset Formula $\beta\in(c,y)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f(y)-f(c)=f'(\beta)(y-c)\geq0$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $f(c)\leq f(y)$
+\end_inset
+
+; luego si 
+\begin_inset Formula $y\in(c-\delta,c+\delta)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f(y)\geq f(c)$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene un mínimo relativo en 
+\begin_inset Formula $c$
+\end_inset
+
+.
+ El segundo caso se prueba de forma análoga.
+\end_layout
+
+\begin_layout Standard
+Con esto podemos probar la 
+\series bold
+desigualdad de Bernouilli
+\series default
+ de forma más general: dados 
+\begin_inset Formula $x>0$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha>1$
+\end_inset
+
+, 
+\begin_inset Formula $(1+x)^{\alpha}>1+\alpha x$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $f:(0,+\infty)\rightarrow\mathbb{R}$
+\end_inset
+
+ definida por 
+\begin_inset Formula $f(x)=(1+x)^{\alpha}-1-\alpha x$
+\end_inset
+
+ para un cierto 
+\begin_inset Formula $\alpha>1$
+\end_inset
+
+, como 
+\begin_inset Formula $f(0)=0$
+\end_inset
+
+, basta probar que 
+\begin_inset Formula $f$
+\end_inset
+
+ es estrictamente creciente si 
+\begin_inset Formula $\alpha>1$
+\end_inset
+
+, pero 
+\begin_inset Formula $f'(x)=\alpha((1+x)^{\alpha-1}-1)>0$
+\end_inset
+
+, probando la desigualdad.
+\end_layout
+
+\begin_layout Subsection
+Teorema de la función inversa
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+propiedad de los valores intermedios
+\series default
+ afirma que, sea 
+\begin_inset Formula $f:(a,b)\rightarrow\mathbb{R}$
+\end_inset
+
+ derivable y 
+\begin_inset Formula $x,y\in(a,b)$
+\end_inset
+
+ con 
+\begin_inset Formula $x<y$
+\end_inset
+
+ y 
+\begin_inset Formula $f'(x)<\eta<f'(y)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\exists z\in(x,y):f'(z)=\eta$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $g:[x,y]\rightarrow\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $g(t)=f(t)-\eta t$
+\end_inset
+
+ continua y derivable, que por el teorema de Weierstrass (que usamos en
+ lugar del de Bolzano porque 
+\begin_inset Formula $g'$
+\end_inset
+
+ no tiene por qué ser continua), tiene un mínimo absoluto en un 
+\begin_inset Formula $z\in[x,y]$
+\end_inset
+
+.
+ Pero como 
+\begin_inset Formula $g'(x)<0$
+\end_inset
+
+ y 
+\begin_inset Formula $g'(y)>0$
+\end_inset
+
+, 
+\begin_inset Formula $z$
+\end_inset
+
+ no puede ser 
+\begin_inset Formula $x$
+\end_inset
+
+ ni 
+\begin_inset Formula $y$
+\end_inset
+
+, luego 
+\begin_inset Formula $z\in(x,y)$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $g'(z)=0$
+\end_inset
+
+, o dicho de otra forma, 
+\begin_inset Formula $f'(z)=\eta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+De aquí deducimos el 
+\series bold
+teorema de la función inversa:
+\series default
+ Sea 
+\begin_inset Formula $f:I\rightarrow\mathbb{R}$
+\end_inset
+
+ continua en el intervalo 
+\begin_inset Formula $I$
+\end_inset
+
+ y derivable en su interior con derivada no nula, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es una biyección de 
+\begin_inset Formula $I$
+\end_inset
+
+ sobre un intervalo 
+\begin_inset Formula $J$
+\end_inset
+
+ y 
+\begin_inset Formula $f^{-1}:J\rightarrow\mathbb{R}$
+\end_inset
+
+ es continua y derivable en el interior de 
+\begin_inset Formula $J$
+\end_inset
+
+ con
+\begin_inset Formula 
+\[
+(f^{-1})'(y)=\frac{1}{f'(f^{-1}(y))}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Por la propiedad anterior, bien 
+\begin_inset Formula $f'(x)>0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x$
+\end_inset
+
+ o 
+\begin_inset Formula $f'(x)<0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $f$
+\end_inset
+
+ es estrictamente monótona, de modo que es biyectiva de 
+\begin_inset Formula $I$
+\end_inset
+
+ sobre un intervalo 
+\begin_inset Formula $J$
+\end_inset
+
+ siendo 
+\begin_inset Formula $f^{-1}$
+\end_inset
+
+ estrictamente monótona y continua.
+ Sean entonces 
+\begin_inset Formula $y,y_{0}\in J,x=f^{-1}(y),x_{0}=f^{-1}(y_{0})$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\lim_{y\rightarrow y_{0}}\frac{f^{-1}(y)-f^{-1}(y_{0})}{y-y_{0}}=\lim_{y\rightarrow y_{0}}\frac{1}{\frac{y-y_{0}}{f^{-1}(y)-f^{-1}(y_{0})}}=\lim_{x\rightarrow x_{0}}\frac{1}{\frac{f(x)-f(x_{0})}{x-x_{0}}}=\frac{1}{f'(f^{-1}(y_{0}))}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Regla de L'Hospital
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ derivables en 
+\begin_inset Formula $I=(a,b)$
+\end_inset
+
+ con 
+\begin_inset Formula $-\infty\leq a<b\leq+\infty$
+\end_inset
+
+, si 
+\begin_inset Formula $g$
+\end_inset
+
+ y 
+\begin_inset Formula $g'$
+\end_inset
+
+ no tienen ceros en 
+\begin_inset Formula $I$
+\end_inset
+
+ y se cumple que o bien 
+\begin_inset Formula $\lim_{x\rightarrow b^{-}}f(x)=\lim_{x\rightarrow b^{-}}g(x)=0$
+\end_inset
+
+ o 
+\begin_inset Formula $\lim_{x\rightarrow b^{-}}g(x)=\pm\infty$
+\end_inset
+
+, entonces, si existe 
+\begin_inset Formula $L:=\lim_{x\rightarrow b^{-}}\frac{f'(x)}{g'(x)}\in\overline{\mathbb{R}}$
+\end_inset
+
+, es también 
+\begin_inset Formula $L=\lim_{x\rightarrow b^{-}}\frac{f(x)}{g(x)}$
+\end_inset
+
+.
+ Por supuesto, esto también se cumple para límites por la derecha y por
+ tanto también para límites ordinarios.
+\end_layout
+
+\begin_layout Section
+Desarrollos de Taylor
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es derivable en el intervalo abierto 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $f'$
+\end_inset
+
+ también lo es, se dice que 
+\begin_inset Formula $f$
+\end_inset
+
+ es dos veces derivable en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ y la derivada de 
+\begin_inset Formula $f'$
+\end_inset
+
+ se denota por 
+\begin_inset Formula $f^{(2)}:=f''$
+\end_inset
+
+, y por inducción, si 
+\begin_inset Formula $f$
+\end_inset
+
+ es 
+\begin_inset Formula $n-1$
+\end_inset
+
+ veces derivable y 
+\begin_inset Formula $f^{(n-1)}$
+\end_inset
+
+ es derivable, se dice que 
+\begin_inset Formula $f$
+\end_inset
+
+ es 
+\begin_inset Formula $n$
+\end_inset
+
+ veces derivable y llamamos 
+\begin_inset Formula $f^{(n)}:=(f^{(n-1)})'$
+\end_inset
+
+.
+ 
+\begin_inset Formula $f$
+\end_inset
+
+ es de clase 
+\begin_inset Formula ${\cal C}^{n}$
+\end_inset
+
+ en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ si existe 
+\begin_inset Formula $f^{(n)}$
+\end_inset
+
+ y es continua, y es de clase 
+\begin_inset Formula ${\cal C}^{\infty}$
+\end_inset
+
+ en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ si es de clase 
+\begin_inset Formula ${\cal C}^{n}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Por ejemplo, los polinomios son funciones de clase 
+\begin_inset Formula ${\cal C}^{\infty}$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+, de modo que conociendo el valor de 
+\begin_inset Formula $P$
+\end_inset
+
+ y sus derivadas en un cierto punto es posible reconstruir el polinomio.
+ 
+\series bold
+Demostración:
+\series default
+ Dividiendo 
+\begin_inset Formula $P(x)=a_{n}x^{n}+\dots+a_{0}$
+\end_inset
+
+ por 
+\begin_inset Formula $(x-x_{0})^{n}$
+\end_inset
+
+, se tiene que 
+\begin_inset Formula $P(x)=b_{n}(x-x_{0})^{n}+Q_{n-1}(x)$
+\end_inset
+
+, donde 
+\begin_inset Formula $Q_{n-1}(x)$
+\end_inset
+
+ es de grado 
+\begin_inset Formula $n-1$
+\end_inset
+
+.
+ Por inducción se obtiene 
+\begin_inset Formula $P(x)=b_{n}(x-x_{0})^{n}+\dots+b_{0}$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $b_{0}=P(x_{0})$
+\end_inset
+
+, y derivando sucesivamente:
+\begin_inset Formula 
+\[
+\begin{array}{ccccc}
+P(x)=b_{n}(x-x_{0})^{n}+\dots+b_{0} &  & P(x_{0})=b_{0}\\
+P'(x)=nb_{n}(x-x_{0})^{n-1}+\dots+b_{1} &  & P'(x_{0})=b_{1} &  & b_{1}=\frac{P'(x_{0})}{1!}\\
+P''(x)=n(n-1)(x-x_{0})^{n-2}+\dots+2b_{2} &  & P''(x_{0})=2b_{2} &  & b_{2}=\frac{P''(x_{0})}{2!}\\
+P'''(x)=n(n-1)(n-2)(x-x_{0})^{n-3}+\dots+6b_{3} &  & P'''(x_{0})=6b_{3} &  & b_{3}=\frac{P'''(x_{0})}{3!}\\
+\vdots &  & \vdots &  & \vdots\\
+P^{(n)}(x)=n!b_{n} &  & P^{(n)}(x_{0})=n!b_{n} &  & b_{n}=\frac{P^{(n)}(x_{0})}{n!}
+\end{array}
+\]
+
+\end_inset
+
+Con lo que 
+\begin_inset Formula $P(x)=P(x_{0})+\frac{P'(x_{0})}{1!}(x-x_{0})+\dots+\frac{P^{(n)}(x_{0})}{n!}(x-x_{0})^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+polinomio de Taylor
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ de grado 
+\begin_inset Formula $n$
+\end_inset
+
+ en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ a la siguiente expresión:
+\begin_inset Formula 
+\[
+P_{n}(f,x;x_{0})=f(x_{0})+\frac{f'(x_{0})}{1!}(x-x_{0})+\dots+\frac{f^{(n)}(x_{0})}{n!}(x-x_{0})^{n}
+\]
+
+\end_inset
+
+El 
+\series bold
+resto del polinomio
+\series default
+ es la diferencia entre la función y su polinomio de Taylor: 
+\begin_inset Formula $R_{n}(x;x_{0}):=f(x)-P_{n}(f,x;x_{0})$
+\end_inset
+
+.
+ Una función 
+\begin_inset Formula $g:(x_{0}-\delta,x_{0}+\delta)\backslash\{0\}\rightarrow\mathbb{R}$
+\end_inset
+
+ definida en un entorno reducido de 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ es una 
+\series bold
+
+\begin_inset Quotes cld
+\end_inset
+
+o
+\begin_inset Quotes crd
+\end_inset
+
+ pequeña
+\series default
+ de 
+\begin_inset Formula $|x-x_{0}|^{n}$
+\end_inset
+
+, escrito 
+\begin_inset Formula $g(x)=o(|x-x_{0}|^{n})$
+\end_inset
+
+ o informalmente 
+\begin_inset Formula $o(x-x_{0})^{n}$
+\end_inset
+
+, si 
+\begin_inset Formula $\lim_{x\rightarrow x_{0}}\frac{|g(x)|}{|x-x_{0}|^{n}}=0$
+\end_inset
+
+.
+ Así, si 
+\begin_inset Formula $g(x)=o(|x-x_{0}|^{n})$
+\end_inset
+
+ entonces 
+\begin_inset Formula $g(x)=o(|x-x_{0}|^{k})$
+\end_inset
+
+ para 
+\begin_inset Formula $1\leq k\leq n$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $\lim_{x\rightarrow x_{0}}\frac{|g(x)|}{|x-x_{0}|^{k}}=\lim_{x\rightarrow x_{0}}\frac{|g(x)|}{|x-x_{0}|^{n}}|x-x_{0}|^{n-k}=0\cdot0=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Resto de Landau y desarrollos limitados
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f:(a,b)\rightarrow\mathbb{R}$
+\end_inset
+
+ es 
+\begin_inset Formula $n-1$
+\end_inset
+
+ veces derivable en 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+ y existe la derivada 
+\begin_inset Formula $n$
+\end_inset
+
+-ésima en 
+\begin_inset Formula $x_{0}\in(a,b)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f(x)=P_{n}(f,x;x_{0})+o(|x-x_{0}|^{n})$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Aplicando la regla de L'Hospital 
+\begin_inset Formula $n-1$
+\end_inset
+
+ veces y la definición de derivada 
+\begin_inset Formula $n$
+\end_inset
+
+-ésima de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\lim_{x\rightarrow x_{0}}\frac{f(x)-P_{n}(x)}{(x-x_{0})^{n}}=\dots=\lim_{x\rightarrow x_{0}}\frac{f^{(n-1)}(x)-P_{n}^{(n-1)}(x)}{n(n-1)\cdots2(x-x_{0})}
+\]
+
+\end_inset
+
+pero, al derivar 
+\begin_inset Formula $n-1$
+\end_inset
+
+ veces 
+\begin_inset Formula $P_{n}(x)$
+\end_inset
+
+, desaparecen todos los términos salvo los de grado 
+\begin_inset Formula $n$
+\end_inset
+
+ y 
+\begin_inset Formula $n-1$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $P_{n}^{(n-1)}(x)=(n-1)!\frac{f^{(n-1)}(x_{0})}{(n-1)!}+n!\frac{f^{(n)}(x_{0})}{n!}(x-x_{0})=f^{(n-1)}(x_{0})+f^{(n)}(x_{0})(x-x_{0})$
+\end_inset
+
+.
+ Por tanto
+\begin_inset Formula 
+\begin{eqnarray*}
+\lim_{x\rightarrow x_{0}}\frac{f(x)-P_{n}(x)}{(x-x_{0})^{n}} & = & \lim_{x\rightarrow x_{0}}\frac{f^{(n-1)}(x)-f^{(n-1)}(x_{0})-f^{(n)}(x_{0})(x-x_{0})}{n!(x-x_{0})}\\
+ & = & \frac{1}{n!}\left(\lim_{x\rightarrow x_{0}}\frac{f^{(n-1)}(x)-f^{(n-1)}(x_{0})}{(x-x_{0})}-f^{(n)}(x_{0})\right)\\
+ & = & 0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A una expresión como la de arriba la llamamos 
+\series bold
+desarrollo limitado
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ de grado 
+\begin_inset Formula $n$
+\end_inset
+
+ en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+, y cuando existe es única.
+ 
+\series bold
+Demostración:
+\series default
+ Supongamos que una expresión admite dos desarrollos limitados de orden
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+: 
+\begin_inset Formula $f(x)=a_{0}+a_{1}(x-x_{0})+\dots+a_{n}(x-x_{0})^{n}+o(|x-x_{0}|^{n})=b_{0}+b_{1}(x-x_{0})+\dots+b_{n}(x-x_{0})^{n}+o(|x-x_{0}|^{n})$
+\end_inset
+
+.
+ Igualando, 
+\begin_inset Formula $(b_{0}-a_{0})+(b_{1}-a_{1})(x-x_{0})+\dots+(b_{n}-a_{n})(x-x_{0})^{n}=o(|x-x_{0}|^{n})$
+\end_inset
+
+.
+ Tomando límites cuando 
+\begin_inset Formula $x$
+\end_inset
+
+ tiende a 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $a_{0}=b_{0}$
+\end_inset
+
+.
+ Eliminando este sumando, dividiendo por 
+\begin_inset Formula $(x-x_{0})$
+\end_inset
+
+ y tomando límites de nuevo, queda 
+\begin_inset Formula $a_{1}=b_{1}$
+\end_inset
+
+, y así sucesivamente.
+\end_layout
+
+\begin_layout Standard
+Para calcular desarrollos limitados, muy útiles en el cálculo de límites
+ de cocientes sustituyendo a la regla de L'Hospital, sean 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ funciones de clase 
+\begin_inset Formula ${\cal C}^{n}$
+\end_inset
+
+ definidas en entornos de 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ e 
+\begin_inset Formula $y_{0}$
+\end_inset
+
+, respectivamente, y derivables 
+\begin_inset Formula $n$
+\end_inset
+
+ veces en dichos puntos:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $x_{0}=y_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $(f+g)(x)=P_{n}(f,x;x_{0})+P_{n}(g,x;x_{0})+o(|x-x_{0}|^{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $x_{0}=y_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $(fg)(x)=P_{n}(f,x;x_{0})P_{n}(g,x;x_{0})+o(|x-x_{0}|^{n})$
+\end_inset
+
+.
+ Aquí hay que agrupar los términos convenientemente teniendo en cuenta que
+ los términos de grado mayor a 
+\begin_inset Formula $n$
+\end_inset
+
+ son 
+\begin_inset Formula $o(|x-x_{0}|^{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $x_{0}=y_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\left(\frac{f}{g}\right)(x)=\frac{P_{n}(f,x;x_{0})}{P_{n}(g,x;x_{0})}+o(|x-x_{0}|^{n})$
+\end_inset
+
+.
+ Aquí hay que considerar la 
+\emph on
+fracción continua
+\emph default
+ de polinomios, que es igual que la división normal de polinomios pero tomando
+ los términos de menor grado del divisor y el dividendo en vez de los de
+ mayor grado, y terminando cuando el grado del término resultante del cociente
+ sea mayor que 
+\begin_inset Formula $n$
+\end_inset
+
+, pues a partir de ahí el resto de términos son 
+\begin_inset Formula $o(|x-x_{0}|^{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f(x)=P_{n}(f,x;x_{0})+o(|x-x_{0}|^{n})$
+\end_inset
+
+, el desarrollo limitado de orden 
+\begin_inset Formula $n-1$
+\end_inset
+
+ de 
+\begin_inset Formula $f'$
+\end_inset
+
+ es 
+\begin_inset Formula $f'(x)=(P_{n}(f,x;x_{0}))'+o(|x-x_{0}|^{n-1})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f(x_{0})=y_{0}$
+\end_inset
+
+ y la función 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ está definida en un entorno de 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ en el que admite un desarrollo limitado en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+, este se obtiene sustituyendo el desarrollo de 
+\begin_inset Formula $f$
+\end_inset
+
+ en el de 
+\begin_inset Formula $g$
+\end_inset
+
+ y agrupando los términos convenientemente tanto en la parte polinómica
+ de grado menor o igual a 
+\begin_inset Formula $n$
+\end_inset
+
+ como en la del resto de Landau.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f:(a,b)\rightarrow\mathbb{R}$
+\end_inset
+
+ es 
+\begin_inset Formula $n$
+\end_inset
+
+ veces derivable en 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+, siendo 
+\begin_inset Formula $f'(x_{0})=\dots=f^{(n-1)}(x_{0})=0$
+\end_inset
+
+ y 
+\begin_inset Formula $f^{(n)}(x_{0})\neq0$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $n$
+\end_inset
+
+ es par, 
+\begin_inset Formula $f$
+\end_inset
+
+ presenta un máximo relativo en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ si 
+\begin_inset Formula $f^{(n)}(x_{0})<0$
+\end_inset
+
+ o un mínimo relativo si 
+\begin_inset Formula $f^{(n)}(x_{0})>0$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Como todas las derivadas en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ hasta 
+\begin_inset Formula $n-1$
+\end_inset
+
+ son 0,
+\begin_inset Formula 
+\[
+\begin{array}{c}
+f(x)=f(x_{0})+\frac{1}{n!}f^{(n)}(x_{0})(x-x_{0})^{n}+o((x-x_{0})^{n})\implies\\
+\implies\frac{f(x)-f(x_{0})}{(x-x_{0})^{n}}=\frac{1}{n!}f^{(n)}(x_{0})+\frac{o((x-x_{0})^{n})}{(x-x_{0})^{n}}
+\end{array}
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $f^{(n)}(x_{0})<0$
+\end_inset
+
+, existe un entorno de 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ en el que el segundo miembro de la igualdad es estrictamente negativo y
+ por tanto también el primero, pero como 
+\begin_inset Formula $n$
+\end_inset
+
+ es par, esto significa que 
+\begin_inset Formula $f(x)-f(x_{0})<0$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $f(x)<f(x_{0})$
+\end_inset
+
+ y hay un máximo relativo.
+ El caso en que 
+\begin_inset Formula $f^{(n)}(x_{0})>0$
+\end_inset
+
+ es análogo.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $n$
+\end_inset
+
+ es impar, 
+\begin_inset Formula $f$
+\end_inset
+
+ no tiene extremo relativo en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Llegamos a que existe un entorno de 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ en el que el primer miembro de la igualdad es estrictamente positivo o
+ estrictamente negativo, pero cualquiera de las situaciones significa que
+ la función es estrictamente creciente a ambos lados o estrictamente decreciente
+ a ambos lados.
+\end_layout
+
+\begin_layout Subsection
+Fórmula de Taylor con resto de Lagrange
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f:(a,b)\rightarrow\mathbb{R}$
+\end_inset
+
+ es 
+\begin_inset Formula $n$
+\end_inset
+
+ veces derivable en 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+ y sean 
+\begin_inset Formula $x_{0},x\in(a,b)$
+\end_inset
+
+, entonces existe 
+\begin_inset Formula $c$
+\end_inset
+
+ estrictamente entre 
+\begin_inset Formula $x$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ tal que 
+\begin_inset Formula 
+\[
+R_{n-1}(x;x_{0})=\frac{f^{(n)}(c)}{n!}(x-x_{0})^{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Aplicando el teorema del valor medio de Cauchy a 
+\begin_inset Formula 
+\[
+F(t):=f(x)-\left(f(t)+\frac{1}{1!}f'(t)(x-t)+\dots+\frac{1}{(n-1)!}f^{(n-1)}(t)(x-t)^{n-1}\right)
+\]
+
+\end_inset
+
+ y 
+\begin_inset Formula $G(t):=(x-t)^{n}$
+\end_inset
+
+ entre 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $x$
+\end_inset
+
+, existe 
+\begin_inset Formula $c$
+\end_inset
+
+ estrictamente entre 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $x$
+\end_inset
+
+ tal que 
+\begin_inset Formula $(F(x_{0})-F(x))G'(c)=(G(x_{0})-G(x))F'(c)$
+\end_inset
+
+, pero 
+\begin_inset Formula $F(x)=0$
+\end_inset
+
+, 
+\begin_inset Formula $F(x_{0})=R_{n-1}(x;x_{0})$
+\end_inset
+
+, 
+\begin_inset Formula $G(x)=0$
+\end_inset
+
+ y 
+\begin_inset Formula $G(x_{0})=(x-x_{0})^{n}$
+\end_inset
+
+, luego 
+\begin_inset Formula $R_{n-1}(x;x_{0})G'(c)=(x-x_{0})^{n}F'(c)$
+\end_inset
+
+.
+ Ahora calculamos las derivadas de 
+\begin_inset Formula $G$
+\end_inset
+
+ y 
+\begin_inset Formula $F$
+\end_inset
+
+.
+ Se tiene que 
+\begin_inset Formula $G'(t)=-n(x-t)^{n-1}$
+\end_inset
+
+, 
+\begin_inset Formula $G'(c)=-n(x-c)^{n-1}$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+\begin{array}{c}
+F'(t)=-\left(f'(t)+\frac{1}{1!}f''(t)(x-t)+\dots+\frac{1}{(n-1)!}f^{(n)}(t)(x-t)^{n-1}\right)+\\
++\left(\frac{1}{1!}f'(t)+\dots+\frac{n-1}{(n-1)!}f^{(n-1)}(t)(x-t)^{n-2}\right)=-\frac{1}{(n-1)!}f^{(n)}(t)(x-t)^{n-1}
+\end{array}
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $F'(c)=-\frac{f^{(n)}(c)}{(n-1)!}(x-c)^{n-1}$
+\end_inset
+
+, y sustituyendo, 
+\begin_inset Formula 
+\[
+R_{n-1}(x;x_{0})=\frac{F'(c)}{G'(c)}(x-x_{0})^{n}=\frac{-\frac{f^{(n)}(c)}{(n-1)!}(x-c)^{n-1}}{-n(x-c)^{n-1}}(x-x_{0})^{n}=\frac{f^{(n)}(c)}{n!}(x-x_{0})^{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta forma de expresar el resto se llama 
+\series bold
+forma de Lagrange
+\series default
+, y a veces se escribe 
+\begin_inset Formula $c=x_{0}+\theta(x-x_{0})$
+\end_inset
+
+ para 
+\begin_inset Formula $0<\theta<1$
+\end_inset
+
+, de modo que si 
+\begin_inset Formula $x_{0}=0$
+\end_inset
+
+ entonces 
+\begin_inset Formula $c=\theta x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Las funciones 
+\series bold
+analíticas
+\series default
+ son funciones de clase 
+\begin_inset Formula ${\cal C}^{\infty}$
+\end_inset
+
+ en las que 
+\begin_inset Formula $f$
+\end_inset
+
+ coincide con su polinomio de Taylor 
+\begin_inset Quotes cld
+\end_inset
+
+infinito
+\begin_inset Quotes crd
+\end_inset
+
+.
+ No todas las de clase 
+\begin_inset Formula ${\cal C}^{\infty}$
+\end_inset
+
+ cumplen esta propiedad, pues, por ejemplo, la función 
+\begin_inset Formula $g(x)=e^{-\frac{1}{x^{2}}}$
+\end_inset
+
+ si 
+\begin_inset Formula $x\neq0$
+\end_inset
+
+ y 
+\begin_inset Formula $g(0)=0$
+\end_inset
+
+ cumple que 
+\begin_inset Formula $g^{(n)}(0)=0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ y por tanto su 
+\series bold
+polinomio de Mac-Laurin
+\series default
+ (polinomio de Taylor en 
+\begin_inset Formula $x_{0}=0$
+\end_inset
+
+, 
+\begin_inset Formula $P_{n}(g,x;0)$
+\end_inset
+
+) es nulo.
+\end_layout
+
+\begin_layout Standard
+Desarrollos de Taylor importantes:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $e^{x}=1+x+\frac{x^{2}}{2!}+\frac{x^{3}}{3!}+\dots+\frac{x^{n-1}}{(n-1)!}+\frac{e^{\theta x}}{n!}=\left(\sum_{k=0}^{n-1}\frac{x^{k}}{k!}\right)+\frac{e^{\theta x}}{n!}x^{n}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Para cualquier 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $f^{(n)}(x)=e^{x}$
+\end_inset
+
+, luego 
+\begin_inset Formula $f^{(n)}(0)=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\sin x=x-\frac{x^{3}}{3!}+\frac{x^{5}}{5!}-\frac{x^{7}}{7!}+\dots+\frac{\sin(\theta x+n\pi/2)}{n!}x^{n}=\left(\sum_{k=0}^{\lfloor(n-2)/2\rfloor}\frac{(-1)^{k}x^{2k+1}}{(2k+1)!}\right)+\frac{\sin(\theta x+n\pi/2)}{n!}x^{n}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\begin{array}{rccclrcl}
+f(x) & = & \sin x &  &  & f(0) & = & 0\\
+f'(x) & = & \cos x & = & \sin(x+\pi/2) & f'(0) & = & 1\\
+f''(x) & = & -\sin x & = & \sin(x+\pi) & f''(0) & = & 0\\
+f'''(x) & = & -\cos x & = & \sin(x+3\pi/2) & f'''(0) & = & -1\\
+f^{(4)}(x) & = & \sin x & = & \sin(x+2\pi) & f^{(4)}(0) & = & 0\\
+\vdots\\
+f^{(n)}(x) &  &  & = & \sin(x+n\pi/2) & f^{(n)}(0) & = & \sin(n\pi/2)
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\cos x=1-\frac{x^{2}}{2!}+\frac{x^{4}}{4!}-\frac{x^{6}}{6!}+\dots+\frac{\cos(\theta x+n\pi/2)}{n!}x^{n}=\left(\sum_{k=0}^{\lfloor(n-1)/2\rfloor}\frac{(-1)^{k}x^{2k}}{(2k)!}\right)+\frac{\cos(\theta x+n\pi/2)}{n!}x^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\log(1+x)=x-\frac{x^{2}}{2}+\frac{x^{3}}{3}-\frac{x^{4}}{4}+\dots+\frac{(-1)^{n-1}}{n(1+\theta x)^{n}}x^{n}=\left(\sum_{k=1}^{n-1}\frac{(-1)^{k-1}x^{k}}{k}\right)+\frac{(-1)^{n-1}}{n(1+\theta x)^{n}}x^{n}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\begin{array}{rclrcl}
+f(x) & = & \log(1+x) & f(0) & = & 0\\
+f'(x) & = & (1+x)^{-1} & f'(0) & = & 1\\
+f''(x) & = & (-1)(1+x)^{-2} & f''(0) & = & -1=-1!\\
+f'''(x) & = & (-1)(-2)(1+x)^{-3} & f'''(0) & = & (-1)(-2)=2!\\
+\vdots\\
+f^{(n)}(x) & = & (-1)^{n-1}(n-1)!(1+x)^{-n} & f^{(n)} & = & (-1)^{n-1}(n-1)!
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(1+x)^{\alpha}=1+\binom{\alpha}{1}x+\binom{\alpha}{2}x^{2}+\binom{\alpha}{3}x^{3}+\dots+\binom{\alpha}{n-1}x^{n-1}+\binom{\alpha}{n}\frac{(1+\theta x)^{\alpha}}{(1+\theta x)^{n}}x^{n}=1+\left(\sum_{k=1}^{n-1}\binom{\alpha}{k}x^{k}\right)+\binom{\alpha}{n}\frac{(1+\theta x)^{\alpha}}{(1+\theta x)^{n}}x^{n}$
+\end_inset
+
+, donde 
+\begin_inset Formula $\binom{\alpha}{k}:=\frac{\alpha(\alpha-1)\cdots(\alpha-k+1)}{k!}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\begin{array}{rclrcl}
+f(x) & = & (1+x)^{\alpha} & f(0) & = & 1\\
+f'(x) & = & \alpha(1+x)^{\alpha-1} & f'(0) & = & \alpha\\
+f''(x) & = & \alpha(\alpha-1)(1+x)^{\alpha-2} & f''(0) & = & \alpha(\alpha-1)\\
+\vdots\\
+f^{(n)}(x) & = & \alpha\cdots(\alpha-n+1)(1+x)^{\alpha-n} & f^{(n)}(0) & = & \alpha\cdots(\alpha-n+1)
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Funciones convexas
+\end_layout
+
+\begin_layout Standard
+Una función 
+\begin_inset Formula $f:I\rightarrow\mathbb{R}$
+\end_inset
+
+ es 
+\series bold
+convexa
+\series default
+ en el intervalo 
+\begin_inset Formula $I$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall x,y\in I,t\in[0,1],f((1-t)x+ty)\leq(1-t)f(x)+tf(y)$
+\end_inset
+
+, y es 
+\series bold
+cóncava
+\series default
+ en 
+\begin_inset Formula $I$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall x,y\in I,t\in[0,1],f((1-t)x+ty)\geq(1-t)f(x)+tf(y)$
+\end_inset
+
+.
+ Geométricamente, 
+\begin_inset Formula $f$
+\end_inset
+
+ es convexa en 
+\begin_inset Formula $I$
+\end_inset
+
+ si para cualesquiera 
+\begin_inset Formula $x,y\in I$
+\end_inset
+
+, la secante que une los puntos 
+\begin_inset Formula $(x,f(x))$
+\end_inset
+
+ e 
+\begin_inset Formula $(y,f(y))$
+\end_inset
+
+ está por encima de la gráfica de la función en el intervalo 
+\begin_inset Formula $[x,y]$
+\end_inset
+
+, y cóncava si está por debajo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename pegado1.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Interpretación geométrica de la convexidad.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La pendiente de la recta secante que pasa por 
+\begin_inset Formula $(x,f(x))$
+\end_inset
+
+ e 
+\begin_inset Formula $(y,f(y))$
+\end_inset
+
+ se denota 
+\begin_inset Formula $p_{x}(y):=\frac{f(y)-f(x)}{y-x}$
+\end_inset
+
+.
+ Así, 
+\begin_inset Formula $f$
+\end_inset
+
+ es convexa en 
+\begin_inset Formula $I$
+\end_inset
+
+ si y sólo si para cualesquiera 
+\begin_inset Formula $a,x,b\in I$
+\end_inset
+
+ con 
+\begin_inset Formula $a<x<b$
+\end_inset
+
+ se verifica 
+\begin_inset Formula $p_{a}(x)\leq p_{b}(x)$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $x=a+t(b-a)=(1-t)a+tb$
+\end_inset
+
+ con 
+\begin_inset Formula $t\in(0,1)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $x-a=t(b-a)$
+\end_inset
+
+ y 
+\begin_inset Formula $x-b=(1-t)(a-b)$
+\end_inset
+
+, y se tiene que
+\begin_inset Formula 
+\begin{eqnarray*}
+p_{a}(x)\leq p_{b}(x) & \iff & \frac{f(x)-f(a)}{x-a}\leq\frac{f(x)-f(b)}{x-b}\\
+ & \iff & (f(x)-f(a))(x-b)\geq(f(x)-f(b))(x-a)\\
+ & \iff & f(x)(a-b)\geq f(a)(x-b)-f(b)(x-a)\\
+ & \iff & f(x)(a-b)\geq f(a)(1-t)(a-b)-f(b)t(b-a)\\
+ & \iff & f(x)\leq f(a)(1-t)+f(b)t
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f:I\rightarrow\mathbb{R}$
+\end_inset
+
+ es convexa en un intervalo 
+\begin_inset Formula $I$
+\end_inset
+
+, entonces:
+\end_layout
+
+\begin_layout Enumerate
+Para cada 
+\begin_inset Formula $a\in I$
+\end_inset
+
+, 
+\begin_inset Formula $p_{a}:I\rightarrow\mathbb{R}$
+\end_inset
+
+ es creciente.
+\begin_inset Newline newline
+\end_inset
+
+Sean 
+\begin_inset Formula $a<x<y\in I$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\begin{array}{c}
+p_{a}(x)\leq p_{a}(y)\iff\frac{f(x)-f(a)}{x-a}\leq\frac{f(y)-f(a)}{y-a}\iff\\
+\iff f(x)-f(a)\leq\frac{f(y)-f(a)}{y-a}(x-a)\iff f(x)\leq f(a)+\frac{f(y)-f(a)}{y-a}(x-a)
+\end{array}
+\]
+
+\end_inset
+
+lo cual es cierto por ser 
+\begin_inset Formula $f$
+\end_inset
+
+ convexa.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Lema de las tres pendientes:
+\series default
+ 
+\begin_inset Formula $\forall a,x,b\in I,(a<x<b\implies p_{a}(x)\leq p_{a}(b)\leq p_{b}(x)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Como 
+\begin_inset Formula $p_{a}$
+\end_inset
+
+ y 
+\begin_inset Formula $p_{b}$
+\end_inset
+
+ son crecientes, 
+\begin_inset Formula $p_{a}(x)\leq p_{a}(b)=p_{b}(a)\leq p_{b}(x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en los puntos del interior del intervalo.
+\begin_inset Newline newline
+\end_inset
+
+Sea 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ un punto interior de 
+\begin_inset Formula $I$
+\end_inset
+
+ y 
+\begin_inset Formula $x',x\in I$
+\end_inset
+
+ con 
+\begin_inset Formula $x'<x_{0}<x$
+\end_inset
+
+.
+ Por lo anterior, 
+\begin_inset Formula $p_{x_{0}}(x')=p_{x'}(x_{0})\leq p_{x}(x_{0})=p_{x_{0}}(x)$
+\end_inset
+
+, luego 
+\begin_inset Formula $p_{x_{0}}$
+\end_inset
+
+ es creciente y por tanto existe 
+\begin_inset Formula $\alpha:=\lim_{x\rightarrow x_{0}^{+}}p_{x_{0}}(x)$
+\end_inset
+
+.
+ Por otra parte, 
+\begin_inset Formula $f(x)=f(x_{0})+\frac{f(x)-f(x_{0})}{x-x_{0}}(x-x_{0})$
+\end_inset
+
+, y tomando límites, 
+\begin_inset Formula 
+\[
+\lim_{x\rightarrow x_{0}^{+}}f(x)=f(x_{0})+\lim_{x\rightarrow x_{0}^{+}}\frac{f(x)-f(x_{0})}{x-x_{0}}\lim_{x\rightarrow x_{0}^{+}}(x-x_{0})=f(x_{0})+\alpha\cdot0=f(x_{0})
+\]
+
+\end_inset
+
+lo que prueba la continuidad por la derecha de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+.
+ Podemos probar la continuidad por la izquierda de manera análoga.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, sea 
+\begin_inset Formula $f:I\rightarrow\mathbb{R}$
+\end_inset
+
+ derivable en el intervalo abierto 
+\begin_inset Formula $I$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+f\text{ es convexa en }I\iff f'\text{ es creciente en }I\iff\forall x_{0},x\in I,f(x)-f(x_{0})\geq f'(x_{0})(x-x_{0})
+\]
+
+\end_inset
+
+La última condición significa que para cada punto de 
+\begin_inset Formula $I$
+\end_inset
+
+, la gráfica de 
+\begin_inset Formula $f$
+\end_inset
+
+ está por encima de la tangente en dicho punto.
+\begin_inset Note Comment
+status open
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Sean 
+\begin_inset Formula $a,b\in I$
+\end_inset
+
+ arbitrarios con 
+\begin_inset Formula $a<b$
+\end_inset
+
+, entonces 
+\begin_inset Formula 
+\begin{eqnarray*}
+f'(a) & = & \lim_{x\rightarrow a^{+}}\frac{f(x)-f(a)}{x-a}=\lim_{x\rightarrow a^{+}}p_{a}(x)\\
+f'(b) & = & \lim_{x'\rightarrow b^{-}}\frac{f(x')-f(b)}{x'-b}=\lim_{x'\rightarrow b^{-}}p_{b}(x')
+\end{eqnarray*}
+
+\end_inset
+
+ Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es convexa, 
+\begin_inset Formula $p_{a}(x)\leq p_{x'}(x)=p_{x}(x')\leq p_{b}(x')$
+\end_inset
+
+ para 
+\begin_inset Formula $a<x<x'<b$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $f'(a)\leq f'(b)$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $f'$
+\end_inset
+
+ es creciente.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $2\implies3]$
+\end_inset
+
+ Sean 
+\begin_inset Formula $x_{0},x\in I$
+\end_inset
+
+, si 
+\begin_inset Formula $x_{0}<x$
+\end_inset
+
+, por el teorema del valor medio de Lagrange, 
+\begin_inset Formula $f(x)-f(x_{0})=f'(c)(x-x_{0})$
+\end_inset
+
+, pero como 
+\begin_inset Formula $f'$
+\end_inset
+
+ es creciente y 
+\begin_inset Formula $c\in(x_{0},x)$
+\end_inset
+
+, 
+\begin_inset Formula $f'(c)(x-x_{0})\geq f'(x_{0})(x-x_{0})$
+\end_inset
+
+.
+ El caso en que 
+\begin_inset Formula $x_{0}>x$
+\end_inset
+
+ se hace de forma análoga, y el caso en que 
+\begin_inset Formula $x_{0}=x$
+\end_inset
+
+ es trivial.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $3\implies1]$
+\end_inset
+
+ Si 
+\begin_inset Formula $f$
+\end_inset
+
+ no fuera convexa existirían 
+\begin_inset Formula $a,x_{0},b\in I$
+\end_inset
+
+ con 
+\begin_inset Formula $a<x_{0}<b$
+\end_inset
+
+ tales que 
+\begin_inset Formula $f(x_{0})$
+\end_inset
+
+ estaría por encima de la secante entre 
+\begin_inset Formula $(a,f(a))$
+\end_inset
+
+ y 
+\begin_inset Formula $(b,f(b))$
+\end_inset
+
+, es decir, 
+\begin_inset Formula $p_{b}(x_{0})<p_{b}(a)=p_{a}(b)<p_{a}(x_{0})$
+\end_inset
+
+.
+ Ahora bien, la tangente de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ viene dada por 
+\begin_inset Formula $g(x)=f(x_{0})+f'(x_{0})(x-x_{0})$
+\end_inset
+
+, y si suponemos que 
+\begin_inset Formula $(b,f(b))$
+\end_inset
+
+ está por encima de la recta, entonces
+\begin_inset Formula 
+\[
+\begin{array}{c}
+f(b)>g(b)=f(x_{0})+f'(x_{0})(b-x_{0})\iff f(b)-f(x_{0})>f'(x_{0})(b-x_{0})\iff\\
+\iff f'(x_{0})<\frac{f(b)-f(x_{0})}{b-x_{0}}=p_{b}(x_{0})\overset{\text{hip.}}{<}p_{a}(x_{0})=\frac{f(x_{0})-f(a)}{x_{0}-a}\iff\\
+\iff f'(x_{0})(x_{0}-a)<f(x_{0})-f(a)\iff f(a)<f(x_{0})+f'(x_{0})(x_{0}-a)
+\end{array}
+\]
+
+\end_inset
+
+por lo que 
+\begin_inset Formula $(a,f(a))$
+\end_inset
+
+ queda por debajo de la tangente.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Convexidad local:
+\series default
+ 
+\begin_inset Formula $f:I\rightarrow\mathbb{R}$
+\end_inset
+
+ y derivable en 
+\begin_inset Formula $x_{0}\in I$
+\end_inset
+
+ es 
+\series bold
+convexa
+\series default
+ en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ si 
+\begin_inset Formula $\exists\delta>0:\forall x\in B(x_{0},\delta)\cap I,f(x)\geq f(x_{0})+f'(x_{0})(x-x_{0})$
+\end_inset
+
+, y es 
+\series bold
+cóncava
+\series default
+ en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ si 
+\begin_inset Formula $\exists\delta>0:\forall x\in B(x_{0},\delta)\cap I,f(x)\leq f(x_{0})+f'(x_{0})(x-x_{0})$
+\end_inset
+
+.
+ Decimos que 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ es un 
+\series bold
+punto de inflexión
+\series default
+ si existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $x\in B(x_{0},\delta)\cap I$
+\end_inset
+
+ entonces 
+\begin_inset Formula $x<x_{0}$
+\end_inset
+
+ implica 
+\begin_inset Formula $f(x)>f(x_{0})+f'(x_{0})(x-x_{0})$
+\end_inset
+
+ mientras que 
+\begin_inset Formula $x>x_{0}$
+\end_inset
+
+ implica 
+\begin_inset Formula $f(x)<f(x_{0})+f'(x_{0})(x-x_{0})$
+\end_inset
+
+ (o al revés).
+ Puede no darse ninguna de las tres situaciones como en el punto 
+\begin_inset Formula $x_{0}=0$
+\end_inset
+
+ en 
+\begin_inset Formula $f(x)=x^{2}\sin(1/x)$
+\end_inset
+
+.
+ Una función 
+\begin_inset Formula $f:I\rightarrow\mathbb{R}$
+\end_inset
+
+ derivable en el intervalo abierto 
+\begin_inset Formula $I$
+\end_inset
+
+ es convexa en 
+\begin_inset Formula $I$
+\end_inset
+
+ si y sólo si es convexa para cada 
+\begin_inset Formula $x\in I$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Ver teorema anterior.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Supongamos que existen 
+\begin_inset Formula $a,b,c\in I$
+\end_inset
+
+ con 
+\begin_inset Formula $a<c<b$
+\end_inset
+
+ tales que 
+\begin_inset Formula $f(c)>f(a)+\frac{f(b)-f(a)}{b-a}(c-a)$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $g(x)=f(x)-\left(f(a)+\frac{f(b)-f(a)}{b-a}(x-a)\right)$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $0=g(a)=g(b)<g(c)$
+\end_inset
+
+, existe un máximo absoluto de 
+\begin_inset Formula $g$
+\end_inset
+
+ en 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+ y en este 
+\begin_inset Formula $g'(\xi)=0$
+\end_inset
+
+, así que 
+\begin_inset Formula $f'(\xi)=\frac{f(b)-f(a)}{b-a}$
+\end_inset
+
+ y 
+\begin_inset Formula $g(z)<g(\xi)\forall z\in[a,b]$
+\end_inset
+
+, luego
+\begin_inset Formula 
+\[
+g(b)=f(b)-\left(f(a)+\frac{f(b)-f(a)}{b-a}(b-a)\right)<f(\xi)-\left(f(a)+\frac{f(b)-f(a)}{b-a}(\xi-a)\right)
+\]
+
+\end_inset
+
+es decir,
+\begin_inset Formula 
+\[
+f(b)<f(\xi)+\frac{f(b)-f(a)}{b-a}(b-\xi)=f(\xi)+f'(\xi)(b-\xi)
+\]
+
+\end_inset
+
+lo que contradice la convexidad de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $\xi$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\begin_inset Formula $f:I\rightarrow\mathbb{R}$
+\end_inset
+
+ es cóncava si y sólo si 
+\begin_inset Formula $-f$
+\end_inset
+
+ es convexa, todas las proposiciones sobre funciones convexas se pueden
+ aplicar a funciones cóncavas adaptándolas convenientemente.
+\end_layout
+
+\begin_layout Section
+Representación gráfica de funciones
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $y=f(x)$
+\end_inset
+
+.
+ La recta 
+\begin_inset Formula $x=a$
+\end_inset
+
+ es una 
+\series bold
+asíntota vertical
+\series default
+ de 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ si 
+\begin_inset Formula $\lim_{x\rightarrow a}f(x)=\pm\infty$
+\end_inset
+
+, sea el límite por la izquierda o por la derecha.
+ La recta 
+\begin_inset Formula $y=b$
+\end_inset
+
+ es una 
+\series bold
+asíntota horizontal
+\series default
+ de 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ si 
+\begin_inset Formula $\lim_{x\rightarrow\infty}f(x)=b$
+\end_inset
+
+, sea cuando 
+\begin_inset Formula $x$
+\end_inset
+
+ tiende a 
+\begin_inset Formula $-\infty$
+\end_inset
+
+ o a 
+\begin_inset Formula $+\infty$
+\end_inset
+
+.
+ Finalmente, la recta 
+\begin_inset Formula $y=mx+b$
+\end_inset
+
+ es una 
+\series bold
+asíntota oblicua
+\series default
+ de 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ si 
+\begin_inset Formula $\lim_{x\rightarrow\infty}(f(x)-(mx+b))=0$
+\end_inset
+
+, y entonces podemos calcular 
+\begin_inset Formula $m$
+\end_inset
+
+ y 
+\begin_inset Formula $b$
+\end_inset
+
+ como 
+\begin_inset Formula $m=\lim_{x\rightarrow\infty}\frac{f(x)}{x}$
+\end_inset
+
+ y 
+\begin_inset Formula $b=\lim_{x\rightarrow\infty}(f(x)-mx)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una función 
+\begin_inset Formula $f:D\subseteq\mathbb{R}\rightarrow\mathbb{R}$
+\end_inset
+
+ es 
+\series bold
+par
+\series default
+ o 
+\series bold
+simétrica respecto del eje de coordenadas 
+\series default
+si 
+\begin_inset Formula $f(-x)=f(x)\forall x\in D$
+\end_inset
+
+, y es 
+\series bold
+impar
+\series default
+ o 
+\series bold
+simétrica respecto del origen de coordenadas
+\series default
+ si 
+\begin_inset Formula $f(-x)=-f(x)\forall x\in D$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

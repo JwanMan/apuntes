@@ -1,0 +1,1978 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una aplicación 
+\begin_inset Formula $f:{\cal E}\rightarrow{\cal E}'$
+\end_inset
+
+ es 
+\series bold
+afín
+\series default
+ si existe 
+\begin_inset Formula $\overrightarrow{f}:V\rightarrow V'$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $P\in{\cal E},\vec{v}\in V$
+\end_inset
+
+, 
+\begin_inset Formula $f(P+\vec{v})=f(P)+\overrightarrow{f}(\vec{v})$
+\end_inset
+
+, es decir, 
+\begin_inset Formula $\overrightarrow{f}(\vec{v})=\overrightarrow{f(P)f(P+\vec{v})}$
+\end_inset
+
+.
+ Así, 
+\begin_inset Formula $\overrightarrow{f}$
+\end_inset
+
+ queda determinada por 
+\begin_inset Formula $f$
+\end_inset
+
+ y se le llama 
+\series bold
+aplicación lineal asociada
+\series default
+ a 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ Las aplicaciones afines 
+\begin_inset Formula $f:{\cal E}\rightarrow{\cal E}$
+\end_inset
+
+ son 
+\series bold
+transformaciones afines
+\series default
+ de 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal E}'$
+\end_inset
+
+ tienen dimensión finita siendo 
+\begin_inset Formula $\Re=(O;{\cal B}=\{\vec{v}_{1},\dots,\vec{v}_{n}\})$
+\end_inset
+
+ y 
+\begin_inset Formula $\Re'=(O';{\cal B}')$
+\end_inset
+
+ referenciales cartesianos de 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal E}'$
+\end_inset
+
+, sea 
+\begin_inset Formula $f:{\cal E}\rightarrow{\cal E}'$
+\end_inset
+
+ con 
+\begin_inset Formula $X_{0}=[f(O)]_{\Re'}=[\overrightarrow{O'f(O)}]_{{\cal B}'}$
+\end_inset
+
+ y 
+\begin_inset Formula $\overrightarrow{f}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $M=M_{{\cal B}'{\cal B}}(\overrightarrow{f})$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+[f(X)]_{\Re'}=[f(O)+\overrightarrow{f}(\overrightarrow{OX})]_{\Re'}=[f(O)]_{\Re'}+[\overrightarrow{f}(\overrightarrow{OX})]_{{\cal B}}=X_{0}+M[X]_{\Re}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lo que nos da la 
+\series bold
+representación matricial
+\series default
+ o las 
+\series bold
+ecuaciones
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $\Re$
+\end_inset
+
+ y 
+\begin_inset Formula $\Re'$
+\end_inset
+
+ como 
+\begin_inset Formula $X'=X_{0}+MX$
+\end_inset
+
+ o
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+1\\
+\hline X'
+\end{array}\right)=\left(\begin{array}{c|c}
+1 & 0\\
+\hline X_{0} & M
+\end{array}\right)\left(\begin{array}{c}
+1\\
+\hline X
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Propiedades
+\end_layout
+
+\begin_layout Enumerate
+Dados 
+\begin_inset Formula $f,g:{\cal E}\rightarrow{\cal E}'$
+\end_inset
+
+, 
+\begin_inset Formula $\exists P\in{\cal E}:f(P)=g(P)\land\overrightarrow{f}=\overrightarrow{g}\implies f=g$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Dado un 
+\begin_inset Formula $Q\in{\cal E}$
+\end_inset
+
+ arbitrario, 
+\begin_inset Formula $f(Q)=f(P)+\overrightarrow{f}(\overrightarrow{PQ})=g(P)+\overrightarrow{g}(\overrightarrow{PQ})=g(Q)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Dados 
+\begin_inset Formula $P\in{\cal E}$
+\end_inset
+
+, 
+\begin_inset Formula $P'\in{\cal E}'$
+\end_inset
+
+ y 
+\begin_inset Formula $\phi:V\rightarrow V'$
+\end_inset
+
+ vectorial, existe una única aplicación afín 
+\begin_inset Formula $f:{\cal E}\rightarrow{\cal E}'$
+\end_inset
+
+ con 
+\begin_inset Formula $f(P)=P'$
+\end_inset
+
+ y 
+\begin_inset Formula $\overrightarrow{f}=\phi$
+\end_inset
+
+, dada por 
+\begin_inset Formula $f(Q):=P'+\phi(\overrightarrow{PQ})$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+f(Q+\vec{v})=P'+\phi(\overrightarrow{P(Q+\vec{v})})=P'+\phi(\overrightarrow{PQ}+\vec{v})=P'+\phi(\overrightarrow{PQ})+\phi(\vec{v})=f(Q)+\phi(\vec{v})
+\]
+
+\end_inset
+
+por lo que es afín.
+ Además, 
+\begin_inset Formula $f(P)=P'+\phi(\overrightarrow{PP})=P'$
+\end_inset
+
+, y la unicidad se desprende del apartado anterior.
+\end_layout
+
+\begin_layout Enumerate
+La composición de aplicaciones afines 
+\begin_inset Formula $g$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ es afín, y 
+\begin_inset Formula $\overrightarrow{g\circ f}=\overrightarrow{g}\circ\overrightarrow{f}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Sean 
+\begin_inset Formula ${\cal E}\overset{f}{\rightarrow}{\cal E}'\overset{g}{\rightarrow}{\cal E}''$
+\end_inset
+
+, para 
+\begin_inset Formula $P\in{\cal E},\vec{v}\in V$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+(g\circ f)(P+\vec{v})=g(f(P)+\overrightarrow{f}(\vec{v}))=g(f(P))+\overrightarrow{g}(\overrightarrow{f}(\vec{v}))=(g\circ f)(P)+(\overrightarrow{g}\circ\overrightarrow{f})(\vec{v})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f$
+\end_inset
+
+ es inyectiva si y sólo si lo es 
+\begin_inset Formula $\overrightarrow{f}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dados 
+\begin_inset Formula $P\in{\cal E},\vec{v}\in\text{Nuc}(\overrightarrow{f})$
+\end_inset
+
+, 
+\begin_inset Formula $f(P+\vec{v})=f(P)+\overrightarrow{f}(\vec{v})=f(P)$
+\end_inset
+
+, y por la inyectividad 
+\begin_inset Formula $P+\vec{v}=P$
+\end_inset
+
+ y 
+\begin_inset Formula $\vec{v}=0$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $\text{Nuc}(\overrightarrow{f})=\{0\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $f(P)=f(Q)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\overrightarrow{f}(\overrightarrow{PQ})=\overrightarrow{f(P)f(Q)}=\vec{0}$
+\end_inset
+
+, y por la inyectividad de 
+\begin_inset Formula $\overrightarrow{f}$
+\end_inset
+
+, 
+\begin_inset Formula $\overrightarrow{PQ}=\vec{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $P=Q$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $f$
+\end_inset
+
+ es suprayectiva si y sólo si lo es 
+\begin_inset Formula $\overrightarrow{f}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dado 
+\begin_inset Formula $\vec{v}'\in V'$
+\end_inset
+
+, sea 
+\begin_inset Formula $P\in{\cal E}$
+\end_inset
+
+ arbitrario, 
+\begin_inset Formula $f(P)+\vec{v}'\in{\cal E}'$
+\end_inset
+
+ y por la suprayectividad de 
+\begin_inset Formula $f$
+\end_inset
+
+, existe 
+\begin_inset Formula $Q\in{\cal E}$
+\end_inset
+
+ con 
+\begin_inset Formula $f(Q)=f(P)+\vec{v}'$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\vec{v}'=\overrightarrow{f(P)f(Q)}=\overrightarrow{f}(\overrightarrow{PQ})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dado 
+\begin_inset Formula $Q'\in{\cal E}'$
+\end_inset
+
+, sea 
+\begin_inset Formula $P\in{\cal E}$
+\end_inset
+
+ arbitrario, 
+\begin_inset Formula $\overrightarrow{f(P)Q'}\in V'$
+\end_inset
+
+, y por la suprayectividad de 
+\begin_inset Formula $\overrightarrow{f}$
+\end_inset
+
+ existe 
+\begin_inset Formula $\vec{v}\in V$
+\end_inset
+
+ con 
+\begin_inset Formula $\overrightarrow{f}(\vec{v})=\overrightarrow{f(P)Q'}$
+\end_inset
+
+, luego 
+\begin_inset Formula $Q'=f(P)+\overrightarrow{f}(\vec{v})=f(P+\vec{v})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f:{\cal E}\rightarrow{\cal E}'$
+\end_inset
+
+ es afín y biyectiva, entonces 
+\begin_inset Formula $f^{-1}$
+\end_inset
+
+ es afín y 
+\begin_inset Formula $\overrightarrow{f^{-1}}=\overrightarrow{f}^{-1}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f^{-1}(P'+\vec{v}')=f^{-1}(P')+\overrightarrow{f}^{-1}(\vec{v}')\iff f(f^{-1}(P'+\vec{v}'))=P'+\vec{v}'=f(f^{-1}(P')+\overrightarrow{f}^{-1}(\vec{v}'))
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esto último nos lleva al concepto de 
+\series bold
+isomorfismo de espacios afines
+\series default
+, una aplicación afín y biyectiva 
+\begin_inset Formula $f:{\cal E}\rightarrow{\cal E}'$
+\end_inset
+
+.
+ Cuando existe se dice que 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal E}'$
+\end_inset
+
+ son 
+\series bold
+isomorfos
+\series default
+.
+ Como 
+\series bold
+teorema
+\series default
+, dos espacios afines de dimensión finita sobre el mismo cuerpo son isomorfos
+ si y sólo si tienen la misma dimensión.
+ Más propiedades:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $M=\frac{A+B}{2}\implies f(M)=\frac{f(A)+f(B)}{2}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\overrightarrow{AB}=2\overrightarrow{AM}\implies\overrightarrow{f(A)f(B)}=\overrightarrow{f}(\overrightarrow{AB})=\overrightarrow{f}(2\overrightarrow{AM})=2\overrightarrow{f(A)f(M)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula ${\cal L}=P+W$
+\end_inset
+
+ es una variedad de 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+, 
+\begin_inset Formula $f({\cal L})=f(P)+\overrightarrow{f}(W)$
+\end_inset
+
+ lo es de 
+\begin_inset Formula ${\cal E}'$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\begin{array}{c}
+Q'\in f({\cal L})\iff\exists\vec{w}\in W:Q'=f(P+\vec{w})=f(P)+\overrightarrow{f}(\vec{w})\iff\\
+\iff\overrightarrow{f(P)Q'}=\overrightarrow{f}(\vec{w})\in\overrightarrow{f}(W)\iff Q'\in f(P)+\overrightarrow{f}(W)
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula ${\cal L}_{1}\ll{\cal L}_{2}\subseteq{\cal E}\implies f({\cal L}_{1})\ll f({\cal L}_{2})$
+\end_inset
+
+; 
+\begin_inset Formula ${\cal L}_{1}\parallel{\cal L}_{2}\subseteq{\cal E}\implies f({\cal L}_{1})\parallel f({\cal L}_{2})$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Se sigue de lo anterior y de que 
+\begin_inset Formula $\overrightarrow{f}$
+\end_inset
+
+ conserva las inclusiones entre subespacios.
+\end_layout
+
+\begin_layout Enumerate
+Sea 
+\begin_inset Formula $f$
+\end_inset
+
+ biyectiva, si 
+\begin_inset Formula ${\cal L}'=P'+W$
+\end_inset
+
+ es una variedad de 
+\begin_inset Formula ${\cal E}'$
+\end_inset
+
+ y su inversa 
+\begin_inset Formula $f^{-1}({\cal L}')\neq\emptyset$
+\end_inset
+
+, esta es una variedad de 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+.
+ En concreto, 
+\begin_inset Formula $\text{dir}(f^{-1}({\cal L}'))=\overrightarrow{f}^{-1}(W')$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\begin{array}{c}
+Q\in f^{-1}({\cal L}')\iff f(Q)\in{\cal L}'\iff\overrightarrow{P'f(Q)}\in W'\iff\\
+\iff\overrightarrow{f(P)P'}+\overrightarrow{P'f(Q)}=\overrightarrow{f(P)f(Q)}=\overrightarrow{f}(\overrightarrow{PQ})\in W'\iff\\
+\iff\overrightarrow{PQ}\in\overrightarrow{f}^{-1}(W')\iff Q\in P+\overrightarrow{f}^{-1}(W')
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Puntos fijos
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Q\in{\cal E}$
+\end_inset
+
+ es un 
+\series bold
+punto fijo
+\series default
+ de 
+\begin_inset Formula $f:{\cal E}\rightarrow{\cal E}$
+\end_inset
+
+ si 
+\begin_inset Formula $f(Q)=Q$
+\end_inset
+
+, y definimos
+\begin_inset Formula 
+\[
+\text{Fix}(f):=\{Q\in{\cal E}:f(Q)=Q\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+subespacio invariante
+\series default
+ por 
+\begin_inset Formula $\phi:V\rightarrow V$
+\end_inset
+
+ es un subespacio 
+\begin_inset Formula $U$
+\end_inset
+
+ de 
+\begin_inset Formula $V$
+\end_inset
+
+ con 
+\begin_inset Formula $f(U)\subseteq U$
+\end_inset
+
+.
+ Destacamos el subespacio de los 
+\series bold
+vectores invariantes
+\series default
+ o asociado al autovalor 1,
+\begin_inset Formula 
+\[
+\text{Inv}(\phi):=\text{Nuc}(\phi-id_{V})=\{\vec{v}\in V:\phi(\vec{v})=\vec{v}\}
+\]
+
+\end_inset
+
+y el de los 
+\series bold
+opuestos
+\series default
+ o asociado al autovalor 
+\begin_inset Formula $-1$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\text{Opp}(\phi):=\text{Nuc}(\phi+id_{V})=\{\vec{v}\in V:\phi(\vec{v})=-\vec{v}\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se tiene que 
+\begin_inset Formula $P\in\text{Fix}(f)\neq\emptyset\implies\text{Fix}(f)=P+\text{Inv}(\overrightarrow{f})$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $f(P)=P$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\begin{array}{c}
+Q\in P+\text{Inv}(\overrightarrow{f})\iff\overrightarrow{PQ}\in\text{Inv}(\overrightarrow{f})\iff\overrightarrow{PQ}=\overrightarrow{f}(\overrightarrow{PQ})=\overrightarrow{f(P)f(Q)}=\overrightarrow{Pf(Q)}\iff\\
+\iff Q=f(Q)\iff Q\in\text{Fix}(f)
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En coordenadas, 
+\begin_inset Formula $\text{Inv}(\overrightarrow{f})$
+\end_inset
+
+ se obtiene como las soluciones del sistema 
+\begin_inset Formula $(I-M|0)$
+\end_inset
+
+, mientras que 
+\begin_inset Formula $\text{Fix}(f)$
+\end_inset
+
+ se obtiene como las soluciones del sistema 
+\begin_inset Formula $(I-M|X_{0})$
+\end_inset
+
+.
+ Por tanto, 
+\begin_inset Formula $\text{Inv}(\overrightarrow{f})=0\iff|\text{Fix}(f)|=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Ejemplos de transformaciones afines
+\end_layout
+
+\begin_layout Subsection
+Traslaciones 
+\end_layout
+
+\begin_layout Standard
+Dado 
+\begin_inset Formula $\vec{v}\in V$
+\end_inset
+
+, la 
+\series bold
+traslación
+\series default
+ de vector 
+\begin_inset Formula $\vec{v}$
+\end_inset
+
+ es la aplicación 
+\begin_inset Formula $t_{\vec{v}}:{\cal E}\rightarrow{\cal E}$
+\end_inset
+
+ con 
+\begin_inset Formula $t_{\vec{v}}(P)=P+\vec{v}$
+\end_inset
+
+.
+ Propiedades:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $t_{\vec{v}}$
+\end_inset
+
+ es afín y 
+\begin_inset Formula $\overrightarrow{t_{\vec{v}}}=id_{V}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+t_{\vec{v}}(P+\vec{w})=P+\vec{w}+\vec{v}=t_{\vec{v}}(P)+id_{V}(\vec{w})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Recíprocamente, si 
+\begin_inset Formula $f:{\cal E}\rightarrow{\cal E}$
+\end_inset
+
+ es afín con 
+\begin_inset Formula $\overrightarrow{f}=id_{V}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f=t_{\overrightarrow{Pf(P)}}$
+\end_inset
+
+, dado 
+\begin_inset Formula $P\in{\cal E}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Sea 
+\begin_inset Formula $P\in{\cal E}$
+\end_inset
+
+ arbitrario y 
+\begin_inset Formula $\vec{v}:=\overrightarrow{Pf(P)}$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $t_{\vec{v}}$
+\end_inset
+
+ son aplicaciones afines con la misma lineal asociada y actúan igual sobre
+ 
+\begin_inset Formula $P$
+\end_inset
+
+, luego 
+\begin_inset Formula $f=t_{\vec{v}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $t_{\vec{0}}=id_{{\cal E}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\vec{v}\neq\vec{0}\implies\text{Fix}(t_{\vec{v}})=\emptyset$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $t_{\vec{v}}\circ t_{\vec{w}}=t_{\vec{w}}\circ t_{\vec{v}}=t_{\vec{v}+\vec{w}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $t_{\vec{v}}^{-1}=t_{-\vec{v}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+La expresión matricial de 
+\begin_inset Formula $t_{\vec{v}}$
+\end_inset
+
+ sobre 
+\begin_inset Formula $\Re=(O,{\cal B})$
+\end_inset
+
+ es 
+\begin_inset Formula $X'=[\vec{v}]_{{\cal B}}+X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $f:{\cal E}\rightarrow{\cal E}$
+\end_inset
+
+ afín, 
+\begin_inset Formula $f\circ t_{\vec{v}}=t_{\vec{v}}\circ f\iff\vec{v}\in\text{Inv}(\overrightarrow{f})$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Como ambas tienen la misma lineal asociada (
+\begin_inset Formula $\overrightarrow{f}$
+\end_inset
+
+), serán iguales si y sólo si actúan igual sobre un 
+\begin_inset Formula $P\in{\cal E}$
+\end_inset
+
+ arbitrario.
+\begin_inset Formula 
+\[
+f\circ t_{\vec{v}}=t_{\vec{v}}\circ f\iff f(t_{\vec{v}}(P))=t_{\vec{v}}(f(P))\iff f(P+\vec{v})=f(P)+\vec{v}\iff\overrightarrow{f}(\vec{v})=\vec{v}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Dado 
+\begin_inset Formula $P\in{\cal E}$
+\end_inset
+
+ y 
+\begin_inset Formula $f:{\cal E}\rightarrow{\cal E}$
+\end_inset
+
+, 
+\begin_inset Formula $f=t_{\vec{v}}\circ g$
+\end_inset
+
+ donde 
+\begin_inset Formula $\vec{v}=\overrightarrow{Pf(P)}$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ es una transformación afín con 
+\begin_inset Formula $g(P)=P$
+\end_inset
+
+ y 
+\begin_inset Formula $\overrightarrow{g}=\overrightarrow{f}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $g:=t_{-\vec{v}}\circ f$
+\end_inset
+
+ es afín con 
+\begin_inset Formula $g(P)=t_{-\vec{v}}(f(P))=f(P)-\vec{v}=f(P)+\overrightarrow{f(P)P}=P$
+\end_inset
+
+ y 
+\begin_inset Formula $\overrightarrow{g}=\overrightarrow{t_{-\vec{v}}}\circ\overrightarrow{f}=\overrightarrow{f}$
+\end_inset
+
+, y componiendo se obtiene 
+\begin_inset Formula $f=t_{\vec{v}}\circ g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Homotecias
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $O\in{\cal E},\lambda\in K$
+\end_inset
+
+, la 
+\series bold
+homotecia
+\series default
+ de centro 
+\begin_inset Formula $O$
+\end_inset
+
+ y razón 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ es la aplicación 
+\begin_inset Formula $H_{O,\lambda}:{\cal E}\rightarrow{\cal E}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $H_{O,\lambda}(P):=O+\lambda\overrightarrow{OP}$
+\end_inset
+
+.
+ Así, para 
+\begin_inset Formula $P\neq O$
+\end_inset
+
+, la razón simple 
+\begin_inset Formula $(O,P,H_{O,\lambda}(P))=\lambda$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $\lambda=0$
+\end_inset
+
+ se obtiene la aplicación constante, que lleva todos los puntos a 
+\begin_inset Formula $O$
+\end_inset
+
+; para 
+\begin_inset Formula $\lambda=1$
+\end_inset
+
+ se obtiene la identidad, y para 
+\begin_inset Formula $\lambda=-1$
+\end_inset
+
+ se obtiene la 
+\series bold
+simetría central
+\series default
+ sobre 
+\begin_inset Formula $O$
+\end_inset
+
+, escrita 
+\begin_inset Formula $s_{O}:=H_{O,-1}$
+\end_inset
+
+.
+ Propiedades:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $H_{O,\lambda}$
+\end_inset
+
+ es afín con 
+\begin_inset Formula $\overrightarrow{H_{O,\lambda}}=h_{\lambda}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+H_{O,\lambda}(P+\vec{w})=O+\lambda\overrightarrow{O(P+\vec{w})}=O+\lambda(\overrightarrow{OP}+\overrightarrow{w})=(O+\lambda\overrightarrow{OP})+\lambda\vec{w}=H_{O,\lambda}(P)+h_{\lambda}(\vec{w})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lambda\neq1\implies\text{Fix}(H_{O,\lambda})=\{O\}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\begin{array}{c}
+P=H_{O,\lambda}(P)=O+\lambda\overrightarrow{OP}\iff\overrightarrow{OP}=\lambda\overrightarrow{OP}\iff\\
+\iff(\lambda-1)\overrightarrow{OP}=\vec{0}\overset{\lambda\neq1}{\iff}\overrightarrow{OP}=\vec{0}\iff P=O
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f:{\cal E}\rightarrow{\cal E}$
+\end_inset
+
+ es afín con 
+\begin_inset Formula $\overrightarrow{f}=h_{\lambda}$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda\neq1$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es la homotecia 
+\begin_inset Formula $f=H_{O,\lambda}$
+\end_inset
+
+ con 
+\begin_inset Formula $O=P+\frac{1}{1-\lambda}\overrightarrow{Pf(P)}$
+\end_inset
+
+.
+ Así, para una simetría central, 
+\begin_inset Formula $O=\frac{P+f(P)}{2}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Como 
+\begin_inset Formula $\overrightarrow{f}=\overrightarrow{H_{O,\lambda}}$
+\end_inset
+
+, será 
+\begin_inset Formula $f=H_{O,\lambda}$
+\end_inset
+
+ si actúan igual sobre un punto.
+ Por la definición de 
+\begin_inset Formula $O$
+\end_inset
+
+ se tiene que 
+\begin_inset Formula $\overrightarrow{PO}=\frac{1}{1-\lambda}\overrightarrow{Pf(P)}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $(1-\lambda)\overrightarrow{PO}=\overrightarrow{Pf(P)}$
+\end_inset
+
+, luego
+\begin_inset Formula 
+\[
+\overrightarrow{Of(O)}=\overrightarrow{OP}+\overrightarrow{Pf(P)}+\overrightarrow{f(P)f(O)}=-\overrightarrow{PO}+(1-\lambda)\overrightarrow{PO}+\lambda\overrightarrow{PO}=\vec{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $H_{O,\lambda}\circ H_{O,\mu}=H_{O,\mu}\circ H_{O,\lambda}=H_{O,\lambda\mu}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lambda\neq0\implies H_{O,\lambda}^{-1}=H_{O,\lambda^{-1}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+La expresión matricial de 
+\begin_inset Formula $H_{O,\lambda}$
+\end_inset
+
+ en el referencial 
+\begin_inset Formula $\Re$
+\end_inset
+
+ es 
+\begin_inset Formula $X'=(1-\lambda)[O]_{\Re}+\lambda X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\lambda\neq1$
+\end_inset
+
+ entonces 
+\begin_inset Formula $t_{\vec{v}}\circ H_{O,\lambda}$
+\end_inset
+
+ y 
+\begin_inset Formula $H_{O,\lambda}\circ t_{\vec{v}}$
+\end_inset
+
+ son homotecias de razón 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ y centros respectivos 
+\begin_inset Formula $O+\frac{1}{1-\lambda}\vec{v}$
+\end_inset
+
+ y 
+\begin_inset Formula $O+\frac{\lambda}{1-\lambda}\vec{v}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $O\neq O'$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda\lambda'=1$
+\end_inset
+
+ entonces 
+\begin_inset Formula $H_{O,\lambda}\circ H_{O',\lambda'}=t_{(1-\lambda)\overrightarrow{O'O}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Proyecciones y simetrías vectoriales
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $V=W_{1}\oplus W_{2}$
+\end_inset
+
+, la 
+\series bold
+proyección vectorial
+\series default
+ 
+\begin_inset Formula $\pi$
+\end_inset
+
+ y la 
+\series bold
+simetría vectorial
+\series default
+ 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ de 
+\series bold
+base
+\series default
+ 
+\begin_inset Formula $W_{1}$
+\end_inset
+
+ y 
+\series bold
+dirección
+\series default
+ 
+\begin_inset Formula $W_{2}$
+\end_inset
+
+, o sobre 
+\begin_inset Formula $W_{1}$
+\end_inset
+
+ y paralelamente a 
+\begin_inset Formula $W_{2}$
+\end_inset
+
+ son los endomorfismos de 
+\begin_inset Formula $V$
+\end_inset
+
+ tales que, si 
+\begin_inset Formula $\vec{v}$
+\end_inset
+
+ se descompone como 
+\begin_inset Formula $\vec{v}=\vec{w}_{1}+\vec{w}_{2}$
+\end_inset
+
+ con 
+\begin_inset Formula $\vec{w}_{1}\in W_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\vec{w}_{2}\in W_{2}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\pi_{W_{1},W_{2}}(\vec{v})=\vec{w}_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma_{W_{1},W_{2}}(\vec{v})=\vec{w}_{1}-\vec{w}_{2}$
+\end_inset
+
+.
+ Propiedades:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\sigma+id_{V}=2\pi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\pi$
+\end_inset
+
+ es 
+\series bold
+idempotente
+\series default
+ (
+\begin_inset Formula $\pi^{2}=\pi$
+\end_inset
+
+) y 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ es 
+\series bold
+involutiva
+\series default
+ (
+\begin_inset Formula $\sigma^{2}=id_{V}$
+\end_inset
+
+, es decir, 
+\begin_inset Formula $\sigma^{-1}=\sigma$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $W_{1}=\text{Inv}(\pi)$
+\end_inset
+
+ y 
+\begin_inset Formula $W_{2}=\text{Nuc}(\pi)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $W_{1}=\text{Inv}(\sigma)$
+\end_inset
+
+ y 
+\begin_inset Formula $W_{2}=\text{Opp}(\sigma)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\phi\text{ es proyección (con }W_{1}=\text{Inv}(\phi)\text{ y }W_{2}=\text{Nuc}(\phi)\text{)}\iff\phi\text{ es \textbf{idempotente} (}\phi^{2}=\phi\text{)}\iff V=\text{Inv}(\phi)\oplus\text{Nuc}(\phi)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $[2\implies3]$
+\end_inset
+
+ 
+\begin_inset Formula $\vec{v}=\phi(\vec{v})+(\vec{v}-\phi(\vec{v}))\in\text{Inv}(\phi)+\text{Nuc}(\phi)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $\vec{v}\in V$
+\end_inset
+
+, y 
+\begin_inset Formula $\vec{v}\in\text{Inv}(\phi)\cap\text{Nuc}(\phi)\implies\vec{v}\overset{\text{Inv}}{=}\phi(\vec{v})\overset{\text{Nuc}}{=}\vec{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $[3\implies1]$
+\end_inset
+
+ Si 
+\begin_inset Formula $\vec{v}=\vec{w}_{1}+\vec{w}_{2}$
+\end_inset
+
+ con 
+\begin_inset Formula $\vec{w}_{1}\in\text{Inv}(\phi)$
+\end_inset
+
+ y 
+\begin_inset Formula $\vec{w}_{2}\in\text{Nuc}(\phi)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\phi(\vec{v})=\phi(\vec{w}_{1})+\phi(\vec{w}_{2})=\vec{w}_{1}+\vec{0}=\vec{w}_{1}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\phi$
+\end_inset
+
+ es la proyección de base 
+\begin_inset Formula $\text{Inv}(\phi)$
+\end_inset
+
+ y dirección 
+\begin_inset Formula $\text{Nuc}(\phi)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\phi\text{ es simetría (con }W_{1}=\text{Inv}(\phi)\text{ y }W_{2}=\text{Nuc}(\phi)\text{)}\iff\text{\phi}\text{ es \textbf{involutiva} (}\phi^{2}=id_{V}\text{)}\iff V=\text{Inv}(\phi)\oplus\text{Opp}(\phi)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Demostración análoga, tomando 
+\begin_inset Formula $\vec{v}=\frac{1}{2}(\vec{v}+\phi(\vec{v}))+\frac{1}{2}(\vec{v}-\phi(\vec{v}))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\{\vec{w}_{1},\dots,\vec{w}_{n}\}$
+\end_inset
+
+ es base de 
+\begin_inset Formula $W_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\{\vec{u}_{1},\dots,\vec{u}_{m}\}$
+\end_inset
+
+ es de 
+\begin_inset Formula $W_{2}$
+\end_inset
+
+, podemos definir la base 
+\begin_inset Formula ${\cal B}:=\{\vec{w}_{1},\dots,\vec{w}_{n},\vec{u}_{1},\dots,\vec{u}_{m}\}$
+\end_inset
+
+ de 
+\begin_inset Formula $V$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $M_{{\cal B}}(\pi_{W_{1},W_{2}})=\left(\begin{array}{c|c}
+I_{n} & 0\\
+\hline 0 & 0
+\end{array}\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $M_{{\cal B}}(\sigma_{W_{1},W_{2}})=\left(\begin{array}{c|c}
+I_{n} & 0\\
+\hline 0 & -I_{m}
+\end{array}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Proyecciones y simetrías afines
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula ${\cal L}=A+W_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $V=W_{1}\oplus W_{2}$
+\end_inset
+
+, la 
+\series bold
+proyección afín
+\series default
+ 
+\begin_inset Formula $p$
+\end_inset
+
+ y la 
+\series bold
+simetría afín
+\series default
+ 
+\begin_inset Formula $s$
+\end_inset
+
+ sobre 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ paralelamente a 
+\begin_inset Formula $W_{2}$
+\end_inset
+
+ son las aplicaciones 
+\begin_inset Formula $p_{{\cal L},W_{2}},s_{{\cal L},W_{2}}:{\cal E}\rightarrow{\cal E}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $p(Q)\in{\cal L}\cap(Q+W_{2})$
+\end_inset
+
+ (conjunto unitario porque las variedades son complementarias) y 
+\begin_inset Formula $s(Q)=p(Q)+\overrightarrow{Qp(Q)}=Q+2\overrightarrow{Qp(Q)}$
+\end_inset
+
+.
+ Visto de otro modo, si 
+\begin_inset Formula $Q=A+\vec{w}_{1}+\vec{w}_{2}$
+\end_inset
+
+ con 
+\begin_inset Formula $\vec{w}_{1}\in W_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\vec{w}_{2}\in W_{2}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $p(Q)=A+\vec{w}_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $s(Q)=A+\vec{w}_{1}-\vec{w}_{2}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula ${\cal L}=\{O\}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $p$
+\end_inset
+
+ es la aplicación constante en 
+\begin_inset Formula $O$
+\end_inset
+
+ y 
+\begin_inset Formula $s$
+\end_inset
+
+ es la simetría central de centro 
+\begin_inset Formula $O$
+\end_inset
+
+.
+ Propiedades:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $p_{{\cal L},W_{2}}$
+\end_inset
+
+ y 
+\begin_inset Formula $s_{{\cal L},W_{2}}$
+\end_inset
+
+ son afines con 
+\begin_inset Formula $\overrightarrow{p_{{\cal L},W_{2}}}=\pi_{W_{1},W_{2}}$
+\end_inset
+
+ y 
+\begin_inset Formula $\overrightarrow{s_{{\cal L},W_{2}}}=\sigma_{W_{1},W_{2}}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Sean 
+\begin_inset Formula $\overrightarrow{AQ}=\vec{w}_{1}+\vec{w}_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $\vec{u}=\vec{u}_{1}+\vec{u}_{2}$
+\end_inset
+
+ con 
+\begin_inset Formula $\vec{u}_{1},\vec{w}_{1}\in W_{1},\vec{u}_{2},\vec{w}_{2}\in W_{2}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+p(Q+\vec{u})=p(A+(\vec{w}_{1}+\vec{u}_{1})+(\vec{w}_{2}+\vec{u}_{2}))=A+(\vec{w}_{1}+\vec{u}_{1})=(A+\vec{w}_{1})+\vec{u}_{1}=p(A)+\pi(\vec{u})
+\]
+
+\end_inset
+
+La simetría se hace de forma análoga.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula ${\cal L}=\text{Fix}(p)$
+\end_inset
+
+ y 
+\begin_inset Formula $W_{2}=\text{Nuc}(\pi)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Si 
+\begin_inset Formula $\vec{w}_{1}\in W_{1},\vec{w}_{2}\in W_{2}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+Q:=A+\vec{w}_{1}+\vec{w}_{2}\in\text{Fix}(p)\iff\vec{w}_{2}=0\iff Q=A+\vec{w}_{1}\iff Q\in{\cal L}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula ${\cal L}=\text{Fix}(s)$
+\end_inset
+
+ y 
+\begin_inset Formula $W_{2}=\text{Opp}(\sigma)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dada una transformación afín 
+\begin_inset Formula $f:{\cal E}\rightarrow{\cal E}$
+\end_inset
+
+, 
+\begin_inset Formula $f\text{ es una proyección afín (con }{\cal L}=\text{Fix}(f)\text{ y }W_{2}=\text{Nuc}(\overrightarrow{f})\text{)}\iff f\text{ es idempotente}\iff\overrightarrow{f}^{2}=\overrightarrow{f}\land\text{Fix}(f)\neq\emptyset$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $[1\implies2]$
+\end_inset
+
+ 
+\begin_inset Formula $f^{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ actúan igual sobre los puntos de 
+\begin_inset Formula $\text{Fix}(f)\neq\emptyset$
+\end_inset
+
+, pues ambas los fijan, y 
+\begin_inset Formula $\overrightarrow{f^{2}}=\overrightarrow{f}^{2}=\overrightarrow{f}$
+\end_inset
+
+, luego 
+\begin_inset Formula $f^{2}=f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $[2\implies3]$
+\end_inset
+
+ 
+\begin_inset Formula $\overrightarrow{f}^{2}=\overrightarrow{f^{2}}\overset{f^{2}=f}{=}\overrightarrow{f}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\overrightarrow{f}$
+\end_inset
+
+ es proyección vectorial.
+ Por otro lado, dado 
+\begin_inset Formula $P\in{\cal E}$
+\end_inset
+
+, 
+\begin_inset Formula $f(P)=f(f(P))\in\text{Fix}(f)\neq\emptyset$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $[3\implies1]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $A\in\text{Fix}(f)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\text{Fix}(f)=A+\text{Inv}(\overrightarrow{f})$
+\end_inset
+
+, pero 
+\begin_inset Formula $\overrightarrow{f}$
+\end_inset
+
+ es la proyección de base 
+\begin_inset Formula $\text{Inv}(\overrightarrow{f})$
+\end_inset
+
+ y dirección 
+\begin_inset Formula $\text{Nuc}(\overrightarrow{f})$
+\end_inset
+
+.
+ Ahora bien, dados 
+\begin_inset Formula $\vec{w}_{1}\in\text{Inv}(\overrightarrow{f}),\vec{w}_{2}\in\text{Nuc}(\overrightarrow{f})$
+\end_inset
+
+, 
+\begin_inset Formula $f(A+\vec{w}_{1}+\vec{w}_{2})=f(A)+\overrightarrow{f}(\vec{w}_{1}+\vec{w}_{2})=A+\vec{w}_{1}$
+\end_inset
+
+, luego 
+\begin_inset Formula $f$
+\end_inset
+
+ es la proyección de base 
+\begin_inset Formula $A+\text{Inv}(\overrightarrow{f})=\text{Fix}(f)$
+\end_inset
+
+ y dirección 
+\begin_inset Formula $\text{Nuc}(\overrightarrow{f})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dada una transformación afín 
+\begin_inset Formula $f$
+\end_inset
+
+, 
+\begin_inset Formula $f\text{ es una simetría afín (con }{\cal L}=\text{Fix}(f)\text{ y }W_{2}=\text{Opp}(\overrightarrow{f})\text{)}\iff f\text{ es involutiva}\iff\overrightarrow{f}^{2}=id_{V}\land\text{Fix}(f)\neq\emptyset$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $[1\implies2]$
+\end_inset
+
+ 
+\begin_inset Formula $f^{2}$
+\end_inset
+
+ e 
+\begin_inset Formula $id_{{\cal E}}$
+\end_inset
+
+ actúan igual sobre los puntos de 
+\begin_inset Formula $\text{Fix}(f)$
+\end_inset
+
+, pues ambos los fijan, y 
+\begin_inset Formula $\overrightarrow{f^{2}}=\overrightarrow{f}^{2}=id_{V}$
+\end_inset
+
+, luego 
+\begin_inset Formula $f^{2}=f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $[2\implies3]$
+\end_inset
+
+ 
+\begin_inset Formula $\overrightarrow{f}^{2}=\overrightarrow{f^{2}}=\overrightarrow{id_{{\cal E}}}=id_{V}$
+\end_inset
+
+.
+ Por otro lado, dado 
+\begin_inset Formula $P\in{\cal E}$
+\end_inset
+
+ y sea 
+\begin_inset Formula $A:=\frac{P+f(P)}{2}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f(A)=\frac{f(P)+f(f(P))}{2}=\frac{f(P)+P}{2}=A\in\text{Fix}(f)\neq\emptyset$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $[3\implies1]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $A\in\text{Fix}(f)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\text{Fix}(f)=A+\text{Inv}(\overrightarrow{f})$
+\end_inset
+
+, pero 
+\begin_inset Formula $\overrightarrow{f}$
+\end_inset
+
+ es la simetría de base 
+\begin_inset Formula $\text{Inv}(\overrightarrow{f})$
+\end_inset
+
+ y dirección 
+\begin_inset Formula $\text{Opp}(\overrightarrow{f})$
+\end_inset
+
+.
+ Ahora bien, dados 
+\begin_inset Formula $\vec{w}_{1}\in\text{Inv}(\overrightarrow{f}),\vec{w}_{2}\in\text{Opp}(\overrightarrow{f})$
+\end_inset
+
+, 
+\begin_inset Formula $f(A+\vec{w}_{1}+\vec{w}_{2})=f(A)+\overrightarrow{f}(\vec{w}_{1}+\vec{w}_{2})=A+\vec{w}_{1}-\vec{w}_{2}$
+\end_inset
+
+, luego 
+\begin_inset Formula $f$
+\end_inset
+
+ es la simetría de base 
+\begin_inset Formula $A+\text{Inv}(\overrightarrow{f})=\text{Fix}(f)$
+\end_inset
+
+ y dirección 
+\begin_inset Formula $\text{Opp}(\overrightarrow{f})$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

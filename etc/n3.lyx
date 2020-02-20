@@ -1,0 +1,2537 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 0.2cm
+\topmargin 0.7cm
+\rightmargin 0.2cm
+\bottommargin 0.7cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+El 
+\series bold
+repertorio de instrucciones
+\series default
+ o 
+\series bold
+ISA
+\series default
+ de un procesador define el conjunto de instrucciones que implementa, y
+ otros aspectos como el número y tipo de registros, los modos de direccionamient
+o y el manejo de excepciones.
+ MIPS implementa un ISA RISC (
+\emph on
+Reduced Instruction Set Computer
+\emph default
+), que se caracteriza por tener un número de instrucciones relativamente
+ pequeño, normalmente sencillas, que operan con datos en los registros,
+ utilizan pocos modos de direccionamiento y se codifican todas con el mismo
+ número de bits (en el caso de MIPS, 32 bits).
+ En este capítulo implementamos una versión simplificada del ISA MIPS de
+ 32 bits con unas pocas instrucciones de cada tipo.
+\end_layout
+
+\begin_layout Section
+Codificación de las instrucciones
+\end_layout
+
+\begin_layout Standard
+MIPS dispone de 32 registros de propósito general con 32 bits cada uno,
+ además de algunos específicos como el contador de programa (PC), y ve la
+ memoria como un conjunto de celdas de 1 byte cada una con una dirección
+ de 32 bits, permitiendo indexar hasta 
+\begin_inset Formula $\unit[4]{GiB}$
+\end_inset
+
+ de memoria.
+ Usa cinco modos de direccionamiento:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Registro:
+\series default
+ El operando se encuentra en un registro, cuyo número está codificado en
+ la instrucción en un campo de 5 bits (
+\begin_inset Formula $2^{5}=\unit[32]{registros}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Base más desplazamiento:
+\series default
+ Indica una dirección de memoria a leer o escribir mediante un registro
+ base (codificado con 5 bits) al que se le suma una constante de 16 bits,
+ codificada en el código de instrucción como un entero con signo en complemento
+ a dos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Inmediato:
+\series default
+ Constante en un campo de 16 bits.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Relativo al PC:
+\series default
+ Indica una dirección de destino de un salto mediante un campo de 16 bits
+ en complemento a dos que indica el número de 
+\series bold
+palabras
+\series default
+ (32 bits o 4 bytes) desde el valor actual del registro PC, que será la
+ dirección de la instrucción inmediatamente posterior a la que se está ejecutand
+o.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Pseudodirecto:
+\series default
+ Indica una dirección de destino mediante un campo de 26 bits.
+ Como las direcciones de memoria son de 32, a este se le añaden al final
+ 2 bits a 0 (porque las instrucciones están alineadas a la palabra) y al
+ principio los 4 bits más significativos del PC.
+\end_layout
+
+\begin_layout Subsection
+Formato de instrucción R
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="12text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="12text%">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+31
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+26
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+25
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+20
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+15
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+10
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+5
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+op
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+rs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+rt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+rd
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+shamt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+func
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde 
+\series bold
+op
+\series default
+ es el código de operación, que aparece en todos los formatos de instrucción,
+ 
+\series bold
+rs
+\series default
+ y 
+\series bold
+rt
+\series default
+ son los registros fuente, 
+\series bold
+rd
+\series default
+ el registro de destino y 
+\series bold
+func
+\series default
+ indica a la ALU qué función debe realizar.
+ 
+\series bold
+shamt
+\series default
+ es el tamaño de desplazamiento en las instrucciones de desplazamiento y
+ rotación, y vale 0 en el resto.
+\end_layout
+
+\begin_layout Standard
+Este formato se usa para operaciones aritmético-lógicas con modo de direccionami
+ento registro (
+\begin_inset Formula $\boldsymbol{op}=0$
+\end_inset
+
+), cuyo formato es 
+\family typewriter
+func $rd, $rs, $rt
+\family default
+, y de las cuales implementaremos 
+\family typewriter
+and
+\family default
+ (
+\begin_inset Formula $\boldsymbol{func}=44|_{8}$
+\end_inset
+
+), 
+\family typewriter
+or
+\family default
+ (
+\begin_inset Formula $\boldsymbol{func}=45|_{8}$
+\end_inset
+
+), 
+\family typewriter
+add
+\family default
+ (
+\begin_inset Formula $\boldsymbol{func}=40|_{8}$
+\end_inset
+
+), 
+\family typewriter
+sub
+\family default
+ (
+\begin_inset Formula $\boldsymbol{func}=42|_{8}$
+\end_inset
+
+) y 
+\family typewriter
+slt
+\family default
+ (
+\begin_inset Formula $\boldsymbol{func}=52|_{8}$
+\end_inset
+
+), que ya implementamos en la ALU del capítulo anterior.
+\end_layout
+
+\begin_layout Subsection
+Formato de instrucción I
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="12text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="32text%">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+31
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+26
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+25
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+20
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+15
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+op
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+rs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+rt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+imm
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Usado para:
+\end_layout
+
+\begin_layout Itemize
+Instrucciones aritmético-lógicas con un operando constante, por direccionamiento
+ in
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+me
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+dia
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+to.
+\end_layout
+
+\begin_layout Itemize
+Instrucciones de acceso a memoria, por direccionamiento base más desplazamiento.
+ El formato es 
+\family typewriter
+instr $rt, imm($rs)
+\family default
+, y veremos 
+\family typewriter
+lw
+\family default
+ (
+\begin_inset Formula $\boldsymbol{op}=35$
+\end_inset
+
+) y 
+\family typewriter
+sw
+\family default
+ (
+\begin_inset Formula $\boldsymbol{op}=43$
+\end_inset
+
+), que cargan una palabra de una dirección de memoria a un registro y viceversa,
+ respectivamente.
+\end_layout
+
+\begin_layout Itemize
+Instrucciones de salto condicional, por direccionamiento relativo a PC.
+ El formato es 
+\family typewriter
+instr $rs, $rt, label
+\family default
+, con 
+\begin_inset Formula $\mathtt{label}=PC+4\boldsymbol{imm}$
+\end_inset
+
+, y veremos 
+\family typewriter
+beq
+\family default
+ (
+\begin_inset Formula $\boldsymbol{op}=4$
+\end_inset
+
+), que salta a una dirección si los dos registros contienen lo mismo.
+\end_layout
+
+\begin_layout Subsection
+Formato de instrucción J
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="12text%">
+<column alignment="center" valignment="top" width="52text%">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+31
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+26
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+25
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+op
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+j
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+26
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde 
+\series bold
+j
+\series default
+ almacena la dirección de destino por direccionamiento pseudodirecto.
+ Lo usa la instrucción de salto incondicional 
+\family typewriter
+j
+\family default
+ (
+\begin_inset Formula $\boldsymbol{op}=2$
+\end_inset
+
+), cuyo formato es 
+\family typewriter
+j label
+\family default
+.
+\end_layout
+
+\begin_layout Section
+Modelo del tiempo de ejecución
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+T_{CPU}=N_{inst}\cdot CPI\cdot T_{ciclo}
+\]
+
+\end_inset
+
+ Donde 
+\begin_inset Formula $T_{CPU}$
+\end_inset
+
+ es el tiempo que tarda la CPU en ejecutar un programa, 
+\begin_inset Formula $N_{inst}$
+\end_inset
+
+ es el número de 
+\series bold
+instrucciones dinámicas
+\series default
+ que se ejecutan (cada 
+\series bold
+instrucción estática
+\series default
+ del código se cuenta tantas veces como se ejecuta), 
+\begin_inset Formula $CPI$
+\end_inset
+
+ es el promedio del número de ciclos que tarda en ejecutarse cada instrucción
+ y 
+\begin_inset Formula $T_{ciclo}$
+\end_inset
+
+ es la duración del ciclo de reloj (tiempo entre dos flancos activos), que
+ debe ser lo suficientemente largo para permitir que se estabilicen todas
+ las señales de entrada a los elementos secuenciales.
+\end_layout
+
+\begin_layout Standard
+En una implementación 
+\series bold
+monociclo
+\series default
+, todas las instrucciones tardan exactamente un ciclo en ejecutarse.
+ El tiempo de ciclo tiene que ser suficiente para ejecutar la instrucción
+ más larga, por lo que sobrará tiempo para las cortas, reduciendo el rendimiento.
+ Construiremos un procesador 
+\series bold
+multiciclo
+\series default
+, en el que las instrucciones se dividen en pasos y cada uno ocupa un ciclo,
+ y el tiempo de ciclo es el necesario para ejecutar el paso más largo.
+ También se pueden realizar implementaciones con 
+\begin_inset Formula $CPI<1$
+\end_inset
+
+ mediante técnicas para ejecutar varias instrucciones a la vez, que no veremos
+ aquí.
+\end_layout
+
+\begin_layout Section
+El camino de datos
+\end_layout
+
+\begin_layout Standard
+Un procesador está formado por un 
+\series bold
+camino de datos
+\series default
+, donde se encuentran los elementos que realizan el trabajo indicado, y
+ una 
+\series bold
+unidad de control
+\series default
+, que gestiona el camino de datos.
+\end_layout
+
+\begin_layout Standard
+Para el camino de datos, tomamos como componentes principales la memoria,
+ el banco de registros y la ALU, y suponemos que solo estos conllevan un
+ retardo significativo.
+ Entonces toda operación con uno de estos componentes consume un ciclo,
+ y la salida de estos debe almacenarse en registros auxiliares para ser
+ usada en el ciclo siguiente.
+ Con esto, nuestro camino de datos tendrá los siguientes componentes:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Memoria:
+\series default
+ Acepta direcciones de 32 bits y permite leer o escribir una palabra de
+ 4 bytes en cada ciclo.
+ Tiene dos señales de control para habilitación de lectura y escritura,
+ así como puertos de entrada para la dirección y el dato a escribir y de
+ salida para el dato leído.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Banco de registros (Reg):
+\series default
+ Banco de 32 registros capaz de leer dos registros y escribir otro en el
+ mismo ciclo.
+ El registro 0 es virtual y contiene siempre el valor 0, por lo que toda
+ escritura en este es ignorada.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ALU:
+\series default
+ La que vimos en el capítulo anterior.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Contador de programa (PC):
+\series default
+ De 32 bits, con señal de habilitación de escritura.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Registro de instrucción (IR):
+\series default
+ De 32 bits con habilitación de escritura, almacena la instrucción que se
+ está ejecutando actualmente, y tiene varios puertos de salida para los
+ distintos campos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Registro de datos de memoria (MDR):
+\series default
+ De 32 bits sin habilitación de escritura, almacena un valor leído de memoria.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Registros A y B:
+\series default
+ De 32 bits sin habilitación de escritura, almacenan los valores leídos
+ del banco de registros.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Registro ALUOut:
+\series default
+ De 32 bits sin habilitación de escritura, almacena la salida de la ALU.
+\end_layout
+
+\begin_layout Itemize
+Algunos desplazadores y extensores de signo, así como multiplexores para
+ permitir distintas conexiones entre unidades funcionales.
+\end_layout
+
+\begin_layout Standard
+Veamos ahora la descomposición de instrucciones en pasos.
+ Para esta parte usaremos 
+\series bold
+lenguaje de transferencia entre registros
+\series default
+ o 
+\series bold
+RTL
+\series default
+ (
+\emph on
+Register Transfer Language
+\emph default
+).
+ La transferencia de un registro o resultado de una operación a un registro
+ se escribe como 
+\family typewriter
+A <- B
+\family default
+, donde 
+\family typewriter
+B
+\family default
+ indica una operación y 
+\family typewriter
+A
+\family default
+ es el registro al que se transfiere el resultado.
+ Si una sentencia se debe ejecutar sólo bajo cierta condición 
+\family typewriter
+C
+\family default
+, que puede incluir operadores booleanos, se indica con 
+\family typewriter
+C: A <- B
+\family default
+.
+ Finalmente, para indicar que varias sentencias se ejecutan en paralelo,
+ se separan por comas.
+\end_layout
+
+\begin_layout Standard
+Los dos primeros pasos son comunes a todas las instrucciones:
+\end_layout
+
+\begin_layout Enumerate
+Lectura de instrucción desde la memoria (memoria) y cálculo de la dirección
+ de la ins
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+truc
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ción siguiente (ALU).
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+IR <- Memoria[PC], PC <- PC + 4
+\end_layout
+
+\begin_layout Enumerate
+Decodificación de la instrucción, lectura de operandos (banco de registros)
+ y cálculo de la dirección de destino de salto condicional (ALU).
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+A <- Reg[IR[25-21]], B <- Reg[IR[20-16]],
+\begin_inset Newline newline
+\end_inset
+
+ALUOut <- PC + sign_extend(IR[15-0]) << 2
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+Como hasta que no acaba el segundo paso no se ha decodificado la instrucción,
+ el resto de acciones se hacen de manera 
+\series bold
+especulativa
+\series default
+, por si resultaran útiles luego, pues las unidades funcionales necesarias
+ están desocupadas.
+\end_layout
+
+\begin_layout Standard
+A continuación, para una instrucción aritmético-lógica:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+3a.
+\end_layout
+
+\end_inset
+
+Realización de la operación (ALU).
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+ALUOut <- A func B
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+4a.
+\end_layout
+
+\end_inset
+
+Escritura del resultado (banco de registros).
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+Reg[IR[15-11]] <- ALUOut
+\end_layout
+
+\begin_layout Standard
+Para 
+\family typewriter
+lw
+\family default
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+3b.
+\end_layout
+
+\end_inset
+
+Cálculo de la dirección de memoria (ALU).
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+ALUOut <- A + sign_extend(IR[15-0])
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+4b.
+\end_layout
+
+\end_inset
+
+Lectura del dato de memoria (memoria).
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+MDR <- Mem[ALUOut]
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+5.
+\end_layout
+
+\end_inset
+
+Escritura del dato leído (banco de registros).
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+Reg[IR[20-16]] <- MDR
+\end_layout
+
+\begin_layout Standard
+Para 
+\family typewriter
+sw
+\family default
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+3b.
+\end_layout
+
+\end_inset
+
+Cálculo de la dirección de memoria (ALU).
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+4c.
+\end_layout
+
+\end_inset
+
+Escritura del dato en memoria (memoria).
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+Mem[ALUOut] <- B
+\end_layout
+
+\begin_layout Standard
+Para 
+\family typewriter
+beq
+\family default
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+3c.
+\end_layout
+
+\end_inset
+
+Comprobación de la condición del salto (ALU) y actualización del contador
+ de programa si procede.
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+A=B: PC <- ALUOut
+\end_layout
+
+\begin_layout Standard
+Para 
+\family typewriter
+j
+\family default
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+3d.
+\end_layout
+
+\end_inset
+
+Actualización del contador de programa.
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+PC <- (PC[31-28] << 28) | (IR[25-0] << 2)
+\end_layout
+
+\begin_layout Standard
+Nos queda por tanto lo siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+T1: IR <- Mem[PC], PC <- PC + 4
+\end_layout
+
+\begin_layout Plain Layout
+
+T2: A <- Reg[IR[25-21]], B <- Reg[IR[20-16]],
+\end_layout
+
+\begin_layout Plain Layout
+
+        ALUOut <- PC + sign_extend(IR[15-0]) << 2
+\end_layout
+
+\begin_layout Plain Layout
+
+T3 && op=0: ALUOut <- A func B
+\end_layout
+
+\begin_layout Plain Layout
+
+T3 && (op=35 || op=43): ALUOut <- A + sign_extend(IR[15-0])
+\end_layout
+
+\begin_layout Plain Layout
+
+T3 && (op=4) && (A=B): PC <- ALUOut
+\end_layout
+
+\begin_layout Plain Layout
+
+T3 && (op=2): PC <- (PC[31-28] << 28) | (IR[25-0] << 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+T4 && (op=0): Reg[IR[15-11]] <- ALUOut
+\end_layout
+
+\begin_layout Plain Layout
+
+T4 && (op=35): MDR <- Mem[ALUOut]
+\end_layout
+
+\begin_layout Plain Layout
+
+T4 && (op=43): Mem[ALUOut] <- B
+\end_layout
+
+\begin_layout Plain Layout
+
+T5 && (op=35): Reg[IR[20-16]] <- MDR
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las conexiones que necesitamos dependen del ciclo actual y la instrucción
+ que se esté ejecutando, por lo que tenemos que añadir algunos multiplexores
+ en algunos puertos de entrada para seleccionar:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="9">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nombre
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Puerto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Unidad
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+V.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Entrada
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pasos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+V.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Entrada
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pasos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+IoD
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dirección
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Memoria
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ALUOut
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4b,4c
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DestReg
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Reg.
+ a escr.
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+B.
+ de regs.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+rt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+rd
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4a
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MemAReg
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dato a escr.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+B.
+ de regs.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ALUOut
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4a
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MDR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SelALUA
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1^{\text{er}}$
+\end_inset
+
+ op.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ALU
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3a,3b,3c
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SelALUB
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2^{\text{o}}$
+\end_inset
+
+ op.
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ALU
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+B
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3a
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Const.
+ 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+imm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3b
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+imm
+\series default
+*4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PCSrc
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Entrada
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ALU
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ALUOut
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3c
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\series bold
+j
+\series default
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3d
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+La unidad de control
+\end_layout
+
+\begin_layout Standard
+Debemos asegurar que el valor de las señales de control de los multiplexores
+ y de todas las unidades funcionales sea el adecuado.
+ Primero haremos un circuito de control de la ALU, que debe realizar una
+ suma en los pasos 1, 2 y 3b, una resta en el paso 3c y una función en 3a
+ que depende de los bits del campo 
+\series bold
+func
+\series default
+.
+ Para ello diseñamos un circuito combinacional con dos bits de entrada (
+\family typewriter
+ALUOp
+\family default
+) además de los seis del campo 
+\series bold
+func
+\series default
+ y tres bits de salida correspondientes a 
+\family typewriter
+ALUCtl
+\family default
+, como se muestra en la figura.
+ No necesitamos los dos bytes más significativos de 
+\family typewriter
+func
+\family default
+, pues son iguales en las cinco operaciones.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename pegado32.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hecho esto, las señales que debe controlar la unidad de control principal
+ son: las señales de control de los multiplexores indicados, incluyendo
+ 
+\family typewriter
+ALUOp
+\family default
+; las señales 
+\family typewriter
+MemR
+\family default
+ y 
+\family typewriter
+MemW
+\family default
+ de habilitación de lectura y escritura de memoria, y la señales de habilitación
+ de escritura 
+\family typewriter
+WrtIR
+\family default
+, 
+\family typewriter
+WrtPC
+\family default
+, 
+\family typewriter
+WrtPCCond
+\family default
+ (similar pero solo escribe si la señal 
+\begin_inset Quotes cld
+\end_inset
+
+Cero
+\begin_inset Quotes crd
+\end_inset
+
+ de la ALU está activa, para implementar la condición 
+\family typewriter
+A=B
+\family default
+) y 
+\family typewriter
+WrtReg
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+El valor de las señales de control depende sólo del paso actual, mientras
+ que la transición de un paso a otro depende de la instrucción en ejecución,
+ por lo que podemos implementar la unidad de control como un autómata de
+ Moore cuya entrada es el campo 
+\series bold
+op
+\series default
+ de la instrucción en IR y cuya salida son los valores de las señales de
+ control.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename pegado33.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename pegado34.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Metodología para añadir instrucciones
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Análisis
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Especificación semántica precisa:
+\series default
+ Traducir la descripción verbal de la instrucción a notación RTL.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Identificación del trabajo:
+\series default
+ Identificar qué acciones realiza cada unidad funcional.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Establecimiento del orden de precedencia:
+\series default
+ Ver qué relaciones de dependencia existen entre las acciones.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Diseño
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Definición de la codificación:
+\series default
+ Asignar una codificación ajustándose a uno de los tres formatos de instrucción
+ existentes (salvo que sea imposible), de forma que se pueda diferenciar
+ la instrucción de las ya existentes.
+ Para decidir la colocación de los operandos, conviene tener en cuenta el
+ uso que se va a hacer de ellos y las conexiones ya disponibles, minimizando
+ el número de cambios a realizar.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+División del trabajo en ciclos:
+\series default
+ Respetando las dependencias, sin usar la misma unidad dos veces en el mismo
+ ciclo, e intentando aprovechar las instrucciones que ya se realizan en
+ los dos primeros ciclos.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Extensión del camino de datos:
+\series default
+ Detallar las modificaciones a realizar en este para permitir la realización
+ de las acciones indicadas.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Extensión del control:
+\series default
+ Indicar los nuevos estados, el paso de uno a otro y el valor de las señales
+ de control en cada uno.
+\end_layout
+
+\end_deeper
+\end_body
+\end_document

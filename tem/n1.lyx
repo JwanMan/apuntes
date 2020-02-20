@@ -1,0 +1,2320 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Espacios topológicos
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+espacio topológico
+\series default
+ es un par 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ en el que 
+\begin_inset Formula ${\cal T}\subseteq{\cal P}(X)$
+\end_inset
+
+ y cumple que:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X,\emptyset\in{\cal T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\{A_{1},\dots,A_{n}\}\subseteq{\cal T}\implies\bigcap_{i=1}^{n}A_{i}\in{\cal T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\{A_{i}\}_{i\in I}\subseteq{\cal T}\implies\bigcup_{i\in I}A_{i}\in{\cal T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Decimos que 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ es una 
+\series bold
+topología
+\series default
+ para 
+\begin_inset Formula $X$
+\end_inset
+
+ y sus elementos son 
+\series bold
+conjuntos abiertos
+\series default
+, o simplemente 
+\series bold
+abiertos
+\series default
+, de 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+cerrados
+\series default
+ a los complementarios de los abiertos: 
+\begin_inset Formula ${\cal C_{T}}:={\cal C}:=\{X\backslash A\}_{A\in{\cal T}}$
+\end_inset
+
+.
+ Un 
+\series bold
+entorno
+\series default
+ de 
+\begin_inset Formula $p\in X$
+\end_inset
+
+ es un abierto que contiene a 
+\begin_inset Formula $p$
+\end_inset
+
+, y llamamos 
+\begin_inset Formula ${\cal E}(p)$
+\end_inset
+
+ a la familia de todos los entornos de 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A\in{\cal T}$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\forall p\in A,\exists{\cal U}\in{\cal E}(p):{\cal U}\subseteq A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dado 
+\begin_inset Formula $x\in A$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal U}=A$
+\end_inset
+
+ es un entorno de 
+\begin_inset Formula $x$
+\end_inset
+
+ en 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para cada 
+\begin_inset Formula $x\in A$
+\end_inset
+
+, sea 
+\begin_inset Formula ${\cal U}_{x}\in{\cal E}(x)$
+\end_inset
+
+ tal que 
+\begin_inset Formula ${\cal U}_{x}\subseteq A$
+\end_inset
+
+, se afirma que 
+\begin_inset Formula $\bigcup_{x\in A}{\cal U}_{x}=A$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\subseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula ${\cal U}_{x}\subseteq A\forall x\in A\implies\bigcup_{x\in A}{\cal U}_{x}\subseteq A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\supseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\forall x\in A,x\in{\cal U}_{x}\subseteq\bigcup_{x\in A}{\cal U}_{x}\implies A\subseteq\bigcup_{x\in A}{\cal U}_{x}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Propiedades de los cerrados:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $X,\emptyset\in{\cal C_{T}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\{C_{1},\dots,C_{n}\}\subseteq{\cal C_{T}}\implies\bigcup_{i=1}^{n}C_{i}\in{\cal C_{T}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\{C_{i}\}_{i\in I}\subseteq{\cal C_{T}}\implies\bigcap_{i\in I}C_{i}\in{\cal C_{T}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un abierto y 
+\begin_inset Formula $C$
+\end_inset
+
+ un cerrado, entonces 
+\begin_inset Formula $A\backslash C$
+\end_inset
+
+ es abierto y 
+\begin_inset Formula $C\backslash A$
+\end_inset
+
+ es cerrado.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $X\backslash C$
+\end_inset
+
+ es abierto, por lo que 
+\begin_inset Formula $A\backslash C=A\cap(X\backslash C)$
+\end_inset
+
+ también.
+ Por otro lado, 
+\begin_inset Formula $X\backslash(C\backslash A)=(X\backslash C)\cup A$
+\end_inset
+
+, que es abierto, por lo que 
+\begin_inset Formula $C\backslash A$
+\end_inset
+
+ es cerrado.
+\end_layout
+
+\begin_layout Standard
+Algunas topologías:
+\end_layout
+
+\begin_layout Itemize
+La 
+\series bold
+topología discreta
+\series default
+: 
+\begin_inset Formula ${\cal T}_{D}:={\cal P}(X)$
+\end_inset
+
+, la topología más grande que se puede definir sobre 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+La 
+\series bold
+topología trivial
+\series default
+ o 
+\series bold
+indiscreta
+\series default
+: 
+\begin_inset Formula ${\cal T}_{T}=\{\emptyset,X\}$
+\end_inset
+
+, la topología más pequeña que se puede definir sobre 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+La 
+\series bold
+topología cofinita
+\series default
+: 
+\begin_inset Formula ${\cal T}_{CF}=\{\emptyset\}\cup\{A\subseteq X:X\backslash A\text{ es finito}\}$
+\end_inset
+
+.
+ Esta se define sobre conjuntos infinitos, pues de lo contrario es 
+\begin_inset Formula ${\cal T}_{CF}={\cal T}_{D}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Sean 
+\begin_inset Formula $A,B\in{\cal T}$
+\end_inset
+
+ no vacíos, 
+\begin_inset Formula $X\backslash A$
+\end_inset
+
+ y 
+\begin_inset Formula $X\backslash B$
+\end_inset
+
+ son finitos, por lo que 
+\begin_inset Formula $(X\backslash A)\cup(X\backslash B)=X\backslash(A\cap B)$
+\end_inset
+
+ también lo es y 
+\begin_inset Formula $A\cap B\in{\cal T}$
+\end_inset
+
+.
+ Si, por ejemplo, 
+\begin_inset Formula $B=\emptyset$
+\end_inset
+
+, entonces 
+\begin_inset Formula $A\cap B=\emptyset\in{\cal T}$
+\end_inset
+
+.
+ Por otro lado, si 
+\begin_inset Formula $\{A_{i}\}_{i\in I}\subseteq{\cal T}$
+\end_inset
+
+ es tal que 
+\begin_inset Formula $\bigcup_{i\in I}A_{i}\neq\emptyset$
+\end_inset
+
+, entonces 
+\begin_inset Formula $X\backslash\bigcup_{i\in I}A_{i}=\bigcap_{i\in I}(X\backslash A_{i})$
+\end_inset
+
+ es finito.
+\end_layout
+
+\begin_layout Standard
+Dado el espacio topológico 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+, definimos la 
+\series bold
+topología inducida
+\series default
+ por 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ en 
+\begin_inset Formula $H\subseteq X$
+\end_inset
+
+, 
+\series bold
+topología relativa
+\series default
+ o 
+\series bold
+topología de subespacio
+\series default
+ como 
+\begin_inset Formula ${\cal T}|_{H}:={\cal T}_{H}:=\{A\cap H\}_{A\in{\cal T}}$
+\end_inset
+
+.
+ Los abiertos de 
+\begin_inset Formula ${\cal T}_{H}$
+\end_inset
+
+ se llaman 
+\series bold
+abiertos relativos
+\series default
+, y 
+\begin_inset Formula $(H,{\cal T}_{H})$
+\end_inset
+
+ es un 
+\series bold
+subespacio topológico
+\series default
+ de 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+.
+ Todo subespacio topológico es un espacio topológico.
+ 
+\series bold
+Demostración:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\emptyset=\emptyset\cap H$
+\end_inset
+
+ y 
+\begin_inset Formula $H=X\cap H$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Sean 
+\begin_inset Formula $A',B'\in{\cal T}_{H}$
+\end_inset
+
+, existen 
+\begin_inset Formula $A,B\in{\cal T}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $A'=A\cap H$
+\end_inset
+
+ y 
+\begin_inset Formula $B'=B\cap H$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $A'\cap B'=A\cap B\cap H\in{\cal T}_{H}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Sea 
+\begin_inset Formula $\{A'_{i}\}_{i\in I}\subseteq{\cal T}_{H}$
+\end_inset
+
+, para cada 
+\begin_inset Formula $i\in I$
+\end_inset
+
+ existe un 
+\begin_inset Formula $A_{i}\in{\cal T}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $A'_{i}=A_{i}\cap H$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $\bigcup_{i\in I}A'_{i}=\bigcup_{i\in I}(A_{i}\cap H)=\left(\bigcup_{i\in I}A_{i}\right)\cap H\in{\cal T}_{H}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $H$
+\end_inset
+
+ es abierto en 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ entonces todo abierto relativo 
+\begin_inset Formula $A'\in{\cal T}_{H}$
+\end_inset
+
+ también es abierto en el total.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $A\in{\cal T}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $A'=A\cap H$
+\end_inset
+
+, como 
+\begin_inset Formula $A,H\in{\cal T}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $A'\in{\cal T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+, un subconjunto 
+\begin_inset Formula $C'\subseteq H\subseteq X$
+\end_inset
+
+ es cerrado relativo (
+\begin_inset Formula $C'\in{\cal C}_{H})$
+\end_inset
+
+ si y sólo si existe 
+\begin_inset Formula $C\in{\cal C}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $C'=C\cap H$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $C'\in{\cal C}_{H}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $H\backslash C'\in{\cal T}_{H}$
+\end_inset
+
+, por lo que existe 
+\begin_inset Formula $A\in{\cal T}$
+\end_inset
+
+ con 
+\begin_inset Formula $H\backslash C'=A\cap H$
+\end_inset
+
+.
+ Pero si 
+\begin_inset Formula $C:=X\backslash A$
+\end_inset
+
+, entonces 
+\begin_inset Formula $C'=H\backslash(H\backslash C')=H\backslash(A\cap H)=H\backslash A=H\cap(X\backslash A)=H\cap C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $C'=C\cap H$
+\end_inset
+
+ con 
+\begin_inset Formula $C\in{\cal C}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $H\backslash C'=H\backslash(C\cap H)=H\backslash C=H\cap(X\backslash C)$
+\end_inset
+
+, y como 
+\begin_inset Formula $X\backslash C\in{\cal T}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $H\backslash C'\in{\cal T}_{H}$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $C'\in{\cal C}_{H}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Primer axioma de numerabilidad y condición de Hausdorff
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+base de entornos
+\series default
+ de 
+\begin_inset Formula $p\in X$
+\end_inset
+
+ es una subfamilia 
+\begin_inset Formula ${\cal B}(p)\subseteq{\cal E}(p)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall V\in{\cal E}(p),\exists U\in{\cal B}(p):U\subseteq V$
+\end_inset
+
+.
+ A partir de aquí, un espacio topológico 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ satisface el 
+\series bold
+primer axioma de numerabilidad
+\series default
+, o es 
+\series bold
+1AN
+\series default
+, si todo punto posee una base de entornos numerable, es decir, si 
+\begin_inset Formula $\forall p\in X,\exists{\cal B}(p)\text{ base de }p:|{\cal B}(p)|\leq|\mathbb{N}|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Así, 
+\begin_inset Formula $(X,{\cal T}_{T})$
+\end_inset
+
+ es 1AN, pues cada punto posee la base 
+\begin_inset Formula ${\cal B}(p)=\{X\}$
+\end_inset
+
+.
+ Sin embargo, 
+\begin_inset Formula $(\mathbb{R},{\cal T}_{CF})$
+\end_inset
+
+ no es 1AN.
+ 
+\series bold
+Demostración:
+\series default
+ Si lo fuera, tendríamos 
+\begin_inset Formula ${\cal B}(0)=\{U_{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $U_{n}=\mathbb{R}\backslash F_{n}$
+\end_inset
+
+, con 
+\begin_inset Formula $F_{n}$
+\end_inset
+
+ finito, para cada 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+ Ahora bien, como la unión numerable de conjuntos finitos es numerable y
+ 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ no lo es, podemos elegir un punto 
+\begin_inset Formula $x\in\mathbb{R}\backslash\left(\bigcup_{n\in\mathbb{N}}F_{n}\right)=\bigcap_{n\in\mathbb{N}}(\mathbb{R}\backslash F_{n})=\bigcap_{n\in\mathbb{N}}U_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $x\neq0$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $A=\mathbb{R}\backslash\{x\}\in{\cal E}(0)$
+\end_inset
+
+, existirá un 
+\begin_inset Formula $U_{i}\subseteq A$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $x\in U_{i}\subseteq A=\mathbb{R}\backslash\{x\}\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La propiedad 1AN es hereditaria, es decir, si 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ es 1AN, también lo es cualquier 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+subes
+\backslash
+-pa
+\backslash
+-cio
+\end_layout
+
+\end_inset
+
+ topológico de este.
+ 
+\series bold
+Demostración:
+\series default
+ Debemos probar que si 
+\begin_inset Formula $Y\subseteq X$
+\end_inset
+
+, dado 
+\begin_inset Formula $y\in Y$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal B}(y)$
+\end_inset
+
+ una base de entornos de 
+\begin_inset Formula $y$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+, debemos probar que 
+\begin_inset Formula ${\cal B}_{Y}(y)=\{B\cap Y\}_{B\in{\cal B}(y)}$
+\end_inset
+
+ es base de entornos de 
+\begin_inset Formula $y$
+\end_inset
+
+ en 
+\begin_inset Formula $Y$
+\end_inset
+
+, pues entonces 
+\begin_inset Formula $|{\cal B}_{Y}(y)|\leq|{\cal B}(y)|\leq|\mathbb{N}|$
+\end_inset
+
+.
+ Para ello, vemos que todo 
+\begin_inset Formula $A\in{\cal B}_{Y}(y)$
+\end_inset
+
+ es entorno de 
+\begin_inset Formula $y$
+\end_inset
+
+ en 
+\begin_inset Formula $Y$
+\end_inset
+
+, pues 
+\begin_inset Formula $A=B\cap Y\in{\cal T}_{Y}$
+\end_inset
+
+ con 
+\begin_inset Formula $B$
+\end_inset
+
+ un entorno de 
+\begin_inset Formula $y$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Ahora, si 
+\begin_inset Formula $V$
+\end_inset
+
+ es un entorno de 
+\begin_inset Formula $y$
+\end_inset
+
+ en 
+\begin_inset Formula $Y$
+\end_inset
+
+, entonces 
+\begin_inset Formula $V$
+\end_inset
+
+ es abierto en 
+\begin_inset Formula $Y$
+\end_inset
+
+, por lo que existe un 
+\begin_inset Formula $A\in{\cal T}$
+\end_inset
+
+ abierto en 
+\begin_inset Formula $X$
+\end_inset
+
+ tal que 
+\begin_inset Formula $V=A\cap Y$
+\end_inset
+
+, y como 
+\begin_inset Formula $A$
+\end_inset
+
+ es entorno de 
+\begin_inset Formula $y$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+, existe un 
+\begin_inset Formula $B\in{\cal B}(y)$
+\end_inset
+
+ con 
+\begin_inset Formula $B\subseteq A$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $y\in B\cap Y\subseteq A\cap Y=V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un espacio topológico 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ es 
+\series bold
+de Hausdorff
+\series default
+ o 
+\begin_inset Formula $T_{2}$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall p,q\in X,p\neq q;\exists U\in{\cal E}(p),V\in{\cal E}(q):U\cap V=\emptyset$
+\end_inset
+
+.
+ Así, por ejemplo, 
+\begin_inset Formula $(X,{\cal T}_{T})$
+\end_inset
+
+ no es de Hausdorff para 
+\begin_inset Formula $|X|\geq2$
+\end_inset
+
+, pues dados 
+\begin_inset Formula $x,y\in X$
+\end_inset
+
+ con 
+\begin_inset Formula $x\neq y$
+\end_inset
+
+, el único entorno de 
+\begin_inset Formula $x$
+\end_inset
+
+ es 
+\begin_inset Formula $X$
+\end_inset
+
+ y contiene a 
+\begin_inset Formula $y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Espacios métricos
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+espacio métrico
+\series default
+ es un par 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ formado por un conjunto 
+\begin_inset Formula $X\neq\emptyset$
+\end_inset
+
+ y una aplicación 
+\begin_inset Formula $d:X\times X\rightarrow\mathbb{R}$
+\end_inset
+
+ que cumple que 
+\begin_inset Formula $\forall x,y,z\in X:$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $d(x,y)\geq0\land(d(x,y)=0\iff x=y)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Simetría:
+\series default
+ 
+\begin_inset Formula $d(y,x)=d(x,y)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Desigualdad triangular:
+\series default
+ 
+\begin_inset Formula $d(x,z)\leq d(x,y)+d(y,z)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Decimos que 
+\begin_inset Formula $d$
+\end_inset
+
+ es una 
+\series bold
+métrica
+\series default
+ o 
+\series bold
+distancia
+\series default
+ sobre 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Ejemplos de métricas:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Métrica usual
+\series default
+ sobre 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+: 
+\begin_inset Formula $d_{u}(x,y)=d_{|\,|}(x,y)=|x-y|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Métrica del ascensor
+\series default
+ sobre 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+
+\series bold
+:
+\series default
+ 
+\begin_inset Formula 
+\[
+d((x_{1},x_{2}),(y_{1},y_{2}))=\begin{cases}
+|x_{2}-y_{2}| & \text{si }x_{1}=y_{1}\\
+|x_{1}-y_{1}|+|x_{2}|+|y_{2}| & \text{si }x_{1}\neq y_{1}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Métrica discreta
+\series default
+: 
+\begin_inset Formula $d_{D}(x,y)=\begin{cases}
+0 & \text{si }x=y\\
+1 & \text{si }x\neq y
+\end{cases}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Espacios métricos producto
+\series default
+: Dados los espacios métricos 
+\begin_inset Formula $(X_{1},d_{1}),\dots,(X_{n},d_{n})$
+\end_inset
+
+, sean 
+\begin_inset Formula $x=(x_{1},\dots,x_{n}),y=(y_{1},\dots,y_{n})\in\prod_{i=1}^{n}X_{i}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Métrica del taxi:
+\series default
+ 
+\begin_inset Formula $d_{T}(x,y)=\sum_{i=1}^{n}d_{i}(x_{i},y_{i})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Métrica euclídea:
+\series default
+ 
+\begin_inset Formula $d_{E}(x,y)=\sqrt{\sum_{i=1}^{n}d_{i}(x_{i},y_{i})^{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Métrica del ajedrez:
+\series default
+ 
+\begin_inset Formula $d_{\infty}(x,y)=\max\{d_{i}(x_{i},y_{i})\}_{1\leq i\leq n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $d_{k}(x,y)=(\sum_{i=1}^{n}d_{i}(x_{i}y_{i})^{k})^{\frac{1}{k}}$
+\end_inset
+
+.
+ Entonces se tiene que 
+\begin_inset Formula $d_{T}=d_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $d_{E}=d_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $d_{\infty}$
+\end_inset
+
+ tiene un nombre apropiado.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Métrica estándar acotada
+\series default
+: 
+\begin_inset Formula $\overline{d}(x,y)=\min\{1,d(x,y)\}$
+\end_inset
+
+.
+ En general, obtenemos las mismas propiedades cambiando el 1 por cualquier
+ otro número real positivo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Métrica estándar acotada (bis)
+\series default
+: 
+\begin_inset Formula $d'(x,y)=\frac{d(x,y)}{1+d(x,y)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Métrica inducida
+\series default
+ por 
+\begin_inset Formula $d$
+\end_inset
+
+ en 
+\begin_inset Formula $H\subseteq X$
+\end_inset
+
+
+\series bold
+:
+\series default
+ 
+\begin_inset Formula $d_{H}:H\times H\rightarrow\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $d_{H}(x,y)=d(x,y)$
+\end_inset
+
+ para cualesquiera 
+\begin_inset Formula $x,y\in H$
+\end_inset
+
+.
+ Decimos que 
+\begin_inset Formula $(H,d_{H})$
+\end_inset
+
+ es un 
+\series bold
+subespacio métrico
+\series default
+ de 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Se define la distancia de un punto 
+\begin_inset Formula $p\in X$
+\end_inset
+
+ a un subconjunto 
+\begin_inset Formula $S\subseteq X$
+\end_inset
+
+ como 
+\begin_inset Formula $d(p,S)=\inf\{d(p,x)\}_{x\in S}$
+\end_inset
+
+.
+ Así, si 
+\begin_inset Formula $p\in S$
+\end_inset
+
+ entonces 
+\begin_inset Formula $d(p,S)=0$
+\end_inset
+
+, si bien el recíproco no es cierto.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Círculos y bolas
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+círculo
+\series default
+ en 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ centrado en 
+\begin_inset Formula $p$
+\end_inset
+
+ con radio 
+\begin_inset Formula $r$
+\end_inset
+
+ es el conjunto 
+\begin_inset Formula $C_{d}(p;r):=C(p;r):=\{x\in X:d(p,x)=r\}$
+\end_inset
+
+.
+ Del mismo modo, la 
+\series bold
+bola abierta
+\series default
+ en 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ centrada en 
+\begin_inset Formula $p$
+\end_inset
+
+ con radio 
+\begin_inset Formula $r$
+\end_inset
+
+ es el conjunto 
+\begin_inset Formula $B_{d}(p;r):=B(p;r):=\{x\in X:d(p,x)<r\}$
+\end_inset
+
+, y la 
+\series bold
+bola cerrada
+\series default
+ en 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ centrada en 
+\begin_inset Formula $p$
+\end_inset
+
+ con radio 
+\begin_inset Formula $r$
+\end_inset
+
+ es el conjunto 
+\begin_inset Formula $\overline{B}_{d}(p;r):=\overline{B}(p;r):=B[p;r]:=\{x\in X:d(p,x)\leq r\}$
+\end_inset
+
+.
+ Se tiene que 
+\begin_inset Formula $B_{d}(p;r)=\bigcup_{0<s<r}C_{d}(p;s)$
+\end_inset
+
+, y 
+\begin_inset Formula $\overline{B}_{d}(p;r)=\bigcup_{0<s\leq r}C_{d}(p;s)$
+\end_inset
+
+.
+ Dado el espacio métrico 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ y 
+\begin_inset Formula $H\subseteq X$
+\end_inset
+
+, 
+\begin_inset Formula $B_{d_{H}}(p;r)=B_{d}(p;r)\cap H$
+\end_inset
+
+ para cualesquiera 
+\begin_inset Formula $p\in H$
+\end_inset
+
+ y 
+\begin_inset Formula $r>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ es 
+\series bold
+acotado
+\series default
+ si 
+\begin_inset Formula $\exists k>0:\forall x,y\in X,d(x,y)\leq k$
+\end_inset
+
+, y decimos entonces que 
+\begin_inset Formula $d$
+\end_inset
+
+ es una 
+\series bold
+métrica acotada
+\series default
+.
+ Esto sucede si y sólo si 
+\begin_inset Formula $\exists k>0,x_{0}\in X:B(x_{0};k)=X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $x_{0}\in X$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\forall x\in X,d(x_{0},x)\leq k<k+1\implies x\in B_{d}(x_{0},k+1)\implies X\subseteq B_{d}(x_{0},k+1)\subseteq X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Por la desigualdad triangular, 
+\begin_inset Formula $\forall p,q\in X,d(p,q)\leq d(p,x_{0})+d(x_{0},q)<k+k=2k$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ es acotado por 
+\begin_inset Formula $2k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+También se dice que 
+\begin_inset Formula $H\subseteq X$
+\end_inset
+
+ es acotado si 
+\begin_inset Formula $(H,d_{H})$
+\end_inset
+
+ es acotado, o equivalentemente, si 
+\begin_inset Formula $\exists k>0,x_{0}\in X:H\subseteq B_{d}(x_{0};k)$
+\end_inset
+
+.
+ Por tanto las bolas son subconjuntos acotados, pues 
+\begin_inset Formula $B(p;r)$
+\end_inset
+
+ está acotado por 
+\begin_inset Formula $r$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{B}_{d}(x;r)$
+\end_inset
+
+ por (al menos) 
+\begin_inset Formula $2r$
+\end_inset
+
+.
+ Definimos el 
+\series bold
+diámetro
+\series default
+ de un espacio métrico acotado 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ como 
+\begin_inset Formula $\text{diám}(X)=\sup\{d(x,y)\}_{x,y\in X}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Subconjuntos abiertos y cerrados
+\end_layout
+
+\begin_layout Standard
+En un espacio métrico 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+, 
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+ es un 
+\series bold
+subconjunto abierto
+\series default
+, o simplemente un 
+\series bold
+abierto
+\series default
+, si 
+\begin_inset Formula $\forall x\in A,\exists r_{x}>0:B(x;r_{x})\subseteq A$
+\end_inset
+
+.
+ Toda bola abierta es un abierto.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $B(x;r)$
+\end_inset
+
+ una bola abierta en 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ e 
+\begin_inset Formula $y\in B(x;r)$
+\end_inset
+
+, si tomamos 
+\begin_inset Formula $\delta$
+\end_inset
+
+ tal que 
+\begin_inset Formula $0<\delta\leq r-d(x,y)$
+\end_inset
+
+ y 
+\begin_inset Formula $z\in B(y;\delta)$
+\end_inset
+
+, por la desigualdad triangular, 
+\begin_inset Formula $d(x,z)\leq d(x,y)+d(y,z)<d(x,y)+\delta\leq r$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $B(y;\delta)\subseteq B(x;r)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La condición de ser abierto depende de la métrica y del conjunto sobre el
+ que esta se define, si bien el conjunto total 
+\begin_inset Formula $X$
+\end_inset
+
+ y el vacío 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+ son abiertos en cualquier espacio métrico.
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $A_{1},\dots,A_{n}$
+\end_inset
+
+ abiertos en 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+, la intersección finita 
+\begin_inset Formula $\bigcap_{i=1}^{n}A_{i}$
+\end_inset
+
+ también lo es.
+ 
+\series bold
+Demostración:
+\series default
+ Si tomamos un 
+\begin_inset Formula $p\in\bigcap_{i=1}^{n}A_{i}$
+\end_inset
+
+ arbitrario, para cada 
+\begin_inset Formula $i$
+\end_inset
+
+ con 
+\begin_inset Formula $1\leq i\leq n$
+\end_inset
+
+, se tiene que 
+\begin_inset Formula $p\in A_{i}$
+\end_inset
+
+ y existe un 
+\begin_inset Formula $r_{i}>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $B(p;r_{i})\subseteq A_{i}$
+\end_inset
+
+.
+ Ahora bien, si tomamos 
+\begin_inset Formula $r:=\min\{r_{1},\dots,r_{n}\}$
+\end_inset
+
+, vemos que 
+\begin_inset Formula $B(p;r)\subseteq B(p;r_{i})\subseteq A_{i}$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $B(p;r)\subseteq\bigcap_{i=1}^{n}A_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dada la familia 
+\begin_inset Formula $\{A_{i}\}_{i\in I}$
+\end_inset
+
+ de abiertos en 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\bigcup_{i\in I}A_{i}$
+\end_inset
+
+ también es un abierto.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $p\in\bigcup_{i\in I}A_{i}$
+\end_inset
+
+ arbitrario.
+ Entonces existe un 
+\begin_inset Formula $i_{0}\in I$
+\end_inset
+
+ tal que 
+\begin_inset Formula $p\in A_{i_{0}}$
+\end_inset
+
+, y como 
+\begin_inset Formula $A_{i_{0}}$
+\end_inset
+
+ es abierto, existe un 
+\begin_inset Formula $r>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $B(p;r)\subseteq A_{i_{0}}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $B(p;r)\subseteq A_{i_{0}}\subseteq\bigcup_{i\in I}A_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Así pues, todo espacio métrico 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ lleva asociado un espacio topológico 
+\begin_inset Formula $(X,{\cal T}_{d})$
+\end_inset
+
+, donde 
+\begin_inset Formula ${\cal T}_{d}$
+\end_inset
+
+ es el conjunto de abiertos de 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Espacios metrizables
+\end_layout
+
+\begin_layout Standard
+Un espacio topológico 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ es 
+\series bold
+metrizable
+\series default
+ si existe una métrica 
+\begin_inset Formula $d$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+ tal que 
+\begin_inset Formula ${\cal T}={\cal T}_{d}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+La métrica discreta lleva asociada la topología discreta (
+\begin_inset Formula ${\cal T}_{D}={\cal T}_{d_{D}}$
+\end_inset
+
+).
+\begin_inset Newline newline
+\end_inset
+
+Todo subconjunto de 
+\begin_inset Formula $X$
+\end_inset
+
+ es abierto en 
+\begin_inset Formula $(X,d_{D})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+La topología indiscreta solo es metrizable si 
+\begin_inset Formula $X$
+\end_inset
+
+ es 
+\series bold
+unipuntual
+\series default
+ (
+\begin_inset Formula $|X|=1$
+\end_inset
+
+).
+\begin_inset Newline newline
+\end_inset
+
+De lo contrario tendríamos 
+\begin_inset Formula $p,q\in X$
+\end_inset
+
+ con 
+\begin_inset Formula $p\neq q$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $d(p,q)=r>0$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $q\notin B(p;\frac{r}{2})$
+\end_inset
+
+, pero esta bola sería un abierto distinto del vacío y del total, lo que
+ no existe en 
+\begin_inset Formula ${\cal T}_{T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado el espacio métrico 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ y 
+\begin_inset Formula $H\subseteq X$
+\end_inset
+
+, entonces 
+\begin_inset Formula ${\cal T}_{d}|_{H}={\cal T}_{d_{H}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\subseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $A'\in{\cal T}_{d}|_{H}$
+\end_inset
+
+, existe 
+\begin_inset Formula $A\in{\cal T}_{d}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $A'=A\cap H$
+\end_inset
+
+.
+ Entonces para todo 
+\begin_inset Formula $p\in A'\subseteq A$
+\end_inset
+
+ existe un 
+\begin_inset Formula $r>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $B_{d}(p;r)\subseteq A$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $B_{d}(p;r)\cap H\subseteq A'$
+\end_inset
+
+, pero como 
+\begin_inset Formula $B_{d}(p;r)\cap H=B_{d_{H}}(p;r)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $A'\in{\cal T}_{d_{H}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\supseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $A'\in{\cal T}_{d_{H}}$
+\end_inset
+
+, entonces para todo 
+\begin_inset Formula $p\in A'$
+\end_inset
+
+ existe un 
+\begin_inset Formula $r>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $B_{d_{H}}(p;r)=B_{d}(p;r)\cap H\subseteq A'$
+\end_inset
+
+, y si llamamos 
+\begin_inset Formula $A=\bigcup_{p\in A'}B_{d}(p;r)$
+\end_inset
+
+, se tiene que 
+\begin_inset Formula $A'\subseteq A\cap H=\left(\bigcup_{p\in A'}B_{d}(p;r)\right)\cap H=\bigcup_{p\in A'}(B_{d}(p;r)\cap H)=\bigcup_{p\in A'}B_{d_{H}}(p;r)\subseteq A'$
+\end_inset
+
+ y 
+\begin_inset Formula $A'=A\cap H$
+\end_inset
+
+ con 
+\begin_inset Formula $A\in{\cal T}_{d}$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $A'\in{\cal T}_{d}|_{H}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Todo espacio metrizable es 1AN, pues cada punto 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ posee la base de entornos 
+\begin_inset Formula ${\cal B}(x)=\{B(x;\frac{1}{n})\}_{n\in\mathbb{N}}$
+\end_inset
+
+.
+ También es 
+\begin_inset Formula $T_{2}$
+\end_inset
+
+, pues dados 
+\begin_inset Formula $p,q\in X$
+\end_inset
+
+ con 
+\begin_inset Formula $p\neq q$
+\end_inset
+
+, si 
+\begin_inset Formula $r=d(p,q)>0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $B(p;\frac{r}{2})\cap B(q;\frac{r}{2})=\emptyset$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Métricas equivalentes
+\end_layout
+
+\begin_layout Standard
+Dos métricas 
+\begin_inset Formula $d$
+\end_inset
+
+ y 
+\begin_inset Formula $d'$
+\end_inset
+
+ sobre 
+\begin_inset Formula $X$
+\end_inset
+
+ son 
+\series bold
+equivalentes
+\series default
+ si 
+\begin_inset Formula ${\cal T}_{d}={\cal T}_{d'}$
+\end_inset
+
+.
+ Equivalentemente, lo son si 
+\begin_inset Formula $\forall p\in X,r>0;(\exists\delta>0:B_{d}(p;\delta)\subseteq B_{d'}(p;r)\land\exists\delta'>0:B_{d'}(p;\delta')\subseteq B_{d}(p;r))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $d$
+\end_inset
+
+ y 
+\begin_inset Formula $d'$
+\end_inset
+
+ equivalentes, dados 
+\begin_inset Formula $p\in X$
+\end_inset
+
+ y 
+\begin_inset Formula $r>0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $B_{d'}(p;r)$
+\end_inset
+
+ es un abierto en 
+\begin_inset Formula ${\cal T}_{d'}$
+\end_inset
+
+ y por tanto en 
+\begin_inset Formula ${\cal T}_{d}$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\exists\delta>0:B_{d}(p;\delta)\subseteq B_{d'}(p;r)$
+\end_inset
+
+.
+ La otra condición se prueba de forma análoga.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $A$
+\end_inset
+
+ un abierto de 
+\begin_inset Formula ${\cal T}_{d}$
+\end_inset
+
+ y 
+\begin_inset Formula $p\in A$
+\end_inset
+
+, existe pues un 
+\begin_inset Formula $r>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $B_{d}(p;r)\subseteq A$
+\end_inset
+
+ y por tanto un 
+\begin_inset Formula $\delta'>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $B_{d'}(p;\delta')\subseteq B_{d}(p;r)$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $A$
+\end_inset
+
+ es abierto en 
+\begin_inset Formula ${\cal T}_{d'}$
+\end_inset
+
+.
+ El otro contenido se prueba de forma análoga.
+\end_layout
+
+\begin_layout Standard
+Dadas dos métricas 
+\begin_inset Formula $d$
+\end_inset
+
+ y 
+\begin_inset Formula $d'$
+\end_inset
+
+ sobre 
+\begin_inset Formula $X$
+\end_inset
+
+, si existen 
+\begin_inset Formula $m,M>0$
+\end_inset
+
+ tales que 
+\begin_inset Formula $\forall x,y\in X,md(x,y)\leq d'(x,y)\leq Md(x,y)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $d$
+\end_inset
+
+ y 
+\begin_inset Formula $d'$
+\end_inset
+
+ son equivalentes.
+ 
+\series bold
+Demostración:
+\series default
+ Dados 
+\begin_inset Formula $p\in X$
+\end_inset
+
+ y 
+\begin_inset Formula $r>0$
+\end_inset
+
+, tomando 
+\begin_inset Formula $\delta=\frac{r}{M}$
+\end_inset
+
+, se tiene que si 
+\begin_inset Formula $d(p,q)\leq\delta$
+\end_inset
+
+ entonces 
+\begin_inset Formula $d'(p,q)\leq Md(p,q)\leq M\delta=r$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $B_{d}(p;\delta)\subseteq B_{d'}(p;r)$
+\end_inset
+
+.
+ Análogamente, tomando 
+\begin_inset Formula $\delta'=mr$
+\end_inset
+
+, se tiene que 
+\begin_inset Formula $B_{d'}(p;\delta')\subseteq B_{d}(p;r)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Así, las métricas 
+\begin_inset Formula $d_{E}$
+\end_inset
+
+, 
+\begin_inset Formula $d_{T}$
+\end_inset
+
+ y 
+\begin_inset Formula $d_{\infty}$
+\end_inset
+
+ sobre un mismo conjunto 
+\begin_inset Formula $X=X_{1}\times\dots\times X_{n}$
+\end_inset
+
+ y métricas 
+\begin_inset Formula $d_{1},\dots,d_{n}$
+\end_inset
+
+ son equivalentes, y si un subconjunto es acotado para alguna de las tres
+ métricas también lo es para las otras dos.
+ 
+\series bold
+Demostración:
+\series default
+ Se deduce de que 
+\begin_inset Formula $\frac{1}{n}d_{T}(x,y)\leq d_{\infty}(x,y)\leq d_{T}(x,y)$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{1}{\sqrt{n}}d_{E}(x,y)\leq d_{\infty}(x,y)\leq d_{E}(x,y)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+No obstante, las métricas euclídea y discreta no tienen por qué ser equivalentes
+, pues en 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\{(0,0)\}$
+\end_inset
+
+ es abierto en la discreta pero no en la euclídea.
+ Llamamos 
+\begin_inset Formula $(\mathbb{R}^{n},d_{u})=(\mathbb{R}^{n},d_{E})$
+\end_inset
+
+ con 
+\begin_inset Formula $d_{E}$
+\end_inset
+
+ definido sobre 
+\begin_inset Formula $d_{|\,|}$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+, y 
+\begin_inset Formula ${\cal T}_{u}$
+\end_inset
+
+ a la topología asociada a 
+\begin_inset Formula $d_{u}$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

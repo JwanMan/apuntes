@@ -1,0 +1,481 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Pilas
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+pila
+\series default
+ o secuencia 
+\series bold
+LIFO
+\series default
+ (
+\emph on
+Last In First Out
+\emph default
+)
+\series bold
+ 
+\series default
+es una secuencia mutable de cero o más elementos en el que las inserciones,
+ accesos y supresiones se realizan siempre por el mismo extremo, llamado
+ 
+\series bold
+tope
+\series default
+.
+ Operaciones:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+Stack create();
+\end_layout
+
+\begin_layout Plain Layout
+
+void push(Stack s, Element e);
+\end_layout
+
+\begin_layout Plain Layout
+
+void delete(Stack s);
+\end_layout
+
+\begin_layout Plain Layout
+
+Element pop(Stack s);
+\end_layout
+
+\begin_layout Plain Layout
+
+int isEmpty(Stack s);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos implementar una pila mediante una tabla o una lista enlazada, aunque
+ si la tabla es de tamaño fijo tenemos que implementar la operación 
+\family typewriter
+int isFull(Stack s);
+\family default
+.
+\end_layout
+
+\begin_layout Section
+Colas
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+cola
+\series default
+ o secuencia 
+\series bold
+FIFO
+\series default
+ (
+\emph on
+First In First Out
+\emph default
+) es una secuencia mutable de cero o más elementos en el que las inserciones
+ se realizan en un extremo llamado 
+\series bold
+posterior
+\series default
+ o 
+\series bold
+final
+\series default
+ y los accesos y supresiones por el otro, llamado 
+\series bold
+anterior
+\series default
+ o 
+\series bold
+frente
+\series default
+.
+ Operaciones:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+Queue create();
+\end_layout
+
+\begin_layout Plain Layout
+
+void append(Queue q, Element e);
+\end_layout
+
+\begin_layout Plain Layout
+
+void delete(Queue q);
+\end_layout
+
+\begin_layout Plain Layout
+
+Element pop(Queue q);
+\end_layout
+
+\begin_layout Plain Layout
+
+int isEmpty(Queue q);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos implementar una cola mediante una lista enlazada o una tabla de
+ tamaño fijo circular, de forma que conforme se van sacando elementos al
+ principio se pueden ir añadiendo más una vez se haya llegado al final de
+ la tabla, si bien esto requiere implementar la operación 
+\family typewriter
+int isFull(Queue q);
+\family default
+.
+\end_layout
+
+\begin_layout Section
+Listas
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+lista
+\series default
+ es una secuencia mutable de cero o más elementos ordenados de acuerdo a
+ su posición.
+ Los accesos, inserciones y supresiones pueden realizarse en cualquier posición
+ de la lista, y cada valor de esta tiene asociado un valor de tipo 
+\series bold
+posición
+\series default
+.
+ Existe además una posición que indica el final de la lista y se usa para
+ insertar elementos.
+ Operaciones:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+List create();
+\end_layout
+
+\begin_layout Plain Layout
+
+void insert(List l, Position p, Element e);
+\end_layout
+
+\begin_layout Plain Layout
+
+void delete(List l, Position p);
+\end_layout
+
+\begin_layout Plain Layout
+
+Element get(List l, Position p);
+\end_layout
+
+\begin_layout Plain Layout
+
+void set(List l, Position p, Element p);
+\end_layout
+
+\begin_layout Plain Layout
+
+unsigned length(List l);
+\end_layout
+
+\begin_layout Plain Layout
+
+Position begin(List l);
+\end_layout
+
+\begin_layout Plain Layout
+
+Position end(List l);
+\end_layout
+
+\begin_layout Plain Layout
+
+Position nth(List l, unsigned index);
+\end_layout
+
+\begin_layout Plain Layout
+
+Position next(List l, Position p);
+\end_layout
+
+\begin_layout Plain Layout
+
+Position prev(List l, Position p);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos implementar una lista mediante una tabla, en cuyo caso las posiciones
+ son enteros, o mediante una lista enlazada.
+ Si hace con una lista enlazada con simple enlace, conviene guardar los
+ apuntadores de inicio y de fin, así como la longitud, y en este caso las
+ posiciones son apuntadores al nodo anterior al que contiene el elemento,
+ pues esto es necesario para borrar un elemento por posición.
+\end_layout
+
+\begin_layout Standard
+Las listas implementadas por estructuras enlazadas permiten insertar y borrar
+ elementos en 
+\begin_inset Formula $O(1)$
+\end_inset
+
+, en vez de en 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ como sucedería tablas, si bien requieren un tiempo 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ para acceder a los elementos por índice en vez de 
+\begin_inset Formula $O(1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Conjuntos
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+conjunto
+\series default
+ es una colección mutable (en este caso finita) de elementos no repetidos
+ y sin ordenación.
+ Operaciones:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+Set create();
+\end_layout
+
+\begin_layout Plain Layout
+
+void insert(Set c, Element e);
+\end_layout
+
+\begin_layout Plain Layout
+
+void delete(Set c, Element e);
+\end_layout
+
+\begin_layout Plain Layout
+
+int contains(Set c, Element e);
+\end_layout
+
+\begin_layout Plain Layout
+
+unsigned cardinal(Set c);
+\end_layout
+
+\begin_layout Plain Layout
+
+List toList(Set c);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos implementarlo como una lista enlazada o como una tabla, y en el
+ último caso podemos aprovechar que los elementos no están ordenados para
+ 
+\begin_inset Quotes cld
+\end_inset
+
+rellenar huecos
+\begin_inset Quotes crd
+\end_inset
+
+ al eliminar elementos en 
+\begin_inset Formula $O(1)$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

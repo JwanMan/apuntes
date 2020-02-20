@@ -1,0 +1,1166 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{circuitikz}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+def
+\backslash
+represent#1{
+\backslash
+begin{circuitikz}
+\backslash
+draw (0,0) to[#1] (2,0);
+\backslash
+end{circuitikz}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+def
+\backslash
+show#1{
+\backslash
+begin{center}
+\backslash
+represent{#1}
+\backslash
+end{center}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+semiconductor
+\series default
+ es un material que conduce o no la electricidad dependiendo de su estado.
+ Para fabricar dispositivos electrónicos con semiconductores podemos usar
+ silicio, germanio o arseniuro de galio.
+ Tipos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Intrínseco
+\series default
+ o 
+\series bold
+puro
+\series default
+: Cada par de átomos forma un enlace covalente con los 4 átomos cercanos
+ (disposición tetraédrica).
+ La concentración de huecos (
+\begin_inset Formula $n_{p}$
+\end_inset
+
+) (zonas sin electrón con carga 
+\begin_inset Formula $+|e|$
+\end_inset
+
+) es igual a la de electrones libres (
+\begin_inset Formula $n_{i}$
+\end_inset
+
+), y ambos contribuyen al flujo de corriente.
+ A 
+\begin_inset Formula $\unit[0]{K}$
+\end_inset
+
+ no hay electrones libres, pero a 
+\begin_inset Formula $\unit[300]{K}$
+\end_inset
+
+ los electrones libres permiten flujo de corriente si se aplica una diferencia
+ de potencial, y así a mayor temperatura más rápido se generan electrones
+ libres y huecos.
+ La 
+\series bold
+recombinación
+\series default
+ consiste en que el hueco y el electrón libre se combinan en un enlace covalente.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Extrínseco
+\series default
+ o 
+\series bold
+impurificado
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Tipo 
+\series bold
+N
+\series default
+: Con impurezas donantes de electrones.
+ Los portadores 
+\series bold
+mayoritarios
+\series default
+ son los electrones y los 
+\series bold
+minoritarios
+\series default
+ los huecos.
+ 
+\begin_inset Formula $n_{i}=n_{p}+N_{D}$
+\end_inset
+
+, donde 
+\begin_inset Formula $N_{D}$
+\end_inset
+
+ es la concentración de átomos donantes.
+\end_layout
+
+\begin_layout Itemize
+Tipo 
+\series bold
+P
+\series default
+: Con impurezas que aceptan electrones (aportan huecos).
+ Los portadores mayoritarios son los huecos y los minoritarios los electrones.
+ 
+\begin_inset Formula $n_{p}=n_{i}+N_{A}$
+\end_inset
+
+, donde 
+\begin_inset Formula $N_{A}$
+\end_inset
+
+ es la concentración de átomos aceptadores.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Una 
+\series bold
+unión pn
+\series default
+ es un cristal semiconductor con impurezas con las que se obtiene una zona
+ P y una N, de modo que, por el elevado gradiente, en la unión se forma
+ una 
+\series bold
+zona de deplexión
+\series default
+ o 
+\series bold
+de carga espacial
+\series default
+ en la que los átomos están cargados negativamente al lado de la zona P
+ y positivamente al lado de la zona N.
+ El efecto de esta zona es una barrera de potencial que impide la circulación
+ de electrones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikz}[scale=.7]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (1,0) -- (5,0) -- (5,2.5) -- (1,2.5) -- (1,0) (3,2.5) -- (3,0) (0,1.25)
+ -- (1,1.25) (5,1.25) -- (6,1.25) (1.5,1.25) node{P} (2.5,0.4) node{$-$} (2.5,1.25)
+ node{$-$} (2.5,2.1) node{$-$} (4.5,1.25) node{N} (3.5,0.4) node{$+$} (3.5,1.25)
+ node{$+$} (3.5,2.1) node{$+$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+El diodo
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+diodo
+\series default
+ es un dispositivo semiconductor con dos terminales, 
+\series bold
+ánodo
+\series default
+ y 
+\series bold
+cátodo
+\series default
+, y que, mediante una unión pn, ofrece una baja resistencia cuando los electrone
+s van del ánodo (N) al cátodo (P) (polarización 
+\series bold
+directa
+\series default
+) y una alta resistencia en la otra polarización (
+\series bold
+inversa
+\series default
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+show{Do}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cuando el diodo se conecta en polarización directa, la zona de carga espacial
+ se estrecha y permite el flujo de portadores mayoritarios.
+ Los electrones pasan de la zona n a la p, donde pasan a ser minoritarios
+ y se combinan con los huecos existentes, y la corriente total corresponde
+ a la suma de la corriente debida a los electrones y la debida a los huecos.
+\end_layout
+
+\begin_layout Standard
+Si se conecta en polarización inversa, la tensión aumenta la zona de carga
+ espacial y la corriente está formada por portadores minoritarios, que como
+ son pocos dan lugar a una co
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+rrien
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+te pequeña, independiente de la tensión aplicada.
+ Sin embargo, como la concentración de minoritarios depende de la temperatura,
+ conforme esta aumenta también aumenta el valor de la corriente inversa.
+ Si la tensión inversa es suficientemente alta el campo eléctrico puede
+ romper los enlaces covalentes, produciendo gran cantidad de pares hueco-electró
+n y por tanto un gran flujo de corriente inversa, a partir de lo que llamamos
+ la 
+\series bold
+zona de ruptura
+\series default
+.
+\end_layout
+
+\begin_layout Section
+Modelos
+\end_layout
+
+\begin_layout Standard
+La gráfica V-I de un diodo típico es la siguiente:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename pegado2.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\begin_inset Formula $V_{r}$
+\end_inset
+
+ a la 
+\series bold
+tensión de ruptura
+\series default
+ (negativa), a partir de la cual está la 
+\series bold
+zona de ruptura
+\series default
+ o 
+\series bold
+de avalancha
+\series default
+, y llamamos 
+\begin_inset Formula $V_{f}$
+\end_inset
+
+ a la 
+\series bold
+tensión umbral
+\series default
+, donde está la asíntota vertical en la zona de polarización directa de
+ la gráfica.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+ecuación de Shockley
+\series default
+ del diodo es 
+\begin_inset Formula $i_{D}=I_{S}(e^{\frac{v_{D}}{nV_{T}}}-1)$
+\end_inset
+
+, donde 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+ es la 
+\series bold
+corriente de saturación inversa
+\series default
+, 
+\begin_inset Formula $n$
+\end_inset
+
+ es el 
+\series bold
+coeficiente de emisión
+\series default
+, entre 1 y 2, y 
+\begin_inset Formula $V_{T}=\frac{kT}{q}$
+\end_inset
+
+ es la 
+\series bold
+tensión térmica
+\series default
+, donde 
+\begin_inset Formula $k$
+\end_inset
+
+ es una constante, 
+\begin_inset Formula $T$
+\end_inset
+
+ es la temperatura y 
+\begin_inset Formula $q$
+\end_inset
+
+ no sé lo que es.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+diodo ideal
+\series default
+ es aquel que en polarización directa actúa como un cortocircuito (
+\begin_inset Formula $R=0$
+\end_inset
+
+) y en polarización inversa actúa como un circuito abierto (
+\begin_inset Formula $R=+\infty$
+\end_inset
+
+).
+ Para análisis con diodos ideales, primero suponemos cuáles están en corte
+ y en conducción, y si 
+\begin_inset Formula $i_{D}$
+\end_inset
+
+ es positiva en los diodos en conducción y 
+\begin_inset Formula $V_{D}$
+\end_inset
+
+ negativa en aquellos en corte, la suposición es correcta, y de lo contrario
+ hay que cambiarla.
+\end_layout
+
+\begin_layout Standard
+Otro modelo similar al del diodo ideal es modelo con caída de potencial,
+ que se diferencia del diodo ideal en que en polarización directa se produce
+ una caída de potencial fija, normalmente alrededor de 
+\begin_inset Formula $\unit[0.7]{V}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+modelo completo
+\series default
+ del diodo es como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) -- (1,0) to[R=$R_f$] (2.5,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (4,0) to[battery, l=$V_{0n}$,mirror] (2.5,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (4,0) to[D*, l=Ideal] (5.5,0) -- (6.5,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (5.5,0) -- (5.5,2) to[R=$R_r$] (1,2) -- (1,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Tipos
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+LED
+\series default
+ (
+\emph on
+Light-Emitting Diode
+\emph default
+): Al ser atravesado por una corriente emite una cantidad de luz proporcional
+ a la cantidad de corriente que circula, cuya longitud de onda depende del
+ material.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+show{leDo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Fotodiodos
+\series default
+: Si se polarizan en inversa y reciben luz, la intensidad de corriente es
+ proporcional a la cantidad de luz incidente.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+show{pDo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Diodos 
+\series bold
+Schottky
+\series default
+: Conmutación rápida, usada en aplicaciones de alta frecuencia.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+show{sDo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Diodos 
+\series bold
+Zener
+\series default
+: Capaces de trabajar en la zona de ruptura inversa.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+show{zzDo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Circuitos rectificadores
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+circuito rectificador
+\series default
+ o 
+\series bold
+convertidor AC-DC
+\series default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Viva el 
+\emph on
+rock 'n' roll
+\emph default
+.
+\end_layout
+
+\end_inset
+
+ es aquel que convierte corriente alterna en corriente continua.
+ Está formado por un transformador, que reduce el voltaje de la corriente
+ alterna, un trafo, que hace que el sentido de la corriente resultante sea
+ siempre el mismo, y un condensador, paralelo a la carga, que 
+\begin_inset Quotes cld
+\end_inset
+
+suaviza
+\begin_inset Quotes crd
+\end_inset
+
+ la salida del trafo para obtener una corriente prácticamente continua.
+ Tipos de rectificador según el trafo (se muestra la imagen del trafo):
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De media onda
+\series default
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) to[sI=$V_p
+\backslash
+sin(
+\backslash
+omega t)$] (0,1.5) to[Do] (2,1.5) to[R=$R_L$] (2,0) -- (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+El valor medio de la tensión es 
+\begin_inset Formula $V_{out(DC)}=\frac{V_{p}}{\pi}$
+\end_inset
+
+, la tensión eficaz resultante es 
+\begin_inset Formula $V_{out(rms)}=\frac{1}{2}V_{m}$
+\end_inset
+
+, y 
+\begin_inset Formula $\omega_{out}=\omega_{in}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De onda completa con trafo de toma intermedia
+\series default
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) node[transformer core](T){}
+\end_layout
+
+\begin_layout Plain Layout
+
+(T.A2) -- ($(T.A2)+(-1,0)$) to[sI] ($(T.A1)+(-1,0)$) -- (T.A1)
+\end_layout
+
+\begin_layout Plain Layout
+
+(T.B2) to[Do] ($(T.B2)+(3,0)$) to ($(T.B1)+(3,0)$)
+\end_layout
+
+\begin_layout Plain Layout
+
+(T.B1) to[Do] ($(T.B1)+(3,0)$)
+\end_layout
+
+\begin_layout Plain Layout
+
+($0.5*(T.B1)+0.5*(T.B2)+(-0.5,0)$) to ($0.5*(T.B1)+0.5*(T.B2)+(0.5,0)$) node[ground]{}
+ to[R=$R_L$] ($0.5*(T.B1)+0.5*(T.B2)+(3,0)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+El valor medio de la tensión es 
+\begin_inset Formula $V_{out(DC)}=\frac{2V_{p}}{\pi}$
+\end_inset
+
+, la tensión eficaz resultante es 
+\begin_inset Formula $V_{out(rms)}=\frac{1}{\sqrt{2}}V_{m}$
+\end_inset
+
+, y 
+\begin_inset Formula $\omega_{out}=2\omega_{in}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De onda completa con puente de diodos
+\series default
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (3.5,0) -- (0,0) to[sI] (0,3) -- (3.5,3)
+\end_layout
+
+\begin_layout Plain Layout
+
+(1,1.5) (1,1.5) node[ground]{} -- (2,1.5) to[Do] (3.5,3) to[Do] (5,1.5)
+\end_layout
+
+\begin_layout Plain Layout
+
+(2,1.5) to[Do] (3.5,0) to[Do] (5,1.5)
+\end_layout
+
+\begin_layout Plain Layout
+
+(5,1.5) to[R=$R_L$] (2,1.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+Similar al de onda completa con trafo de toma intermedia, pero la corriente
+ soportada por cada diodo es aproximadamente la mitad y el transformador
+ usado es más barato, por lo que se reduce el precio del sistema.
+\end_layout
+
+\begin_layout Standard
+El diodo sólo conduce cuando la tensión de entrada sea superior a la mantenida
+ por el condensador.
+ Obtenemos una componente continua y sobre ella una componente alterna,
+ cuyo rizado máximo es 
+\begin_inset Formula $Q=V_{r}C=It\implies V_{r}=\frac{I}{f_{out}C}$
+\end_inset
+
+, y en valor eficaz, 
+\begin_inset Formula $V_{r(ef.)}=\frac{I}{2\sqrt{2}Cf_{out}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Circuitos recortadores
+\end_layout
+
+\begin_layout Standard
+Recortan una porción de la señal de entrada cuando la tensión es mayor o
+ menor que un límite, que depende de la diferencia de potencial producida
+ por cada batería más diodo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,3) to[american voltage source,l=$v_{in}$] (0,0) (0,3) to[R=$R$]
+ (2,3) to[short,-o] (4,3)
+\end_layout
+
+\begin_layout Plain Layout
+
+(0,0) to[short,-o] (4,0)
+\end_layout
+
+\begin_layout Plain Layout
+
+(2,3) to[Do] (2,1.5) (2,0) to[battery] (2,1.5)
+\end_layout
+
+\begin_layout Plain Layout
+
+(3,3) to[battery] (3,1.5) (3,0) to[Do] (3,1.5)
+\end_layout
+
+\begin_layout Plain Layout
+
+(4,1.5) node{$v_{out}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para analizar circuitos recortadores, comprobamos qué condición se tiene
+ que cumplir para que el primero conduzca, el segundo conduzca y no conduzca
+ ninguno.
+ Para ello vemos que, si no hay nada conectado, 
+\begin_inset Formula $v_{in}=v_{out}$
+\end_inset
+
+.
+ A continuación, para cada caso, obtenemos 
+\begin_inset Formula $v_{out}$
+\end_inset
+
+ en el circuito.
+\end_layout
+
+\begin_layout Section
+Diodos Zener
+\end_layout
+
+\begin_layout Standard
+Estos trabajan entre 
+\begin_inset Formula $I_{mín}$
+\end_inset
+
+, la intensidad correspondiente a 
+\begin_inset Formula $V_{r}$
+\end_inset
+
+, e 
+\begin_inset Formula $I_{máx}$
+\end_inset
+
+, la intensidad correspondiente a la 
+\series bold
+ruptura Zener
+\series default
+, 
+\begin_inset Formula $V_{z}<V_{r}$
+\end_inset
+
+.
+ Por seguridad nos mantenemos entre 
+\begin_inset Formula $0.9\cdot I_{mín}+0.1\cdot I_{máx}$
+\end_inset
+
+ y 
+\begin_inset Formula $0.1\cdot I_{mín}+0.9\cdot I_{máx}$
+\end_inset
+
+.
+ Podemos modelarlo como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,1) -- (1,1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(1,0) -- (1,2) to[D*] (2.5,2)
+\end_layout
+
+\begin_layout Plain Layout
+
+(4,0) -- (4,2) to[battery] (2.5,2)
+\end_layout
+
+\begin_layout Plain Layout
+
+(4,0) to[D*] (1,0)
+\end_layout
+
+\begin_layout Plain Layout
+
+(5,1) -- (4,1);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Estos diodos se usan para mantener una tensión prácticamente constante en
+ un punto, y funcionan consumiendo la energía sobrante.
+\end_layout
+
+\end_body
+\end_document

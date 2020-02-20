@@ -1,0 +1,1474 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{circuitikz}
+\usepackage{tikz}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+def
+\backslash
+represent#1{
+\backslash
+begin{circuitikz}
+\backslash
+draw (0,0) to[#1] (2,0);
+\backslash
+end{circuitikz}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+def
+\backslash
+show#1{
+\backslash
+begin{center}
+\backslash
+represent{#1}
+\backslash
+end{center}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Magnitudes y conceptos básicos
+\end_layout
+
+\begin_layout Itemize
+La 
+\series bold
+carga eléctrica
+\series default
+ (
+\begin_inset Formula $Q$
+\end_inset
+
+) se mide en 
+\series bold
+culombios
+\series default
+ (
+\begin_inset Formula $C$
+\end_inset
+
+) y será siempre múltiplo de 
+\begin_inset Formula $|e|=\unit[1.602\cdot10^{-19}]{C}$
+\end_inset
+
+, pues los electrones, protones y neutrones tienen una carga respectiva
+ de 
+\begin_inset Formula $-|e|$
+\end_inset
+
+, 
+\begin_inset Formula $|e|$
+\end_inset
+
+ y 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+La 
+\series bold
+fuerza
+\series default
+ es 
+\begin_inset Formula $F=ma$
+\end_inset
+
+, y se mide en 
+\series bold
+newtons
+\series default
+ (
+\begin_inset Formula $N$
+\end_inset
+
+).
+ La 
+\series bold
+ley de Coulomb
+\series default
+ afirma que entre dos cargas eléctricas 
+\begin_inset Formula $Q_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $Q_{2}$
+\end_inset
+
+, que medimos en culombios (
+\begin_inset Formula $C$
+\end_inset
+
+), existe una fuerza
+\begin_inset Formula 
+\[
+F=k\frac{Q_{1}Q_{2}}{r^{2}}
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $r$
+\end_inset
+
+ es la distancia entre ambas y 
+\begin_inset Formula $k=\unit[8.9875\cdot10^{9}]{N\cdot m^{2}/C^{2}}$
+\end_inset
+
+ es la 
+\series bold
+constante de Coulomb
+\series default
+, que también podemos expresar en función de la 
+\series bold
+permitividad en el vacío
+\series default
+ (
+\begin_inset Formula $\varepsilon_{0}$
+\end_inset
+
+) como 
+\begin_inset Formula $k=\frac{1}{4\pi\varepsilon_{0}}$
+\end_inset
+
+.
+ Esta fuerza es repulsiva si las cargas son del mismo signo y atractiva
+ en otro caso.
+\end_layout
+
+\begin_layout Itemize
+La intensidad del 
+\series bold
+campo eléctrico
+\series default
+ en un punto es 
+\begin_inset Formula $E=\frac{F}{Q}$
+\end_inset
+
+, siendo 
+\begin_inset Formula $F$
+\end_inset
+
+ la fuerza a la que estaría sometida la carga 
+\begin_inset Formula $Q$
+\end_inset
+
+ en dicho punto.
+ El campo eléctrico puede representarse mediante 
+\series bold
+líneas de campo
+\series default
+, que parten de las cargas positivas (o del infinito) y van a las cargas
+ negativas (o al infinito).
+ La dirección y el sentido son en cada punto los de 
+\begin_inset Formula $E$
+\end_inset
+
+, y la densidad de líneas es proporcional al módulo.
+\end_layout
+
+\begin_layout Itemize
+El 
+\series bold
+trabajo
+\series default
+ es 
+\begin_inset Formula $W=\int_{a}^{b}F\,dl$
+\end_inset
+
+, donde 
+\begin_inset Formula $l$
+\end_inset
+
+ es el recorrido y 
+\begin_inset Formula $a$
+\end_inset
+
+ y 
+\begin_inset Formula $b$
+\end_inset
+
+ los puntos de partida y de llegada (se tiene 
+\begin_inset Formula $dW=F\cdot dl$
+\end_inset
+
+).
+ Se mide en 
+\series bold
+julios
+\series default
+ (
+\begin_inset Formula $J$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+El 
+\series bold
+voltaje
+\series default
+ o 
+\series bold
+diferencia de potencial
+\series default
+ es 
+\begin_inset Formula $V=\int E\,dl$
+\end_inset
+
+ (se tiene 
+\begin_inset Formula $dV=E\cdot dl=\frac{dW}{Q}$
+\end_inset
+
+), y se mide en 
+\series bold
+voltios
+\series default
+ (
+\begin_inset Formula $V$
+\end_inset
+
+).
+ Así, 
+\begin_inset Formula $E=\frac{dV}{dl}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+La 
+\series bold
+intensidad de corriente
+\series default
+ es 
+\begin_inset Formula $I=\frac{dQ}{dt}$
+\end_inset
+
+, y se mide en amperios (
+\begin_inset Formula $A$
+\end_inset
+
+).
+ Benjamin Franklin creía que las cargas que fluían en los circuitos eléctricos
+ eran positivas, por lo que el sentido de la corriente es en el que fluirían
+ las cargas positivas sujetas al campo eléctrico dado.
+ Hoy sabemos que la corriente en un cable conductor se debe al movimiento
+ de electrones, de modo que el sentido de la corriente es opuesto al del
+ movimiento de electrones.
+\end_layout
+
+\begin_layout Itemize
+La 
+\series bold
+potencia
+\series default
+ es 
+\begin_inset Formula $P=\frac{dW}{dt}$
+\end_inset
+
+ y se mide en vatios (
+\begin_inset Formula $W$
+\end_inset
+
+).
+ Se tiene que 
+\begin_inset Formula $P=\frac{dW}{dt}=\frac{dW}{dQ}\frac{dQ}{dt}=VI$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Cuando un electrón fluye a través de un material, colisiona con los átomos,
+ decelerando, y debe pues ser acelerado de nuevo por el campo eléctrico.
+ La 
+\series bold
+resistividad
+\series default
+ (
+\begin_inset Formula $\rho$
+\end_inset
+
+) es una propiedad de los materiales relacionada con el tiempo medio entre
+ colisiones, y es muy baja en materiales conductores y muy alta en aislantes.
+\end_layout
+
+\begin_layout Itemize
+La 
+\series bold
+resistencia
+\series default
+ (
+\begin_inset Formula $R$
+\end_inset
+
+) es una propiedad de los elementos de un circuito, y viene dada por la
+ 
+\series bold
+ley de Ohm
+\series default
+, que afirma que 
+\begin_inset Formula $V=RI$
+\end_inset
+
+.
+ Se mide en ohmios (
+\begin_inset Formula $\Omega$
+\end_inset
+
+), y para un cable de sección 
+\begin_inset Formula $A$
+\end_inset
+
+ y longitud 
+\begin_inset Formula $\ell$
+\end_inset
+
+, viene dada por 
+\begin_inset Formula $R=\rho\frac{\ell}{A}$
+\end_inset
+
+, siendo 
+\begin_inset Formula $\rho$
+\end_inset
+
+ la 
+\series bold
+resistividad
+\series default
+.
+ Un material conductor tiene muy baja resistividad, mientras que uno aislante
+ tiene resistividad muy alta.
+\end_layout
+
+\begin_layout Itemize
+La 
+\series bold
+conductancia
+\series default
+ es 
+\begin_inset Formula $G=R^{-1}$
+\end_inset
+
+, y se mide en siemens (
+\begin_inset Formula $S$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Las colisiones de electrones con los átomos del metal transfieren energía
+ a estos haciendo que la temperatura del metal aumente.
+ El ratio de conversión es 
+\begin_inset Formula $P=VI=I^{2}R$
+\end_inset
+
+, lo que se conoce como 
+\series bold
+ley de Joule
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Un circuito está formado por una serie de elementos 
+\series bold
+activos
+\series default
+ (fuentes, transistores) y 
+\series bold
+pasivos
+\series default
+ (resistencias, condensadores, inductores), interconectados por cables de
+ resistencia despreciable.
+ En los elementos pasivos, el potencial eléctrico en el terminal por donde
+ 
+\begin_inset Quotes cld
+\end_inset
+
+sale
+\begin_inset Quotes crd
+\end_inset
+
+ la corriente es menor que por el que entra (lo llamamos pues terminal negativo,
+ y al otro terminal positivo).
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+ley de Kirchhoff para el voltaje
+\series default
+ afirma que la suma de voltajes alrededor de cualquier bucle es cero (
+\begin_inset Formula $\sum V_{n}=0$
+\end_inset
+
+), es decir, las 
+\series bold
+caídas de potencial
+\series default
+ deben sumar lo mismo que las subidas de potencial.
+ La 
+\series bold
+ley de Kirchhoff para la intensidad
+\series default
+ afirma que la suma de las intensidades de corriente entrando a cualquier
+ nodo (punto de conexión entre al menos dos elementos del circuito) es cero
+ (
+\begin_inset Formula $\sum I_{n}=0$
+\end_inset
+
+), es decir, la misma cantidad de cargas que entran debe salir.
+\end_layout
+
+\begin_layout Section
+Elementos del circuito
+\end_layout
+
+\begin_layout Subsection
+Resistencias
+\end_layout
+
+\begin_layout Standard
+Se caracterizan por tener una resistencia determinada.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+show R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Condensadores
+\end_layout
+
+\begin_layout Standard
+Acumulan una carga 
+\begin_inset Formula $q$
+\end_inset
+
+ al aplicárseles un voltaje 
+\begin_inset Formula $v$
+\end_inset
+
+, y la mantienen si se desconecta de la fuente de voltaje.
+ La carga acumulada viene dada por 
+\begin_inset Formula $q=Cv$
+\end_inset
+
+, donde 
+\begin_inset Formula $C$
+\end_inset
+
+ es la 
+\series bold
+capacidad
+\series default
+ o 
+\series bold
+capacitancia
+\series default
+ del condensador, que se mide en 
+\series bold
+faradios
+\series default
+ (
+\begin_inset Formula $F$
+\end_inset
+
+).
+ En general usamos letras mayúsculas para constantes y las correspondientes
+ minúsculas para valores que pueden variar con el tiempo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+show C
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En general están formados por dos placas conductoras paralelas separadas
+ por un pequeño hueco de material aislante en el que existe un campo eléctrico
+ uniforme.
+ Entonces 
+\begin_inset Formula $C=\frac{\varepsilon A}{\ell}$
+\end_inset
+
+, siendo 
+\begin_inset Formula $A$
+\end_inset
+
+ el área, 
+\begin_inset Formula $\ell$
+\end_inset
+
+ la separación entre las placas y 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ la 
+\series bold
+permitividad
+\series default
+ del medio entre ambas placas, con 
+\begin_inset Formula $\varepsilon\geq\varepsilon_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ahora bien, si se reduce demasiado el espacio entre las placas, la fuerza
+ de atracción entre ambas es muy alta y se produce la 
+\series bold
+ruptura del dieléctrico
+\series default
+, convirtiendo el material aislante en conductor y arruinando el condensador.
+\end_layout
+
+\begin_layout Standard
+Derivando a ambos lados de 
+\begin_inset Formula $q=Cv$
+\end_inset
+
+, nos queda
+\begin_inset Formula 
+\[
+i=C\frac{dv}{dt}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La potencia instantánea en el condensador 
+\begin_inset Formula $C$
+\end_inset
+
+ es pues 
+\begin_inset Formula $p=vi=Cv\frac{dv}{dt}$
+\end_inset
+
+, de modo que la energía almacenada es
+\begin_inset Formula 
+\[
+w=\int p\,dt=\int Cv\frac{dv}{dt}\,dt=\int Cv\,dv=\frac{1}{2}Cv^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Inductores
+\end_layout
+
+\begin_layout Standard
+Almacenan energía en su campo magnético.
+ En general un inductor es una bobina, y tiene una cierta 
+\series bold
+inductancia
+\series default
+ o 
+\series bold
+autoinducción
+\series default
+, medida en 
+\series bold
+henrios
+\series default
+ (
+\begin_inset Formula $H$
+\end_inset
+
+) y definida como 
+\begin_inset Formula $L=\frac{\Phi}{i}$
+\end_inset
+
+, siendo 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ el flujo magnético.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+show L
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+ley de Faraday
+\series default
+ afirma que 
+\begin_inset Formula $v=\frac{d\Phi}{dt}$
+\end_inset
+
+, por lo que
+\begin_inset Formula 
+\[
+v=\frac{d\Phi}{dt}=L\frac{di}{dt}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La potencia instantánea es 
+\begin_inset Formula $p=vi=Li\frac{di}{dt}$
+\end_inset
+
+, de modo que la energía almacenada es
+\begin_inset Formula 
+\[
+w=\int p\,dt=\int Li\frac{di}{dt}\,dt=\int Li\,di=\frac{1}{2}Li^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Fuentes de voltaje
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Proporcionan un voltaje que puede variar con el tiempo (como ondas sinusoidales
+ o cua
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+dra
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+das) o ser constante.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+show{american voltage source}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+pila
+\series default
+ o 
+\series bold
+batería
+\series default
+ es una fuente de voltaje basada en reacciones químicas que proporciona
+ un voltaje idealmente constante 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+, al que también llamamos 
+\series bold
+fuerza electromotriz
+\series default
+ (emf).
+ Una pila ideal es una 
+\series bold
+fuente independiente
+\series default
+, es decir, el voltaje suministrado no depende de otros elementos del circuito.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+show{battery1}
+\backslash
+show{battery}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la práctica, las pilas tienen una cierta 
+\series bold
+resistencia interna
+\series default
+, que aumenta conforme la pila se descarga.
+ Así, si la resistencia interna es 
+\begin_inset Formula $R_{i}$
+\end_inset
+
+ y la pila se conecta a una carga con resistencia 
+\begin_inset Formula $R_{L}$
+\end_inset
+
+, entonces 
+\begin_inset Formula ${\cal E}=iR_{i}+iR_{L}$
+\end_inset
+
+, luego 
+\begin_inset Formula $i=\frac{{\cal E}}{R_{i}+R_{L}}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $v_{L}=iR_{L}={\cal E}\frac{R_{L}}{R_{i}+R_{L}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Fuentes de intensidad
+\end_layout
+
+\begin_layout Standard
+Proporcionan una intensidad de corriente constante, si bien en la práctica
+ tienen cierta resistencia interna, que se representa conectada en paralelo.
+ Una fuente de intensidad ideal tiene resistencia interna infinita.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+show{american current source}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Circuitos en serie y en paralelo
+\end_layout
+
+\begin_layout Standard
+Vemos a continuación dos circuitos de resistencias, el primero en serie
+ y el segundo en paralelo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) to[american voltage source, l=$v$] (3,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) -- (0,1) to[R=$R_1$] (1.5,1) to[R=$R_2$] (3,1) -- (3,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{1in}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) to[american voltage source, l=$v$] (2,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) -- (0,2) to[R=$R_1$] (2,2) -- (2,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,1) to[R=$R_2$] (2,1);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el circuito en serie, 
+\begin_inset Formula $v=v_{1}+v_{2}=iR_{1}+iR_{2}=i(R_{1}+R_{2})$
+\end_inset
+
+, de modo que la resistencia equivalente a la combinación de ambas es 
+\begin_inset Formula $R_{eq}=R_{1}+R_{2}$
+\end_inset
+
+.
+ De forma general, dadas 
+\begin_inset Formula $n$
+\end_inset
+
+ resistencias en serie, 
+\begin_inset Formula $R_{eq}=\sum_{i=1}^{n}R_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En el circuito en paralelo, 
+\begin_inset Formula $i=i_{1}+i_{2}=v\left(\frac{1}{R_{1}}+\frac{1}{R_{2}}\right)$
+\end_inset
+
+, de modo que la resistencia equivalente es tal que 
+\begin_inset Formula $\frac{1}{R_{eq}}=\frac{1}{R_{1}}+\frac{1}{R_{2}}$
+\end_inset
+
+.
+ De forma general, dadas 
+\begin_inset Formula $n$
+\end_inset
+
+ resistencias en paralelo, 
+\begin_inset Formula $\frac{1}{R_{eq}}=\sum_{i=1}^{n}\frac{1}{R_{i}}$
+\end_inset
+
+.
+ En particular definimos 
+\begin_inset Formula $R_{1}\parallel R_{2}:=\frac{1}{\frac{1}{R_{1}}+\frac{1}{R_{2}}}=\frac{R_{1}R_{2}}{R_{1}+R_{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para condensadores ocurre lo contrario: 
+\begin_inset Formula $n$
+\end_inset
+
+ condensadores en serie equivalen a un condensador con 
+\begin_inset Formula $\frac{1}{C_{eq}}=\sum_{i=1}^{n}\frac{1}{C_{i}}$
+\end_inset
+
+, y 
+\begin_inset Formula $n$
+\end_inset
+
+ condensadores en paralelo equivalen a uno con 
+\begin_inset Formula $C_{eq}=\sum_{i=1}^{n}C_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Vemos a continuación un divisor de voltaje o 
+\series bold
+potenciómetro
+\series default
+ y un divisor de corriente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,2) to[short, o-] (1,2) to[pR] (1,0) to[short, -o] (0,0)
+\end_layout
+
+\begin_layout Plain Layout
+
+      (1,0) to[short, -o] (2,0)
+\end_layout
+
+\begin_layout Plain Layout
+
+      (1.2,1) to[short, -o] (2,1)
+\end_layout
+
+\begin_layout Plain Layout
+
+      (1,1.3) node[right]{$R_1$}
+\end_layout
+
+\begin_layout Plain Layout
+
+      (1,0.7) node[right]{$R_2$}
+\end_layout
+
+\begin_layout Plain Layout
+
+      (0,1) node{$v$}
+\end_layout
+
+\begin_layout Plain Layout
+
+      (2,0.5) node{$v^
+\backslash
+prime$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{1in}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,2) to[short, o-] (2,2) to[R=$R_2$] (2,0) to[short, -o] (0,0)
+\end_layout
+
+\begin_layout Plain Layout
+
+      (1,2) to[R=$R_1$] (1,0)
+\end_layout
+
+\begin_layout Plain Layout
+
+      (0,1) node{$v$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el divisor de voltaje, la corriente es 
+\begin_inset Formula $i=\frac{v}{R_{1}+R_{2}}$
+\end_inset
+
+, luego 
+\begin_inset Formula $v'=iR_{2}=v\frac{R_{2}}{R_{1}+R_{2}}$
+\end_inset
+
+.
+ En el divisor de corriente, 
+\begin_inset Formula $i=\frac{v}{R_{1}\parallel R_{2}}=v\frac{R_{1}+R_{2}}{R_{1}R_{2}}$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $i_{1}=\frac{v}{R_{1}}=i\frac{R_{2}}{R_{1}+R_{2}}$
+\end_inset
+
+ e 
+\begin_inset Formula $i_{2}=\frac{v}{R_{2}}=i\frac{R_{1}}{R_{1}+R_{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Simplificación
+\end_layout
+
+\begin_layout Standard
+Si dos fuentes, o circuitos en general, producen el mismo voltaje e intensidad
+ en una cierta carga 
+\begin_inset Formula $R_{L}$
+\end_inset
+
+, se dice que son 
+\series bold
+equivalentes
+\series default
+.
+ Una fuente de intensidad 
+\begin_inset Formula $I$
+\end_inset
+
+ con resistencia interna 
+\begin_inset Formula $R$
+\end_inset
+
+ equivale a una fuente de voltaje 
+\begin_inset Formula $V=IR$
+\end_inset
+
+ con resistencia interna 
+\begin_inset Formula $R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Superposición
+\end_layout
+
+\begin_layout Standard
+Cuando un circuito tiene varias fuentes, el voltaje o la intensidad en cualquier
+ punto del circuito puede obtenerse sumando, para cada una de las fuentes,
+ el voltaje o intensidad que habría en un circuito igual pero con sólo dicha
+ fuente.
+ Para obtener dicho circuito 
+\begin_inset Quotes cld
+\end_inset
+
+apagamos
+\begin_inset Quotes crd
+\end_inset
+
+ o 
+\begin_inset Quotes cld
+\end_inset
+
+matamos
+\begin_inset Quotes crd
+\end_inset
+
+ el resto de fuentes, cortocircuitando las fuentes de voltaje (
+\begin_inset Quotes cld
+\end_inset
+
+convirtiéndolas
+\begin_inset Quotes crd
+\end_inset
+
+ en parte del cable) y abriendo el circuito en las fuentes de intensidad
+ (
+\begin_inset Quotes cld
+\end_inset
+
+eliminando
+\begin_inset Quotes crd
+\end_inset
+
+ la fuente sin reconectar el circuito).
+\end_layout
+
+\begin_layout Subsection
+Teorema de Thevenin
+\end_layout
+
+\begin_layout Standard
+Si tomamos un circuito con dos terminales (por ejemplo, un circuito cerrado
+ en el que desconectamos una resistencia 
+\begin_inset Formula $R_{L}$
+\end_inset
+
+), podemos sustituirlo por una fuente ideal de voltaje 
+\begin_inset Formula $V_{th}$
+\end_inset
+
+ y una resistencia 
+\begin_inset Formula $R_{th}$
+\end_inset
+
+ en serie.
+ 
+\begin_inset Formula $V_{th}$
+\end_inset
+
+ es la diferencia de voltaje entre ambos terminales, y la intensidad se
+ obtiene mediante cortocircuito, uniendo ambos terminales.
+ Cuando calcular la intensidad no es práctico, podemos obtener 
+\begin_inset Formula $R_{th}$
+\end_inset
+
+ directamente matando todas las fuentes del circuito y calculando la resistencia
+ resultante.
+\end_layout
+
+\begin_layout Subsection
+Teorema de Norton
+\end_layout
+
+\begin_layout Standard
+Si tomamos un circuito con dos terminales, también podemos representarlo
+ como una fuente de corriente 
+\begin_inset Formula $I_{n}$
+\end_inset
+
+ conectada en paralelo a una resistencia 
+\begin_inset Formula $R_{n}$
+\end_inset
+
+, con 
+\begin_inset Formula $R_{n}=R_{th}$
+\end_inset
+
+ e 
+\begin_inset Formula $I_{n}=\frac{V_{th}}{R_{n}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Ecuaciones de mallas y nudos
+\end_layout
+
+\begin_layout Standard
+Son una forma de analizar circuitos complicados.
+ Un 
+\series bold
+nudo
+\series default
+ es la unión de tres o más cables, y una 
+\series bold
+rama
+\series default
+ es cualquier conexión entre dos nudos.
+ Los métodos de análisis por mallas y por nudos permiten obtener un sistema
+ de ecuaciones con 
+\begin_inset Formula $b-n+1$
+\end_inset
+
+ incógnitas, siendo 
+\begin_inset Formula $b$
+\end_inset
+
+ el número de ramas y 
+\begin_inset Formula $n$
+\end_inset
+
+ el de nudos.
+ Para el método por mallas:
+\end_layout
+
+\begin_layout Enumerate
+Reemplazamos las fuentes de corriente por fuentes de voltaje.
+\end_layout
+
+\begin_layout Enumerate
+Contamos el número de mallas (bucles 
+\begin_inset Quotes cld
+\end_inset
+
+representados sin nada dentro
+\begin_inset Quotes crd
+\end_inset
+
+), que debe ser 
+\begin_inset Formula $b-n+1$
+\end_inset
+
+ y dibujamos una flecha, habitualmente en sentido horario, en cada malla,
+ con una variable indicando la intensidad que circula por esta.
+\end_layout
+
+\begin_layout Enumerate
+Aplicamos la ley de Kirchhoff del voltaje a cada malla.
+ Ponemos todas las fuentes de voltaje a un lado de la ecuación y todas las
+ caídas de voltaje en el otro, teniendo en cuenta que la intensidad que
+ pasa por un elemento pasivo del circuito es la suma de la intensidad en
+ cada malla en la que se encuentra, con signo positivo si la flecha de dicha
+ malla indica el mismo sentido que el de la malla sobre la que estamos aplicando
+ la ley de Kirchhoff, y negativo si va en sentido contrario.
+\end_layout
+
+\begin_layout Enumerate
+Obtenemos un sistema de ecuaciones, una por malla, que podemos resolver,
+ por ejemplo, por Cramer.
+\end_layout
+
+\begin_layout Standard
+El método por nudos es similar, pero utiliza la ley de Kirchhoff de la corriente
+ sobre cada nudo para obtener un sistema de ecuaciones donde las incógnitas
+ son el voltaje en cada nudo.
+\end_layout
+
+\end_body
+\end_document

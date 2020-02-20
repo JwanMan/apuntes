@@ -1,0 +1,1246 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{circuitikz}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+def
+\backslash
+representnode#1{
+\backslash
+begin{circuitikz}
+\backslash
+draw (0,0) node[#1]{};
+\backslash
+end{circuitikz}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+def
+\backslash
+shownode#1{
+\backslash
+begin{center}
+\backslash
+representnode{#1}
+\backslash
+end{center}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+amplificador operacional
+\series default
+ es un tipo de amplificador diferencial usado junto con componentes pasivos
+ para sumar, restar, integrar, derivar, etc.
+ Tiene dos terminales de entrada, una no inversora y otra inversora; un
+ terminal de salida, y dos terminales para alimentación 
+\begin_inset Formula $+V_{cc}$
+\end_inset
+
+ y 
+\begin_inset Formula $-V_{cc}$
+\end_inset
+
+.
+ La tensión en cada uno debe ser constante y de signo opuesto al otro, pero
+ no tienen por qué ser tensiones opuestas.
+ Si lo son decimos que la alimentación es 
+\series bold
+simétrica
+\series default
+, y de lo contrario es 
+\series bold
+asimétrica
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) node(oa)[op amp]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(oa.+) node[left]{$v_+$} (oa.-) node[left]{$v_-$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(oa.up) node[vcc]{$+V_{cc}$} (oa.down) node[vee]{$-V_{cc}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(oa.out) node[right]{$v_{out}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dos zonas de funcionamiento:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Lineal
+\series default
+: 
+\begin_inset Formula $-V_{cc}<V_{out}<+V_{cc}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Saturación
+\series default
+: 
+\begin_inset Formula $V_{out}=+V_{cc}$
+\end_inset
+
+ ó 
+\begin_inset Formula $V_{out}=-V_{cc}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Su función es 
+\begin_inset Formula $v_{out}=A_{V}(v_{+}-v_{-})$
+\end_inset
+
+, donde 
+\begin_inset Formula $v_{+}$
+\end_inset
+
+ es la entrada no inversora y 
+\begin_inset Formula $v_{-}$
+\end_inset
+
+ la inversora.
+ Llamamos 
+\series bold
+tensión de entrada diferencial
+\series default
+ a 
+\begin_inset Formula $v_{in}:=v_{+}-v_{-}$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $v_{out}=A_{V}\cdot v_{in}$
+\end_inset
+
+; 
+\series bold
+ganancia diferencial
+\series default
+ a 
+\begin_inset Formula $A_{d}:=A_{V}$
+\end_inset
+
+, y 
+\series bold
+tensión de entrada de modo común
+\series default
+ a 
+\begin_inset Formula $v_{icm}:=\frac{v_{+}+v_{-}}{2}$
+\end_inset
+
+.
+ La variación de la tensión de salida en el tiempo está limitada por el
+ 
+\series bold
+\emph on
+slew-rate
+\series default
+\emph default
+, 
+\begin_inset Formula $SR:=\max\left\{ \frac{dv_{out}}{dt}\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Los AO contienen circuitos de entrada acoplados en continua, y la corriente
+ entra y sale de los terminales de entrada del AO.
+ En el caso real, las corrientes de polarización (?) no son iguales, lo
+ que crea una 
+\series bold
+corriente de desviación
+\series default
+ 
+\begin_inset Formula $I_{off}:=I_{B^{+}}-I_{B^{-}}$
+\end_inset
+
+.
+ También puede haber una tensión de salida distinta de cero para una tensión
+ de entrada nula (
+\series bold
+\emph on
+offset voltage
+\series default
+\emph default
+).
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+realimentación
+\series default
+ es la conexión de una señal de salida con alguna de las entradas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Realimentación positiva
+\series default
+: Cuando se hace a la entrada no inversora.
+ Resulta en circuitos inestables que rápidamente se saturan.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Realimentación negativa
+\series default
+: Cuando se hace a la entrada inversora.
+ La ganancia se reduce respecto al valor en lazo abierto y el circuito es
+ más estable.
+\end_layout
+
+\begin_layout Standard
+Un AO (amplificador operacional) ideal tiene 
+\begin_inset Formula $Z_{in}=+\infty$
+\end_inset
+
+, 
+\begin_inset Formula $A_{V_{0}}=+\infty$
+\end_inset
+
+, 
+\begin_inset Formula $G=0$
+\end_inset
+
+, 
+\begin_inset Formula $Z_{out}=0$
+\end_inset
+
+, ancho de banda 
+\begin_inset Formula $W_{D}=+\infty$
+\end_inset
+
+ y ausencia de desviación de características con la temperatura.
+ Con esto se facilitan los cálculos, pues como 
+\begin_inset Formula $Z_{in}=+\infty$
+\end_inset
+
+, las corrientes de entrada se pueden considerar nulas, y si existe realimentaci
+ón negativa podemos considerar que, siempre que no se llegue a la zona de
+ saturación, las dos entradas se encuentran al mismo potencial, situación
+ a la que llamamos 
+\series bold
+cortocircuito virtual
+\series default
+.
+ Esto se debe a que la ganancia es tan elevada que una pequeña tensión diferenci
+al entre las entradas saturaría la salida, y al realimentar negativamente,
+ si las tensiones se desequilibran, la realimentación negativa compensa
+ esta diferencia.
+\end_layout
+
+\begin_layout Section
+Circuitos con AO
+\end_layout
+
+\begin_layout Subsection
+Amplificador inversor
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) node(OA)[op amp]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.+) -- ++(0,-1) node(G)[ground]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.-) to[R=$R_1$] ++(-2,0) to[american voltage source,l=$v_{in}$] ($(OA.-
+ |- G) + (-2,0)$) -- (G)
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.-) -- ++(0,1) to[R=$R_2$] ($(OA.out |- OA.-) + (0,1)$) -- (OA.out) -- ($(OA.out)+
+(.5,0)$) to[R=$R_L$] ($(OA.out |- G) + (.5,0)$) -- (G);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tenemos en cuenta que 
+\begin_inset Formula $V_{+}=V_{-}=0$
+\end_inset
+
+ y las leyes de Kirchhoff.
+ Como 
+\begin_inset Formula $I_{-}=0$
+\end_inset
+
+, toda la corriente pasa por 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+, luego 
+\begin_inset Formula $i_{1}=i_{2}$
+\end_inset
+
+, es decir, 
+\begin_inset Formula $\frac{v_{in}-v_{-}}{R_{1}}=\frac{v_{-}-v_{out}}{R_{2}}$
+\end_inset
+
+ con 
+\begin_inset Formula $v_{-}=0$
+\end_inset
+
+, y por tanto 
+\begin_inset Formula $v_{out}=-v_{in}\frac{R_{2}}{R_{1}}$
+\end_inset
+
+ y 
+\begin_inset Formula $A_{V}=-\frac{R_{2}}{R_{1}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Amplificador no inversor
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) node(OA)[op amp,yscale=-1]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.-) -- ++(0,-1) to[R=$R_1$] ++(0,-2) node(G)[ground]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.+) -- ++(-2,0) to[american voltage source,l=$v_{in}$] ($(OA.+ |- G) +
+ (-2,0)$) -- (G)
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.out) -- ($(OA.out |- OA.-)+(0,-1)$) to[R=$R_2$] ($(OA.-)+(0,-1)$)
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.out) -- ($(OA.out)+(1,0)$) to[R=$R_L$] ($(OA.out |- G)+(1,0)$) -- (G);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tenemos que 
+\begin_inset Formula $v_{-}=v_{+}=v_{in}$
+\end_inset
+
+, y que 
+\begin_inset Formula $i_{-}=i_{+}=0$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $i_{1}=i_{2}$
+\end_inset
+
+.
+ Pero 
+\begin_inset Formula $i_{1}=\frac{v_{-}}{R_{1}}=\frac{v_{in}}{R_{1}}$
+\end_inset
+
+, luego 
+\begin_inset Formula $v_{out}=i_{1}(R_{1}+R_{2})=v_{in}\left(1+\frac{R_{2}}{R_{1}}\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $A_{V}=\frac{V_{out}}{V_{in}}=1+\frac{R_{2}}{R_{1}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Seguidor de tensión
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) node(OA)[op amp,yscale=-1]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.+) -- ++(-2,0) to[american voltage source,l=$v_{in}$] ($(OA.+ |- OA.out)+(-2,-2
+)$) node(G)[ground]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.-) -- ++(0,-1) -- ($(OA.out |- OA.-)+(0,-1)$) -- (OA.out) -- ++(1,0) to[R=$R_L$]
+ ($(OA.out |- G) + (1,0)$) node[ground]{};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tenemos 
+\begin_inset Formula $v_{out}=v_{in}$
+\end_inset
+
+ (por tanto 
+\begin_inset Formula $A_{V}=1$
+\end_inset
+
+).
+ Esto se usa principalmente como etapa de adaptación de la entrada al sistema,
+ proporcionando una elevada resistencia de entrada.
+\end_layout
+
+\begin_layout Subsection
+Sumador inversor
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) node(OA)[op amp]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.-) -- ++(-1,0) -- ++(0,1) to[R=$R_A$] ++(-4,0) to[american voltage source,l=$
+v_A$] ++(0,-4) node(G)[ground]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+($(OA.-)+(-1,0)$) -- ++(0,-1) to[R=$R_B$] ++(-2,0) to[american voltage source,l=$
+v_B$] ++(0,-2) node[ground]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.-) -- ++(0,1) to[R=$R_f$] ($(OA.out |- OA.-) + (0,1)$) -- (OA.out) -- ++(1,0)
+ to[R=$R_L$] ($(OA.out |- G) + (1,0)$) node[ground]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.+) to[R=$R_{bias}$] (OA.+ |- G) node[ground]{};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aquí, como 
+\begin_inset Formula $i_{-}=i_{+}=0$
+\end_inset
+
+, se tiene 
+\begin_inset Formula $v_{+}=R_{bias}i_{+}=0$
+\end_inset
+
+, y como hay realimentación negativa, 
+\begin_inset Formula $v_{-}=v_{+}=0$
+\end_inset
+
+.
+ Ahora bien, 
+\begin_inset Formula $\frac{v_{A}-v_{-}}{R_{A}}+\frac{v_{B}-v_{-}}{R_{B}}=\frac{v_{-}-v_{out}}{R_{f}}$
+\end_inset
+
+, y como 
+\begin_inset Formula $v_{-}=0$
+\end_inset
+
+, nos queda que 
+\begin_inset Formula $v_{out}=-R_{f}\left(\frac{v_{A}}{R_{A}}+\frac{v_{B}}{R_{B}}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Amplificador diferencial
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) node(OA)[op amp]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.-) to[R=$R_A$] ++(-4,0) to[american voltage source,l=$v_A$] ++(0,-3)
+ node(G)[ground]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.+) to[R=$R_B$] ++(-2,0) to[american voltage source,l=$v_B$] ($(OA.+ |-
+ G) + (-2,0)$) node[ground]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.+) to[R=$R_C$] (OA.+ |- G) node[ground]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.-) -- ++(0,1) to[R=$R_f$] ($(OA.out |- OA.-)+(0,1)$) -- (OA.out) -- ++(1,0)
+ to[R=$R_L$] ($(OA.out |- G)+(1,0)$) node[ground]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(1,-2) node{$
+\backslash
+frac{R_C}{R_B}=
+\backslash
+frac{R_f}{R_A}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\begin_inset Formula $i_{+}=0$
+\end_inset
+
+, toda la corriente que sale de 
+\begin_inset Formula $R_{B}$
+\end_inset
+
+ va a 
+\begin_inset Formula $R_{C}$
+\end_inset
+
+ y 
+\begin_inset Formula $v_{B}=i_{B}(R_{B}+R_{C})$
+\end_inset
+
+, y se tiene 
+\begin_inset Formula $v_{-}=v_{+}=i_{B}R_{C}=v_{B}\frac{R_{C}}{R_{B}+R_{C}}$
+\end_inset
+
+.
+ Ahora bien, como 
+\begin_inset Formula $i_{-}=0$
+\end_inset
+
+, nos queda 
+\begin_inset Formula $v_{-}=v_{A}-i_{A}R_{A}=i_{A}R_{f}+v_{out}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $i_{A}=\frac{v_{A}-v_{out}}{R_{A}+R_{f}}$
+\end_inset
+
+.
+ Sustituyendo e igualando,
+\begin_inset Formula 
+\begin{multline*}
+v_{B}\frac{R_{C}}{R_{B}+R_{C}}=\frac{v_{A}-v_{out}}{R_{A}+R_{f}}R_{f}+v_{out}=v_{A}\frac{R_{C}}{R_{B}+R_{C}}+v_{out}\frac{R_{B}}{R_{B}+R_{C}}\implies\\
+\implies v_{B}R_{C}-v_{A}R_{C}=v_{out}R_{B}\implies v_{out}=\frac{R_{C}}{R_{B}}(v_{B}-v_{A})=\frac{R_{f}}{R_{A}}(v_{B}-v_{A})
+\end{multline*}
+
+\end_inset
+
+Para minimizar los efectos de la corriente de polarización (?) se deben
+ seleccionar 
+\begin_inset Formula $R_{A}=R_{B}$
+\end_inset
+
+ y 
+\begin_inset Formula $R_{C}=R_{f}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Integrador
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) node(OA)[op amp]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.+) -- ++(0,-2) node(G)[ground]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.-) to[R=$R$] ++(-2,0) to[american voltage source,l=$v_{in}$] ($(OA.- |-
+ G)+(-2,0)$) -- (G)
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.-) -- ($(OA.-)+(0,2.5)$) to[ospst,l=Reset] ($(OA.out |- OA.-)+(0,2.5)$) --
+ (OA.out)   
+\end_layout
+
+\begin_layout Plain Layout
+
+($(OA.-)+(0,1)$) to[C=$C$] ($(OA.out |- OA.-)+(0,1)$)
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.out) -- ++(1,0) to[R=$R_L$] ($(OA.out |- G)+(1,0)$) -- (G);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La tensión de salida es 
+\begin_inset Formula $v_{out}=-\frac{1}{RC}\int_{0}^{t}v_{in}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Derivador
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) node(OA)[op amp]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.out) -- ++(1,0) to[R=$R_L$] ++(0,-2) node(H){}
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.+) -- (OA.+ |- H) node(G)[ground]{} -- (H)
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.-) -- ++(0,1) to[R=$R$] ($(OA.out |- OA.-)+(0,1)$) -- (OA.out)
+\end_layout
+
+\begin_layout Plain Layout
+
+(OA.-) to[C=$C$] ++(-2,0) to[american voltage source,l=$v_{in}$] ($(OA.- |-
+ G)+(-2,0)$) -- (G);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La tensión de salida es 
+\begin_inset Formula $v_{out}=-RC\frac{dv_{in}}{dt}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Conversión digital a analógica (DAC)
+\end_layout
+
+\begin_layout Standard
+Consiste en reconstruir una señal analógica a partir de una serie de muestras
+ en código binario.
+ La señal reconstruida no es la misma que la original, pues está retrasada
+ en el tiempo respecto a esta y los códigos no contienen información sobre
+ el valor de la señal entre dos muestras ni representan las amplitudes exactas
+ de estas.
+ La diferencia entre el valor de muestreo y la amplitud reconstruida se
+ denomina 
+\series bold
+error
+\series default
+ o 
+\series bold
+ruido de cuantificación
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Una posible implementación de DAC es aquella basada en una red de resistencias
+ pon
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+de
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ra
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+das y un amplificador operacional.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand*{
+\backslash
+equal}{=}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,3) node(sa)[spdt,rotate=-90]{} node[left]{$d_0$} (2,3) node(sb)[spdt,rot
+ate=-90]{} node[left]{$d_1$} (4,3) node(sc)[spdt,rotate=-90]{} node[left]{$d_2$}
+ (7,3) node(sn)[spdt,rotate=-90]{} node[left]{$d_{n-1}$} (9,1) node(oa)[op
+ amp]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(sa.out 1) node[ground]{} (sb.out 1) node[ground]{} (sc.out 1) node[ground]{}
+ (sn.out 1) node[ground]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(sa.in) to[R=$R$] ++(0,2) (sb.in) to[R=$2R$] ++(0,2) (sc.in) to[R=$4R$] ++(0,2)
+ (sn.in) to[R=$
+\backslash
+cdots
+\backslash
+ 
+\backslash
+ 
+\backslash
+ 2^{n-1}R$] ++(0,2)
+\end_layout
+
+\begin_layout Plain Layout
+
+%($0.5*(sc.in)+0.5*(sn.in)+(0,1)$) node{$
+\backslash
+cdots$} 
+\end_layout
+
+\begin_layout Plain Layout
+
+($0.5*(sa.in)+0.5*(sn.in)+(0,2)$) -- ++(0,1) node[right]{$V_{ref}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+($(sa.in)+(0,2)$) -- ++(7,0)
+\end_layout
+
+\begin_layout Plain Layout
+
+(sa.out 2) -- (sa.out 2 |- oa.-) -- (oa.-) (sb.out 2) -- (sb.out 2 |- oa.-) (sc.out
+ 2) -- (sc.out 2 |- oa.-) (sn.out 2) -- (sn.out 2 |- oa.-)
+\end_layout
+
+\begin_layout Plain Layout
+
+(oa.-) -- ++(0,1) to[R=$R_f
+\backslash
+equal
+\backslash
+frac R2$] ($(oa.out |- oa.-)+(0,1)$) -- (oa.out) -- ++(1,0) to[R=$R_L$] ++(0,-2)
+ node(G)[ground]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+(oa.+) -- (oa.+ |- G) node[ground]{};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,3289 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\series bold
+C
+\series default
+ es un lenguaje de programación creado en 1972 por Dennis M.
+ Ritchie orientado a implementar el sistema operativo Unix.
+ El primer estándar de C fue creado por ANSI en 1989 (
+\begin_inset Quotes cld
+\end_inset
+
+C89
+\begin_inset Quotes crd
+\end_inset
+
+), y al año siguiente fue ratificado como estándar ISO.
+ A mediados de los 80 se crea el C++, una extensión de C orientada a objetos,
+ que se convierte a estándar ISO en 1998.
+ El último estándar de C fue creado en 1999 (
+\begin_inset Quotes cld
+\end_inset
+
+C99
+\begin_inset Quotes crd
+\end_inset
+
+), pues los nuevos cambios son incorporados en C++ y no en C.
+ Usaremos el estándar C99 con extensiones de GNU.
+\end_layout
+
+\begin_layout Standard
+C es un lenguaje de 
+\series bold
+medio nivel
+\series default
+, pues proporciona cierta abstracción de lenguajes de alto nivel pero con
+ la eficiencia del lenguaje máquina.
+ Es 
+\series bold
+débilmente tipado
+\series default
+, pues permite conversiones implícitas entre tipos.
+ No permite encapsulado (aunque se puede simular), y permite la programación
+ estructurada.
+ Tiene como ventajas el ser muy transportable, flexible y expresivo, además
+ de generar código eficiente, si bien es poco modular, realiza pocas comprobacio
+nes y es más difícil escribir y leer código en comparación con otros lenguajes.
+\end_layout
+
+\begin_layout Standard
+La compilación de un programa en C la realizan los siguientes programas:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Preprocesador:
+\series default
+ Elimina los comentarios del código (.c), incluye código de otros archivos
+ (.h), sustituye las macros y permite la inclusión de código de forma condicional.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Compilador:
+\series default
+ Analiza el código resultante y lo convierte a lenguaje ensamblador (.s).
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ensamblador:
+\series default
+ Convierte el código ensamblador en código máquina dentro de un fichero
+ objeto (.o).
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Enlazador:
+\series default
+ Crea el ejecutable final a partir de ficheros objeto y las bibliotecas
+ de código.
+\end_layout
+
+\begin_layout Standard
+Los 
+\series bold
+comentarios
+\series default
+ se usan para explicar alguna parte del código del programa, y no afectan
+ a su significado.
+ Se usan como 
+\family typewriter
+/* 
+\emph on
+comentario
+\emph default
+ */
+\family default
+ o 
+\family typewriter
+// 
+\emph on
+comentario de una línea (sólo C99)
+\family default
+.
+\end_layout
+
+\begin_layout Section
+Manipulación básica de datos
+\end_layout
+
+\begin_layout Standard
+Tipos básicos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Enteros:
+\series default
+ Se escriben como (expresión regular) 
+\family typewriter
+-?[1-9][0-9]*
+\family default
+ (base decimal), 
+\family typewriter
+0[0-7]*
+\family default
+ (octal) o 
+\family typewriter
+0x[0-9a-fA-F]
+\family default
+ (hexadecimal).
+ Se declaran con 
+\family typewriter
+int
+\family default
+, que puede ir precedido por 
+\family typewriter
+long
+\family default
+, 
+\family typewriter
+long long
+\family default
+ o 
+\family typewriter
+short
+\family default
+ para establecer el tamaño en bits, que normalmente es, respectivamente,
+ de 32, 64 o 16 bits, y si no se especifica es de 32 bits.
+ Precediendo a esto puede ir 
+\family typewriter
+signed
+\family default
+ o 
+\family typewriter
+unsigned
+\family default
+ para indicar si el entero tiene signo o no (por defecto en general tiene).
+ De hecho, si se indica cualquiera de los sufijos se puede omitir el 
+\family typewriter
+int
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\series bold
+Reales en coma flotante:
+\series default
+ Se escriben como 
+\family typewriter
+-?[0-9]*
+\backslash
+.[0-9]+([eE]-?[0-9][1-9]*)?
+\family default
+.
+ Se declaran con 
+\family typewriter
+float
+\family default
+, 
+\family typewriter
+double
+\family default
+ o 
+\family typewriter
+long double
+\family default
+, que en general se corresponden con un tamaño de 32, 64 y 128 bits, respectivam
+ente.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Caracteres:
+\series default
+ Se escriben entre comillas simples como 
+\family typewriter
+'
+\emph on
+c
+\emph default
+'
+\family default
+, si bien algunos requieren secuencias de escape como 
+\family typewriter
+'
+\backslash
+''
+\family default
+ (comilla simple), 
+\family typewriter
+'
+\backslash
+n'
+\family default
+ (salto de línea), 
+\family typewriter
+'
+\backslash
+t'
+\family default
+ (tabulador), etc.
+ También pueden funcionar como enteros (por lo general de 8 bits).
+ Se declaran con 
+\family typewriter
+char
+\family default
+, que puede ir precedido de 
+\family typewriter
+signed
+\family default
+ o 
+\family typewriter
+unsigned
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Cadenas de caracteres:
+\series default
+ Se escriben entre comillas dobles, con secuencias de escape como las de
+ los caracteres sueltos (para las comillas dobles se usa 
+\family typewriter
+
+\backslash
+"
+\family default
+).
+ Realmente son listas de caracteres, que terminan con el caracter nulo (
+\family typewriter
+'
+\backslash
+0'
+\family default
+, que se corresponde con el entero 0).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Los 
+\series bold
+identificadores
+\series default
+ nombran variables, funciones, tipos de datos definidos por el programador
+ o macros del preprocesador.
+ Su formato es 
+\family typewriter
+[a-zA-Z_][a-zA-Z0-9_]*
+\family default
+, distinguen mayúsculas de minúsculas y no pueden ser 
+\series bold
+palabras reservadas
+\series default
+ por el compilador, que en C89 son: 
+\family typewriter
+auto break case char const continue default do double else enum extern float
+ for goto if int long register return short signed sizeof static struct
+ switch typedef union unsigned void volatile while
+\family default
+.
+ C99 añade además las palabras reservadas: 
+\family typewriter
+inline _Bool _Complex _Imaginary
+\family default
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las variables se definen con la sintaxis 
+\family typewriter
+\emph on
+tipo identificador
+\emph default
+;
+\family default
+.
+ Si antes del tipo se usa la palabra 
+\family typewriter
+const
+\family default
+, la variable es de sólo lectura.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+expresión
+\series default
+ consiste en al menos un operando y cero o más operadores, donde los operandos
+ pueden ser literales (valores escritos tal cual), variables o llamadas
+ a funciones que devuelven un valor.
+ Los operadores son (si no se dice nada son binarios):
+\end_layout
+
+\begin_layout Enumerate
+Paréntesis: 
+\family typewriter
+(
+\emph on
+...
+\emph default
+)
+\family default
+ para agrupar una expresión.
+\end_layout
+
+\begin_layout Enumerate
+Operadores aritméticos: Suma (
+\family typewriter
++
+\family default
+), resta (
+\family typewriter
+-
+\family default
+), producto (
+\family typewriter
+*
+\family default
+), división (
+\family typewriter
+/
+\family default
+), resto (
+\family typewriter
+%
+\family default
+).
+ C no detecta desbordamientos, por lo que si el resultado está fuera del
+ rango, el valor es erróneo.
+\end_layout
+
+\begin_layout Enumerate
+Operadores relacionales: Igual (
+\family typewriter
+==
+\family default
+), distinto (
+\family typewriter
+!=
+\family default
+), mayor (
+\family typewriter
+>
+\family default
+), menor (
+\family typewriter
+<
+\family default
+), mayor o igual (
+\family typewriter
+>=
+\family default
+), menor o igual (
+\family typewriter
+<=
+\family default
+).
+ Devuelven 1 si la expresión es verdadera y 0 si es falsa.
+\end_layout
+
+\begin_layout Enumerate
+Operadores lógicos: Conjunción (
+\family typewriter
+&&
+\family default
+), disyunción (
+\family typewriter
+||
+\family default
+), negación (unario, 
+\family typewriter
+!
+\family default
+).
+ Interpretan el 0 como falso y cualquier otro valor como cierto, y devuelven
+ 1 si la expresión es cierta y 0 si es falsa.
+\end_layout
+
+\begin_layout Enumerate
+Asignación (
+\family typewriter
+\emph on
+dest
+\family default
+=
+\family typewriter
+expr
+\family default
+\emph default
+).
+ También se puede usar, por ejemplo, 
+\family typewriter
+\emph on
+a
+\emph default
+*=
+\emph on
+b
+\family default
+\emph default
+, como abreviatura de 
+\family typewriter
+\emph on
+a
+\emph default
+=
+\emph on
+a
+\emph default
+*
+\emph on
+b
+\family default
+\emph default
+.
+ Además, 
+\family typewriter
+\emph on
+x
+\emph default
+++
+\family default
+ y 
+\family typewriter
+++
+\emph on
+x
+\family default
+\emph default
+ y ambas añaden 1 a la variable 
+\family typewriter
+\emph on
+x
+\family default
+\emph default
+, pero 
+\family typewriter
+\emph on
+x
+\emph default
+++
+\family default
+ devuelve el valor antes de modificarlo (postincremento) mientras que 
+\family typewriter
+++
+\emph on
+x
+\family default
+\emph default
+ lo devuelve después (preincremento).
+ Lo mismo sucede con 
+\family typewriter
+\emph on
+x
+\emph default
+--
+\family default
+ (postdecremento, resta 1) y 
+\family typewriter
+--
+\emph on
+x
+\family default
+\emph default
+ (predecremento).
+\end_layout
+
+\begin_layout Enumerate
+Obtención del tamaño de un tipo: 
+\family typewriter
+sizeof(
+\emph on
+tipo
+\emph default
+)
+\family default
+ o 
+\family typewriter
+sizeof 
+\emph on
+expr
+\family default
+\emph default
+ devuelve el tamaño (en bytes) de un tipo de dato o resultado de una expresión.
+\end_layout
+
+\begin_layout Standard
+En C, la asociatividad (en general) es de izquierda a derecha, y la precedencia
+ es, de mayor a menor, la siguiente:
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+()
+\family default
+, 
+\family typewriter
+[]
+\family default
+, 
+\family typewriter
+->
+\family default
+, 
+\family typewriter
+.
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Unarios 
+\family typewriter
+!
+\family default
+, 
+\family typewriter
+~
+\family default
+, 
+\family typewriter
++
+\family default
+, 
+\family typewriter
+-
+\family default
+, 
+\family typewriter
+++
+\family default
+, 
+\family typewriter
+--
+\family default
+, 
+\family typewriter
+&
+\family default
+, 
+\family typewriter
+*
+\family default
+, 
+\family typewriter
+sizeof()
+\family default
+, 
+\family typewriter
+(
+\emph on
+tipo
+\emph default
+)
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+*
+\family default
+ (binario), 
+\family typewriter
+/
+\family default
+, 
+\family typewriter
+%
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
++
+\family default
+, 
+\family typewriter
+-
+\family default
+ (binarios).
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+<<
+\family default
+, 
+\family typewriter
+>>
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+<
+\family default
+, 
+\family typewriter
+<=
+\family default
+, 
+\family typewriter
+>
+\family default
+, 
+\family typewriter
+>=
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+==
+\family default
+, 
+\family typewriter
+!=
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+&
+\family default
+ (binario).
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+^
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+|
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+&&
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+||
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+?:
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+=
+\family default
+, 
+\family typewriter
+*=
+\family default
+, 
+\family typewriter
+/=
+\family default
+, 
+\family typewriter
+%=
+\family default
+, 
+\family typewriter
++=
+\family default
+, 
+\family typewriter
+-=
+\family default
+, 
+\family typewriter
+&=
+\family default
+, 
+\family typewriter
+^=
+\family default
+, 
+\family typewriter
+|=
+\family default
+, 
+\family typewriter
+<<=
+\family default
+, 
+\family typewriter
+>>=
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+,
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Si el resultado de una operación con enteros no es entero, se redondea a
+ la baja.
+ En la evaluación de una expresión pueden producirse conversiones de tipo,
+ lo que se llama 
+\series bold
+promoción
+\series default
+ si es hacia un tipo de mayor rango o 
+\series bold
+degradación
+\series default
+ si es a uno de menor rango, y pueden ser 
+\series bold
+implícitas
+\series default
+ si las hace automáticamente el compilador o 
+\series bold
+explícitas
+\series default
+ (
+\emph on
+casting
+\emph default
+) si las indica el programador mediante la sintaxis 
+\family typewriter
+(
+\emph on
+tipo
+\emph default
+)
+\emph on
+expr
+\family default
+\emph default
+.
+ Para la conversión implícita:
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+char
+\family default
+ y 
+\family typewriter
+short
+\family default
+ se convierten a 
+\family typewriter
+int
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+unsigned char
+\family default
+ y 
+\family typewriter
+unsigned short
+\family default
+ se convierten a 
+\family typewriter
+unsigned
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Los operandos de menor rango se promueven al de mayor rango.
+ Los tipos son, de menor a mayor rango, 
+\family typewriter
+int
+\family default
+, 
+\family typewriter
+unsigned
+\family default
+, 
+\family typewriter
+long
+\family default
+, 
+\family typewriter
+unsigned long
+\family default
+, 
+\family typewriter
+float
+\family default
+ y 
+\family typewriter
+double
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+El resultado se degrada al asignarlo si es necesario.
+\end_layout
+
+\begin_layout Section
+Tipos de datos compuestos
+\end_layout
+
+\begin_layout Paragraph
+Enumerados
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+El tipo se define con 
+\family typewriter
+enum 
+\emph on
+nombre
+\emph default
+ { 
+\emph on
+id1
+\emph default
+, 
+\emph on
+id2
+\emph default
+, 
+\emph on
+...
+
+\emph default
+ } 
+\emph on
+var1
+\emph default
+, 
+\emph on
+var2
+\emph default
+, 
+\emph on
+...
+\emph default
+;
+\family default
+, donde no es necesario definir las variables 
+\family typewriter
+\emph on
+var1
+\emph default
+, 
+\emph on
+var2
+\emph default
+, 
+\emph on
+...
+
+\family default
+\emph default
+ en la definición, sino que podemos definirlas después con el tipo 
+\family typewriter
+enum 
+\emph on
+nombre
+\family default
+\emph default
+.
+ Una variable de este tipo puede tomar como valor cualquiera entre 
+\family typewriter
+\emph on
+id1
+\emph default
+, 
+\emph on
+id2
+\emph default
+, 
+\emph on
+...
+\family default
+\emph default
+, que asignamos como 
+\family typewriter
+\emph on
+var
+\emph default
+ = 
+\emph on
+id
+\family default
+\emph default
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Estructuras
+\end_layout
+
+\begin_layout Standard
+Las estructuras están formadas por una serie de campos de varios tipos,
+ y se definen como 
+\family typewriter
+struct 
+\emph on
+nombre
+\emph default
+ { 
+\emph on
+tipo1 campo1
+\emph default
+; 
+\emph on
+tipo2 campo2
+\emph default
+; 
+\emph on
+...
+
+\emph default
+ } 
+\emph on
+var1
+\emph default
+, 
+\emph on
+var2
+\emph default
+, 
+\emph on
+...
+\emph default
+;
+\family default
+, igual que con los enumerados.
+ El tipo es 
+\family typewriter
+struct 
+\emph on
+nombre
+\family default
+\emph default
+, accedemos a los campos con la sintaxis 
+\family typewriter
+\emph on
+variable
+\emph default
+.
+\emph on
+campo
+\family default
+\emph default
+ y las inicializamos como 
+\family typewriter
+struct 
+\emph on
+nombre var
+\emph default
+ = {
+\emph on
+valor_campo1
+\emph default
+, 
+\emph on
+...
+\emph default
+}
+\family default
+.
+ Podemos asignar una variable de un tipo 
+\family typewriter
+struct
+\family default
+ a otra del mismo, pero no a otra de un tipo 
+\family typewriter
+struct
+\family default
+ de distinto nombre.
+\end_layout
+
+\begin_layout Paragraph
+Uniones
+\end_layout
+
+\begin_layout Standard
+Similares a las estructuras, pero todos los campos se almacenan en el mismo
+ espacio, con lo que no debemos acceder a uno distinto al que fue asignado.
+ Se declaran con 
+\family typewriter
+union 
+\emph on
+nombre
+\emph default
+ { 
+\emph on
+tipo1 campo1
+\emph default
+; 
+\emph on
+...
+\emph default
+} 
+\emph on
+var1
+\emph default
+, 
+\emph on
+...
+\emph default
+;
+\family default
+.
+ El tipo es 
+\family typewriter
+union 
+\emph on
+nombre
+\family default
+\emph default
+, y se inicializan con 
+\family typewriter
+union 
+\emph on
+nombre var
+\emph default
+ = {.
+\emph on
+campo
+\emph default
+ = 
+\emph on
+valor
+\emph default
+}
+\family default
+ o con 
+\family typewriter
+union 
+\emph on
+nombre var
+\emph default
+ = {
+\emph on
+campo
+\emph default
+: 
+\emph on
+valor
+\emph default
+}
+\family default
+.
+\end_layout
+
+\begin_layout Paragraph
+Tablas
+\end_layout
+
+\begin_layout Standard
+Las tablas o 
+\emph on
+arrays
+\emph default
+ son estructuras que permiten almacenar elementos del mismo tipo consecutivament
+e.
+ Se definen con 
+\family typewriter
+\emph on
+tipo nombre
+\emph default
+[
+\emph on
+n1
+\emph default
+][
+\emph on
+...
+\emph default
+][
+\emph on
+nt
+\emph default
+]
+\family default
+, donde los índices son enteros no negativos constantes que indican el tamaño,
+ y se accede a los elementos con 
+\family typewriter
+\emph on
+nombre
+\emph default
+[
+\emph on
+j1
+\emph default
+][
+\emph on
+...
+\emph default
+][
+\emph on
+jt
+\emph default
+]
+\family default
+, donde 
+\begin_inset Formula $0\leq j_{i}\leq n_{i}-1$
+\end_inset
+
+.
+ Las tablas unidimensionales se pueden inicializar como 
+\family typewriter
+{
+\emph on
+val0
+\emph default
+, 
+\emph on
+val1
+\emph default
+, 
+\emph on
+...
+\emph default
+, 
+\emph on
+valN-1
+\emph default
+}
+\family default
+, y de hecho podemos definirlas como 
+\family typewriter
+\emph on
+nombre
+\emph default
+[]
+\family default
+ si la inicializamos en la misma definición de esta forma.
+ También, en esta sintaxis, se pueden inicializar dentro de las llaves elementos
+ sueltos con 
+\family typewriter
+[
+\emph on
+i
+\emph default
+] 
+\emph on
+valor
+\family default
+\emph default
+ o 
+\family typewriter
+[
+\emph on
+i
+\emph default
+] = 
+\emph on
+valor
+\family default
+\emph default
+ y rangos con 
+\family typewriter
+[
+\emph on
+i0
+\emph default
+ ...
+ 
+\emph on
+if
+\emph default
+] = 
+\emph on
+valor
+\family default
+\emph default
+.
+ No podemos asignar una tabla a otra directamente, sino que para ello hemos
+ de copiar sus elementos.
+\end_layout
+
+\begin_layout Paragraph
+Renombrado de tipos
+\end_layout
+
+\begin_layout Standard
+Permiten dar un nuevo nombre a un tipo mediante
+\family typewriter
+
+\begin_inset Newline newline
+\end_inset
+
+typedef 
+\emph on
+nombre_tipo nuevo_nombre
+\emph default
+;
+\family default
+, y este nuevo nombre de tipo se usa sin ningún prefijo (seguimos pudiendo
+ usar el nombre antiguo).
+ Al definir un enumerado, estructura o unión no es necesario decir su nombre
+ (se dice que es un tipo 
+\series bold
+anónimo
+\series default
+), y de hecho tampoco hace falta definirlo antes de usarlo (se dice que
+ es un tipo 
+\series bold
+incompleto
+\series default
+) salvo si fuera necesario conocer su estructura o tamaño, de modo que con
+ frecuencia el renombrado de tipos ocurre con tipos anónimos (con la definición
+ 
+\begin_inset Quotes cld
+\end_inset
+
+dentro
+\begin_inset Quotes crd
+\end_inset
+
+ del 
+\family typewriter
+typedef
+\family default
+) o incompletos.
+\end_layout
+
+\begin_layout Section
+Ámbito y extensión
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+ámbito
+\series default
+ de un identificador es el contexto del programa en que este puede ser utilizado
+, mientras que la 
+\series bold
+duración
+\series default
+ de una variable es el tiempo desde que empieza a existir hasta que deja
+ de existir, liberándose el espacio que ocupaba.
+ Así:
+\end_layout
+
+\begin_layout Itemize
+Una 
+\series bold
+variable global
+\series default
+ o 
+\series bold
+estática
+\series default
+ (definida fuera de cualquier bloque) tiene como ámbito desde que se declara
+ hasta el final del módulo.
+ La declaración puede ser una definición o una declaración de su existencia
+ en otro módulo, que es como su definición pero con el prefijo 
+\family typewriter
+extern
+\family default
+.
+ Sin embargo, si la variable fue definida en su módulo con el prefijo 
+\family typewriter
+static
+\family default
+, no se puede usar en otros módulos.
+ Se almacena en el 
+\series bold
+segmento de datos
+\series default
+ del programa, por lo que su extensión es la del proceso en que se ejecuta
+ el programa.
+ Por defecto se inicializan a 0.
+\end_layout
+
+\begin_layout Itemize
+Una 
+\series bold
+variable local
+\series default
+ o 
+\series bold
+automática
+\series default
+ (declarada dentro de un bloque o función) tiene como ámbito desde que se
+ declara hasta el final del bloque en que se ha declarado, y oculta a cualquier
+ otra variable del mismo nombre global o definida en un bloque superior.
+ Un parámetro a función actúa como variable local a esta.
+ Se almacena en el 
+\series bold
+segmento de pila
+\series default
+ o en los registros de la CPU, por lo que su extensión es desde que se declara
+ hasta el final del bloque, salvo si se define con el prefijo 
+\family typewriter
+static
+\family default
+, cuyo efecto en una variable local es guardar el valor de la variable en
+ el segmento de datos, conservando su valor entre llamadas a la función
+ o ejecuciones del bloque.
+\end_layout
+
+\begin_layout Itemize
+Una 
+\series bold
+variable dinámica
+\series default
+ es accesible mediante apuntadores, y se construye y destruye en tiempo
+ de ejecución.
+ Su ámbito es el de la variable que la apunta (puede haber varias).
+ Se almacena en el 
+\series bold
+segmento montón
+\series default
+ (
+\emph on
+heap
+\emph default
+), y como se construyen y destruyen explícitamente mediante llamadas a funciones
+ de la biblioteca estándar, su extensión viene dada por estas llamadas.
+\end_layout
+
+\begin_layout Standard
+Por su parte, el ámbito de un tipo es similar al de una variable, y el de
+ una función es siempre global.
+\end_layout
+
+\begin_layout Section
+Apuntadores
+\end_layout
+
+\begin_layout Standard
+Son variables que almacenan una dirección de memoria.
+ Se usan para paso de parámetros por referencia, implementación de ciertas
+ estructuras, tratamiento de tablas (y por tanto cadenas de caracteres)
+ y gestión de la memoria dinámica.
+ Un apuntador a una variable de un cierto tipo se indica con 
+\family typewriter
+\emph on
+tipo
+\emph default
+ *
+\emph on
+ptr
+\emph default
+;
+\family default
+.
+ También se puede definir con 
+\family typewriter
+void *
+\emph on
+ptr
+\emph default
+;
+\family default
+ si no se quiere indicar el tipo al que apunta.
+\end_layout
+
+\begin_layout Standard
+Para acceder al valor al que apunta se usa el 
+\series bold
+operador de desreferencia
+\series default
+ o 
+\series bold
+indirección
+\series default
+ 
+\family typewriter
+*
+\emph on
+ptr
+\family default
+\emph default
+, y para obtener la dirección de memoria de una variable se usa el 
+\series bold
+operador de referencia
+\series default
+ 
+\family typewriter
+&
+\emph on
+var
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+El apuntador nulo es aquel con valor 0, y la biblioteca estándar 
+\family typewriter
+stdio.h
+\family default
+ define la macro 
+\family typewriter
+NULL
+\family default
+ como 0 para referirse a este.
+ No apunta a una variable válida, y se usa para inicializar apuntadores
+ o como marca de fin o de error.
+\end_layout
+
+\begin_layout Standard
+Podemos sumar y restar enteros a apuntadores mediante 
+\family typewriter
++
+\family default
+, 
+\family typewriter
+-
+\family default
+, 
+\family typewriter
+++
+\family default
+, 
+\family typewriter
+--
+\family default
+, 
+\family typewriter
++=
+\family default
+ y 
+\family typewriter
+-=
+\family default
+, en cuyo caso el resultado es una dirección de memoria igual a la inicial
+ más (o menos) el entero multiplicado por el tamaño del tipo de dato al
+ que apunta si este se ha especificado, o por 1 si el tipo es 
+\family typewriter
+void*
+\family default
+.
+ Además, podemos comparar apuntadores con 
+\family typewriter
+==
+\family default
+, 
+\family typewriter
+<=
+\family default
+, 
+\family typewriter
+>=
+\family default
+, 
+\family typewriter
+<
+\family default
+, 
+\family typewriter
+>
+\family default
+ y 
+\family typewriter
+!=
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Una tabla es una constante cuyo valor es la dirección del primer elemento,
+ con lo que, en una tabla unidimensional, 
+\family typewriter
+\emph on
+v
+\emph default
+[
+\emph on
+i
+\emph default
+]
+\family default
+ equivale a 
+\family typewriter
+*(
+\emph on
+v
+\emph default
++
+\emph on
+i
+\emph default
+)
+\family default
+.
+ Si 
+\family typewriter
+\emph on
+v
+\family default
+\emph default
+ es un array de dos dimensiones, entonces 
+\family typewriter
+v[i][j]
+\family default
+ equivale a 
+\family typewriter
+*(*(v+i)+j)
+\family default
+, y algo similar ocurre con más dimensiones.
+ No obstante, un array bidimensional no puede ser asignado a un apuntador
+ a apuntador porque lo último no asume la contigüidad de los datos.
+\end_layout
+
+\begin_layout Standard
+Un apuntador se puede asignar a otro, si bien para un apuntador de un tipo
+ a otro (o a ninguno) el compilador da un aviso si no se realiza una conversión
+ explícita.
+ Para apuntadores a estructuras, la sintaxis 
+\family typewriter
+\emph on
+ptr
+\emph default
+->
+\emph on
+campo
+\family default
+\emph default
+ equivale a 
+\family typewriter
+(*
+\emph on
+ptr
+\emph default
+).
+\emph on
+campo
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Section
+Sentencias
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+sentencia simple
+\series default
+ es una expresión (terminada en 
+\family typewriter
+;
+\family default
+), etiqueta, sentencia vacía (
+\family typewriter
+;
+\family default
+ 
+\begin_inset Quotes cld
+\end_inset
+
+suelto
+\begin_inset Quotes crd
+\end_inset
+
+, no hace nada) o cualquiera de las que veremos a continuación, mientras
+ que una 
+\series bold
+sentencia compuesta
+\series default
+ o 
+\series bold
+bloque
+\series default
+ está formada por varias sentencias entre llaves.
+ Sentencias simples:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+if
+\family default
+ 
+\family typewriter
+if (
+\emph on
+cond
+\emph default
+) 
+\emph on
+then_clause [
+\emph default
+else 
+\emph on
+else_clause]
+\family default
+\emph default
+.
+ Evalúa la expresión 
+\family typewriter
+\emph on
+cond
+\family default
+\emph default
+ y si el resultado es distinto de cero, se ejecuta 
+\family typewriter
+\emph on
+then_clause
+\family default
+\emph default
+, de lo contrario, si está presente, se ejecuta 
+\family typewriter
+\emph on
+else_clause
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+switch
+\family default
+ 
+\family typewriter
+switch (
+\emph on
+expr
+\emph default
+) { 
+\emph on
+(
+\emph default
+case 
+\emph on
+comp_expr
+\emph default
+: 
+\emph on
+clause*)+ [
+\emph default
+default: 
+\emph on
+clause*]
+\emph default
+ }
+\family default
+.
+\begin_inset Newline newline
+\end_inset
+
+Compara el resultado de evaluar la expresión 
+\family typewriter
+\emph on
+expr
+\family default
+\emph default
+ con cada 
+\family typewriter
+\emph on
+comp_expr
+\family default
+\emph default
+, en orden, donde 
+\family typewriter
+\emph on
+comp_expr
+\family default
+\emph default
+ puede ser una constante o un rango de enteros consecutivos 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ en el que puede encontrarse el valor, indicado por 
+\family typewriter
+\emph on
+a
+\emph default
+ ...
+ 
+\emph on
+b
+\family default
+\emph default
+.
+ Entonces empieza a ejecutar las sentencias a partir de este caso (o a partir
+ de 
+\family typewriter
+default
+\family default
+ si está presente y la expresión no coincide con ningún caso), y hasta el
+ final del 
+\family typewriter
+switch
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+while
+\family default
+ 
+\family typewriter
+while (
+\emph on
+cond
+\emph default
+) 
+\emph on
+clause
+\family default
+\emph default
+.
+ Evalúa la expresión 
+\family typewriter
+\emph on
+cond
+\family default
+\emph default
+ y si el resultado es distinto de cero, se ejecuta 
+\family typewriter
+\emph on
+clause
+\family default
+\emph default
+ y vuelve a evaular 
+\family typewriter
+\emph on
+cond
+\family default
+\emph default
+, en bucle.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+for
+\family default
+ 
+\family typewriter
+for (
+\emph on
+init_expr
+\emph default
+; 
+\emph on
+cond
+\emph default
+; 
+\emph on
+update_expr
+\emph default
+) 
+\emph on
+clause
+\family default
+\emph default
+.
+ Equivale a 
+\family typewriter
+\emph on
+init_expr
+\emph default
+; while (
+\emph on
+cond
+\emph default
+) { 
+\emph on
+clause
+\emph default
+ 
+\emph on
+update_expr
+\emph default
+; }
+\family default
+\emph on
+.
+
+\emph default
+ Las tres expresiones entre los paréntesis se pueden omitir.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+do
+\begin_inset space ~
+\end_inset
+
+while
+\family default
+ 
+\family typewriter
+do 
+\emph on
+clause
+\emph default
+ while (
+\emph on
+cond
+\emph default
+)
+\family default
+.
+ Equivale a 
+\family typewriter
+\emph on
+clause
+\emph default
+ while (
+\emph on
+cond
+\emph default
+) 
+\emph on
+clause
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+break;
+\family default
+ Sale de un 
+\family typewriter
+while
+\family default
+, 
+\family typewriter
+do
+\family default
+, 
+\family typewriter
+for
+\family default
+ o 
+\family typewriter
+switch
+\family default
+.
+ Suele usarse con 
+\family typewriter
+switch
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+continue;
+\family default
+ Termina la iteración actual de un bucle para comenzar la siguiente (incluyendo
+ evaluar 
+\family typewriter
+\emph on
+cond
+\family default
+\emph default
+, 
+\family typewriter
+\emph on
+update_expr
+\family default
+\emph default
+, etc.).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+return
+\family default
+ 
+\family typewriter
+return 
+\emph on
+[valor]
+\emph default
+;
+\family default
+.
+ Termina la ejecución de la función y devuelve un valor, que se omite de
+ la sentencia si la función no devuelve nada.
+\end_layout
+
+\begin_layout Section
+Funciones
+\end_layout
+
+\begin_layout Standard
+Se definen con 
+\family typewriter
+\emph on
+tipo_devuelto nombre 
+\emph default
+(
+\emph on
+tipo1 param1
+\emph default
+, 
+\emph on
+...
+\emph default
+) { 
+\emph on
+cuerpo
+\emph default
+ }
+\family default
+, donde el
+\begin_inset Newline newline
+\end_inset
+
+cuerpo está formado por sentencias y definiciones de variables (y puede
+ que tipos) y debe terminar su ejecución por una sentencia 
+\family typewriter
+return
+\family default
+.
+ Para 
+\series bold
+declarar
+\series default
+ una función sin dar su definición (porque se defina más adelante o en otro
+ módulo) sustituimos 
+\family typewriter
+{ 
+\emph on
+cuerpo
+\emph default
+ }
+\family default
+ por 
+\family typewriter
+;
+\family default
+.
+ Si la función no devuelve nada, el tipo devuelto es 
+\family typewriter
+void
+\family default
+, y si no toma ningún parámetro, la lista de pa
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+rá
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+me
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+tros es 
+\family typewriter
+void
+\family default
+.
+ También se puede omitir la lista de parámetros (poniendo sólo los paréntesis),
+ pero esto indicaría que a la función se le puede pasar cualquier número
+ de parámetros de cualquier tipo.
+\end_layout
+
+\begin_layout Standard
+Las llamadas a la función se hacen dentro de una expresión con 
+\family typewriter
+\emph on
+nombre
+\emph default
+(
+\emph on
+val1
+\emph default
+, 
+\emph on
+...
+\emph default
+)
+\family default
+.
+ Podemos declarar una función de forma similar a como se define pero sustituyend
+o 
+\family typewriter
+{ 
+\emph on
+cuerpo
+\emph default
+ }
+\family default
+ por 
+\family typewriter
+;
+\family default
+.
+ De esta forma la función puede ser usada sin haber sido definida todavía,
+ o si pertenece a otro módulo o a una biblioteca.
+ Los procedimientos en C son funciones que no devuelven ningún valor.
+\end_layout
+
+\begin_layout Standard
+Los parámetros se pasan por valor, es decir, se copia el 
+\series bold
+parámetro actual
+\series default
+ (el que se indica en la llamada) al 
+\series bold
+parámetro formal
+\series default
+ (el que se indica en la lista de parámetros y que luego puede ser usado
+ en el cuerpo).
+ Por tanto una función no puede alterar el valor de las variables usadas
+ como parámetros, y esto incluye los 
+\family typewriter
+struct
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+El paso de una tabla como parámetro a una función, no obstante, equivale
+ al paso de un apuntador al primer elemento de este, y si por ejemplo la
+ tabla es bidimensional, esto equivale a pasar un doble apuntador.
+ Por otro lado, si una función desea devolver una tabla, deberá construirla,
+ por ejemplo, en memoria dinámica (no puede construirla en una variable
+ local por su extensión) y devolver un apuntador.
+\end_layout
+
+\begin_layout Standard
+Todo programa en C debe tener una función 
+\family typewriter
+main
+\family default
+, que es invocada por el sistema operativo al comienzo de la ejecución del
+ programa, y puede recibir argumentos de este.
+ Su prototipo suele ser 
+\family typewriter
+int main(int argc, char **argv)
+\family default
+, donde 
+\family typewriter
+argc
+\family default
+ es el número de argumentos (incluyendo el nombre de la aplicación), 
+\family typewriter
+argv
+\family default
+ es una tabla de longitud 
+\family typewriter
+argc
+\family default
+ de cadenas de caracteres que contiene los argumentos y el valor devuelto
+ es 0 si no ha ocurrido ningún error.
+\end_layout
+
+\begin_layout Section
+El preprocesador
+\end_layout
+
+\begin_layout Standard
+Es invocado por el compilador antes de la compilación en sí.
+ Tiene su propio lenguaje independiente del C y todas sus órdenes empiezan
+ por 
+\family typewriter
+#
+\family default
+.
+ Podemos usarlo para:
+\end_layout
+
+\begin_layout Itemize
+Incluir ficheros, con 
+\family typewriter
+#include <
+\emph on
+fichero
+\emph default
+>
+\family default
+ para un fichero en una lista estándar de directorios, entre los que se
+ encuentran las cabeceras de los archivos de la biblioteca estándar de C,
+ o con 
+\family typewriter
+#include "
+\emph on
+fichero
+\emph default
+"
+\family default
+, que antes busca en el directorio actual y aquellos indicados por el usuario.
+\end_layout
+
+\begin_layout Itemize
+Definir macros, con 
+\family typewriter
+#define 
+\emph on
+nombre código_sustituido
+\family default
+\emph default
+, de forma que a partir de entonces cada aparición de 
+\family typewriter
+\emph on
+nombre
+\family default
+\emph default
+ fuera de una cadena de caracteres es sustituida.
+ También se puede usar 
+\family typewriter
+#define 
+\emph on
+nombre
+\emph default
+(
+\emph on
+par1
+\emph default
+, 
+\emph on
+par2
+\emph default
+, 
+\emph on
+...
+\emph default
+) 
+\emph on
+código_sustituido
+\family default
+\emph default
+ para definir una macro con parámetros, y entonces en el código sustituido
+ se usan dichos parámetros.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes cld
+\end_inset
+
+Des-definir
+\begin_inset Quotes crd
+\end_inset
+
+ macros, con 
+\family typewriter
+#undef 
+\emph on
+nombre
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+Insertar código de forma condicional.
+ Los fragmentos de código condicional empiezan por 
+\family typewriter
+#if 
+\emph on
+expr_del_preprocesador
+\family default
+\emph default
+, 
+\family typewriter
+#ifdef 
+\emph on
+macro
+\family default
+\emph default
+ o 
+\family typewriter
+#ifndef 
+\emph on
+macro
+\family default
+\emph default
+, pueden contener una directiva 
+\family typewriter
+#else
+\family default
+ en medio y terminan con 
+\family typewriter
+#endif
+\family default
+.
+ Entonces, si, respectivamente, se cumple la condición, la macro está definida
+ o la macro no está definida, se inserta el código hasta el 
+\family typewriter
+#else
+\family default
+, o hasta el 
+\family typewriter
+#endif
+\family default
+ si no hay 
+\family typewriter
+#else
+\family default
+, y de lo contrario, si existe, se inserta el código entre el 
+\family typewriter
+#else
+\family default
+ y el 
+\family typewriter
+#endif
+\family default
+.
+\end_layout
+
+\begin_layout Section
+La biblioteca estándar
+\end_layout
+
+\begin_layout Subsection
+Entrada y salida (
+\family typewriter
+<stdio.h>
+\family default
+)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+int printf(const char *fmt, ...)
+\family default
+ imprime un texto en la salida estándar con formato indicado por 
+\family typewriter
+fmt
+\family default
+, parámetro al que le sigue un número variable de argumentos (puede ser
+ 0) que se imprimen según lo indicado por los especificadores de conversión
+ en 
+\family typewriter
+fmt
+\family default
+, que son: 
+\family typewriter
+%c
+\family default
+ para un 
+\family typewriter
+char
+\family default
+, 
+\family typewriter
+%d
+\family default
+ para un 
+\family typewriter
+int
+\family default
+, 
+\family typewriter
+%f
+\family default
+ para un 
+\family typewriter
+float
+\family default
+, 
+\family typewriter
+%lf
+\family default
+ para un 
+\family typewriter
+double
+\family default
+, 
+\family typewriter
+%s
+\family default
+ para una cadena de caracteres (
+\family typewriter
+char*
+\family default
+), etc.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+int scanf(const char *fmt, ...)
+\family default
+ lee de la entrada estándar y usa los mismos especificadores de convesión
+ que 
+\family typewriter
+printf
+\family default
+, pero requiere que los parámetros se le pasen por referencia para poder
+ modificarlos, salvo las cadenas de caracteres, que ya son de por sí apuntadores.
+ Devuelve el número de datos de entrada asignados o 
+\family typewriter
+EOF
+\family default
+ (macro definida como -1) si ocurre un error de entrada antes de realizar
+ ninguna conversión.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+int puts(const char *s)
+\family default
+ imprime 
+\family typewriter
+s
+\family default
+ por la salida estándar, acabado en salto de línea, devolviendo 
+\family typewriter
+EOF
+\family default
+ si hay un error o un valor no negativo en caso contrario.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+char *gets(char *s)
+\family default
+ lee de la entrada estándar, guardando el resultado en la cadena apuntada
+ por 
+\family typewriter
+s
+\family default
+, hasta encontrar un caracter de salto de línea, que descarta, escribiendo
+ al final un caracter nulo en 
+\family typewriter
+s
+\family default
+, que debe tener suficiente espacio para almacenar la cadena.
+\end_layout
+
+\begin_layout Standard
+De forma más general, el tipo 
+\family typewriter
+FILE
+\family default
+ es un tipo opaco que representa un flujo (
+\emph on
+stream
+\emph default
+) o canal de comunicación, y que manejamos con un apuntador.
+ Por lo general contiene un identificador, un indicador de posición, un
+ apuntador a un búfer, un indicador de errores y un indicador de final de
+ fichero.
+ En C se definen como 
+\emph on
+streams
+\emph default
+ estándares la entrada estándar 
+\family typewriter
+stdin
+\family default
+, la salida estándar 
+\family typewriter
+stdout
+\family default
+ y la salida estándar de errores 
+\family typewriter
+stderr
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+FILE *fopen(const char *name, const char *mode)
+\family default
+ abre un fichero con un nombre dado y nos devuelve un manejador (apuntador
+ a 
+\family typewriter
+FILE
+\family default
+), o 
+\family typewriter
+NULL
+\family default
+ si no se ha podido abrir.
+ El modo puede ser:
+\end_layout
+
+\begin_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+r
+\family default
+ Lectura, el fichero debe existir.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+w
+\family default
+ Escritura, y si el fichero existe se sobrescribe.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+a
+\family default
+ Escritura, y si el fichero existe se escribe al final (el puntero para
+ escritura se sitúa al final de lo que ya hay).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+r+
+\family default
+ Lectura y escritura, y el fichero debe existir.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+w+
+\family default
+ Lectura y escritura, y si el fichero existe se sobrescribe.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+a+
+\family default
+ Lectura y escritura, con el puntero para lectura y escritura al final.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+t
+\family default
+ Fichero de texto (se especifica detrás de una de las otras opciones, pero
+ si se omite se entiende por defecto).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+b
+\family default
+ Fichero binario (se especifica detrás de una de las primeras seis opciones).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\family typewriter
+int fclose(FILE *f)
+\family default
+ cierra el fichero y libera el manejador asociado, junto con todo lo necesario.
+ Devuelve 0 si se ha cerrado con éxito o 
+\family typewriter
+EOF
+\family default
+ en caso contrario.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+int fprintf(FILE *f, const char *fmt, ...)
+\family default
+ es similar a 
+\family typewriter
+printf
+\family default
+, pero escribe en un flujo indicado por 
+\family typewriter
+f
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+int fscanf(FILE *f, const char *fmt, ...)
+\family default
+ es similar a 
+\family typewriter
+scanf
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+int fputs(char *s, FILE *f)
+\family default
+ es similar a 
+\family typewriter
+puts
+\family default
+, pero no inserta el salto de línea al final.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+char *fgets(char *s, int n, FILE *f)
+\family default
+ es similar a 
+\family typewriter
+gets
+\family default
+, pero lee de un flujo indicado por 
+\family typewriter
+f
+\family default
+ y hasta un máximo de 
+\family typewriter
+n
+\family default
+ caracteres incluyendo el caracter nulo, que siempre guarda al final.
+ Devuelve 
+\family typewriter
+s
+\family default
+ si la operación tiene éxito o 
+\family typewriter
+NULL
+\family default
+ si falla, en cuyo caso el contenido de 
+\family typewriter
+s
+\family default
+ queda invariable si ha encontrado un final de fichero antes de leer ningún
+ caracter, o indeterminado si ocurre un error de lectura durante el proceso.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+int feof(FILE *f)
+\family default
+ devuelve un valor distinto de 0 si se ha llegado al final del fichero y
+ 0 en caso contrario.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+void rewind(FILE *f)
+\family default
+ mueve el indicador de posición de fichero al comienzo de este.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+int fseek(FILE *f, long offset, int orig)
+\family default
+ mueve el indicador de posición de fichero a una posición 
+\family typewriter
+offset
+\family default
+ respecto a un origen 
+\family typewriter
+orig
+\family default
+, que puede ser:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+SEEK_SET
+\family default
+ El principio del fichero.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+SEEK_CUR
+\family default
+ La posición actual.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+SEEK_END
+\family default
+ El final del fichero.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Manipulación de cadenas de caracteres (
+\family typewriter
+<string.h>
+\family default
+)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+char *strcpy(char *dst, const char *src)
+\family default
+ copia la cadena apuntada por 
+\family typewriter
+src
+\family default
+, incluyendo el caracter nulo, a la cadena apuntada por 
+\family typewriter
+dst
+\family default
+, que debe tener espacio suficiente.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+char *strcat(char *dst, const char *src)
+\family default
+ copia la cadena apuntada por 
+\family typewriter
+src
+\family default
+, incluyendo el caracter nulo, al final de 
+\family typewriter
+dst
+\family default
+, con el caracter inicial de 
+\family typewriter
+src
+\family default
+ sobreescribiendo el caracter nulo de 
+\family typewriter
+dst
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+unsigned int strlen(const char *s)
+\family default
+ devuelve el número de caracteres de 
+\family typewriter
+s
+\family default
+, sin contar el caracter nulo.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+int strcmp(const char *s1, const char *s2)
+\family default
+ devuelve un número mayor, igual o menor que cero según si 
+\family typewriter
+s1
+\family default
+ es mayor, igual o menor que 
+\family typewriter
+s2
+\family default
+ en orden lexicográfico.
+\end_layout
+
+\begin_layout Subsection
+Gestión de la memoria dinámica (
+\family typewriter
+<stdlib.h>
+\family default
+)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+void *malloc(unsigned int bytes)
+\family default
+ asigna una zona de memoria dinámica de un tamaño dado en bytes (por lo
+ que se suele usar con 
+\family typewriter
+sizeof
+\family default
+) y devuelve un puntero a dicha zona, o 
+\family typewriter
+NULL
+\family default
+ si no hay espacio suficiente para ello.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+void *calloc(unsigned int bytes)
+\family default
+ actúa igual que 
+\family typewriter
+malloc
+\family default
+ pero inicializa la memoria asignada a cero.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+void *realloc(void *ptr, unsigned int bytes)
+\family default
+ cambia el tamaño de un bloque asignado inicialmente por 
+\family typewriter
+malloc
+\family default
+ o 
+\family typewriter
+calloc
+\family default
+, conservando el contenido de la memoria hasta el menor de los tamaños nuevo
+ y viejo.
+ Si 
+\family typewriter
+ptr
+\family default
+ es 
+\family typewriter
+NULL
+\family default
+, la llamada equivale a 
+\family typewriter
+malloc(
+\emph on
+bytes
+\emph default
+)
+\family default
+, y si 
+\family typewriter
+bytes
+\family default
+ es 0, equivale a 
+\family typewriter
+free(
+\emph on
+ptr
+\emph default
+)
+\family default
+.
+ Como puede ser necesario cambiar la ubicación del contenido, liberando
+ el bloque anterior y asignando uno nuevo en otro sitio, la función devuelve
+ un puntero a la nueva ubicación del bloque.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+void free(void *ptr)
+\family default
+ libera un bloque de memoria dinámica asignado por 
+\family typewriter
+malloc
+\family default
+, 
+\family typewriter
+calloc
+\family default
+ o 
+\family typewriter
+realloc
+\family default
+.
+ Es importante liberar un bloque antes de dejarlo sin un apuntador que lo
+ apunte, pues de lo contrario acumulamos 
+\series bold
+basura
+\series default
+.
+ También es importante no liberar (con 
+\family typewriter
+realloc
+\family default
+ o 
+\family typewriter
+free
+\family default
+) una zona de memoria que vaya a ser utilizada posteriormente en otra parte
+ del código.
+\end_layout
+
+\begin_layout Subsection
+Gestión de errores
+\end_layout
+
+\begin_layout Itemize
+La variable 
+\family typewriter
+extern int errno
+\family default
+, definida en 
+\family typewriter
+<errno.h>
+\family default
+, contiene el valor del último error producido, al menos por la biblioteca
+ estándar de C.
+ Esta biblioteca también define macros para los códigos de error que se
+ pueden producir.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+char *strerror(int n_error)
+\family default
+, definida en 
+\family typewriter
+<string.h>
+\family default
+, devuelve el mensaje de error asociado a un valor de 
+\family typewriter
+errno
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+void perror(const char *msg)
+\family default
+, definida en 
+\family typewriter
+<stdio.h>
+\family default
+, imprime por 
+\family typewriter
+stderr
+\family default
+ el mensaje 
+\family typewriter
+msg
+\family default
+ (salvo si es 
+\family typewriter
+NULL
+\family default
+) y, a continuación, el mensaje de error estándar asociado al valor de 
+\family typewriter
+errno
+\family default
+.
+\end_layout
+
+\begin_layout Section
+Programación modular
+\end_layout
+
+\begin_layout Standard
+Es un paradigma de programación consistente en dividir el programa en 
+\series bold
+módulos
+\series default
+ o 
+\series bold
+subprogramas
+\series default
+ para hacerlo más manejable.
+ Estos deben tener una tarea bien definida y normalmente requieren de otros
+ para operar.
+ La comunicación entre módulos se realiza mediante una 
+\series bold
+interfaz de comunicación
+\series default
+ bien definida.
+\end_layout
+
+\begin_layout Standard
+En C, cada módulo está definido en un fichero fuente con extensión 
+\family typewriter
+.c
+\family default
+ que puede ser compilado por separado creando un fichero 
+\family typewriter
+.o
+\family default
+, y que lleva asociado un fichero cabecera con extensión 
+\family typewriter
+.h
+\family default
+, en el que ofrece una serie de funciones, tipos de datos, variables y macros.
+\end_layout
+
+\begin_layout Standard
+Un fichero cabecera empieza, en general, por las líneas 
+\family typewriter
+#ifndef __
+\emph on
+NOMBRE
+\emph default
+_H
+\family default
+ seguido de 
+\family typewriter
+#define __
+\emph on
+NOMBRE
+\emph default
+_H
+\family default
+, y termina por 
+\family typewriter
+#endif
+\family default
+,
+\family typewriter
+ 
+\family default
+con el fin de evitar declaraciones múltiples.
+ Dentro suele llevar lo siguiente:
+\end_layout
+
+\begin_layout Itemize
+Las macros que se desean exportar.
+\end_layout
+
+\begin_layout Itemize
+Para cada tipo que se desea exportar, un renombrado de la forma 
+\family typewriter
+typedef 
+\emph on
+tipo_original
+\emph default
+ *
+\emph on
+tipo_exportado
+\family default
+\emph default
+, que define un apuntador a un tipo incompleto.
+\end_layout
+
+\begin_layout Itemize
+La declaración de cada función que se desea exportar.
+\end_layout
+
+\begin_layout Standard
+Los módulos que desean usar un cierto módulo deben incluir su fichero de
+ cabecera con 
+\family typewriter
+#include
+\family default
+ en el fichero fuente, o en su propio fichero de cabecera si fuera necesario.
+ Dado que un módulo no conoce el funcionamiento interno de las estructuras
+ de otro, cada módulo debe exportar funciones para la creación y liberación
+ de memoria, y para la manipulación y acceso a campos, de cada estructura
+ que defina.
+\end_layout
+
+\end_body
+\end_document

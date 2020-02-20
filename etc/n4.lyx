@@ -1,0 +1,662 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Hoy en día (a precio razonable) podemos construir memorias de gran capacidad
+ pero lentas, o memorias rápidas pero con poca capacidad.
+ Para crear la ilusión de que tenemos una memoria con ambas características,
+ combinamos tipos de memoria con distintas velocidades y tamaños en una
+ 
+\series bold
+jerarquía de memoria
+\series default
+, formada normalmente por los siguientes componentes, de mayor a menor cercanía
+ a la CPU:
+\end_layout
+
+\begin_layout Itemize
+Registros de la CPU.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Memoria caché
+\series default
+ (SRAM).
+ Suele haber 3 niveles (llamados L1–L3), donde el L3 puede estar fuera de
+ la CPU (los demás están dentro) y L1 es el de menor capacidad pero menor
+ tiempo de acceso, y por tanto el más cercano a la CPU.
+\end_layout
+
+\begin_layout Itemize
+Memoria principal (
+\series bold
+SDRAM
+\series default
+, 
+\emph on
+Synchronous DRAM
+\emph default
+).
+\end_layout
+
+\begin_layout Itemize
+Almacenamiento secundario local (discos SSD o magnéticos).
+ Los 
+\series bold
+discos SSD
+\series default
+ (
+\emph on
+Solid State Drive
+\emph default
+) usan memoria flash para almacenar los datos y por tanto son más rápidos
+ que los 
+\series bold
+discos duros
+\series default
+ o 
+\series bold
+magnéticos
+\series default
+, pues no presentan limitaciones mecánicas, si bien quedan lejos de las
+ memorias RAM.
+\end_layout
+
+\begin_layout Itemize
+Almacenamiento secundario remoto (sistemas de ficheros distribuidos, servidores,
+ etc.).
+\end_layout
+
+\begin_layout Standard
+El objetivo es proporcionar la máxima capacidad de memoria con la tecnología
+ más barata pero con un tiempo medio de acceso similar al de la tecnología
+ más rápida.
+ Por lo general, los datos solo se transfieren entre niveles adyacentes.
+\end_layout
+
+\begin_layout Section
+Funcionamiento
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Principio de localidad
+\series default
+: en un momento concreto, los programas acceden a una parte relativamente
+ pequeña de su espacio de direcciones.
+ Tipos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Localidad temporal
+\series default
+: Si se consulta un dato, probablemente será consultado próximamente.
+ En los programas aparecen multitud de bucles, por lo que se accederá repetidame
+nte a instrucciones y datos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Localidad espacial
+\series default
+: Si se consulta un dato, probablemente serán consultados otros cercanos.
+ A las instrucciones se suele acceder secuencialmente, así como a los elementos
+ de una tabla.
+\end_layout
+
+\begin_layout Standard
+Para aprovechar la localidad espacial, la información se transfiere entre
+ niveles adyacentes en 
+\series bold
+bloques
+\series default
+, cuyo tamaño depende de los niveles.
+ El 
+\series bold
+tamaño de bloque
+\series default
+ es el número de bytes que contiene, y para las cachés suele ser 64.
+ Decimos que hay un 
+\series bold
+acierto
+\series default
+ (
+\emph on
+hit
+\emph default
+) cuando la información pedida por el procesador se encuentra en el nivel
+ superior, y un 
+\series bold
+fallo
+\series default
+ (
+\emph on
+miss
+\emph default
+) cuando no.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+tasa de aciertos
+\series default
+ (
+\emph on
+hit rate
+\emph default
+) es la fracción de accesos a memoria que son aciertos, y se usa como medida
+ del rendimiento, mientras que la 
+\series bold
+tasa de fallos
+\series default
+ (
+\emph on
+miss rate
+\emph default
+) es 1 menos la tasa de aciertos.
+ El 
+\series bold
+tiempo de acierto
+\series default
+ es el tiempo necesario para acceder al nivel superior de la memoria, incluyendo
+ el necesario para determinar si el acceso es un acierto o un fallo, y la
+ 
+\series bold
+penalización por fallo
+\series default
+ es el tiempo necesario para reemplazar un bloque del nivel superior por
+ otro del nivel inferior.
+\end_layout
+
+\begin_layout Standard
+Las direcciones de memoria se asignan a bytes individuales, lo que llamamos
+ 
+\series bold
+dirección de byte
+\series default
+ (
+\begin_inset Formula $D_{byte}$
+\end_inset
+
+).
+ Como las palabras (en general) son de varios bytes, cada palabra tiene
+ varias direcciones de byte, a las que asignamos una 
+\series bold
+dirección de palabra
+\series default
+ con 
+\begin_inset Formula $D_{palabra}=\left\lfloor \frac{D_{byte}}{T_{palabra}}\right\rfloor $
+\end_inset
+
+, donde 
+\begin_inset Formula $T_{palabra}$
+\end_inset
+
+ es el número de bytes de la palabra, y el resto de esta división es el
+ desplazamiento de byte dentro de la palabra.
+ Igualmente, podemos asignar a cada bloque una 
+\series bold
+dirección de bloque
+\series default
+, de forma que 
+\begin_inset Formula $D_{bloque}=\left\lfloor \frac{D_{byte}}{T_{bloque}}\right\rfloor $
+\end_inset
+
+, siendo 
+\begin_inset Formula $T_{bloque}$
+\end_inset
+
+ el tamaño del bloque, y el resto de esta división es el desplazamiento
+ de byte dentro del bloque.
+ Tanto el tamaño de palabra como el de bloque son potencias de 2, por lo
+ que el cálculo de las direcciones y desplazamientos es trivial.
+\end_layout
+
+\begin_layout Section
+Estructura
+\end_layout
+
+\begin_layout Standard
+Una caché esta organizada en una serie de 
+\series bold
+conjuntos
+\series default
+ de bloques o 
+\series bold
+huecos
+\series default
+, y una serie de 
+\series bold
+vías
+\series default
+, que son el número de bloques por conjunto.
+ Llamamos 
+\series bold
+asociatividad
+\series default
+ de la caché al número de vías que contiene.
+ A cada bloque le corresponde un conjunto, dado por el resto de la dirección
+ de bloque entre el número de conjuntos, y dentro de este puede ocupar cualquier
+a de los huecos.
+\end_layout
+
+\begin_layout Standard
+Una mayor asociatividad aumenta la tasa de acierto por tener más libertad
+ a la hora de elegir qué bloques quitar, pero también aumenta el número
+ de comparaciones que hay que realizar, por lo que aumenta el coste al necesitar
+ más comparadores, así como el tiempo de acierto.
+\end_layout
+
+\begin_layout Standard
+Una caché se dice 
+\series bold
+de correspondencia directa
+\series default
+ si tiene sólo una vía (un bloque por conjunto), y 
+\series bold
+totalmente asociativa
+\series default
+ si sólo tiene un conjunto.
+ A cada posición de la caché se le añade una 
+\series bold
+etiqueta
+\series default
+ (
+\emph on
+tag
+\emph default
+) dada por 
+\begin_inset Formula $E=\left\lfloor \frac{D_{bloque}}{N_{S}}\right\rfloor $
+\end_inset
+
+, donde 
+\begin_inset Formula $N_{S}$
+\end_inset
+
+ es el número de conjuntos.
+ Además, es necesario un 
+\series bold
+bit de validez
+\series default
+ en cada hueco que indique que el bloque tiene información válida.
+\end_layout
+
+\begin_layout Section
+Políticas de escritura
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Escritura directa
+\series default
+ (
+\emph on
+write through
+\emph default
+): Las escrituras se hacen a la vez en la caché y en memoria.
+ Si el bloque no está en caché, se suele escribir directamente la palabra
+ en memoria principal (
+\emph on
+no write allocate
+\emph default
+), si bien también se puede traer el bloque a la caché (
+\emph on
+write allocate
+\emph default
+), pero esto es mucho menos común.
+\begin_inset Newline newline
+\end_inset
+
+Esta política es más fácil de implementar y tiene la ventaja de que los
+ fallos son menos costosos.
+ Sin embargo, en la práctica es necesario un 
+\series bold
+buffer de escrituras
+\series default
+ que almacene los datos para ser escritos de forma que el procesador no
+ tenga que detenerse hasta que acabe la escritura, salvo que el buffer esté
+ lleno.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Postescritura
+\series default
+ (
+\emph on
+write back
+\emph default
+): Las escrituras se hacen sólo en la caché, y sólo se actualiza la información
+ en memoria al sacar el bloque de la caché.
+ Es necesario un 
+\series bold
+bit de modificación
+\series default
+ o 
+\series bold
+de sucio
+\series default
+ (
+\emph on
+dirty bit
+\emph default
+) en cada bloque, y si el bloque no está en caché se debe traer a caché.
+\begin_inset Newline newline
+\end_inset
+
+Esta política tiene la ventaja de que en caso de acierto se puede escribir
+ más rápidamente, y que múltiples escrituras en un bloque requieren una
+ sola escritura en memoria, pudiendo hacer uso de 
+\series bold
+escritura en ráfaga
+\series default
+ para conseguir mayor ancho de banda.
+\end_layout
+
+\begin_layout Section
+Políticas de reemplazo
+\end_layout
+
+\begin_layout Standard
+En una caché asociativa (con más de una vía), al traer un bloque se puede
+ poner en cualquier hueco del conjunto, y si el conjunto está lleno (como
+ ocurre normalmente) hay que elegir qué bloque sacar de la cache.
+ Para ello hay varias políticas:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Aleatoria
+\series default
+: Se elige un bloque al azar.
+ Es la más sencilla de construir.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+LRU
+\series default
+ (
+\emph on
+Least Recently Used
+\emph default
+, Menos Recientemente Usado): Se elige el bloque que haya estado más tiempo
+ sin ser accedido.
+ Consigue menores tasas de fallo que el aleatorio, pero al aumentar la asociativ
+idad se vuelve demasiado costoso, pues necesita mantener mucha información.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Pseudo-LRU
+\series default
+: Esquemas que 
+\begin_inset Quotes cld
+\end_inset
+
+imitan
+\begin_inset Quotes crd
+\end_inset
+
+ al LRU pero con implementación más sencilla.
+ Por ejemplo, el que utiliza un 
+\series bold
+bit de uso
+\series default
+ o 
+\series bold
+de referencia
+\series default
+ en cada bloque, que se pone a cero al traer el bloque y a 1 cada vez que
+ se accede a él, volviéndose a poner a cero en todos los bloques periódicamente.
+ A la hora de elegir un bloque que sustituir, se prefiere uno que tenga
+ a 0 el bit de uso.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+NRU
+\series default
+ (
+\emph on
+Not Recently Used
+\emph default
+): Para una caché de asociatividad 2, se puede implementar el LRU con un
+ sólo bit por conjunto.
+\end_layout
+
+\begin_layout Section
+Tamaño real y rendimiento
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $N_{S}$
+\end_inset
+
+ es el número de conjuntos de la caché, 
+\begin_inset Formula $A$
+\end_inset
+
+ es la asociatividad, 
+\begin_inset Formula $T_{bloque}$
+\end_inset
+
+ es el tamaño de bloque, 
+\begin_inset Formula $W_{dir}$
+\end_inset
+
+ el número de bits de las direcciones de memoria y 
+\begin_inset Formula $N_{bits-control}$
+\end_inset
+
+ el número de bits de control necesarios por bloque (de 1 a 3 según lo visto
+ y puede que algunos más en una caché real), el tamaño útil de la caché
+ en bytes será 
+\begin_inset Formula $T_{útil}=N_{S}AT_{bloque}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Por su parte, el tamaño total en bits será 
+\begin_inset Formula $T_{total}=N_{S}T_{conjunto}$
+\end_inset
+
+, con 
+\begin_inset Formula $T_{conjunto}=AT_{entrada}$
+\end_inset
+
+, 
+\begin_inset Formula $T_{entrada}=N_{bits-control}+W_{etiqueta}+8T_{bloque}$
+\end_inset
+
+ y 
+\begin_inset Formula $W_{etiqueta}=W_{dir}-\log_{2}N_{S}-\log_{2}T_{bloque}$
+\end_inset
+
+.
+ En resumen,
+\begin_inset Formula 
+\[
+T_{total}=N_{S}A(8T_{bloque}+N_{bits-control}+W_{dir}-\log_{2}N_{S}-\log_{2}T_{bloque})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para hallar el rendimiento de la caché usamos que 
+\begin_inset Formula $T_{ejec}=T_{CPU}+T_{bloqueo}$
+\end_inset
+
+, siendo 
+\begin_inset Formula $T_{CPU}$
+\end_inset
+
+ el tiempo de ejecución normal de CPU, contando aciertos en accesos de memoria,
+ y 
+\begin_inset Formula $T_{bloqueo}$
+\end_inset
+
+ el bloqueo debido a fallos de caché.
+ Así, 
+\begin_inset Formula $T_{bloqueo}=N_{accesos}T_{F}P_{F}$
+\end_inset
+
+, donde 
+\begin_inset Formula $N_{accesos}$
+\end_inset
+
+ es el total de accesos, 
+\begin_inset Formula $T_{F}$
+\end_inset
+
+ la tasa de fallos y 
+\begin_inset Formula $P_{F}$
+\end_inset
+
+ la penalización por fallos.
+\end_layout
+
+\begin_layout Standard
+Ahora bien, normalmente un procesador tiene cachés separadas para datos
+ e instrucciones para evitar que los datos 
+\begin_inset Quotes cld
+\end_inset
+
+expulsen
+\begin_inset Quotes crd
+\end_inset
+
+ instrucciones y viceversa y mejorar así el rendimiento.
+ Por tanto, si la caché de instrucciones tiene tasa de fallos 
+\begin_inset Formula $T_{Fi}$
+\end_inset
+
+ y penalización 
+\begin_inset Formula $P_{Fi}$
+\end_inset
+
+ y la de datos tiene tasa de fallos 
+\begin_inset Formula $T_{Fd}$
+\end_inset
+
+ y penalización 
+\begin_inset Formula $P_{Fd}$
+\end_inset
+
+, y 
+\begin_inset Formula $D/I$
+\end_inset
+
+ es la tasa de acceso a datos por instrucción (accesos a datos por número
+ de instrucciones), nos queda que
+\begin_inset Formula 
+\[
+T_{bloqueo}=N_{instrucciones}(T_{Fi}P_{Fi}+D/I\cdot T_{Fd}P_{Fd})
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $N_{instrucciones}$
+\end_inset
+
+ es el número de instrucciones que se ejecutan.
+\end_layout
+
+\end_body
+\end_document

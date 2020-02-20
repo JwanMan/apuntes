@@ -1,0 +1,875 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{circuitikz}
+\usepackage{tikz}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+def
+\backslash
+represent#1{
+\backslash
+begin{circuitikz}
+\backslash
+draw (0,0) to[#1] (2,0);
+\backslash
+end{circuitikz}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+def
+\backslash
+show#1{
+\backslash
+begin{center}
+\backslash
+represent{#1}
+\backslash
+end{center}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+corriente alterna
+\series default
+ es aquella que cambia de sentido periódicamente, en contraste con la 
+\series bold
+corriente continua
+\series default
+, en la que la intensidad y el voltaje son constantes.
+ La forma de oscilación más típica es la 
+\series bold
+oscilación senoidal
+\series default
+, dada por
+\begin_inset Formula 
+\[
+v_{s}=V_{p}\cos(\omega t+\theta)
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $V_{p}$
+\end_inset
+
+ es la 
+\series bold
+amplitud
+\series default
+, 
+\begin_inset Formula $\omega$
+\end_inset
+
+ es la 
+\series bold
+velocidad angular
+\series default
+ en 
+\begin_inset Formula $\unit{rad/s}$
+\end_inset
+
+ y 
+\begin_inset Formula $\theta$
+\end_inset
+
+ es la 
+\series bold
+fase
+\series default
+.
+ Llamamos 
+\series bold
+voltaje pico-pico
+\series default
+ o 
+\series bold
+pico-valle
+\series default
+ a la máxima diferencia de voltaje en el tiempo, que para una oscilación
+ senoidal es 
+\begin_inset Formula $V_{pp}=2V_{p}$
+\end_inset
+
+.
+ La 
+\series bold
+frecuencia
+\series default
+ es 
+\begin_inset Formula $f:=\frac{\omega}{2\pi}$
+\end_inset
+
+ y se mide en hercios (
+\begin_inset Formula $\text{Hz}=\text{s}^{-1}$
+\end_inset
+
+), y el 
+\series bold
+periodo
+\series default
+ es 
+\begin_inset Formula $T:=\frac{1}{f}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un circuito con una fuente de voltaje senoidal tendrá en cualquier punto
+ un voltaje con oscilación senoidal de igual velocidad angular, si bien
+ la amplitud y la fase pueden variar.
+ Dos oscilaciones senoidales que van una delante o detrás de la otra se
+ dice que están 
+\series bold
+desfasadas
+\series default
+, mientras que si la diferencia de fase es 0, están 
+\series bold
+en fase
+\series default
+.
+ Otras oscilaciones típicas son las ondas cuadradas y las triangulares.
+ Una fuente de corriente alterna se representa con
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+show{sV}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Análisis fasorial
+\end_layout
+
+\begin_layout Standard
+Se trata de una forma práctica de analizar circuitos donde la fuente de
+ voltaje es alterna senoidal.
+ Un circuito de resistencias (R), inductores (L) y condensadores (C) se
+ suele denominar circuito RLC.
+ Tomemos el siguiente ejemplo sencillo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand*{
+\backslash
+equal}{=}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (4.5,0) to[sV=$v
+\backslash
+equal V_p
+\backslash
+cos(
+\backslash
+omega t)$] (0,0) -- (0,2) to[R=$R$] (1.5,2) to[L=$L$] (3,2) to[C=$C$] (4.5,2)
+ -- (4.5,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aplicando mallas,
+\begin_inset Formula 
+\[
+v(t)=Ri(t)+L\frac{di(t)}{dt}+\frac{1}{C}\int i(t)\,dt
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Estamos ante una ecuación diferencial lineal con coeficientes constantes.
+ Las soluciones naturales para este tipo de ecuaciones son exponenciales,
+ pues la derivada de una exponencial es la misma exponencial.
+ La identidad de Euler o de De Moivre nos dice que 
+\begin_inset Formula $e^{jx}=\cos x\pm j\sin x$
+\end_inset
+
+, donde 
+\begin_inset Formula $j:=\sqrt{-1}$
+\end_inset
+
+.
+ Tenemos que 
+\begin_inset Formula $V_{p}\cos(\omega t)=\text{Re}V_{p}e^{j\omega t}$
+\end_inset
+
+, y como la ecuación es lineal, podemos representar la fuente con 
+\begin_inset Formula $V_{p}e^{j\omega t}$
+\end_inset
+
+, omitiendo el operador 
+\begin_inset Formula $\text{Re}$
+\end_inset
+
+ de 
+\begin_inset Quotes cld
+\end_inset
+
+parte real
+\begin_inset Quotes crd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La intensidad es 
+\begin_inset Formula $i(t)=\text{Re}I_{p}e^{j\omega t+\theta}=\text{Re}I_{p}e^{\theta}e^{j\omega t}:=\text{Re}Ie^{j\omega t}$
+\end_inset
+
+, por tanto basta encontrar el 
+\series bold
+fasor
+\series default
+ 
+\begin_inset Formula $I$
+\end_inset
+
+ para resolver el problema.
+ Sustituyendo 
+\begin_inset Formula $v(t)$
+\end_inset
+
+ por 
+\begin_inset Formula $V_{p}e^{j\omega t}$
+\end_inset
+
+ e 
+\begin_inset Formula $i(t)$
+\end_inset
+
+ por 
+\begin_inset Formula $Ie^{j\omega t}$
+\end_inset
+
+ y despejando, obtenemos
+\begin_inset Formula 
+\begin{multline*}
+V_{p}e^{j\omega t}=RIe^{j\omega t}+L\frac{d}{dt}\left(Ie^{j\omega t}\right)+\frac{1}{C}\int Ie^{j\omega t}\,dt\implies\\
+\implies V_{p}=RI+j\omega LI+\frac{I}{j\omega C}=\left(R+j\left(\omega L-\frac{1}{\omega C}\right)\right)I=:ZI
+\end{multline*}
+
+\end_inset
+
+donde 
+\begin_inset Formula $Z$
+\end_inset
+
+ es la 
+\series bold
+impedancia
+\series default
+, una cantidad compleja 
+\begin_inset Formula $Z=R+jX$
+\end_inset
+
+ medida en ohmios, en la que 
+\begin_inset Formula $R$
+\end_inset
+
+ es la resistencia y 
+\begin_inset Formula $X$
+\end_inset
+
+ es la 
+\series bold
+reactancia
+\series default
+.
+ Todos los resultados obtenidos en el anterior capítulo para circuitos de
+ corriente continua sirven igualmente para corriente alterna sinoidal sin
+ más que reemplazar la resistencia por la impedancia.
+ Nos quedamos con que
+\begin_inset Formula 
+\begin{eqnarray*}
+Z_{R}=R\text{, } & Z_{L}=j\omega L\text{, } & Z_{C}=-\frac{1}{\omega C}j
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El inverso de la impedancia es la 
+\series bold
+admitancia
+\series default
+, 
+\begin_inset Formula $Y=G+jB:=\frac{1}{Z}$
+\end_inset
+
+, medida en siemens, donde 
+\begin_inset Formula $G$
+\end_inset
+
+ es la conductancia y 
+\begin_inset Formula $S$
+\end_inset
+
+ es la 
+\series bold
+susceptancia
+\series default
+.
+ Ahora solo queda despejar 
+\begin_inset Formula $I$
+\end_inset
+
+ y obtener 
+\begin_inset Formula $i(t)=\text{Re}Ie^{j\omega t}$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $I=I_{p}e^{j\theta}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+i(t)=\text{Re}I_{p}e^{j\theta}e^{j\omega t}=I_{p}\cos(\omega t+\theta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Potencia en circuitos de corriente alterna
+\end_layout
+
+\begin_layout Standard
+Si un voltaje senoidal 
+\begin_inset Formula $v(t)=V_{p}\cos(\omega t)$
+\end_inset
+
+ resulta en una corriente 
+\begin_inset Formula $i(t)=I_{p}\cos(\omega t+\theta)$
+\end_inset
+
+, la potencia instantánea es 
+\begin_inset Formula $p(t)=v(t)i(t)=V_{p}I_{p}\cos(\omega t)\cos(\omega t+\theta)=\frac{V_{p}I_{p}}{2}(\cos\theta+\cos(2\omega t+\theta))$
+\end_inset
+
+.
+ La potencia media 
+\begin_inset Formula $P$
+\end_inset
+
+ la podemos obtener como
+\begin_inset Formula 
+\[
+P=\frac{1}{T}\int p\,dt
+\]
+
+\end_inset
+
+u observando que el primer término de la suma en 
+\begin_inset Formula $p$
+\end_inset
+
+ es constante respecto al tiempo mientras que el segundo es un sinusoide
+ cuya media es cero, luego
+\begin_inset Formula 
+\[
+P=\frac{V_{p}I_{p}}{2}\cos\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si el circuito es sólo resistivo, la diferencia de fase entre 
+\begin_inset Formula $v$
+\end_inset
+
+ e 
+\begin_inset Formula $i$
+\end_inset
+
+ es 0 y 
+\begin_inset Formula $P=\frac{V_{p}I_{p}}{2}=\frac{1}{2}RI_{p}^{2}$
+\end_inset
+
+, mientras que si el circuito es sólo capacitivo o inductivo entonces 
+\begin_inset Formula $\theta$
+\end_inset
+
+ es respectivamente 
+\begin_inset Formula $\unit[90]{\mathring{}}$
+\end_inset
+
+ y 
+\begin_inset Formula $\unit[-90]{\mathring{}}$
+\end_inset
+
+ y 
+\begin_inset Formula $P=0$
+\end_inset
+
+.
+ En términos de fasores,
+\begin_inset Formula 
+\begin{eqnarray*}
+p(t) & = & \frac{1}{2}\text{Re}\left(V\overline{I}+VIe^{2j\omega t}\right)\\
+P & = & \frac{1}{2}\text{Re}V\overline{I}
+\end{eqnarray*}
+
+\end_inset
+
+donde 
+\begin_inset Formula $V=V_{p}$
+\end_inset
+
+, 
+\begin_inset Formula $I=I_{p}e^{j\theta}$
+\end_inset
+
+ e 
+\begin_inset Formula $\overline{I}$
+\end_inset
+
+ es el conjugado de 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ Despejando 
+\begin_inset Formula $V=IZ$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+P=\frac{1}{2}\text{Re}|I|^{2}Z=\frac{1}{2}|I|^{2}R=\frac{1}{2}|I_{p}|^{2}R
+\]
+
+\end_inset
+
+O bien, despejando 
+\begin_inset Formula $I=\frac{V}{Z}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+P=\frac{1}{2}\text{Re}V\frac{\overline{V}}{\overline{Z}}=\frac{1}{2}\text{Re}\frac{|V|^{2}}{\overline{Z}}=\frac{1}{2}\text{Re}\frac{|V|^{2}Z}{|Z|^{2}}=\frac{1}{2}\frac{|V|^{2}R}{R^{2}+X^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Valores efectivos o RMS
+\end_layout
+
+\begin_layout Standard
+Vemos que definiendo 
+\begin_inset Formula $I_{eff}=\frac{I_{p}}{\sqrt{2}}$
+\end_inset
+
+, obtenemos 
+\begin_inset Formula $P=I_{eff}^{2}R$
+\end_inset
+
+, similar a la fórmula de la potencia en corriente continua.
+ Así, podemos definir 
+\begin_inset Formula $I_{eff}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $P=I_{eff}^{2}R$
+\end_inset
+
+ para corrientes de forma arbitraria.
+ Dado que 
+\begin_inset Formula $P=\frac{1}{T}\int_{0}^{T}i^{2}R\,dt=\frac{R}{T}\int_{0}^{T}i^{2}\,dt$
+\end_inset
+
+, se tiene que
+\begin_inset Formula 
+\[
+I_{eff}=\sqrt{\frac{1}{T}\int_{0}^{T}i^{2}\,dt}
+\]
+
+\end_inset
+
+lo que en inglés se conoce como 
+\emph on
+root mean square
+\emph default
+, por lo que escribimos 
+\begin_inset Formula $I_{rms}:=I_{eff}$
+\end_inset
+
+.
+ Así pues,
+\begin_inset Formula 
+\[
+P=\frac{V_{rms}^{2}}{R}=I_{rms}^{2}R
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Factor de potencia
+\end_layout
+
+\begin_layout Standard
+Dado que 
+\begin_inset Formula $P=VI\cos\theta$
+\end_inset
+
+, siendo 
+\begin_inset Formula $V=V_{rms}$
+\end_inset
+
+ e 
+\begin_inset Formula $I=I_{rms}$
+\end_inset
+
+, podemos definir el factor de potencia como
+\begin_inset Formula 
+\[
+\text{pf}=\frac{P}{VI}=\cos\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este valor será 1 para cargas puramente resistivas y 0 para cargas puramente
+ reactivas.
+ 
+\end_layout
+
+\begin_layout Section
+Transformadores
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) node[transformer core]{};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Son dispositivos de una frecuencia (normalmente 
+\begin_inset Formula $\unit[60]{Hz}$
+\end_inset
+
+) con eficiencia cercana al 
+\begin_inset Formula $\unit[100]{\%}$
+\end_inset
+
+ (
+\begin_inset Formula $W_{out}\cong W_{in}$
+\end_inset
+
+) formados por un núcleo de material ferromagnético, normalmente hierro
+ blando (se magnetiza y desmagnetiza fácilmente), en el que se enrollan
+ dos bobinas, como se muestra en la figura.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename pegado1.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si conectamos la bobina primaria a una fuente de voltaje 
+\begin_inset Formula $v_{s}=V_{p}\cos(\omega t)$
+\end_inset
+
+ y dejamos la segunda sin conectar, se producirá una pequeña corriente en
+ la primaria que inducirá un flujo magnético en el núcleo de hierro produciendo
+ a su vez un voltaje inducido en la misma bobina, lo que se conoce como
+ 
+\series bold
+autoinducción
+\series default
+.
+ Este voltaje viene dado por la ley de Faraday como 
+\begin_inset Formula $v_{1}=-N_{1}\frac{d\psi}{dt}$
+\end_inset
+
+, siendo 
+\begin_inset Formula $N$
+\end_inset
+
+ el número de vueltas de la bobina y 
+\begin_inset Formula $\psi$
+\end_inset
+
+ el flujo magnético inducido.
+ También se producirá una diferencia de potencial en la bobina secundaria,
+ dada por 
+\begin_inset Formula $v_{2}=-N_{2}\frac{d\psi}{dt}$
+\end_inset
+
+.
+ Despejando, 
+\begin_inset Formula $\frac{V_{2}}{V_{1}}=\frac{N_{2}}{N_{1}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si ahora conectamos la bobina secundaria a una carga 
+\begin_inset Formula $R_{L}$
+\end_inset
+
+, se produce 
+\series bold
+inducción mutua
+\series default
+: la corriente producida por la diferencia de voltaje en el circuito secundario
+ induce un flujo magnético en el núcleo de hierro, induciendo a su vez un
+ voltaje en el circuito primario, y viceversa.
+ Entonces, en un transformador ideal, 
+\begin_inset Formula $V_{1}I_{1}=W_{1}=W_{2}=V_{2}I_{2}$
+\end_inset
+
+, y en un transformador real esta es una buena aproximación.
+ Así,
+\begin_inset Formula 
+\[
+\frac{I_{1}}{I_{2}}=\frac{V_{2}}{V_{1}}=\frac{N_{2}}{N_{1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por tanto
+\begin_inset Formula 
+\[
+\frac{Z_{1}}{Z_{2}}=\frac{\frac{V_{1}}{I_{1}}}{\frac{V_{2}}{I_{2}}}=\frac{V_{1}I_{2}}{V_{2}I_{1}}=\left(\frac{N_{1}}{N_{2}}\right)^{2}
+\]
+
+\end_inset
+
+luego si 
+\begin_inset Formula $N_{1}>N_{2}$
+\end_inset
+
+, una impedancia pequeña 
+\begin_inset Formula $Z_{2}$
+\end_inset
+
+ aparece en el circuito primario como una impedancia más grande 
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

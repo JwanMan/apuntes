@@ -1,0 +1,717 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Según el 
+\series bold
+modelo von Neumann
+\series default
+, un computador está formado por: procesador, memoria y entrada/salida (E/S).
+ Podemos clasificar los dispositivos de E/S en dispositivos de 
+\series bold
+almacenamiento
+\series default
+, 
+\series bold
+interfaz con el usuario
+\series default
+, 
+\series bold
+visualización y multimedia
+\series default
+, 
+\series bold
+comunicaciones
+\series default
+ y 
+\series bold
+adquisición de datos
+\series default
+.
+ También podemos clasificarlos según su ancho de banda.
+\end_layout
+
+\begin_layout Section
+Puertos y buses
+\end_layout
+
+\begin_layout Standard
+Los periféricos tienen una serie de 
+\series bold
+puertos
+\series default
+ de E/S, registros externos a la CPU a través de los cuales se comunican
+ la CPU y los dispositivos, integrados en la 
+\series bold
+controladora
+\series default
+ del dispositivo.
+ Tipos de puertos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De datos
+\series default
+: Lectura o escritura del dato a transferir.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De control
+\series default
+: Donde la CPU escribe las órdenes.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De estado
+\series default
+: Indica el estado en que se encuentra el dispositivo (por ejemplo, 
+\emph on
+ready
+\emph default
+/
+\emph on
+not ready
+\emph default
+).
+\end_layout
+
+\begin_layout Standard
+La comunicación se realiza por 
+\series bold
+buses
+\series default
+ o 
+\series bold
+canales compartidos
+\series default
+, canales de comunicación en los que existen puntos de acceso en los que
+ un dispositivo puede conectarse para formar parte del bus y comunicarse
+ con el resto de dispositivos conectados.
+ El hecho de ser compartido implica que las señales transmitidas por un
+ dispositivo están disponibles para el resto.
+\end_layout
+
+\begin_layout Standard
+Si se conectan muchos dispositivos a un bus, sus prestaciones disminuyen,
+ al aumentar la latencia por el tiempo de coordinación, y se forma un 
+\series bold
+cuello de botella
+\series default
+ o 
+\series bold
+congestión
+\series default
+ por estar los dispositivos esperando a su turno para usar el bus.
+ Este problema se soluciona usando varios buses de distintas velocidades
+ organizados de forma jerárquica, con los dispositivos más exigentes conectados
+ a los buses más rápidos y cercanos al procesador.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+control de acceso al bus
+\series default
+ o 
+\series bold
+arbitraje del bus
+\series default
+ es un mecanismo para resolver conflictos en el uso del bus, como que varios
+ dispositivos intentasen realizar una operación a través del bus a la vez.
+ Este mecanismo decide qué dispositivo puede tomar control en cada instante.
+\end_layout
+
+\begin_layout Standard
+La forma más simple es establecer un 
+\series bold
+amo
+\series default
+ del bus (
+\emph on
+master
+\emph default
+), normalmente la CPU, que es el único elemento que puede ordenar transferencias
+, y el resto de dispositivos deben enviar una señal al amo para realizarlas;
+ sin embargo esto no suele ser posible.
+\end_layout
+
+\begin_layout Standard
+Un bus está formado por:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Líneas de control
+\series default
+: para gestionar el acceso y uso de las líneas de información.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Líneas de información
+\series default
+\SpecialChar endofsentence
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Líneas de datos
+\series default
+: Para transmitir datos entre dispositivos.
+ El conjunto de estas es el 
+\series bold
+bus de datos
+\series default
+, y su cardinal es la 
+\series bold
+anchura del bus de datos
+\series default
+, factor clave para determinar las prestaciones del sistema.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Líneas de dirección
+\series default
+: Para determinar la fuente o destino del dato.
+ El conjunto de estas líneas es el 
+\series bold
+bus de direcciones
+\series default
+, y su cardinal es la 
+\series bold
+anchura del bus de direcciones
+\series default
+, que determina el número de direcciones disponibles y por tanto el máximo
+ de memoria y puertos direccionables.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Las líneas de información pueden ser 
+\series bold
+multiplexadas
+\series default
+, si se usa el mismo conjunto de líneas para direcciones y datos en instantes
+ distintos definidos por un protocolo, o 
+\series bold
+dedicadas
+\series default
+, en las que cada grupo de líneas tiene una función específica.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+anchura del bus
+\series default
+ es el total de líneas de información, y distinguimos entre 
+\series bold
+buses en serie
+\series default
+, con una sola línea de información, y 
+\series bold
+buses en paralelo
+\series default
+, con varias líneas transmitiendo bits simultáneamente.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+longitud del bus
+\series default
+ es su longitud física, desde menos de un metro hasta cientos de metros.
+ Los eventos en el bus se coordinan con una 
+\series bold
+temporización
+\series default
+, que puede ser:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Síncrona
+\series default
+: Una de las líneas de control es de reloj, y en esta se transmite una secuencia
+ alterna de unos y ceros a intervalos iguales que marcan cuándo suceden
+ los eventos.
+ El tiempo entre dos flancos del mismo tipo es el 
+\series bold
+tiempo de ciclo de reloj
+\series default
+ o 
+\series bold
+ciclo de bus
+\series default
+.
+\begin_inset Newline newline
+\end_inset
+
+Estos protocolos permiten un elevado ancho de banda, pero a cambio todos
+ los dispositivos deben funcionar a la misma frecuencia y puede aparecer
+ un problema por 
+\series bold
+sesgo de reloj
+\series default
+, la diferencia de tiempo entre que dos elementos ven un flanco de reloj,
+ por lo que la señal de reloj debe ser encauzada cuidadosamente para minimizar
+ el sesgo.
+ Por ello el bus tiene un tamaño limitado.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Asíncrona
+\series default
+: No hay señal de reloj, por lo que el bus puede ser todo lo largo que que
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ra
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+mos, y podemos conectar dispositivos con distintas frecuencias de funcionameinto
+s.
+ Sin embargo, son más lentos que los síncronos, necesitan más líneas de
+ control y puede haber fallos de sincronización.
+ Se usa un 
+\series bold
+protocolo de presentación
+\series default
+ (
+\emph on
+handshaking
+\emph default
+) con una serie de pasos de modo que emisor y receptor solo proceden al
+ siguiente paso si están de acuerdo.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+frecuencia de funcionamiento
+\series default
+ de un bus síncrono es la de la señal de reloj que rige las transferencias.
+ El 
+\series bold
+ancho de banda
+\series default
+ (
+\emph on
+bandwidth
+\emph default
+) 
+\series bold
+teórico
+\series default
+ es la cantidad de información que puede ser transmitida por un bus, en
+ cantidad de información por unidad de tiempo.
+ Su valor en bytes por segundo es 
+\begin_inset Formula $\frac{fn}{8}$
+\end_inset
+
+, donde 
+\begin_inset Formula $n$
+\end_inset
+
+ es la anchura del bus de datos y 
+\begin_inset Formula $f$
+\end_inset
+
+ es la frecuencia de funcionamiento en hercios.
+ Por su parte, el 
+\series bold
+ancho de banda efectivo
+\series default
+ se refiere a la cantidad de información por unidad de tiempo que realmente
+ se transmite, pues puede ser necesario dedicar varios ciclos para el protocolo
+ de acceso y el arbitraje del bus.
+\end_layout
+
+\begin_layout Section
+Direccionamiento
+\end_layout
+
+\begin_layout Standard
+El acceso a los dispositivos se puede hacer de dos formas, que afectan al
+ bus de direcciones y a la forma de programarlos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+E/S mapeada en memoria
+\series default
+: Parte del espacio de direcciones de memoria se asocia a los dispositivos
+ de E/S.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+E/S aislada
+\series default
+: Cada puerto de un dispositivo tiene un 
+\series bold
+número de puerto
+\series default
+, al que se accede con instrucciones de la ISA específicas, y estos números
+ forman un espacio de direcciones de E/S dedicado.
+\end_layout
+
+\begin_layout Standard
+La E/S aislada no consume parte del espacio de direcciones de memoria, lo
+ que era útil en los procesadores de 8 y 16 bits como Intel 8086 que tenían
+ un espacio de direcciones limitado.
+ Sin embargo, supone mayor complejidad de la CPU por tener que implementar
+ instrucciones de E/S adicionales, y resulta en un menor repertorio de instrucci
+ones para realizar estas operaciones.
+\end_layout
+
+\begin_layout Section
+Manejo de la E/S
+\end_layout
+
+\begin_layout Standard
+La técnica más simple es el 
+\series bold
+sondeo
+\series default
+ (
+\emph on
+polling
+\emph default
+), 
+\series bold
+encuesta
+\series default
+ o 
+\series bold
+escrutinio
+\series default
+, en la el procesador 
+\begin_inset Quotes cld
+\end_inset
+
+sondea
+\begin_inset Quotes crd
+\end_inset
+
+ los puertos para, una vez detectado un cambio de estado, actuar en consecuencia.
+ La encuesta puede ser:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Continua
+\series default
+ (
+\series bold
+espera activa
+\series default
+): El procesador se dedica exclusivamente a esto para detectar un cambio
+ de estado.
+ Sólo es permisible en dispositivos dedicados (sistemas empotrados).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Periódica
+\series default
+: Se sondea cada cierta cantidad de tiempo.
+ Lo habitual es usarla sólo para algunos dispositivos como el ratón.
+\end_layout
+
+\begin_layout Standard
+El sondeo es la técnica con menor latencia, pero también supone una gran
+ pérdida de tiempo de CPU, por lo que en la práctica los dispositivos se
+ manejan por 
+\series bold
+interrupciones
+\series default
+: La CPU encarga al dispositivo una transferencia y continúa haciendo otras
+ cosas, y cuando la tarea termina, el dispositivo avisa a la CPU mediante
+ una interrupción externa.
+ Entonces la CPU:
+\end_layout
+
+\begin_layout Itemize
+Deja automáticamente lo que esté haciendo.
+\end_layout
+
+\begin_layout Itemize
+Identifica qué dispositivo ha enviado la interrupción.
+ Para ello, bien existe una línea de interrupción dedicada para cada dispositivo
+, como ocurre en MIPS, o se activa una línea de interrupción única y el
+ dispositivo se identifica insertando un 
+\series bold
+número de interrupción
+\series default
+ en el bus de datos de la CPU, como ocurre en IA32.
+\end_layout
+
+\begin_layout Itemize
+Salta a la 
+\series bold
+rutina de servicio de la interrupción
+\series default
+ (
+\series bold
+RSI
+\series default
+) o 
+\series bold
+manejador
+\series default
+\SpecialChar endofsentence
+ Este puede estar en una dirección de memoria fija, como ocurre en MIPS,
+ y contener código para comprobar qué interrupción concreta se ha producido,
+ o puede saltar a una dirección variable indicada en una tabla de direcciones
+ indexada por el número de interrupción, como ocurre en IA32, lo que se
+ conoce como 
+\series bold
+interrupciones vectorizadas
+\series default
+.
+\begin_inset Newline newline
+\end_inset
+
+Antes de saltar a esta rutina es necesario guardar, como mínimo, el contador
+ de programa y posiblemente el registro de estado para las condiciones (
+\emph on
+flags
+\emph default
+).
+ El resto de registros los puede guardar la propia rutina.
+\end_layout
+
+\begin_layout Itemize
+Una vez ejecutada la RSI, recupera el estado y reanuda el proceso interrumpido.
+\end_layout
+
+\begin_layout Standard
+Este método, si bien puede mejorar el rendimiento respecto al sondeo, también
+ puede incluso empeorarlo, por lo que normalmente se usa junto con DMA.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+acceso directo a memoria
+\series default
+ o 
+\series bold
+DMA
+\series default
+ (
+\emph on
+Direct Memory Access
+\emph default
+) es un mecanismo que permite la transferencia de datos desde un dispositivo
+ a memoria, o viceversa, sin intervención del procesador.
+ Para ello se una una 
+\series bold
+controladora de DMA
+\series default
+ (normalmente varias), circuito especializado en transferir datos entre
+ dispositivos y memoria.
+ Esto conlleva que el bus tenga varios amos (CPU y DMA), por lo que es necesario
+ un sistema de arbitraje.
+ Para realizar una transferencia DMA:
+\end_layout
+
+\begin_layout Itemize
+La CPU inicializa la controladora de DMA con datos como origen y destino
+ de datos, número de bytes a transferir y sentido del desplazamiento (direccione
+s crecientes, decrecientes o fijas para origen y destino).
+\end_layout
+
+\begin_layout Itemize
+La controladora de DMA pide el bus, y cuando lo consigue va realizando las
+ operaciones solicitadas.
+\end_layout
+
+\begin_layout Itemize
+Finalmente, la controladora de DMA genera una interrupción indicando fin
+ de trans
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+fe
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ren
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+cia o error.
+\end_layout
+
+\begin_layout Section
+El sistema operativo
+\end_layout
+
+\begin_layout Standard
+Cuando arranca el ordenador, se realizan algunas comprobaciones y operaciones
+ iniciales y a continuación se carga el sistema operativo, que a su vez
+ carga los 
+\emph on
+drivers
+\emph default
+ de los dispositivos, es decir, las rutinas de petición de E/S y las posibles
+ RSI asociadas.
+ Sólo el sistema operativo tiene conocimiento de los puertos, órdenes, etc.,
+ y por seguridad es el único que puede acceder a E/S, mientras que el resto
+ de programas deben solicitar sus servicios mediante 
+\series bold
+llamadas al sistema
+\series default
+ (
+\emph on
+syscalls
+\emph default
+).
+\end_layout
+
+\end_body
+\end_document

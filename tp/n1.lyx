@@ -1,0 +1,499 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+La 
+\series bold
+abstracción
+\series default
+ es un proceso mental consistente en simplificar un problema realzando los
+ detalles relevantes mientras se ignoran los irrelevantes.
+ En programación, consisten en enfatizar el 
+\begin_inset Quotes cld
+\end_inset
+
+qué hace
+\begin_inset Quotes crd
+\end_inset
+
+ sobre el 
+\begin_inset Quotes cld
+\end_inset
+
+cómo lo hace
+\begin_inset Quotes crd
+\end_inset
+
+, y existen tres formas fundamentales:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Abstracción de control:
+\series default
+ Establece nuevos mecanismos de control sencillos ocultando los detalles
+ de su implementación.
+ Por ejemplo, 
+\family typewriter
+while
+\family default
+ usa internamente instrucciones de salto y condicionales de más bajo nivel.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Abstracción funcional:
+\series default
+ Abstrae un conjunto de operaciones como una única operación, separando
+ el propósito de la implementación.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Abstracción de datos:
+\series default
+ Permite mejorar la representación de los datos de un problema mediante
+ 
+\series bold
+tipos de datos abstractos
+\series default
+ o 
+\series bold
+TDAs
+\series default
+.
+\end_layout
+
+\begin_layout Section
+Tipos de datos abstractos
+\end_layout
+
+\begin_layout Standard
+Un TDA es un tipo de datos caracterizado por un conjunto de operaciones
+ o 
+\series bold
+interfaz pública
+\series default
+, que representa el comportamiento del tipo y se define mediante una 
+\series bold
+especificación
+\series default
+.
+ Cumple las propiedades de 
+\series bold
+privacidad
+\series default
+, pues los usuarios del TDA no necesitan conocer la representación de los
+ valores en memoria, y 
+\series bold
+protección
+\series default
+, pues los datos sólo pueden ser manipulados a través de las operaciones
+ previstas.
+\end_layout
+
+\begin_layout Standard
+Los tipos primitivos de un lenguaje de programación se consideran TDAs,
+ pues cumplen estas dos propiedades.
+ El uso de TDAs tiene las siguientes ventajas:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Facilidad de uso:
+\series default
+ No es necesario conocer los detalles internos, sino sólo la 
+\series bold
+documentación
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Desarrollo y mantenimiento:
+\series default
+ Cualquier cambio al TDA que siga respetando la interfaz no afecta al resto
+ del programa, y viceversa, lo que además facilita la localización de errores.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Reusabilidad:
+\series default
+ El TDA puede usarse en varios programas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Fiabilidad:
+\series default
+ Es más fácil realizar pruebas sobre los módulos de forma independiente.
+\end_layout
+
+\begin_layout Standard
+Podemos clasificar los TDAs en 
+\series bold
+simples
+\series default
+, si usan un espacio de almacenamiento constante, o 
+\series bold
+contenedores
+\series default
+, si este espacio varía.
+ También podemos distinguir entre TDAs 
+\series bold
+mutables
+\series default
+, si cuentan con operaciones de modificación, o 
+\series bold
+inmutables
+\series default
+, si sus instancias no pueden modificarse una vez creadas.
+\end_layout
+
+\begin_layout Section
+Especificación
+\end_layout
+
+\begin_layout Standard
+Existen dos tipos de especificaciones: 
+\series bold
+informales
+\series default
+ y 
+\series bold
+formales
+\series default
+.
+ Las informales usan lenguaje natural.
+ No son breves, pero son sencillas de entender.
+ Contienen dos partes:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Definición:
+\series default
+ Se define el nuevo TDA junto con los términos relacionados necesarios para
+ comprender el resto de la especificación.
+ Se define el dominio de valores del TDA, y se puede hablar también de su
+ mutabilidad.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Operaciones:
+\series default
+ Se define la sintaxis y semántica de cada operación.
+ Para la sintaxis, se incluye el nombre de la operación, los nombres y tipos
+ de los parámetros y el tipo devuelto.
+ Para la semántica se incluyen las precondiciones y efectos de la operación.
+\end_layout
+
+\begin_layout Standard
+Las especificaciones formales permiten establecer un sistema de comunicación
+ claro, simple y conciso, que permite la deducción formal de propiedades
+ y la verificación formal de programas, si bien son más difíciles de leer
+ y escribir.
+ Constan de tres partes:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Tipo:
+\series default
+ Nombre del TDA.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Sintaxis:
+\series default
+ Forma de cada operación: nombre de la función (tipo de los argumentos)
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ tipo del resultado.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Semántica:
+\series default
+ Significado de las operaciones: nombre de la función (valores particulares)
+ 
+\begin_inset Formula $\implies$
+\end_inset
+
+ expresión del resultado.
+\end_layout
+
+\begin_layout Standard
+A continuación vemos cómo elegir el conjunto de operaciones de un TDA.
+ Este debe ser suficiente, pero no necesariamente mínimo, pues puede ser
+ conveniente añadir nuevas operaciones a las operaciones básicas si van
+ a ser muy utilizadas, o si su eficiencia empeora si se implementa mediante
+ operaciones básicas.
+ No obstante, un TDA está sujeto a mantenimiento y es menos costoso añadir
+ nuevas operaciones que eliminar las ya existentes, por lo que conviene
+ no implementar operaciones de necesidad dudosa.
+\end_layout
+
+\begin_layout Standard
+Normalmente se incluyen operaciones y funciones asociadas habitualmente
+ al tipo de dato, entre las que puede haber operaciones de acceso y modificación
+ (
+\emph on
+getters
+\emph default
+ y 
+\emph on
+setters
+\emph default
+) de campos de la estructura interna.
+ Pueden incluirse también operaciones 
+\series bold
+estáticas
+\series default
+, que sirven para acceder a datos comunes a todas las instancias del TDA.
+\end_layout
+
+\begin_layout Standard
+Dependiendo del lenguaje de programación pueden ser necesarias operaciones
+ para, por ejemplo, liberación de memoria o gestión de errores, que no se
+ incluyen en la especificación pero sí en la documentación.
+ También se puede modificar la sintaxis de las operaciones para hacer eficiente
+ su implementación, cambiando por ejemplo un paso por valor a uno por referencia.
+\end_layout
+
+\begin_layout Standard
+En C es necesario diferenciar operaciones con el mismo nombre en distintos
+ TDAs, como pueden ser la creación y liberación de una instancia.
+ Para ello, una forma es anteponer el nombre del TDA al de la operación,
+ que irá seguido del nombre del tipo de sus elementos si se trata de un
+ TDA contenedor.
+ El nombre de los tipos, por su parte, debe identificarlos de forma adecuada
+ sin indicar la representación interna de estos.
+\end_layout
+
+\begin_layout Section
+Implementación
+\end_layout
+
+\begin_layout Standard
+En la fase de implementación, se escribe el código que implementa el comportamie
+nto especificado en un lenguaje de programación concreto, y al mismo tiempo
+ se genera la documentación del software, normalmente mediante programas
+ que generan documentación a partir de comentarios en el código.
+ Para escribir el código, se define primero la representación y a continuación
+ se implementan las operaciones.
+\end_layout
+
+\begin_layout Subsection
+Representación
+\end_layout
+
+\begin_layout Standard
+Primero se establece un tipo 
+\begin_inset Formula $rep$
+\end_inset
+
+ (estructura, tabla, etc.) en el que se puedan representar todos los valores
+ del TDA y operar con ellos de forma eficiente.
+ Establecemos también una 
+\series bold
+función de abstracción
+\series default
+ 
+\begin_inset Formula $f_{Abs}:X\subseteq rep\rightarrow{\cal A}$
+\end_inset
+
+ suprayectiva pero no necesariamente inyectiva.
+ No todos los posibles valores de 
+\begin_inset Formula $rep$
+\end_inset
+
+ corresponden a valores del TDA, sino que este debe cumplir un 
+\series bold
+invariante de la representación
+\series default
+, modelado como 
+\begin_inset Formula $f_{Inv}:rep\rightarrow\text{boolean}$
+\end_inset
+
+ con 
+\begin_inset Formula $f_{Inv}(x)=\text{True}\iff x\in X$
+\end_inset
+
+.
+ Todos los valores construidos con las operaciones del TDA deben cumplir
+ este invariante.
+\end_layout
+
+\begin_layout Subsection
+Ocultación en C
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+encapsulamiento
+\series default
+ permite juntar los datos y código que los manipula manteniéndolos aislados
+ de posibles usos indebidos, de forma que el acceso a estos se realiza de
+ forma controlada a través de una interfaz (en inglés 
+\emph on
+interface
+\emph default
+, en maquinavajense 
+\begin_inset Quotes cld
+\end_inset
+
+interfeih
+\begin_inset Quotes crd
+\end_inset
+
+) definida.
+\end_layout
+
+\begin_layout Standard
+C no permite encapsulamiento, pero tiene ciertos mecanismos para ocultar
+ información mediante programación modular, tipos incompletos o apuntadores
+ a 
+\family typewriter
+void
+\family default
+.
+ Los apuntadores a 
+\family typewriter
+void
+\family default
+ también se usan para obtener 
+\series bold
+genericidad
+\series default
+, creando herramientas de propósito general para posteriormente especializarlas.
+\end_layout
+
+\begin_layout Standard
+En particular, cada TDA se define en un módulo separado.
+ Las funciones que crean nuevos valores devuelven un puntero al valor o
+ 
+\family typewriter
+NULL
+\family default
+ si ha habido un error, y cada TDA debe tener una función para liberar la
+ memoria ocupada por una instancia.
+\end_layout
+
+\begin_layout Standard
+C no implementa excepciones, por lo que para la gestión de errores se suele
+ utilizar uno de estos mecanismos:
+\end_layout
+
+\begin_layout Itemize
+En la cabecera se declara una variable de tipo 
+\family typewriter
+extern int
+\family default
+ que almacena un código de error asociado al error, y una función que, dado
+ un código de error, devuelve el mensaje correspondiente.
+\end_layout
+
+\begin_layout Itemize
+En la cabecera se declara una función que devuelve el mensaje asociado al
+ último error ocurrido.
+\end_layout
+
+\end_body
+\end_document

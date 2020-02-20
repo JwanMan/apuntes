@@ -1,0 +1,1734 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una aplicación 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ es 
+\series bold
+continua
+\series default
+ en 
+\begin_inset Formula $p\in X$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall V\in{\cal E}(f(p)),\exists U\in{\cal E}(p):f(U)\subseteq V$
+\end_inset
+
+.
+ Equivalentemente, si 
+\begin_inset Formula ${\cal B}(p)$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal B}(f(p))$
+\end_inset
+
+ son bases de entornos de 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $f(p)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\forall V\in{\cal B}(f(p)),\exists U\in{\cal B}(p):f(U)\subseteq V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+, dado 
+\begin_inset Formula $V\in{\cal B}(f(p))$
+\end_inset
+
+, existe 
+\begin_inset Formula $U\in{\cal E}(p)$
+\end_inset
+
+ con 
+\begin_inset Formula $f(U)\subseteq V$
+\end_inset
+
+, pero entonces existe 
+\begin_inset Formula $U'\in{\cal B}(p)$
+\end_inset
+
+ con 
+\begin_inset Formula $U'\subseteq U$
+\end_inset
+
+, luego 
+\begin_inset Formula $f(U')\subseteq f(U)\subseteq V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dado 
+\begin_inset Formula $V\in{\cal E}(f(p))$
+\end_inset
+
+, existe 
+\begin_inset Formula $V'\in{\cal B}(f(p))$
+\end_inset
+
+ con 
+\begin_inset Formula $V'\subseteq V$
+\end_inset
+
+, pero existe 
+\begin_inset Formula $U\in{\cal B}(p)\subseteq{\cal E}(p)$
+\end_inset
+
+ con 
+\begin_inset Formula $f(U)\subseteq V'\subseteq V$
+\end_inset
+
+, luego 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+De aquí que 
+\begin_inset Formula $f:(X,d)\rightarrow(Y,d')$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+ respecto a las topologías métricas 
+\begin_inset Formula ${\cal T}_{d}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal T}_{d'}$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\forall\varepsilon>0,\exists\delta>0:\forall x\in X,(d(x,p)<\delta\implies d'(f(x),f(p))<\varepsilon)$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Tomando 
+\begin_inset Formula ${\cal B}(p)=\{B(p;\delta):\delta>0\}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal B}(f(p))=\{B(f(p);r)\}_{r>0}$
+\end_inset
+
+, la equivalencia es consecuencia de lo anterior y de que 
+\begin_inset Formula $x\in B(p;\delta)\iff d(x,p)<\delta$
+\end_inset
+
+ y 
+\begin_inset Formula $f(p)\in B(f(p);\varepsilon)\iff d(f(x),f(p))<\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ es 1AN, 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p\in X$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\forall\{x_{n}\}_{n=1}^{\infty}\subseteq X,(x_{n}\rightarrow p\implies f(x_{n})\rightarrow f(p))$
+\end_inset
+
+.
+ Además, la implicación a la derecha se cumple para espacios topológicos
+ arbitrarios.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+, dada una sucesión 
+\begin_inset Formula $\{x_{n}\}_{n=1}^{\infty}\subseteq X$
+\end_inset
+
+ que converge a 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $V\in{\cal E}(f(p))$
+\end_inset
+
+, existe 
+\begin_inset Formula $U\in{\cal E}(p)$
+\end_inset
+
+ con 
+\begin_inset Formula $f(U)\subseteq V$
+\end_inset
+
+, y por la convergencia de 
+\begin_inset Formula $\{x_{n}\}_{n=1}^{\infty}$
+\end_inset
+
+, existe un 
+\begin_inset Formula $n_{U}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $n>n_{U}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $x_{n}\in U$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $f(x_{n})\in f(U)\subseteq V$
+\end_inset
+
+, luego 
+\begin_inset Formula $f(x_{n})\rightarrow f(p)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula ${\cal B}(p)$
+\end_inset
+
+ una base de entornos de 
+\begin_inset Formula $p$
+\end_inset
+
+ numerable, si suponemos que 
+\begin_inset Formula $f$
+\end_inset
+
+ no es continua, entonces 
+\begin_inset Formula $\exists V\in{\cal B}(f(p)):\forall U\in{\cal B}(p),f(U)\nsubseteq V$
+\end_inset
+
+.
+ Sea ahora 
+\begin_inset Formula $U_{1}\in{\cal B}(p)$
+\end_inset
+
+ y 
+\begin_inset Formula $V_{1}$
+\end_inset
+
+ un entorno de 
+\begin_inset Formula $p$
+\end_inset
+
+ que no contiene a 
+\begin_inset Formula $U_{1}$
+\end_inset
+
+.
+ Podemos tomar 
+\begin_inset Formula $V'_{1}:=V_{1}\cap U_{1}\in{\cal E}(p)$
+\end_inset
+
+ y existirá 
+\begin_inset Formula $U_{2}\in{\cal B}(p)$
+\end_inset
+
+ con 
+\begin_inset Formula $U_{2}\subseteq V'_{1}$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula ${\cal B}(p)$
+\end_inset
+
+ es numerable, podemos hacer esto sucesivamente ordenando así sus elementos
+ en una sucesión 
+\begin_inset Formula $\{U_{n}\}_{n=1}^{\infty}$
+\end_inset
+
+ de entornos con 
+\begin_inset Formula $U_{1}\supseteq U_{2}\supseteq\dots$
+\end_inset
+
+.
+ Con esto formamos una sucesión 
+\begin_inset Formula $\{x_{n}\}_{n=1}^{\infty}$
+\end_inset
+
+ con 
+\begin_inset Formula $x_{i}\in U_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $f(x_{i})\notin V$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $x_{n}\rightarrow p$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+ mientras que 
+\begin_inset Formula $f(x_{n})\not\rightarrow f(p)$
+\end_inset
+
+ en 
+\begin_inset Formula $Y$
+\end_inset
+
+, lo que contradice la hipótesis.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $(X,{\cal T})\overset{f}{\rightarrow}(Y,{\cal T}')\overset{g}{\rightarrow}(Z,{\cal T}'')$
+\end_inset
+
+ aplicaciones continuas en 
+\begin_inset Formula $p\in X$
+\end_inset
+
+ y 
+\begin_inset Formula $f(p)$
+\end_inset
+
+, respectivamente, entonces 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Dado 
+\begin_inset Formula $W\in{\cal E}(g(f(p)))$
+\end_inset
+
+, como 
+\begin_inset Formula $g$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $f(p)$
+\end_inset
+
+, existe 
+\begin_inset Formula $V\in{\cal E}(f(p))$
+\end_inset
+
+ con 
+\begin_inset Formula $g(V)\subseteq W$
+\end_inset
+
+, y como 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+, existe 
+\begin_inset Formula $U\in{\cal E}(p)$
+\end_inset
+
+ con 
+\begin_inset Formula $f(U)\subseteq V$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $g(f(U))\subseteq g(V)\subseteq W$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado 
+\begin_inset Formula $S\subseteq X$
+\end_inset
+
+, si 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p\in\overline{S}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f(p)\in\overline{f(S)}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $V\in{\cal E}(f(p))$
+\end_inset
+
+, como 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+, existe 
+\begin_inset Formula $U\in{\cal E}(p)$
+\end_inset
+
+ con 
+\begin_inset Formula $f(U)\subseteq V$
+\end_inset
+
+, pero como 
+\begin_inset Formula $p\in\overline{S}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $U\cap S\neq\emptyset$
+\end_inset
+
+, luego 
+\begin_inset Formula $\emptyset\neq f(U\cap S)\subseteq f(U)\cap f(S)\subseteq V\cap f(S)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Continuidad global
+\end_layout
+
+\begin_layout Standard
+Una aplicación 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ es continua si lo es en cualquier punto de 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Equivalentemente, 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua si y sólo si 
+\begin_inset Formula $\forall A\in{\cal T}',f^{-1}(A)\in{\cal T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $f$
+\end_inset
+
+ continua, 
+\begin_inset Formula $A\in{\cal T}'$
+\end_inset
+
+.
+ Dado 
+\begin_inset Formula $p\in f^{-1}(A)$
+\end_inset
+
+ arbitrario, entonces 
+\begin_inset Formula $f(p)\in A\in{\cal E}(f(p))$
+\end_inset
+
+, y como 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua, existe 
+\begin_inset Formula $V_{p}\in{\cal E}(p)$
+\end_inset
+
+ con 
+\begin_inset Formula $f(V_{p})\subseteq A$
+\end_inset
+
+, luego 
+\begin_inset Formula $V_{p}\subseteq f^{-1}(A)$
+\end_inset
+
+.
+ Pero entonces 
+\begin_inset Formula $\bigcup_{p\in f^{-1}(A)}V_{p}=f^{-1}(A)\in{\cal T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $p\in X$
+\end_inset
+
+ y 
+\begin_inset Formula $A\in{\cal E}(f(p))$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $p\in f^{-1}(A)$
+\end_inset
+
+, y como por hipótesis 
+\begin_inset Formula $f^{-1}(A)\in{\cal T}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f^{-1}(A)\in{\cal E}(p)$
+\end_inset
+
+ es pues el entorno de 
+\begin_inset Formula $p$
+\end_inset
+
+ buscado para que 
+\begin_inset Formula $f$
+\end_inset
+
+ sea continua en 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ es continua si y sólo si 
+\begin_inset Formula $\forall p\in X,V\in{\cal E}(f(p));f^{-1}(V)\in{\cal E}(p)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Trivial.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Cada 
+\begin_inset Formula $A\in{\cal T}'$
+\end_inset
+
+ se puede escribir como 
+\begin_inset Formula $A=\bigcup_{q\in A}V_{q}$
+\end_inset
+
+ con 
+\begin_inset Formula $V_{q}\in{\cal E}(q)$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $f^{-1}(A)=f^{-1}(\bigcup_{q\in A}V_{q})=\bigcup_{q\in A}f^{-1}(V_{q})$
+\end_inset
+
+.
+ Por tanto, si los 
+\begin_inset Formula $f^{-1}(V_{q})$
+\end_inset
+
+ son abiertos, 
+\begin_inset Formula $f^{-1}(A)$
+\end_inset
+
+ también lo es por ser unión arbitraria de abiertos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ es continua si y sólo si 
+\begin_inset Formula $\forall C\in{\cal C}_{{\cal T}'},f^{-1}(C)\in{\cal C_{T}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua y 
+\begin_inset Formula $C$
+\end_inset
+
+ es cerrado en 
+\begin_inset Formula $(Y,{\cal T}')$
+\end_inset
+
+, entonces 
+\begin_inset Formula $X\backslash f^{-1}(C)=f^{-1}(Y\backslash C)\in{\cal T}$
+\end_inset
+
+, luego 
+\begin_inset Formula $f^{-1}(C)\in{\cal C_{T}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Análoga.
+\end_layout
+
+\begin_layout Standard
+Algunas aplicaciones continuas:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $id:(X,{\cal T})\rightarrow(X,{\cal T}')$
+\end_inset
+
+ es continua si y sólo si 
+\begin_inset Formula ${\cal T}'\subseteq{\cal T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Una aplicación constante siempre es continua.
+\end_layout
+
+\begin_layout Enumerate
+Toda 
+\begin_inset Formula $f:(X,{\cal T}_{D})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ es continua.
+\end_layout
+
+\begin_layout Enumerate
+Toda 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}_{T})$
+\end_inset
+
+ es continua.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f,g:(X,{\cal T})\rightarrow(\mathbb{R},{\cal T}_{u})$
+\end_inset
+
+ son continuas entonces 
+\begin_inset Formula $f+g,fg:(X,{\cal T})\rightarrow(\mathbb{R},{\cal T}_{u})$
+\end_inset
+
+ también lo son.
+ Si además 
+\begin_inset Formula $g(x)\neq0\forall x\in X$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\frac{f}{g}:(X,{\cal T})\rightarrow(\mathbb{R},{\cal T}_{u})$
+\end_inset
+
+ es continua.
+\end_layout
+
+\begin_layout Enumerate
+Las proyecciones 
+\begin_inset Formula $\pi_{i}:(\mathbb{R}^{n},d_{u})\rightarrow(\mathbb{R},d_{u})$
+\end_inset
+
+ con 
+\begin_inset Formula $\pi_{i}(x_{1},\dots,x_{n})=x_{i}$
+\end_inset
+
+ son continuas.
+\end_layout
+
+\begin_layout Enumerate
+Sea 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(\mathbb{R}^{n},{\cal T}_{u})$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f(x)=(f_{1}(x),\dots,f_{n}(x))$
+\end_inset
+
+, siendo 
+\begin_inset Formula $f_{1},\dots,f_{n}:(X,{\cal T})\rightarrow(\mathbb{R},{\cal T}_{u})$
+\end_inset
+
+ las llamadas 
+\series bold
+funciones coordenadas
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua si y sólo si 
+\begin_inset Formula $f_{1},\dots,f_{n}$
+\end_inset
+
+ lo son.
+\end_layout
+
+\begin_layout Enumerate
+Las funciones polinómicas 
+\begin_inset Formula $f:(\mathbb{R}^{n},{\cal T}_{u})\rightarrow(\mathbb{R},{\cal T}_{u})$
+\end_inset
+
+ sobre una o varias variables son siempre continuas.
+\end_layout
+
+\begin_layout Standard
+Para toda aplicación continua 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ y todo 
+\begin_inset Formula $S\subseteq X$
+\end_inset
+
+ se tiene que 
+\begin_inset Formula $f(\overline{S})\subseteq\overline{f(S)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Homeomorfismos
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+homeomorfismo
+\series default
+ es una aplicación 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ biyectiva, continua y con aplicación inversa continua.
+ Dos espacios topológicos son 
+\series bold
+homeomorfos
+\series default
+ si existe un homeomorfismo entre ellos, y una 
+\series bold
+propiedad topológica
+\series default
+ es una propiedad de los espacios topológicos invariante por homomorfismos.
+ Ejemplos:
+\end_layout
+
+\begin_layout Itemize
+Dos espacios topológicos triviales, o dos discretos, son homeomorfos si
+ y sólo si existe una aplicación biyectiva entre ellos.
+\end_layout
+
+\begin_layout Itemize
+En 
+\begin_inset Formula $(\mathbb{R},{\cal T}_{u})$
+\end_inset
+
+, son homeomorfos todos los intervalos de la forma 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y 
+\begin_inset Formula $[c,d]$
+\end_inset
+
+; 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+ y 
+\begin_inset Formula $(c,d)$
+\end_inset
+
+; 
+\begin_inset Formula $(a,+\infty)$
+\end_inset
+
+ y 
+\begin_inset Formula $(b,+\infty)$
+\end_inset
+
+; 
+\begin_inset Formula $(-\infty,a)$
+\end_inset
+
+ y 
+\begin_inset Formula $(-\infty,b)$
+\end_inset
+
+, y 
+\begin_inset Formula $(a,+\infty)$
+\end_inset
+
+ y 
+\begin_inset Formula $(-\infty,b)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ es homeomorfo a cualquier intervalo abierto y acotado, por ejemplo, por
+ 
+\begin_inset Formula $\tan:(-\frac{\pi}{2},\frac{\pi}{2})\rightarrow\mathbb{R}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dada una aplicación 
+\emph on
+biyectiva
+\emph default
+ 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+, son equivalentes:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f$
+\end_inset
+
+ es un homeomorfismo.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A\in{\cal T}\iff f(A)\in{\cal T}'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $C\in{\cal C_{T}}\iff f(C)\in{\cal C}_{{\cal T}'}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $g:=f^{-1}:Y\rightarrow X$
+\end_inset
+
+ continua y 
+\begin_inset Formula $A\in{\cal T}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f(A)=(f^{-1})^{-1}(A)=g^{-1}(A)\in{\cal T}'$
+\end_inset
+
+.
+ Recíprocamente, si 
+\begin_inset Formula $f(A)\in{\cal T}'$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f^{-1}(f(A))=A\in{\cal T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $2\implies1]$
+\end_inset
+
+ Para ver que 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua, dado 
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+, si 
+\begin_inset Formula $f(A)\in{\cal T}'$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f^{-1}(f(A))=A\in{\cal T}$
+\end_inset
+
+.
+ Para ver que 
+\begin_inset Formula $g:=f^{-1}$
+\end_inset
+
+ es continua, dado 
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+, si 
+\begin_inset Formula $A\in{\cal T}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $g^{-1}(A)=f(A)\in{\cal T}'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $1\iff3]$
+\end_inset
+
+ Análogo usando la caracterización de continuidad por cerrados.
+\end_layout
+
+\begin_layout Standard
+Una aplicación 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ es 
+\series bold
+abierta
+\series default
+ si 
+\begin_inset Formula $\forall A\in{\cal T},f(A)\in{\cal T}'$
+\end_inset
+
+, y es 
+\series bold
+cerrada
+\series default
+ si 
+\begin_inset Formula $\forall C\in{\cal C_{T}},f(C)\in{\cal C}_{{\cal T}'}$
+\end_inset
+
+.
+ Así, una aplicación biyectiva es un homeomorfismo si y sólo si es continua
+ y abierta (o continua y cerrada).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ es abierta si y sólo si 
+\begin_inset Formula $\forall S\subseteq X,f(\mathring{S})\subseteq\mathring{\overbrace{f(S)}}$
+\end_inset
+
+, es un homeomorfismo si y sólo si es biyectiva y 
+\begin_inset Formula $\forall S\subseteq X,f(\mathring{S})=\mathring{\overbrace{f(S)}}$
+\end_inset
+
+, y es cerrada si y sólo si 
+\begin_inset Formula $\forall S\subseteq X,\overline{f(S)}\subseteq f(\overline{S})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Continuidad en subespacios
+\end_layout
+
+\begin_layout Standard
+La aplicación inclusión 
+\begin_inset Formula $i:(H,{\cal T}_{H})\looparrowright(X,{\cal T})$
+\end_inset
+
+ es continua.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $A\in{\cal T}$
+\end_inset
+
+, 
+\begin_inset Formula $i^{-1}(A)=A\cap H\in{\cal T}_{H}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una aplicación 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ con 
+\begin_inset Formula $f(X)\subseteq H\subseteq Y$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p\in X$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\hat{f}:(X,{\cal T})\rightarrow(H,{\cal T}_{H})$
+\end_inset
+
+ con 
+\begin_inset Formula $\hat{f}(x)=f(x)$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ En particular, 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua si y sólo si 
+\begin_inset Formula $\hat{f}$
+\end_inset
+
+ es continua.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+, dado 
+\begin_inset Formula $V'\in{\cal E}_{{\cal T}'_{H}}(f(p))$
+\end_inset
+
+, existe 
+\begin_inset Formula $V\in{\cal E}_{{\cal T}'}(f(p))$
+\end_inset
+
+ con 
+\begin_inset Formula $V'=V\cap H$
+\end_inset
+
+, luego existe 
+\begin_inset Formula $U\in{\cal E}_{{\cal T}}(p)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f(U)\subseteq V$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $f'(U)=f(U)=f(U)\cap H\subseteq V\cap H=V'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(H,{\cal T}'_{H})$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+, como la inclusión es continua en 
+\begin_inset Formula $f(p)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f=i\circ\hat{f}$
+\end_inset
+
+ es también continua en 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p\in H\subseteq X$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f|_{H}:(H,{\cal T}_{H})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ también es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ En particular, si 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua también lo es 
+\begin_inset Formula $f|_{H}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Como la inclusión es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+, 
+\begin_inset Formula $f|_{H}=f\circ i$
+\end_inset
+
+ también lo es.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p\in X$
+\end_inset
+
+ si y sólo si existe 
+\begin_inset Formula $U\in{\cal E}(p)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f|_{U}$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Basta tomar 
+\begin_inset Formula $U=X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $f|_{U}:(U,{\cal T}_{U})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+, sea 
+\begin_inset Formula $V\in{\cal E}(f(p))$
+\end_inset
+
+, por la continuidad de 
+\begin_inset Formula $f|_{U}$
+\end_inset
+
+ existe 
+\begin_inset Formula $U'\in{\cal E}(p)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f|_{U}(U')\subseteq V$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $f(U')=f|_{U}(U')\subseteq V$
+\end_inset
+
+, lo que prueba la continuidad de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ y 
+\begin_inset Formula $\{A_{i}\}_{i\in I}$
+\end_inset
+
+ una familia de abiertos de 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ con 
+\begin_inset Formula $X=\bigcup_{i\in I}A_{i}$
+\end_inset
+
+, si 
+\begin_inset Formula $f|_{A_{i}}$
+\end_inset
+
+ es continua para todo 
+\begin_inset Formula $i\in I$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua.
+ 
+\series bold
+Demostración:
+\series default
+ Dado 
+\begin_inset Formula $p\in X$
+\end_inset
+
+, existe un 
+\begin_inset Formula $i_{0}\in I$
+\end_inset
+
+ tal que 
+\begin_inset Formula $p\in A_{i_{0}}\in{\cal E}(p)$
+\end_inset
+
+ y por la propiedad anterior, 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ y 
+\begin_inset Formula $\{C_{1},\dots,C_{n}\}$
+\end_inset
+
+ una familia finita de cerrados de 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ con 
+\begin_inset Formula $X=\bigcup_{i=1}^{n}C_{i}$
+\end_inset
+
+, si 
+\begin_inset Formula $f|_{C_{i}}$
+\end_inset
+
+ es continua para todo 
+\begin_inset Formula $i\in1,\dots,n$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua.
+ 
+\series bold
+Demostración:
+\series default
+ Dado 
+\begin_inset Formula $C'\in(Y,{\cal T}')$
+\end_inset
+
+, 
+\begin_inset Formula $f^{-1}(C')=f^{-1}(C')\cap X=f^{-1}(C')\cap\left(\bigcup_{i=1}^{n}C_{i}\right)=\bigcup_{i=1}^{n}(C_{i}\cap f^{-1}(C'))=\bigcup_{i=1}^{n}f|_{C_{i}}^{-1}(C')$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $f|_{C_{i}}$
+\end_inset
+
+ es continua para cualquier 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+, 
+\begin_inset Formula $f|_{C_{i}}^{-1}(C')$
+\end_inset
+
+ es cerrado en 
+\begin_inset Formula $(C_{i},{\cal T}_{C_{i}})$
+\end_inset
+
+, y como 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ es cerrado en 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f|_{C_{i}}^{-1}(C')$
+\end_inset
+
+ es cerrado en 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $f^{-1}(C')$
+\end_inset
+
+ es cerrado en 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+, luego 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua.
+\end_layout
+
+\begin_layout Section
+Continuidad uniforme e isometrías
+\end_layout
+
+\begin_layout Standard
+Definimos la 
+\series bold
+oscilación
+\series default
+ de una función 
+\begin_inset Formula $f:D\subseteq\mathbb{R}\rightarrow\mathbb{R}$
+\end_inset
+
+ en un intervalo 
+\begin_inset Formula $I\subseteq D$
+\end_inset
+
+ como
+\begin_inset Formula 
+\[
+\theta(f,J)=\begin{cases}
+\sup\{f(I)\}-\inf\{f(I)\} & \text{si }f(I)\text{ está acotado}\\
++\infty & \text{si }f(I)\text{ no está acotado}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una aplicación 
+\begin_inset Formula $f:(X,d)\rightarrow(Y,d')$
+\end_inset
+
+ es 
+\series bold
+uniformemente continua
+\series default
+ si 
+\begin_inset Formula $\forall\varepsilon>0,\exists\delta>0:\forall x_{1},x_{2}\in X,(d(x_{1},x_{2})<\delta\implies d'(f(x_{1}),f(x_{2}))<\varepsilon)$
+\end_inset
+
+.
+ Toda aplicación uniformemente continua es continua.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+isometría
+\series default
+ a una aplicación 
+\begin_inset Formula $f:(X,d)\rightarrow(Y,d')$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall x_{1},x_{2}\in X,(d(x_{1},x_{2})=d'(f(x_{1}),f(x_{2})))$
+\end_inset
+
+.
+ Toda isometría es inyectiva y uniformemente continua.
+ Finalmente, una aplicación 
+\begin_inset Formula $f:(X,d)\rightarrow(X,d')$
+\end_inset
+
+ es 
+\series bold
+lipschitziana
+\series default
+ si 
+\begin_inset Formula $\exists M>0:\forall x,y\in X,d'(f(x),f(y))\leq Md(x,y)$
+\end_inset
+
+, y es además 
+\series bold
+contráctil
+\series default
+ si podemos encontrar un 
+\begin_inset Formula $M<1$
+\end_inset
+
+ para el que se cumpla la propiedad.
+\end_layout
+
+\end_body
+\end_document

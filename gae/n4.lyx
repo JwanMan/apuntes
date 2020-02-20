@@ -1,0 +1,1509 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una 
+\series bold
+transformación ortogonal
+\series default
+ de un espacio vectorial euclídeo 
+\begin_inset Formula $V$
+\end_inset
+
+ es una aplicación 
+\begin_inset Formula $f:V\rightarrow V$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\vec{v}\cdot\vec{w}=f(\vec{v})\cdot f(\vec{w})$
+\end_inset
+
+ para cualesquiera 
+\begin_inset Formula $\vec{v},\vec{w}\in V$
+\end_inset
+
+, y el conjunto de estas transformaciones se conoce como 
+\series bold
+grupo ortogonal
+\series default
+ de 
+\begin_inset Formula $V$
+\end_inset
+
+ (
+\begin_inset Formula ${\cal O}(V)$
+\end_inset
+
+).
+ Si la aplicación es entre espacios distintos hablamos de una 
+\series bold
+aplicación ortogonal
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Una aplicación 
+\begin_inset Formula $f:V\rightarrow V$
+\end_inset
+
+ es una transformación ortogonal si y sólo si es lineal y conserva normas.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si se conservan productos escalares se conservan normas.
+ Sean 
+\begin_inset Formula $r\in\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $\vec{v},\vec{w}\in V$
+\end_inset
+
+.
+ Para ver que 
+\begin_inset Formula $f(r\vec{v})=rf(\vec{v})$
+\end_inset
+
+, vemos que
+\begin_inset Formula 
+\begin{multline*}
+\Vert f(r\vec{v})-rf(\vec{v})\Vert^{2}=\Vert f(r\vec{v})\Vert^{2}+\Vert rf(\vec{v})\Vert^{2}-2f(r\vec{v})\cdot(rf(\vec{v}))=\\
+=\Vert r\vec{v}\Vert^{2}+r^{2}\Vert f(\vec{v})\Vert^{2}-2r(f(r\vec{v})\cdot f(\vec{v}))=r^{2}\Vert\vec{v}\Vert^{2}+r^{2}\Vert\vec{v}\Vert^{2}-2r(r\vec{v}\cdot\vec{v})=0
+\end{multline*}
+
+\end_inset
+
+Para ver que 
+\begin_inset Formula $f(\vec{v}+\vec{w})=f(\vec{v})+f(\vec{w})$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{multline*}
+\Vert f(\vec{v}+\vec{w})-f(\vec{v})-f(\vec{w})\Vert^{2}=\\
+=\Vert f(\vec{v}+\vec{w})\Vert^{2}+\Vert f(\vec{v})\Vert^{2}+\Vert f(\vec{w})\Vert^{2}+2(f(\vec{v})\cdot f(\vec{w})-f(\vec{v}+\vec{w})\cdot f(\vec{v})-f(\vec{v}+\vec{w})\cdot f(\vec{w}))=\\
+=\Vert\vec{v}+\vec{w}\Vert^{2}+\Vert\vec{v}\Vert^{2}+\Vert\vec{w}\Vert^{2}+2(\vec{v}\cdot\vec{w}-(\vec{v}+\vec{w})\cdot\vec{v}-(\vec{v}+\vec{w})\cdot\vec{w})=\\
+=\Vert\vec{v}+\vec{w}\Vert^{2}+(\Vert\vec{v}\Vert^{2}+\Vert\vec{w}\Vert^{2}+2\vec{v}\cdot\vec{w})-2\Vert\vec{v}+\vec{w}\Vert^{2}=0
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\Vert\vec{v}+\vec{w}\Vert^{2}=\Vert\vec{v}\Vert^{2}+\Vert\vec{w}\Vert^{2}+2\vec{v}\cdot\vec{w}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\vec{v}\cdot\vec{w}=\frac{1}{2}(\Vert\vec{v}+\vec{w}\Vert^{2}-\Vert\vec{v}\Vert^{2}-\Vert\vec{w}\Vert^{2})$
+\end_inset
+
+ y por tanto si una aplicación lineal conserva normas también conserva productos
+ escalares.
+\end_layout
+
+\begin_layout Standard
+Propiedades de las transformaciones ortogonales:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $U\bot W\implies f(U)\bot f(W)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Su composición es ortogonal.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Vert g(f(\vec{v}))\Vert=\Vert f(\vec{v})\Vert=\Vert\vec{v}\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Son inyectivas.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $(f(\vec{v})=\vec{0}\implies\Vert\vec{v}\Vert=\Vert f(\vec{v})\Vert=0\implies\vec{v}=\vec{0})\implies\text{Nuc}(f)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+La inversa de una transformación ortogonal biyectiva es ortogonal.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Vert f^{-1}(\vec{v})\Vert=\Vert f(f^{-1}(\vec{v}))\Vert=\Vert\vec{v}\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $V$
+\end_inset
+
+ tiene dimensión finita, sus transformaciones ortogonales son biyectivas
+ y 
+\begin_inset Formula ${\cal O}(V)$
+\end_inset
+
+ con la composición de aplicaciones es un grupo.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $V$
+\end_inset
+
+ un espacio vectorial de dimensión finita y 
+\begin_inset Formula ${\cal B}=\{\vec{v}_{1},\dots,\vec{v}_{n}\}$
+\end_inset
+
+ una base ortonormal de 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ Otra base 
+\begin_inset Formula ${\cal B}'$
+\end_inset
+
+ de 
+\begin_inset Formula $V$
+\end_inset
+
+ es ortonormal si 
+\begin_inset Formula $M_{{\cal B}{\cal B}'}$
+\end_inset
+
+ es ortogonal.
+ 
+\begin_inset Formula $f:V\rightarrow V$
+\end_inset
+
+ es ortogonal si y sólo si 
+\begin_inset Formula $M_{{\cal B}}(f)$
+\end_inset
+
+ es ortogonal.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $A=M_{{\cal B}}(f)$
+\end_inset
+
+, si 
+\begin_inset Formula $f$
+\end_inset
+
+ es ortogonal, 
+\begin_inset Formula $A^{t}\cdot A=(f(\vec{v}_{i})\cdot f(\vec{v}_{j}))_{ij}=(\vec{v}_{i}\cdot\vec{v}_{j})_{ij}=(\delta_{ij})_{ij}=I_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $A^{t}\cdot A=(f(\vec{v}_{i})\cdot f(\vec{v}_{j}))_{ij}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es ortogonal, 
+\begin_inset Formula $f(\vec{v}_{i})\cdot f(\vec{v}_{j})=\delta_{ij}$
+\end_inset
+
+, por lo que si 
+\begin_inset Formula $\vec{v}=\sum_{i}r_{i}\vec{v}_{i}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f(\vec{v})=\sum_{i}r_{i}f(\vec{v}_{i})$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $\Vert f(\vec{v})\Vert^{2}=(\sum_{i}r_{i}f(\vec{v}_{i}))(\sum_{j}r_{j}f(\vec{v}_{j}))=\sum_{i}\sum_{j}r_{i}r_{j}f(\vec{v}_{i})\cdot f(\vec{v}_{j})=\sum_{i}\sum_{j}r_{i}r_{j}\delta_{ij}=\sum_{i}r_{i}^{2}=\Vert\vec{v}\Vert^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El determinante de una transformación ortogonal solo puede ser 
+\begin_inset Formula $1$
+\end_inset
+
+ o 
+\begin_inset Formula $-1$
+\end_inset
+
+, pues 
+\begin_inset Formula $1=\det(I_{n})=\det(A^{t})\det(A)=\det(A)^{2}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $f\in{\cal O}(V)$
+\end_inset
+
+ es 
+\series bold
+positiva
+\series default
+ o 
+\series bold
+directa
+\series default
+ (
+\begin_inset Formula $f\in{\cal O}^{+}(V)$
+\end_inset
+
+) si 
+\begin_inset Formula $\det(f)=1$
+\end_inset
+
+, y es 
+\series bold
+negativa
+\series default
+ o 
+\series bold
+inversa
+\series default
+ (
+\begin_inset Formula $f\in{\cal O}^{-}(V)$
+\end_inset
+
+) si 
+\begin_inset Formula $\det(f)=-1$
+\end_inset
+
+.
+ Claramente 
+\begin_inset Formula ${\cal O}(V)={\cal O}^{+}(V)\dot{\cup}{\cal O}^{-}(V)$
+\end_inset
+
+.
+ Se cumple la 
+\series bold
+regla de los signos
+\series default
+: La composición de transformaciones del mismo signo es positiva, y la de
+ transformaciones de distinto signo es negativa.
+\end_layout
+
+\begin_layout Standard
+Los únicos valores propios que puede tener 
+\begin_inset Formula $f\in{\cal O}(V)$
+\end_inset
+
+ son 
+\begin_inset Formula $\pm1$
+\end_inset
+
+, y los subespacios 
+\begin_inset Formula $\text{Inv}(f)$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{Opp}(f)$
+\end_inset
+
+, que pueden ser nulos, son ortogonales.
+ Además, si 
+\begin_inset Formula $\dim(V)$
+\end_inset
+
+ es impar, al menos uno de estos subespacios es no nulo.
+ 
+\series bold
+Demostración:
+\series default
+ El polinomio característico de 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene pues grado impar y por tanto al menos una raíz real, que por lo anterior
+ debe ser 
+\begin_inset Formula $\pm1$
+\end_inset
+
+, y el correspondiente subespacio propio es no nulo.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $U$
+\end_inset
+
+ es un subespacio invariante de 
+\begin_inset Formula $f\in{\cal O}(V)$
+\end_inset
+
+, también lo es 
+\begin_inset Formula $U^{\bot}$
+\end_inset
+
+, y de hecho, 
+\begin_inset Formula $f(U)=U$
+\end_inset
+
+, 
+\begin_inset Formula $f(U^{\bot})=U^{\bot}$
+\end_inset
+
+, 
+\begin_inset Formula $f|_{U}\in{\cal O}(U)$
+\end_inset
+
+ y 
+\begin_inset Formula $f|_{U^{\bot}}\in{\cal O}(U^{\bot})$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Como 
+\begin_inset Formula $f$
+\end_inset
+
+ es inyectiva y la dimensión finita, 
+\begin_inset Formula $f(U)\subseteq U$
+\end_inset
+
+ implica 
+\begin_inset Formula $f(U)=U$
+\end_inset
+
+, y por la conservación del producto escalar, 
+\begin_inset Formula $f(U^{\bot})\bot f(U)$
+\end_inset
+
+, luego 
+\begin_inset Formula $f(U^{\bot})\subseteq U^{\bot}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $f(U^{\bot})=U^{\bot}$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $f$
+\end_inset
+
+ conserva el producto escalar, también lo conservan 
+\begin_inset Formula $f|_{U}$
+\end_inset
+
+ y 
+\begin_inset Formula $f|_{U^{\bot}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dadas 
+\begin_inset Formula $g\in{\cal O}(U)$
+\end_inset
+
+ y 
+\begin_inset Formula $h\in{\cal O}(U^{\bot})$
+\end_inset
+
+, existe una única 
+\begin_inset Formula $f\in{\cal O}(V)$
+\end_inset
+
+ con 
+\begin_inset Formula $f|_{U}=g$
+\end_inset
+
+ y 
+\begin_inset Formula $f|_{U^{\bot}}=h$
+\end_inset
+
+.
+ Se cumple entonces que si 
+\begin_inset Formula ${\cal B}_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal B}_{2}$
+\end_inset
+
+ son bases ortonormales respectivas de 
+\begin_inset Formula $U$
+\end_inset
+
+ y 
+\begin_inset Formula $U^{\bot}$
+\end_inset
+
+ entonces
+\begin_inset Formula 
+\[
+M_{{\cal B}}(f)=\left(\begin{array}{c|c}
+M_{{\cal B}_{1}}(g) & 0\\
+\hline 0 & M_{{\cal B}_{2}}(h)
+\end{array}\right)
+\]
+
+\end_inset
+
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $V=U\oplus W$
+\end_inset
+
+ y tenemos 
+\begin_inset Formula $g:U\rightarrow U$
+\end_inset
+
+ y 
+\begin_inset Formula $h:W\rightarrow W$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f:V\rightarrow V$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\vec{v}=\vec{u}+\vec{w}\mapsto g(\vec{u})+h(\vec{w})$
+\end_inset
+
+ es lineal y el único endomorfismo con 
+\begin_inset Formula $f|_{U}=g$
+\end_inset
+
+ y 
+\begin_inset Formula $f|_{W}=h$
+\end_inset
+
+.
+ Si además 
+\begin_inset Formula $W=U^{\bot}$
+\end_inset
+
+, y 
+\begin_inset Formula $g$
+\end_inset
+
+ y 
+\begin_inset Formula $h$
+\end_inset
+
+ son ortogonales, entonces por el teorema de Pitágoras, 
+\begin_inset Formula $\Vert f(\vec{u}+\vec{w})\Vert^{2}=\Vert g(\vec{u})+h(\vec{w})\Vert^{2}=\Vert g(\vec{u})\Vert^{2}+\Vert h(\vec{w})\Vert^{2}=\Vert\vec{u}\Vert^{2}+\Vert\vec{w}\Vert^{2}=\Vert\vec{u}+\vec{w}\Vert^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En adelante llamamos 
+\begin_inset Formula ${\cal E}_{n}$
+\end_inset
+
+ a cualquier espacio vectorial euclídeo isomorfo a 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ con el producto escalar ordinario, pues todos los de igual dimensión sobre
+ el mismo cuerpo son isomorfos.
+\end_layout
+
+\begin_layout Standard
+Dos bases 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal B}'$
+\end_inset
+
+ en 
+\begin_inset Formula ${\cal E}_{n}$
+\end_inset
+
+ son 
+\series bold
+equivalentes
+\series default
+ si 
+\begin_inset Formula $\det(M_{{\cal B}{\cal B}'})>0$
+\end_inset
+
+.
+ 
+\series bold
+Orientar
+\series default
+ el espacio 
+\begin_inset Formula ${\cal E}_{n}$
+\end_inset
+
+ es elegir en él una base, de modo que las bases equivalentes a esta son
+ 
+\series bold
+positivas
+\series default
+ o 
+\series bold
+directas
+\series default
+ y el resto son 
+\series bold
+negativas
+\series default
+ o 
+\series bold
+inversas
+\series default
+.
+\end_layout
+
+\begin_layout Section
+Transformaciones ortogonales en 
+\begin_inset Formula ${\cal E}_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un vector en 
+\begin_inset Formula ${\cal E}_{1}$
+\end_inset
+
+ solo puede ser llevado por una transformación ortogonal a sí mismo y su
+ inverso, luego 
+\begin_inset Formula ${\cal O}^{+}({\cal E}_{1})=\{id_{{\cal E}_{1}}\}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal O}^{-}({\cal E}_{1})=\{-id_{{\cal E}_{1}}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Tranformaciones ortogonales en 
+\begin_inset Formula ${\cal E}_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $M=M_{{\cal B}}(f)$
+\end_inset
+
+ para una base 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ arbitraria.
+ Si 
+\begin_inset Formula $M=\left(\begin{array}{cc}
+a & b\\
+c & d
+\end{array}\right)$
+\end_inset
+
+ es ortogonal positiva, entonces 
+\begin_inset Formula $M^{-1}=M^{t}=\left(\begin{array}{cc}
+d & -c\\
+-b & a
+\end{array}\right)$
+\end_inset
+
+, luego 
+\begin_inset Formula $d=a$
+\end_inset
+
+ y 
+\begin_inset Formula $c=-b$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula 
+\[
+M=\left(\begin{array}{cc}
+a & -b\\
+b & a
+\end{array}\right)
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $a^{2}+b^{2}=1$
+\end_inset
+
+.
+ Escribimos 
+\begin_inset Formula ${\cal O}^{+}(2,\mathbb{R}):={\cal O}^{+}({\cal E}_{2})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $b=0$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $a^{2}=1$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $a=\pm1$
+\end_inset
+
+ y se obtienen las transformaciones 
+\begin_inset Formula $\pm id_{{\cal E}_{2}}$
+\end_inset
+
+.
+ En particular, 
+\begin_inset Formula $id_{{\cal E}_{2}}$
+\end_inset
+
+ cumple 
+\begin_inset Formula $\dim(\text{Inv}(f))=2$
+\end_inset
+
+ y 
+\begin_inset Formula $\dim(\text{Opp}(f))=0$
+\end_inset
+
+, mientras que 
+\begin_inset Formula $-id_{{\cal E}_{2}}$
+\end_inset
+
+ cumple lo contrario.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $b\neq0$
+\end_inset
+
+, el polinomio característico tiene raíces complejas, luego
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\dim(\text{Inv}(f))=\dim(\text{Opp}(f))=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dadas 
+\begin_inset Formula $f,g\in{\cal O}^{+}({\cal E}_{2})$
+\end_inset
+
+, 
+\begin_inset Formula $f\circ g=g\circ f$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula 
+\[
+\left(\begin{array}{cc}
+a & -b\\
+b & a
+\end{array}\right)\left(\begin{array}{cc}
+c & -d\\
+d & c
+\end{array}\right)=\left(\begin{array}{cc}
+ac-bd & -ad-bc\\
+ad+bc & ac-bd
+\end{array}\right)=\left(\begin{array}{cc}
+c & -d\\
+d & c
+\end{array}\right)\left(\begin{array}{cc}
+a & -b\\
+b & a
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos a la aplicación 
+\begin_inset Formula $g_{\theta}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $M_{{\cal B}}(g_{\theta})=\left(\begin{array}{cc}
+\cos\theta & -\sin\theta\\
+\sin\theta & \cos\theta
+\end{array}\right)$
+\end_inset
+
+ la 
+\series bold
+rotación
+\series default
+ o 
+\series bold
+giro
+\series default
+ de ángulo 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ Se cumple que 
+\begin_inset Formula $g_{\theta'}\circ g_{\theta}=g_{\theta+\theta'}$
+\end_inset
+
+ y 
+\begin_inset Formula $g_{\theta}^{-1}=g_{-\theta}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $M=\left(\begin{array}{cc}
+a & b\\
+c & d
+\end{array}\right)$
+\end_inset
+
+ es ortogonal negativa, entonces 
+\begin_inset Formula $M^{-1}=M^{t}=\left(\begin{array}{cc}
+-d & c\\
+b & -a
+\end{array}\right)$
+\end_inset
+
+, luego 
+\begin_inset Formula $a=-d$
+\end_inset
+
+ y 
+\begin_inset Formula $b=c$
+\end_inset
+
+.
+ Por tanto
+\begin_inset Formula 
+\[
+M=\left(\begin{array}{cc}
+a & b\\
+b & -a
+\end{array}\right)
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $a^{2}+b^{2}=1$
+\end_inset
+
+.
+ Por el polinomio característico hallamos que 
+\begin_inset Formula $\text{Inv}(f)$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{Opp}(f)$
+\end_inset
+
+ son rectas ortogonales, y decimos que 
+\begin_inset Formula $f$
+\end_inset
+
+ es la 
+\series bold
+simetría axial
+\series default
+ sobre 
+\begin_inset Formula $\text{Inv}(f)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Toda rotación puede expresarse como composición de 2 simetrías axiales,
+ y una de ellas puede elegirse arbitrariamente.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $f$
+\end_inset
+
+ la rotación y 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ una simetría axial, entonces 
+\begin_inset Formula $\sigma':=\sigma\circ f$
+\end_inset
+
+ es negativa y por tanto una simetría axial.
+ Entonces 
+\begin_inset Formula $\sigma\circ\sigma'=\sigma\circ\sigma\circ f=f$
+\end_inset
+
+.
+ Si queremos que 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ aparezca a la derecha, hacemos un razonamiento análogo con 
+\begin_inset Formula $\sigma'':=f\circ\sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Transformaciones ortogonales en 
+\begin_inset Formula ${\cal E}_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f\in{\cal O}({\cal E}_{3})$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\dim(\text{Inv}(f))=3$
+\end_inset
+
+, todo vector de 
+\begin_inset Formula $V$
+\end_inset
+
+ es invariante y por tanto 
+\begin_inset Formula $f=id_{{\cal E}_{3}}$
+\end_inset
+
+, una transformación positiva.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\dim(\text{Inv}(f))=2$
+\end_inset
+
+, sea 
+\begin_inset Formula $H=\text{Inv}(f)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f|_{H^{\bot}}$
+\end_inset
+
+ es una transformación ortogonal de la recta 
+\begin_inset Formula $H^{\bot}$
+\end_inset
+
+ que no puede tener invariantes, luego 
+\begin_inset Formula $H^{\bot}=\text{Opp}(f)$
+\end_inset
+
+ y 
+\begin_inset Formula $\dim(\text{Opp}(f))=1$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $f=\sigma_{H}$
+\end_inset
+
+ es la 
+\series bold
+simetría especular
+\series default
+ sobre 
+\begin_inset Formula $H$
+\end_inset
+
+, una transformación negativa.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\dim(\text{Inv}(f))=1$
+\end_inset
+
+, sea 
+\begin_inset Formula $\ell=\text{Inv}(f)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f|_{\ell^{\bot}}$
+\end_inset
+
+ es una transformación ortogonal del plano 
+\begin_inset Formula $\ell^{\bot}$
+\end_inset
+
+ sin vectores invariantes, luego es una rotación distinta de la identidad,
+ de ángulo 
+\begin_inset Formula $\theta\neq0$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es la 
+\series bold
+rotación
+\series default
+ de eje 
+\begin_inset Formula $\ell$
+\end_inset
+
+ y ángulo 
+\begin_inset Formula $\theta$
+\end_inset
+
+, una transformación positiva.
+ En particular, si 
+\begin_inset Formula $\theta=\pi$
+\end_inset
+
+ (
+\series bold
+simetría axial
+\series default
+), entonces 
+\begin_inset Formula $f|_{\ell^{\bot}}=-id_{\ell^{\bot}}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\dim(\text{Opp}(f))=2$
+\end_inset
+
+, mientras que en otro caso 
+\begin_inset Formula $\dim(\text{Opp}(f))=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\dim(\text{Inv}(f))=0$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\text{Opp}(f)\neq0$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $\vec{v}\in\text{Opp}(f)$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\ell:=<\vec{v}>\subseteq\text{Opp}(f)$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $f|_{\ell}=-id_{\ell}$
+\end_inset
+
+, mientras que 
+\begin_inset Formula $f|_{\ell^{\bot}}$
+\end_inset
+
+ es una transformación ortogonal del plano 
+\begin_inset Formula $\ell^{\bot}$
+\end_inset
+
+ sin vectores invariantes y por tanto una rotación distinta de la identidad,
+ de ángulo 
+\begin_inset Formula $\theta\neq0$
+\end_inset
+
+.
+ Decimos que 
+\begin_inset Formula $f$
+\end_inset
+
+ es una 
+\series bold
+rotación con simetría
+\series default
+ de eje 
+\begin_inset Formula $\ell$
+\end_inset
+
+ y ángulo 
+\begin_inset Formula $\theta$
+\end_inset
+
+, una transformación negativa.
+ En particular, si 
+\begin_inset Formula $\theta=\pi$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f|_{\ell^{\bot}}=-id_{\ell^{\bot}}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $f=-id_{{\cal E}_{3}}$
+\end_inset
+
+, con 
+\begin_inset Formula $\dim(\text{Opp}(f))=3$
+\end_inset
+
+, mientras que si 
+\begin_inset Formula $\theta\neq\pi$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\text{Opp}(f|_{\ell^{\bot}})=0$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\dim(\text{Opp}(f))=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Así pues, en general, 
+\begin_inset Formula ${\cal O}^{+}({\cal E}_{3})$
+\end_inset
+
+ son las rotaciones (incluyendo de ángulo 0) y 
+\begin_inset Formula ${\cal O}^{-}({\cal E}_{3})$
+\end_inset
+
+ son las rotaciones con simetría.
+\end_layout
+
+\begin_layout Standard
+Para construir la matriz de una transformación en 
+\begin_inset Formula ${\cal E}_{3}$
+\end_inset
+
+, tomamos una base 
+\begin_inset Quotes cld
+\end_inset
+
+cómoda
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Formula ${\cal B}=\{\vec{v}_{1},\vec{v}_{2},\vec{v}_{3}\}$
+\end_inset
+
+ y aplicamos la fórmula de cambio de base.
+ Entonces:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Rotación (eje 
+\begin_inset Formula $<\vec{v}_{1}>$
+\end_inset
+
+, ángulo 
+\begin_inset Formula $\theta$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Rotación con simetría (ídem)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Matriz
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(\begin{array}{ccc}
+1 & 0 & 0\\
+0 & \cos\theta & -\sin\theta\\
+0 & \sin\theta & \cos\theta
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(\begin{array}{ccc}
+-1 & 0 & 0\\
+0 & \cos\theta & -\sin\theta\\
+0 & \sin\theta & \cos\theta
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Traza
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1+2\cos\theta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-1+2\cos\theta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Det.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aquí se incluyen la identidad, menos identidad y simetrías axiales y especulares
+ como casos especiales de estos dos.
+ La traza de un endomorfismo (suma de los elementos de la diagonal de la
+ matriz) no depende de la base, pues 
+\begin_inset Formula $\text{tr}(M')=\text{tr}(P^{-1}MP)=\text{tr}(MPP^{-1})=\text{tr}(M)$
+\end_inset
+
+, pudiendo servir para determinar el ángulo de una transformación dada su
+ matriz en cualquier base.
+\end_layout
+
+\begin_layout Standard
+Toda rotación se expresa como composición de 2 simetrías especulares, de
+ las que una se puede elegir arbitrariamente siempre que su base contenga
+ al eje de la rotación.
+ Por tanto toda rotación con simetría se expresa como composición de tres
+ simetrías especulares.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $f$
+\end_inset
+
+ una rotación de eje 
+\begin_inset Formula $F$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ la simetría especular sobre un plano que contiene a 
+\begin_inset Formula $F$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\sigma':=\sigma\circ f$
+\end_inset
+
+ es negativa con vectores invariantes y por tanto otra simetría especular,
+ y entonces 
+\begin_inset Formula $\sigma\circ\sigma'=\sigma\circ\sigma\circ f=f$
+\end_inset
+
+.
+ Si queremos que 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ aparezca a la derecha basta hacer lo mismo con 
+\begin_inset Formula $\sigma'':=f\circ\sigma$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

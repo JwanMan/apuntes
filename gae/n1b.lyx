@@ -1,0 +1,1010 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input defs
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+A lo largo del capítulo, cuando no haya ambigüedad, identificamos el espacio
+ afín 
+\begin_inset Formula $({\cal E},V,\varphi)$
+\end_inset
+
+ con el conjunto 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+.
+ Un 
+\series bold
+espacio afín
+\series default
+ sobre un cuerpo 
+\begin_inset Formula $K$
+\end_inset
+
+ es una terna 
+\begin_inset Formula $({\cal E},V,\varphi)$
+\end_inset
+
+ formada por un conjunto 
+\begin_inset Formula ${\cal E}\neq0$
+\end_inset
+
+, cuyos elementos llamamos 
+\series bold
+puntos
+\series default
+; un 
+\begin_inset Formula $K$
+\end_inset
+
+-espacio vectorial 
+\begin_inset Formula $V$
+\end_inset
+
+, llamado 
+\series bold
+espacio vectorial asociado
+\series default
+ a o 
+\series bold
+de direcciones
+\series default
+ de 
+\begin_inset Formula $({\cal E},V,\varphi)$
+\end_inset
+
+, y una aplicación 
+\begin_inset Formula $\varphi:{\cal E}\times V\rightarrow{\cal E}$
+\end_inset
+
+, que escribimos como 
+\begin_inset Formula $P+\vec{v}:=\varphi(P,\vec{v})$
+\end_inset
+
+, que cumplen que 
+\begin_inset Formula $\forall P,Q\in{\cal E},\vec{v},\vec{w}\in V$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(P+\vec{v})+\vec{w}=P+(\vec{v}+\vec{w})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $P+\vec{0}=P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\exists!\overrightarrow{PQ}\in V:P+\overrightarrow{PQ}=Q$
+\end_inset
+
+.
+ Decimos que 
+\begin_inset Formula $P$
+\end_inset
+
+ es el 
+\series bold
+origen
+\series default
+ y 
+\begin_inset Formula $Q$
+\end_inset
+
+ el 
+\series bold
+extremo
+\series default
+ del vector 
+\begin_inset Formula $\overrightarrow{PQ}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\overrightarrow{P(P+\vec{v})}=\vec{v}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+dimensión
+\series default
+ de 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ a la de su espacio vectorial asociado, 
+\begin_inset Formula $\dim({\cal E})=\dim_{K}(V)$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+rectas afines
+\series default
+ a los espacios afines de dimensión 1, 
+\series bold
+planos afines
+\series default
+ a los de dimensión 2 y 
+\series bold
+espacios (tridimensionales) afines
+\series default
+ a los de dimensión 3.
+\end_layout
+
+\begin_layout Standard
+Tenemos que, dado 
+\begin_inset Formula $O\in{\cal E}$
+\end_inset
+
+, las aplicaciones 
+\begin_inset Formula $V\rightarrow{\cal E}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal E}\rightarrow V$
+\end_inset
+
+ dadas, respectivamente, por 
+\begin_inset Formula $\vec{v}\mapsto O+\vec{v}$
+\end_inset
+
+ y 
+\begin_inset Formula $P\mapsto\overrightarrow{OP}$
+\end_inset
+
+ son biyecciones una inversa de la otra.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $\vec{v}\mapsto O+\vec{v}\mapsto\overrightarrow{O(O+\vec{v})}=\vec{v}$
+\end_inset
+
+; 
+\begin_inset Formula $P\mapsto\overrightarrow{OP}\mapsto O+\overrightarrow{OP}=P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Esta biyección permite dar a 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ una estructura de espacio vectorial definida por 
+\begin_inset Formula $P\hat{+}Q=O+(\overrightarrow{OP}+\overrightarrow{OQ})$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda\cdot P=O+\lambda\overrightarrow{OP}$
+\end_inset
+
+, a la que llamamos 
+\series bold
+vectorialización
+\series default
+ de 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ respecto a 
+\begin_inset Formula $O\in{\cal E}$
+\end_inset
+
+, que es isomorfa a 
+\begin_inset Formula $V$
+\end_inset
+
+ y cuyo elemento neutro es 
+\begin_inset Formula $O$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Algunos espacios afines:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Espacio afín trivial:
+\series default
+ De dimensión 0, con un solo punto, pues dados 
+\begin_inset Formula $P,Q\in{\cal E}$
+\end_inset
+
+, 
+\begin_inset Formula $Q=P+\overrightarrow{PQ}=P+\vec{0}=P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Estructura afín de un espacio vectorial:
+\series default
+ Dado un 
+\begin_inset Formula $K$
+\end_inset
+
+-espacio vectorial 
+\begin_inset Formula $V$
+\end_inset
+
+, existe un espacio afín 
+\begin_inset Formula $(V,V,\varphi)$
+\end_inset
+
+ donde la suma es la suma usual de vectores.
+ Podemos entonces escribir 
+\begin_inset Formula $\overrightarrow{PQ}=Q-P$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+espacio afín numérico
+\series default
+ de dimensión 
+\begin_inset Formula $n$
+\end_inset
+
+ sobre 
+\begin_inset Formula $K$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal E}^{n}(K)$
+\end_inset
+
+, a la estructura afín de 
+\begin_inset Formula $K^{n}$
+\end_inset
+
+.
+ 
+\begin_inset Formula ${\cal E}^{2}(\mathbb{R})$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal E}^{3}(\mathbb{R})$
+\end_inset
+
+ son pues el plano y el espacio afín usuales.
+\end_layout
+
+\begin_layout Subsection
+Propiedades
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\overrightarrow{PQ}=\vec{0}\iff P=Q$
+\end_inset
+
+; 
+\begin_inset Formula $\overrightarrow{PP}=\vec{0}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\begin{array}{c}
+\overrightarrow{PQ}=\vec{0}\implies Q=P+\overrightarrow{PQ}=P+\vec{0}=P\\
+Q+\vec{0}=Q\implies\overrightarrow{QQ}=\vec{0}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Relación de Chasles:
+\series default
+ 
+\begin_inset Formula $\overrightarrow{P_{1}P_{2}}+\overrightarrow{P_{2}P_{3}}+\dots+\overrightarrow{P_{n-1}P_{n}}=\overrightarrow{P_{1}P_{n}}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+P+(\overrightarrow{PQ}+\overrightarrow{QR})=(P+\overrightarrow{PQ})+\overrightarrow{QR}=Q+\overrightarrow{QR}=R
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\overrightarrow{PQ}=-\overrightarrow{QP}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\overrightarrow{PQ}+\overrightarrow{QP}=\overrightarrow{PP}=\overrightarrow{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Cancelación:
+\series default
+ 
+\begin_inset Formula $P+\vec{v}=P+\vec{w}\implies\vec{v}=\vec{w}$
+\end_inset
+
+; 
+\begin_inset Formula $P+\vec{v}=Q+\vec{v}\implies P=Q$
+\end_inset
+
+; 
+\begin_inset Formula $\overrightarrow{PQ}=\overrightarrow{PR}\iff Q=R\iff\overrightarrow{QP}=\overrightarrow{RP}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\begin{array}{c}
+P+\vec{v}=P+\vec{w}\implies\vec{v}=\overrightarrow{P(P+\vec{v})}=\overrightarrow{P(P+\vec{w})}=\vec{w}\\
+P+\vec{v}=Q+\vec{v}\implies P=P+\vec{v}-\vec{v}=Q+\vec{v}-\vec{v}=Q\\
+\overrightarrow{PQ}=\overrightarrow{PR}\implies Q=P+\overrightarrow{PQ}=P+\overrightarrow{PR}=R
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\overrightarrow{(P+\vec{v})(Q+\vec{w})}=\overrightarrow{PQ}+\vec{w}-\vec{v}$
+\end_inset
+
+; 
+\begin_inset Formula $\overrightarrow{P(Q+\vec{w})}=\overrightarrow{PQ}+\vec{w}$
+\end_inset
+
+; 
+\begin_inset Formula $\overrightarrow{(P+\vec{v})Q}=\overrightarrow{PQ}-\vec{v}$
+\end_inset
+
+; 
+\begin_inset Formula $\overrightarrow{(P+\vec{v})P}=-\vec{v}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+(P+\vec{v})+(\overrightarrow{PQ}+\vec{w}-\vec{v})=P+\overrightarrow{PQ}+\vec{w}=Q+\vec{w}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $P+\vec{v}=Q+\vec{w}\iff\overrightarrow{PQ}=\vec{v}-\vec{w}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+P+\vec{v}=Q+\vec{w}\iff\overrightarrow{(P+\vec{v})(Q+\vec{w})}=\overrightarrow{PQ}+\vec{w}-\vec{v}=\overrightarrow{0}\iff\overrightarrow{PQ}=\vec{w}-\vec{v}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Regla del paralelogramo:
+\series default
+ 
+\begin_inset Formula $\overrightarrow{PQ}=\overrightarrow{P'Q'}\iff\overrightarrow{PP'}=\overrightarrow{QQ'}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\overrightarrow{PQ}+\overrightarrow{QQ'}=\overrightarrow{PQ'}=\overrightarrow{PP'}+\overrightarrow{P'Q'}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sistemas de referencia y coordenadas
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+sistema de referencia
+\series default
+ (o 
+\series bold
+referencial
+\series default
+)
+\series bold
+ cartesiano
+\series default
+ de 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ es un par 
+\begin_inset Formula $\Re=(O,{\cal B})$
+\end_inset
+
+ formado por un 
+\series bold
+origen
+\series default
+ 
+\begin_inset Formula $O\in{\cal E}$
+\end_inset
+
+ y una base 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ de 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ Las 
+\series bold
+coordenadas (cartesianas)
+\series default
+ de 
+\begin_inset Formula $P\in{\cal E}$
+\end_inset
+
+ en 
+\begin_inset Formula $\Re$
+\end_inset
+
+ son las del vector 
+\begin_inset Formula $\overrightarrow{OP}$
+\end_inset
+
+ respecto de la base 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+, y se denotan 
+\begin_inset Formula $[P]_{\Re}:=[\overrightarrow{OP}]_{{\cal B}}$
+\end_inset
+
+.
+ En particular 
+\begin_inset Formula $[O]_{\Re}=(0,\dots,0)$
+\end_inset
+
+, 
+\begin_inset Formula $[P+\vec{v}]_{\Re}=[P]_{\Re}+[\vec{v}]_{{\cal B}}$
+\end_inset
+
+ y 
+\begin_inset Formula $[\overrightarrow{PQ}]_{{\cal B}}=[Q]_{\Re}-[P]_{\Re}$
+\end_inset
+
+.
+ Cuando se trabaja con un único referencial, se omiten los subíndices 
+\begin_inset Formula $\Re$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ en los corchetes, o incluso se pueden identificar los puntos y vectores
+ con sus coordenadas, siempre que se indique esto al principio de trabajar
+ con coordenadas, y podemos entonces escribir 
+\begin_inset Formula $P=(p_{1},\dots,p_{n})$
+\end_inset
+
+ y 
+\begin_inset Formula $\vec{v}=(v_{1},\dots,v_{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para cambiar coordenadas entre dos referenciales 
+\begin_inset Formula $\Re=(O,{\cal B})$
+\end_inset
+
+ y 
+\begin_inset Formula $\Re'=(O',{\cal B}')$
+\end_inset
+
+ de 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+, si llamamos 
+\begin_inset Formula $X_{0}:=[O]_{\Re'}=[\overrightarrow{O'O}]_{{\cal B}'}$
+\end_inset
+
+ y 
+\begin_inset Formula $M:=M_{{\cal B}'{\cal B}}$
+\end_inset
+
+, se tiene que:
+\begin_inset Formula 
+\[
+\left.\begin{array}{c}
+X=[P]_{\Re}=[\overrightarrow{OP}]_{{\cal B}}\\
+X'=[P]_{\Re'}=[\overrightarrow{O'P}]_{{\cal B}'}
+\end{array}\right\} \implies X'=[\overrightarrow{O'P}]_{{\cal B}'}=[\overrightarrow{O'O}]_{{\cal B}'}+[\overrightarrow{OP}]_{{\cal B}'}=X_{0}+M\cdot[\overrightarrow{OP}]_{{\cal B}}=X_{0}+MX
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $X=(x_{1},\dots,x_{n})$
+\end_inset
+
+, 
+\begin_inset Formula $X'=(x'_{1},\dots,x'_{n})$
+\end_inset
+
+, 
+\begin_inset Formula $X_{0}=(b_{1},\dots,b_{n})$
+\end_inset
+
+ y 
+\begin_inset Formula $M=(a_{ij})$
+\end_inset
+
+, llamamos 
+\series bold
+ecuaciones de cambio de coordenadas
+\series default
+ a las siguientes:
+\begin_inset Formula 
+\[
+\left\{ \begin{array}{ccc}
+x'_{1} & = & b_{1}+a_{11}x_{1}+\dots+a_{1n}x_{n}\\
+ & \vdots\\
+x'_{n} & = & b_{n}+a_{n1}x_{1}+\dots+a_{nn}x_{n}
+\end{array}\right.
+\]
+
+\end_inset
+
+Podemos emplear la expresión matricial equivalente:
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+1\\
+x'_{1}\\
+\vdots\\
+x'_{n}
+\end{array}\right)=\left(\begin{array}{cccc}
+1 & 0 & \cdots & 0\\
+b_{1} & a_{11} & \cdots & a_{1n}\\
+\vdots & \vdots & \ddots & \vdots\\
+b_{n} & a_{n1} & \cdots & a_{nn}
+\end{array}\right)\left(\begin{array}{c}
+1\\
+x_{1}\\
+\vdots\\
+x_{n}
+\end{array}\right)
+\]
+
+\end_inset
+
+O simplificadamente
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+1\\
+\hline X'
+\end{array}\right)=\left(\begin{array}{c|c}
+1 & 0\\
+\hline X_{0} & M
+\end{array}\right)\left(\begin{array}{c}
+1\\
+\hline X
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Rectas y puntos alineados
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+recta
+\series default
+ que pasa por 
+\begin_inset Formula $P\in{\cal E}$
+\end_inset
+
+ con 
+\series bold
+dirección
+\series default
+ 
+\begin_inset Formula $<\vec{v}>$
+\end_inset
+
+, o 
+\series bold
+vector director
+\series default
+ 
+\begin_inset Formula $\vec{v}$
+\end_inset
+
+, es el conjunto 
+\begin_inset Formula $P+<\vec{v}>=\{P+\lambda\vec{v}\}_{\lambda\in K}$
+\end_inset
+
+.
+ Dos rectas 
+\begin_inset Formula $l$
+\end_inset
+
+ y 
+\begin_inset Formula $l'$
+\end_inset
+
+ son 
+\series bold
+paralelas
+\series default
+ (
+\begin_inset Formula $l\parallel l'$
+\end_inset
+
+) si sus vectores directores son proporcionales.
+ Propiedades: 
+\begin_inset Formula $\forall X\in{\cal E},l=P+<\vec{v}>$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X\in l\iff\exists\lambda\in K:\overrightarrow{PX}=\lambda\vec{v}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall r\neq0,l=P+<r\vec{v}>$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall P'\in l,l=P'+<\vec{v}>$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall Q\in{\cal E},\exists!r:Q\in r\parallel l$
+\end_inset
+
+; 
+\begin_inset Formula $r:=Q+<\vec{v}>$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Recta que pasa por
+\series default
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+: 
+\begin_inset Formula $\forall A,B\in{\cal E},A\neq B,\exists!r:A,B\in r$
+\end_inset
+
+; 
+\begin_inset Formula $r:=AB:=A+<\overrightarrow{AB}>$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una serie de puntos de 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ están 
+\series bold
+alineados
+\series default
+ si existe una recta que los contiene a todos.
+\end_layout
+
+\begin_layout Subsection
+Puntos medios y razón simple
+\end_layout
+
+\begin_layout Standard
+Si en 
+\begin_inset Formula $K$
+\end_inset
+
+ se tiene que 
+\begin_inset Formula $2=1+1\neq0$
+\end_inset
+
+, se define el 
+\series bold
+punto medio
+\series default
+ de 
+\begin_inset Formula $A,B\in{\cal E}$
+\end_inset
+
+ como
+\begin_inset Formula 
+\[
+\frac{A+B}{2}:=A+\frac{1}{2}\overrightarrow{AB}
+\]
+
+\end_inset
+
+Esto es simplemente una notación, pues no hemos definido suma ni producto
+ por escalares en 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+.
+ Propiedades: 
+\begin_inset Formula $\forall A,B\in{\cal E}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $M=\frac{A+B}{2}\iff\overrightarrow{AB}=2\overrightarrow{AM}\iff B=A+2\overrightarrow{AM}\iff\overrightarrow{MA}+\overrightarrow{MB}=\vec{0}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\overrightarrow{MA}+\overrightarrow{MB}=\overrightarrow{MA}+\overrightarrow{MA}+\overrightarrow{AB}=2\overrightarrow{MA}+\overrightarrow{AB}=2\overrightarrow{MA}+2\overrightarrow{AM}=2\overrightarrow{MM}=\vec{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\frac{A+B}{2}=\frac{B+A}{2}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\frac{A+B}{2}=A+\frac{1}{2}\overrightarrow{AB}=B+\overrightarrow{BA}-\frac{1}{2}\overrightarrow{BA}=B+\frac{1}{2}\overrightarrow{BA}=\frac{B+A}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\frac{A+B}{2}=\frac{A+B'}{2}\iff B=B'$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+A+\frac{1}{2}\overrightarrow{AB}=A+\frac{1}{2}\overrightarrow{AB'}\iff\overrightarrow{AB}=\overrightarrow{AB'}\iff B=B'
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\frac{(A+\vec{v})+(B+\vec{w})}{2}=\frac{A+B}{2}+\frac{\vec{v}+\vec{w}}{2}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+A+\vec{v}+\frac{1}{2}\overrightarrow{(A+\vec{v})(B+\vec{w})}=A+\vec{v}+\frac{1}{2}(\overrightarrow{AB}+\vec{w}-\vec{v})=\left(A+\frac{1}{2}\overrightarrow{AB}\right)+\frac{1}{2}(\vec{v}+\vec{w})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dados tres puntos alineados 
+\begin_inset Formula $A,B,C$
+\end_inset
+
+ con 
+\begin_inset Formula $A\neq B$
+\end_inset
+
+ y 
+\begin_inset Formula $C\in AB$
+\end_inset
+
+, llamamos 
+\series bold
+razón simple
+\series default
+ de 
+\begin_inset Formula $A,B,C$
+\end_inset
+
+ al único 
+\begin_inset Formula $\lambda\in K$
+\end_inset
+
+ con 
+\begin_inset Formula $\overrightarrow{AC}=\lambda\overrightarrow{AB}$
+\end_inset
+
+, y escribimos 
+\begin_inset Formula $\lambda=(A,B,C)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $(A,B,A)=0$
+\end_inset
+
+ y 
+\begin_inset Formula $(A,B,B)=1$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

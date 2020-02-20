@@ -1,0 +1,3720 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una 
+\series bold
+partición
+\series default
+ de 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ es una colección de puntos 
+\begin_inset Formula $a=t_{0}<t_{1}<\dots<t_{n}=b$
+\end_inset
+
+, y llamamos 
+\begin_inset Formula ${\cal P}([a,b])$
+\end_inset
+
+ al conjunto de todas las particiones de 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+.
+ Dada 
+\begin_inset Formula $\pi\equiv(t_{0}<\dots<t_{n})\in{\cal P}([a,b])$
+\end_inset
+
+, escribimos 
+\begin_inset Formula $M_{i}:=\sup\{f(t)\}_{t\in[t_{i-1},t_{i}]}$
+\end_inset
+
+ y 
+\begin_inset Formula $m_{i}:=\inf\{f(t)\}_{t\in[t_{i-1},t_{i}]}$
+\end_inset
+
+, y llamamos 
+\series bold
+suma superior
+\series default
+ y 
+\series bold
+suma inferior
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ correspondiente a 
+\begin_inset Formula $\pi$
+\end_inset
+
+, respectivamente, a
+\begin_inset Formula 
+\begin{eqnarray*}
+S(f,\pi):=\sum_{i=1}^{n}M_{i}(t_{i}-t_{i-1}) & \text{ y } & s(f,\pi):=\sum_{i=1}^{n}m_{i}(t_{i}-t_{i-1})
+\end{eqnarray*}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Obviamente 
+\begin_inset Formula $s(f,\pi)\leq S(f,\pi)$
+\end_inset
+
+ para cualquier 
+\begin_inset Formula $\pi\in{\cal P}([a,b])$
+\end_inset
+
+.
+ Dadas 
+\begin_inset Formula $\pi,\pi'\in{\cal P}([a,b])$
+\end_inset
+
+, decimos que 
+\begin_inset Formula $\pi'$
+\end_inset
+
+ es 
+\series bold
+más fina
+\series default
+ que 
+\begin_inset Formula $\pi$
+\end_inset
+
+ (
+\begin_inset Formula $\pi'\succ\pi$
+\end_inset
+
+) si 
+\begin_inset Formula $\pi'\supseteq\pi$
+\end_inset
+
+, y denotamos 
+\begin_inset Formula $\pi\lor\pi':=\pi\cup\pi'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\pi\preceq\pi'$
+\end_inset
+
+ entonces 
+\begin_inset Formula $s(f,\pi)\leq s(f,\pi')$
+\end_inset
+
+ y 
+\begin_inset Formula $S(f,\pi)\geq S(f,\pi')$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Supongamos que 
+\begin_inset Formula $\pi'$
+\end_inset
+
+ tiene un punto más que 
+\begin_inset Formula $\pi$
+\end_inset
+
+, con 
+\begin_inset Formula $\pi\equiv t_{0}<\dots<t_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\pi'\equiv t_{0}<\dots<t_{k-1}<p<t_{k}<\dots<t_{n}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $s(f,\pi)=\sum_{i\neq k}m_{i}(t_{i}-t_{i-1})+m_{k}(t_{k}-t_{k-1})=\sum_{i\neq k}m_{i}(t_{i}-t_{i-1})+m_{k}((t_{k}-p)+(p-t_{k-1}))\leq\sum_{i\neq k}m_{i}(t_{i}-t_{i-1})+\inf\{f(t)\}_{t\in[t_{k-1},p]}(p-t_{k-1})+\inf\{f(t)\}_{t\in[p,t_{k}]}(t_{k}-p)=s(f,\pi')$
+\end_inset
+
+.
+ La segunda afirmación se hace de forma análoga.
+\end_layout
+
+\begin_layout Standard
+Dadas 
+\begin_inset Formula $\pi,\pi'\in{\cal P}([a,b])$
+\end_inset
+
+, 
+\begin_inset Formula $s(f,\pi)\leq S(f,\pi')$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Como 
+\begin_inset Formula $\pi,\pi'\prec\pi\lor\pi'$
+\end_inset
+
+, entonces 
+\begin_inset Formula $s(f,\pi)\leq s(f,\pi\lor\pi')\leq S(f,\pi\lor\pi')\leq S(f,\pi')$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Llamamos pues 
+\series bold
+integral inferior
+\series default
+ e 
+\series bold
+integral superior
+\series default
+ (
+\series bold
+de Darboux
+\series default
+), respectivamente, a
+\begin_inset Formula 
+\begin{eqnarray*}
+\underline{\int_{a}^{b}}f:=\sup\{s(f,\pi)\}_{\pi\in{\cal P}([a,b])} & \text{ y } & \overline{\int_{a}^{b}}f:=\inf\{S(f,\pi)\}_{\pi\in{\cal P}([a,b])}
+\end{eqnarray*}
+
+\end_inset
+
+Decimos que 
+\begin_inset Formula $f$
+\end_inset
+
+ es 
+\series bold
+integrable Riemann
+\series default
+ en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+, escrito 
+\begin_inset Formula $f\in{\cal R}[a,b]$
+\end_inset
+
+, si las integrales superior e inferior coinciden y llamamos 
+\series bold
+integral Riemann
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+, escrito 
+\begin_inset Formula $\int_{a}^{b}f$
+\end_inset
+
+, a este valor.
+ Definimos, para 
+\begin_inset Formula $a<b$
+\end_inset
+
+, 
+\begin_inset Formula $\int_{b}^{a}f:=-\int_{a}^{b}f$
+\end_inset
+
+, e 
+\begin_inset Formula $\int_{a}^{a}f=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Caracterización
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, dada 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ acotada, 
+\begin_inset Formula $f\in{\cal R}[a,b]\iff\forall\varepsilon>0,\exists\pi\in{\cal P}([a,b]):S(f,\pi)-s(f,\pi)<\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, como 
+\begin_inset Formula $\int_{a}^{b}f=\inf\{S(f,\pi)\}_{\pi\in{\cal P}([a,b])}$
+\end_inset
+
+, existe 
+\begin_inset Formula $\pi_{1}\in{\cal P}([a,b])$
+\end_inset
+
+ con 
+\begin_inset Formula $0\leq S(f,\pi_{1})-\int_{a}^{b}f<\frac{\varepsilon}{2}$
+\end_inset
+
+, y análogamente existe 
+\begin_inset Formula $\pi_{2}\in{\cal P}([a,b])$
+\end_inset
+
+ con 
+\begin_inset Formula $0\leq\int_{a}^{b}f-s(f,\pi_{2})<\frac{\varepsilon}{2}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\pi:=\pi_{1}\lor\pi_{2}$
+\end_inset
+
+ cumple ambas desigualdades, pues 
+\begin_inset Formula $S(f,\pi)\leq S(f,\pi_{1})$
+\end_inset
+
+ y 
+\begin_inset Formula $s(f,\pi)\geq s(f,\pi_{2})$
+\end_inset
+
+, y sumándolas obtenemos 
+\begin_inset Formula $S(f,\pi)-s(f,\pi)<\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ y 
+\begin_inset Formula $\pi_{\varepsilon}\in{\cal P}([a,b])$
+\end_inset
+
+ con 
+\begin_inset Formula $S(f,\pi_{\varepsilon})-s(f,\pi_{\varepsilon})<\varepsilon$
+\end_inset
+
+, por la definición de integral superior e inferior, 
+\begin_inset Formula $0\leq\overline{\int_{a}^{b}}f-\underline{\int_{a}^{b}}f\leq S(f,\pi_{\varepsilon})-s(f,\pi_{\varepsilon})\leq\varepsilon$
+\end_inset
+
+, lo que para 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ arbitrario implica que las integrales superior e inferior coinciden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f\in{\cal R}[a,b]\iff\exists!\alpha\in\mathbb{R}:\forall\pi\in{\cal P}([a,b]),s(f,\pi)\leq\alpha\leq S(f,\pi)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $\alpha:=\int_{a}^{b}f$
+\end_inset
+
+, para toda 
+\begin_inset Formula $\pi\in{\cal P}([a,b])$
+\end_inset
+
+, 
+\begin_inset Formula $s(f,\pi)\leq\alpha\leq S(f,\pi)$
+\end_inset
+
+.
+ Si existiera 
+\begin_inset Formula $\beta\neq\alpha$
+\end_inset
+
+ que cumpliera la condición, como 
+\begin_inset Formula $\alpha=\sup\{s(f,\pi)\}_{\pi\in{\cal P}([a,b])}$
+\end_inset
+
+ se tendría 
+\begin_inset Formula $\beta>\alpha$
+\end_inset
+
+, pero análogamente que 
+\begin_inset Formula $\beta<\alpha$
+\end_inset
+
+.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Supongamos que existe un 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ que verifica la condición pero 
+\begin_inset Formula $f\notin{\cal R}[a,b]$
+\end_inset
+
+.
+ Entonces para cualquier 
+\begin_inset Formula $\pi\in{\cal R}[a,b]$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $s(f,\pi)\leq\underline{\int_{a}^{b}}f<\overline{\int_{a}^{b}}f\leq S(f,\pi)$
+\end_inset
+
+, por lo que existen infinitos números reales que verifican la condición
+ y por tanto 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ no es único.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otro 
+\series bold
+teorema 
+\series default
+importante es que las funciones 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ continuas son integrables en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+, y además, dados 
+\begin_inset Formula $z_{k,n}\in[a+\frac{b-a}{n}(k-1),a+\frac{b-a}{n}k]$
+\end_inset
+
+ cualesquiera,
+\begin_inset Formula 
+\[
+\lim_{n\rightarrow\infty}\frac{b-a}{n}\sum_{k=1}^{n}f(z_{k,n})=\int_{a}^{b}f
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Dado 
+\begin_inset Formula $\pi\in{\cal P}([a,b])$
+\end_inset
+
+, 
+\begin_inset Formula $S(f,\pi)-s(f,\pi)=\sum_{i=1}^{n}(M_{i}-m_{i})(t_{i}-t_{i-1})$
+\end_inset
+
+.
+ Ahora bien, dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, como 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ también es uniformemente continua, luego existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $|x-y|<\delta$
+\end_inset
+
+ entonces 
+\begin_inset Formula $|f(x)-f(y)|<\frac{\varepsilon}{2(b-a)}$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ con 
+\begin_inset Formula $\frac{b-a}{n_{0}}<\delta$
+\end_inset
+
+.
+ Para todo 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ definimos 
+\begin_inset Formula $\pi_{n}=(a<a+\frac{b-a}{n}<\dots<a+n\frac{b-a}{n}=b)\in{\cal P}([a,b])$
+\end_inset
+
+ y 
+\begin_inset Formula $t_{k,n}=a+k\frac{b-a}{n}$
+\end_inset
+
+, y tenemos que para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+ es 
+\begin_inset Formula $t_{k,n}-t_{k-1,n}<\delta$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $M_{k,n}-m_{k,n}\leq\frac{\varepsilon}{2(b-a)}$
+\end_inset
+
+.
+ Entonces
+\begin_inset Formula 
+\[
+S(f,\pi_{n_{0}})-s(f,\pi_{n_{0}})\leq\sum_{i=1}^{n_{0}}\frac{\varepsilon}{2(b-a)}(t_{i,n_{0}}-t_{i-1,n_{0}})=\frac{\varepsilon}{2}<\varepsilon
+\]
+
+\end_inset
+
+De aquí que 
+\begin_inset Formula $f$
+\end_inset
+
+ es integrable.
+ Pero entonces existe un único 
+\begin_inset Formula $\alpha=\int_{a}^{b}f$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $\pi\in{\cal P}([a,b])$
+\end_inset
+
+ es 
+\begin_inset Formula $s(f,\pi)\leq\alpha\leq S(f,\pi)$
+\end_inset
+
+, y en particular, 
+\begin_inset Formula $s(f,\pi_{n})\leq\alpha\leq S(f,\pi_{n})$
+\end_inset
+
+ para todo 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+ Sea ahora 
+\begin_inset Formula $z_{k,n}\in[a+\frac{b-a}{n}(k-1),a+\frac{b-a}{n}k]$
+\end_inset
+
+ para 
+\begin_inset Formula $1\leq k\leq n$
+\end_inset
+
+ arbitrario y 
+\begin_inset Formula $a_{n}=\frac{b-a}{n}\sum_{k=1}^{n}f(z_{k,n})$
+\end_inset
+
+.
+ Por definición, 
+\begin_inset Formula $s(f,\pi_{n})\leq a_{n}\leq S(f,\pi_{n})$
+\end_inset
+
+, y dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $S(f,\pi_{n})-s(f,\pi_{n})<\frac{\varepsilon}{2}$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $S(f,\pi_{n})-\alpha\leq\frac{\varepsilon}{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $S(f,\pi_{n})-a_{n}<\frac{\varepsilon}{2}$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $|a_{n}-\alpha|\leq|a_{n}-S(f,\pi_{n})|+|S(f,\pi_{n})-\alpha|<\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dada 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ monótona y acotada entonces 
+\begin_inset Formula $f\in{\cal R}[a,b]$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Dada 
+\begin_inset Formula $\pi\in{\cal P}([a,b])$
+\end_inset
+
+, 
+\begin_inset Formula $S(f,\pi)-s(f,\pi)=\sum_{i=1}^{n}(M_{i}-m_{i})(t_{i}-t_{i-1})$
+\end_inset
+
+, y dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, si por ejemplo 
+\begin_inset Formula $f$
+\end_inset
+
+ es monótona creciente y 
+\begin_inset Formula $f(a)<f(b)$
+\end_inset
+
+, dada 
+\begin_inset Formula $\pi\in{\cal P}([a,b])$
+\end_inset
+
+ con 
+\begin_inset Formula $t_{i}-t_{i-1}<\frac{\varepsilon}{f(b)-f(a)}$
+\end_inset
+
+, se tiene que 
+\begin_inset Formula $M_{i}=f(t_{i})$
+\end_inset
+
+, 
+\begin_inset Formula $m_{i}=f(t_{i-1})$
+\end_inset
+
+ y 
+\begin_inset Formula $S(f,\pi)-s(f,\pi)=\sum_{i=1}^{n}(M_{i}-m_{i})(t_{i}-t_{i-1})\leq\sum_{i=1}^{n}(M_{i}-m_{i})\frac{\varepsilon}{f(b)-f(a)}=\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ es acotada y 
+\begin_inset Formula $f\in{\cal R}[c,b]\forall c>a$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f\in{\cal R}[a,b]$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $A>0$
+\end_inset
+
+ con 
+\begin_inset Formula $|f(x)|\leq A\forall x\in[a,b]$
+\end_inset
+
+, entonces 
+\begin_inset Formula $-A\leq\inf\{f(x)\}_{x\in[a,b]}\leq\sup\{f(x)\}_{x\in[a,b]}\leq A$
+\end_inset
+
+.
+ Dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, sea 
+\begin_inset Formula $c\in(a,b]$
+\end_inset
+
+ con 
+\begin_inset Formula $c-a<\frac{\varepsilon}{4A}$
+\end_inset
+
+ y 
+\begin_inset Formula $\pi\in{\cal P}([c,b])$
+\end_inset
+
+ con 
+\begin_inset Formula $S(f,\pi)-s(f,\pi)<\frac{\varepsilon}{2}$
+\end_inset
+
+, si tomamos 
+\begin_inset Formula $\pi'\in{\cal P}([a,b])$
+\end_inset
+
+ resultado de añadir a 
+\begin_inset Formula $\pi$
+\end_inset
+
+ el intervalo 
+\begin_inset Formula $[a,c]$
+\end_inset
+
+ con 
+\begin_inset Formula $M_{1}=\sup\{f(x)\}_{x\in[a,c]}$
+\end_inset
+
+ y 
+\begin_inset Formula $m_{1}=\inf\{f(x)\}_{x\in[a,c]}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $S(f,\pi')-s(f,\pi')=M_{1}(c-a)+S(f,\pi)-m_{1}(c-a)-s(f,\pi)\leq2A(c-a)+S(f,\pi)-s(f,\pi)\leq2A(c-a)+\frac{\varepsilon}{2}<2A\frac{\varepsilon}{4A}+\frac{\varepsilon}{2}=\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Sumas de Riemann
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $\pi\equiv(t_{0}<\dots<t_{n})\in{\cal P}([a,b])$
+\end_inset
+
+, llamamos 
+\series bold
+suma de Riemann
+\series default
+ asociada a la partición 
+\begin_inset Formula $\pi$
+\end_inset
+
+ y los puntos 
+\begin_inset Formula $z_{i}\in[t_{i-1},t_{i}]$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+S(f,\pi,z_{i}):=\sum_{i=1}^{n}f(z_{i})(t_{i}-t_{i-1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f$
+\end_inset
+
+ es integrable Riemann en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ si y sólo si existe 
+\begin_inset Formula $A\in\mathbb{R}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe 
+\begin_inset Formula $\pi_{0}\in{\cal P}([a,b])$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $\pi_{0}\prec\pi$
+\end_inset
+
+, para cualesquiera 
+\begin_inset Formula $z_{i}\in[t_{i-1},t_{i}]$
+\end_inset
+
+ se cumple 
+\begin_inset Formula $|A-S(f,\pi,z_{i})|<\varepsilon$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $A=\int_{a}^{b}f$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $A=\int_{a}^{b}f$
+\end_inset
+
+, fijado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, sea 
+\begin_inset Formula $\pi_{0}\in{\cal P}([a,b])$
+\end_inset
+
+ con 
+\begin_inset Formula $S(f,\pi_{0})-s(f,\pi_{0})<\varepsilon$
+\end_inset
+
+, si 
+\begin_inset Formula $\pi_{0}\prec\pi$
+\end_inset
+
+ entonces 
+\begin_inset Formula $S(f,\pi)-s(f,\pi)\leq S(f,\pi_{0})-s(f,\pi_{0})<\varepsilon$
+\end_inset
+
+, 
+\begin_inset Formula $s(f,\pi)\leq S(f,\pi,z_{i})\leq S(f,\pi)$
+\end_inset
+
+ y 
+\begin_inset Formula $s(f,\pi)\leq A\leq S(f,\pi)$
+\end_inset
+
+.
+ Pero esto implica que 
+\begin_inset Formula $0\leq A-s(f,\pi)\leq S(f,\pi)-s(f,\pi)\leq\varepsilon$
+\end_inset
+
+, 
+\begin_inset Formula $A-S(f,\pi,z_{i})\leq S(f,\pi)-s(f,\pi)\leq\varepsilon$
+\end_inset
+
+ y 
+\begin_inset Formula $S(f,\pi,z_{i})-A\geq s(f,\pi)-S(f,\pi)\geq-\varepsilon$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $|A-S(f,\pi,z_{i})|<\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, sea 
+\begin_inset Formula $\pi\in{\cal P}([a,b])$
+\end_inset
+
+ con 
+\begin_inset Formula $|A-S(f,\pi,z_{i})|<\frac{\varepsilon}{2}$
+\end_inset
+
+ para puntos 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ con 
+\begin_inset Formula $M_{i}-f(z_{i})<\frac{\varepsilon}{2(b-a)}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $S(f,\pi)-S(f,\pi,z_{i})=\sum_{i=1}^{n}(M_{i}-f(z_{i}))(t_{i}-t_{i-1})\leq\sum_{i=1}^{n}\frac{\varepsilon}{2(b-a)}(t_{i}-t_{i-1})=\frac{\varepsilon}{2}$
+\end_inset
+
+, y como 
+\begin_inset Formula $|A-S(f,\pi,z_{i})|<\frac{\varepsilon}{2}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $|A-S(f,\pi)|<\varepsilon$
+\end_inset
+
+.
+ Análogamente se tiene que 
+\begin_inset Formula $|A-s(f,\pi)|<\varepsilon$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $|S(f,\pi)-s(f,\pi)|<2\varepsilon$
+\end_inset
+
+ y 
+\begin_inset Formula $f\in{\cal R}[a,b]$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Queda ver que 
+\begin_inset Formula $A=\int_{a}^{b}f$
+\end_inset
+
+.
+ Supongamos que existe 
+\begin_inset Formula $\pi_{0}$
+\end_inset
+
+ con 
+\begin_inset Formula $s(f,\pi_{0})\leq S(f,\pi_{0})<A$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $\varepsilon=A-S(f,\pi_{0})$
+\end_inset
+
+, existe por hipótesis 
+\begin_inset Formula $\pi_{1}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $\pi\succ\pi_{1}$
+\end_inset
+
+ y elección de 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $|A-S(f,\pi,z_{i})|<\frac{\varepsilon}{2}$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $\pi'=\pi_{0}\lor\pi_{1}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $S(f,\pi',z_{i})>A-\frac{\varepsilon}{2}=\frac{A+S(f,\pi_{0})}{2}>S(f,\pi_{0})$
+\end_inset
+
+, pero al mismo tiempo 
+\begin_inset Formula $S(f,\pi',z_{i})<S(f,\pi')\leq S(f,\pi_{0})$
+\end_inset
+
+.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un conjunto 
+\begin_inset Formula $A\subseteq\mathbb{R}$
+\end_inset
+
+ tiene 
+\series bold
+medida cero
+\series default
+ si para cada 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe una sucesión 
+\begin_inset Formula $I_{n}$
+\end_inset
+
+ de intervalos cerrados y acotados con 
+\begin_inset Formula $A\subseteq\bigcup_{n}I_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sum_{n=1}^{\infty}\text{long}(I_{n})\leq\varepsilon$
+\end_inset
+
+, donde 
+\begin_inset Formula $\text{long}([a,b]):=b-a$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $A$
+\end_inset
+
+ tiene medida cero y 
+\begin_inset Formula $B\subseteq A$
+\end_inset
+
+ entonces 
+\begin_inset Formula $B$
+\end_inset
+
+ tiene medida cero, y si 
+\begin_inset Formula $A$
+\end_inset
+
+ es numerable tiene medida cero tomando, para cada 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, la sucesión con 
+\begin_inset Formula $I_{n}=\{x_{n}-\frac{\varepsilon}{2^{n+1}},x_{n}+\frac{\varepsilon}{2^{n+1}}\}$
+\end_inset
+
+, pues 
+\begin_inset Formula $\sum_{n}\text{long}(I_{n})=\sum_{n}\frac{\varepsilon}{2^{n}}=\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+teorema de Lebesgue
+\series default
+ afirma que dada una función acotada 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+, si 
+\begin_inset Formula $D(f)\subseteq[a,b]$
+\end_inset
+
+ es el conjunto de puntos en los que 
+\begin_inset Formula $f$
+\end_inset
+
+ no es continua, entonces 
+\begin_inset Formula $f\in{\cal R}[a,b]$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $D(f)$
+\end_inset
+
+ tiene medida cero.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $\pi=(t_{0}<\dots<t_{n})\in{\cal P}([a,b])$
+\end_inset
+
+, llamamos 
+\series bold
+norma
+\series default
+ de 
+\begin_inset Formula $\pi$
+\end_inset
+
+ a 
+\begin_inset Formula $\Vert\pi\Vert:=\max\{t_{i}-t_{i-1}\}_{1\leq i\leq n}$
+\end_inset
+
+.
+ Como 
+\series bold
+teorema
+\series default
+,
+\series bold
+ 
+\series default
+si 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ es acotada, son equivalentes:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f\in{\cal R}[a,b]$
+\end_inset
+
+ y 
+\begin_inset Formula $A=\int_{a}^{b}f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\exists A\in\mathbb{R}:\forall\varepsilon>0,\exists\pi_{0}\in{\cal P}([a,b]):\forall\pi\succ\pi_{0},|A-S(f,\pi,z_{i})|<\varepsilon$
+\end_inset
+
+ para cualquier suma de Riemann correspondiente a 
+\begin_inset Formula $\pi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\exists A\in\mathbb{R}:\forall\varepsilon>0,\exists\delta>0:\forall\pi:\Vert\pi\Vert<\delta,|A-S(f,\pi,z_{i})|<\varepsilon$
+\end_inset
+
+ para cualquier suma de Riemann correspondiente a 
+\begin_inset Formula $\pi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Propiedades
+\end_layout
+
+\begin_layout Description
+Linealidad 
+\begin_inset Formula ${\cal R}[a,b]$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-espacio vectorial y el operador 
+\begin_inset Formula $\int_{a}^{b}$
+\end_inset
+
+ es lineal.
+\begin_inset Newline newline
+\end_inset
+
+Sean 
+\begin_inset Formula $f,g\in{\cal R}[a,b]$
+\end_inset
+
+, dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe 
+\begin_inset Formula $\pi_{0}\in{\cal P}([a,b])$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $\pi_{0}\prec\pi$
+\end_inset
+
+ se tienen 
+\begin_inset Formula $\left|\int_{a}^{b}f-S(f,\pi,z_{i})\right|,\left|\int_{a}^{b}g-S(g,\pi,z_{i})\right|<\frac{\varepsilon}{2}$
+\end_inset
+
+, por lo que 
+\begin_inset Formula 
+\[
+\left|\int_{a}^{b}f+\int_{a}^{b}g-S(f+g,\pi,z_{i})\right|<\varepsilon
+\]
+
+\end_inset
+
+con lo que 
+\begin_inset Formula $\int_{a}^{b}(f+g)=\int_{a}^{b}f+\int_{a}^{b}g$
+\end_inset
+
+.
+ Sea ahora 
+\begin_inset Formula $k\in\mathbb{R}$
+\end_inset
+
+, dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ y 
+\begin_inset Formula $\pi_{0}\in{\cal P}([a,b])$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $\pi_{0}\prec\pi$
+\end_inset
+
+ se cumple 
+\begin_inset Formula $\left|\int_{a}^{b}f-S(f,\pi,z_{i})\right|<\frac{\varepsilon}{1+|k|}$
+\end_inset
+
+, entonces 
+\begin_inset Formula 
+\[
+\left|k\int_{a}^{b}f-S(kf,\pi,z_{i})\right|=|k|\left|\int_{a}^{b}f-S(f,\pi,z_{i})\right|<|k|\frac{\varepsilon}{1+|k|}<\varepsilon
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $\int_{a}^{b}kf=k\int_{a}^{b}f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Producto Si 
+\begin_inset Formula $f,g:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ son integrables Riemann, también lo es 
+\begin_inset Formula $fg$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Por el teorema de Lebesgue, si 
+\begin_inset Formula $f\in{\cal R}[a,b]$
+\end_inset
+
+, tendrá medida cero, pero 
+\begin_inset Formula $D(f^{2})\subseteq D(f)$
+\end_inset
+
+, pues si 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en un punto también lo es 
+\begin_inset Formula $f^{2}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $D(f^{2})$
+\end_inset
+
+ tiene medida cero, lo que nos da la integrabilidad de 
+\begin_inset Formula $f^{2}$
+\end_inset
+
+.
+ El caso general se sigue de que 
+\begin_inset Formula $fg=\frac{1}{2}\left((f+g)^{2}-f^{2}-g^{2}\right)$
+\end_inset
+
+ por la linealidad.
+\end_layout
+
+\begin_layout Description
+Monotonía Si 
+\begin_inset Formula $f(x)\leq g(x)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\int_{a}^{b}f\leq\int_{a}^{b}g$
+\end_inset
+
+, y en particular si 
+\begin_inset Formula $m\leq f(x)\leq M$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+, entonces 
+\begin_inset Formula $m(b-a)\leq\int_{a}^{b}f\leq M(b-a)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Para 
+\begin_inset Formula $\pi\in{\cal P}([a,b])$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $s(f,\pi)\leq s(g,\pi)$
+\end_inset
+
+, y tomando supremos, 
+\begin_inset Formula $\int_{a}^{b}f\leq\int_{a}^{b}g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Valor
+\begin_inset space ~
+\end_inset
+
+medio Sea 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ continua, existe 
+\begin_inset Formula $c\in[a,b]$
+\end_inset
+
+ con 
+\begin_inset Formula $f(c)=\frac{1}{b-a}\int_{a}^{b}f$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Por el teorema de Weierstrass, existen 
+\begin_inset Formula $c_{1},c_{2}\in[a,b]$
+\end_inset
+
+ con 
+\begin_inset Formula $f(c_{1})\leq f(x)\leq f(c_{2})$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+, y por la monotonía de la integral, 
+\begin_inset Formula $f(c_{1})\leq\frac{1}{b-a}\int_{a}^{b}f\leq f(c_{2})$
+\end_inset
+
+.
+ Entonces, aplicando la propiedad de los valores intermedios, existe 
+\begin_inset Formula $c\in[a,b]$
+\end_inset
+
+ con 
+\begin_inset Formula $f(c)=\frac{1}{b-a}\int_{a}^{b}f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Valor
+\begin_inset space ~
+\end_inset
+
+absoluto Si 
+\begin_inset Formula $f\in{\cal R}[a,b]$
+\end_inset
+
+ entonces 
+\begin_inset Formula $|f|\in{\cal R}[a,b]$
+\end_inset
+
+ y 
+\begin_inset Formula $\left|\int_{a}^{b}f\right|\leq\int_{a}^{b}|f|$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, sea 
+\begin_inset Formula $\pi\in{\cal P}([a,b])$
+\end_inset
+
+ con 
+\begin_inset Formula $S(f,\pi)-s(f,\pi)<\varepsilon$
+\end_inset
+
+, si 
+\begin_inset Formula $M'_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $m'_{i}$
+\end_inset
+
+ son el supremo y el ínfimo, respectivamente, de 
+\begin_inset Formula $|f|$
+\end_inset
+
+ en 
+\begin_inset Formula $[t_{i-1},t_{i}]$
+\end_inset
+
+, y 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $m_{i}$
+\end_inset
+
+ son los de 
+\begin_inset Formula $f$
+\end_inset
+
+, entonces para 
+\begin_inset Formula $z,w\in[t_{i-1},t_{i}]$
+\end_inset
+
+ se tiene que 
+\begin_inset Formula $||f(z)|-|f(w)||\leq|f(z)-f(w)|\leq M_{i}-m_{i}$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\sup\{|f(z)|-|f(w)|\}_{z,w\in[t_{i-1},t_{i}]}=M'_{i}-m'_{i}\leq M_{i}-m_{i}$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $S(|f|,\pi)-s(|f|,\pi)\leq S(f,\pi)-s(f,\pi)<\varepsilon$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $|f|\in{\cal R}[a,b]$
+\end_inset
+
+.
+ Ahora bien, 
+\begin_inset Formula $-|f(x)|\leq f(x)\leq|f(x)|$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\int_{a}^{b}-|f|=-\int_{a}^{b}|f|\leq\int_{a}^{b}f\leq\int_{a}^{b}|f|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Aditividad
+\begin_inset space ~
+\end_inset
+
+respecto
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+intervalo Dada 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ acotada y 
+\begin_inset Formula $c\in[a,b]$
+\end_inset
+
+, 
+\begin_inset Formula $f\in{\cal R}[a,b]\iff f\in{\cal R}[a,c],{\cal R}[c,b]$
+\end_inset
+
+, y además 
+\begin_inset Formula $\int_{a}^{b}f=\int_{a}^{c}f+\int_{c}^{b}f$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Basta refinar una partición 
+\begin_inset Formula $\pi\in{\cal P}([a,b])$
+\end_inset
+
+ añadiéndole el punto 
+\begin_inset Formula $c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Discontinuidades Si 
+\begin_inset Formula $f\in{\cal R}[a,b]$
+\end_inset
+
+ y 
+\begin_inset Formula $g:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ coincide con 
+\begin_inset Formula $f$
+\end_inset
+
+ salvo en un número finito de puntos, entonces 
+\begin_inset Formula $g\in{\cal R}[a,b]$
+\end_inset
+
+ y 
+\begin_inset Formula $\int_{a}^{b}f=\int_{a}^{b}g$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Supongamos que cambian en un punto 
+\begin_inset Formula $c\in[a,b]$
+\end_inset
+
+, y basta probar que 
+\begin_inset Formula $h:=g-f$
+\end_inset
+
+ es integrable.
+ Ahora bien, 
+\begin_inset Formula $h$
+\end_inset
+
+ es nula en todos los puntos salvo en 
+\begin_inset Formula $c$
+\end_inset
+
+, por lo que dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ podemos tomar 
+\begin_inset Formula $\pi\in{\cal P}[a,b]$
+\end_inset
+
+ con 
+\begin_inset Formula $t_{i}-t_{i-1}\leq\frac{\varepsilon}{h(c)}$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $S(f,\pi,z_{i})\leq\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+El Teorema Fundamental del Cálculo
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f\in{\cal R}[a,b]$
+\end_inset
+
+, llamamos 
+\series bold
+integral indefinida
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ a la función 
+\begin_inset Formula $F:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $F(x):=\int_{a}^{x}f$
+\end_inset
+
+.
+ El 
+\series bold
+TEOREMA FUNDAMENTAL DEL CÁLCULO
+\series default
+ afirma que, si 
+\begin_inset Formula $f\in{\cal R}[a,b]$
+\end_inset
+
+ y 
+\begin_inset Formula $F$
+\end_inset
+
+ es su integral indefinida, entonces 
+\begin_inset Formula $F$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y si 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $c\in(a,b)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $F$
+\end_inset
+
+ es derivable en 
+\begin_inset Formula $c$
+\end_inset
+
+ y 
+\begin_inset Formula $F'(c)=f(c)$
+\end_inset
+
+, y esto también ocurre con los extremos del intervalo y las correspondientes
+ derivadas laterales.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $M:=\sup\{|f(x)|\}_{x\in[a,b]}$
+\end_inset
+
+, por las propiedades de la integral, 
+\begin_inset Formula $|F(x)-F(y)|=\left|\int_{x}^{y}f\right|\leq M|x-y|$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $F$
+\end_inset
+
+ es uniformemente continua en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+, pues dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ y 
+\begin_inset Formula $\delta=\frac{\varepsilon}{M}$
+\end_inset
+
+, si 
+\begin_inset Formula $|x-y|\leq\delta$
+\end_inset
+
+ entonces 
+\begin_inset Formula $|F(x)-F(y)|\leq\varepsilon$
+\end_inset
+
+.
+ Supongamos ahora que 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $c\in(a,b)$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $h>0$
+\end_inset
+
+ con 
+\begin_inset Formula $c+h\in[a,b]$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{multline*}
+\left|\frac{F(c+h)-F(c)}{h}-f(c)\right|=\left|\frac{\int_{a}^{c+h}f-\int_{a}^{c}f}{h}-\frac{1}{h}\int_{c}^{c+h}f(c)\right|=\left|\frac{1}{h}\int_{c}^{c+h}(f-f(c))\right|\leq\\
+\leq\frac{1}{h}\sup\{|f(t)-f(c)|\}_{t\in[c,c+h]}|h|=\sup\{|f(t)-f(c)|\}_{t\in[c,c+h]}
+\end{multline*}
+
+\end_inset
+
+y como 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $c$
+\end_inset
+
+, el último miembro de la desigualdad tiende a 0 cuando 
+\begin_inset Formula $h$
+\end_inset
+
+ tiende a 0, y lo mismo ocurre para 
+\begin_inset Formula $h<0$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $F'(c)=\lim_{h\rightarrow0}\frac{F(c+h)-F(c)}{h}=f(c)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dada 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+, decimos que 
+\begin_inset Formula $g:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ es una 
+\series bold
+primitiva
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ si 
+\begin_inset Formula $g$
+\end_inset
+
+ es derivable en 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+ y para todo 
+\begin_inset Formula $x\in(a,b)$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $g'(x)=f(x)$
+\end_inset
+
+.
+ Por el teorema fundamental del cálculo, toda 
+\begin_inset Formula $f$
+\end_inset
+
+ continua en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ tiene primitivas en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+, donde la integral indefinida es una de ellas y el resto se obtienen sumando
+ a esta una constante.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $F$
+\end_inset
+
+ es la integral indefinida de 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ es otra primitiva de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+, entonces 
+\begin_inset Formula $(F-g)'(x)=F'(x)-g'(x)=f(x)-f(x)=0$
+\end_inset
+
+ para 
+\begin_inset Formula $x\in(a,b)$
+\end_inset
+
+, y por el teorema del valor medio, 
+\begin_inset Formula $F-g$
+\end_inset
+
+ es constante.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, la 
+\series bold
+fórmula de Barrow
+\series default
+ afirma que si 
+\begin_inset Formula $f\in{\cal R}[a,b]$
+\end_inset
+
+ admite una primitiva 
+\begin_inset Formula $g$
+\end_inset
+
+ en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\int_{a}^{b}f=g(b)-g(a)$
+\end_inset
+
+.
+ 
+\series bold
+Demostración: 
+\series default
+Dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe 
+\begin_inset Formula $\pi\equiv(t_{0}<\dots<t_{n})\in{\cal P}([a,b])$
+\end_inset
+
+ tal que para cualesquiera 
+\begin_inset Formula $z_{i}\in[t_{i-1},t_{i}]$
+\end_inset
+
+, 
+\begin_inset Formula $\left|\int_{a}^{b}f-S(f,\pi,z_{i})\right|<\varepsilon$
+\end_inset
+
+.
+ Por el teorema del valor medio aplicado a 
+\begin_inset Formula $g$
+\end_inset
+
+ en 
+\begin_inset Formula $[t_{i-1},t_{i}]$
+\end_inset
+
+, existe 
+\begin_inset Formula $z_{i}\in[t_{i-1},t_{i}]$
+\end_inset
+
+ con 
+\begin_inset Formula $g(t_{i})-g(t_{i-1})=g'(z_{i})(t_{i}-t_{i-1})=f(z_{i})(t_{i}-t_{i-1})$
+\end_inset
+
+, luego 
+\begin_inset Formula $g(b)-g(a)=\sum_{i=1}^{n}(g(t_{i})-g(t_{i-1}))=\sum_{i=1}^{n}g'(z_{i})(t_{i}-t_{i-1})=S(f,\pi,z_{i})$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $\left|\int_{a}^{b}f-(g(b)-g(a))\right|<\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Cálculo de primitivas
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int u^{n}u'\,dx=\frac{u^{n+1}}{n+1}+C\forall n\neq-1$
+\end_inset
+
+; 
+\begin_inset Formula $\int\frac{u'}{u}dx=\ln|u|+C\forall u\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int e^{u}u'\,dx=e^{u}+C$
+\end_inset
+
+; 
+\begin_inset Formula $\int a^{u}u'\,dx=\frac{a^{u}}{\ln a}+C\forall a>0,a\neq1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\cos u\,u'\,dx=\sin u+C$
+\end_inset
+
+; 
+\begin_inset Formula $\int\sin u\,u'\,dx=-\cos u+C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\cosh u\,u'\,dx=\sinh u+C$
+\end_inset
+
+; 
+\begin_inset Formula $\int\sinh u\,u'\,dx=\cosh u+C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\frac{u'}{\sin^{2}u}dx=\int\frac{u'}{\sinh^{2}u}dx=-\cot u+C$
+\end_inset
+
+; 
+\begin_inset Formula $\int\frac{u'}{\cos^{2}u}dx=\int\frac{u'}{\cosh^{2}u}dx=\tan u+C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\frac{u'}{1+u^{2}}dx=\arctan u+C$
+\end_inset
+
+; 
+\begin_inset Formula $\int\frac{u'}{1-u^{2}}dx=\arg\tanh u+C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\frac{u'}{\sqrt{1-u^{2}}}dx=\arcsin u+C=-\arccos u+C'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\frac{u'}{\sqrt{u^{2}+1}}dx=\arg\sinh u+C$
+\end_inset
+
+; 
+\begin_inset Formula $\int\frac{u'}{\sqrt{u^{2}-1}}dx=\arg\cosh u+C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\cosh(x)=\frac{e^{x}+e^{-x}}{2} & \sinh(x)=\frac{e^{x}-e^{-x}}{2} & \cosh^{2}(x)-\sinh^{2}(x)=1\\
+\arg\cosh(x)=\ln(x+\sqrt{x^{2}-1}) & \arg\sinh(x)=\ln(x+\sqrt{x^{2}+1}) & \arg\tanh(x)=\frac{1}{2}\ln\frac{1+x}{1-x}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Integración por partes
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $f,g\in{\cal R}[a,b]$
+\end_inset
+
+ con primitivas respectivas 
+\begin_inset Formula $F$
+\end_inset
+
+ y 
+\begin_inset Formula $G$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\int_{a}^{b}Fg=F(b)G(b)-F(a)G(a)-\int_{a}^{b}fG
+\]
+
+\end_inset
+
+lo que suele escribirse como 
+\begin_inset Formula $\int u\,dv=uv-\int v\,du$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $(FG)'(x)=F'(x)G(x)+F(x)G'(x)=f(x)G(x)+F(x)g(x)$
+\end_inset
+
+, y por la fórmula de Barrow, 
+\begin_inset Formula $\int_{a}^{b}Fg+\int_{a}^{b}fG=\int_{a}^{b}(Fg+fG)=F(b)G(b)-F(a)G(a)$
+\end_inset
+
+, luego 
+\begin_inset Formula $\int_{a}^{b}Fg=F(b)G(b)-F(a)G(a)-\int_{a}^{b}fG$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Cambio de variable
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, sea 
+\begin_inset Formula $\varphi:[c,d]\rightarrow[a,b]\in{\cal C}^{1}[c,d]$
+\end_inset
+
+ con 
+\begin_inset Formula $\varphi(c)=a$
+\end_inset
+
+ y 
+\begin_inset Formula $\varphi(d)=b$
+\end_inset
+
+, sea 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ continua, entonces
+\begin_inset Formula 
+\[
+\int_{a}^{b}f=\int_{c}^{d}(f\circ\varphi)\varphi'
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $F$
+\end_inset
+
+ es una primitiva de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ entonces 
+\begin_inset Formula $F\circ\varphi$
+\end_inset
+
+ lo es de 
+\begin_inset Formula $(f\circ\varphi)\varphi'$
+\end_inset
+
+ en 
+\begin_inset Formula $[c,d]$
+\end_inset
+
+, luego 
+\begin_inset Formula $\int_{a}^{b}f=F(b)-F(a)=F(\varphi(d))-F(\varphi(c))=(F\circ\varphi)(d)-(F\circ\varphi)(c)=\int_{c}^{d}(f\circ\varphi)\varphi'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Esto da sentido a la notación de 
+\begin_inset Formula $\int_{a}^{b}f(x)dx:=\int_{a}^{b}f$
+\end_inset
+
+, porque entonces si 
+\begin_inset Formula $x=\varphi(t)$
+\end_inset
+
+ es fácil recordar 
+\begin_inset Formula $dx=\varphi'(t)dt$
+\end_inset
+
+ y entonces
+\begin_inset Formula 
+\[
+\int_{a}^{b}f(x)dx=\int_{c}^{d}f(\varphi(t))\varphi'(t)dt
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Funciones racionales
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $P(x)$
+\end_inset
+
+ y 
+\begin_inset Formula $Q(x)$
+\end_inset
+
+ polinomios y queremos resolver 
+\begin_inset Formula $\int_{a}^{b}\frac{P(x)}{Q(x)}dx$
+\end_inset
+
+.
+ Si el grado de 
+\begin_inset Formula $P(x)$
+\end_inset
+
+ es mayor o igual que el de 
+\begin_inset Formula $Q(x)$
+\end_inset
+
+ hacemos 
+\begin_inset Formula $\int_{a}^{b}\frac{P(x)}{Q(x)}dx=\int C(x)dx+\int\frac{R(x)}{Q(x)}dx$
+\end_inset
+
+ para que el grado del numerador sea menor que el del denominador.
+ Entonces descomponemos en fracciones simples.
+\end_layout
+
+\begin_layout Standard
+Descomponemos 
+\begin_inset Formula $Q(x)$
+\end_inset
+
+ como 
+\begin_inset Formula $Q(x)=\prod_{i=1}^{r}(x-a_{i})^{m_{i}}\prod_{i=1}^{s}(x^{2}+p_{i}x+q_{i})^{n_{i}}$
+\end_inset
+
+, donde 
+\begin_inset Formula $q_{i}>\frac{p_{i}^{2}}{4}$
+\end_inset
+
+ para que los factores sean irreducibles.
+ Entonces (si el grado de 
+\begin_inset Formula $P(x)$
+\end_inset
+
+ es menor que el de 
+\begin_inset Formula $Q(x)$
+\end_inset
+
+) podemos expresar la fracción como
+\begin_inset Formula 
+\[
+\frac{P(x)}{Q(x)}=\sum_{i=1}^{r}\sum_{j=1}^{m_{i}}\frac{A_{ij}}{(x-a_{i})^{j}}+\sum_{i=1}^{M}\sum_{j=1}^{n_{i}}\frac{M_{ij}x+N_{ij}}{(x^{2}+p_{i}x+q_{i})^{j}}
+\]
+
+\end_inset
+
+Resolvemos los 
+\begin_inset Formula $A_{k,i}$
+\end_inset
+
+, 
+\begin_inset Formula $M_{k,i}$
+\end_inset
+
+, 
+\begin_inset Formula $N_{k,i}$
+\end_inset
+
+ y nos queda hallar la integral de cada sumando como sigue:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\frac{A}{x-a}dx=A\ln|x-a|+C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\frac{A}{(x-a)^{n}}dx=-\frac{A}{(n-1)(x-a)^{n-1}}+C$
+\end_inset
+
+, donde 
+\begin_inset Formula $n\in2,3,\dots$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\frac{Mx+N}{x^{2}+px+q}dx=\frac{M}{2}\ln\left(\left(x+\frac{p}{2}\right)^{2}+c^{2}\right)+\frac{N-\frac{Mp}{2}}{c}\arctan\left(\frac{x+\frac{p}{2}}{c}\right)+C$
+\end_inset
+
+, donde 
+\begin_inset Formula $c=\frac{\sqrt{4q-p^{2}}}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Funciones que contienen 
+\begin_inset Formula $\cos x$
+\end_inset
+
+ y 
+\begin_inset Formula $\sin x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En general, haremos 
+\begin_inset Formula $t=\tan\frac{x}{2}$
+\end_inset
+
+ y entonces
+\begin_inset Formula 
+\begin{eqnarray*}
+\cos x=\frac{\cos(2\frac{x}{2})}{\sin^{2}\frac{x}{2}+\cos^{2}\frac{x}{2}}=\frac{\cos^{2}\frac{x}{2}-\sin^{2}\frac{x}{2}}{\sin^{2}\frac{x}{2}+\cos^{2}\frac{x}{2}} & \overset{\text{div. }\cos^{2}\frac{x}{2}}{=} & \frac{1-\tan^{2}\frac{x}{2}}{\tan^{2}\frac{x}{2}+1}=\frac{1-t^{2}}{1+t^{2}}\\
+\sin x=\frac{\sin(2\frac{x}{2})}{\sin^{2}\frac{x}{2}+\cos^{2}\frac{x}{2}}=\frac{2\sin\frac{x}{2}\cos\frac{x}{2}}{\sin^{2}\frac{x}{2}+\cos^{2}\frac{x}{2}} & \overset{\text{div. }\cos^{2}\frac{x}{2}}{=} & \frac{2\tan\frac{x}{2}}{\tan^{2}\frac{x}{2}+1}=\frac{2t}{1+t^{2}}\\
+x=2\arctan t & \text{ y } & dx=\frac{2}{1+t^{2}}dt
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si la función es de la forma 
+\begin_inset Formula $f(x)=g(\sin x)\cos x$
+\end_inset
+
+, siendo 
+\begin_inset Formula $g$
+\end_inset
+
+ una función racional, hacemos 
+\begin_inset Formula $t=\sin x$
+\end_inset
+
+, y si es 
+\begin_inset Formula $f(x)=g(\cos x)\sin x$
+\end_inset
+
+ hacemos 
+\begin_inset Formula $t=\cos x$
+\end_inset
+
+.
+ Si es 
+\begin_inset Formula $f(x)=g(\tan x)$
+\end_inset
+
+ hacemos 
+\begin_inset Formula $\tan x=t$
+\end_inset
+
+, y podemos llegar a esta situación cuando al sustituir 
+\begin_inset Formula $\sin x$
+\end_inset
+
+ por 
+\begin_inset Formula $\cos x\tan x$
+\end_inset
+
+ quedan solo potencias pares de 
+\begin_inset Formula $\cos x$
+\end_inset
+
+, y hacemos 
+\begin_inset Formula $\cos^{2}x=\frac{1}{1+\tan^{2}x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En el caso 
+\begin_inset Formula $f(x)=\cos^{n}x\sin^{m}x$
+\end_inset
+
+, si 
+\begin_inset Formula $n$
+\end_inset
+
+ es impar hacemos 
+\begin_inset Formula $t=\sin x$
+\end_inset
+
+, si 
+\begin_inset Formula $m$
+\end_inset
+
+ es impar, 
+\begin_inset Formula $t=\cos x$
+\end_inset
+
+, y si ambos son pares, usamos 
+\begin_inset Formula $\cos^{2}x=\frac{1+\cos(2x)}{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sin^{2}x=\frac{1-\cos(2x)}{2}$
+\end_inset
+
+ para 
+\begin_inset Quotes cld
+\end_inset
+
+reducir el grado
+\begin_inset Quotes crd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Funciones de la forma 
+\begin_inset Formula $f(e^{x})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hacemos el cambio 
+\begin_inset Formula $t=e^{x}$
+\end_inset
+
+ y 
+\begin_inset Formula $dt=e^{x}dx$
+\end_inset
+
+, y esto también sirve para el coseno y seno hiperbólicos (
+\begin_inset Formula $\cosh$
+\end_inset
+
+ y 
+\begin_inset Formula $\sinh$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Funciones que contienen 
+\begin_inset Formula $\sqrt{ax^{2}+2bx+c}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\begin_inset Formula $d:=\frac{ac-b^{2}}{a}$
+\end_inset
+
+ y se tiene 
+\begin_inset Formula $ax^{2}+2bx+c=a\left(x+\frac{b}{a}\right)^{2}+d$
+\end_inset
+
+.
+ Hacemos entonces el cambio de variable 
+\begin_inset Formula $t=x+\frac{b}{a}$
+\end_inset
+
+ y a continuación:
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a>0$
+\end_inset
+
+ y 
+\begin_inset Formula $d>0$
+\end_inset
+
+ hacemos 
+\begin_inset Formula $at^{2}=d\tan^{2}u$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $\sqrt{at^{2}+d}=\sqrt{d\tan^{2}u+d}=\sqrt{d}\sqrt{1+\tan^{2}u}=\sqrt{d}\sqrt{\sec^{2}u}=\sqrt{d}\sec u$
+\end_inset
+
+ y 
+\begin_inset Formula $dt=\sqrt{\frac{d}{a}}\sec^{2}u\,du$
+\end_inset
+
+.
+ También podemos hacer 
+\begin_inset Formula $at^{2}=d\sinh^{2}u$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $\sqrt{at^{2}+d}=\sqrt{d\sinh^{2}u+d}=\sqrt{d}\sqrt{\sinh^{2}u+1}=\sqrt{d}\cosh u$
+\end_inset
+
+ y 
+\begin_inset Formula $dt=\sqrt{\frac{d}{a}}\cosh u\,du$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $a>0$
+\end_inset
+
+ y 
+\begin_inset Formula $d<0$
+\end_inset
+
+ hacemos 
+\begin_inset Formula $at^{2}=-d\sec^{2}u$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $\sqrt{-d\sec^{2}u+d}=\sqrt{-d}\sqrt{\sec^{2}u+1}=\sqrt{-d}\tan u$
+\end_inset
+
+ y 
+\begin_inset Formula $dt=\sqrt{-\frac{d}{a}}\sec u\tan u\,du$
+\end_inset
+
+.
+ También podemos hacer 
+\begin_inset Formula $at^{2}=-d\cosh^{2}u$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $\sqrt{at^{2}+d}=\sqrt{-d\cosh^{2}u+d}=\sqrt{-d}\sqrt{\cosh^{2}u-1}=\sqrt{-d}\sinh u$
+\end_inset
+
+ y 
+\begin_inset Formula $dt=\sqrt{-\frac{d}{a}}\sinh u\,du$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a<0$
+\end_inset
+
+ y 
+\begin_inset Formula $d>0$
+\end_inset
+
+ hacemos 
+\begin_inset Formula $at^{2}=-d\sin^{2}u$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $\sqrt{at^{2}+d}=\sqrt{-d\sin^{2}u+d}=\sqrt{d}\sqrt{1-\sin^{2}u}=\sqrt{d}\cos u$
+\end_inset
+
+ y 
+\begin_inset Formula $dt=\sqrt{-\frac{d}{a}}\cos u\,du$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Aplicaciones
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $f,g:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ continuas, si 
+\begin_inset Formula $f(a)=g(a)$
+\end_inset
+
+, 
+\begin_inset Formula $f(b)=g(b)$
+\end_inset
+
+ y 
+\begin_inset Formula $f(x)\geq g(x)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+, se define el 
+\series bold
+área encerrada
+\series default
+ por las gráficas de 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ como 
+\begin_inset Formula $\int_{a}^{b}(f(x)-g(x))\,dx$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}\in{\cal C}^{1}[a,b]$
+\end_inset
+
+, la 
+\series bold
+longitud de la curva
+\series default
+ 
+\begin_inset Formula $C=\{(x,f(x))\}_{x\in[a,b]}$
+\end_inset
+
+ viene dada por 
+\begin_inset Formula $L=\int_{a}^{b}\sqrt{1+f'(x)^{2}}\,dx$
+\end_inset
+
+.
+ 
+\series bold
+Interpretación:
+\series default
+ Sea 
+\begin_inset Formula $\pi\equiv(a=x_{0}<\dots<x_{n}=b)\in{\cal P}([a,b])$
+\end_inset
+
+, sea 
+\begin_inset Formula $P_{i}=(x_{i},f(x_{i}))$
+\end_inset
+
+, una aproximación a la curva es
+\begin_inset Formula 
+\begin{multline*}
+\sum_{i=1}^{n}d(P_{i-1},P_{i})=\sum_{i=1}^{n}\sqrt{(f(x_{i})-f(x_{i-1}))^{2}+(x_{i}-x_{i-1})^{2}}=\\
+=\sum_{i=1}^{n}\sqrt{\left(\frac{f(x_{i})-f(x_{i-1})}{x_{i}-x_{i-1}}\right)^{2}+1}(x_{i}-x_{i-1})=\sum_{i=1}^{n}\sqrt{1+f'(\xi_{i})^{2}}(x_{i}-x_{i-1})
+\end{multline*}
+
+\end_inset
+
+ con 
+\begin_inset Formula $\xi_{i}\in(x_{i-1},x_{i})$
+\end_inset
+
+, que converge a 
+\begin_inset Formula $\int_{a}^{b}\sqrt{1+f'(x)^{2}}dx$
+\end_inset
+
+ cuando 
+\begin_inset Formula $\Vert\pi\Vert$
+\end_inset
+
+ tiende a 0.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+sólido de revolución
+\series default
+ al cuerpo obtenido al girar una función 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ alrededor del eje horizontal.
+ Su 
+\series bold
+volumen
+\series default
+ viene dado por 
+\begin_inset Formula $V=\pi\int_{a}^{b}f(x)^{2}\,dx$
+\end_inset
+
+, y su 
+\series bold
+área
+\series default
+ (lateral) por 
+\begin_inset Formula $A=2\pi\int_{a}^{b}f(x)\sqrt{1+f'(x)^{2}}\,dx$
+\end_inset
+
+.
+ 
+\series bold
+Interpretación:
+\series default
+ Sea 
+\begin_inset Formula $f$
+\end_inset
+
+ continua y positiva.
+ Para hallar el volumen tomamos 
+\begin_inset Formula $\pi\equiv(x_{0}<\dots<x_{n})\in{\cal P}([a,b])$
+\end_inset
+
+ y aproximamos el volumen por secciones cilíndricas con radio 
+\begin_inset Formula $f(x_{i})$
+\end_inset
+
+ y altura 
+\begin_inset Formula $x_{i}-x_{i-1}$
+\end_inset
+
+, con lo que su radio viene dado por 
+\begin_inset Formula $\pi f(x_{i})^{2}(x_{i}-x_{i-1})$
+\end_inset
+
+.
+ Sumando obtenemos 
+\begin_inset Formula $\sum_{i=1}^{n}\pi f(x_{i})^{2}(x_{i}-x_{i-1})$
+\end_inset
+
+, que converge a 
+\begin_inset Formula $\pi\int_{a}^{b}f(x)^{2}\,dx$
+\end_inset
+
+.
+ El área se obtiene con un razonamiento similar al usado para la longitud
+ de la curva.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+volumen
+\series default
+ del sólido resultante de girar alrededor del eje vertical la superficie
+ encerrada por las rectas 
+\begin_inset Formula $x=a$
+\end_inset
+
+, 
+\begin_inset Formula $x=b$
+\end_inset
+
+ e 
+\begin_inset Formula $y=f(x)$
+\end_inset
+
+ es 
+\begin_inset Formula $2\pi\int_{a}^{b}xf(x)\,dx$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Integrales impropias
+\end_layout
+
+\begin_layout Standard
+Una función 
+\begin_inset Formula $f:[a,b)\rightarrow\mathbb{R}$
+\end_inset
+
+ (
+\begin_inset Formula $b\leq+\infty$
+\end_inset
+
+) es 
+\series bold
+localmente integrable
+\series default
+ si 
+\begin_inset Formula $\forall u\in[a,b),f|_{[a,u]}\in{\cal R}[a,b]$
+\end_inset
+
+.
+ Si además existe 
+\begin_inset Formula $\lim_{u\rightarrow b^{-}}\int_{a}^{u}f(x)\,dx$
+\end_inset
+
+ diremos que la 
+\series bold
+integral impropia
+\series default
+ 
+\begin_inset Formula $\int_{a}^{b}f(x)\,dx$
+\end_inset
+
+ es convergente y su valor es este límite.
+ Análogamente, 
+\begin_inset Formula $f:(a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ (
+\begin_inset Formula $a\geq-\infty$
+\end_inset
+
+) es localmente integrable si 
+\begin_inset Formula $\forall u\in(a,b],f|_{[u,b]}\in{\cal R}[a,b]$
+\end_inset
+
+, y si además existe 
+\begin_inset Formula $\lim_{u\rightarrow a^{+}}\int_{u}^{b}f(x)\,dx$
+\end_inset
+
+ diremos que la integral impropia 
+\begin_inset Formula $\int_{a}^{b}f(x)\,dx$
+\end_inset
+
+ es convergente y su valor es este límite.
+ En ambos casos, si el límite es 
+\begin_inset Formula $+\infty$
+\end_inset
+
+ o 
+\begin_inset Formula $-\infty$
+\end_inset
+
+, diremos que la integral 
+\series bold
+diverge
+\series default
+, y si no existe el límite diremos que no existe la integral impropia.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, sea 
+\begin_inset Formula $f$
+\end_inset
+
+ localmente integrable en 
+\begin_inset Formula $[a,b)$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ es integrable en sentido impropio en 
+\begin_inset Formula $[a,b)$
+\end_inset
+
+ si y sólo si lo es en 
+\begin_inset Formula $[c,b)$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $\int_{a}^{b}f(x)\,dx=\int_{a}^{c}f(x)\,dx+\int_{c}^{b}f(x)\,dx$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $a<c<t<b$
+\end_inset
+
+, 
+\begin_inset Formula $\int_{a}^{t}f(x)\,dx=\int_{a}^{c}f(x)\,dx+\int_{c}^{t}f(x)\,dx$
+\end_inset
+
+, por lo que existe 
+\begin_inset Formula $\lim_{t\rightarrow b^{-}}\int_{a}^{t}f(x)\,dx$
+\end_inset
+
+ si y sólo si existe 
+\begin_inset Formula $\lim_{t\rightarrow b^{-}}\int_{c}^{t}f(x)\,dx$
+\end_inset
+
+, lo que demuestra el teorema.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f:(a,b)\rightarrow\mathbb{R}$
+\end_inset
+
+ (
+\begin_inset Formula $a\geq-\infty,b\leq+\infty$
+\end_inset
+
+) es integrable Riemann en cada subintervalo cerrado de 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+, diremos que la integral impropia 
+\begin_inset Formula $\int_{a}^{b}f(x)\,dx$
+\end_inset
+
+ es convergente si para un 
+\begin_inset Formula $c\in(a,b)$
+\end_inset
+
+ son convergentes 
+\begin_inset Formula $\int_{a}^{c}f(x)\,dx$
+\end_inset
+
+ y 
+\begin_inset Formula $\int_{c}^{b}f(x)\,dx$
+\end_inset
+
+, y definimos
+\begin_inset Formula 
+\[
+\int_{a}^{b}f(x)\,dx:=\int_{a}^{c}f(x)\,dx+\int_{c}^{b}f(x)\,dx
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El valor de esta integral no depende de 
+\begin_inset Formula $c$
+\end_inset
+
+.
+ La 
+\series bold
+condición de Cauchy
+\series default
+ afirma que, dada 
+\begin_inset Formula $f:[a,b)\rightarrow\mathbb{R}$
+\end_inset
+
+, existe 
+\begin_inset Formula $\lim_{x\rightarrow b^{-}}f(x)$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\forall\varepsilon>0,\exists b_{0}\in(a,b):\forall x_{1},x_{2}\in(b_{0},b):x_{1}<x_{2},|f(x_{1})-f(x_{2})|<\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+ y consecuencia de lo anterior, si 
+\begin_inset Formula $f$
+\end_inset
+
+ es localmente integrable en 
+\begin_inset Formula $[a,b)$
+\end_inset
+
+, la integral impropia 
+\begin_inset Formula $\int_{a}^{b}f(x)\,dx$
+\end_inset
+
+ es convergente si y sólo si 
+\begin_inset Formula $\forall\varepsilon>0,\exists b_{0}\in(a,b):\forall x_{1},x_{2}\in(b_{0},b):x_{1}<x_{2},\left|\int_{x_{1}}^{x_{2}}f(t)\,dt\right|<\varepsilon$
+\end_inset
+
+.
+ Más 
+\series bold
+teoremas
+\series default
+:
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ son integrables en sentido impropio en 
+\begin_inset Formula $[a,b)$
+\end_inset
+
+, dados 
+\begin_inset Formula $\lambda,\mu\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda f+\mu g$
+\end_inset
+
+ es integrable en sentido impropio con
+\begin_inset Formula 
+\[
+\int_{a}^{b}(\lambda f+\mu g)(t)\,dt=\lambda\int_{a}^{b}f(t)\,dt+\mu\int_{a}^{b}g(t)\,dt
+\]
+
+\end_inset
+
+Basta tomar límites cuando 
+\begin_inset Formula $x$
+\end_inset
+
+ tiende a 
+\begin_inset Formula $b$
+\end_inset
+
+ por la izquierda en la linealidad de integrales propias.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ son continuas en 
+\begin_inset Formula $[a,b)$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ es derivable con derivada continua, sea 
+\begin_inset Formula $F$
+\end_inset
+
+ una primitiva de 
+\begin_inset Formula $f$
+\end_inset
+
+, la siguiente igualdad se cumple si existen dos de los tres límites e integrale
+s impropias en ella:
+\begin_inset Formula 
+\[
+\int_{a}^{b}f(t)g(t)\,dt=\lim_{x\rightarrow b^{-}}F(x)g(x)-F(a)g(a)-\int_{a}^{b}F(t)g'(t)\,dt
+\]
+
+\end_inset
+
+Basta tomar límites en la identidad dada por la regla de integración por
+ partes.
+\end_layout
+
+\begin_layout Subsection
+Integrales no negativas
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $f$
+\end_inset
+
+ es localmente integrable en 
+\begin_inset Formula $[a,b)$
+\end_inset
+
+ y no negativa, 
+\begin_inset Formula $\int_{a}^{b}f(t)\,dt$
+\end_inset
+
+ converge si y sólo si 
+\begin_inset Formula $F(x)=\int_{a}^{x}f(t)\,dt$
+\end_inset
+
+ está acotada.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Como 
+\begin_inset Formula $f$
+\end_inset
+
+ es no negativa, 
+\begin_inset Formula $F$
+\end_inset
+
+ es creciente, y si no estuviese acotada sería 
+\begin_inset Formula $\lim_{x\rightarrow b^{-}}F(x)=+\infty$
+\end_inset
+
+ y la integral impropia divergería.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $F$
+\end_inset
+
+ está acotada existe 
+\begin_inset Formula $\lim_{x\rightarrow b^{-}}F(x)=\sup\{F(x)\}_{x\in[a,b)}$
+\end_inset
+
+, luego la integral impropia converge.
+\end_layout
+
+\begin_layout Standard
+Otro 
+\series bold
+teorema
+\series default
+ es que si 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ son localmente integrables en 
+\begin_inset Formula $[a,b)$
+\end_inset
+
+ y no negativas y existe 
+\begin_inset Formula $K\in\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $V$
+\end_inset
+
+ entorno de 
+\begin_inset Formula $b$
+\end_inset
+
+ tal que 
+\begin_inset Formula $x\in V\implies f(x)\leq Kg(x)$
+\end_inset
+
+, entonces si 
+\begin_inset Formula $\int_{a}^{b}g(t)\,dt$
+\end_inset
+
+ converge, también lo hace 
+\begin_inset Formula $\int_{a}^{b}f(t)\,dt$
+\end_inset
+
+, por lo que si 
+\begin_inset Formula $\int_{a}^{b}f(t)\,dt$
+\end_inset
+
+ diverge también lo hace 
+\begin_inset Formula $\int_{a}^{b}g(t)\,dt$
+\end_inset
+
+ (y divergir también).
+ 
+\series bold
+Demostración:
+\series default
+ La convergencia depende sólo del comportamiento de las funciones en un
+ entorno, y en este 
+\begin_inset Formula $\int_{a}^{x}f(t)\,dt\leq K\int_{a}^{x}g(t)\,dt$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+De aquí que si 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ son localmente integrables en 
+\begin_inset Formula $[a,b)$
+\end_inset
+
+ y no negativas con 
+\begin_inset Formula $A:=\lim_{x\rightarrow b^{-}}\frac{f(t)}{g(t)}$
+\end_inset
+
+, entonces:
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $A\neq0,\infty$
+\end_inset
+
+, ambas integrales tienen el mismo carácter.
+\begin_inset Newline newline
+\end_inset
+
+Dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ con 
+\begin_inset Formula $\varepsilon<A$
+\end_inset
+
+, existe 
+\begin_inset Formula $a_{\varepsilon}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $a_{\varepsilon}\leq x\leq b$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $\left|\frac{f(x)}{g(x)}-A\right|\leq\varepsilon$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $A-\varepsilon\leq\frac{f(x)}{g(x)}\leq A+\varepsilon$
+\end_inset
+
+, luego para 
+\begin_inset Formula $x\in[a_{\varepsilon},b)$
+\end_inset
+
+ tenemos 
+\begin_inset Formula $(A-\varepsilon)g(x)\leq f(x)\leq(A+\varepsilon)g(x)$
+\end_inset
+
+, y no hay más que aplicar el teorema anterior.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $A=0$
+\end_inset
+
+, la convergencia de 
+\begin_inset Formula $\int_{a}^{b}g(t)\,dt$
+\end_inset
+
+ implica la de 
+\begin_inset Formula $\int_{a}^{b}f(t)\,dt$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Como antes, obtenemos 
+\begin_inset Formula $f(x)\leq\varepsilon g(x)$
+\end_inset
+
+ y aplicamos el teorema anterior.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $A=\infty$
+\end_inset
+
+, la convergencia de 
+\begin_inset Formula $\int_{a}^{b}f(t)\,dt$
+\end_inset
+
+ implica la de 
+\begin_inset Formula $\int_{a}^{b}g(t)\,dt$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Otro 
+\series bold
+teorema
+\series default
+ es que si 
+\begin_inset Formula $f$
+\end_inset
+
+ es no negativa y localmente integrable en 
+\begin_inset Formula $(0,1]$
+\end_inset
+
+ y existe 
+\begin_inset Formula $\alpha<1$
+\end_inset
+
+ con 
+\begin_inset Formula $\lim_{t\rightarrow0^{+}}f(t)t^{\alpha}$
+\end_inset
+
+ finito, 
+\begin_inset Formula $\int_{0}^{1}f(t)\,dt$
+\end_inset
+
+ es convergente, mientras que si existe 
+\begin_inset Formula $\alpha\geq1$
+\end_inset
+
+ con 
+\begin_inset Formula $\lim_{t\rightarrow0^{+}}f(t)t^{\alpha}$
+\end_inset
+
+ no nulo, la integral diverge.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $\lim_{t\rightarrow0^{+}}f(t)t^{\alpha}=\lim_{t\rightarrow0^{+}}\frac{f(t)}{\left(\frac{1}{t^{\alpha}}\right)}$
+\end_inset
+
+, y si 
+\begin_inset Formula $\alpha<1$
+\end_inset
+
+, la integral 
+\begin_inset Formula $\int_{0}^{1}\frac{dt}{t^{\alpha}}$
+\end_inset
+
+ es convergente y, por lo anterior, 
+\begin_inset Formula $\int_{0}^{1}f(t)\,dt$
+\end_inset
+
+ también.
+ De que 
+\begin_inset Formula $\int_{0}^{1}\frac{dt}{t^{\alpha}}$
+\end_inset
+
+ diverge si 
+\begin_inset Formula $t\geq1$
+\end_inset
+
+ se desprende la última afirmación.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $f$
+\end_inset
+
+ es no negativa y localmente integrable en 
+\begin_inset Formula $[a,+\infty)$
+\end_inset
+
+, si existe 
+\begin_inset Formula $\alpha>1$
+\end_inset
+
+ con 
+\begin_inset Formula $\lim_{t\rightarrow\infty}f(t)t^{\alpha}$
+\end_inset
+
+ finito, 
+\begin_inset Formula $\int_{a}^{\infty}f(t)\,dt$
+\end_inset
+
+ converge, mientras que si existe 
+\begin_inset Formula $\alpha\leq1$
+\end_inset
+
+ con 
+\begin_inset Formula $\lim_{t\rightarrow\infty}f(t)t^{\alpha}$
+\end_inset
+
+ no nulo, la integral diverge.
+\end_layout
+
+\begin_layout Subsection
+Convergencia absoluta
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f$
+\end_inset
+
+ localmente integrable en 
+\begin_inset Formula $[a,b)$
+\end_inset
+
+, decimos que la integral impropia de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $[a,b)$
+\end_inset
+
+ es 
+\series bold
+absolutamente convergente
+\series default
+ si 
+\begin_inset Formula $\int_{a}^{b}|f(t)|\,dt$
+\end_inset
+
+ es convergente.
+ La convergencia absoluta implica la convergencia.
+ 
+\series bold
+Demostración:
+\series default
+ Por el criterio de convergencia de Cauchy aplicado a 
+\begin_inset Formula $|f(t)|$
+\end_inset
+
+, dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe 
+\begin_inset Formula $b_{0}\in(a,b)$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $b_{0}<x_{1}<x_{2}<b$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\int_{x_{1}}^{x_{2}}|f(t)|\,dt<\varepsilon$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\left|\int_{x_{1}}^{x_{2}}f(t)\,dt\right|<\varepsilon$
+\end_inset
+
+, lo que implica que 
+\begin_inset Formula $\int_{a}^{b}f(t)\,dt$
+\end_inset
+
+ es convergente.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ son funciones continuas en 
+\begin_inset Formula $[a,b)$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ tiene derivada continua, si 
+\begin_inset Formula $F(x):=\int_{a}^{x}f(t)\,dt$
+\end_inset
+
+ está acotada superiormente por 
+\begin_inset Formula $K$
+\end_inset
+
+, 
+\begin_inset Formula $\int_{a}^{x}|g'(t)|\,dt$
+\end_inset
+
+ está acotada superiormente por 
+\begin_inset Formula $k$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{t\rightarrow b^{-}}g(t)=0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\int_{a}^{b}f(t)g(t)\,dt$
+\end_inset
+
+ es convergente.
+ 
+\series bold
+Demostración:
+\series default
+ Basta probar la existencia de 
+\begin_inset Formula $\lim_{x\rightarrow b^{-}}F(x)g(x)$
+\end_inset
+
+ y de 
+\begin_inset Formula $\lim_{x\rightarrow b^{-}}\int_{a}^{x}F(t)g'(t)\,dt$
+\end_inset
+
+.
+ Las condiciones 
+\begin_inset Formula $F(x)\leq K$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{t\rightarrow b^{-}}g(t)=0$
+\end_inset
+
+ aseguran que el primer límite es 0, y las dos primeras (
+\begin_inset Formula $F(x)\leq K$
+\end_inset
+
+ y 
+\begin_inset Formula $\int_{a}^{x}|g'(t)|dt\leq k$
+\end_inset
+
+) implican que 
+\begin_inset Formula $\int_{a}^{x}F(t)g'(t)\,dt$
+\end_inset
+
+ es absolutamente convergente, pues 
+\begin_inset Formula 
+\[
+\int_{a}^{x}|F(t)||g'(t)|\,dt\leq Kk
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+criterio de Dirichlet
+\series default
+ afirma que si 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ son continuas en 
+\begin_inset Formula $[a,b)$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ tiene derivada continua, si existe 
+\begin_inset Formula $K\in\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $\left|\int_{a}^{x}f(t)\,dt\right|\leq K$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ es monótona decreciente con 
+\begin_inset Formula $\lim_{t\rightarrow b^{-}}g(t)=0$
+\end_inset
+
+, la integral impropia 
+\begin_inset Formula $\int_{a}^{b}f(t)g(t)\,dt$
+\end_inset
+
+ es convergente.
+ 
+\series bold
+Demostración:
+\series default
+ Como 
+\begin_inset Formula $g$
+\end_inset
+
+ es decreciente, 
+\begin_inset Formula $g'(t)\leq0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\int_{a}^{x}|g'(t)|\,dt=-\int_{a}^{x}g'(t)\,dt=g(a)-g(x)\overset{g(x)\geq0}{\leq}g(a)$
+\end_inset
+
+, y se tienen entonces todas las condiciones del teorema anterior.
+\end_layout
+
+\end_body
+\end_document
