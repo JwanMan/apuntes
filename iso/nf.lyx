@@ -1,0 +1,2949 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+El 
+\emph on
+firmware
+\end_layout
+
+\begin_layout Standard
+Cuando se pulsa el botón de encendido, se generan señales eléctricas que
+ hacen que en los registros del procesador y de otros componentes se carguen
+ valores predeterminados.
+ En el procesador, el contador de programa se carga con la dirección del
+ 
+\series bold
+\emph on
+firmware
+\series default
+\emph default
+, un trozo de código almacenado normalmente en memoria no volátil de lectura
+ y escritura (EEPROM, flash, etc.) que se encarga, entre otras cosas, de
+ preparar el hardware.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+También suelen ocurrir más cosas, como un 
+\emph on
+Baseboard Management Controller
+\emph default
+ (BMC) o un 
+\emph on
+Intel Management Engine
+\emph default
+ (IME).
+ Este último componente se encarga (v.
+ CVE-2017-5689 y otros) de que la NSA (que lo tiene desactivado por petición
+ especial) y otros puedan espiarte.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los principales tipos de 
+\emph on
+firmware
+\emph default
+ son BIOS, que suele aparecer en ordenadores anteriores a 2010, y UEFI,
+ que aparece en los más recientes
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Y lo jode todo.
+\end_layout
+
+\end_inset
+
+.
+ Este busca en los dispositivos de almacenamiento un 
+\series bold
+cargador
+\series default
+ o 
+\series bold
+gestor de arranque
+\series default
+.
+ Si no lo encuentra, muestra un error.
+ Si lo encuentra, lo copia en memoria y lo ejecuta, y este pasa a leer de
+ disco el sistema operativo y, posiblemente, otros componentes necesarios
+ para que este arranque, para finalmente pasarle el control.
+\end_layout
+
+\begin_layout Standard
+En los sistemas BIOS, el 
+\emph on
+firmware
+\emph default
+ detecta los dispositivos de almacenamiento y toma el primero según una
+ secuencia de arranque dada, copia su sector 0 (el MBR) a disco y pasa el
+ control a lo que acaba de leer.
+ Si este no tiene código de arranque, toma elfich
+\end_layout
+
+\begin_layout Standard
+En los UEFI se usa particionamiento GPT, y la 
+\series bold
+partición del sistema de UEFI
+\series default
+, que en Linux suele montarse en 
+\family typewriter
+/boot/efi
+\family default
+ y que contiene un sistema de ficheros FAT y GUID 
+\family typewriter
+C12A7328-F81F-11D2-BA4B-00A0C93EC93B
+\family default
+, contiene directorios por cada sistema operativo con todo lo necesario
+ para la puesta en marcha: Windows usa 
+\family typewriter
+/EFI/Microsoft
+\family default
+ y Fedora usa 
+\family typewriter
+/EFI/fedora
+\family default
+.
+ También suele haber un 
+\series bold
+módulo de soporte de compatibilidad
+\series default
+ (
+\emph on
+Compatibility Support Module
+\emph default
+, CSM), que simula un entorno BIOS para poder arrancar sistemas operativos
+ sin soporte UEFI.
+ El 
+\emph on
+firmware
+\emph default
+ almacena una entrada apuntando a cada fichero de arranque.
+ El 
+\emph on
+firmware
+\emph default
+ busca en cada sistema de almacenamiento disponible con partición del sistema
+ UEFI, en orden configurable, un gestor de arranque funcional, de entre
+ los dados por una lista ordenada.
+\end_layout
+
+\begin_layout Standard
+En 2011, con la versión 2.3.1 de la especificación UEFI aparece 
+\emph on
+Secure Boot
+\emph default
+, que sólo permite arrancar a software firmado con una clave reconocida
+ por el 
+\emph on
+firmware
+\emph default
+.
+ En los equipos certificados para Windows 8, las claves son proporcionadas
+ por Microsoft y no son públicas.
+ Dos opciones son desactivar 
+\emph on
+Secure Boot
+\emph default
+ en la configuración o usar un cargador firmado con una clave de Microsoft.
+\end_layout
+
+\begin_layout Section
+GRUB 2
+\end_layout
+
+\begin_layout Standard
+El 
+\emph on
+GRand Unified Bootloader
+\emph default
+ versión 2 es un gestor de arranque que normalmente se usa para cargar el
+ núcleo de Linux, si bien puede cargar otros sistemas operativos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+En BIOS, consta de 3 fases dadas por 
+\series bold
+imágenes
+\series default
+, que en Fedora se almacenan en 
+\family typewriter
+/usr/lib/grub/i386-pc
+\family default
+ y en 
+\family typewriter
+/boot/grub2/i386-pc
+\family default
+.
+ Algunas son:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+boot.img
+\family default
+\series default
+ Se escribe en el MBR, ocupa 
+\begin_inset Formula $\unit[512]{B}$
+\end_inset
+
+ y se encarga de cargar y ejecutar la segunda fase.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+diskboot.img
+\family default
+\series default
+ Segunda fase y primer sector de la imagen 
+\emph on
+core
+\emph default
+, se encarga de cargar y ejecutar el resto de la imagen 
+\emph on
+core
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+cdboot.img
+\family default
+\series default
+ Como 
+\family typewriter
+diskboot.img
+\family default
+ pero para CD/DVD.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+kernel.img
+\family default
+\series default
+ Contiene utilidades en tiempo de ejecución básicas de GRUB 2, y en general
+ se integra en la imagen 
+\emph on
+core
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+core.img
+\family default
+\series default
+ Imagen principal, construida dinámicamente a partir de 
+\family typewriter
+diskboot.img
+\family default
+/
+\family typewriter
+cdboot.img
+\family default
+, 
+\family typewriter
+kernel.img
+\family default
+ y una lista de módulos.
+ Normalmente contiene módulos suficientes para acceder a la configuración
+ y el resto de módulos (ficheros 
+\family typewriter
+.mod
+\family default
+) en el sistema de ficheros.
+\end_layout
+
+\begin_layout Standard
+Las imágenes 
+\family typewriter
+*boot.img
+\family default
+ no entienden ningún sistema de ficheros, por lo que las dos últimas fases
+ se copian a la zona del disco detrás del MBR y antes de la primera partición,
+ y se almacena el sector de comienzo de cada imagen y su tamaño.
+\end_layout
+
+\begin_layout Standard
+En UEFI, el código de GRUB 2 se encuentra en 
+\family typewriter
+grubx64.efi
+\family default
+, con formato Windows PE, y generalmente contiene todo lo necesario, si
+ bien sigue siendo posible cargar módulos dinámicamente.
+ Fedora usa el fichero 
+\family typewriter
+sham.efi
+\family default
+, firmado por Microsoft, que se encarga de instalar una clave propia y ejecutar
+ GRUB 2, que, al igual que el núcleo de Linux, estará firmado por esta clave.
+\end_layout
+
+\begin_layout Standard
+GRUB 2 tiene 3 interfaces:
+\end_layout
+
+\begin_layout Itemize
+Menú: Permite elegir el sistema operativo entre varias opciones.
+\end_layout
+
+\begin_layout Itemize
+Editor: Permite editar una entrada de menú, y se accede seleccionando la
+ entrada y pulsando 
+\family typewriter
+e
+\family default
+.
+ Podemos usar 
+\family typewriter
+F10
+\family default
+ para arrancar con los cambios o 
+\family typewriter
+Esc
+\family default
+ para descartarlos y volver al menú.
+\end_layout
+
+\begin_layout Itemize
+Línea de órdenes: Permite ejecutar órdenes de GRUB 2, y se accede pulsando
+ 
+\family typewriter
+c
+\family default
+ desde el menú o 
+\family typewriter
+F2
+\family default
+ desde el editor.
+\end_layout
+
+\begin_layout Standard
+Los dispositivos se identifican como
+\end_layout
+
+\begin_layout Quotation
+{
+\family typewriter
+\emph on
+tipo de dispositivo
+\family default
+\emph default
+}{
+\family typewriter
+\emph on
+número de dispositivo BIOS
+\family default
+}
+\family typewriter
+\emph default
+,
+\family default
+[
+\family typewriter
+\emph on
+particionamiento
+\family default
+\emph default
+]
+\begin_inset Newline newline
+\end_inset
+
+{
+\family typewriter
+\emph on
+número de partición
+\family default
+\emph default
+}
+\end_layout
+
+\begin_layout Standard
+Los números de dispositivo empiezan por 0 y los de partición por 1, y los
+ discos duros se denotan 
+\family typewriter
+hd
+\family default
+.
+ Por ejemplo, 
+\family typewriter
+hd0,1
+\family default
+ es la primera partición del primer disco duro, y escribimos 
+\family typewriter
+hd0,msdos1
+\family default
+ si queremos indicar además que el tipo de particiones es MS-DOS.
+ También podemos especificar un fichero como 
+\family typewriter
+\emph on
+dispositivo
+\emph default
+/
+\emph on
+ruta
+\family default
+\emph default
+, donde la 
+\family typewriter
+\emph on
+ruta
+\family default
+\emph default
+ parte de la raíz del 
+\family typewriter
+\emph on
+dispositivo
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Fedora almacena la configuración de GRUB 2 en 
+\family typewriter
+/boot/grub2/grub.cfg
+\family default
+.
+ Esta se genera a partir de ficheros en 
+\family typewriter
+/etc/grub.d
+\family default
+, que se ejecutan en orden alfabético si tienen permisos de ejecución, y
+ en Fedora son:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+00_header
+\family default
+\series default
+ Configura el modo gráfico, la entrada por defecto, la pausa antes de arrancar
+ esta, etc., configuración que normalmente procede de 
+\family typewriter
+/etc/default/grub
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+10_linux
+\family default
+\series default
+ Identifica los núcleos de Linux instalados en el dispositivo de arranque
+ (normalmente montado en 
+\family typewriter
+/boot
+\family default
+) y les crea entradas.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+30_os-prober
+\family default
+\series default
+ Usa 
+\family typewriter
+os-probler
+\family default
+ para buscar e instalar otras distribuciones de Linux y otros sistemas operativo
+s, y se puede deshabilitar en 
+\family typewriter
+/etc/default/grub
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+40_custom
+\family default
+\series default
+ Se usa para añadir entradas personalizadas, pues su segunda línea es 
+\family typewriter
+exec tail -n +3 $0
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Los ejecutables, normalmente guiones 
+\emph on
+shell
+\emph default
+, imprimen su trozo de configuración en la salida estándar, y 
+\family typewriter
+grub2-mkconfig
+\family default
+ añade 
+\family typewriter
+### BEGIN 
+\emph on
+ruta
+\emph default
+ ###
+\family default
+ antes de la salida del guión con la 
+\family typewriter
+\emph on
+ruta
+\family default
+\emph default
+ dada y 
+\family typewriter
+### END 
+\emph on
+ruta
+\emph default
+ ###
+\family default
+ al final.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+/etc/default/grub
+\family default
+ especifica opciones, en formato 
+\family typewriter
+\emph on
+CLAVE
+\emph default
+=
+\emph on
+valor
+\family default
+\emph default
+, que establecen cómo estos guiones generan las entradas de menú:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+GRUB_DEFAULT
+\family default
+\series default
+ Fija la entrada por defecto: un número (empezando por 0), el nombre de
+ la entrada entre comillas o 
+\family typewriter
+saved
+\family default
+, que permite que 
+\family typewriter
+grub2-set-default
+\family default
+ y 
+\family typewriter
+grub2-reboot
+\family default
+ establezcan la entrada por defecto.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+GRUB_SAVEDEFAULT
+\family default
+\series default
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Si está definida y vale 
+\family typewriter
+true
+\family default
+, cada vez que se seleccione una entrada del menú, se convierte en la entrada
+ por defecto.
+ Para que funcione debe ser 
+\family typewriter
+GRUB_DEFAULT=saved
+\family default
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+GRUB_TIMEOUT
+\family default
+\series default
+ Plazo en segundos para seleccionar una entrada de menú antes de arrancar
+ la entrada por defecto.
+ Si vale 
+\family typewriter
+-1
+\family default
+, el plazo nunca expira.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+GRUB_CMDLINE_LINUX
+\family default
+\series default
+ El contenido de esta opción se añade al final de los parámetros del núcleo
+ de Linux.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+GRUB_DISABLE_RECOVERY
+\family default
+\series default
+ Si vale 
+\family typewriter
+true
+\family default
+, evita que, para cada núcleo de Linux instalado, aparezca una segunda entrada
+ en la que al núcleo se le pasan parámetros para una posible recuperación
+ del sistema.
+\end_layout
+
+\begin_layout Standard
+En 
+\family typewriter
+grub.cfg
+\family default
+, las entradas tienen la forma 
+\family typewriter
+menuentry '
+\emph on
+Nombre
+\emph default
+' [
+\emph on
+OPCIÓN
+\emph default
+]...
+ { 
+\emph on
+COMANDO
+\emph default
+...
+ }
+\family default
+, donde algunas opciones son:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+--class
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+clase
+\family default
+\emph default
+ Permite agrupar las entradas en clases.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+--unrestricted
+\family default
+\series default
+ Cuando la seguridad está activada, esta opción se puede arrancar sin restriccio
+nes.
+\end_layout
+
+\begin_layout Standard
+Los comandos se separan por saltos de línea:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+insmod
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+módulo
+\family default
+\emph default
+ Carga un módulo de GRUB 2, para ampliar su seguridad.
+ Algunos son 
+\family typewriter
+gzio
+\family default
+ (para descomprimir 
+\family typewriter
+gzip
+\family default
+), 
+\family typewriter
+part_msdos
+\family default
+ (para acceder a particiones MS-DOS), 
+\family typewriter
+ext2
+\family default
+ (para leer sistemas de ficheros ext2/3/4), 
+\family typewriter
+chain
+\family default
+ (para cargar otros gestores de arranque, 
+\emph on
+Chain-loading
+\emph default
+), 
+\family typewriter
+ntfs
+\family default
+ y otros para entender XFS, FAT, etc.
+ Si GRUB 2 puede acceder al fichero de configuración, muy probablemente
+ ya tenga cargados 
+\family typewriter
+part_msdos
+\family default
+ y 
+\family typewriter
+ext2
+\family default
+, necesarios para acceder al fichero.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+set
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+nombre
+\emph default
+='
+\emph on
+valor
+\emph default
+'
+\family default
+ Establece una opción.
+ La opción 
+\family typewriter
+root
+\family default
+ indica la partición con los ficheros de arranque: el núcleo de Linux (
+\family typewriter
+vmlinuz
+\family default
+) y su disco RAM (
+\family typewriter
+initramfs
+\family default
+).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+search
+\begin_inset space ~
+\end_inset
+
+--no-floppy
+\begin_inset space ~
+\end_inset
+
+--fs-uuid
+\begin_inset space ~
+\end_inset
+
+--set=root
+\series default
+
+\begin_inset space ~
+\end_inset
+
+...
+
+\family default
+ Busca en todos los discos, salvo disquetes, una partición con un sistema
+ de ficheros con cierto UUID, y si la encuentra la establece como de arranque.
+ Se usa ante posible fallo de la anterior, pues la partición de arranque
+ puede cambiar de nombre, por ejemplo, si se inserta un nuevo disco.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+linux
+\series default
+,
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+linux16
+\series default
+,
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+linuxefi
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+RUTA
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+[
+\emph on
+OPCIÓN
+\emph default
+]...
+
+\family default
+ Indica la ruta del núcleo de Linux en la partición 
+\family typewriter
+root
+\family default
+ y las opciones que se le pasarán para el arranque.
+ Por ejemplo, 
+\family typewriter
+mem=
+\emph on
+N
+\family default
+\emph default
+ indica al núcleo que sólo ha de usar cierta cantidad de RAM, donde 
+\family typewriter
+\emph on
+N
+\family default
+\emph default
+ puede tener prefijos como 
+\family typewriter
+G
+\family default
+ para GiB.
+ Otros parámetros son para el proceso de inicio (el primero en ejecutarse),
+ que los recibe a través del núcleo.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+initrd
+\series default
+,
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+initrd16
+\series default
+,
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+initrdefi
+\family default
+\series default
+ Indica la ruta del disco RAM de Linux en la partición 
+\family typewriter
+root
+\family default
+, un disco que se carga en RAM y que Linux monta tras inicializarse a sí
+ mismo, y es de donde obtiene lo necesario para montar el sistema de ficheros
+ raíz.
+ Una vez este se monta, el disco RAM no es necesario y se elimina.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+chainloader
+\begin_inset space ~
+\end_inset
+
++1
+\family default
+\series default
+ Carga y ejecuta el primer sector de una partición; usado normalmente para
+ cargar Windows, el cual no reconoce otros sistemas operativos instalados
+ y al ins
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ta
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+lar
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+se en sistemas BIOS, modificará el MBR con su propio gestor de arranque
+ que no da opción a arrancar Linux.
+\end_layout
+
+\begin_layout Standard
+La seguridad de GRUB 2 se activa con 
+\family typewriter
+grub2-setpassword
+\family default
+, que pide una contraseña y hace que, a partir del siguiente arranque, para
+ modificar una entrada sea necesario introducir el nombre de usuario 
+\family typewriter
+root
+\family default
+ y la contraseña dada.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+grub2-install 
+\emph on
+DISPOSITIVO
+\end_layout
+
+\begin_layout Standard
+Instala GRUB en un dispositivo.
+ Esto incluye copiar las imágenes de GRUB en el directorio destino (en Fedora,
+ 
+\family typewriter
+/boot/grub2
+\family default
+) e instalar GRUB en un sector de arranque.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+grub2-mkconfig
+\end_layout
+
+\begin_layout Standard
+Genera un fichero de configuración de GRUB.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-o
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+FICHERO
+\family default
+\emph default
+ Escribe la salida generada al 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+grub2-set-default 
+\emph on
+ENTRADA
+\end_layout
+
+\begin_layout Standard
+Establece la entrada por defecto del menú de GRUB.
+ Sólo funciona para ficheros de con
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+fi
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+gu
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ra
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ción de GRUB creados con 
+\family typewriter
+GRUB_DEFAULT=saved
+\family default
+ en 
+\family typewriter
+/etc/default/grub
+\family default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+grub2-reboot 
+\emph on
+ENTRADA
+\end_layout
+
+\begin_layout Standard
+Como 
+\family typewriter
+grub2-set-default
+\family default
+, pero sólo para el siguiente arranque.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+grub2-setpassword
+\end_layout
+
+\begin_layout Standard
+Genera el fichero con la contraseña cifrada de GRUB.
+\end_layout
+
+\begin_layout Section
+Parámetros del núcleo de Linux
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+kernel-command-line
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+root=
+\family default
+\series default
+ Sistema de ficheros raíz.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+dracut.cmdline
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+init=
+\family default
+\series default
+ Ruta del programa de inicio a ejecutar tras terminar con el disco RAM.
+\end_layout
+
+\begin_layout Section
+Arranque de Linux
+\end_layout
+
+\begin_layout Standard
+En Fedora y otras muchas distribuciones, el arranque y parada lo realiza
+ 
+\family typewriter
+systemd
+\family default
+, el primer proceso en modo usuario tras terminar con el disco RAM, y que
+ tiene PID 1.
+\end_layout
+
+\begin_layout Standard
+Reemplaza al demonio 
+\family typewriter
+init
+\family default
+ de los sistemas UNIX System V, que se basaba en guiones 
+\emph on
+shell
+\emph default
+, y aprovecha muchas características de Linux como 
+\emph on
+cgroups
+\emph default
+, 
+\emph on
+namespaces
+\emph default
+, etc.
+ Fedora 15 fue una de las primeras distribuciones en usar 
+\family typewriter
+systemd
+\family default
+, que por entonces convivía con un gran número de guiones de System V.
+ Ventajas de 
+\family typewriter
+systemd
+\family default
+:
+\end_layout
+
+\begin_layout Itemize
+El arranque y parada pasa a ser en paralelo, aprovechando los sistemas multinúcl
+eo.
+\end_layout
+
+\begin_layout Itemize
+La mayoría de dependencias pasan a establecerse automáticamente.
+\end_layout
+
+\begin_layout Itemize
+Los 
+\emph on
+cgroups
+\emph default
+ (
+\emph on
+control groups
+\emph default
+, grupos de control) permiten limitar, contabilizar y aislar el uso de recursos
+ por parte de un grupo de procesos.
+ Como un proceso hijo pertenece obligatoriamente al mismo 
+\emph on
+cgroup
+\emph default
+ que su proceso padre (salvo procesos privilegiados), es posible usar esto
+ para asegurarse de que los servicios realmente terminan.
+\end_layout
+
+\begin_layout Itemize
+Permite ejecutar servicios bajo demanda (cuando se necesiten), si bien algunos
+ servicios están activos siempre para dar una respuesta rápida.
+\end_layout
+
+\begin_layout Itemize
+Permite montar sistemas de ficheros solo cuando se necesitan, comprobar
+ su consistencia y activar sus cuotas de disco.
+ Para ello usa 
+\family typewriter
+autofs
+\family default
+, que permite montar sistemas de ficheros bajo demanda (por ejemplo, al
+ acceder a un CD, DVD, 
+\emph on
+pendrive
+\emph default
+ o sistema de ficheros remoto) y desmontarlo si lleva un tiempo sin usarse.
+ Se debe añadir 
+\family typewriter
+x-systemd.automount
+\family default
+ en las opciones de 
+\family typewriter
+/etc/fstab
+\family default
+ (y generalmente también 
+\family typewriter
+noauto
+\family default
+) para activar esta opción.
+\end_layout
+
+\begin_layout Standard
+Para más información, ver 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http:// 0pointer.de/blog/projects/systemd.html
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+systemd
+\end_layout
+
+\begin_layout Standard
+Proporciona un sistema de dependencias entre 
+\series bold
+unidades
+\series default
+ de 11 tipos:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Unidades de servicio
+\series default
+ (
+\emph on
+service
+\emph default
+), que comienzan y controlan los demonios y procesos de los que consisten.
+ 
+\family typewriter
+cups.service
+\family default
+ controla el demonio de impresión, y 
+\family typewriter
+avahi.service
+\family default
+ permite el acceso a ciertos servicios de red.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Unidades de objetivo
+\series default
+ o 
+\series bold
+destino
+\series default
+ (
+\emph on
+target
+\emph default
+): Para agrupar unidades, o proveer puntos de sincronización durante el
+ arranque y parada, incluyendo el estado final.
+ Cuando se llega a 
+\family typewriter
+graphical.target
+\family default
+, el objetivo por defecto en Fedora, el sistema queda en modo multiusuario
+ con entorno gráfico.
+\end_layout
+
+\begin_layout Standard
+La mayoría de dependencias las crea y mantiene 
+\family typewriter
+systemd
+\family default
+ automáticamente.
+\end_layout
+
+\begin_layout Subsubsection*
+LÍNEA DE COMANDO DEL NÚCLEO
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+systemd.unit=
+\series default
+\emph on
+UNIDAD
+\family default
+\emph default
+ Para arrancar a una unidad distinta.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+systemd.unit
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+/etc/systemd/system/*
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+/lib/systemd/system/*
+\end_layout
+
+\begin_layout Standard
+Esta página lista las opciones de configuración comunes a todos los tipos
+ de unidades.
+\end_layout
+
+\begin_layout Subsubsection*
+OPCIONES DE SECCIÓN 
+\family typewriter
+[UNIT]
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+Requires=
+\family default
+\series default
+ Si esta unidad se activa, las unidades listadas aquí se activarán también.
+ Si una de las otras falla, y hay una dependencia de orden 
+\family typewriter
+After=
+\family default
+ en la unidad fallida, esta unidad no se iniciará.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+Wants=
+\family default
+\series default
+ Las unidades listadas en esta opción se iniciarán si se inicia esta.
+ Su inverso es 
+\family typewriter
+\series bold
+WantedBy=
+\family default
+\series default
+.
+ Si una unidad 
+\family typewriter
+foo
+\family default
+ contiene una opción 
+\family typewriter
+WantedBy=bar
+\family default
+, activar 
+\family typewriter
+foo
+\family default
+ creará un enlace simbólico en el directorio 
+\family typewriter
+bar.wants
+\family default
+ para expresar esta dependencia.
+ Si contiene 
+\family typewriter
+Wants=bar
+\family default
+, el enlace se crea en 
+\family typewriter
+foo.wants
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+Conflicts=
+\family default
+\series default
+ Configura dependencias negativas.
+ Si una unidad tiene 
+\family typewriter
+Conflicts=
+\family default
+ sobre otra, empezar la primera detendrá la segunda y viceversa.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+Before=
+\series default
+,
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+After=
+\family default
+\series default
+ Si una unidad 
+\family typewriter
+foo
+\family default
+ contiene una opción 
+\family typewriter
+Before=bar
+\family default
+ y ambas se inician, el inicio de 
+\family typewriter
+bar
+\family default
+ esperará a que 
+\family typewriter
+foo
+\family default
+ haya terminado de iniciarse.
+ 
+\family typewriter
+After=
+\family default
+ es el inverso de 
+\family typewriter
+Before=
+\family default
+.
+\end_layout
+
+\begin_layout Subsubsection*
+OPCIONES DE SECCIÓN 
+\family typewriter
+[INSTALL]
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+WantedBy=
+\family default
+\series default
+ Se crea un enlace simbólico en el directorio 
+\family typewriter
+.wants/
+\family default
+ de cada unidad listada.
+ Esto crea una dependencia de tipo 
+\family typewriter
+Wants=
+\family default
+ de la unidad listada a la actual.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+systemd.service
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Unidad de servicio.
+ Las siguientes dependencias se añaden salvo que se establezca 
+\family typewriter
+\series bold
+DefaultDependencies=no
+\family default
+\series default
+:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Dependencia de tipo 
+\family typewriter
+After=
+\family default
+ con 
+\family typewriter
+basic.target
+\family default
+, así como de tipo 
+\family typewriter
+Conflicts=
+\family default
+ y 
+\family typewriter
+Before=
+\family default
+ con 
+\family typewriter
+shutdown.target
+\family default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+systemd.special
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+default.target
+\family default
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+El que se inicia en el arranque.
+ Normalmente un enlace simbólico a 
+\family typewriter
+multi-user.target
+\family default
+ o 
+\family typewriter
+graphical.target
+\family default
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+emergency.target
+\family default
+ Inicia una 
+\emph on
+shell
+\emph default
+ de emergencia.
+ No toma ningún servicio o punto de montaje (
+\family typewriter
+/
+\family default
+ está en sólo lectura).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+graphical.target
+\family default
+ Inicio de sesión gráfico.
+ Toma 
+\family typewriter
+multi-user.target
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+multi-user.target
+\family default
+ Establece un sistema multiusuario (no gráfico).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+poweroff.target
+\family default
+ Apaga el sistema.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+reboot.target
+\family default
+ Reinicia el sistema.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+rescue.target
+\family default
+ Toma el sistema base (incluyendo puntos de montaje) y lanza una 
+\emph on
+shell
+\emph default
+ de rescate.
+ Para administrar el sistema en modo de un usuario sin servicios en ejecución,
+ salvo los más básicos (tampoco la conexión de red).
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+systemd-analyze
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+systemd-analyze critical-chain
+\family default
+\series default
+ imprime un árbol de la cadena de unidades con tiempo crítico.
+ El tiempo tras el cual la unidad está activa se imprime tras el caracter
+ 
+\begin_inset Quotes fld
+\end_inset
+
+
+\family typewriter
+@
+\family default
+
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+systemd-analyze plot
+\family default
+\series default
+ imprime un gráfico SVG con detalles de qué servicios se han i
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ni
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+cia
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+do en qué tiempo.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+systemctl [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+COMANDO
+\emph default
+] [
+\emph on
+UNIDAD
+\emph default
+]...
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-t
+\series default
+,
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+--type=
+\series default
+\emph on
+TIPO
+\family default
+\emph default
+ Al listar las unidades, limitarse a ciertos tipos de unidad.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-p
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+Propiedad
+\family default
+\emph default
+ Al mostrar las propiedades de una unidad con 
+\family typewriter
+\series bold
+show
+\family default
+\series default
+, limitarse a la indicada.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+--kill-who=
+\series default
+\emph on
+PROCESO
+\family default
+\emph default
+ Al usarse con 
+\family typewriter
+\series bold
+kill
+\family default
+\series default
+, elige a qué procesos enviar una señal.
+ 
+\family typewriter
+\series bold
+main
+\family default
+\series default
+ la envía sólo al proceso principal.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-s
+\family default
+\series default
+ Al usarse con 
+\family typewriter
+\series bold
+kill
+\family default
+\series default
+, elige la señal a enviar a los procesos.
+ Por defecto es 
+\family typewriter
+\series bold
+SIGTERM
+\family default
+\series default
+, que avisa a los procesos de que deben terminar.
+ 
+\family typewriter
+\series bold
+SIGKILL
+\family default
+\series default
+ fuerza la terminación.
+ 
+\family typewriter
+\series bold
+SIGHUP
+\family default
+\series default
+ (o 
+\family typewriter
+\series bold
+HUP
+\family default
+\series default
+), al enviarse a 
+\family typewriter
+crond.service
+\family default
+, le indica que debe releer su configuración.
+\end_layout
+
+\begin_layout Subsubsection*
+COMANDOS
+\end_layout
+
+\begin_layout Paragraph*
+Comandos de unidad
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+list-units
+\family default
+\series default
+ Lista las unidades que tiene 
+\family typewriter
+systemd
+\family default
+ en memoria.
+ Comando por defecto.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+start
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+UNIDAD
+\family default
+\emph default
+ Inicia una unidad.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+stop
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+UNIDAD
+\family default
+\emph default
+ Detiene una unidad.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+isolate
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+UNIDAD
+\family default
+\emph default
+ Inicia la unidad especificada y sus dependencias y detiene todas las demás.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+kill
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+UNIDAD
+\family default
+\emph default
+ Envía una señal a procesos de una unidad (por defecto a todos).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+status
+\series default
+
+\begin_inset space ~
+\end_inset
+
+[
+\emph on
+UNIDAD
+\emph default
+]
+\family default
+ Muestra información de estado resumida sobre una unidad, o sobre el sistema
+ si no especifica la unidad.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+show
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+UNIDAD
+\family default
+\emph default
+ Muestra las propiedades de una unidad.
+\end_layout
+
+\begin_layout Paragraph*
+Comandos de ficheros de unidad
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+enable
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+UNIDAD
+\family default
+\emph default
+ Habilita una unidad.
+ La añade en varios sitios sugeridos (por ejemplo, para que se inicie al
+ arrancar).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+disable
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+UNIDAD
+\family default
+\emph default
+ Deshabilita una unidad.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+is-enabled
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+UNIDAD
+\family default
+\emph default
+ Comprueba si una unidad está habilitada.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+mask
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+UNIDAD
+\family default
+\emph default
+ Enmascara una unidad, haciendo imposible iniciarla.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+unmask
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+UNIDAD
+\family default
+\emph default
+ Desenmascara una unidad.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+get-default
+\family default
+\series default
+ Devuelve el objetivo de arranque por defecto.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+set-default
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+OBJETIVO
+\family default
+\emph default
+ Establece el objetivo de arranque por defecto.
+\end_layout
+
+\begin_layout Paragraph*
+Comandos de sistema
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+rescue
+\family default
+\series default
+ Entra en modo rescate.
+ Equivale a 
+\family typewriter
+\series bold
+systemctl isolate rescue.target
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+halt
+\family default
+\series default
+ Para el sistema.
+ Es casi equivalente a 
+\family typewriter
+\series bold
+systemctl start halt.target
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+poweroff
+\family default
+\series default
+ Apaga el sistema.
+ Es casi equivalente a 
+\family typewriter
+\series bold
+systemctl start poweroff.target
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+reboot
+\family default
+\series default
+ Reinicia el sistema.
+ Es casi equivalente a 
+\family typewriter
+\series bold
+systemctl start reboot.target
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+/etc/nologin
+\end_layout
+
+\begin_layout Standard
+Si existe y es legible, 
+\family typewriter
+\series bold
+login
+\family default
+\series default
+ solo permitirá el acceso a 
+\family typewriter
+root
+\family default
+.
+ Se borra automáticamente al reiniciar el sistema.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+journalctl [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+PATRÓN
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Muestra el contenido del registro de 
+\family typewriter
+\series bold
+systemd
+\family default
+\series default
+.
+ Sin parámetros, muestra todo el registro, empezando por la entrada más
+ antigua (cuando se arrancó por primera vez, si bien la cantidad de mensajes
+ que se pueden guardar está limitada para no ocupar mucho espacio).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-n
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+N
+\family default
+\emph default
+ Muestra los eventos más recientes y limita el número de eventos mostrados.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-b
+\begin_inset space ~
+\end_inset
+
+[
+\series default
+\emph on
+ID
+\emph default
+]
+\series bold
+[
+\series default
+\emph on
+±desplazamiento
+\emph default
+]
+\family default
+ Muestra los mensajes de un arranque específico.
+ Si se omite el ID, un 
+\family typewriter
+\emph on
+desplazamiento
+\family default
+\emph default
+ menor o igual a 0 mostrará los arranques desde el final del registro.
+ Si se indica el 
+\family typewriter
+\emph on
+ID
+\family default
+\emph default
+, puede ser seguido opcionalmente por el 
+\family typewriter
+\emph on
+desplazamiento
+\family default
+\emph default
+.
+ Valores negativos significan arranques anteriores y positivos significan
+ posteriores.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+--list-boots
+\family default
+\series default
+ Muestra una lista de todos los arranques (relativo al actual), sus IDs
+ y las fechas del primer y último mensaje del arranque.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-k
+\family default
+\series default
+ Muestra sólo mensajes del núcleo.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-u
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+UNIDAD
+\emph default
+|
+\emph on
+PATRÓN
+\family default
+\emph default
+ Muestra los mensajes para la 
+\family typewriter
+\emph on
+UNIDAD
+\family default
+\emph default
+ dado, o para cada unidad que coincide con el 
+\family typewriter
+\emph on
+PATRÓN
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Section
+Dependencias automáticas
+\end_layout
+
+\begin_layout Standard
+Hay varias formas de establecer dependencias entre unidades aparte de las
+ descritas:
+\end_layout
+
+\begin_layout Itemize
+Un 
+\emph on
+socket
+\emph default
+ tipo UNIX es un canal de comunicación entre dos procesos en el que un proceso
+ envía información por un extremo y el otro la extrae por el otro.
+ Al igual que una tubería, tiene una capacidad máxima, con lo que si un
+ proceso intenta leer de un 
+\emph on
+socket
+\emph default
+ vacío o escribe en uno lleno, se bloquea.
+ Si dos servicios se comunican por un 
+\emph on
+socket
+\emph default
+, 
+\family typewriter
+systemd
+\family default
+ crea el 
+\emph on
+socket
+\emph default
+ y luego lanza los dos servicios en paralelo, pasándoles como parámetro
+ el 
+\emph on
+socket
+\emph default
+ creado a través del cual se sincronizarán.
+\end_layout
+
+\begin_layout Itemize
+La sincronización por mensajes de D-Bus funciona de forma similar, pero
+ el servicio que depende de otro espera a que en el bus aparezca el proveedor
+ que necesita, que será ofrecido por el otro servicio, y D-Bus proporciona
+ la funcionalidad necesaria para esto.
+\end_layout
+
+\begin_layout Section
+
+\family typewriter
+udev
+\end_layout
+
+\begin_layout Standard
+El 
+\emph on
+userspace device manager
+\emph default
+ es un servicio (demonio 
+\family typewriter
+systemd-udevd
+\family default
+) que, cuando se conecta o desconecta un dispositivo, recibe un evento del
+ núcleo, usa información de 
+\family typewriter
+/sys
+\family default
+ para ver si el 
+\emph on
+driver
+\emph default
+ proporciona un fichero 
+\family typewriter
+dev
+\family default
+ con los números mayor y menor del fichero especial a crear y usa 
+\series bold
+ficheros de reglas
+\series default
+ (
+\emph on
+rules
+\emph default
+) en 
+\family typewriter
+/lib/udev/rules.d/
+\family default
+ y 
+\family typewriter
+/etc/udev/rules.d/
+\family default
+ para:
+\end_layout
+
+\begin_layout Itemize
+Crear el fichero especial de dispositivo en 
+\family typewriter
+/dev
+\family default
+ y los enlaces simbólicos al mismo.
+\end_layout
+
+\begin_layout Itemize
+Establecer los permisos y propietarios de este fichero.
+\end_layout
+
+\begin_layout Itemize
+Si es necesario, cargar los módulos y 
+\emph on
+firmware
+\emph default
+ para poder usarlo.
+\end_layout
+
+\begin_layout Itemize
+Si alguna regla lo indica, ejecutar los programas especificados para inicializar
+ el dispositivo.
+\end_layout
+
+\begin_layout Section
+Parada de Linux
+\end_layout
+
+\begin_layout Standard
+Se notifica a los usuarios, se envía la señal 
+\family typewriter
+SIGTERM
+\family default
+ a los procesos, se paran los demonios, se echa del sistema a los usuarios
+ que quedan conectados, se envía la señal 
+\family typewriter
+KILL
+\family default
+ a los procesos que queden en ejecución, se sincronizan los discos, se desmontan
+ los sistemas de ficheros y, según el tipo de parada, se apaga o se reinicia
+ el sistema.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+halt
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+halt
+\family default
+\series default
+, 
+\family typewriter
+\series bold
+poweroff
+\family default
+\series default
+, 
+\family typewriter
+\series bold
+reboot
+\family default
+\series default
+ pueden usarse para detener, apagar o reiniciar la máquina (respectivamente).
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+shutdown [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+TIEMPO
+\emph default
+] [
+\emph on
+MENSAJE
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Detiene, apaga o reinicia la máquina.
+\end_layout
+
+\begin_layout Standard
+El tiempo puede estar en formato 
+\family typewriter
+\emph on
+hh
+\emph default
+:
+\emph on
+mm
+\family default
+\emph default
+ indicando el tiempo en el que ejecutar el apagado, en formato de 24 horas.
+ La sintaxis 
+\family typewriter
++
+\emph on
+m
+\family default
+\emph default
+ se refiere al número indicado de minutos desde ahora.
+ 
+\family typewriter
+now
+\family default
+ es un alias para 
+\family typewriter
++0
+\family default
+.
+ Si no especifica el tiempo, se usa 
+\family typewriter
++1
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-H
+\family default
+\series default
+ Detiene la máquina.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-P
+\family default
+\series default
+ Apaga (por defecto).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-r
+\family default
+\series default
+ Reinicia.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-h
+\family default
+\series default
+ Equivale a 
+\family typewriter
+\series bold
+-P
+\family default
+\series default
+ salvo que se indique 
+\family typewriter
+\series bold
+-h
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-k
+\family default
+\series default
+ Sólo escribe el 
+\family typewriter
+\emph on
+MENSAJE
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-c
+\family default
+\series default
+ Cancela un apagado en curso (sólo si no ha empezado).
+\end_layout
+
+\end_body
+\end_document

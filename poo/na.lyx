@@ -1,0 +1,1500 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+
+\family typewriter
+java.io
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+Closeable
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+extends AutoCloseable
+\end_layout
+
+\end_inset
+
+ Fuente o destino de datos que puede ser cerrado.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+void
+\begin_inset space ~
+\end_inset
+
+close()
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws IOException
+\end_layout
+
+\end_inset
+
+Cierra este flujo y libera cualquier recurso asociado con él.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+FileNotFoundException
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+IOException
+\family default
+\series default
+ Indica que ha fallado un intento de abrir el fichero con nombre especificado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+IOException
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+Exception
+\family default
+\series default
+ Señaliza una excepción de E/S.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+IOException(String)
+\family default
+ Construye una 
+\family typewriter
+IOException
+\family default
+ con el mensaje especificado.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+abstract
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+InputStream
+\begin_inset space ~
+\end_inset
+
+
+\series default
+implements
+\begin_inset space ~
+\end_inset
+
+Closeable
+\family default
+ Representa un flujo de entrada de bytes.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+abstract int read()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+PrintStream 
+\series default
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+extends FilterOutputStream
+\end_layout
+
+\end_inset
+
+
+\family default
+ Añade a otro flujo de salida la habilidad de imprimir representaciones
+ de datos convenientemente.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+void
+\begin_inset space ~
+\end_inset
+
+println(String)
+\family default
+ Imprime una cadena y termina la línea.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+abstract
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+PrintWriter
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+extends Writer
+\end_layout
+
+\end_inset
+
+Imprime representaciones de objetos con formato a un flujo de salida de
+ texto.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+public abstract class Writer()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+public abstract void close() throws IOException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+public abstract void flush() throws IOException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+public abstract void write(char[],int,int)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+PrintWriter(String)
+\begin_inset space ~
+\end_inset
+
+throws
+\begin_inset space ~
+\end_inset
+
+FileNotFoundException
+\family default
+\series default
+ Construye un nuevo 
+\family typewriter
+PrintWriter
+\family default
+ con el nombre de fichero indicado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+boolean
+\begin_inset space ~
+\end_inset
+
+checkError()
+\family default
+\series default
+ Comprueba su estado de error.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+void
+\begin_inset space ~
+\end_inset
+
+println(String)
+\family default
+ Imprime una cadena y termina la línea.
+\end_layout
+
+\end_deeper
+\begin_layout Section*
+
+\family typewriter
+java.lang
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+final
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+Integer
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+static
+\begin_inset space ~
+\end_inset
+
+String
+\begin_inset space ~
+\end_inset
+
+toHexString(int)
+\family default
+ Devuelve una representación textual del argumento entero como entero sin
+ signo en base 16, una cadena de dígitos ASCII en hexadecimal sin 
+\family typewriter
+0
+\family default
+s extra a la izquierda.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+final
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+Math
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+static
+\begin_inset space ~
+\end_inset
+
+final
+\begin_inset space ~
+\end_inset
+
+double
+\begin_inset space ~
+\end_inset
+
+PI
+\family default
+\series default
+ El valor de doble precisión más cerca que cualquier otro a 
+\begin_inset Formula $\pi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+static
+\begin_inset space ~
+\end_inset
+
+double
+\begin_inset space ~
+\end_inset
+
+sqrt(double)
+\family default
+ Devuelve la raíz cuadrada positiva de un valor correctamente redondeada.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+static
+\begin_inset space ~
+\end_inset
+
+double
+\begin_inset space ~
+\end_inset
+
+pow(double,
+\begin_inset space ~
+\end_inset
+
+double)
+\family default
+\series default
+ Devuelve el primer argumento elevado a la potencia del segundo.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+final
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+String
+\begin_inset space ~
+\end_inset
+
+implements
+\begin_inset space ~
+\end_inset
+
+CharSequence
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+, Serializable, Comparable<String>
+\end_layout
+
+\end_inset
+
+Representa cadenas inmutables de caracteres.
+ Todos los literales de cadena en programas Java, como 
+\family typewriter
+"
+\emph on
+abc
+\emph default
+"
+\family default
+, son instancias de esta clase.
+ El lenguaje proporciona soporte especial para el operador de concatenación
+ (
+\family typewriter
++
+\family default
+), y para conversión de otros objetos a cadenas al concatenar.
+ Las conversiones se implementan mediante el método 
+\family typewriter
+toString
+\family default
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+public interface CharSequence
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+char charAt(int)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+int length()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+CharSequence subSequence(int, int)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+String toString()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+boolean
+\begin_inset space ~
+\end_inset
+
+contains(CharSequence)
+\family default
+ Indica si esta cadena contiene la secuencia de caracteres especificada.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+int
+\begin_inset space ~
+\end_inset
+
+length()
+\family default
+ Devuelve el número de unidades de código Unicode en la cadena.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+final
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+System
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+static
+\begin_inset space ~
+\end_inset
+
+final
+\begin_inset space ~
+\end_inset
+
+InputStream
+\begin_inset space ~
+\end_inset
+
+in
+\family default
+\series default
+ El flujo de entrada estándar.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+static
+\begin_inset space ~
+\end_inset
+
+final
+\begin_inset space ~
+\end_inset
+
+PrintStream
+\begin_inset space ~
+\end_inset
+
+out
+\family default
+ El flujo de salida estándar.
+\end_layout
+
+\end_deeper
+\begin_layout Section*
+
+\family typewriter
+java.net
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+MalformedURLException
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+IOException
+\family default
+\series default
+ Indica una URL mal formada.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+final
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+URL
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+implements Serializable
+\end_layout
+
+\end_inset
+
+Representa una URL.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+URL(String)
+\begin_inset space ~
+\end_inset
+
+throws
+\begin_inset space ~
+\end_inset
+
+MalformedURLException
+\family default
+ Construye una URL a partir de su representación como cadena.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+final
+\begin_inset space ~
+\end_inset
+
+InputStream
+\begin_inset space ~
+\end_inset
+
+openStream()
+\begin_inset space ~
+\end_inset
+
+throws
+\begin_inset space ~
+\end_inset
+
+IOException
+\family default
+\series default
+ Abre una conexión a la URL y devuelve un 
+\family typewriter
+InputStream
+\family default
+ para leer de esta.
+\end_layout
+
+\end_deeper
+\begin_layout Section*
+
+\family typewriter
+java.time
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+final
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+LocalTime
+\begin_inset space ~
+\end_inset
+
+implements
+\begin_inset space ~
+\end_inset
+
+ChronoLocalDate
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+, Temporal, TemporalAdjuster, Serializable
+\end_layout
+
+\end_inset
+
+Fecha sin zona horaria.
+ Inmutable.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+static
+\begin_inset space ~
+\end_inset
+
+LocalDate
+\begin_inset space ~
+\end_inset
+
+now()
+\family default
+ Obtiene la fecha actual del reloj del sistema en la zona horaria por defecto.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+static
+\begin_inset space ~
+\end_inset
+
+LocalDate
+\begin_inset space ~
+\end_inset
+
+of(int,
+\begin_inset space ~
+\end_inset
+
+int,
+\begin_inset space ~
+\end_inset
+
+int) 
+\family default
+\series default
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws DateTimeException
+\end_layout
+
+\end_inset
+
+Obtiene una instancia de 
+\family typewriter
+LocalDate
+\family default
+ desde un año, mes y día, respectivamente.
+\end_layout
+
+\end_deeper
+\begin_layout Section*
+
+\family typewriter
+java.time.chrono
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+ChronoLocalDate
+\family default
+\series medium
+ 
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\series default
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+extends Temporal, TemporalAdjuster, Comparable<ChronoLocalDate>
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+public interface Temporal extends TemporalAccessor
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+boolean isSupported(TemporalUnit)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Temporal plus(long,TemporalUnit) throws DateTimeException, UnsupportedTemporalEx
+ception, ArithmeticException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+long until(Temporal, TemporalUnit) throws DateTimeException, UnsupportedTemporal
+TypeException, ArithmeticException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Temporal with(TemporalField, long) throws DateTimeException, UnsupportedTemporal
+TypeException, ArithmeticException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+default boolean isSupported(TemporalUnit)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+default Temporal plus(long,TemporalUnit) throws DateTimeException, ArithmeticExc
+eption
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+default Temporal with(TemporalField, long) throws DateTimeException, Unsupported
+TemporalTypeException, ArithmeticException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+boolean equals(Object)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Chronology getChronology()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+int hashCode()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+int lengthOfMonth()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+String toString()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+ChronoPeriod until(ChronoLocalDate) throws DateTimeException, ArithmeticExceptio
+n
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+default
+\begin_inset space ~
+\end_inset
+
+boolean
+\begin_inset space ~
+\end_inset
+
+isAfter(ChronoLocalDate)
+\family default
+ Comprueba si esta fecha es posterior a la especificada.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+default
+\begin_inset space ~
+\end_inset
+
+boolean
+\begin_inset space ~
+\end_inset
+
+isBefore(ChronoLocalDate)
+\family default
+ Comprueba si es anterior.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+default
+\begin_inset space ~
+\end_inset
+
+boolean
+\begin_inset space ~
+\end_inset
+
+isEqual(ChronoLocalDate)
+\family default
+ Comprueba si es igual.
+\end_layout
+
+\end_deeper
+\begin_layout Section*
+
+\family typewriter
+java.util
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+Random
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+implements Serializable
+\end_layout
+
+\end_inset
+
+Genera números pseudoaleatorios.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\series default
+
+\begin_inset space ~
+\end_inset
+
+Random()
+\family default
+ Construye un generador de números aleatorios.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+int
+\begin_inset space ~
+\end_inset
+
+nextInt(int)
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws IllegalArgumentException
+\end_layout
+
+\end_inset
+
+Devuelve un valor entero pseudoaleatorio distribuido uniformemente entre
+ 0 (inclusive) y el valor especificado (exclusive), extraído de la secuencia
+ del generador.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+final
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+Scanner
+\begin_inset space ~
+\end_inset
+
+implements
+\begin_inset space ~
+\end_inset
+
+Closeable
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+, Iterator<String>
+\end_layout
+
+\end_inset
+
+Escáner de texto simple.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+Scanner(InputStream)
+\family default
+ Construye un escáner que produce valores del flujo de entrada especificado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+String
+\begin_inset space ~
+\end_inset
+
+nextLine()
+\family default
+ Devuelve el resto de la línea actual, excluyendo cualquier separador de
+ línea al final.
+ La posición se establece al principio de la siguiente línea.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+final
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+UUID
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+implements Serializable, Comparable<UUID>
+\end_layout
+
+\end_inset
+
+Representa unn identificador único universal.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+static
+\begin_inset space ~
+\end_inset
+
+UUID
+\begin_inset space ~
+\end_inset
+
+randomUUID()
+\family default
+ Obtiene un UUID usando un generador de números pseudoaleatorios.
+\end_layout
+
+\end_deeper
+\end_body
+\end_document

@@ -1,0 +1,4024 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Particionamiento estándar
+\end_layout
+
+\begin_layout Standard
+Existen dos formatos principales para el particionamiento de discos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Particionamiento DOS
+\series default
+ o 
+\series bold
+MBR
+\series default
+: El formato original de MS-DOS.
+ Permite hasta 4 
+\series bold
+particiones principales
+\series default
+ definidas en el primer sector del disco, el MBR (
+\emph on
+Master Boot Record
+\emph default
+), junto con el código de arranque.
+ Una de estas puede ser una 
+\series bold
+partición extendida
+\series default
+, dentro de la cual podemos crear 
+\series bold
+particiones lógicas
+\series default
+ o 
+\series bold
+secundarias
+\series default
+.
+ En Linux, las particiones primarias tienen números del 1 al 4 y las lógicas
+ comienzan por el 5.
+\begin_inset Newline newline
+\end_inset
+
+Los números de los sectores en el disco, llamados 
+\series bold
+LBA
+\series default
+ (
+\emph on
+Logical Block Address
+\emph default
+), se almacenan en 32 bytes, por lo que si los sectores son de 
+\begin_inset Formula $\unit[512]{B}$
+\end_inset
+
+ (lo normal), el tamaño máximo particionable es de 
+\begin_inset Formula $\unit[2]{TiB}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Las particiones tienen un tipo que indica qué va a contener o para qué se
+ va a usar, con propósito únicamente informativo.
+ Algunos tipos son 
+\family typewriter
+0x82
+\family default
+ (Linux swap), 
+\family typewriter
+0x83
+\family default
+ (Linux) o 
+\family typewriter
+0x8e
+\family default
+ (Linux LVM).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Particionamiento GPT
+\series default
+ (
+\emph on
+GUID Partition Table
+\emph default
+): Usa LBAs de 64 bits, luego el tamaño máximo con bloques de 
+\begin_inset Formula $\unit[512]{B}$
+\end_inset
+
+ es de 
+\begin_inset Formula $\unit[8]{ZiB}$
+\end_inset
+
+.
+ Permite un número prácticamente ilimitado de particiones, aunque los sistemas
+ operativos suelen limitarlo a 128 para mantener la tabla de particiones
+ de un tamaño razonable (
+\begin_inset Formula $\unit[16]{KiB}$
+\end_inset
+
+).
+ Esta tabla abarca el sector 1 del disco y sucesivos y tiene una suma de
+ verificación CRC32 para verificar su integridad y una copia de respaldo
+ en los últimos sectores del disco.
+ Por compatibilidad, el sector 0 almacena una tabla de particiones DOS con
+ una única partición de tipo 
+\family typewriter
+0xEE
+\family default
+ (GPT) llamada
+\series bold
+ partición MBR de protección
+\series default
+, tan grande como sea posible para intentar cubrir todo el disco.
+\begin_inset Newline newline
+\end_inset
+
+Cada partición disco y cada partición tiene un 
+\series bold
+GUID
+\series default
+ (
+\emph on
+Globally Unique Identifier
+\emph default
+), un número de 128 bits con formato 
+\family typewriter
+XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+\family default
+ (cada 
+\family typewriter
+X
+\family default
+ es una cifra hexadecimal) que lo identifica unívocamente.
+ Desaparece la distinción entre particiones primarias, lógicas y extendidas.
+\end_layout
+
+\begin_layout Standard
+Normalmente la primera partición comienza en el sector 2048, usando el hueco
+ que queda para el gestor de arranque.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+fdisk
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+fdisk
+\series default
+ [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+DISPOSITIVO
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+fdisk -l
+\series default
+ [
+\emph on
+DISPOSITIVO
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Programa interactivo para la creación y manipulación de tablas de particiones
+ que entiende, entre otros, los formatos MBR y GPT.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-l
+\family default
+\series default
+ Lista las tablas de particiones para los 
+\family typewriter
+\emph on
+DISPOSITIVO
+\family default
+\emph default
+s especificados y termina.
+\end_layout
+
+\begin_layout Subsubsection*
+ÓRDENES
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+p
+\family default
+\series default
+ Muestra la tabla de particiones.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+n
+\family default
+\series default
+ Crea una nueva partición.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+d
+\family default
+\series default
+ Elimina una partición.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+w
+\family default
+\series default
+ Guarda en disco la tabla de particiones resultante.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+q
+\family default
+\series default
+ Sale sin guardar los cambios.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+m
+\family default
+\series default
+ Muestra una ayuda con todas las órdenes.
+\end_layout
+
+\begin_layout Subsubsection*
+TAMAÑOS
+\end_layout
+
+\begin_layout Standard
+El diálogo de último sector acepta un tamaño de partición según el número
+ de sectores o la notación 
+\family typewriter
++<TAMAÑO>{K,B,M,G,...}
+\family default
+.
+ Si el tamaño lleva delante 
+\family typewriter
++
+\family default
+ se interpreta como relativo al primer sector de la partición.
+ En este caso el tamaño se espera en bytes y puede ir seguido de sufijos
+ multiplicativos 
+\begin_inset Formula $\mathtt{K}=1024$
+\end_inset
+
+, 
+\begin_inset Formula $\mathtt{M}=1024^{2}$
+\end_inset
+
+, etc.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+lsblk [
+\emph on
+OPCIÓN
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Muestra información de todos los dispositivos de bloques disponibles en
+ forma de árbol por defecto.
+ La salida está sujeta a cambios, pero actualmente muestra las columnas
+ 
+\family typewriter
+NAME
+\family default
+ (nombre), 
+\family typewriter
+SIZE
+\family default
+ (tamaño) y 
+\family typewriter
+TYPE
+\family default
+ (tipo: disco, partición o volumen lógico), entre otras.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-f
+\family default
+\series default
+ Muestra información sobre los sistemas de ficheros: columnas 
+\family typewriter
+NAME
+\family default
+, 
+\family typewriter
+FSTYPE
+\family default
+ (tipo de sistema de ficheros), 
+\family typewriter
+LABEL
+\family default
+ (etiqueta), 
+\family typewriter
+UUID
+\family default
+ (identificador) y 
+\family typewriter
+MOUNTPOINT
+\family default
+ (punto de montaje).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-p
+\family default
+\series default
+ Muestra rutas de fichero (absolutas) completas.
+\end_layout
+
+\begin_layout Section
+LVM
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+gestor de volúmenes lógicos
+\series default
+ (LVM, 
+\emph on
+Logical Volume Manager
+\emph default
+) es un sistema que 
+\begin_inset Quotes fld
+\end_inset
+
+virtualiza
+\begin_inset Quotes frd
+\end_inset
+
+ el almacenamiento para crear discos lógicos y proporcionar métodos de asignació
+n de espacio más flexibles que las particiones.
+\end_layout
+
+\begin_layout Standard
+Nos centraremos en el LVM de Linux, llamado LVM.
+ Este parte de 
+\series bold
+volúmenes físicos
+\series default
+ (PVs, 
+\emph on
+physical volumes
+\emph default
+), que pueden ser cualquier dispositivo de bloques y se dividen en 
+\series bold
+extensiones físicas
+\series default
+ (PEs, 
+\emph on
+physical extents
+\emph default
+) de un tamaño fijo, que en Linux por omisión es de 
+\begin_inset Formula $\unit[4]{MiB}$
+\end_inset
+
+.
+ Estos se agrupan en 
+\series bold
+grupos de volúmenes
+\series default
+ (VGs, 
+\emph on
+volume groups
+\emph default
+), que agrupan las extensiones físicas para crear encima 
+\series bold
+volúmenes lógicos
+\series default
+ (LVs, 
+\emph on
+logical volumes
+\emph default
+), que se dividen en 
+\series bold
+extensiones lógicas
+\series default
+ (LEs, 
+\emph on
+logical extents
+\emph default
+) del mismo tamaño que las extensiones físicas y actúan como cualquier otro
+ dispositivo de bloques.
+ Algunos tipos de volúmenes lógicos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Lineales
+\series default
+: A cada extensión lógica le corresponde una única extensión física, en
+ orden lineal.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Repartidos
+\series default
+: El volumen se divide en porciones fijas con un 
+\series bold
+tamaño de porción
+\series default
+ (
+\emph on
+stripe size
+\emph default
+) generalmente menor que una extensión lógica (por defecto 
+\begin_inset Formula $\unit[64]{KiB}$
+\end_inset
+
+), con lo que porciones consecutivas se almacenan en volúmenes físicos de
+ discos diferentes de forma cíclica.
+ Esto hace que el rendimiento de E/S sea mayor que el de un único disco
+ al poder operar en paralelo pero disminuyendo su fiabilidad, pues la probabilid
+ad de que falle un volumen repartido es mayor que la de que falle un disco
+ individual.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Reflejados
+\series default
+: A cada extensión lógica le corresponde una extensión física en cada uno
+ de dos o más volúmenes físicos determinados, consiguiendo tolerancia a
+ fallos en caso de que un volumen físico falle.
+ En general, las escrituras tardan lo mismo que en un disco físico individual
+ pero se mejora el rendimiento de lectura.
+ Esto se implementa mediante volúmenes lógicos internos lineales.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RAID 5
+\series default
+: Funcionan como un volumen lógico repartido al que se le añade un volumen
+ físico adicional, de modo que si tomamos una porción de un volumen físico
+ y la co
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+rres
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+pon
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+dien
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+te del resto, una de ellas lo que contiene es el resultado de aplicar una
+ función de paridad sobre el resto.
+ Esto permite que no se pierdan datos si un volumen físico deja de funcionar,
+ y al mismo tiempo proporciona un mejor rendimiento.
+\end_layout
+
+\begin_layout Standard
+Los volúmenes lógicos pueden aumentar de tamaño aun con sistemas de ficheros
+ montados, en cuyo caso, si el sistema de ficheros lo permite, se puede
+ aumentar el tamaño de este.
+ También pueden reducir su tamaño (salvo los reflejados o RAID 5 en la implement
+ación actual), pero en este caso los sistemas de ficheros no pueden reducirse
+ estando montados.
+\end_layout
+
+\begin_layout Standard
+También se pueden añadir volúmenes físicos a un grupo de volúmenes, o eliminarlo
+s si no se están usando, en vivo, así como mover extensiones físicas de
+ un volumen a otro, de modo que si el hardware permite cambiar discos en
+ caliente, podemos actualizar o reemplazar dispositivos de almacenamiento
+ sin parar el sistema.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+pvcreate 
+\emph on
+VOLUMEN
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Inicializa un volumen físico para su uso por LVM.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+pvdisplay [
+\emph on
+VOLUMEN
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Muestra las propiedades de los volúmenes físicos indicados, o de todos si
+ no se indica ninguno.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+vgcreate 
+\emph on
+NOMBRE_GRUPO VOLUMEN
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Crea un nuevo grupo de volúmenes sobre dispositivos de bloques.
+ Si los dispositivos no habían sido inicializados por 
+\family typewriter
+\series bold
+pvcreate
+\family default
+\series default
+, 
+\family typewriter
+vgcreate
+\family default
+ los inicializa.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+vgdisplay 
+\emph on
+NOMBRE_GRUPO
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Muestra las propiedades de los grupos de volúmenes indicados.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-v
+\series default
+,
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+--verbose
+\family default
+\series default
+ Incrementa la cantidad de salida por cada aparición.
+ Con una ya muestra los volúmenes físicos que forman parte de cada grupo.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+lvcreate [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+GRUPO
+\end_layout
+
+\begin_layout Standard
+Crea un nuevo volumen lógico en un grupo de volúmenes.
+ Por defecto crea un LV lineal (
+\family typewriter
+linear
+\family default
+).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+--type
+\begin_inset space ~
+\end_inset
+
+raid5
+\family default
+\series default
+ Crea un volumen RAID 5.
+ Se debe indicar también la opción 
+\family typewriter
+-i
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-i
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+N
+\family default
+\emph default
+ Crea un volumen, por defecto repartido (
+\family typewriter
+striped
+\family default
+), entre 
+\family typewriter
+\emph on
+N
+\family default
+\emph default
+ volúmenes físicos.
+ Si se crea un volumen RAID 5, este número no incluye el volumen extra requerido
+ para la paridad.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-m
+\series default
+,
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+--mirrors
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+N
+\family default
+\emph default
+ Crea un volumen físico reflejado (
+\family typewriter
+raid1
+\family default
+|
+\family typewriter
+mirror
+\family default
+) entre 
+\family typewriter
+\emph on
+N
+\family default
+\emph default
+ volúmenes físicos.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-L
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+tamaño
+\emph default
+[
+\emph on
+UNIDAD
+\emph default
+]
+\family default
+ Obligatorio; tamaño de la nueva unidad.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-I
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+tamaño
+\emph default
+[
+\emph on
+UNIDAD
+\emph default
+]
+\family default
+ Tamaño de porción en un volumen lógico repartido o RAID 5.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-n
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+Nombre
+\family default
+\emph default
+ Nombre del nuevo volumen.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+lvdisplay [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+VOLUMEN
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Muestra las propiedades de los volúmenes lógicos indicados.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-m
+\family default
+\series default
+,
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+\series bold
+--maps
+\family default
+\series default
+ Muestra la correspondencia de extensiones lógicas a volúmenes y extensiones
+ físicas.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+lvextend [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+VOLUMEN
+\end_layout
+
+\begin_layout Standard
+Extiende un volumen lógico al tamaño especificado.
+ Debe indicarse una, y sólo una, de entre 
+\family typewriter
+-l
+\family default
+ y 
+\family typewriter
+-L
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-l
+\series default
+
+\begin_inset space ~
+\end_inset
+
+[
+\series bold
++
+\series default
+]
+\emph on
+Número
+\emph default
+[
+\emph on
+PORCENTAJE
+\emph default
+]
+\family default
+ Nuevo tamaño del volumen en extensiones lógicas.
+ El total de extensiones lógicas será mayor cuando se necesiten datos redundante
+s.
+ El tamaño también se puede indicar como porcentaje.
+ El sufijo 
+\family typewriter
+\series bold
+%VG
+\family default
+\series default
+ denota el tamaño total del grupo de volúmenes, y 
+\family typewriter
+\series bold
+%FREE
+\family default
+\series default
+ el espacio libre en este.
+ Si se usa el prefijo 
+\family typewriter
+\series bold
++
+\family default
+\series default
+, el valor no es absoluto sino relativo, y se añade al tamaño actual.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-L
+\series default
+
+\begin_inset space ~
+\end_inset
+
+[
+\series bold
++
+\series default
+]
+\emph on
+Tamaño
+\emph default
+[
+\emph on
+UNIDAD
+\emph default
+]
+\family default
+ Nuevo tamaño del volumen.
+ Si se usa el prefijo 
+\family typewriter
+\series bold
++
+\family default
+\series default
+, el valor no es absoluto sino relativo, y se añade al tamaño actual.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-r
+\series default
+,
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+--resizefs
+\family default
+\series default
+ Cambia el tamaño del sistema de ficheros subyacente junto al del volumen.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+lvreduce [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+VOLUMEN
+\end_layout
+
+\begin_layout Standard
+Reduce el tamaño de un volumen lógico.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-L
+\series default
+
+\begin_inset space ~
+\end_inset
+
+[
+\series bold
+-
+\series default
+]
+\emph on
+Tamaño
+\emph default
+[
+\emph on
+UNIDAD
+\emph default
+]
+\family default
+ Nuevo tamaño del volumen.
+ Si se usa el prefijo 
+\family typewriter
+\series bold
+-
+\family default
+\series default
+, el valor no es absoluto sino relativo, y se reduce del tamaño actual.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-r
+\series default
+,
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+--resizefs
+\family default
+\series default
+ Cambia el tamaño del sistema de ficheros subyacente junto al del volumen.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+vgextend
+\end_layout
+
+\begin_layout Standard
+Añade uno o más volúmenes físicos a un grupo de volúmenes.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+vgreduce
+\end_layout
+
+\begin_layout Standard
+Elimina uno o más volúmenes físicos sin usar de un grupo de volúmenes.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+pvmove
+\end_layout
+
+\begin_layout Standard
+Mueve extensiones físicas de un volumen físico fuente a uno o más volúmenes
+ físicos destino.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+lvremove 
+\emph on
+VOLUMEN
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Elimina uno o más volúmenes lógicos.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+vgremove 
+\emph on
+GRUPO
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Elimina uno o más grupos de volúmenes.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+pvremove 
+\emph on
+VOLUMEN
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Borra la etiqueta de un dispositivo para que LVM deje de reconocerlo como
+ volumen físico.
+\end_layout
+
+\begin_layout Section
+Dispositivos de bucle
+\end_layout
+
+\begin_layout Standard
+En Linux solo podemos montar dispositivos de bloques, pero existen dispositivos
+ de bloques llamados 
+\series bold
+\emph on
+loop
+\series default
+\emph default
+, normalmente llamados 
+\family typewriter
+/dev/loop0
+\family default
+–
+\family typewriter
+7
+\family default
+ que representan ficheros regulares, que a su vez suelen crearse como un
+ fichero grande inicialmente lleno de ceros.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+losetup
+\end_layout
+
+\begin_layout Paragraph*
+Obtener información
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+losetup
+\series default
+ [
+\emph on
+DISPOSITIVO
+\emph default
+]
+\end_layout
+
+\begin_layout Paragraph*
+Desasociar un dispositivo 
+\emph on
+loop
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+losetup -d
+\series default
+ 
+\emph on
+DISPOSITIVO
+\emph default
+...
+\end_layout
+
+\begin_layout Paragraph*
+Desasociar todos los dispositivos 
+\emph on
+loop
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+losetup -D
+\end_layout
+
+\begin_layout Paragraph*
+Asociar un dispositivo 
+\emph on
+loop
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+losetup
+\series default
+ [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\series bold
+-f
+\series default
+|
+\emph on
+DISPOSITIVO FICHERO
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-a
+\family default
+\series default
+ Muestra el estado de todos los dispositivos 
+\emph on
+loop
+\emph default
+.
+ No toda la información está disponible si no se es superusuario.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-f
+\family default
+\series default
+ Encuentra el primer dispositivo 
+\emph on
+loop
+\emph default
+ sin usar.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-P
+\family default
+\series default
+ Fuerza al núcleo a escanear la tabla de particiones del dispositivo 
+\emph on
+loop
+\emph default
+ recién creado.
+\end_layout
+
+\begin_layout Section
+Sistemas de ficheros
+\end_layout
+
+\begin_layout Standard
+El sistema de ficheros ext2 fue el principal en Linux hasta que apareció
+ ext3 que, al contrario que ext2, es 
+\series bold
+transaccional
+\series default
+: añade un registro o 
+\emph on
+journal
+\emph default
+ que permite recuperar rápidamente la consistencia tras una caída del sistema,
+ algo que en ext2 llevaba mucho tiempo al tener que analizar el sistema
+ de ficheros por completo.
+ Actualmente se usa ext4, muy similar a ext3 pero con mejoras que permiten
+ un menor uso de CPU y mayor rapidez de lectura y escritura.
+\end_layout
+
+\begin_layout Standard
+FAT es una familia de sistemas de ficheros introducida a finales de los
+ 70 por Microsoft.
+ La versión inicial era muy básica y dio paso a FAT12, ideada para su uso
+ en disquetes y reemplazada posteriormente por FAT16 para soportar discos
+ duros de mayor tamaño.
+ Con Windows 95 surge VFAT, una extensión opcional que permite almacenar
+ nombres de fichero de hasta 255 caracteres en vez de los 8 para nombre
+ y 3 de extensión que se permiten desde FAT12.
+ Una revisión de Windows 95 introduce FAT32, con mayor soporte para discos
+ duros más grandes, por lo que actualmente este sistema es una de las formas
+ más sencillas (y limitadas) de compartir ficheros entre Linux y Windows.
+ El manejador de FAT para Linux más adecuado (en general) es 
+\family typewriter
+vfat
+\family default
+, que soporta FAT32 con VFAT.
+ Los ficheros en FAT no tienen propietario, grupo ni permisos asociados.
+\end_layout
+
+\begin_layout Standard
+XFS fue creado por Silicon Graphics para IRIX, su implementación de UNIX,
+ liberado en el año 2000 bajo licencia GPL y posteriormente soportado por
+ Linux.
+ NTFS apareció en Windows NT y es el sistema de ficheros por defecto de
+ esta familia de sistemas operativos.
+\end_layout
+
+\begin_layout Standard
+En Linux hay una única jerarquía de directorios, y cada sistema de ficheros
+ se 
+\series bold
+monta
+\series default
+ en un directorio llamado 
+\series bold
+punto de montaje
+\series default
+, de forma que, hasta que este se 
+\series bold
+desmonte
+\series default
+, podemos acceder a los ficheros que contiene a partir de este directorio.
+ El sistema de ficheros raíz es el que se monta en 
+\family typewriter
+\series bold
+/
+\family default
+\series default
+, el primero en montarse durante el arranque, y no se puede desmontar.
+ Normalmente solo el superusuario puede montar un sistema de ficheros.
+ 
+\end_layout
+
+\begin_layout Standard
+En ocasiones también puede montarlo un usuario normal, pero sin indicar
+ opciones extra.
+ Tras montar un sistema de ficheros, el punto de montaje toma los permisos,
+ propietario y grupo del directorio raíz del sistema de ficheros que se
+ monta.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+/etc/fstab
+\end_layout
+
+\begin_layout Standard
+Contiene información sobre sistemas de ficheros a montar.
+ Cada sistema de ficheros se des
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+cri
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+be en una línea separada.
+ Los campos en cada línea se separan con tabulaciones o espacios.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+dispositivo
+\family default
+\emph default
+ Dispositivo de bloques a montar.
+ Se puede usar 
+\family typewriter
+LABEL=<label>
+\family default
+ o 
+\family typewriter
+UUID=<uuid>
+\family default
+ en vez de un nombre de fichero.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+punto_de_montaje
+\family default
+\emph default
+ Punto de montaje para el sistema de ficheros.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+tipo
+\family default
+\emph default
+ Tipo de sistema de ficheros.
+ Linux soporta muchos tipos: 
+\family typewriter
+ext3
+\family default
+, 
+\family typewriter
+ext4
+\family default
+, 
+\family typewriter
+vfat
+\family default
+, 
+\family typewriter
+iso9660
+\family default
+, 
+\family typewriter
+swap
+\family default
+ y muchos más.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+opciones
+\family default
+\emph default
+ Opciones de montaje asociadas al sistema de ficheros.
+ Lista separada por comas.
+ Contiene al menos el tipo de montaje (
+\family typewriter
+\series bold
+ro
+\family default
+\series default
+ o 
+\family typewriter
+\series bold
+rw
+\family default
+\series default
+, que puede estar dentro de 
+\family typewriter
+\series bold
+defaults
+\family default
+\series default
+).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+frecuencia_copia
+\family default
+\emph default
+ Usada por 
+\family typewriter
+\series bold
+dump
+\family default
+\series default
+ para determinar los sistemas de ficheros a los que hacer copia de seguridad.
+ Por defecto es 0 (no hacer copia).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+comprobación
+\family default
+\emph default
+ Usada por 
+\family typewriter
+\series bold
+fsck
+\family default
+\series default
+ para determinar el orden de comprobación de los sistemas de ficheros al
+ arrancar (se comprueban primero los que tengan valor 1, después 2, etc.).
+ El sistema raíz debería indicarse con un valor de 1.
+ Otros sistemas deberían tener un valor de 2.
+ Por defecto es 0 (no comprobar).
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+mkfs [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+DISPOSITIVO
+\end_layout
+
+\begin_layout Standard
+Crea un sistema de ficheros Linux en un dispositivo, normalmente una partición
+ de disco duro.
+ Actualmente 
+\family typewriter
+\series bold
+mkfs
+\family default
+\series default
+ es sólo una fachada sobre los creadores de sistemas de ficheros (
+\family typewriter
+\series bold
+mkfs.
+\series default
+\emph on
+tipo
+\family default
+\emph default
+) disponibles en Linux.
+ El creador específico al sistema de ficheros se busca solo mediante la
+ variable de entorno 
+\family typewriter
+PATH
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-t
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+tipo
+\family default
+\emph default
+ Especifica el 
+\family typewriter
+\emph on
+tipo
+\family default
+\emph default
+ del sistema de ficheros a crear.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+mke2fs [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+DISPOSITIVO
+\end_layout
+
+\begin_layout Standard
+Crea un sistema de ficheros ext2, ext3 o ext4.
+ Si se ejecuta como 
+\family typewriter
+\series bold
+mkfs.XXX
+\family default
+\series default
+, se entiende que el tipo concreto es 
+\family typewriter
+\emph on
+XXX
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+e2label 
+\emph on
+DISPOSITIVO
+\emph default
+ [
+\emph on
+ETIQUETA
+\emph default
+]
+\end_layout
+
+\begin_layout Standard
+Cambia la etiqueta de un sistema de ficheros ext2, ext3 o ext4.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+fatlabel
+\end_layout
+
+\begin_layout Standard
+Establece u obtiene la etiqueta de un sistema de ficheros MS-DOS.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+blkid
+\end_layout
+
+\begin_layout Standard
+Determina el tipo de contenido de un dispositivo de bloques, así como los
+ atributos a partir de los metadatos de contenido (como celdas 
+\family typewriter
+LABEL
+\family default
+ o 
+\family typewriter
+UUID
+\family default
+).
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+mount
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+mount
+\series default
+ [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+DISPOSITIVO
+\emph default
+|
+\emph on
+DIRECTORIO
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+mount
+\series default
+ [
+\series bold
+-t
+\series default
+ 
+\emph on
+tipo
+\emph default
+] [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+DISPOSITIVO DIRECTORIO
+\end_layout
+
+\begin_layout Standard
+Monta un sistema de ficheros.
+ Si solo se indica el directorio o el dispositivo, 
+\family typewriter
+\series bold
+mount
+\family default
+\series default
+ busca un punto de montaje (y si no lo encuentra, un dispositivo) en el
+ fichero 
+\family typewriter
+/etc/fstab
+\family default
+.
+\end_layout
+
+\begin_layout Paragraph*
+Listado de montajes
+\end_layout
+
+\begin_layout Standard
+El siguiente comando lista todos los sistemas de ficheros montados (o de
+ tipo 
+\family typewriter
+\emph on
+tipo
+\family default
+\emph default
+):
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+mount
+\series default
+ [
+\series bold
+-l
+\series default
+] [
+\series bold
+-t
+\series default
+ 
+\emph on
+tipo
+\emph default
+]
+\end_layout
+
+\begin_layout Subsubsection*
+OPCIONES DE LÍNEA DE COMANDOS
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-o
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+opciones
+\family default
+\emph default
+ Opciones de montaje, lista separada por comas.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-r
+\family default
+\series default
+ Sinónimo de 
+\family typewriter
+\series bold
+-o ro
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-t
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+tipo
+\family default
+\emph default
+ Tipo del sistema de ficheros.
+\end_layout
+
+\begin_layout Subsubsection*
+OPCIONES DE MONTAJE INDEPENDIENTES DEL SISTEMA DE FICHEROS
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+auto
+\family default
+\series default
+ Puede ser montado con la opción 
+\family typewriter
+\series bold
+-a
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+noauto
+\family default
+\series default
+ Sólo puede ser montado de forma explícita.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+defaults
+\family default
+\series default
+ Usa las opciones por defecto: 
+\family typewriter
+\series bold
+rw
+\family default
+\series default
+, 
+\family typewriter
+\series bold
+suid
+\family default
+\series default
+, 
+\family typewriter
+\series bold
+dev
+\family default
+\series default
+, 
+\family typewriter
+\series bold
+exec
+\family default
+\series default
+, 
+\family typewriter
+\series bold
+auto
+\family default
+\series default
+, 
+\family typewriter
+\series bold
+nouser
+\family default
+\series default
+ y 
+\family typewriter
+\series bold
+async
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+nodev
+\family default
+\series default
+ No interpreta los dispositivos especiales de caracteres y bloques en el
+ sistema de ficheros.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+exec
+\family default
+\series default
+ Permite la ejecución de ficheros.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+noexec
+\family default
+\series default
+ No la permite.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+remount
+\family default
+\series default
+ Intenta volver a montar un sistema de ficheros ya montado.
+ Se usa normalmente para cambiar las opciones de montaje.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+ro
+\family default
+\series default
+ Monta el sistema de ficheros para solo lectura.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+rw
+\family default
+\series default
+ Monta el sistema de ficheros para lectura y escritura.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+users
+\family default
+\series default
+ Permite a cualquier usuario montar y desmontar el sistema de ficheros.
+ Implica 
+\family typewriter
+\series bold
+noexec
+\family default
+\series default
+, 
+\family typewriter
+\series bold
+nosuid
+\family default
+\series default
+ y 
+\family typewriter
+\series bold
+nodev
+\family default
+\series default
+ (salvo que lo sobrescriban opciones posteriores).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+suid
+\family default
+\series default
+ Permitir el efecto de los bits SUID o SGID.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+nosuid
+\family default
+\series default
+ No permitirlo.
+\end_layout
+
+\begin_layout Subsubsection*
+OPCIONES DE MONTAJE ESPECÍFICAS AL SISTEMA DE FICHEROS
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+grpquota
+\series default
+|
+\series bold
+usrquota
+\family default
+\series default
+ Aceptadas pero ignoradas.
+ (Las utilidades de cuotas podrían reaccionar a estas cadenas en 
+\family typewriter
+\emph on
+/etc/fstab
+\family default
+\emph default
+.
+ Concretamente, activan las cuotas de grupo y usuario, respectivamente,
+ si el sistema de ficheros soporta un mecanismo de cuotas.)
+\end_layout
+
+\begin_layout Paragraph*
+Opciones de montaje para FAT
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+uid=
+\series default
+\emph on
+valor
+\family default
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+\series bold
+gid=
+\series default
+\emph on
+valor
+\family default
+\emph default
+ Establecen el propietario y grupo de todos los ficheros.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+umask=
+\series default
+\emph on
+valor
+\family default
+\emph default
+ Establece la máscara-u (máscara de permisos que 
+\series bold
+no
+\series default
+ están presentes).
+ El valor se da en octal.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+dmask=
+\series default
+\emph on
+valor
+\family default
+\emph default
+ Establece una máscara-u solo en directorios.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+fmask=
+\series default
+\emph on
+valor
+\family default
+\emph default
+ Establece una máscara-u solo en ficheros.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+umount {
+\emph on
+DIRECTORIO
+\emph default
+|
+\emph on
+DISPOSITIVO
+\emph default
+}
+\end_layout
+
+\begin_layout Standard
+Desmonta un sistema de ficheros.
+ No se puede desmontar cuando está 
+\begin_inset Quotes fld
+\end_inset
+
+ocupado
+\begin_inset Quotes frd
+\end_inset
+
+ (
+\emph on
+busy
+\emph default
+).
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+findmnt [
+\emph on
+PUNTO_MONTAJE
+\emph default
+]
+\end_layout
+
+\begin_layout Standard
+Lista todos los sistemas de ficheros o busca uno.
+ Por defecto imprime todos los sistemas de ficheros en formato similar a
+ un árbol.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+fuser [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+NOMBRE
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Muestra los PIDs de procesos que usan los ficheros o sistemas de ficheros
+ especificados.
+ En el modo por defecto, a cada nombre de fichero le sigue una letra indicando
+ cada tipo de acceso:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+c
+\family default
+\series default
+ Directorio actual.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+e
+\family default
+\series default
+ Ejecutable siendo ejecutado.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+f
+\family default
+\series default
+ Fichero abierto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-m
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+NOMBRE
+\family default
+\emph default
+ 
+\family typewriter
+\emph on
+NOMBRE
+\family default
+\emph default
+ especifica un fichero montado en un sistema de ficheros o dispositivo de
+ bloques montado.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-v
+\family default
+\series default
+ Muestra una salida detallada.
+ Los campos 
+\family typewriter
+PID
+\family default
+, 
+\family typewriter
+USER
+\family default
+ y 
+\family typewriter
+COMMAND
+\family default
+ son similares a los de 
+\family typewriter
+\series bold
+ps
+\family default
+\series default
+.
+ 
+\family typewriter
+ACCESS
+\family default
+ muestra cómo el proceso accede al fichero.
+ También se muestra cuándo un fichero particular es accedido como punto
+ de montaje.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+df [
+\emph on
+OPCIÓN
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Muestra el espacio disponible en todos los sistemas de ficheros actualmente
+ montados.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-h
+\family default
+\series default
+ Muestra los tamaños en potencias de 1024 (p.
+ ej., 
+\family typewriter
+1023M
+\family default
+).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-i
+\family default
+\series default
+ Muestra información de uso sobre los nodos-i en vez de sobre los bloques.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-T
+\family default
+\series default
+ Imprime el tipo del sistema de ficheros.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+du [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+FICHERO
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Muestra un resumen de uso de disco en los 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+s, recursivamente en caso de directorios.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-a
+\family default
+\series default
+ Muestra el uso de espacio para todos los ficheros, no solo directorios.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-h
+\family default
+\series default
+ Mostrar los tamaños en formato legible para humanos (p.
+ ej., 
+\family typewriter
+1K
+\family default
+, 
+\family typewriter
+234M
+\family default
+, 
+\family typewriter
+2G
+\family default
+).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-s
+\family default
+\series default
+ Mostrar sólo el total para cada argumento.
+\end_layout
+
+\begin_layout Standard
+Los valores mostrados están en unidades de 1024 bytes (o 512 si se establece
+ 
+\family typewriter
+POSIXLY_CORRECT
+\family default
+).
+\end_layout
+
+\begin_layout Section
+Cuotas de disco
+\end_layout
+
+\begin_layout Standard
+Algunos sistemas de ficheros soportan 
+\series bold
+cuotas
+\series default
+, permitiendo establecer límites sobre la cantidad de espacio que puede
+ usar cada usuario.
+ En el caso de ext2, ext3 y ext4, cada usuario tiene límites en el número
+ de bloques y el de nodos-i, de dos tipos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Límite duro
+\series default
+ (
+\emph on
+hard limit
+\emph default
+): No se puede sobrepasar.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Límite blando
+\series default
+ (
+\emph on
+soft limit
+\emph default
+): Inferior al duro, se puede sobrepasar durante cierto 
+\series bold
+periodo de gracia
+\series default
+, en el que se informa al usuario.
+\end_layout
+
+\begin_layout Standard
+En Linux, las cuotas se deben activar explícitamente.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+quotacheck -nm 
+\emph on
+SISTEMA_DE_FICHEROS
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Examina cada sistema de ficheros (indicado por el punto de montaje), crea
+ una tabla con el uso de disco actual y la compara con la contenida en el
+ fichero de cuotas de disco del sistema de ficheros.
+ Si se encuentran inconsistencias, tanto el fichero como la copia en el
+ sistema de las cuotas incorrectas se actualizan.
+ 
+\family typewriter
+\series bold
+quotacheck
+\family default
+\series default
+ espera que cada sistema de ficheros a comprobar tenga ficheros de cuota
+ llamados 
+\family typewriter
+[a]quota.user
+\family default
+ y 
+\family typewriter
+[a]quota.group
+\family default
+ en la raíz.
+ Si un fichero no está presente, 
+\family typewriter
+\series bold
+quotacheck
+\family default
+\series default
+ lo crea.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+quotaon 
+\emph on
+SISTEMA_FICHEROS
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Anuncia al sistema que las cuotas de disco deben ser activadas en uno o
+ más sistemas de ficheros (indicados por el punto de montaje).
+ Los ficheros de cuota deben estar presentes en el directorio raíz del sistema
+ de ficheros.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+setquota
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+setquota
+\series default
+ 
+\series bold
+-u
+\series default
+ 
+\emph on
+NOMBRE LÍMITE_BLANDO_BLOQUES LÍMITE_DURO_BLOQUES LÍMITE_BLANDO_NODOS_I LÍMITE_DU
+RO_NODOS_I SISTEMA_DE_FICHEROS
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+setquota -t
+\series default
+ 
+\emph on
+PERIODO_GRACIA_BLOQUES PERIODO_GRACIA_NODOS_I SISTEMA_DE_FICHEROS
+\end_layout
+
+\begin_layout Standard
+Editor de cuotas.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-u
+\family default
+\series default
+ Establece cuotas para el usuario nombrado.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+repquota 
+\emph on
+SISTEMA_DE_FICHEROS
+\end_layout
+
+\begin_layout Standard
+Imprime un resumen de los usos de disco y las cuotas para los sistemas de
+ ficheros indicados.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+quota
+\end_layout
+
+\begin_layout Standard
+Imprime el uso de disco y los límites del usuario.
+\end_layout
+
+\begin_layout Section
+Copias de seguridad
+\end_layout
+
+\begin_layout Standard
+Es responsabilidad del administrador que las copias de seguridad de los
+ sistemas de ficheros se hagan en el momento oportuno y estén en un lugar
+ seguro, para evitar la posible pérdida de datos.
+ Tipos de copia:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Completa
+\series default
+: Tardan mucho en realizarse y la recuperación de un único fichero puede
+ no ser inmediata, por lo que sólo están justificadas si los ficheros cambian
+ mucho y son vitales para el trabajo de mucha gente o ante grandes cambios
+ como nuevo software, sistema operativo, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Diferencial
+\series default
+: Sólo se copian los ficheros creados o modificados después de la última
+ copia completa.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Incremental
+\series default
+: Sólo se copian los ficheros creados o modificados desde la última copia
+ de seguridad, por lo que ocupan menos que las diferenciales.
+ Muchas veces se hace una copia completa con poca frecuencia seguida de
+ copias incrementales con mucha frecuencia, incluso a diario.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+tar 
+\emph on
+OPCIÓN
+\emph default
+...
+ [
+\emph on
+ARGUMENTO
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Almacena múltiples ficheros en uno solo (un 
+\series bold
+archivo
+\series default
+), y manipula dichos archivos.
+\end_layout
+
+\begin_layout Standard
+En 
+\series bold
+estilo tradicional
+\series default
+, el primer argumento es un clúster de opciones y el resto son argumentos
+ a aquellas opciones que lo requieran.
+ En 
+\series bold
+estilo UNIX
+\series default
+, a cada opción le precede un guión.
+ Si una opción toma un argumento, este lo sigue, bien como palabra separada
+ en la línea del comando o inmediatamente detrás de la opción.
+ Cualquier número de parámetros que no tome argumentos puede juntarse tras
+ un solo guión.
+ En 
+\series bold
+estilo GNU
+\series default
+, cada opción comienza con dos guiones y tiene un nombre descriptivo.
+ Los tres estilos pueden mezclarse.
+\end_layout
+
+\begin_layout Subsubsection*
+OPCIONES
+\end_layout
+
+\begin_layout Paragraph*
+Modo de operación
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-c
+\family default
+\series default
+ Crea un nuevo archivo.
+ Los argumentos indican los nombres de los ficheros a archivar.
+ Los directorios se archivan recursivamente.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-r
+\family default
+\series default
+ Añade fichero al final de un archivo.
+ Los argumentos tienen el mismo significado que para 
+\family typewriter
+\series bold
+-c
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-t
+\family default
+\series default
+ Lista el contenido de un archivo.
+ Los argumentos son opcionales.
+ Cuando aparecen, son los nombres de los miembros a listar.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-x
+\family default
+\series default
+ Extrae ficheros de un archivo.
+ Los argumentos son opcionales.
+ Cuando aparecen, son los nombres de los miembros del archivo a extraer.
+\end_layout
+
+\begin_layout Paragraph*
+Tratamiento de atributos de fichero
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-p
+\family default
+\series default
+ Extrae información sobre permisos de fichero.
+\end_layout
+
+\begin_layout Paragraph*
+Selección y cambio de dispositivo
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-f
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+ARCHIVO
+\family default
+\emph default
+ Usa el fichero o dispositivo de archivo indicado.
+\end_layout
+
+\begin_layout Subsubsection*
+Opciones de compresión
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-z
+\family default
+\series default
+ Filtra el archivo a través de 
+\family typewriter
+\series bold
+gzip
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Paragraph*
+Selección de ficheros local
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-h
+\family default
+\series default
+ Sigue enlaces simbólicos; archiva los ficheros a los que apuntan.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-N
+\series default
+,
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+--after-date
+\series default
+=
+\emph on
+FECHA
+\family default
+\emph default
+ Sólo almacena ficheros posteriores a 
+\family typewriter
+\emph on
+FECHA
+\family default
+\emph default
+.
+ Si 
+\family typewriter
+\emph on
+FECHA
+\family default
+\emph default
+ empieza por 
+\family typewriter
+\series bold
+/
+\family default
+\series default
+ o 
+\family typewriter
+\series bold
+.
+
+\family default
+\series default
+ se toma como un nombre de fichero; la fecha de creación de este fichero
+ se usa como fecha.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-P
+\family default
+\series default
+ No elimina las barras al principio de nombres de fichero al crear archivos
+ (los guarda con ruta absoluta).
+\end_layout
+
+\begin_layout Paragraph*
+Salida informativa
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-v
+\family default
+\series default
+ Lista los ficheros procesados.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+cpio
+\end_layout
+
+\begin_layout Standard
+En modo copia hacia fuera, lee una lista de nombres de fichero, uno por
+ línea, de la entrada estándar, y escribe el archivo en la salida estándar.
+ En modo copia hacia dentro, lee un archivo de la entrada estándar.
+\end_layout
+
+\begin_layout Paragraph*
+Modo principal de operación
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-i
+\family default
+\series default
+ Extrae ficheros de un archivo (copia hacia dentro).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-o
+\family default
+\series default
+ Crea un archivo (copia hacia fuera).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-t
+\family default
+\series default
+ Imprime una tabla de contenidos de la entrada.
+\end_layout
+
+\begin_layout Subsubsection*
+Modificadores de operación para ambos modos
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-v
+\family default
+\series default
+ Lista los ficheros procesados, o con 
+\family typewriter
+\series bold
+-t
+\family default
+\series default
+, proporciona un listado estilo 
+\family typewriter
+\series bold
+ls -l
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-F
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+ARCHIVO
+\family default
+\emph default
+ Usa este 
+\family typewriter
+\emph on
+ARCHIVO
+\family default
+\emph default
+ en vez de la entrada o salida estándar.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+--no-absolute-filenames
+\family default
+\series default
+ Crea todos los ficheros relativos al directorio actual.
+\end_layout
+
+\begin_layout Paragraph*
+Modificadores de operación para copia hacia fuera
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-a
+\family default
+\series default
+ Resetea los tiempos de acceso de los ficheros tras leerlos.
+\end_layout
+
+\begin_layout Paragraph*
+Modificadores de operación para copia hacia dentro
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-d
+\family default
+\series default
+ Crea directorios cuando se necesite.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-m
+\family default
+\series default
+ Presenta las fechas de modificación previas al crear ficheros.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+rsync [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+FUENTE
+\emph default
+ 
+\emph on
+DESTINO
+\end_layout
+
+\begin_layout Standard
+Puede copiar localmente o hacia/desde otro ordenador sobre una 
+\emph on
+shell
+\emph default
+ remota (demonio 
+\family typewriter
+sshd
+\family default
+).
+ Usa un algoritmo que reduce la cantidad de datos enviados por red enviando
+ solo la diferencia entre los archivos fuente y los existentes en el destino.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-v
+\family default
+\series default
+ Un solo 
+\family typewriter
+\series bold
+-v
+\family default
+\series default
+ te dará información sobre qué ficheros están siendo transferidos.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-a
+\family default
+\series default
+ Recursión y preservar casi todo.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+--backup
+\family default
+\series default
+ Los ficheros de destino preexistentes cambian de nombre.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+--backup-dir=
+\series default
+\emph on
+DIR
+\family default
+\emph default
+ Combinado con 
+\family typewriter
+\series bold
+--backup
+\family default
+\series default
+, guarda las copias de seguridad en el directorio especificado del destino.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-n
+\family default
+\series default
+ Ejecución de prueba que no realiza ningún cambio (y produce en general
+ la misma salida que una ejecución real).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+--delete
+\family default
+\series default
+ Borrar ficheros del lado receptor que no están en la fuente.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-z
+\family default
+\series default
+ Comprime los datos de los ficheros conforme se envían al destino, reduciendo
+ la cantidad de datos transmitidos.
+\end_layout
+
+\begin_layout Section
+
+\family typewriter
+proc
+\family default
+ y 
+\family typewriter
+sysfs
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+proc
+\family default
+ (montado en 
+\family typewriter
+/proc
+\family default
+) y 
+\family typewriter
+sysfs
+\family default
+ (montado en 
+\family typewriter
+/sys
+\family default
+)
+\family typewriter
+ 
+\family default
+son sistemas de ficheros virtuales (no se almacenan en ningún disco) que
+ nos permiten acceder a la información del núcleo sobre dispositivos hardware
+ disponibles, buses, módulos, etc.
+ En 
+\family typewriter
+/proc
+\family default
+, tenemos:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+devices
+\family default
+ Dispositivos de bloques y caracteres actualmente configurados (cuyos módulos
+ están cargados).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+interrupts
+\family default
+ Interrupciones tratadas y dispositivos asociados.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+iomem
+\family default
+ Rangos de memoria para E/S mapeada a memoria.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+ioports
+\family default
+ Puertos registrados para E/S no mapeada a memoria.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+modules
+\family default
+ Lista de módulos del núcleo cargados.
+\end_layout
+
+\begin_layout Standard
+La información más completa se encuentra en 
+\family typewriter
+/sys
+\family default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+lshw
+\end_layout
+
+\begin_layout Standard
+Extrae información detallada sobre la configuración hardware.
+ Configuración de memoria, versión de CPU, configuración de caché, buses,
+ etc.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+lsusb
+\end_layout
+
+\begin_layout Standard
+Muestra información sobre los buses USB y dispositivos conectados.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-v
+\family default
+\series default
+ Muestra información detallada sobre los dispositivos.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-d
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+FABRICANTE
+\emph default
+:
+\emph on
+PRODUCTO
+\family default
+\emph default
+ Sólo muestra el dispositivo con el ID de fabricante y de producto indicados
+ en hexadecimal.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+lspci
+\end_layout
+
+\begin_layout Standard
+Muestra información sobre los buses PCI y dispositivos conectados.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-v
+\family default
+\series default
+ Muestra información detallada.
+\end_layout
+
+\begin_layout Section
+Planificación de E/S en discos
+\end_layout
+
+\begin_layout Standard
+La escritura a disco pasa por una 
+\series bold
+caché de disco
+\series default
+ en RAM, y los bloques modificados son realmente escritos por demonios del
+ núcleo.
+ Para bloques que no están en la caché, existen 3 planificadores:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+CFQ
+\series default
+ (
+\emph on
+Completely Fair Queuing
+\emph default
+): Va asignando el disco a cada proceso durante cierto tiempo, en el cual
+ solo se sirven peticiones de este proceso, siguiendo básicamente un algoritmo
+ SCAN.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Deadline
+\series default
+\emph default
+: Asigna plazos de tiempo a cada petición, de forma que si hay peticiones
+ con plazos incumplidos, estas son atendidas mediante FCFS y, de lo contrario,
+ aplica un algoritmo SCAN.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+NOOP
+\series default
+ (
+\emph on
+no-operation
+\emph default
+): FCFS.
+\end_layout
+
+\begin_layout Standard
+Para discos duros, CFQ proporciona mejor rendimiento en general, por lo
+ que es el 
+\series bold
+planificador por omisión
+\series default
+; 
+\emph on
+deadline
+\emph default
+ funciona mejor para bases de datos, y NOOP es el peor.
+ Para SSDs y ciertos dispositivos inteligentes como sistemas RAID por hardware,
+ el mejor es NOOP, pues el resto introducen pequeños retrasos que sólo tienen
+ sentido para discos duros.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Podemos obtener el planificador para un disco leyendo de 
+\family typewriter
+/sys/block/
+\emph on
+nombre_disco
+\emph default
+/queue/scheduler
+\family default
+ (siendo 
+\family typewriter
+\emph on
+nombre_disco
+\family default
+\emph default
+, por ejemplo, 
+\family typewriter
+sda
+\family default
+), que nos muestra todos los planificadores con el actual entre corchetes,
+ y podemos cambiarlo 
+\begin_inset Quotes fld
+\end_inset
+
+sobreescribiéndolo
+\begin_inset Quotes frd
+\end_inset
+
+ con el nombre del planificador que queremos (
+\family typewriter
+noop
+\family default
+, 
+\family typewriter
+deadline
+\family default
+ o 
+\family typewriter
+cfq
+\family default
+).
+ El parámetro del núcleo 
+\family typewriter
+elevator=
+\emph on
+planificador
+\family default
+\emph default
+ establece el planificador por omisión.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En CFQ, los procesos tienen prioridades de E/S.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+ionice [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [-p
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+PID
+\emph default
+|
+\emph on
+COMANDO
+\emph default
+...]
+\end_layout
+
+\begin_layout Standard
+Establece u obtiene la clase de E/S y prioridad para un proceso.
+ Sin parámetros o sólo con 
+\family typewriter
+\series bold
+-p
+\family default
+\series default
+, obtiene la clase de planificación y prioridad de E/S para el proceso.
+ Si se da un 
+\family typewriter
+\emph on
+COMANDO
+\family default
+\emph default
+, ejecuta el comando con los parámetros dados.
+ Si no se especifica una 
+\family typewriter
+\emph on
+clase
+\family default
+\emph default
+, se ejecuta con clase de prioridad 
+\begin_inset Quotes fld
+\end_inset
+
+mejor esfuerzo
+\begin_inset Quotes frd
+\end_inset
+
+.
+ El nivel de prioridad por defecto es 4.
+\end_layout
+
+\begin_layout Standard
+Un proceso puede estar en tres clases de planificación E/S:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Desocupado
+\series default
+
+\begin_inset space ~
+\end_inset
+
+(
+\emph on
+idle
+\emph default
+) Sólo obtiene el disco cuando ningún otro programa lo ha pedido durante
+ un cierto periodo de gracia.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Mejor
+\begin_inset space ~
+\end_inset
+
+esfuerzo
+\series default
+
+\begin_inset space ~
+\end_inset
+
+(
+\emph on
+best-effort
+\emph default
+) Toma un argumento de prioridad de 0–7, con menor número para mayor prioridad.
+ Los procesos con igual prioridad se sirven en 
+\emph on
+round-robin
+\emph default
+.
+ Un proceso que no ha pedido una prioridad de E/S hereda su clase de planificaci
+ón de CPU.
+ Su prioridad se deriva del nivel 
+\emph on
+nice
+\emph default
+ de CPU (
+\begin_inset Formula $\left\lfloor \frac{\text{valor nice}+20}{5}\right\rfloor $
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Tiempo
+\begin_inset space ~
+\end_inset
+
+real
+\series default
+
+\begin_inset space ~
+\end_inset
+
+(
+\emph on
+realtime
+\emph default
+) Se le da primer acceso al disco, independientemente del resto del sistema.
+ Se definen 8 niveles de prioridad (0–7) según lo grande que es la porción
+ de tiempo que recibirá un proceso.
+ No permitida para usuarios no 
+\family typewriter
+root
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-c
+\series default
+,
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+--class
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+CLASE
+\family default
+\emph default
+ Número de la clase; 
+\family typewriter
+\series bold
+0
+\family default
+\series default
+ para ninguna, 
+\family typewriter
+\series bold
+1
+\family default
+\series default
+ para tiempo real, 
+\family typewriter
+\series bold
+2
+\family default
+\series default
+ para mejor esfuerzo, 
+\family typewriter
+\series bold
+3
+\family default
+\series default
+ para desocupado.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-n
+\series default
+,
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+--classdata
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+NIVEL
+\family default
+\emph default
+ Para tiempo real y mejor esfuerzo, nivel de prioridad.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-p
+\series default
+,
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+--pid
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+PID
+\family default
+\emph default
+ ID del proceso del que obtener o establecer los parámetros.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+iotop
+\end_layout
+
+\begin_layout Standard
+Muestra una tabla de uso de E/S actual de los procesos o hilos.
+ (Las columnas son: identificador de hilo 
+\family typewriter
+TID
+\family default
+, clase/nivel de prioridad 
+\family typewriter
+PRIO
+\family default
+, propietario 
+\family typewriter
+USER
+\family default
+, tasa de transferencia de lectura 
+\family typewriter
+DISK READ
+\family default
+, de escritura 
+\family typewriter
+DISK WRITE
+\family default
+, porcentaje de tiempo de espera en fallos de página 
+\family typewriter
+SWAPIN
+\family default
+, porcentaje de tiempo de espera a peticiones de E/S a disco 
+\family typewriter
+IO
+\family default
+ y línea de órdenes 
+\family typewriter
+COMMAND
+\family default
+.)
+\end_layout
+
+\begin_layout Standard
+Use las flechas izquierda y derecha para cambiar la ordenación, 
+\family typewriter
+r
+\family default
+ para invertir el orden (se indica 
+\family typewriter
+<
+\family default
+ o 
+\family typewriter
+>
+\family default
+ en la columna en la que se ordena para orden ascendente o descendente,
+ respectivamente).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-P
+\family default
+\series default
+ Solo muestra procesos.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+sync
+\end_layout
+
+\begin_layout Standard
+Sincroniza las escrituras a caché a almacenamiento permanente.
+\end_layout
+
+\end_body
+\end_document

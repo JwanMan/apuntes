@@ -1,0 +1,1168 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+En Java los tipos de datos se implementan como 
+\series bold
+clases
+\series default
+, cada una dentro de un fichero y con nombre normalmente en 
+\emph on
+CamelCase
+\emph default
+, que a su vez se organizan en 
+\series bold
+paquetes
+\series default
+ que agrupan código relacionado
+\emph on
+,
+\emph default
+ con nombres en 
+\emph on
+lowerCamelCase
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Ese término me lo he inventado.
+\end_layout
+
+\end_inset
+
+, que pueden a su vez estar en otros.
+ Los elementos de la ruta de un paquete, clase, etc.
+ se separan con 
+\begin_inset Quotes fld
+\end_inset
+
+
+\family typewriter
+.
+\family default
+
+\begin_inset Quotes frd
+\end_inset
+
+.
+ Los ficheros de clase contienen:
+\end_layout
+
+\begin_layout Itemize
+Declaración del paquete en el que está la clase: 
+\family typewriter
+package 
+\emph on
+ruta.del.paquete
+\emph default
+;
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+Importación de clases de paquetes distintos al de la clase o a 
+\family typewriter
+java.lang
+\family default
+, para poder referirnos a ellas sin indicar la ruta completa: 
+\family typewriter
+import 
+\emph on
+ruta.de.Clase
+\emph default
+;
+\family default
+.
+ También se pueden importar constantes
+\begin_inset Newline newline
+\end_inset
+
+definidas en clases con 
+\family typewriter
+import static ruta.de.Clase.
+\family default
+[
+\family typewriter
+CONSTANTE
+\family default
+|
+\family typewriter
+*
+\family default
+]
+\family typewriter
+;
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+Definición de la clase: [
+\family typewriter
+\emph on
+visibilidad
+\family default
+\emph default
+] [
+\family typewriter
+\emph on
+mods
+\family default
+\emph default
+] 
+\family typewriter
+class 
+\emph on
+NombreClase
+\family default
+\emph default
+[
+\family typewriter
+<
+\family default
+...
+\family typewriter
+>
+\family default
+] [
+\family typewriter
+extends 
+\emph on
+Clase
+\family default
+\emph default
+] [
+\family typewriter
+implements 
+\emph on
+Interfaz1
+\emph default
+, 
+\family default
+...] 
+\family typewriter
+{ 
+\family default
+...
+
+\family typewriter
+ }
+\family default
+, donde se define la clase.
+ La visibilidad es 
+\family typewriter
+public
+\family default
+ para que la clase sea visible fuera del paquete; por defecto solo lo es
+ dentro de este.
+\end_layout
+
+\begin_layout Standard
+Los elementos de una clase (dentro de 
+\family typewriter
+{ 
+\family default
+...
+
+\family typewriter
+ }
+\family default
+) pueden tener visibilidad pública (
+\family typewriter
+public
+\family default
+, accesible fuera del paquete), privada (
+\family typewriter
+private
+\family default
+, accesible solo dentro la clase) o a nivel de paquete (por defecto, accesible
+ solo dentro del paquete).
+ Estos son:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Atributos
+\series default
+: Los campos de la estructura: [
+\family typewriter
+\emph on
+visibilidad
+\family default
+\emph default
+] [
+\family typewriter
+\emph on
+mods
+\family default
+\emph default
+] 
+\family typewriter
+\emph on
+Tipo nombre
+\emph default
+ 
+\family default
+[
+\family typewriter
+= 
+\emph on
+expr
+\family default
+\emph default
+]
+\family typewriter
+;
+\family default
+.
+ Siempre privados según las buenas prácticas.
+ Cuando una clase 
+\begin_inset Formula $A$
+\end_inset
+
+ declara un atributo cuyo tipo es otra clase 
+\begin_inset Formula $B$
+\end_inset
+
+, decimos que 
+\begin_inset Formula $A$
+\end_inset
+
+ es 
+\series bold
+cliente
+\series default
+ de 
+\begin_inset Formula $B$
+\end_inset
+
+ (
+\series bold
+relación de clientela
+\series default
+).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Métodos
+\series default
+: Operaciones aplicables sobre los objetos: 
+\begin_inset Newline newline
+\end_inset
+
+[
+\family typewriter
+\emph on
+visibilidad
+\family default
+\emph default
+] [
+\family typewriter
+\emph on
+mods
+\family default
+\emph default
+] [
+\family typewriter
+\emph on
+TipoDevuelto
+\family default
+\emph default
+|
+\family typewriter
+void
+\family default
+]
+\family typewriter
+\emph on
+ nombre
+\emph default
+(
+\family default
+[
+\family typewriter
+final
+\family default
+] 
+\family typewriter
+\emph on
+Tipo parámetro
+\emph default
+, 
+\family default
+...
+ [
+\family typewriter
+, 
+\family default
+[
+\family typewriter
+final
+\family default
+]
+\family typewriter
+ 
+\emph on
+Tipo
+\emph default
+...
+ 
+\emph on
+array
+\family default
+\emph default
+]
+\family typewriter
+) 
+\family default
+[
+\family typewriter
+throws 
+\emph on
+Excepción1
+\emph default
+, 
+\family default
+...]
+\family typewriter
+ { 
+\family default
+(implementación)
+\family typewriter
+ }
+\family default
+.
+ Si se incluye el parámetro 
+\family typewriter
+\emph on
+array
+\family default
+\emph default
+, su tipo es 
+\family typewriter
+\emph on
+Tipo
+\emph default
+[]
+\family default
+ (ver abajo), y recibe la lista de todos los parámetros después de los obligator
+ios si son de tipo 
+\family typewriter
+\emph on
+Tipo
+\family default
+\emph default
+, o el (único) parámetro des
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+pués de los obligatorios si es de tipo 
+\family typewriter
+\emph on
+Tipo
+\emph default
+[]
+\family default
+.
+ Puede haber varios métodos con el mismo nombre, siempre que tengan distinto
+ número de parámetros o alguno tenga distinto tipo y estos sean disjuntos
+ (
+\series bold
+sobrecarga de métodos
+\series default
+ u
+\series bold
+\emph on
+ 
+\series default
+overloading
+\emph default
+).
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{IP}
+\end_layout
+
+\end_inset
+
+Llamamos 
+\series bold
+parámetros formales
+\series default
+ a los parámetros de una acción (
+\begin_inset Formula $par_{1},\dots,par_{n}$
+\end_inset
+
+) y 
+\series bold
+argumentos
+\series default
+ o 
+\series bold
+parámetros reales
+\series default
+ a los valores con los que se invoca la acción, mediante la notación 
+\begin_inset Quotes cld
+\end_inset
+
+
+\emph on
+nombre
+\emph default
+(
+\begin_inset Formula $expr_{1},\dots,expr_{n}$
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para acceder a los atributos se pueden usar 
+\series bold
+métodos de acceso
+\series default
+ (
+\emph on
+getters
+\emph default
+, normalmente 
+\family typewriter
+public 
+\emph on
+Tipo
+\emph default
+ get
+\emph on
+Atributo
+\emph default
+()
+\family default
+) y 
+\series bold
+métodos de modificación
+\series default
+ (
+\emph on
+setters
+\emph default
+, normalmente 
+\family typewriter
+public void set
+\emph on
+Atributo
+\emph default
+(
+\emph on
+Tipo atributo
+\emph default
+)
+\family default
+), lo que permite más tarde cambiar la estructura manteniendo la interfaz
+ compatible.
+ Otras veces se accede a los atributos de otras formas más apropiadas para
+ su significado concreto, o se añaden métodos de acceso para propiedades
+ calculadas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Constructores
+\series default
+: Operaciones encargadas de inicializar correctamente un objeto.
+ Se definen como los métodos pero sin el tipo devuelto, y el nombre es el
+ de la clase.
+ Si no se define ninguno se crea un 
+\series bold
+constructor por defecto
+\series default
+, que no toma ningún parámetro y deja todos los atributos con su valor por
+ defecto.
+\end_layout
+
+\begin_layout Standard
+Los modificadores (
+\family typewriter
+\emph on
+mods
+\family default
+\emph default
+) son:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+static
+\family default
+: Indica que un atributo es global para todos los objetos de la clase (atributo
+ 
+\series bold
+de clase
+\series default
+), o que un método es de clase, y por tanto no se llama a través de un objeto
+ y en principio solo puede acceder a atributos de clase.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+final
+\family default
+: Indica que el valor de un atributo (o variable local) solo puede ser estableci
+do en su declaración o, en su caso, en un constructor.
+ No se les asigna un valor por defecto.
+ Puede combinarse con 
+\family typewriter
+static
+\family default
+ para definir constantes, que no hace falta hacerlas privadas.
+ 
+\end_layout
+
+\begin_layout Standard
+Tipos de datos en Java:
+\end_layout
+
+\begin_layout Itemize
+Primitivos.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Enteros con signo: 
+\family typewriter
+byte
+\family default
+ (8 bits), 
+\family typewriter
+short
+\family default
+ (16), 
+\family typewriter
+int
+\family default
+ (32), 
+\family typewriter
+long
+\family default
+ (64).
+ Por defecto: 
+\family typewriter
+0
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+Reales: 
+\family typewriter
+float
+\family default
+ (IEEE-854, 32 bits), 
+\family typewriter
+double
+\family default
+ (64).
+ Por defecto: 
+\family typewriter
+0
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+Caracteres: 
+\family typewriter
+char
+\family default
+.
+ Por defecto: 
+\family typewriter
+'
+\backslash
+u000'
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+Booleano: 
+\family typewriter
+boolean
+\family default
+.
+ Valores 
+\family typewriter
+false
+\family default
+ (por defecto) y 
+\family typewriter
+true
+\family default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Objetos
+\series default
+.
+ 
+\series bold
+Instancias
+\series default
+ de una clase, representadas por una estructura en memoria con un campo
+ por cada atributo, que para tipos primitivos contiene el valor y para el
+ resto contiene un identificador de objeto (
+\emph on
+oid
+\emph default
+), o el valor 
+\family typewriter
+null
+\family default
+, su valor por defecto, que no indica ningún objeto.
+ El 
+\series bold
+estado
+\series default
+ de un objeto es el valor de estos campos.
+\begin_inset Newline newline
+\end_inset
+
+Los objetos en Java se manejan por referencia (a través del 
+\emph on
+oid
+\emph default
+).
+ Esto permite la compartición de objetos con integridad referencial, es
+ más eficiente para objetos complejos, permite estructuras recursivas e
+ implica que los objetos se crean cuando se construyen y no en su declaración.
+ El inconveniente es el 
+\series bold
+\emph on
+aliasing
+\series default
+\emph default
+, pues al asignar el valor de una variable a otra no se copia el objeto
+ sino su identificador, lo cual es importante tener en cuenta en métodos
+ de acceso a atributos mutables para no comprometer la integridad del objeto.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Las cadenas de caracteres son objetos inmutables de clase 
+\family typewriter
+String
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+Los 
+\series bold
+enumerados
+\series default
+ son clases definidas de forma especial, con la sintaxis [
+\family typewriter
+\emph on
+visibilidad
+\family default
+\emph default
+] 
+\family typewriter
+enum 
+\emph on
+Nombre
+\emph default
+ { 
+\emph on
+VALOR_1
+\emph default
+, 
+\emph on
+VALOR_2
+\emph default
+, 
+\family default
+...
+
+\family typewriter
+ }
+\family default
+.
+ Incluyen una constante del propio tipo para cada valor, y estas definen
+ el dominio de valores de la clase, así como métodos 
+\family typewriter
+public int ordinal()
+\family default
+ que devuelve el índice del valor y 
+\family typewriter
+public static 
+\emph on
+Tipo
+\emph default
+[] values()
+\family default
+ que devuelve una lista con todas los valores posibles.
+\end_layout
+
+\begin_layout Itemize
+Los 
+\series bold
+\emph on
+arrays
+\series default
+\emph default
+ son objetos que contienen un número fijo de elementos de otro tipo.
+ Su tipo es 
+\family typewriter
+\emph on
+TipoElemento
+\emph default
+[]
+\family default
+...
+\family typewriter
+[]
+\family default
+ (pueden tener varias dimensiones).
+ Su tamaño puede consultarse mediante el atributo 
+\family typewriter
+public final int length
+\family default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+El operador 
+\family typewriter
+==
+\family default
+ comprueba si dos elementos de un tipo primitivo son iguales o si dos referencia
+s apuntan al mismo objeto (igual 
+\emph on
+oid
+\emph default
+), y en particular si dos elementos de un tipo enumerado tienen el mismo
+ valor (devuelve un booleano).
+\end_layout
+
+\begin_layout Standard
+Los objetos se comunican entre sí mediante 
+\series bold
+mensajes
+\series default
+, formados por un 
+\series bold
+objeto receptor
+\series default
+ (si no es un método de clase), un 
+\series bold
+identificador de método
+\series default
+ y los 
+\series bold
+argumentos
+\series default
+.
+ Enviar un mensaje es llamar al método, definido en la clase del objeto,
+ con la sintaxis 
+\family typewriter
+\emph on
+objeto
+\emph default
+.
+\emph on
+método
+\emph default
+(
+\emph on
+args
+\emph default
+, 
+\family default
+...
+\family typewriter
+)
+\family default
+ o, si es un método de clase, con 
+\family typewriter
+\emph on
+Clase
+\emph default
+.
+\emph on
+método
+\emph default
+(
+\emph on
+args
+\emph default
+, 
+\family default
+...
+\family typewriter
+)
+\family default
+.
+ Los argumentos se pasan por valor.
+ Este método (si no es de clase) puede acceder al objeto sobre el que se
+ llama (la 
+\series bold
+instancia actual
+\series default
+) por la palabra reservada 
+\family typewriter
+this
+\family default
+.
+ Además, puede referirse a los métodos y atributos de la instancia actual
+ (si no es un método de clase) o de la propia clase sin especificar la instancia
+ actual o la clase, siempre que no haya un parámetro o variable local del
+ mismo nombre.
+ Un constructor puede invocar a otro mediante 
+\family typewriter
+this(
+\emph on
+args
+\emph default
+, 
+\family default
+...
+\family typewriter
+);
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Dentro de un método, la sentencia 
+\family typewriter
+\emph on
+Tipo var
+\emph default
+ 
+\family default
+[
+\family typewriter
+= 
+\emph on
+expr
+\family default
+\emph default
+]
+\family typewriter
+;
+\family default
+ declara una variable local y le asigna opcionalmente un valor, y la expresión
+ 
+\family typewriter
+new 
+\emph on
+Clase
+\emph default
+(
+\emph on
+arg
+\emph default
+, 
+\family default
+...
+\family typewriter
+)
+\family default
+ asigna el espacio para la estructura de un objeto, le asigna un identificador,
+ inicializa los campos con su valor por defecto, llama al constructor corrspondi
+ente y devuelve dicho objeto.
+ Para crear un 
+\emph on
+array
+\emph default
+ se usa 
+\family typewriter
+new 
+\emph on
+TipoElemento
+\emph default
+[
+\emph on
+t1
+\emph default
+]
+\family default
+...
+\family typewriter
+[
+\emph on
+tn
+\emph default
+]
+\family default
+[
+\family typewriter
+{
+\family default
+\emph on
+...
+\family typewriter
+\emph default
+{
+\emph on
+valor11
+\emph default
+, 
+\family default
+...
+\family typewriter
+}, 
+\family default
+...
+\family typewriter
+}
+\family default
+], con el número de elementos en cada dimensión, lo que asigna el espacio
+ necesario al 
+\emph on
+array
+\emph default
+, le asigna un identificador e inicializa cada elemento con su valor por
+ defecto o con los valores indicados entre llaves.
+ La destrucción de los objetos no es explícita, sino que el 
+\series bold
+recolector de basura
+\series default
+ (
+\emph on
+garbage collector
+\emph default
+) periódicamente libera los objetos que no son referenciados.
+ Un objeto puede ser notificado antes de ser eliminado implementando el
+ método 
+\family typewriter
+finalize()
+\family default
+, lo que interesa cuando este hace uso de recursos externos.
+ Estructuras de control:
+\end_layout
+
+\begin_layout Itemize
+Sentencias condicionales: 
+\family typewriter
+if (
+\emph on
+cond-expr
+\emph default
+) 
+\emph on
+then-stmt
+\emph default
+ 
+\family default
+[
+\family typewriter
+else 
+\emph on
+else-stmt
+\family default
+\emph default
+] (
+\family typewriter
+\emph on
+cond-expr
+\family default
+\emph default
+ debe evaluar a booleano); 
+\family typewriter
+switch (
+\emph on
+expr
+\emph default
+) { 
+\family default
+...
+
+\family typewriter
+ }
+\family default
+ (
+\family typewriter
+\emph on
+expr
+\family default
+\emph default
+ debe evaluar a entero, valor de enumerado o cadena, y es necesario usar
+ 
+\family typewriter
+break;
+\family default
+ para evitar que la ejecución continúe con el caso siguiente).
+\end_layout
+
+\begin_layout Itemize
+Bucles: 
+\family typewriter
+while
+\family default
+, 
+\family typewriter
+for
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Una aplicación OO se organiza como un conjunto de clases relacionadas, siendo
+ una de ellas la 
+\series bold
+raíz de la aplicación
+\series default
+, que contiene un método (en Java, 
+\family typewriter
+public static void main(String[] args)
+\family default
+) encargado de poner en marcha la aplicación.
+ El flujo de ejecución siempre se encuentra aplicando un método sobre un
+ objeto o ejecutando alguna instrucción imperativa, si bien en una aplicación
+ concurrente puede haber varios flujos de ejecución.
+\end_layout
+
+\begin_layout Standard
+Si una clase tiene muchos atributos de tipo primitivo, suele ser necesario
+ separar la funcionalidad definiendo clases con parte de estos atributos.
+ Se usa el patrón 
+\series bold
+experto en información
+\series default
+: asignar una funcionalidad a la clase que tiene la información necesaria
+ para llevarla a cabo.
+\end_layout
+
+\end_body
+\end_document

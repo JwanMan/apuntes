@@ -1,0 +1,926 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+En Java, la sintaxis 
+\family typewriter
+new 
+\emph on
+Clase
+\family default
+\emph default
+[
+\family typewriter
+\emph on
+<T1
+\emph default
+, 
+\family default
+...
+\family typewriter
+>
+\family default
+]
+\family typewriter
+(
+\emph on
+Arg1
+\emph default
+, 
+\family default
+...
+\family typewriter
+) {
+\family default
+ ...
+ 
+\family typewriter
+}
+\family default
+ se puede usar para crear una clase anónima que herede de 
+\family typewriter
+\emph on
+Clase
+\family default
+\emph default
+.
+ Una 
+\series bold
+interfaz funcional
+\series default
+ es una que se declara con la anotación (opcional) 
+\family typewriter
+@FunctionalInterface
+\family default
+ encima de la definición y que contienen un sólo método abstracto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Las 
+\series bold
+expresiones lambda
+\series default
+ tienen sintaxis (
+\family typewriter
+(
+\family default
+[
+\family typewriter
+\emph on
+Tipo
+\family default
+\emph default
+]
+\family typewriter
+ 
+\emph on
+var
+\emph default
+, 
+\family default
+...
+\family typewriter
+)
+\family default
+|
+\family typewriter
+\emph on
+var
+\family default
+\emph default
+)
+\family typewriter
+ -> 
+\family default
+(
+\family typewriter
+{ 
+\emph on
+cuerpo
+\emph default
+ }
+\family default
+|
+\family typewriter
+\emph on
+expresión
+\family default
+\emph default
+), donde 
+\family typewriter
+\emph on
+cuerpo
+\family default
+\emph default
+ es el cuerpo de una función, 
+\family typewriter
+\emph on
+expresión
+\family default
+\emph default
+ es una única expresión que equivale a 
+\family typewriter
+{ return 
+\emph on
+expresión
+\emph default
+; }
+\family default
+ y el 
+\family typewriter
+\emph on
+Tipo
+\family default
+\emph default
+ de los argumentos normalmente se puede inferir.
+ Internamente son clases compatibles con las interfaces funcionales que
+ se requieran siempre que su signatura sea compatible con la de su único
+ método abstracto.
+ Si la expresión lambda se refiere a variables de su entorno léxico (variables
+ locales o elementos de la clase), las instancias de su clase asociada se
+ denominan 
+\series bold
+clausuras
+\series default
+ (
+\emph on
+closures
+\emph default
+).
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Salvo que se indique lo contrario, las siguientes interfaces se definen
+ en 
+\family typewriter
+java.util.function
+\family default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+@FunctionalInterface
+\begin_inset space ~
+\end_inset
+
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+Predicate<T>
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+boolean
+\begin_inset space ~
+\end_inset
+
+test(T)
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+@FunctionalInterface
+\begin_inset space ~
+\end_inset
+
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+Function<T,R>
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+R
+\begin_inset space ~
+\end_inset
+
+apply(T)
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+@FunctionalInterface
+\series default
+
+\begin_inset space ~
+\end_inset
+
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+Supplier<T>
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+T
+\begin_inset space ~
+\end_inset
+
+get()
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+@FunctionalInterface
+\begin_inset space ~
+\end_inset
+
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+Consumer<T>
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+void
+\begin_inset space ~
+\end_inset
+
+accept(T)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+El paquete 
+\family typewriter
+java.util.stream
+\family default
+ contiene clases para soportar operaciones funcionales en flujos de elementos.
+ Las operaciones con flujos se dividen en operaciones 
+\series bold
+intermedias
+\series default
+ y 
+\series bold
+terminales
+\series default
+.
+ Las operaciones intermedias devuelven un nuevo flujo.
+ Las operaciones terminales pueden atravesar el flujo para producir un resultado
+ o un efecto colateral.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\series default
+
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+java.util.stream.Stream<T>
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+extends BaseStream<T,Stream<T>>
+\end_layout
+
+\end_inset
+
+Secuencia de elementos que soporta o
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+pe
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ra
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+cio
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+nes secuenciales y paralelas en agregado.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+<R,A> R collect(Collector<? super T,A,R>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+<R> R collect(Supplier<R>, BiConsumer<R, ? super T>, BiConsumer<R,R>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Stream<T> distinct()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Optional<T> findAny()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Optional<T> findFirst()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+<R> Stream<R> flatMap(Function<? super T,? extends Stream<? extends R>>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+DoubleStream flatMapToDouble(Function<? super T,? extends DoubleStream>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+IntStream flatMapToInt(Function<? super T,? extends IntStream>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+LongStream flatMapToLong(Function<? super T,? extends LongStream>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+void forEachOrdered(Consumer<? super T>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Stream<T> limit(long)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+DoubleStream mapToDouble(ToDoubleFunction<? super T>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+IntStream mapToInt(ToIntFunction<? super T>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+LongStream mapToLong(ToLongFunction<? super T>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Optional<T> max(Comparator<? super T>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Optional<T> min(Comparator<? super T>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+boolean noneMatch(Predicate<? super T>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Stream<T> peek(Consumer<? super T>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Optional<T> reduce(BinaryOperator<T>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+T reduce(T, BinaryOperator<T>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+<U> U reduce(U, BiFunction<U,? super T,U>, BinaryOperator<U>)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Stream<T> skip(long)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Object[] toArray()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+<A> A[] toArray(IntFunction<A[]>)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+Stream<T>
+\series default
+
+\begin_inset space ~
+\end_inset
+
+filter(Predicate<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>)
+\family default
+ Devuelve un flujo con los elementos de este para los que se cumple el predicado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+<R>
+\series default
+
+\begin_inset space ~
+\end_inset
+
+Stream<R>
+\begin_inset space ~
+\end_inset
+
+map(Function<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T,?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+R>)
+\family default
+ Devuelve un flujo con el resultado de aplicar la función dada a los elementos
+ de este.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Stream<T>
+\begin_inset space ~
+\end_inset
+
+sorted()
+\family default
+ Devuelve un flujo con los elementos de este, ordenados según su orden natural.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+Stream<T>
+\series default
+
+\begin_inset space ~
+\end_inset
+
+sorted(Comparator<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>)
+\family default
+ Devuelve un flujo con los elementos de este, ordenados según el comparador
+ dado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+void
+\begin_inset space ~
+\end_inset
+
+forEach(Consumer<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>)
+\family default
+ Realiza una acción en cada elemento.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+long
+\series default
+
+\begin_inset space ~
+\end_inset
+
+count()
+\family default
+ Devuelve el número de elementos en el flujo.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+boolean
+\begin_inset space ~
+\end_inset
+
+anyMatch(Predicate<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>)
+\family default
+ Indica si algún elemento de este flujo cum
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ple el predicado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+boolean
+\begin_inset space ~
+\end_inset
+
+allMatch(Predicate<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>)
+\family default
+ Indica si todos los elementos de este flujo cumplen el predicado.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Donde sea aceptable una expresión lambda también es aceptable una referencia
+ a un método:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\emph on
+Clase
+\emph default
+::
+\emph on
+métodoDeClase
+\family default
+\emph default
+ equivale a 
+\family typewriter
+e -> 
+\emph on
+Clase
+\emph default
+.
+\emph on
+métodoDeClase
+\emph default
+(e)
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\emph on
+Clase
+\emph default
+::
+\emph on
+métodoDeInstancia
+\family default
+\emph default
+ equivale a 
+\family typewriter
+(
+\emph on
+Clase
+\emph default
+ e) -> e.
+\emph on
+métodoDeInstancia
+\emph default
+()
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\emph on
+objeto
+\emph default
+::
+\emph on
+método
+\family default
+\emph default
+ equivale a 
+\family typewriter
+e -> 
+\emph on
+objeto
+\emph default
+.
+\emph on
+método
+\emph default
+(e)
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\emph on
+Clase
+\emph default
+::new
+\family default
+ equivale a 
+\family typewriter
+e -> new 
+\emph on
+Clase
+\emph default
+(e)
+\family default
+.
+\end_layout
+
+\end_body
+\end_document

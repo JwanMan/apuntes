@@ -1,0 +1,1914 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $E$
+\end_inset
+
+ un 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-espacio vectorial, una 
+\series bold
+norma
+\series default
+ es una aplicación 
+\begin_inset Formula $\Vert\cdot\Vert:E\rightarrow\mathbb{R}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall x,y\in E,\lambda\in\mathbb{R}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\Vert x\Vert\geq0\land(\Vert x\Vert=0\iff x=0)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\Vert x+y\Vert\leq\Vert x\Vert+\Vert y\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\Vert\lambda x\Vert=|\lambda|\Vert x\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El par 
+\begin_inset Formula $(E,\Vert\cdot\Vert)$
+\end_inset
+
+ es un 
+\series bold
+espacio normado
+\series default
+.
+ Llamamos 
+\series bold
+distancia asociada a la norma
+\series default
+ a 
+\begin_inset Formula $d(x,y):=\Vert x-y\Vert$
+\end_inset
+
+.
+ Dos normas son equivalentes si sus distancias lo son.
+\end_layout
+
+\begin_layout Standard
+Ejemplos de normas en 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ son las dadas por 
+\begin_inset Formula $\Vert(x_{1},\dots,x_{n})\Vert_{p}:=\sqrt[p]{\sum_{i=1}^{n}|x_{i}|^{p}}$
+\end_inset
+
+ y
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Vert(x_{1},\dots,x_{n})\Vert_{\infty}:=\max\{|x_{i}|\}_{i=1}^{n}$
+\end_inset
+
+.
+ Además, 
+\begin_inset Formula $V:={\cal C}[a,b]:=\{f:[a,b]\rightarrow\mathbb{R}\text{ continua}\}$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert f\Vert_{\infty}:=\sup\{|f(x)|\}_{x\in[a,b]}$
+\end_inset
+
+ es un espacio normado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Enumerate
+Dado 
+\begin_inset Formula $f\in V$
+\end_inset
+
+, existe al menos un 
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $\Vert f\Vert_{\infty}\geq|f(x)|\geq0$
+\end_inset
+
+, y 
+\begin_inset Formula $\Vert f\Vert_{\infty}=0\iff\forall x\in[a,b],f(x)=0\iff f=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\Vert f+g\Vert_{\infty}=\sup\{|f(x)+g(x)|\}_{x\in[a,b]}\leq\sup\{|f(x)|+|g(x)|\}_{x\in[a,b]}\leq\sup\{|f(x)|\}_{x\in[a,b]}+\sup\{|g(x)|\}_{x\in[a,b]}=\Vert f\Vert_{\infty}+\Vert g\Vert_{\infty}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Dado 
+\begin_inset Formula $\lambda\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert\lambda f\Vert_{\infty}=\sup\{|\lambda f(x)|\}_{x\in[a,b]}=|\lambda|\sup\{|f(x)|\}_{x\in[a,b]}=|\lambda|\Vert f\Vert_{\infty}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{TEM}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f:(X,d)\rightarrow(Y,d')$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $p$
+\end_inset
+
+ [...] si y sólo si 
+\begin_inset Formula $\forall\varepsilon>0,\exists\delta>0:\forall x\in X,(d(x,p)<\delta\implies d'(f(x),f(p))<\varepsilon)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Definimos la norma de una aplicación 
+\begin_inset Formula $L:(E,\Vert\cdot\Vert)\rightarrow(F,\Vert\cdot\Vert')$
+\end_inset
+
+ como 
+\begin_inset Formula $\Vert L\Vert:=\Vert L\Vert_{\Vert\cdot\Vert}^{\Vert\cdot\Vert'}:=\sup\{\Vert L(x)\Vert'\}_{x\in E,\Vert x\Vert\leq1}$
+\end_inset
+
+, y tenemos como 
+\series bold
+teorema
+\series default
+ que 
+\begin_inset Formula $L$
+\end_inset
+
+ es continua si y sólo si 
+\begin_inset Formula $\Vert L\Vert<+\infty$
+\end_inset
+
+, y entonces es uniformemente continua.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $L$
+\end_inset
+
+ continua en 0, es decir, 
+\begin_inset Formula $\forall\varepsilon>0,\exists\delta>0:\forall y\in E,(\Vert y\Vert<\delta\implies\Vert L(y)\Vert'<\varepsilon)$
+\end_inset
+
+.
+ Fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, sea 
+\begin_inset Formula $\Vert z\Vert\leq1$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\Vert\frac{\delta}{2}z\Vert<\delta$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert L(\frac{\delta}{2}z)\Vert'<\varepsilon$
+\end_inset
+
+, luego 
+\begin_inset Formula $\Vert L(z)\Vert'<\frac{2\varepsilon}{\delta}$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert L\Vert<\frac{2\varepsilon}{\delta}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Veamos primero que 
+\begin_inset Formula $\Vert L\Vert<+\infty\implies\forall x\in E,\Vert L(x)\Vert'\leq\Vert L\Vert\Vert x\Vert$
+\end_inset
+
+.
+ En efecto, para 
+\begin_inset Formula $\Vert x\Vert=1$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert L(x)\Vert'\leq\sup\{\Vert L(y)\Vert\}_{\Vert y\Vert\leq1}=\Vert L\Vert=\Vert L\Vert\Vert x\Vert$
+\end_inset
+
+, y para cualquier otra 
+\begin_inset Formula $x$
+\end_inset
+
+ basta dividir entre la norma.
+ Ahora bien, dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, tomando 
+\begin_inset Formula $\delta:=\frac{\varepsilon}{\Vert L\Vert+1}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\Vert y-x\Vert<\delta\implies\Vert L(y)-L(x)\Vert'=\Vert L(y-x)\Vert'\leq\Vert L\Vert\Vert y-x\Vert<\Vert L\Vert\delta=\frac{\Vert L\Vert\varepsilon}{\Vert L\Vert+1}<\varepsilon$
+\end_inset
+
+.
+ Pero como 
+\begin_inset Formula $\delta$
+\end_inset
+
+ no depende de 
+\begin_inset Formula $x$
+\end_inset
+
+, 
+\begin_inset Formula $L$
+\end_inset
+
+ es uniformemente continua.
+\end_layout
+
+\begin_layout Section
+Equivalencia de normas
+\end_layout
+
+\begin_layout Standard
+Dos normas 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert\cdot\Vert'$
+\end_inset
+
+ son equivalentes si y sólo si 
+\begin_inset Formula $\exists\alpha,\beta>0:\forall x\in E,\alpha\Vert x\Vert\leq\Vert x\Vert'\leq\beta\Vert x\Vert$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $L:=id_{E}:(E,\Vert\cdot\Vert)\rightarrow(E,\Vert\cdot\Vert')$
+\end_inset
+
+ y 
+\begin_inset Formula $L':=L^{-1}$
+\end_inset
+
+, entonces 
+\begin_inset Formula ${\cal T}_{\Vert\cdot\Vert}={\cal T}_{\Vert\cdot\Vert'}$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $L$
+\end_inset
+
+ y 
+\begin_inset Formula $L'$
+\end_inset
+
+ son continuas, pues 
+\begin_inset Formula $L\text{ es continua}\iff\forall A\in{\cal T}_{\Vert\cdot\Vert'},A\in{\cal T}_{\Vert\cdot\Vert}\iff{\cal T}_{\Vert\cdot\Vert'}\subseteq{\cal T}_{\Vert\cdot\Vert}$
+\end_inset
+
+, y el otro contenido es análogo.
+ Entonces:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $L$
+\end_inset
+
+ es continua 
+\begin_inset Formula $\Vert L\Vert<+\infty$
+\end_inset
+
+, luego 
+\begin_inset Formula $\Vert x\Vert'=\Vert L(x)\Vert'\leq\Vert L\Vert\Vert x\Vert\overset{\beta:=\Vert L\Vert}{=}\beta\Vert x\Vert$
+\end_inset
+
+.
+ La otra cota se hace de forma análoga.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si existe 
+\begin_inset Formula $\beta$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall x\in E,\Vert x\Vert'\leq\beta\Vert x\Vert$
+\end_inset
+
+, en particular se cumple para 
+\begin_inset Formula $\Vert x\Vert\leq1$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $\Vert L(x)\Vert=\Vert x\Vert'\leq\beta\Vert x\Vert$
+\end_inset
+
+, luego 
+\begin_inset Formula $\Vert L\Vert=\sup\{\Vert x\Vert'\}_{\Vert x\Vert\leq1}\leq\beta<+\infty$
+\end_inset
+
+ y 
+\begin_inset Formula $L$
+\end_inset
+
+ es continua.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{TEM}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las métricas 
+\begin_inset Formula $d_{E}$
+\end_inset
+
+, 
+\begin_inset Formula $d_{T}$
+\end_inset
+
+ y 
+\begin_inset Formula $d_{\infty}$
+\end_inset
+
+ [...] son equivalentes, [...].
+ 
+\series bold
+Demostración:
+\series default
+ Se deduce de que 
+\begin_inset Formula $\frac{1}{n}d_{T}(x,y)\leq d_{\infty}(x,y)\leq d_{T}(x,y)$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{1}{\sqrt{n}}d_{E}(x,y)\leq d_{\infty}(x,y)\leq d_{E}(x,y)$
+\end_inset
+
+.
+ [...]
+\end_layout
+
+\begin_layout Standard
+Todo cerrado 
+\begin_inset Formula $C$
+\end_inset
+
+ de un compacto 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ es compacto.
+ [...] En [...] 
+\begin_inset Formula $(\mathbb{R},{\cal T}_{u})$
+\end_inset
+
+ [...] todo subespacio cerrado y acotado es compacto.
+ [...] Todo subespacio compacto 
+\begin_inset Formula $K$
+\end_inset
+
+ de un espacio métrico 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ es [cerrado y] acotado.
+ [...]Si 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,{\cal T}')$
+\end_inset
+
+ es continua y 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ es compacto entonces 
+\begin_inset Formula $f(X)$
+\end_inset
+
+ es compacto.
+ [...] 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ es 
+\series bold
+compacto 
+\series default
+[...] si toda sucesión admite una subsucesión convergente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Toda norma 
+\begin_inset Formula $\Vert\cdot\Vert:(E,\Vert\cdot\Vert)\rightarrow\mathbb{R}$
+\end_inset
+
+ es uniformemente continua.
+ 
+\series bold
+Demostración:
+\series default
+ Fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ y tomando 
+\begin_inset Formula $\delta:=\varepsilon$
+\end_inset
+
+, si 
+\begin_inset Formula $\Vert x-y\Vert<\delta$
+\end_inset
+
+ entonces usando que 
+\begin_inset Formula $|\Vert x\Vert-\Vert y\Vert|\leq\Vert x-y\Vert$
+\end_inset
+
+, lo que se deduce de 
+\begin_inset Formula $\Vert x\Vert\leq\Vert x-y\Vert+\Vert y\Vert$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert y\Vert\leq\Vert y-x\Vert+\Vert x\Vert$
+\end_inset
+
+, obtenemos que 
+\begin_inset Formula $|\Vert x\Vert-\Vert y\Vert|<\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, en 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+, todas las normas son equivalentes.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $\Vert x\Vert\leq C\Vert x\Vert_{1}]$
+\end_inset
+
+ 
+\begin_inset Formula $\Vert x\Vert=\Vert\sum x_{i}\vec{e}_{i}\Vert\leq\sum|x_{i}|\Vert\vec{e}_{i}\Vert\leq\max\{\Vert\vec{e}_{i}\Vert\}\sum|x_{i}|=\max\{\Vert\vec{e}_{i}\Vert\}\Vert x\Vert_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $\Vert x\Vert_{1}\leq D\Vert x\Vert]$
+\end_inset
+
+ Tomamos 
+\begin_inset Formula $(\mathbb{R}^{n},\Vert\cdot\Vert_{1})\overset{id}{\rightarrow}(\mathbb{R}^{n},\Vert\cdot\Vert)\overset{\Vert\cdot\Vert}{\rightarrow}\mathbb{R}$
+\end_inset
+
+, que es continua por ser composición de dos funciones continuas (la identidad
+ es continua por la otra cota y la demostración del teorema anterior), entonces
+ 
+\begin_inset Formula $S:=\{x\in\mathbb{R}^{n}:\Vert x\Vert_{1}=1\}$
+\end_inset
+
+ es cerrado dentro del compacto 
+\begin_inset Formula $\overline{B}(0,1)$
+\end_inset
+
+, luego es compacto y como la función dada es continua, 
+\begin_inset Formula $\Vert\cdot\Vert(S)$
+\end_inset
+
+ es compacto y alcanza su máximo y su mínimo.
+ Sea ahora 
+\begin_inset Formula $\mu:=\min\{\Vert x\Vert\}_{x\in S}>0$
+\end_inset
+
+ (pues 
+\begin_inset Formula $0\notin S$
+\end_inset
+
+), si 
+\begin_inset Formula $\Vert x\Vert_{1}=1$
+\end_inset
+
+ para un cierto 
+\begin_inset Formula $x\in\mathbb{R}^{n}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\Vert x\Vert\geq\mu$
+\end_inset
+
+, luego 
+\begin_inset Formula $x\neq0$
+\end_inset
+
+ y 
+\begin_inset Formula $\left\Vert \frac{x}{\Vert x\Vert_{1}}\right\Vert =1$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\left\Vert \frac{x}{\Vert x\Vert_{1}}\right\Vert \geq\mu$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert x\Vert\geq\mu\Vert x\Vert_{1}$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $\Vert x\Vert_{1}\leq\frac{1}{\mu}\Vert x\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Tenemos pues que toda 
+\begin_inset Formula $T:(\mathbb{R}^{m},\Vert\cdot\Vert)\rightarrow(\mathbb{R}^{n},\Vert\cdot\Vert')$
+\end_inset
+
+ lineal es continua
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+, pues equivale a una multiplicación por una matriz en 
+\begin_inset Formula $M_{n\times m}(\mathbb{R})$
+\end_inset
+
+, que es continua con la norma euclídea y por tanto en todas las demás
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Convergencia
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ un espacio topológico e 
+\begin_inset Formula $(Y,d)$
+\end_inset
+
+ un espacio métrico, una sucesión de funciones 
+\begin_inset Formula $(f_{n}:(X,{\cal T})\rightarrow(Y,d))_{n}$
+\end_inset
+
+ 
+\series bold
+converge puntualmente
+\series default
+ a 
+\begin_inset Formula $f:(X,{\cal T})\rightarrow(Y,d)$
+\end_inset
+
+ si para todo 
+\begin_inset Formula $x\in X$
+\end_inset
+
+, 
+\begin_inset Formula $f_{n}(x)\rightarrow f(x)$
+\end_inset
+
+, y converge 
+\series bold
+uniformemente
+\series default
+ a 
+\begin_inset Formula $f$
+\end_inset
+
+ si 
+\begin_inset Formula $d_{\infty}(f_{n},f)\rightarrow0$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $x_{0}\in(X,{\cal T})$
+\end_inset
+
+ y 
+\begin_inset Formula $(f_{n}:X\rightarrow\mathbb{R})_{n}$
+\end_inset
+
+ una sucesión de funciones continuas en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ que converge uniformemente a 
+\begin_inset Formula $f$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Fijado un 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, existe un 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $|f_{n}(x)-f(x)|<\frac{\varepsilon}{3}$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ es continua, existe 
+\begin_inset Formula ${\cal V}\in{\cal E}(x_{0})$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $x\in{\cal V}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $|f_{n}(x)-f_{n}(x_{0})|<\frac{\varepsilon}{3}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $|f(x)-f(x_{0})|\leq|f(x)-f_{n}(x)|+|f_{n}(x)-f_{n}(x_{0})|+|f_{n}(x_{0})-f(x_{0})|<\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+El límite puntual de funciones continuas no es necesariamente continua,
+ ni siquera en funciones de 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+ a 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+, y como contraejemplo tenemos 
+\begin_inset Formula $(f_{n}:(-1,1)\rightarrow\mathbb{R})_{n}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f_{n}(x)=\begin{cases}
+0 & \text{si }x\leq0\\
+nx & \text{si }0<x<\frac{1}{n}\\
+1 & \text{si }x\geq\frac{1}{n}
+\end{cases}$
+\end_inset
+
+, que converge a 
+\begin_inset Formula $f(x)=\begin{cases}
+0 & \text{si }x\leq0\\
+1 & \text{si }x>0
+\end{cases}$
+\end_inset
+
+.
+ Asimismo, el límite uniforme de funciones derivables no es necesariamente
+ derivable, y como contraejemplo tenemos 
+\begin_inset Formula $f_{n}(x)=\sqrt{x^{2}+\frac{1}{n}}$
+\end_inset
+
+, que converge a 
+\begin_inset Formula $f(x)=|x|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+La función 
+\begin_inset Formula $\sum_{n}\frac{\cos(7^{n}\pi x)}{2^{n}}$
+\end_inset
+
+ es continua en todos los puntos (
+\begin_inset Formula $\Vert\frac{\cos(7^{n}\pi x)}{2^{n}}\Vert_{\infty}=\frac{1}{2^{n}}\implies\Vert\sum_{n}\frac{\cos(7^{n}\pi x)}{2^{n}}\Vert<+\infty$
+\end_inset
+
+, con lo que la función es continua por ser la suma de una sucesión convergente
+ de funciones continuas) pero no es derivable en ninguno.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{FUVR1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\lim_{n}x_{n}=\pm\infty$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\lim_{n}\left(1+\frac{1}{x_{n}}\right)^{x_{n}}=e$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{n}\left(1-\frac{1}{x_{n}}\right)^{x_{n}}=e^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si existe 
+\begin_inset Formula $\lim_{n}\frac{z_{n+1}}{z_{n}}=w\in\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $|w|<1$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\lim_{n}z_{n}=0$
+\end_inset
+
+.
+ [...]
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $b>0$
+\end_inset
+
+, 
+\begin_inset Formula $c>1$
+\end_inset
+
+ y 
+\begin_inset Formula $d>0$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\log n\ll n^{b}\ll c^{n}\ll n^{dn}
+\]
+
+\end_inset
+
+Si además 
+\begin_inset Formula $d\geq1$
+\end_inset
+
+, entonces 
+\begin_inset Formula $c^{n}\ll n!\ll n^{dn}$
+\end_inset
+
+.
+ [...]
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\lim_{n}x_{n}=0$
+\end_inset
+
+ con 
+\begin_inset Formula $0<|x_{n}|<1$
+\end_inset
+
+, entonces:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\log(1+x_{n})\sim x_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $e^{x_{n}}-1\sim x_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\lim_{n}x_{n}=1$
+\end_inset
+
+ con 
+\begin_inset Formula $x_{n}\neq1$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{n}y_{n}=\pm\infty$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\lim_{n}x_{n}^{y_{n}}=e^{\lim_{n}y_{n}(x_{n}-1)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\lim_{n}x_{n}=0$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{n}\neq0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\sin x_{n}\sim x_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Criterios de Stolz:
+\series default
+ Si 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $(b_{n})_{n}$
+\end_inset
+
+ son sucesiones de reales tales que 
+\begin_inset Formula $(b_{n})_{n}$
+\end_inset
+
+ es estrictamente creciente o decreciente y bien 
+\begin_inset Formula $\lim_{n}a_{n}=\lim_{n}b_{n}=0$
+\end_inset
+
+, bien 
+\begin_inset Formula $\lim_{n}b_{n}=\infty$
+\end_inset
+
+, si existe 
+\begin_inset Formula $\lim_{n}\frac{a_{n+1}-a_{n}}{b_{n+1}-b_{n}}=L\in\overline{\mathbb{R}}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\lim_{n}\frac{a_{n}}{b_{n}}=L$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como consecuencia:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ converge, entonces
+\begin_inset Formula 
+\[
+\lim_{n}\frac{a_{1}+\dots+a_{n}}{n}=\lim_{n}a_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ converge y 
+\begin_inset Formula $a_{n}>0$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\lim_{n}\sqrt[n]{a_{1}\cdots a_{n}}=\lim_{n}a_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $a_{n}>0$
+\end_inset
+
+ y existe 
+\begin_inset Formula $\lim_{n}\frac{a_{n}}{a_{n-1}}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\lim_{n}\sqrt[n]{a_{n}}=\lim_{n}\frac{a_{n}}{a_{n-1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{FUVR1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+condición de Cauchy
+\series default
+ nos dice que 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+ es convergente si y sólo si 
+\begin_inset Formula $\forall\varepsilon>0,\exists n_{0}\in\mathbb{N}:\forall p,q\in\mathbb{N},(n_{0}\leq p\leq q\implies|a_{p+1}+\dots+a_{q}|<\varepsilon)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+[...] Si 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ converge, entonces 
+\begin_inset Formula $\lim_{n}a_{n}=0$
+\end_inset
+
+.
+ [...] La convergencia de una serie no se altera modificando un número finito
+ de términos de esta.
+ [...]
+\end_layout
+
+\begin_layout Standard
+Dada una serie 
+\begin_inset Formula $\sum_{n=1}^{\infty}a_{n}$
+\end_inset
+
+ de términos 
+\begin_inset Formula $a_{n}\geq0$
+\end_inset
+
+, esta es convergente si y sólo si la sucesión de sumas parciales es acotada
+ [...].
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Criterios de comparación:
+\end_layout
+
+\begin_layout Enumerate
+Dadas 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sum_{n}b_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{n},b_{n}\geq0$
+\end_inset
+
+, si existe 
+\begin_inset Formula $M>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $a_{n}\leq Mb_{n}\forall n$
+\end_inset
+
+, entonces la convergencia de 
+\begin_inset Formula $\sum_{n=1}^{\infty}b_{n}$
+\end_inset
+
+ implica la de 
+\begin_inset Formula $\sum_{n=1}^{\infty}a_{n}$
+\end_inset
+
+ [...].
+\end_layout
+
+\begin_layout Enumerate
+Dadas 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sum_{n}b_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{n},b_{n}>0$
+\end_inset
+
+ y existe 
+\begin_inset Formula $l:=\lim_{n}\frac{a_{n}}{b_{n}}\in\mathbb{R}\cup\{+\infty\}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $0<l<\infty$
+\end_inset
+
+, ambas series tienen el mismo carácter.
+ [...]
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $l=0$
+\end_inset
+
+ entonces la convergencia de 
+\begin_inset Formula $\sum_{n}b_{n}$
+\end_inset
+
+ implica la de 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+.
+ [...]
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $l=+\infty$
+\end_inset
+
+ entonces la convergencia de 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+ implica la de 
+\begin_inset Formula $\sum_{n}b_{n}$
+\end_inset
+
+.
+ [...]
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\series bold
+Criterio de la raíz:
+\series default
+ Dada 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{n}>0$
+\end_inset
+
+ y 
+\begin_inset Formula $a:=\lim_{n}\sqrt[n]{a_{n}}\in\mathbb{R}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a<1$
+\end_inset
+
+, la serie converge.
+ [...]
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a>1$
+\end_inset
+
+, la serie diverge.
+ [...]
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a=1$
+\end_inset
+
+ no se puede afirmar nada.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Criterio del cociente:
+\series default
+ Sea 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{n}>0$
+\end_inset
+
+ y 
+\begin_inset Formula $a:=\lim_{n}\frac{a_{n+1}}{a_{n}}\in\mathbb{R}$
+\end_inset
+
+.
+ [...]
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a<1$
+\end_inset
+
+, la serie converge.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a>1$
+\end_inset
+
+, la serie diverge.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Criterio de condensación:
+\series default
+ Dada una sucesión 
+\begin_inset Formula $(a_{n})_{n}$
+\end_inset
+
+ monótona decreciente con 
+\begin_inset Formula $a_{n}>0$
+\end_inset
+
+.
+ Entonces
+\begin_inset Formula 
+\[
+\sum_{n=1}^{\infty}a_{n}\in\mathbb{R}\iff\sum_{n=1}^{\infty}2^{n}a_{2^{n}}\in\mathbb{R}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una serie 
+\begin_inset Formula $\sum_{n}a_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{n}\in\mathbb{R}$
+\end_inset
+
+ es 
+\series bold
+absolutamente convergente
+\series default
+ si 
+\begin_inset Formula $\sum_{n}|a_{n}|$
+\end_inset
+
+ es convergente.
+ Toda serie absolutamente convergente es convergente.
+ [...]
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+serie geométrica
+\series default
+ 
+\begin_inset Formula $\sum_{n=0}^{\infty}r^{n}$
+\end_inset
+
+ es convergente si 
+\begin_inset Formula $|r|<1$
+\end_inset
+
+ con suma 
+\begin_inset Formula $\frac{1}{1-r}$
+\end_inset
+
+ y divergente si 
+\begin_inset Formula $|r|\geq1$
+\end_inset
+
+.
+ La 
+\series bold
+serie armónica
+\series default
+ 
+\begin_inset Formula $\sum_{n=1}^{\infty}\frac{1}{n^{k}}$
+\end_inset
+
+ es convergente si 
+\begin_inset Formula $k>1$
+\end_inset
+
+ y divergente si 
+\begin_inset Formula $k\leq1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Completitud
+\end_layout
+
+\begin_layout Standard
+Una sucesión 
+\begin_inset Formula $(x_{n})$
+\end_inset
+
+ en un espacio métrico 
+\begin_inset Formula $(E,d)$
+\end_inset
+
+ es 
+\series bold
+de Cauchy
+\series default
+ si 
+\begin_inset Formula $\forall\varepsilon>0,\exists n_{\varepsilon}\in\mathbb{N}:\forall n,m\geq n_{\varepsilon},d(x_{n},x_{m})<\varepsilon$
+\end_inset
+
+.
+ Un espacio métrico es 
+\series bold
+completo
+\series default
+ si toda sucesión de Cauchy es convergente.
+ Un 
+\series bold
+espacio de Banach
+\series default
+ es un espacio normado completo.
+ Dadas dos normas 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert\cdot\Vert'$
+\end_inset
+
+ equivalentes sobre 
+\begin_inset Formula $E$
+\end_inset
+
+, 
+\begin_inset Formula $(E,\Vert\cdot\Vert)$
+\end_inset
+
+ es completo si y sólo si lo es 
+\begin_inset Formula $(E,\Vert\cdot\Vert')$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Existen 
+\begin_inset Formula $\alpha,\beta>0$
+\end_inset
+
+ tales que 
+\begin_inset Formula $\alpha\Vert x\Vert\leq\Vert x\Vert'\leq\beta\Vert x\Vert$
+\end_inset
+
+, luego si 
+\begin_inset Formula $(x_{n})$
+\end_inset
+
+ es de Cauchy en 
+\begin_inset Formula $(E,\Vert\cdot\Vert)$
+\end_inset
+
+ también lo es en 
+\begin_inset Formula $(E,\Vert\cdot\Vert')$
+\end_inset
+
+ sin más que tomar 
+\begin_inset Formula $n_{\frac{\varepsilon}{\beta}}$
+\end_inset
+
+, y viceversa, y como 
+\begin_inset Formula $(x_{n})$
+\end_inset
+
+ converge a 
+\begin_inset Formula $x$
+\end_inset
+
+ en 
+\begin_inset Formula $(E,\Vert\cdot\Vert)$
+\end_inset
+
+ si y sólo si converge en 
+\begin_inset Formula $(E,\Vert\cdot\Vert')$
+\end_inset
+
+, la completitud de uno implica la del otro.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ es un espacio de Banach con cualquier norma.
+ 
+\series bold
+Demostración:
+\series default
+ Basta probar que 
+\begin_inset Formula $(\mathbb{R}^{n},\Vert\cdot\Vert_{\infty})$
+\end_inset
+
+ es completo.
+ Si 
+\begin_inset Formula $(x_{m})$
+\end_inset
+
+ es de Cauchy en 
+\begin_inset Formula $(\mathbb{R}^{n},\Vert\cdot\Vert_{\infty})$
+\end_inset
+
+, como 
+\begin_inset Formula $|x_{mi}-x_{ki}|\leq\Vert x_{m}-x_{k}\Vert_{\infty}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $(x_{mi})_{m}$
+\end_inset
+
+ es de Cauchy en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ y por tanto convergente a un 
+\begin_inset Formula $x_{0i}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $(x_{m})_{m}$
+\end_inset
+
+ converge a 
+\begin_inset Formula $(x_{01},\dots,x_{0n})$
+\end_inset
+
+, y se tiene que 
+\begin_inset Formula $(\mathbb{R}^{n},\Vert\cdot\Vert)$
+\end_inset
+
+ es completo.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, 
+\begin_inset Formula $({\cal C}[a,b],\Vert\cdot\Vert_{\infty})$
+\end_inset
+
+ es un espacio de Banach.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $(f_{n})_{n}$
+\end_inset
+
+ una sucesión de Cauchy en 
+\begin_inset Formula $({\cal C}[a,b],\Vert\cdot\Vert_{\infty})$
+\end_inset
+
+, fijado un 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe un 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n,m\geq n_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+, 
+\begin_inset Formula $|f_{n}(x)-f_{m}(x)|<\frac{\varepsilon}{2}$
+\end_inset
+
+.
+ Por tanto para cada 
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+, 
+\begin_inset Formula $(f_{n}(x))_{n}$
+\end_inset
+
+ es de Cauchy en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ y converge pues a un valor 
+\begin_inset Formula $f(x)$
+\end_inset
+
+.
+ Ahora bien, dado un 
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+, por la convergencia puntual que acabamos de probar existe 
+\begin_inset Formula $n_{x}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n\geq n_{x}$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $|f_{n}(x)-f(x)|<\frac{\varepsilon}{2}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $n>n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $|f_{n}(x)-f(x)|\leq|f_{n}(x)-f_{\max\{n_{0},n_{x}\}}(x)|+|f_{\max\{n_{0},n_{x}\}}(x)-f(x)|<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon$
+\end_inset
+
+, y como 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ no depende de 
+\begin_inset Formula $x$
+\end_inset
+
+ (sólo de 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+), queda probada la convergencia uniforme.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ una sucesión en el espacio de Banach 
+\begin_inset Formula $(E,\Vert\cdot\Vert)$
+\end_inset
+
+ con 
+\begin_inset Formula $\sum_{n}\Vert x_{n}\Vert<+\infty$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\sum_{n}x_{n}$
+\end_inset
+
+ converge.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Tenemos que 
+\begin_inset Formula $\sum_{n}\Vert x_{n}\Vert$
+\end_inset
+
+, por ser convergente, es de Cachy, por lo que dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe 
+\begin_inset Formula $n_{\varepsilon}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $n,m>n_{\varepsilon}$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $|\sum_{k=1}^{n}\Vert x_{k}\Vert-\sum_{k=1}^{m}\Vert x_{k}\Vert|<\varepsilon$
+\end_inset
+
+.
+ Pero por la desigualdad triangular 
+\begin_inset Formula $\Vert\sum_{k=1}^{n}x_{k}-\sum_{k=1}^{m}x_{k}\Vert\leq|\sum_{k=1}^{n}\Vert x_{k}\Vert-\sum_{k=1}^{m}\Vert x_{k}\Vert|<\varepsilon$
+\end_inset
+
+, luego 
+\begin_inset Formula $\sum_{n}x_{n}$
+\end_inset
+
+ también es de Cauchy y por tanto convergente por estar en un espacio completo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

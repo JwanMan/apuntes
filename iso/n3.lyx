@@ -1,0 +1,943 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Requisitos para la seguridad y amenazas asociadas:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Confidencialidad
+\series default
+: La información, incluyendo la existencia de esta, solo debe poder ser
+ leída por usuarios autorizados.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Interceptación
+\series default
+: Leer un elemento sin autorización.
+ Incluye copias y lecturas no autorizadas, análisis estadístico para revelar
+ datos ocultos y observación del tráfico de mensajes.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Integridad
+\series default
+: Los elementos del sistema solo deben poder ser modificados, incluyendo
+ borrado y creación, por usuarios autorizados.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Modificación
+\series default
+: Falsificar un elemento o modificarlo sin autorización, incluyendo alteración
+ de un programa en funcionamiento.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Invención
+\series default
+: Insertar objetos falsos en el sistema, incluyendo ficheros y mensajes.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Disponibilidad
+\series default
+: Los elementos de un sistema deben estar disponibles para usuarios autorizados.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Interrupción
+\series default
+: Destruir un elemento o hacerlo inaccesible o inútil, incluyendo robo de
+ equipos, consumo excesivo de recursos, eliminación de ficheros o mensajes
+ y corte de las líneas de comunicaciones.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Para probar la seguridad de un sistema se suele contratar a un grupo de
+ expertos (equipo tigre o de penetración) para ver si puede penetrar en
+ él.
+ Ataques más comunes:
+\end_layout
+
+\begin_layout Itemize
+Reservar espacio de memoria o disco y leerlo, pues muchos sistemas no borran
+ el espacio antes de asignarlo.
+\end_layout
+
+\begin_layout Itemize
+Intentar llamadas inválidas, o con parámetros inválidos o no razonables.
+\end_layout
+
+\begin_layout Itemize
+Conectarse un sistema y pulsar 
+\family typewriter
+C-c
+\family default
+ o similares, terminando en ciertos sistemas el programa de verificación
+ de contraseñas y permitiendo el acceso.
+\end_layout
+
+\begin_layout Itemize
+Escribir un programa que aparente ser para iniciar sesión pero realmente
+ filtren la contraseña.
+\end_layout
+
+\begin_layout Itemize
+Buscar acciones que se conoce que no se deben llevar a cabo y hacerlas con
+ todas sus variaciones.
+\end_layout
+
+\begin_layout Itemize
+Convencer al administrador para que modifique el sistema de alguna forma
+ que evite verificaciones de seguridad.
+\end_layout
+
+\begin_layout Itemize
+Engañar o sobornar al personal de administración del centro de cálculo.
+\end_layout
+
+\begin_layout Standard
+Ataques específicos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Bombas lógicas
+\series default
+: 
+\begin_inset Quotes fld
+\end_inset
+
+Estallan
+\begin_inset Quotes frd
+\end_inset
+
+ en un instante de tiempo determinado, y muchas veces son creadas por el
+ desarrollador del programa donde se encuentran como forma de protección.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Puertas traseras
+\series default
+ (
+\emph on
+backdoors
+\emph default
+): Programas normales pero que además permiten el acceso al sistema desde
+ el exterior o como administrador.
+ Por ejemplo un programa de autenticación que con cierta combinación de
+ usuario y contraseña proporciona acceso completo.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Ver <
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://scienceblogs.com/goodmath/2007/04/15/strange-loops-dennis-ritchie-a/
+\end_layout
+
+\end_inset
+
+>.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Desbordamiento de 
+\emph on
+buffer
+\series default
+\emph default
+: Aprovechar fallos de programación para causar que un programa escriba
+ (o lea) más información de la que cabe en el 
+\emph on
+buffer
+\emph default
+ que ha reservado, pudiendo llegar a ejecutar código malicioso, normalmente
+ sobrescribiendo la dirección de retorno en la pila para que apunte a este.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Caballos de Troya
+\series default
+: Sustituyen una orden por otra con el mismo nombre.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Virus
+\series default
+: Se encuentran dentro de un programa y se replican en otros programas o
+ ficheros, extendiéndose dentro del ordenador y copiándose a otros mediante
+ sistemas de almacenamiento y redes.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Gusanos
+\series default
+: Como los virus, pero en vez de copiarse en otros ficheros se transmiten
+ por red.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Spyware
+\series default
+\emph default
+: Código que, sin que el usuario sea consciente de ello ni lo autorice,
+ se ejecuta en segundo plano y recopila información del sistema y la actividad
+ del usuario para enviarla a computadores externos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Rootkits
+\series default
+\emph default
+: Permiten acceso privilegiado continuo a un computador, normalmente mediante
+ una puerta trasera, a la vez que ocultan activamente su presencia.
+\end_layout
+
+\begin_layout Standard
+En 1975, Saltzer y Schroeder identificaron varios principios de diseño de
+ cara a la seguridad:
+\end_layout
+
+\begin_layout Enumerate
+El diseño debe ser público (muchos ojos ven más fallos que pocos).
+\end_layout
+
+\begin_layout Enumerate
+El estado predefinido debe ser de 
+\begin_inset Quotes fld
+\end_inset
+
+no acceso
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Se debe verificar la autorización en el momento de hacer la operación; no
+ se debe verificar el permiso, determinar que está permitido y no hacer
+ más comprobaciones.
+\end_layout
+
+\begin_layout Enumerate
+Dar a los procesos el mínimo privilegio que les permita hacer su trabajo.
+\end_layout
+
+\begin_layout Enumerate
+El mecanismo de protección debe ser simple, uniforme e integrado hasta las
+ capas más bajas del sistema (la seguridad no es algo que se pueda añadir
+ por encima).
+\end_layout
+
+\begin_layout Enumerate
+El esquema debe ser psicológicamente aceptable para que los usuarios no
+ pongan la contraseña en un 
+\emph on
+post-it
+\emph default
+ o similares.
+\end_layout
+
+\begin_layout Section
+Autenticación
+\end_layout
+
+\begin_layout Standard
+La seguridad de un sistema requiere de:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Protección
+\series default
+.
+ Distinguimos entre la 
+\series bold
+política
+\series default
+, que define qué se va a proteger, qué usuarios pueden acceder a qué recursos,
+ etc., y que pueden estar determinadas en el diseño del sistema, formuladas
+ por los administradores o definidas por los usuarios para proteger sus
+ propios ficheros, y el 
+\series bold
+mecanismo
+\series default
+, que define cómo implementa esto el sistema, y es en lo que nos centraremos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Entorno externo
+\series default
+.
+ Por ejemplo, no exponer la consola del operador a personal no autorizado,
+ ni permitir extraer el almacenamiento del sistema para transportarlo a
+ otro sin protección.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+autenticación de usuarios
+\series default
+ es el problema de identificar a los usuarios cuando están conectados al
+ sistema.
+ El método más común es pedir un nombre o identificador (ID) y una contraseña
+ para autenticar el ID.
+ Este identificador determina los privilegios del usuario, es decir, lo
+ que este puede o no puede hacer en el sistema.
+ En general existe un usuario o grupo reducido con estado de 
+\series bold
+supervisor
+\series default
+ o 
+\series bold
+superusuario
+\series default
+, que les permite llevar a cabo funciones protegidas especialmente.
+ Algunos sistemas también disponen de cuentas anónimas cuyos usuarios tienen
+ privilegios más restringidos.
+ En muchos solo se permite acceder al sistema a los usuarios con un ID ya
+ registrado.
+\end_layout
+
+\begin_layout Subsection
+Contraseñas en UNIX
+\end_layout
+
+\begin_layout Standard
+La contraseña, junto con un 
+\series bold
+valor base
+\series default
+ (
+\emph on
+salt
+\emph default
+) y el algoritmo de cifrado (función 
+\emph on
+hash
+\emph default
+) a utilizar se pasan como parámetros a una función llamada 
+\family typewriter
+crypt
+\family default
+, que devuelve la contraseña cifrada.
+ Esta se guarda en el fichero de contraseñas (antes 
+\family typewriter
+/etc/passwd
+\family default
+ y actualmente 
+\family typewriter
+/etc/shadow
+\family default
+), con formato 
+\family typewriter
+$
+\emph on
+tipo
+\emph default
+$
+\emph on
+base
+\emph default
+$
+\emph on
+contraseñaCifrada
+\family default
+\emph default
+, donde 
+\family typewriter
+\emph on
+tipo
+\family default
+\emph default
+ es 1 para MD5 (obsoleto), 5 para SHA-256 y 6 para SHA-512 y 
+\family typewriter
+\emph on
+base
+\family default
+\emph default
+ es la base sin cifrar.
+ El valor de la base está relacionado con el momento en que se asigna la
+ contraseña a un usuario y sirve para impedir que contraseñas iguales se
+ cifren igual.
+\end_layout
+
+\begin_layout Subsection
+Elección de contraseña
+\end_layout
+
+\begin_layout Standard
+Las funciones 
+\emph on
+hash
+\emph default
+ usadas están diseñadas para evitar ataques por adivinación, incluso usando
+ supercomputadores, pero algunos usuarios al elegir su contraseña eligen
+ una fácilmente adivinable.
+ Si se rechazan las contraseñas por longitud mínima, los usuarios pueden
+ elegir contraseñas igualmente adivinables como su propio nombre, el de
+ su calle, una palabra común del diccionario, etc., pero si se asignan contraseña
+s aleatorias, la mayoría de los usuarios no la recordarán o acabarán apuntándola
+ en un lugar visible.
+ Soluciones (no incompatibles):
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Instrucción del usuario
+\series default
+: Explicar a los usuarios la importancia de elegir contraseñas seguras y
+ cómo elegirlas, así como buenos hábitos como cambiarlas a menudo, no anotarlas
+ en lugares visibles ni comunicarlas, etc.
+ Una buena contraseña suele tener letras mayúsculas, minúsculas, números
+ y signos de puntuación u otros caracteres alfanuméricos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Inspección proactiva de contraseña
+\series default
+: El sistema usa algoritmos y heurísticas para determinar la seguridad de
+ una contraseña y rechazarla si es fácilmente adivinable.
+ Incluso el administrador del sistema puede comprobar la robustez de las
+ contraseñas ejecutando programas de adivinación o
+\emph on
+ cracks
+\emph default
+.
+\end_layout
+
+\begin_layout Section
+Protección
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+derecho
+\series default
+ es el permiso para realizar una determinada acción sobre algún objeto,
+ y un 
+\series bold
+dominio 
+\series default
+(
+\series bold
+de protección
+\series default
+) es una función que a cada objeto le asigna un conjunto de derechos.
+ Todo proceso se ejecuta en un dominio, y muchos sistemas proveen mecanismos
+ que permiten que los procesos cambien de dominio.
+ Algunas formas de representar los dominios son:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Matriz de protección
+\series default
+ o 
+\series bold
+de acceso
+\series default
+: Con una fila por dominio, una columna por proceso y un conjunto de derechos
+ en cada celda.
+ Si los procesos pueden cambiar de dominio, los dominios se pueden identificar
+ con objetos y añadir en estos el derecho de 
+\begin_inset Quotes fld
+\end_inset
+
+entrar
+\begin_inset Quotes frd
+\end_inset
+
+.
+ Incluso la propia matriz se puede entender como un objeto que se puede
+ modificar mediante una serie de operaciones.
+ En la práctica esta matriz no se almacena.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Listas de control de acceso
+\series default
+ o 
+\series bold
+ACLs
+\series default
+ (
+\emph on
+Access Control Lists
+\emph default
+): A cada objeto se le asocia una lista con todos los dominios que pueden
+ tener acceso a él y con qué derechos.
+ Normalmente los dominios se asocian a usuarios y, si estos se pueden agrupar,
+ las ACLs también se pueden aplicar a los grupos.
+ Si una ACL contiene tanto una entrada para un usuario como entradas para
+ grupos a los que este pertenece se debe establecer un criterio sobre qué
+ derechos prevalecen.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Listas de posibilidades
+\series default
+ o 
+\series bold
+de capacidades
+\series default
+: A cada dominio se le asocia una lista de entradas, llamadas 
+\series bold
+posibilidades
+\series default
+ o 
+\series bold
+capacidades
+\series default
+, que representan un objeto (normalmente con su tipo y una referencia a
+ este) y los derechos que se tienen sobre este (si un objeto no aparece,
+ no se tiene ningún derecho).
+ Normalmente los dominios se asocian a procesos, los cuales para acceder
+ a un objeto indican la posición de la capacidad correspondiente.
+ Como estas listas deben ser protegidas del manejo indebido, se suelen guardar
+ dentro del sistema operativo permitiendo que los procesos las referencien
+ por su número.
+ En general las posibilidades tienen operaciones genéricas para copiarlas,
+ eliminarlas, trasferirlas o generar una versión más restrictiva.
+\end_layout
+
+\begin_layout Standard
+Las ACLs se corresponden directamente con las necesidades del usuario, que
+ puede especificar los dominios que pueden acceder a un objeto cuando lo
+ crea, pero al haber que comprobar cada acceso al objeto, son ineficientes.
+ Las listas de posibilidades, por su parte, son mucho más eficientes, pero
+ son más complejas al no corresponderse directamente con las necesidades
+ de los usuarios.
+\end_layout
+
+\begin_layout Subsection
+Cancelación
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+cancelación
+\series default
+ o 
+\series bold
+revocación
+\series default
+ de derechos de acceso puede ser 
+\series bold
+inmediata
+\series default
+ o 
+\series bold
+demorada
+\series default
+, 
+\series bold
+selectiva
+\series default
+ o 
+\series bold
+general
+\series default
+, 
+\series bold
+parcial
+\series default
+ o 
+\series bold
+total
+\series default
+, y 
+\series bold
+temporal
+\series default
+ o 
+\series bold
+permanente
+\series default
+.
+ Con las ACLs la cancelación es sencilla, pues basta eliminar de esta los
+ derechos que serán cancelados.
+\end_layout
+
+\begin_layout Standard
+Con las posibilidades haría falta determinar todas las existentes para un
+ objeto y modificarlas, pero esto es ineficiente.
+ Para cada objeto se podría llevar un registro de todas las posibilidades
+ asociadas, pero este podría consumir mucha memoria y en algunos sistemas
+ no es posible porque los procesos pueden pasarse posibilidades sin conocimiento
+ del sistema.
+\end_layout
+
+\begin_layout Standard
+Una técnica es hacer que cada posibilidad apunte hacia un objeto indirecto
+ en vez de al objeto en sí, de forma que basta romper esta conexión para
+ invalidar todas las posibilidades.
+ Otra es asignar a cada objeto un gran número aleatorio, también presente
+ en la posibilidad, y permitir la operación si ambos coinciden, de forma
+ que basta cambiar el número del objeto para invalidar todas las posibilidades.
+ Ninguna de estas dos técnicas permite la revocación selectiva.
+\end_layout
+
+\begin_layout Subsection
+Protección en UNIX
+\end_layout
+
+\begin_layout Standard
+Unix combina ACLs restringidas con listas de posibilidades.
+ Cada usuario lleva asociado un número, el 
+\series bold
+identificador de usuario
+\series default
+ o 
+\series bold
+UID
+\series default
+ (
+\emph on
+User IDentifier
+\emph default
+), que se asocia al nombre de usuario o 
+\emph on
+login
+\emph default
+ mediante el fichero 
+\family typewriter
+/etc/passwd
+\family default
+.
+ Destaca el usuario con UID 0, normalmente llamado 
+\family typewriter
+root
+\family default
+, que tiene todos los privilegios.
+ Es pues importante elegir una buena contraseña para esta cuenta y protegerla.
+ Algunas distribuciones Linux no permiten iniciar sesión como 
+\family typewriter
+root
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+También hay grupos de usuarios, con un 
+\series bold
+identificador de grupo
+\series default
+ o 
+\series bold
+GID
+\series default
+ (
+\emph on
+Group IDentifier
+\emph default
+) asociado al nombre del grupo y la lista de usuarios pertenecientes a él
+ a través del fichero 
+\family typewriter
+/etc/group
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Pueden definirse varios usuarios o grupos con el mismo UID o GID, pero para
+ el sistema operativo se trata del mismo usuario o grupo.
+ Un dominio en UNIX se corresponde aproximadamente con un par 
+\begin_inset Formula $(\text{UID},\text{GID})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Las ACLs restringidas se limitan a 3 conjuntos de usuarios: el propietario
+ de un fichero, el grupo de usuarios al que pertenece y el resto de usuarios.
+ Para cada uno existen 3 permisos: lectura (
+\family typewriter
+r
+\family default
+), escritura (
+\family typewriter
+w
+\family default
+) y ejecución (
+\family typewriter
+x
+\family default
+).
+ En directorios, el permiso 
+\family typewriter
+r
+\family default
+ indica que se puede listar su contenido, 
+\family typewriter
+w
+\family default
+ que se puede modificar (creando, borrando y renombrando ficheros y subdirectori
+os) y 
+\family typewriter
+x
+\family default
+ que se puede hacer que este sea nuestro directorio actual y que es posible
+ atravesarlo.
+\end_layout
+
+\begin_layout Standard
+Para determinar lo que un proceso puede hacer sobre un fichero, si el usuario
+ tiene UID 0, se considera que tiene los tres permisos; de lo contrario,
+ si el UID del proceso coincide con el del fichero, se queda con los permisos
+ de propietario; si esto no se cumple pero el GID del proceso coincide con
+ el del fichero, se queda con los permisos de grupo, y en caso contrario
+ usa los del resto de usuarios.
+\end_layout
+
+\begin_layout Standard
+Estos permisos suelen mostrarse mediante una cadena de 9 letras con formato
+ 
+\family typewriter
+rwxrwxrwx
+\family default
+ para representar los permisos de los 3 conjuntos en orden, donde la letra
+ correspondiente se sustituye por 
+\family typewriter
+-
+\family default
+ si el conjunto de usuarios correspondiente no tiene el permiso.
+ Esta cadena se almacena internamente mediante 9 bits, establecidos como
+ 1 si el permiso se da o como 0 en caso contrario.
+\end_layout
+
+\begin_layout Standard
+Algunos sistemas UNIX, como Linux, implementan también ACLs completas para
+ los sistemas de ficheros que lo admiten.
+\end_layout
+
+\begin_layout Standard
+Para cambiar de dominio, los ejecutable pueden poseer los bits SETUID y
+ SETGID.
+ Si SETUID está activo, al ejecutar el fichero, el proceso en que se ejecuta
+ tendrá como UID efectivo (EUID) el del propietario del ejecutable, y lo
+ mismo ocurre con SETGID para el grupo efectivo (EGID).
+ Un programa puede conocer su usuario y grupo reales mediante las funciones
+ 
+\family typewriter
+getuid
+\family default
+ y 
+\family typewriter
+getgid
+\family default
+, así como su usuario y grupo efectivos mediante 
+\family typewriter
+geteuid
+\family default
+ y 
+\family typewriter
+getegid
+\family default
+.
+ Cuando un ejecutable posee el bit SETUID, la primera 
+\family typewriter
+x
+\family default
+ en la cadena que representa los permisos cambia por una 
+\family typewriter
+s
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Por ejemplo, el comando 
+\family typewriter
+passwd
+\family default
+ permite cambiar la contraseña a un usuario, pero para ello necesita acceder
+ y modificar 
+\family typewriter
+/etc/shadow
+\family default
+, que en general no puede ser leído ni escrito por nadie salvo 
+\family typewriter
+root
+\family default
+.
+ Por tanto 
+\family typewriter
+passwd
+\family default
+ tiene como propietario 
+\family typewriter
+root
+\family default
+ y tiene activo el SETUID, y determina el usuario que lo ha invocado con
+ 
+\family typewriter
+getuid
+\family default
+.
+ Si el UID es 0, permite cambiar la contraseña de cualquier usuario; de
+ lo contrario solo permite cambiar la del usuario que ejecutó que lo ejecutó.
+\end_layout
+
+\begin_layout Standard
+Las ACLs sólo se comprueban al abrir el fichero.
+ Si se tiene acceso a este, se crea una entrada en la 
+\series bold
+tabla de ficheros abiertos
+\series default
+, una lista de capacidades mantenida por el sistema operativo, y se devuelve
+ un índice a esta llamado 
+\series bold
+descriptor de fichero
+\series default
+.
+ Esto significa que si el ACL de un fichero cambia tras haber sido abierto,
+ el proceso puede seguir accediendo a él aunque la nueva ACL no lo permitiera,
+ incumpliendo el principio de diseño que dice que la autorización debe comprobar
+se en el momento de realizar la operación, pero a cambio permite un mejor
+ rendimiento.
+\end_layout
+
+\end_body
+\end_document

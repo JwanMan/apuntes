@@ -1,0 +1,1046 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Formula $f:\Omega\subseteq\mathbb{R}^{m}\rightarrow\mathbb{R}^{n}$
+\end_inset
+
+ es 
+\series bold
+dos veces diferenciable
+\series default
+ o 
+\series bold
+de clase
+\series default
+ 
+\begin_inset Formula ${\cal C}^{2}$
+\end_inset
+
+ en 
+\begin_inset Formula $a\in\Omega$
+\end_inset
+
+ si 
+\begin_inset Formula $f$
+\end_inset
+
+ es diferenciable en 
+\begin_inset Formula ${\cal U}\in{\cal E}(a)$
+\end_inset
+
+ y 
+\begin_inset Formula $df:{\cal U}\rightarrow{\cal L}(\mathbb{R}^{m},\mathbb{R}^{n})\equiv M_{n\times m}(\mathbb{R})\equiv\mathbb{R}^{nm}$
+\end_inset
+
+ (la aplicación que a cada elemento de 
+\begin_inset Formula ${\cal U}$
+\end_inset
+
+ le asigna un vector en 
+\begin_inset Formula $\mathbb{R}^{nm}$
+\end_inset
+
+ que contiene, en algún orden, los elementos de la matriz asociada a la
+ diferencial del elemento) es diferenciable en 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ Por inducción se define el ser 
+\begin_inset Formula $n$
+\end_inset
+
+ veces diferenciable o de clase 
+\begin_inset Formula ${\cal C}^{n}$
+\end_inset
+
+, y el ser infinitamente diferenciable o de clase 
+\begin_inset Formula ${\cal C}^{\infty}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Denotamos la derivada parcial 
+\begin_inset Formula $k$
+\end_inset
+
+-ésima de la derivada parcial 
+\begin_inset Formula $j$
+\end_inset
+
+-ésima de la 
+\begin_inset Formula $i$
+\end_inset
+
+-ésima coordenada de 
+\begin_inset Formula $f$
+\end_inset
+
+, o la 
+\begin_inset Formula $i$
+\end_inset
+
+-ésima coordenada de la doble derivada parcial respecto a 
+\begin_inset Formula $x_{j}$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{k}$
+\end_inset
+
+, como 
+\begin_inset Formula $\frac{\partial^{2}f_{i}}{\partial x_{j}\partial x_{k}}$
+\end_inset
+
+, y si 
+\begin_inset Formula $j=k$
+\end_inset
+
+, también escribimos 
+\begin_inset Formula $\frac{\partial^{2}f_{i}}{\partial x_{j}^{2}}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene derivadas parciales segundas 
+\begin_inset Formula $\frac{\partial f_{i}}{\partial x_{k}\partial x_{j}}$
+\end_inset
+
+ todas continuas en 
+\begin_inset Formula $a$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es dos veces diferenciable en 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Matriz hessiana
+\end_layout
+
+\begin_layout Standard
+Del mismo modo que podemos pensar en la diferencial de una función diferenciable
+ como 
+\begin_inset Formula $df(a):\mathbb{R}^{m}\rightarrow\mathbb{R}^{n}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\vec{u}\mapsto d_{\vec{u}}f(a)$
+\end_inset
+
+, llamamos 
+\series bold
+diferencial segunda
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $a$
+\end_inset
+
+ a la aplicación 
+\begin_inset Formula $d^{2}f(a):\mathbb{R}^{m}\times\mathbb{R}^{m}\rightarrow\mathbb{R}^{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $(\vec{u},\vec{v})\mapsto d_{\vec{v}}d_{\vec{u}}f(a)$
+\end_inset
+
+, y vemos que esta es una aplicación bilineal.
+\end_layout
+
+\begin_layout Standard
+La matriz de 
+\begin_inset Formula $d^{2}f(a):\mathbb{R}^{m}\times\mathbb{R}^{m}\rightarrow\mathbb{R}$
+\end_inset
+
+, dada por
+\begin_inset Formula 
+\[
+\left(\frac{\partial^{2}f}{\partial x_{i}\partial x_{j}}\right)_{ij}
+\]
+
+\end_inset
+
+ se denomina 
+\series bold
+matriz hessiana
+\series default
+.
+ Así, si 
+\begin_inset Formula $M$
+\end_inset
+
+ es la matriz hessiana de 
+\begin_inset Formula $f$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+d^{2}f(a)(\vec{u},\vec{v})=\left(\begin{array}{ccc}
+- & \vec{u} & -\end{array}\right)M\left(\begin{array}{c}
+|\\
+\vec{v}\\
+|
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, sea 
+\begin_inset Formula $f:\Omega\subseteq\mathbb{R}^{2}\rightarrow\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $a=(x_{0},y_{0})\in\Omega$
+\end_inset
+
+, si 
+\begin_inset Formula $\frac{\partial^{2}f}{\partial x\partial y}$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{\partial^{2}f}{\partial y\partial x}$
+\end_inset
+
+ están definidas en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ y son continuas en 
+\begin_inset Formula $a$
+\end_inset
+
+, entonces su valor en 
+\begin_inset Formula $a$
+\end_inset
+
+ coincide.
+ Esto significa que la matriz Hessiana es simétrica.
+ 
+\series bold
+Demostración:
+\series default
+ Como 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ es abierto, existe 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ tal que 
+\begin_inset Formula $B_{\infty}(a,\varepsilon)=(x_{0}-\varepsilon,x_{0}+\varepsilon)\times(y_{0}-\varepsilon,y_{0}+\varepsilon)\subseteq\Omega$
+\end_inset
+
+.
+ Fijamos 
+\begin_inset Formula $t\in(x_{0}-\varepsilon,y_{0}+\varepsilon)$
+\end_inset
+
+ y 
+\begin_inset Formula $s\in(y_{0}-\varepsilon,y_{0}+\varepsilon)$
+\end_inset
+
+, y consideramos 
+\begin_inset Formula $\Delta_{t,s}:=f(t,s)-f(t,y_{0})-f(x_{0},s)+f(x_{0},y_{0})$
+\end_inset
+
+.
+ Si ahora llamamos 
+\begin_inset Formula $F_{\overline{s}}(\overline{t}):=f(\overline{t},\overline{s})-f(\overline{t},y_{0})$
+\end_inset
+
+, vemos que 
+\begin_inset Formula $F_{\overline{s}}(\overline{t})$
+\end_inset
+
+ es derivable con 
+\begin_inset Formula $F'_{\overline{s}}(\overline{t})=\frac{\partial f}{\partial x}(\overline{t},\overline{s})-\frac{\partial f}{\partial x}(\overline{t},y_{0})$
+\end_inset
+
+ y que entonces 
+\begin_inset Formula $\Delta_{t,s}=F_{s}(t)-F_{s}(x_{0})=F'_{\overline{s}}(\xi_{t,s})(t-x_{0})=\left(\frac{\partial f}{\partial x}(\xi_{t,s},s)-\frac{\partial f}{\partial x}(\xi_{t,s},y_{0})\right)(t-x_{0})\overset{\Phi(\overline{s}):=\frac{\partial f}{\partial x}(\xi_{t,s},\overline{s})}{=}(\Phi(s)-\Phi(y_{0}))(t-x_{0})\overset{\Phi\text{ derivable por hipótesis}}{=}\Phi'(\eta_{t,s})(s-y_{0})(t-x_{0})=\frac{\partial^{2}f}{\partial x\partial y}(\xi_{t,s},\eta_{t,s})(s-y_{0})(t-x_{0})$
+\end_inset
+
+.
+ Permutando los papeles de las dos coordenadas (definiendo 
+\begin_inset Formula $\sigma_{\overline{t}}(\overline{s}):=f(\overline{t},\overline{s})-f(x,\overline{s})$
+\end_inset
+
+) obtenemos que 
+\begin_inset Formula $\Delta_{t,s}=\sigma_{\overline{t}}(\overline{s})-\sigma_{\overline{t}}(y_{0})=\frac{\partial^{2}f}{\partial y\partial x}(\hat{\xi}_{t,s},\hat{\eta}_{t,s})(s-y_{0})(t-x_{0})$
+\end_inset
+
+.
+ Haciendo ahora tender 
+\begin_inset Formula $(t,s)$
+\end_inset
+
+ a 
+\begin_inset Formula $(x_{0},y_{0})$
+\end_inset
+
+, por la regla del sandwich 
+\begin_inset Formula $(\xi_{t,s},\eta_{ts})$
+\end_inset
+
+ y 
+\begin_inset Formula $(\hat{\xi}_{t,s},\hat{\eta}_{t,s})$
+\end_inset
+
+ también tienden a 
+\begin_inset Formula $(x_{0},y_{0})$
+\end_inset
+
+, y aplicando la continuidad de las derivadas parciales dobles en 
+\begin_inset Formula $a$
+\end_inset
+
+, nos queda finalmente que 
+\begin_inset Formula $\frac{\partial^{2}f}{\partial x\partial y}(x_{0},y_{0})=\frac{\partial^{2}f}{\partial y\partial x}(x_{0},y_{0})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Desarrollos de Taylor
+\end_layout
+
+\begin_layout Standard
+Despejando de la definición de diferencial, nos queda que 
+\begin_inset Formula $f(a+h)=f(a)+df(a)(h)+o(\Vert h\Vert)$
+\end_inset
+
+, lo que podemos interpretar como una aproximación de 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ cerca de 
+\begin_inset Formula $a$
+\end_inset
+
+ por un polinomio de grado 1.
+ Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $f:\Omega\subseteq\mathbb{R}^{m}\rightarrow\mathbb{R}$
+\end_inset
+
+ es dos veces diferenciable en 
+\begin_inset Formula $a\in\Omega$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f(a+h)=f(a)+df(a)(h)+\frac{1}{2}d^{2}f(a)(h,h)+o(\Vert h\Vert^{2})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $R(h):=f(a+h)-f(a)-df(a)(h)-\frac{1}{2}d^{2}f(a)(h,h)$
+\end_inset
+
+, y hemos de ver que 
+\begin_inset Formula $\lim_{h\rightarrow0}\frac{R(h)}{\Vert h\Vert^{2}}=0$
+\end_inset
+
+.
+ Como todas las normas en 
+\begin_inset Formula $\mathbb{R}^{m}$
+\end_inset
+
+ son equivalentes, elegimos 
+\begin_inset Formula $\Vert\cdot\Vert_{\infty}$
+\end_inset
+
+.
+ Usamos el teorema del incremento finito, que afirma que si 
+\begin_inset Formula $R$
+\end_inset
+
+ es diferenciable y 
+\begin_inset Formula $\Vert dR(\xi)\Vert\leq M\forall\xi\in[0,h]$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\Vert R(h)-R(0)\Vert\leq M\cdot\Vert h-0\Vert$
+\end_inset
+
+.
+ 
+\begin_inset Formula $R$
+\end_inset
+
+ es diferenciable al ser la suma de 
+\begin_inset Formula $f(c+h)$
+\end_inset
+
+ y un polinomio de grado máximo 2.
+ Para estimar 
+\begin_inset Formula $\Vert dR\Vert$
+\end_inset
+
+ vemos que 
+\begin_inset Formula $R(a)=f(a+h)-f(a)-\sum_{i}\frac{\partial f}{\partial x_{i}}(a)h_{i}-\frac{1}{2}\sum_{i,j}\frac{\partial f}{\partial x_{i}\partial x_{j}}(a)h_{i}h_{j}$
+\end_inset
+
+, y usando la 
+\begin_inset Formula $\delta$
+\end_inset
+
+ de Kronecker,
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial x_{k}}\frac{1}{2}\sum_{i,j}\frac{\partial f}{\partial x_{i}\partial x_{j}}(a)h_{i}h_{j}=\frac{1}{2}\sum_{i,j}\left(\frac{\partial f}{\partial x_{i}x_{j}}(a)\delta_{ik}+\frac{\partial f}{\partial x_{i}\partial x_{j}}(a)\delta_{jk}\right)=\frac{1}{2}\cdot2d\left(\frac{\partial f}{\partial x_{k}}\right)(a)(h)
+\]
+
+\end_inset
+
+ Por tanto
+\begin_inset Formula 
+\[
+\frac{\partial R}{\partial x_{k}}=\frac{\partial f}{\partial x_{k}}(a+h)-0-\frac{\partial f}{\partial x_{k}}(a)-d\left(\frac{\partial f}{\partial x_{k}}\right)(a)(h)=:\psi_{k}(h)\Vert h\Vert
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $\lim_{h\rightarrow0}\psi(h)=0$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $\frac{\partial R}{\partial x_{k}}$
+\end_inset
+
+ es continua, definiendo el compacto 
+\begin_inset Formula $[0,h]$
+\end_inset
+
+ como 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\{th\}_{t\in[0,1]}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ existe un punto 
+\begin_inset Formula $t_{k,h}h\in[0,h]$
+\end_inset
+
+ tal que 
+\begin_inset Formula 
+\[
+\frac{\partial R}{\partial x_{k}}(t_{k,h}h)=\max\left\{ \frac{\partial R}{\partial x_{k}}(\xi)\right\} _{\xi\in[0,h]}
+\]
+
+\end_inset
+
+Por esto, y como 
+\begin_inset Formula $dR(\xi)\equiv\left(\frac{\partial R}{\partial x_{1}}(\xi),\dots,\frac{\partial R}{\partial x_{m}}(\xi)\right)$
+\end_inset
+
+, existe 
+\begin_inset Formula $C$
+\end_inset
+
+ tal que 
+\begin_inset Formula 
+\[
+\Vert dR(\xi)\Vert\leq C\cdot\Vert dR(a)\Vert_{\infty}=C\cdot\max\left\{ \left|\frac{\partial R}{\partial x_{k}}(a)\right|\right\} _{k=1}^{n}
+\]
+
+\end_inset
+
+para 
+\begin_inset Formula $\xi\in[0,h]$
+\end_inset
+
+, y por el teorema del incremento finito, si 
+\begin_inset Formula $p$
+\end_inset
+
+ es tal que 
+\begin_inset Formula 
+\[
+\left|\frac{\partial R}{\partial x_{p}}(a)\right|=\max\left\{ \left|\frac{\partial R}{\partial x_{k}}(a)\right|\right\} _{k=1}^{n}
+\]
+
+\end_inset
+
+tenemos 
+\begin_inset Formula 
+\[
+\Vert R(h)\Vert=\Vert R(h)-R(0)\Vert\leq C\left|\frac{\partial R}{\partial x_{p}}(t_{p,h})\right|\Vert h\Vert=C\psi_{p}(t_{p,h}h)\Vert h\Vert\Vert h\Vert=C\psi_{p}(t_{p,h}h)\Vert h\Vert^{2}
+\]
+
+\end_inset
+
+ y entonces 
+\begin_inset Formula $\frac{|R(h)|}{\Vert h\Vert^{2}}\leq C\psi_{p}(t_{p,h}h)\rightarrow0$
+\end_inset
+
+, lo que prueba el teorema.
+\end_layout
+
+\begin_layout Section
+Extremos relativos
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $V$
+\end_inset
+
+ es un 
+\begin_inset Formula $K$
+\end_inset
+
+-espacio vectorial con 
+\begin_inset Formula $k:=\dim_{K}(V)<+\infty$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma:V\times V\rightarrow\mathbb{R}$
+\end_inset
+
+ una aplicación bilineal, existe 
+\begin_inset Formula $A=(a_{ij})\in{\cal M}_{k}(K)$
+\end_inset
+
+ asociado a 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ y podemos definir
+\begin_inset Formula 
+\[
+\Delta_{1}=\left|a_{11}\right|,\Delta_{2}=\left|\begin{array}{cc}
+a_{11} & a_{12}\\
+a_{21} & a_{22}
+\end{array}\right|,\dots,\Delta_{k}=\left|\begin{array}{ccc}
+a_{11} & \cdots & a_{1k}\\
+\vdots & \ddots & \vdots\\
+a_{k1} & \cdots & a_{kk}
+\end{array}\right|
+\]
+
+\end_inset
+
+Entonces un 
+\series bold
+teorema
+\series default
+ de álgebra nos dice que 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ es:
+\end_layout
+
+\begin_layout Enumerate
+Semidefinida positiva si y sólo si 
+\begin_inset Formula $\Delta_{i}\geq0\forall i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Semidefinida negativa si y sólo si 
+\begin_inset Formula $\Delta_{i}(-1)^{i}\geq0\forall i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Definida positiva si y sólo si 
+\begin_inset Formula $\Delta_{i}>0\forall i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Definida negativa si y sólo si 
+\begin_inset Formula $\Delta_{i}(-1)^{i}>0\forall i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, sea 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{m}$
+\end_inset
+
+ abierto, 
+\begin_inset Formula $f:\Omega\rightarrow\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in\Omega$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ alcanza en 
+\begin_inset Formula $a$
+\end_inset
+
+ un extremo relativo entonces 
+\begin_inset Formula $df(a)=0$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Podemos suponer que alcanza un máximo.
+ Entonces 
+\begin_inset Formula $\exists{\cal U}\in{\cal E}(a):f(x)\leq f(a)\forall x\in{\cal U}$
+\end_inset
+
+, luego si para 
+\begin_inset Formula $i\in\{1,\dots,m\}$
+\end_inset
+
+ definimos 
+\begin_inset Formula $\varphi_{i}(t):=f(a_{1},\dots,a_{i-1},t,a_{i+1},\dots,a_{m})$
+\end_inset
+
+, fijado 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $\exists\varepsilon>0:\forall t\in(a-\varepsilon,a+\varepsilon),\varphi_{i}(t)\leq\varphi_{i}(a_{i})$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{\partial f}{\partial x_{i}}(a_{1},\dots,a_{i-1},t,a_{i+1},\dots,a_{m})=\varphi'(t)$
+\end_inset
+
+, luego 
+\begin_inset Formula $\frac{\partial f}{\partial x_{i}}(a)=\varphi'(a_{i})=0$
+\end_inset
+
+ y 
+\begin_inset Formula 
+\[
+df(a)=\left(\begin{array}{ccc}
+\frac{\partial f}{\partial x_{1}}(a) & \cdots & \frac{\partial f}{\partial x_{m}}(a)\end{array}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es de clase 
+\begin_inset Formula ${\cal C}^{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $df(a)=0$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\begin{eqnarray*}
+d^{2}f(a)\text{ definida positiva} & \implies & f\text{ tiene un mínimo estricto en }a\implies\\
+\implies f\text{ tiene un mínimo en }a & \implies & d^{2}f(a)\text{ semidefinida positiva}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Consideremos el desarrollo de Taylor de 
+\begin_inset Formula $f$
+\end_inset
+
+ de orden 2 en 
+\begin_inset Formula $a$
+\end_inset
+
+, que como 
+\begin_inset Formula $df(a)=0$
+\end_inset
+
+, queda como
+\begin_inset Formula 
+\begin{eqnarray*}
+f(x) & = & f(a)+\frac{1}{2}d^{2}f(a)(x-a,x-a)+o(\Vert x-a\Vert^{2})\\
+ & = & f(a)+\frac{1}{2}\Vert x-a\Vert^{2}d^{2}f(a)\left(\frac{x-a}{\Vert x-a\Vert},\frac{x-a}{\Vert x-a\Vert}\right)+o(\Vert x-a\Vert^{2})\\
+ & = & f(a)+\frac{1}{2}\Vert x-a\Vert^{2}\left(d^{2}f(a)\left(\frac{x-a}{\Vert x-a\Vert},\frac{x-a}{\Vert x-a\Vert}\right)+\frac{2o(\Vert x-a\Vert^{2})}{\Vert x-a\Vert^{2}}\right)
+\end{eqnarray*}
+
+\end_inset
+
+suponiendo 
+\begin_inset Formula $x\neq a$
+\end_inset
+
+.
+ Pero 
+\begin_inset Formula $\frac{x-a}{\Vert x-a\Vert}\in\{y\in\mathbb{R}^{m}:\Vert y\Vert=1\}=:K$
+\end_inset
+
+, que es compacto por ser cerrado y acotado, y 
+\begin_inset Formula $\Phi:\mathbb{R}^{m}\rightarrow\mathbb{R}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\Phi(u):=d^{2}f(a)(u,u)=\sum_{i,j}\frac{\partial f}{\partial x_{i}\partial x_{j}}(a)u_{i}u_{j}$
+\end_inset
+
+ es continua, luego 
+\begin_inset Formula $\Phi(K)=\left\{ d^{2}f(a)\left(\frac{x-a}{\Vert x-a\Vert},\frac{x-a}{\Vert x-a\Vert}\right)\right\} _{x\in\mathbb{R}^{m}}$
+\end_inset
+
+ es compacto y, por ser además 
+\begin_inset Formula $d^{2}f(a)$
+\end_inset
+
+ definida positiva, existe 
+\begin_inset Formula $M>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\Phi(K)\geq M$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Como 
+\begin_inset Formula $\frac{2o(\Vert x-a\Vert^{2})}{\Vert x-a\Vert^{2}}\rightarrow0$
+\end_inset
+
+ cuando 
+\begin_inset Formula $x\rightarrow a$
+\end_inset
+
+, existe 
+\begin_inset Formula ${\cal U}\in{\cal E}(a)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall x\in{\cal U},\left|\frac{2o(\Vert x-a\Vert)^{2}}{\Vert x-a\Vert^{2}}\right|<M$
+\end_inset
+
+, luego si 
+\begin_inset Formula $x\in{\cal U}\backslash\{a\},d^{2}f(a)\left(\frac{x-a}{\Vert x-a\Vert},\frac{x-a}{\Vert x-a\Vert}\right)+\frac{2o(\Vert x-a\Vert^{2})}{\Vert x-a\Vert^{2}}>M-M=0$
+\end_inset
+
+ y 
+\begin_inset Formula $f(x)>f(a)+\frac{1}{2}\Vert x-a\Vert^{2}\cdot0=f(a)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies3]$
+\end_inset
+
+ Obvio.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies4]$
+\end_inset
+
+ Fijamos 
+\begin_inset Formula $u\in\mathbb{R}^{m}$
+\end_inset
+
+ y definimos 
+\begin_inset Formula $\varphi(t):=a+tu$
+\end_inset
+
+ como la función 
+\begin_inset Formula $\varphi:\mathbb{R}\rightarrow\mathbb{R}^{m}$
+\end_inset
+
+ que parametriza la recta 
+\begin_inset Formula $a+<\vec{u}>$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula ${\cal U}\in{\cal E}(a)$
+\end_inset
+
+ con 
+\begin_inset Formula $f(a)\leq f(x)\forall x\in{\cal U}$
+\end_inset
+
+, si restringimos 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ a 
+\begin_inset Formula $\varphi^{-1}({\cal U})$
+\end_inset
+
+, un entorno de 0 en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f\circ\varphi$
+\end_inset
+
+ alcanza un mínimo en 0, pues 
+\begin_inset Formula $(f\circ\varphi)(0)=f(\varphi(0))=f(a)\leq f(\varphi(t))\forall t\in\varphi^{-1}({\cal U})$
+\end_inset
+
+, y tenemos que 
+\begin_inset Formula $f\circ\varphi$
+\end_inset
+
+ es de clase 
+\begin_inset Formula ${\cal C}^{2}$
+\end_inset
+
+ y semidefinida positiva.
+ Por la regla de la cadena, al ser 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ diferenciables,
+\begin_inset Formula 
+\begin{multline*}
+d(f\circ\varphi)(t)=df(\varphi(t))\circ d\varphi(t)\equiv\\
+\equiv\left(\begin{array}{ccc}
+\frac{\partial f}{\partial x_{1}}(a+tu) & \cdots & \frac{\partial f}{\partial x_{m}}(a+tu)\end{array}\right)\left(\begin{array}{c}
+u_{1}\\
+\vdots\\
+u_{m}
+\end{array}\right)=\sum_{i}\frac{\partial f}{\partial x_{i}}(a+tu)u_{i}
+\end{multline*}
+
+\end_inset
+
+Entonces 
+\begin_inset Formula $d^{2}(f\circ\varphi)(t)\equiv\frac{d}{dt}\sum_{i}\frac{\partial f}{\partial x_{i}}(a+tu)u_{i}=\sum_{i}u_{i}\frac{d}{dt}\left(\frac{\partial f}{\partial x_{i}}(a+tu)\right)$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $\frac{\partial f}{\partial x_{i}}$
+\end_inset
+
+ es diferenciable al ser 
+\begin_inset Formula $f$
+\end_inset
+
+ de clase 
+\begin_inset Formula ${\cal C}^{2}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{multline*}
+\frac{d}{dt}\left(\frac{\partial f}{\partial x_{i}}(a+tu)\right)=d\left(\frac{\partial f}{\partial x_{i}}\circ\varphi\right)(t)=d\frac{\partial f}{\partial x_{i}}(\varphi(t))\circ d\varphi(t)\equiv\\
+\equiv\left(\begin{array}{ccc}
+\frac{\partial^{2}f}{\partial_{i}\partial_{1}}(a+tu) & \cdots & \frac{\partial^{2}f}{\partial_{i}\partial_{m}}(a+tu)\end{array}\right)\left(\begin{array}{c}
+u_{1}\\
+\vdots\\
+u_{m}
+\end{array}\right)=\sum_{j}\frac{\partial^{2}f}{\partial x_{i}\partial x_{j}}(a+tu)u_{j}
+\end{multline*}
+
+\end_inset
+
+Sustituyendo, 
+\begin_inset Formula $d^{2}(f\circ\varphi)(t)\equiv\sum_{i,j}\frac{\partial^{2}f}{\partial x_{i}\partial x_{j}}(a+tu)u_{i}u_{j}=d^{2}f(a+tu)(u,u)$
+\end_inset
+
+.
+ Pero al ser 
+\begin_inset Formula $f\circ\varphi$
+\end_inset
+
+ una función real de una variable real dos veces derivable con su mínimo
+ en 0, sustituyendo 
+\begin_inset Formula $0\leq(f\circ\varphi)''(0)=d^{2}f(a)(u,u)$
+\end_inset
+
+, y como esto se cumple para todo 
+\begin_inset Formula $u\in\mathbb{R}^{m}$
+\end_inset
+
+, queda probado que 
+\begin_inset Formula $d^{2}f(a)$
+\end_inset
+
+ es semidefinida positiva.
+\end_layout
+
+\end_deeper
+\end_body
+\end_document

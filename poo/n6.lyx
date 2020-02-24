@@ -1,0 +1,771 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+La 
+\series bold
+corrección
+\series default
+ es la capacidad del software de cumplir con su especificación, de modo
+ que el incumplimiento de los requisitos de uso implica la finalización
+ de la ejecución.
+ La 
+\series bold
+robustez
+\series default
+ es la capacidad del software de reaccionar adecuadamente a situaciones
+ excepcionales (fallos de disco, red, etc.).
+ En Java, para esto se usan excepciones.
+\end_layout
+
+\begin_layout Standard
+Una excepción es un objeto de clase compatible con 
+\family typewriter
+java.lang.Exception
+\family default
+, que podemos lanzar con la cláusula 
+\family typewriter
+throw 
+\emph on
+objeto
+\emph default
+;
+\family default
+.
+ Para capturar una excepción usamos la construcción 
+\family typewriter
+try
+\family default
+–
+\family typewriter
+catch
+\family default
+, con la sintaxis:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+try { 
+\emph on
+stmt
+\family default
+\emph default
+...
+
+\family typewriter
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+catch (
+\emph on
+Tipo var
+\emph default
+) { 
+\emph on
+stmt
+\family default
+\emph default
+...
+
+\family typewriter
+ } 
+\family default
+...
+\end_layout
+
+\begin_layout Plain Layout
+[
+\family typewriter
+finally { 
+\emph on
+stmt
+\family default
+\emph default
+...
+
+\family typewriter
+ }
+\family default
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si se lanza una excepción en el bloque 
+\family typewriter
+try
+\family default
+, se comprueba el 
+\family typewriter
+\emph on
+Tipo
+\family default
+\emph default
+ en cada bloque 
+\family typewriter
+catch
+\family default
+ (que debería ser compatible con 
+\family typewriter
+java.lang.Exception
+\family default
+) en orden y, si se encuentra uno compatible con el tipo dinámico de la
+ excepción, se ejecuta el interior de dicho bloque con la variable 
+\family typewriter
+\emph on
+var
+\family default
+\emph default
+ (de tipo estático 
+\family typewriter
+\emph on
+Tipo
+\family default
+\emph default
+) asociada al objeto excepción, y decimos que la excepción ha sido capturada.
+ El bloque 
+\family typewriter
+finally
+\family default
+, si existe, se ejecuta tanto si la excepción es capturada como si no.
+ Finalmente, si la excepción no es capturada, el resultado es como si la
+ propia construcción lanzara la excepción.
+\end_layout
+
+\begin_layout Standard
+Las siguientes clases se definen en 
+\family typewriter
+java.lang
+\family default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+Throwable
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+implements Serializable
+\end_layout
+
+\end_inset
+
+Superclase de todos los errores y excepciones en el lenguaje.
+ Sólo instancias de esta clase (o compatibles) son lanzadas por la máquina
+ virtual de Java o la cláusula 
+\family typewriter
+throw
+\family default
+.
+ Solo esta clase o compatibles pueden ser el tipo de argumento de una cláusula
+ 
+\family typewriter
+catch
+\family default
+.
+ 
+\family typewriter
+Throwable
+\family default
+ y cualquier clase compatible con 
+\family typewriter
+Throwable
+\family default
+ que no lo es también con 
+\family typewriter
+RuntimeException
+\family default
+ o 
+\family typewriter
+Error
+\family default
+ se consideran excepciones comprobadas.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+String
+\begin_inset space ~
+\end_inset
+
+getMessage()
+\family default
+ Deuvuelve la cadena de mensaje de este lanzable.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+void
+\begin_inset space ~
+\end_inset
+
+printStackTrace()
+\family default
+ Imprime este lanzable y su 
+\emph on
+backtrace
+\emph default
+ (estado de la pila de llamadas en el momento de crear la excepción) al
+ flujo de error estándar.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+Exception
+\family default
+ Forma de 
+\family typewriter
+Throwable
+\family default
+ que indica condiciones que una aplicación razonable querría capturar.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+Exception(String)
+\family default
+ Construye una excepción con el mensaje especificado.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Si se lanza una excepción fuera de un bloque 
+\family typewriter
+try
+\family default
+, se termina la ejecución del método y el resultado es como si la llamada
+ a dicho método lanzara la excepción, y decimos que el método produce la
+ excepción.
+ Si un método puede producir una excepción comprobada, debemos escribir
+ 
+\family typewriter
+throws 
+\emph on
+Tipo1
+\emph default
+, 
+\family default
+...
+ detrás de la lista de parámetros (
+\family typewriter
+(
+\family default
+...
+\family typewriter
+)
+\family default
+) y antes de la implementación (
+\family typewriter
+{
+\family default
+...
+\family typewriter
+}
+\family default
+) o el 
+\family typewriter
+;
+\family default
+ para métodos abstractos, siendo 
+\family typewriter
+\emph on
+Tipo1
+\emph default
+, 
+\family default
+...
+ una lista de excepciones tales que cualquier excepción comprobada que pueda
+ producir el método sea de tipo compatible con uno de la lista.
+ Entonces se considera que el método puede producir un error de cualquier
+ tipo de la lista.
+ Si el método 
+\family typewriter
+\series bold
+main
+\family default
+\series default
+ de la aplicación produce una excepción, el programa termina con error.
+\end_layout
+
+\begin_layout Standard
+Si bien las excepciones permiten aportar robustez, también permiten controlar
+ el uso correcto de operaciones, notificando de errores de programación.
+ Para ello se usan las 
+\series bold
+excepciones en tiempo de ejecución
+\series default
+, compatibles con 
+\family typewriter
+java.lang.RuntimeException
+\family default
+, y que en general no se tratan.
+ La máquina virtual también puede lanzar excepciones de este tipo.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+RuntimeException
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+Exception
+\family default
+\series default
+ Superclase de las excepciones que pue
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+den ser lanzadas durante la operación normal de la máquina virtual de Java.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+NullPointerException
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+RuntimeException
+\family default
+ Lanzada cuando una a
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+pli
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ca
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ción intenta usar 
+\family typewriter
+null
+\family default
+ cuando se requiere un objeto.
+ Las aplicaciones deberían lanzar instancias de esta clase para otros usos
+ no permitidos de 
+\family typewriter
+null
+\family default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+IllegalArgumentException
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+RuntimeException
+\family default
+ Lanzada para in
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+di
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+car que a un método se le ha pasado un argumento inapropiado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+IllegalStateException
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+RuntimeException
+\family default
+ Señala que el entorno o la aplicación no está en un estado apropiado para
+ la operación solicitada.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+NoSuchElementException
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+RuntimeException
+\family default
+ Lanzada por algunos métodos accesores para indicar que el elemento solicitado
+ no existe.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+ClassCastException
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+RuntimeException
+\family default
+ Lanzada para indicar que el código ha intentado hacer 
+\emph on
+casting
+\emph default
+ a un objeto hacia una subclase a la que no pertenece.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+IndexOutOfBoundsException
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+RuntimeException
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+public class ArrayIndexOutOfBoundsException extends IndexOutOfBoundsException
+\end_layout
+
+\end_inset
+
+
+\family default
+\series default
+ Lanzada para indicar que se ha accedido a un 
+\emph on
+array
+\emph default
+ con un índice no permitido.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+diseño por contrato
+\series default
+ es un modo de proceder ante los errores de programación basado en que las
+ operaciones tienen requisitos de uso o 
+\series bold
+precondiciones
+\series default
+ con los que se considera un error no cumplir, y si no se cumplen el programa
+ no debe continuar.
+\end_layout
+
+\end_body
+\end_document

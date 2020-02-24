@@ -1,0 +1,997 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+sistema operativo
+\series default
+ es un intermediario entre el usuario y el hardware, un programa complejo
+ que se ejecuta cuando otro lo solicita o periódicamente para realizar ciertas
+ tareas.
+ 
+\end_layout
+
+\begin_layout Itemize
+Como 
+\series bold
+máquina extendida
+\series default
+ o 
+\series bold
+virtual
+\series default
+, presenta una interfaz sencilla de la máquina al programador ocultando
+ detalles de hardware de bajo nivel (interrupciones, relojes, control de
+ memoria, etc.).
+\end_layout
+
+\begin_layout Itemize
+Como 
+\series bold
+controlador de recursos
+\series default
+, proporciona una asignación ordenada y controlada de los recursos de hardware
+ (procesadores, memoria, entrada y salida, etc.) entre los programas que
+ compiten por ellos.
+\end_layout
+
+\begin_layout Standard
+Destacamos Microsoft Windows, Apple MacOS X, Linux, y para dispositivos
+ móviles, iOS y Android.
+ Las características de un sistema operativo dependen del hardware en que
+ se ejecuta; por ejemplo, este en general no puede garantizar la protección
+ entre zonas de memoria de dos programas si el hardware no dispone de un
+ mecanismo para ello.
+ Por esto los sistemas operativos han evolucionado a la par con el hardware.
+\end_layout
+
+\begin_layout Section
+Historia
+\end_layout
+
+\begin_layout Subsection
+Primera generación (1945–55)
+\end_layout
+
+\begin_layout Standard
+Grandes máquinas experimentales que ocupaban habitaciones enteras, formadas
+ por miles de válvulas de vacío y cables conectados a mano, que consumían
+ una gran cantidad de energía y eran muy poco fiables.
+ Un solo grupo de personas diseñaba, construía, programaba, operaba y mantenía
+ cada máquina.
+ No existían lenguajes de programación ni sistemas operativos: la programación
+ era en lenguaje máquina, incluyendo el código de E/S dentro del propio
+ programa, y con frecuencia se usaban conexiones directamente para controlar
+ funciones básicas.
+\end_layout
+
+\begin_layout Standard
+La interacción con la máquina era directa: los programadores la reservaban
+ durante un tiempo, en el que introducían y ejecutaban el programa.
+ Si el trabajo terminaba en ese tiempo, había periodos en que la máquina
+ no se usaba (al ser máquinas muy caras había que aprovecharlas al máximo),
+ y si no daba tiempo a terminar, el programador tenía que volver a reservar
+ la máquina.
+\end_layout
+
+\begin_layout Subsection
+Segunda generación (1955-65)
+\end_layout
+
+\begin_layout Standard
+Aparecen desarrollos como los lectores de tarjetas, impresoras de líneas,
+ cintas magnéticas y, por el lado del software, ensambladores, cargadores
+ y enlazadores.
+ La introducción del transistor hizo que los ordenadores se volvieran fiables,
+ pudiendo venderse a clientes, y las bibliotecas de E/S hicieron que el
+ programador ya no tuviera que preocuparse de este aspecto.
+\end_layout
+
+\begin_layout Standard
+Si la interacción era directa, esta incluía colocar tarjetas perforadas,
+ preparar la impresora, hacer cambios de cinta (por ejemplo, colocar la
+ cinta con el compilador de FORTRAN para compilar un programa), etc.
+ Si el programador no tenía experiencia en esto se podían producir grandes
+ pérdidas de tiempo, por lo que se contrataba a un operador profesional
+ que controlaba la máquina de forma que los programadores entregaban su
+ trabajo y esperaban al resultado, perdiendo la interacción directa.
+ Otra medida fue planificar los trabajos para minimizar los cambios de cinta
+ (por ejemplo, agrupando todos los programas en FORTRAN para ser compilados
+ tras preparar la cinta con el compilador).
+\end_layout
+
+\begin_layout Standard
+Aun así, cuando se detenía un trabajo, el operador debía percatarse observando
+ la consola, determinar si se trataba de una terminación normal o anormal,
+ efectuar un volcado si era necesario, cargar el lector de tarjetas o la
+ cinta con el siguiente trabajo y volver a preparar el ordenador.
+ En este tiempo la CPU estaba inactiva, por lo que se desarrollaron sistemas
+ de 
+\series bold
+procesamiento por lotes
+\series default
+, sistemas operativos rudimentarios, como el 
+\series bold
+monitor residente
+\series default
+, formado por un intérprete de tarjetas de control, un cargador de programas
+ y controladores de dispositivos de E/S compartidos con los programas.
+ Este interpretaba instrucciones de tarjetas de control insertadas entre
+ tarjetas normales de datos, que indicaban el inicio y fin de un trabajo
+ y tipo de trabajo a realizar.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename pegado1.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ejemplo de trabajo por lotes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los dispositivos de E/S eran (y son) lentos en comparación con la CPU, que
+ debía esperar la terminación de cada operación de E/S, por lo que se creó
+ la 
+\series bold
+operación fuera de línea
+\series default
+, consistente en pasar de operaciones en línea (
+\emph on
+on-line
+\emph default
+) donde la CPU interactuaba directamente con la E/S lenta, a operaciones
+ fuera de línea (
+\emph on
+off-line
+\emph default
+), donde la CPU interactuaba con dispositivos más rápidos.
+ Para esto, primero los datos se leían de las tarjetas y se guardaban en
+ una cinta, a continuación los datos de la cinta se procesaban y se guardaban
+ los resultados en otra cinta, y finalmente los datos de la cinta de salida
+ se imprimen.
+\end_layout
+
+\begin_layout Standard
+Esto hizo surgir la 
+\series bold
+independencia de dispositivo
+\series default
+, el escribir un programa para usar dispositivos de E/S lógicos y que fuera
+ el sistema operativo el que hiciera corresponder los dispositivos lógicos
+ con los físicos.
+ También aumentó el tiempo que el programador debía esperar para obtener
+ los resultados, pues las cintas se tenían que llenar, y también hizo necesarias
+ varias máquinas en paralelo para hacer las copias de tarjetas a cintas
+ y de cintas a la impresora.
+ Solución:
+\end_layout
+
+\begin_layout Itemize
+Hacer que los dispositivos de entrada escriban directamente en un 
+\series bold
+\emph on
+buffer
+\series default
+\emph default
+ en memoria principal, mientras la CPU procesa los datos anteriores, de
+ forma que la entrada y la CPU trabajen en paralelo.
+ Lo mismo ocurre con la salida.
+\end_layout
+
+\begin_layout Itemize
+Hacer que la entrada y la salida se den a través de ficheros en un disco,
+ por el mecanismo de 
+\series bold
+\emph on
+spooler
+\series default
+\emph default
+ (
+\emph on
+simultaneous peripheral operation on-line
+\emph default
+), de forma que durante el cómputo de un programa se imprime la salida de
+ programas anteriores, leída del disco, y se lee la entrada de programas
+ posteriores, que se imprime en el disco.
+ Para esto el monitor necesita hacer uso de 
+\emph on
+buffers
+\emph default
+ e interrupciones.
+\end_layout
+
+\begin_layout Standard
+Sigue habiendo la limitación de que un único usuario no puede mantener a
+ la CPU y la E/S ocupados todo el tiempo.
+\end_layout
+
+\begin_layout Subsection
+Tercera generación (1965-80)
+\end_layout
+
+\begin_layout Standard
+Los ordenadores se vuelven más pequeños y fiables.
+ Se crea la 
+\series bold
+multiprogramación
+\series default
+: cuando un trabajo no puede continuar su ejecución porque tiene que esperar
+ a la E/S, se pasa la CPU a otro trabajo listo para ejecutarse.
+ Es necesaria una 
+\series bold
+planificación de trabajos
+\series default
+, así como evitar que estos trabajos se interfieran unos a otros en el uso
+ de los recursos (por ejemplo, escribiendo a la vez en la impresora).
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+tiempo compartido
+\series default
+ o 
+\series bold
+multitarea
+\series default
+ es una variante de la multiprogramación consistente en hacer un cambio
+ rápido entre tareas de forma que cada usuario pueda interactuar con el
+ programa que está ejecutando como si todos se ejecutaran a la vez (
+\series bold
+pseudoparalelismo
+\series default
+), recuperándose la interacción directa.
+ Puede ocurrir que un programa no quiera liberar la CPU durante bastante
+ tiempo, por lo que es necesario un mecanismo para obligarle a dejar la
+ CPU.
+\end_layout
+
+\begin_layout Standard
+Surgen sistemas operativos como OS/360 para el IBM 360, MULTICS y su sucesor
+ UNIX, del que se derivan sistemas como Linux.
+\end_layout
+
+\begin_layout Subsection
+Cuarta generación (1980-95)
+\end_layout
+
+\begin_layout Standard
+Los circuitos LSI (
+\emph on
+Large Scale Integration
+\emph default
+) y VLSI (
+\emph on
+Very Large Scale Integration
+\emph default
+) permiten la aparición en 1975 del primer 
+\series bold
+ordenador personal
+\series default
+, invento que popularizó los computadores y la informática.
+ También aparecen las 
+\series bold
+estaciones de trabajo
+\series default
+, ordenadores personales muy potentes (para empresas) conectados entre sí
+ en red.
+\end_layout
+
+\begin_layout Standard
+Se populariza el sistema operativo UNIX para estaciones de trabajo y el
+ MS-DOS, monousuario y monotarea, para ordenadores personales, si bien en
+ estos comienzan a aparecer conceptos como la multitarea o la memoria virtual
+ propios de UNIX.
+ También aparecen las redes de ordenadores personales, dando lugar a sistemas
+ operativos en red y distribuidos; los ordenadores con varias CPUs que permiten
+ ejecutar varios procesos a la vez (
+\series bold
+paralelismo
+\series default
+), y los sistemas operativos de tiempo real.
+\end_layout
+
+\begin_layout Subsection
+Quinta generación (1995-)
+\end_layout
+
+\begin_layout Standard
+Explosión del uso de Internet y aparición de dispositivos móviles, especialmente
+ los llamados 
+\series bold
+teléfonos inteligentes
+\series default
+ o 
+\emph on
+smartphones
+\emph default
+, que combinan telefonía y computación, siendo el primero el Nokia N9000,
+ lanzado a mediados de los 90, si bien estos no se popularizaron hasta el
+ iPhone de Apple en 2007.
+\end_layout
+
+\begin_layout Standard
+De Microsoft aparecen Windows 2000 y sus sucesores Server 2003, 2008, etc.,
+ destinados a servidores, y Windows XP y sus sucesores Vista, 7, etc., destinados
+ a usuarios.
+ También alcanzan gran popularidad Linux, MacOS X, Android e iOS.
+\end_layout
+
+\begin_layout Section
+Tipos
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De propósito general
+\series default
+, que destacan por su flexibilidad y capacidad para adaptarse, mediante
+ configuraciones concretas, tanto al hardware sobre el que se ejecutan como
+ a los trabajos a procesar.
+ Destacan Unix (principalmente Linux), Microsoft Windows y Apple MacOS X.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Unix es el más usado en 
+\series bold
+supercomputadores
+\series default
+, formados por un gran cantidad de procesadores, memoria, discos, etc.
+ y capaces de procesar enormes cantidades de datos en poco tiempo, así como
+ en los 
+\series bold
+\emph on
+mainframes
+\series default
+\emph default
+, capaces de procesar a la vez muchos trabajos que requieren enormes cantidades
+ de E/S (sobre todo, disco y red), y que suelen servir para procesamiento
+ por lotes o 
+\emph on
+batch
+\emph default
+ (sin interacción con usuarios), transacciones (bancarias, reservas de vuelo,
+ etc.) y trabajos multitarea (cuando los usuarios interactúan con el sistema).
+\end_layout
+
+\begin_layout Itemize
+Al pasar a sistemas menos potentes como 
+\series bold
+servidores
+\series default
+, computadores que sirven a varios usuarios a la vez compartiendo recursos
+ hardware y software en red, podemos encontrar tanto Unix como MacOS X o
+ incluso Windows.
+ Esto también ocurre en los ordenadores personales, caracterizados por la
+ multitarea y estar diseñados para dar buen rendimiento a un único usuario,
+ y que hoy en día son 
+\series bold
+multiprocesadores
+\series default
+, pues disponen de varios 
+\series bold
+núcleos
+\series default
+ o 
+\emph on
+cores
+\emph default
+ que actúan como CPUs separadas y comparten memoria principal.
+\end_layout
+
+\begin_layout Itemize
+En teléfonos inteligentes, tabletas y sistemas integrados, pequeños ordenadores
+ con menos recursos que uno normal pero con un consumo de energía mucho
+ menor, encontramos versiones de estos tres sistemas adaptados a estos dispositi
+vos y a la interacción por pantalla táctil.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+De red
+\series default
+: Permiten interactuar con otros ordenadores conectados a una misma red,
+ si bien cada máquina es independiente.
+ Actualmente esto es lo común, y de hecho los tres sistemas de propósito
+ general que hemos visto también son de red.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Distribuidos
+\series default
+: También se conectan a otros mediante red, pero el conjunto de ordenadores
+ en esta red es visto como un sistema tradicional, con lo que el usuario
+ no es consciente de dónde se ejecutan los programas o dónde se encuentran
+ los ficheros (
+\series bold
+transparencia de localización
+\series default
+).
+ Las ventajas son la compartición de recursos, aceleración de los cálculos
+ y tolerancia a fallos, pues si una máquina falla el resto puede seguir
+ haciendo todo el trabajo.
+ Destacan Amoeba, Plan 9 e Inferno, si bien todos han dejado de desarrollarse.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De tiempo real
+\series default
+: En los 
+\series bold
+rigurosos
+\series default
+, usados por ejemplo en coches y plantas nucleares, una acción se debe realizar
+ necesariamente en cierto intervalo de tiempo o de lo contrario se podría
+ poner el sistema en peligro.
+ En los 
+\series bold
+no rigurosos
+\series default
+ es aceptable no cumplir de vez en cuando un plazo, dentro de unos límites.
+ Destacan VxWorks y QNX.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Para tarjetas inteligentes
+\series default
+, debido a las grandes limitaciones de potencia y memoria que presentan.
+ Suelen disponer de una máquina virtual de Java (JVM) que ejecuta los 
+\emph on
+applets
+\emph default
+ que se cargan en la tarjeta, pequeñas porciones de código que no se pueden
+ ejecutar por sí mismas sino que necesitan de un entorno proporcionado por
+ otro programa.
+\end_layout
+
+\begin_layout Section
+Programas y procesos
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+programa
+\series default
+ es la representación estática y almacenada de un conjunto de instrucciones
+ a ejecutar.
+ Cuando es cargado en memoria y se ejecuta, lo hace como un 
+\series bold
+proceso
+\series default
+, la unidad de trabajo de un sistema, y de los cuales algunos pertenecen
+ al propio sistema operativo y el resto son procesos de usuario.
+ Un proceso es dinámico, requiriendo recursos como tiempo de CPU, memoria,
+ ficheros y dispositivos de E/S.
+ Varios procesos pueden ejecutar el mismo programa y un proceso (dependiendo
+ del sistema) puede ejecutar código de varios programas.
+\end_layout
+
+\begin_layout Standard
+En general los sistemas operativos se distribuyen junto con 
+\series bold
+programas de sistema
+\series default
+, cuya misión es ofrecer un entorno más cómodo para el desarrollo y ejecución
+ de programas.
+ Tipos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De manipulación de ficheros
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De información de estado
+\series default
+, que solicitan información al sistema operativo, le dan formato y la imprimen.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De apoyo a lenguajes de programación
+\series default
+, como compiladores, ensambladores, intérpretes y depuradores.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De comunicaciones
+\series default
+, para crear conexiones virtuales entre procesos, usuarios o máquinas, permitien
+do el envío de mensajes, correos electrónicos o ficheros a usuarios de la
+ misma máquina u otra y la conexión a una máquina remota.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De aplicación
+\series default
+, para efectuar otras operaciones comunes.
+ Incluímos aquí ditores de texto, generadores de gráficos, sistemas de bases
+ de datos, hojas de cálculo, paquetes de análisis estadístico, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Intérprete de órdenes
+\series default
+, encargado de interpretar y ejecutar órdenes dadas por el usuario.
+ Las órdenes pueden estar contenidas en el código del propio intérprete
+ o en programas independientes.
+\end_layout
+
+\begin_layout Standard
+Aunque no hay diferencia entre un programa de usuario y uno del sistema,
+ la mayoría de usuarios suelen ver el sistema operativo desde el punto de
+ vista de los programas del sistema.
+\end_layout
+
+\begin_layout Section
+Componentes y servicios
+\end_layout
+
+\begin_layout Standard
+La interfaz entre el sistema operativo y un proceso tiene lugar mediante
+ 
+\series bold
+llamadas al sistema
+\series default
+, con la siguiente estructura:
+\end_layout
+
+\begin_layout Enumerate
+El programa ejecuta la instrucción de la CPU para realizar la llamada al
+ sistema, cambiando la máquina a modo núcleo y pasando el control al sistema
+ operativo.
+\end_layout
+
+\begin_layout Enumerate
+Este lee el número de la llamada al sistema a realizar, y una vez validado,
+ llama al procedimiento correspondiente indicado en una tabla de apuntadores.
+\end_layout
+
+\begin_layout Enumerate
+La llamada termina y el control regresa al proceso de usuario, que continua
+ su ejecución por la instrucción inmediatamente posterior.
+\end_layout
+
+\begin_layout Standard
+El usuario informa al sistema operativo del número de la llamada a realizar
+ y los parámetros necesarios (habitualmente) mediante los registros, la
+ pila o una zona de memoria indicada en un registro.
+ Las bibliotecas de lenguajes de programación suelen contener procedimientos
+ que ocultan las llamadas al sistema, proporcionando una interfaz más sencilla.
+\end_layout
+
+\begin_layout Standard
+A continuación vemos los distintos componentes de un sistema operativo típico
+ junto a los servicios que ofrecen y las llamadas al sistema asociadas.
+ 
+\end_layout
+
+\begin_layout Subsection
+Administración de procesos
+\end_layout
+
+\begin_layout Standard
+El sistema operativo debe ser capaz de crear y eliminar procesos, controlar
+ el tiempo de CPU que se le da a cada uno y cargar programas en estos procesos,
+ además de proveer medios para que los procesos se comuniquen entre sí.
+\end_layout
+
+\begin_layout Standard
+Existen pues llamadas al sistema para crear y terminar procesos; finalizar
+ el proceso actual; obtener y establecer atributos de un proceso; cargar
+ un programa; esperar un tiempo; esperar un suceso; enviar una señal a otro
+ proceso; crear o eliminar una conexión; enviar o recibir mensajes, o transferir
+ información de estado.
+\end_layout
+
+\begin_layout Subsection
+Administración de memoria principal
+\end_layout
+
+\begin_layout Standard
+El esquema de administración de memoria depende sobre todo del hardware,
+ que el sistema operativo debe usar para controlar de qué procesos están
+ usando qué zonas de memoria, asignar y recuperar memoria según se requiera
+ y decidir qué procesos se cargarán en memoria cuando haya espacio disponible.
+ Debe pues haber llamadas al sistema para solicitar y liberar memoria.
+\end_layout
+
+\begin_layout Subsection
+Administración de E/S
+\end_layout
+
+\begin_layout Standard
+En UNIX, esta se consigue mediante una interfaz uniforme con los manejadores
+ de dispositivo, un sistema de memoria caché y manejadores de hardware específic
+os para las particularidades de cada dispositivo.
+\end_layout
+
+\begin_layout Standard
+Existen pues llamadas al sistema para solicitar o liberar dispositivos;
+ leer y escribir en ellos; reposicionarnos; obtener y establecer atributos
+ de dispositivos, y unir o separar dispositivos lógicos, sean físicos y
+ conectados a la propia máquina o accedidos remotamente mediante red.
+\end_layout
+
+\begin_layout Subsection
+Administración de ficheros
+\end_layout
+
+\begin_layout Standard
+Por comodidad, el sistema operativo organiza la memoria de los dispositivos
+ de almacenamiento secundario en 
+\series bold
+ficheros
+\series default
+, unidades de almacenamiento lógico, que a su vez se organizan en directorios.
+\end_layout
+
+\begin_layout Standard
+Existen pues llamadas al sistema para crear y eliminar ficheros y directorios;
+ abrir y cerrar ficheros; leer, escribir y reposicionarnos en ficheros abiertos;
+ obtener y establecer atributos de ficheros y directorios, y manipular el
+ contenido de estos directorios.
+\end_layout
+
+\begin_layout Subsection
+Sistema de protección
+\end_layout
+
+\begin_layout Standard
+Los procesos de un sistema operativo deben ser protegidos unos de otros,
+ y el sistema operativo debe ser protegido de estos.
+ Para ello existen tres mecanismos hardware:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Modos de ejecución
+\series default
+ del procesador: el 
+\series bold
+modo núcleo
+\series default
+ o 
+\series bold
+supervisor
+\series default
+, en el que se ejecuta el sistema operativo por ser así capaz de ejecutar
+ cualquier instrucción, y el 
+\series bold
+modo usuario
+\series default
+, en el que se ejecutan los programas de usuario y que no puede ejecutar
+ ciertas instrucciones como de E/S, configuración de memoria, etc.
+ Los programas de usuario, para realizar E/S, deben usar una instrucción
+ especial de 
+\series bold
+llamada al sistema
+\series default
+ (
+\emph on
+syscall
+\emph default
+), tratada como una interrupción que, como todas, es tratada por el sistema
+ operativo en modo núcleo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Protección de memoria
+\series default
+: Impedir que un programa de usuario acceda a zonas de memoria de otros
+ programas o del sistema operativo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Interrupciones periódicas
+\series default
+ mediante un reloj: Permiten al sistema operativo hacerse con el control
+ de la máquina cada cierto tiempo para evitar que un proceso monopolice
+ la CPU.
+\end_layout
+
+\begin_layout Standard
+Esta protección solo funciona si los tres mecanismos funcionan y se usan
+ de forma conjunta.
+ El sistema operativo es el encargado de hacer funcionar estos mecanismos
+ y usarlos para asegurarse de que los recursos puedan ser usados únicamente
+ por los procesos que han recibido la correspondiente autorización.
+ Además, el sistema operativo debe ser capaz de lidiar con los errores que
+ se puedan producir a nivel de hardware o dentro de un programa de usuario,
+ y emprender la acción adecuada en cada caso.
+\end_layout
+
+\begin_layout Subsection
+Mantenimiento de información
+\end_layout
+
+\begin_layout Standard
+Si bien esto generalmente no corresponde a una única parte del sistema operativo
+, puede ser deseable llevar un control del uso de recursos del ordenador
+ por parte de los usuarios, sea con fines contables para facturar a los
+ usuarios o sencillamente para recopilar estadísticas de uso del sistema
+ que son útiles para su administración.
+ Además, tanto los procesos como los dispositivos o ficheros pueden poseer
+ información adicional que se debe leer y modificar aparte, y el reloj es
+ tratado de forma especial al ser usado en el sistema de protección.
+\end_layout
+
+\begin_layout Standard
+Existen pues llamadas al sistema para obtener o establecer la fecha y la
+ hora, datos del sistema y atributos de proceso, fichero o dispositivo.
+\end_layout
+
+\begin_layout Section
+Estructura
+\end_layout
+
+\begin_layout Subsection
+Sistemas monolíticos
+\end_layout
+
+\begin_layout Standard
+Están formados por un conjunto de procedimientos que se llaman unos a otros.
+ Ofrecen una interfaz muy clara, pero no tienen una estructura formalmente
+ definida y cada procedimiento es visible a los demás.
+ Están formados por el 
+\series bold
+núcleo
+\series default
+ (el sistema operativo como tal, junto a todos los controladores de dispositivo
+ o 
+\emph on
+drivers
+\emph default
+) y los programas de sistema.
+ Destacan Unix (incluyendo Linux) y Windows.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pegado2.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Esquema de un sistema monolítico.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sistemas por capas
+\end_layout
+
+\begin_layout Standard
+El sistema operativo se divide en 
+\series bold
+capas
+\series default
+ o 
+\series bold
+niveles
+\series default
+, siendo la más baja (capa 0) el hardware y la más alta la interfaz con
+ el usuario, de forma que cada capa sólo usa funciones y servicios de capas
+ inferiores.
+ Esto simplifica la depuración y verificación, pues usa vez se depura una
+ capa se asciende a la siguiente, y proporciona ocultación de información,
+ haciendo posibles las modificaciones en una capa en cualquier momento siempre
+ que no se modifique la interfaz al resto de capas.
+ Sin embargo, da problemas de dependencias entre capas, pues a veces es
+ difícil saber dónde colocar una función, por lo que se opta por tener menos
+ capas con más funcionalidad.
+\end_layout
+
+\begin_layout Standard
+Destacan THE (1968) que se definió en 6 capas (hardware, planificación de
+ CPU, administración de memoria, consola del operador, administración de
+ E/S y programas de usuario) y VENUS, donde las capas inferiores se implementaro
+n directamente en hardware.
+\end_layout
+
+\begin_layout Subsection
+Sistemas cliente-servidor
+\end_layout
+
+\begin_layout Standard
+Están formados por un 
+\series bold
+micronúcleo
+\series default
+ o 
+\emph on
+microkernel
+\emph default
+ y una serie de procesos de usuario que implementan las funciones típicas
+ de un sistema operativo.
+ Así, los procesos 
+\series bold
+clientes
+\series default
+ solicitan servicios de los procesos 
+\series bold
+servidores
+\series default
+, que realizan los trabajos solicitados por los clientes y a su vez pueden
+ ser clientes de otros procesos, de modo que el micronúcleo se limita a
+ controlar las comunicaciones cliente-servidor.
+ Para la E/S, bien se incluye el servidor correspondiente en el modo núcleo
+ o existen mensajes especiales dirigidos al núcleo para que los procese
+ él mismo.
+\end_layout
+
+\begin_layout Standard
+Estos sistemas tienen la ventaja de que un fallo en un servidor concreto
+ no afecta a todo el sistema, y que pueden adaptarse como sistemas distribuidos
+ dado que no importa si los procesos que se comunican están en la misma
+ máquina o no.
+ Destacan QNX, Minix 3 y MacOS X, cuyo núcleo está basado en la versión
+ 2.5 del micronúcleo Mach desarrollado en los 80 en la Carnegie-Mellon University.
+\end_layout
+
+\end_body
+\end_document

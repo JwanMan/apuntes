@@ -1,0 +1,826 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Distinguimos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Dispositivos de bloques
+\series default
+: Dispositivos de almacenamiento en general.
+ Almacenan información en bloques de tamaño fijo que podemos leer y escribir
+ de forma independiente de los demás.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Dispositivos de caracteres
+\series default
+: Terminales, impresoras, interfaces de red, ratones, etc.
+ Envían o reciben un flujo de caracteres.
+\end_layout
+
+\begin_layout Itemize
+Otros, como los relojes, que sólo producen interrupciones periódicas, o
+ las tarjetas gráficas mapeadas a memoria en las que la memoria de vídeo
+ es parte del espacio de direcciones.
+\end_layout
+
+\begin_layout Section
+El software de E/S
+\end_layout
+
+\begin_layout Standard
+Objetivos:
+\end_layout
+
+\begin_layout Itemize
+Crear conceptos generales que no dependan de las características específicas
+ de cada dispositivo.
+ Por ejemplo, podemos acceder a un dispositivo de bloques sin importar si
+ es un CD-ROM en el que el lector tiene un motor que se debe arrancar y
+ parar o un disco duro que está girando continuamente.
+\end_layout
+
+\begin_layout Itemize
+Dar a los dispositivos nombres uniformes sin importar sus características.
+ En UNIX esto se hace mediante ficheros especiales.
+\end_layout
+
+\begin_layout Itemize
+Manejar los errores lo más cerca posible del hardware.
+ Si el controlador descubre un error, debe intentar corregirlo.
+ Si no puede, debe notificarlo para que lo intente el manejador de dispositivo.
+ Si tampoco puede, debe notificarlo al software independiente de E/S.
+\end_layout
+
+\begin_layout Itemize
+Convertir las transferencias asíncronas, en que la CPU inicia una transferencia
+ y hace otras cosas hasta recibir una interrupción indicando que esta ha
+ terminado, en síncronas, más fáciles de programar, en que el programa se
+ bloquea hasta que los datos están disponibles
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Muchos programas usan hilos para volverlas a convertir en asíncronas.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Permitir la compartición de recursos para lo que esto es posible (como discos)
+ y asignar los de uso exclusivo (como impresoras).
+\end_layout
+
+\begin_layout Subsection
+Manejadores de interrupciones
+\end_layout
+
+\begin_layout Standard
+Cuando un proceso inicia una operación de E/S, se bloquea hasta que esta
+ termine mediante una llamada al sistema específica o, en el caso de UNIX,
+ de forma automática, cediendo la CPU a otro proceso.
+ Cuando la operación termina, el controlador envía una interrupción que
+ atiende el manejador de interrupciones del sistema operativo, el cual identific
+a la interrupción y avisa al manejador de dispositivo correspondiente para
+ que elimine el bloqueo del proceso.
+ En UNIX, el proceso continuará en su parte de núcleo para terminar la operación.
+\end_layout
+
+\begin_layout Subsection
+Manejadores de dispositivo o 
+\emph on
+drivers
+\end_layout
+
+\begin_layout Standard
+Contienen el código que depende del funcionamiento concreto de los dispositivos,
+ con lo que cada uno controla solo un tipo de dispositivo o varios similares.
+ En los sistemas monolíticos, para acceder a los registros de las controladoras,
+ necesitan ejecutarse en modo núcleo, por lo que se les considera parte
+ del núcleo.
+\end_layout
+
+\begin_layout Standard
+Un manejador recibe solicitudes abstractas que le hace el software independiente
+ de dis
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+po
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+si
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ti
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+vo y verifica la ejecución de estas solicitudes.
+ Tras enviar la orden (u órdenes) al dispositivo, el controlador puede tener
+ que bloquearse hasta que ocurra una interrupción, o puede que no sea necesario
+ porque la operación no conlleve retraso.
+ Tras terminar la operación, el manejador debe verificar los errores corrigiendo
+ los que pueda e informar al software independiente de dispositivo, y selecciona
+r e iniciar alguna solicitud pendiente si tiene o, según el sistema operativo,
+ bloquearse en espera de una solicitud.
+\end_layout
+
+\begin_layout Standard
+El sistema operativo define una interfaz, una serie de funciones genéricas,
+ a la que se deben adaptar todos los manejadores.
+ Implementar un manejador supone conocer el funcionamiento del sistema operativo
+ y el del dispositivo.
+ Además muchos manejadores deben ser 
+\series bold
+reentrantes
+\series default
+: capaces de ser interrumpidos a mitad de atender una petición de un proceso
+ y recibir otra petición sin haber terminado de atender la primera.
+\end_layout
+
+\begin_layout Subsection
+Software de E/S independiente de dispositivo
+\end_layout
+
+\begin_layout Standard
+Sus funciones suelen ser:
+\end_layout
+
+\begin_layout Itemize
+Proporcionar una interfaz uniforme al usuario, seleccionando el manejador
+ adecuado en cada caso.
+\end_layout
+
+\begin_layout Itemize
+Dar nombre a los dispositivos.
+ En Linux cada uno tiene un 
+\series bold
+número mayor
+\series default
+, que identifica al manejador, y un 
+\series bold
+número menor
+\series default
+, que usa el manejador para identificar el dispositivo concreto.
+\end_layout
+
+\begin_layout Itemize
+Evitar accesos no autorizados.
+\end_layout
+
+\begin_layout Itemize
+Proporcionar un tamaño de bloque independiente del dispositivo, agrupando
+ o dividiendo sectores, si bien esto también lo puede hacer el manejador
+ de dispositivo.
+\end_layout
+
+\begin_layout Itemize
+Proporcionar 
+\emph on
+buffers
+\emph default
+ para:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Dispositivos de entrada como el teclado que no son capaces de almacenar
+ información o la envían antes de que ningún proceso la solicite, en cuyo
+ caso el sistema operativo debe guardar la información enviada (en este
+ caso, códigos de teclas).
+\end_layout
+
+\begin_layout Itemize
+Dispositivos de salida como impresoras que no son capaces de procesar informació
+n a la velocidad a la que un proceso puede enviarla, por lo que se debe
+ ir enviando poco a poco.
+\end_layout
+
+\begin_layout Itemize
+Dispositivos de bloques, en los que conviene guardar temporalmente en memoria
+ ciertos bloques para acelerar su funcionamiento y permitir a los procesos
+ leer o escribir una cantidad arbitraria de bytes.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Asignar y liberar dispositivos de uso exclusivo, aceptando o rechazando
+ solicitudes según disponibilidad.
+\end_layout
+
+\begin_layout Itemize
+Informar de los errores cuando el manejador de dispositivo no los puede
+ solucionar.
+\end_layout
+
+\begin_layout Standard
+Los sistemas de fichero son independientes de dispositivo y trabajan sobre
+ dispositivos de bloques abstractos.
+ También hay software de E/S independiente de dispositivo en el espacio
+ de usuario:
+\end_layout
+
+\begin_layout Itemize
+Bibliotecas de E/S, que llevan a cabo las llamadas al sistema.
+\end_layout
+
+\begin_layout Itemize
+Sistema de 
+\emph on
+spooling
+\emph default
+ para dispositivos de uso exclusivo.
+ Por ejemplo, el 
+\series bold
+demonio
+\series default
+ de impresión comprueba periódicamente si hay ficheros en el 
+\series bold
+directorio de 
+\emph on
+spooling
+\series default
+\emph default
+ y, si es así, los imprime, de modo que el resto de procesos pueden imprimir
+ un fichero situándolo (en el formato apropiado) en el directorio de 
+\emph on
+spooling
+\emph default
+.
+ Esto impide que un proceso mantenga abierto un dispositivo de uso exclusivo
+ sin hacer nada con él mientras el resto de procesos esperan, y permite
+ eliminar un trabajo antes de que sea procesado, cambiar el orden en que
+ se deben tratar los trabajos, etc.
+\end_layout
+
+\begin_layout Section
+Discos
+\end_layout
+
+\begin_layout Standard
+Los discos duros están formados por una serie de discos o platos magnéticos
+ conectados a un eje común que gira a gran velocidad (por ejemplo, 
+\begin_inset Formula $\unit[5400]{RPM}$
+\end_inset
+
+) y una serie de cabezas de lectura/escritura, una por cada superficie de
+ disco, que pueden leer o escribir sobre la porción de la superficie de
+ los platos que está justo debajo o encima de estas, y que están todas conectada
+s mediante brazos a un mismo soporte que puede girar en un cierto arco haciendo
+ que las cabezas se muevan hacia dentro o fuera sobre la superficie de los
+ discos.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+cilindro
+\series default
+ al conjunto de posiciones del disco accesibles en una cierta posición de
+ las cabezas, 
+\series bold
+pista
+\series default
+ (
+\series bold
+circular
+\series default
+) al subconjunto de estas posiciones sobre una misma superficie de disco
+ y 
+\series bold
+sector
+\series default
+ a la unidad mínima de lectura y escritura soportada por la controladora,
+ con tamaños típicos de entre 
+\begin_inset Formula $\unit[512]{B}$
+\end_inset
+
+ y 
+\begin_inset Formula $\unit[4]{KiB}$
+\end_inset
+
+ (siempre potencias de 2), y que corresponde a una porción de pista.
+\end_layout
+
+\begin_layout Standard
+Cada sector se identifica por la terna de los números de cilindro, cabeza
+ y sector dentro de la pista, numerados desde 0, donde los cilindros más
+ externos (más alejados del eje) tienen menor número.
+ El 
+\series bold
+tiempo de servicio
+\series default
+ o 
+\series bold
+de acceso
+\series default
+ a un sector es la suma de:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Tiempo de búsqueda
+\series default
+, para colocar las cabezas en el cilindro adecuado.
+ El más largo.
+\end_layout
+
+\begin_layout Enumerate
+Tiempo para activar la cabeza adecuada, despreciable.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Tiempo de latencia
+\series default
+, hasta que los sectores a leer o escribir pasen junto a la cabeza.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Tiempo de transmisión
+\series default
+, de leer o escribir los sectores en sí según van pasando por la cabeza.
+\end_layout
+
+\begin_layout Standard
+Hoy en día las pistas exteriores de los discos son más largas que las interiores
+ y por tanto contienen más sectores, dividiéndose el disco en zonas (anillos
+ circulares) en las que cada pista contiene el mismo número de sectores.
+ Para que el manejador de disco no tenga que conocer su estructura interna,
+ la controladora de disco expone una interfaz a modo de lista contigua de
+ bloques.
+\end_layout
+
+\begin_layout Standard
+Debemos planificar el orden en que se atienden las solicitudes de la cola
+ de solicitudes a disco pendientes para reducir el movimiento de las cabezas.
+ Como el manejador no conoce la geometría del disco, en vez de la distancia
+ entre cilindros se tiene en cuenta la distancia entre direcciones de bloque.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+FCFS
+\series default
+ (
+\emph on
+First Come, First Served
+\emph default
+): Por orden de llegada, da tiempos de servicio grandes.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+SSF
+\series default
+ (
+\emph on
+Shortest Seek First
+\emph default
+): Atiende la solicitud del bloque más cercano al actual.
+ No es equitativo, pues atiende enseguida solicitudes de cilindros próximos
+ al actual y no otras solicitudes que llegaron antes, y tampoco es óptimo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+SCAN
+\series default
+ o 
+\series bold
+algoritmo del ascensor
+\series default
+: En un sentido, atiende la solicitud del bloque con el mayor número que
+ sea menor al del actual.
+ En el otro, la del menor número que sea mayor al del actual.
+ Cuando no quedan peticiones en un sentido, cambia al otro.
+ Dada cualquier colección de solicitudes, el máximo de movimientos es el
+ doble del número de cilindros, evitando la localidad.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+C-SCAN
+\series default
+ o 
+\series bold
+SCAN circular
+\series default
+: En SCAN, cuando las cabezas llegan a un extremo e inviertan el sentido,
+ habrá pocas solicitudes en la zona próxima, mientras que en la otra habrá
+ muchas y llevarán más tiempo.
+ El C-SCAN modifica este algoritmo de modo que, si el sentido es de mayor
+ a menor bloque y no hay ninguna solicitud de bloque de número menor, se
+ toma el bloque de mayor número y se sigue en el mismo sentido, y lo mismo
+ ocurre al revés si el sentido es el otro.
+\end_layout
+
+\begin_layout Standard
+Si la tecnología cambia, pueden ser necesarios nuevos algoritmos.
+ Los discos duros actuales suelen tener una pequeña caché en la controladora
+ para leer por adelantado pistas enteras o partes de ellas, por lo que se
+ prefiere atender una solicitud que acaba de llegar pero está próxima a
+ la última servida antes de otra que lleva más esperando, aunque si lleva
+ mucho tiempo esperando se atiende de inmediato.
+\end_layout
+
+\begin_layout Standard
+La implementación del sistema de ficheros puede tener gran influencia sobre
+ las solicitudes, pues no es lo mismo si estos están en un área contigua
+ en disco (requiriendo pocos movimientos de las cabezas) o dispersos (muchos
+ movimientos), en cuyo caso se podría defragmentar el disco colocando los
+ bloques de cada fichero contiguos o próximos.
+ También podemos colocar los bloques de datos de directorios próximos a
+ los bloques de nodos-i de sus ficheros, como hacen ext2/3/4, XFS o JFS.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+disco RAM
+\series default
+ es un dispositivo de bloques en que los bloques se almacenan en memoria
+ principal, permitiendo acceso instantáneo, con lo que cuando el manejador
+ recibe un mensaje para lectura o escritura de un bloque, basta que calcule
+ el lugar de la memoria del disco RAM donde se encuentra.
+\end_layout
+
+\begin_layout Section
+Relojes
+\end_layout
+
+\begin_layout Standard
+Los relojes más sencillos están sujetos a la línea de corriente alterna
+ y provocan una in
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+te
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+rrup
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ción por cada ciclo de voltaje (a 50 o 
+\begin_inset Formula $\unit[60]{Hz}$
+\end_inset
+
+).
+ Los 
+\series bold
+relojes programables
+\series default
+ constan de un oscilador de cristal de cuarzo que genera una señal periódica
+ de 5 a 
+\begin_inset Formula $\unit[100]{MHz}$
+\end_inset
+
+ o más de muy alta precisión; un contador que a partir de esta señal cuenta
+ de forma decreciente hasta 0 y, cuando llega, provoca una interrupción,
+ y un registro de carga para actualizar el contador.
+\end_layout
+
+\begin_layout Standard
+En 
+\series bold
+modo de disparo único
+\series default
+, el reloj copia al iniciarse el valor del registro de carga en el contador
+ y, cuando este llega a 0, se detiene hasta ser iniciado de nuevo por el
+ software, mientras que en 
+\series bold
+modo de onda cuadrada
+\series default
+, cuando llega a 0, el registro de carga se copia automáticamente al contador,
+ generando interrupciones periódicas llamadas 
+\series bold
+marcas
+\series default
+ o 
+\series bold
+tics de reloj
+\series default
+.
+ Los chips suelen contener 2 o 3 relojes programables independientes, así
+ como otras opciones como contar en forma ascendente o desactivar las interrupci
+ones.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+manejador del reloj
+\series default
+ se encarga de:
+\end_layout
+
+\begin_layout Itemize
+Controlar la hora del día, incrementando un contador en cada marca del reloj
+ registrando el tiempo transcurrido desde, por ejemplo, el inicio del año
+ 1970 como se hace en UNIX, momento conocido como 
+\emph on
+The Epoch
+\emph default
+ (La Época
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+¿A que al traducirlo pierde toda la gracia?
+\end_layout
+
+\end_inset
+
+).
+ El contador se puede implementar, por ejemplo, como:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Contador de marcas.
+ Si es de 
+\begin_inset Formula $\unit[64]{bits}$
+\end_inset
+
+ a 
+\begin_inset Formula $\unit[60]{Hz}$
+\end_inset
+
+, puede registrar más de 
+\begin_inset Formula $\unit[9800]{m.a.}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Contador de segundos y otro de marcas hasta llegar al segundo.
+ Si son de 
+\begin_inset Formula $\unit[32]{bits}$
+\end_inset
+
+ desde 
+\emph on
+The Epoch
+\emph default
+, el desbordamiento ocurre en 2106 si se guarda como entero sin signo o
+ 2038 si se guarda con signo.
+\end_layout
+
+\begin_layout Itemize
+Instante de arranque en segundos y contador de marcas desde el arranque.
+ Si el contador es de 
+\begin_inset Formula $\unit[32]{bits}$
+\end_inset
+
+ a 
+\begin_inset Formula $\unit[60]{Hz}$
+\end_inset
+
+, habrá que reiniciar tras algo más de 2 años y 3 meses.
+\end_layout
+
+\begin_layout Standard
+Para obtener la fecha al arrancar, el sistema operativo puede pedirla al
+ usuario o tomarla del 
+\series bold
+reloj de tiempo real
+\series default
+ de la placa base, un pequeño circuito integrado con una pequeña batería
+ que mantiene la hora incluso con la máquina apagada.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Controlar el tiempo de ejecución de los procesos, con un contador con el
+ valor del 
+\emph on
+quantum
+\emph default
+ del proceso en marcas del reloj para llamar al planificador cuando el contador
+ llegue a 0.
+\end_layout
+
+\begin_layout Itemize
+Contabilizar el uso de CPU.
+ Una forma es iniciar un segundo reloj cada vez que se asigne la CPU a un
+ proceso y leer el valor del contador cuando el proceso deje la CPU para
+ añadir el tiempo a un campo en la entrada de la tabla de procesos.
+ El reloj debe parar cuando la CPU atienda una interrupción.
+ Otra forma más sencilla es incrementar un campo en la tabla de procesos
+ por cada marca de reloj, pero esta es menos exacta porque, por ejemplo,
+ un proceso puede pasar a usar la CPU justo tras producirse una marca y
+ dejarla justo antes de la siguiente y esto no contaría.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Alarmas
+\series default
+.
+ Un proceso en UNIX puede ejecutar la llamada 
+\family typewriter
+alarm
+\family default
+ para pedir al sistema operativo que le avise tras un cierto tiempo enviándole
+ una señal 
+\family typewriter
+SIGALRM
+\family default
+.
+ Si el manejador de reloj tiene relojes físicos suficientes, se puede usar
+ uno para cada solicitud, pero como esto es improbable se simular relojes
+ virtuales.
+\begin_inset Newline newline
+\end_inset
+
+Una forma es tener una tabla con el tiempo de señalización de cada alarma
+ y una variable que indica el tiempo en marcas hasta la próxima señal, de
+ modo que al actualizar la hora del día se decrementa esta variable y, si
+ llega a 0, se envía la señal al proceso, se busca la siguiente alarma y
+ se actualiza la variable.
+ Otra forma es tener una lista ligada de alarmas según tiempo de ocurrencias
+ en que cada elemento indica el número de marcas de reloj a esperar tras
+ la siguiente señal.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Cronómetros guardianes
+\series default
+.
+ Son alarmas establecidas por el propio sistema operativo.
+ Por ejemplo, para acceder a un DVD hay que activar el motor del lector
+ y esperar a la velocidad adecuada, por lo que es buena idea dejar el motor
+ encendido por un tiempo por si hay más operaciones de E/S y detenerlo si
+ pasa un tiempo sin que haya.
+ Funcionan como alarmas pero, en vez de provocar una señal, llaman a un
+ procedimiento proporcionado por quien hizo la llamada dado que en el núcleo
+ no hay señales.
+\end_layout
+
+\end_body
+\end_document

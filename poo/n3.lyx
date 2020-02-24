@@ -1,0 +1,959 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+La 
+\series bold
+herencia
+\series default
+ es un mecanismo para definir y utilizar relaciones conceptuales entre clases
+ como de extensión, especialización y combinación, que permite definir una
+ clase a partir de otra, organizando las clases en una 
+\series bold
+jerarquía
+\series default
+ consistente con el sistema de tipos.
+ La 
+\series bold
+especialización
+\series default
+ ocurre cuando una clase es un caso especial o un tipo de otra, mientras
+ que la 
+\series bold
+generalización
+\series default
+, muy relacionada, ocurre cuando se detectan clases con características
+ en común.
+\end_layout
+
+\begin_layout Standard
+Cuando una clase 
+\begin_inset Formula $B$
+\end_inset
+
+ 
+\series bold
+hereda
+\series default
+ de una clase 
+\begin_inset Formula $A$
+\end_inset
+
+, incorpora automáticamente los atributos y métodos de 
+\begin_inset Formula $A$
+\end_inset
+
+ (en Java, no incorpora los constructores), pero puede añadir nuevos atributos
+ y métodos y redefinir métodos heredados.
+ Decimos que 
+\begin_inset Formula $A$
+\end_inset
+
+ es la 
+\series bold
+superclase
+\series default
+ o clase padre de 
+\begin_inset Formula $B$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ es una 
+\series bold
+subclase
+\series default
+ o clase hija de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $C$
+\end_inset
+
+ hereda a su vez de 
+\begin_inset Formula $B$
+\end_inset
+
+, también hereda de 
+\begin_inset Formula $A$
+\end_inset
+
+, pero 
+\begin_inset Formula $B$
+\end_inset
+
+ es un 
+\series bold
+descendiente directo
+\series default
+ y 
+\begin_inset Formula $C$
+\end_inset
+
+ es un 
+\series bold
+descendiente indirecto
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Decimos que 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ son 
+\series bold
+ascendientes
+\series default
+ de 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ Algunos lenguajes como C++ o Python permiten 
+\series bold
+herencia múltiple
+\series default
+, de modo que una clase puede heredar directamente de varias, mientras que
+ otros, como Java o C#, solo permiten 
+\series bold
+herencia simple
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+En Java se indica que una clase deriva de otra indicando 
+\family typewriter
+extends 
+\emph on
+Superclase
+\family default
+\emph default
+ detrás del nombre de la clase en su definición.
+ Los descendientes de una clase no pueden ver sus atributos y métodos privados,
+ sino que se proporciona el nivel de visibilidad 
+\family typewriter
+protected
+\family default
+, útil para métodos, que da visibilidad a nivel de paquete y a descendientes
+ de la clase.
+\end_layout
+
+\begin_layout Standard
+La primera sentencia de un constructor debe ser una llamada a un constructor
+ de la clase padre, que se hace con 
+\family typewriter
+super(
+\family default
+...
+\family typewriter
+);
+\family default
+ o a otro constructor de la propia clase, y si se omite el compilador inserta
+ una llamada 
+\family typewriter
+super();
+\family default
+ al constructor vacío, dando error si este no existe.
+\end_layout
+
+\begin_layout Standard
+El modificador 
+\family typewriter
+final
+\family default
+ se puede añadir a un método para impedir que sea redefinido en clases descendie
+ntes, y en una clase para impedir que se pueda heredar de ella.
+\end_layout
+
+\begin_layout Section
+Polimorfismo
+\end_layout
+
+\begin_layout Standard
+Un método es una 
+\series bold
+redefinición
+\series default
+ si tiene la misma signatura (nombre, parámetros y tipo de retorno) que
+ un método de la clase padre.
+ En Java se indica con la 
+\series bold
+anotación
+\series default
+ 
+\family typewriter
+@Override
+\family default
+ encima de la definición de la función, que es opcional pero señala un fallo
+ si el método no es realmente una redefinición, útil para detectar errores.
+ Esta puede ser de 
+\series bold
+reemplazo
+\series default
+ si se sustituye completamente la implementación o de 
+\series bold
+refinamiento
+\series default
+ si simplemente se añade nueva funcionalidad, en cuyo caso la sintaxis 
+\family typewriter
+super.
+\emph on
+método
+\emph default
+(
+\family default
+...
+\family typewriter
+)
+\family default
+ sirve para llamar a la versión del padre de un método redefinido.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+polimorfismo
+\series default
+ es la capacidad de una entidad de referenciar en tiempo de ejecución a
+ objetos de distintas clases, y en lenguajes como Java significa que toda
+ entidad tiene un 
+\series bold
+tipo estático
+\series default
+ (
+\emph on
+te
+\emph default
+), asociado a su declaración, y uno 
+\series bold
+dinámico
+\series default
+, que corresponde al objeto al que hace referencia y puede variar.
+ A cada entidad le corresponde un 
+\series bold
+conjunto de tipos dinámicos
+\series default
+ (
+\emph on
+ctd
+\emph default
+), el de los posibles tipos dinámicos a los que puede hacer referencia y
+ que viene dado por el conjunto de tipos 
+\series bold
+compatibles
+\series default
+ con el tipo estático, es decir, los descendientes de este tipo incluyéndose
+ a sí mismo.
+\end_layout
+
+\begin_layout Standard
+Una asignación polimórfica es válida si el tipo estático de la parte derecha
+ es compatible con el de la parte izquierda.
+ Un paso de parámetros es válido si el tipo estático del parámetro real
+ es compatible con el del parámetro formal.
+ La 
+\series bold
+ligadura dinámica
+\series default
+ significa que la versión de un método que se llama al pasar un mensaje
+ es la asociada al tipo dinámico, que puede ser la del tipo estático o haber
+ sido redefinida.
+\end_layout
+
+\begin_layout Standard
+En Java, la sintaxis 
+\family typewriter
+(
+\emph on
+Tipo
+\emph default
+)
+\emph on
+variable
+\family default
+\emph default
+ permite hacer un 
+\emph on
+casting
+\emph default
+ a uno de los 
+\family typewriter
+\emph on
+Tipo
+\family default
+\emph default
+s dinámicos que puede tener la 
+\family typewriter
+\emph on
+variable
+\family default
+\emph default
+, permitiendo tratar la variable como si este fuese su tipo estático y pudiendo
+ acceder a los métodos de este, si bien esto dará un error en tiempo de
+ ejecución si el tipo dinámico de la variable no es compatible con el que
+ se especifica al hacer el 
+\emph on
+casting
+\emph default
+.
+ La expresión 
+\family typewriter
+\emph on
+variable
+\emph default
+ instanceof 
+\emph on
+Tipo
+\family default
+\emph default
+ devuelve verdadero si el tipo dinámico de la 
+\family typewriter
+\emph on
+variable
+\family default
+\emph default
+ es compatible con el del 
+\family typewriter
+\emph on
+Tipo
+\family default
+\emph default
+ y falso en caso contrario.
+\end_layout
+
+\begin_layout Standard
+Al redefinir un método (al que se tenga acceso desde la clase descendiente)
+ se puede cambiar el tipo de retorno a un tipo descendiente (
+\series bold
+regla covariante
+\series default
+) o incrementar su nivel de visibilidad.
+\end_layout
+
+\begin_layout Standard
+Se recomienda situar los atributos y métodos comunes en clases altas de
+ la jerarquía, aplicando herencia si tiene sentido decir que todos los objetos
+ de una clase 
+\begin_inset Quotes fld
+\end_inset
+
+lo son
+\begin_inset Quotes frd
+\end_inset
+
+ también de otra, usando polimorfismo y ligadura dinámica para evitar análisis
+ de casos.
+ No debe usarse herencia si un método heredado no tiene sentido en la clase
+ hija, y no se debe cambiar la semántica de un método en la clase hija.
+\end_layout
+
+\begin_layout Section
+Clases abstractas
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+clase abstracta
+\series default
+ es una que no se puede instanciar, no puede ser 
+\family typewriter
+final
+\family default
+ y permite definir 
+\series bold
+métodos abstractos
+\series default
+, sin código, con 
+\family typewriter
+;
+\family default
+ en vez de la implementación (
+\family typewriter
+{
+\family default
+...
+\family typewriter
+}
+\family default
+), y que no pueden ser 
+\family typewriter
+static
+\family default
+ ni 
+\family typewriter
+final
+\family default
+.
+ Las clases y métodos abstractos se deben indicar con el modificador 
+\family typewriter
+abstract
+\family default
+, y una clase 
+\series bold
+efectiva
+\series default
+ (no abstracta) debe implementar todos los métodos abstractos que hereda.
+ Una clase abstracta puede implementar constructores, pero estos sólo son
+ útiles para su uso por las clases hijas, por lo que se declaran 
+\family typewriter
+protected
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+método plantilla
+\series default
+ es un método ordinario de una clase abstracta que usa uno o más métodos
+ abstractos, normalmente 
+\family typewriter
+protected
+\family default
+, con el fin de evitar repetición de código en las clases descendientes.
+ La generalización por clases abstractas se aplica muchas veces tras la
+ implementación (
+\series bold
+refactorización
+\series default
+).
+\end_layout
+
+\begin_layout Section
+Interfaces
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+interfaz
+\series default
+ es la definición de un tipo sin la implementación, como una clase totalmente
+ abstracta, y se definen con [
+\family typewriter
+\emph on
+visibilidad
+\family default
+\emph default
+] [
+\family typewriter
+\emph on
+mods
+\family default
+\emph default
+]
+\family typewriter
+ interface 
+\emph on
+Nombre
+\family default
+\emph default
+ [
+\family typewriter
+extends 
+\emph on
+Interfaz1
+\emph default
+, 
+\family default
+...]
+\family typewriter
+ { 
+\family default
+...
+
+\family typewriter
+ }
+\family default
+.
+ Las interfaces no tienen constructores, sus métodos son 
+\family typewriter
+public abstract
+\family default
+ por defecto (aunque puede haber métodos no abstractos) y sus atributos
+ son 
+\family typewriter
+public static final
+\family default
+, y no es necesario indicar estos modificadores.
+ 
+\end_layout
+
+\begin_layout Standard
+Una interfaz puede heredar de varias interfaces con 
+\family typewriter
+extends
+\family default
+.
+ Una clase puede heredar de varias interfaces (se dice que las 
+\series bold
+implementa
+\series default
+), y se indica con 
+\family typewriter
+implements 
+\emph on
+Interfaz1
+\emph default
+, 
+\family default
+....
+\end_layout
+
+\begin_layout Standard
+Las interfaces pueden incluir 
+\series bold
+métodos por defecto
+\series default
+, con el modificador 
+\family typewriter
+default
+\family default
+, que no son abstractos.
+ Una clase puede implementar varias interfaces con distintos métodos por
+ defecto con la misma signatura, en cuyo caso para que una clase compile
+ debe reimplementar este método.
+ La sintaxis 
+\family typewriter
+\emph on
+Interfaz
+\emph default
+.super.
+\emph on
+método
+\emph default
+(
+\family default
+.\SpecialChar endofsentence
+.
+\family typewriter
+)
+\family default
+ permite llamar al método por defecto de una interfaz 
+\begin_inset Quotes fld
+\end_inset
+
+padre
+\begin_inset Quotes frd
+\end_inset
+
+ cuando hay ambigüedad.
+ Las interfaces también pueden incluir métodos 
+\family typewriter
+static
+\family default
+.
+\end_layout
+
+\begin_layout Section
+La clase 
+\family typewriter
+Object
+\end_layout
+
+\begin_layout Standard
+Cuando una clase no hereda de ninguna, realmente hereda de 
+\family typewriter
+Object
+\family default
+.
+ Métodos de 
+\family typewriter
+Object
+\family default
+:
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+public final Class 
+\series bold
+getClass
+\series default
+()
+\family default
+.
+ Devuelve la clase de la instancia actual.
+ Se recomienda usar 
+\family typewriter
+instanceof
+\family default
+ en vez de esto en caso de duda para comprobar compatibilidad.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+public boolean 
+\series bold
+equals
+\series default
+(Object)
+\family default
+.
+ Indica si un objeto es igual a otro.
+\begin_inset Newline newline
+\end_inset
+
+Tipos de igualdad: 
+\series bold
+superficial
+\series default
+, que compara la igualdad de los campos primitivos y el 
+\emph on
+oid
+\emph default
+ de las referencias; 
+\series bold
+profunda
+\series default
+, que usa 
+\family typewriter
+equals
+\family default
+ recursivamente, o adaptada a las necesidades de la aplicación.
+ Por defecto la comparación es superficial.
+\begin_inset Newline newline
+\end_inset
+
+Es necesario redefinir el método en las clases donde necesitemos igualdad,
+ pero hay que elegir la semántica de igualdad más adecuada.
+ El método heredado en una subclase es correcto si no tiene nuevos atributos
+ o estos no se tienen en cuenta en la igualdad, y en caso contrario, salvo
+ que la versión heredada sea la de 
+\family typewriter
+Object
+\family default
+, hay que reutilizarla.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+public int 
+\series bold
+hashCode
+\series default
+()
+\family default
+.
+ Devuelve el resultado de aplicar alguna función 
+\emph on
+hash
+\emph default
+ al objeto; usado en tablas de dispersión.
+ Si 
+\family typewriter
+\emph on
+o1
+\emph default
+.equals(
+\emph on
+o2
+\emph default
+)
+\family default
+, debe ser 
+\family typewriter
+\emph on
+o1
+\emph default
+.hashCode() == 
+\emph on
+o2
+\emph default
+.hashCode()
+\family default
+.
+ Por defecto se compara la dirección de memoria del objeto.
+ Si se redefine el método 
+\family typewriter
+equals
+\family default
+ también debe redefinirse 
+\family typewriter
+hashCode
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+public String 
+\series bold
+toString
+\series default
+()
+\family default
+.
+ Devuelve una representación textual de un objeto.
+ Por defecto se imprime el nombre de la clase y el 
+\emph on
+oid
+\emph default
+.
+ Se recomienda usar 
+\family typewriter
+getClass().getName()
+\family default
+, que devuelve la clase de la instancia actual, permitiendo que la implementació
+n sea he
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+re
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+da
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ble.
+ Debe ser redefinido en una subclase si añade nuevos atributos.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+protected Object 
+\series bold
+clone
+\series default
+() throws CloneNotSupportedException
+\family default
+.
+ Devuelve una
+\begin_inset Newline newline
+\end_inset
+
+copia del objeto.
+\begin_inset Newline newline
+\end_inset
+
+Tipos de copia: 
+\series bold
+superficial
+\series default
+, que copia los campos primitivos y los 
+\emph on
+oid
+\emph default
+; 
+\series bold
+profunda
+\series default
+, que aplica 
+\family typewriter
+clone
+\family default
+ recursivamente, y adaptada a las necesidades de la aplicación.
+ Por defecto la copia es superficial.
+\begin_inset Newline newline
+\end_inset
+
+Al redefinir el método, hay que cambiar la visibilidad a 
+\family typewriter
+public
+\family default
+, cambiar el tipo de retorno al tipo propio y ocultar la excepción (el 
+\family typewriter
+throws 
+\family default
+...).
+ Esta excepción se lanza si la clase del objeto no implementa la interfaz
+ 
+\family typewriter
+Cloneable
+\family default
+, que no implementa ningún método pero marca que los objetos de una clase
+ (y todas las clases descendientes) pueden ser clonadas.
+\begin_inset Newline newline
+\end_inset
+
+Al redefinir este método, para que funcione con la herencia, es conveniente
+ llamar a la versión heredada y, si el tipo padre no es 
+\family typewriter
+Cloneable
+\family default
+, manejar la excepción mediante 
+\family typewriter
+try { 
+\family default
+(código que llame a 
+\family typewriter
+super.clone()
+\family default
+)
+\family typewriter
+ } catch (CloneNotSupportedException e) { 
+\family default
+(manejo del error)
+\family typewriter
+ }
+\family default
+ de modo que si salta la excepción se salte directamente al código de manejo
+ del error, lo que no debería ocurrir.
+\end_layout
+
+\begin_layout Standard
+Además, para cada tipo primitivo existe una clase (
+\family typewriter
+Integer
+\family default
+, 
+\family typewriter
+Float
+\family default
+, 
+\family typewriter
+Double
+\family default
+, 
+\family typewriter
+Character
+\family default
+, 
+\family typewriter
+Boolean
+\family default
+, etc.) correspondiente que actúa como 
+\series bold
+objeto envoltorio
+\series default
+ y hereda de 
+\family typewriter
+Object
+\family default
+.
+ Java permite convertir automáticamente entre el tipo primitivo y el envoltorio
+ (
+\series bold
+\emph on
+autoboxing
+\series default
+\emph default
+).
+\end_layout
+
+\end_body
+\end_document

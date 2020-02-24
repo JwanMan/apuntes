@@ -1,0 +1,879 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+El 
+\series bold
+administrador de memoria
+\series default
+ del sistema operativo se encarga de abstraer y administrar la jerarquía
+ de memoria.
+\end_layout
+
+\begin_layout Section
+Sin memoria virtual
+\end_layout
+
+\begin_layout Standard
+En la 
+\series bold
+multiprogramación con particiones fijas
+\series default
+, se asigna una zona de tamaño fijo al sistema operativo y el resto se dividen
+ en 
+\series bold
+particiones
+\series default
+ de igual o distinto tamaño.
+ Podemos tener una cola por partición y colocar cada trabajo en la cola
+ de la partición más pequeña en que quepa, pero si hay pocas particiones
+ pequeñas sus colas serán largas porque la mayoría de procesos son pequeños
+ y si hay muchas puede no quedar espacio para trabajos grandes.
+ También se puede tener una cola para todas las particiones y, cuando queda
+ una partición libre, darla a la primera tarea de la cola que quepa, lo
+ que hace que las tareas pequeñas desperdicien espacio, o darla a la tarea
+ más grande que quepa, lo que discrimina a las tareas pequeñas.
+ Soluciones a este último problema son tener una partición pequeña o establecer
+ un máximo de veces que se puede excluir una tarea.
+\end_layout
+
+\begin_layout Standard
+Esto limita el 
+\series bold
+grado de multiprogramación
+\series default
+, el total de procesos que puede haber a la vez en memoria compartiendo
+ CPU, además de producir fragmentación interna sobre todo en procesos pequeños
+ y fragmentación externa si hay particiones libres con tamaño total suficiente
+ para un proceso pero ninguna es lo bastante grande.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+multiprogramación con particiones variables
+\series default
+ soluciona el problema asignando a cada proceso una partición del tamaño
+ exacto que necesita, con lo que las particiones se crean, desaparecen o
+ intercambian según se necesita.
+ 
+\series bold
+Políticas de asignación de huecos
+\series default
+:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Primero en ajustarse
+\series default
+: Se busca el primer hueco lo suficientemente grande desde el principio
+ de la memoria, dividiendo el hueco en una parte para el proceso y un hueco
+ libre (salvo si hay ajuste perfecto), y es rápido.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Siguiente en ajustarse
+\series default
+: Igual pero se empieza a buscar por donde se quedó la anterior búsqueda.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Mejor en ajustarse
+\series default
+: Busca el hueco más pequeño en el que quepa el proceso, es lenta y desperdicia
+ más memoria por fragmentación externa.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Peor en ajustarse
+\series default
+: Toma el hueco libre más grande, y es lenta pero aprovecha bien la memoria.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+compactación
+\series default
+ consiste en mover procesos en memoria para juntar los huecos y reducir
+ la fragmentación externa.
+ No se suele usar porque consume mucho tiempo, proporcional a la cantidad
+ de información a mover, si bien ordenadores como el CDC CYBERS tenían hardware
+ especial para esto.
+ Para la 
+\series bold
+administración de memoria libre
+\series default
+:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Mapas de bits
+\series default
+: Se divide la memoria en unidades de asignación del mismo tamaño, y a cada
+ una le corresponde un bit que indica si está libre o no.
+ Si la unidad de asignación es pequeña, el mapa de bits será grande y las
+ búsquedas lentas, pero si es grande habrá fragmentación interna.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Listas ligadas
+\series default
+: Lista de segmentos de memoria, que pueden ser procesos o huecos.
+ Cuando un proceso termina, debe fusionar el hueco con los adyacentes, lo
+ que es sencillo si la lista está ordenada por direcciones.
+ Si hay una lista para procesos y otra para huecos, las operaciones serán
+ más rápidas por no tener que ordenar la lista de procesos.
+ Si la de huecos se ordena por tamaño decreciente, la política de peor ajuste
+ es 
+\begin_inset Formula $O(1)$
+\end_inset
+
+, pero la fusión de huecos es cara.
+ En general se accede a la información de memoria asignada a un proceso
+ desde su bloque de control.
+\end_layout
+
+\begin_layout Standard
+La asignación de hueco en la zona de intercambio del disco puede hacerse
+ cuando el proceso deba intercambiarse o cuando se cree.
+ Los algoritmos de asignación y registro de estos huecos son los mismos
+ que en memoria principal, salvo que el tamaño de un hueco en disco es múltiplo
+ del tamaño de bloque.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+reubicación
+\series default
+ o 
+\series bold
+relocalización
+\series default
+ consiste en que, cuando un programa se ejecuta, puede ir a cualquier partición,
+ por lo que el programa debe usar 
+\series bold
+código relocalizable
+\series default
+, que pueda ejecutarse correctamente independientemente de dónde se sitúe.
+\end_layout
+
+\begin_layout Standard
+Para la protección de memoria puede haber un 
+\series bold
+registro base
+\series default
+ con la dirección de memoria donde comienza la partición de un proceso y
+ un 
+\series bold
+registro límite
+\series default
+ con su tamaño, de modo que el proceso puede generar cualquier 
+\series bold
+dirección lógica
+\series default
+ en un 
+\series bold
+espacio de direcciones lógicas
+\series default
+ de 0 a su tamaño menos 1 que se traducen a 
+\series bold
+direcciones físicas
+\series default
+, y si genera una dirección mayor se produce una excepción.
+\end_layout
+
+\begin_layout Section
+Paginación
+\end_layout
+
+\begin_layout Standard
+El esquema de 
+\series bold
+memoria virtual
+\series default
+ permite ejecutar procesos con tamaño total mayor al de la memoria física,
+ para lo que guarda en esta sólo las partes del proceso que se están usando
+ y el resto lo guarda en disco.
+ Cada proceso posee un espacio de direcciones virtuales, de tamaño normalmente
+ limitado por CPU, que van a la 
+\series bold
+unidad de administración de memoria
+\series default
+ (
+\series bold
+MMU
+\series default
+) normalmente integrada en el chip de la CPU para que las traduzca a direcciones
+ físicas.
+\end_layout
+
+\begin_layout Standard
+El espacio de direcciones virtuales se divide en 
+\series bold
+páginas
+\series default
+ y el de memoria física en 
+\series bold
+marcos de página
+\series default
+, del mismo tamaño, normalmente potencias de 2 entre 
+\begin_inset Formula $\unit[512]{B}$
+\end_inset
+
+ y 
+\begin_inset Formula $\unit[8]{KiB}$
+\end_inset
+
+, aunque pueden ser bastante más grandes, y las transferencias entre memoria
+ y disco son siempre en unidades de página.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+tabla de páginas
+\series default
+ tiene tantas entradas como páginas y en cada una indica el marco en que
+ se almacena junto a algunos bits:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Bit presente/ausente
+\series default
+: Indica si la página está asociada o no.
+ Si se accede a una página no asociada, la MMU genera una excepción llamada
+ 
+\series bold
+fallo de página
+\series default
+ a tratar por el sistema operativo.
+ Este selecciona un marco, escribe su contenido en disco (si estaba ocupado
+ y se había escrito algo), lo marca como ausente en su tabla de páginas
+ y asigna el marco a la página que provocó el fallo, que lee del disco si
+ es necesario.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Bits de protección
+\series default
+: Tipo de acceso permitido (lectura, escritura, ejecución...).
+ Las páginas con código suelen tener permisos de lectura y ejecución pero
+ no de escritura, mientras que las de datos suelen tener de lectura y escritura.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Modificado
+\series default
+: Indica si se ha modificado o no el contenido del marco.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Referenciado
+\series default
+: Se establece al hacer referencia a una página, y se usa en algoritmos
+ de reemplazo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Caché
+\series default
+: En las máquinas con E/S mapeada a memoria, evita que el contenido de la
+ página se almacene en caché.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Visible en modo núcleo
+\series default
+: Evita que se pueda acceder a la página en modo usuario.
+\end_layout
+
+\begin_layout Standard
+Las direcciones virtuales se dividen en un 
+\series bold
+número de página
+\series default
+, usado como índice en la tabla de páginas, y un 
+\series bold
+ajuste
+\series default
+ o 
+\series bold
+desplazamiento
+\series default
+ dentro de ella.
+\end_layout
+
+\begin_layout Standard
+La traducción de páginas debe ser rápida, por lo que se usa un 
+\series bold
+TLB
+\series default
+ (
+\emph on
+Translation Look-aside Buffer
+\emph default
+), una caché totalmente asociativa generalmente en la MMU que contiene entradas
+ de la tabla de páginas.
+ El hardware verifica si el número de página está en el TLB comparando todas
+ las entradas en paralelo (por lo que número de entradas suele ser muy pequeño).
+ Si coincide alguna, se toma la entrada del TLB (incluyendo bits de protección,
+ etc.).
+ Si no está, se lee la entrada de memoria principal y, bien se elimina una
+ entrada del TLB escribiendo sus bits de modificado y uso en la principal
+ y se reemplaza por la nueva, o se produce un fallo de página.
+\end_layout
+
+\begin_layout Standard
+Al cambiar de proceso se puede invalidar el contenido del TLB, borrando
+ todos los bits de validez mediante una instrucción especial, o añadir un
+ nuevo campo a cada entrada del TLB con el identificador del proceso y un
+ registro con el del proceso activo, requiriendo hardware adicional pero
+ ahorrando tiempo en los cambios de proceso y dando lugar a encontrar entradas
+ en el TLB del propio proceso tras volver a tomar la CPU.
+\end_layout
+
+\begin_layout Standard
+Como una tabla de páginas global puede ser muy grande, en la práctica se
+ divide el número de página en varias partes y se usan tablas de páginas
+ de varios niveles, de modo que la de primer nivel se indexa según la primera
+ parte del número de página e indica la dirección de las tablas de segundo
+ nivel, etc., y las tablas que no son necesarias no se tienen.
+ Los Intel Pentium Pro tienen 3 niveles, los procesadores de Intel y AMD
+ de 64 bits tienen 4, y Linux soporta hasta 5 desde la versión 4.14, permitiendo
+ gestionar hasta 
+\begin_inset Formula $\unit[128]{PiB}$
+\end_inset
+
+ de memoria virtual y hasta 
+\begin_inset Formula $\unit[4]{PiB}$
+\end_inset
+
+ de RAM.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+tabla de páginas invertida
+\series default
+ contiene una entrada por cada marco de página con el número de la página
+ que almacena, el PID, una serie de bits como en una entrada de tabla de
+ páginas normal y un puntero para encadenamiento en una tabla de dispersión
+ abierta usada para acelerar las traducciones, que usa como clave el PID
+ y el número de página y devuelve el número de una entrada de la tabla.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+mapa de memoria
+\series default
+ de un proceso es la estructura de su espacio de direcciones lógicas, en
+ zonas contiguas de memoria virtual llamadas 
+\series bold
+regiones
+\series default
+ como las de código, datos con valor inicial, datos sin valor inicial y
+ pila de cada hilo, con características como:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Soporte
+\series default
+: De dónde se obtienen los datos que contiene la región; normalmente un
+ fichero o parte de este, como un ejecutable en el caso del código.
+ También hay regiones sin soporte como la pila, cuyas páginas, si se modifican
+ y son expulsadas, se guardan en la zona de intercambio del disco.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Tipo de compartición
+\series default
+: Si las modificaciones que haga un proceso son visibles por otros o no.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Protección
+\series default
+: Permisos de lectura, escritura y ejecución.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Tamaño fijo
+\series default
+ o 
+\series bold
+variable
+\series default
+: Si es variable, se indica si crece hacia direcciones mayores, como la
+ memoria montón o 
+\emph on
+heap
+\emph default
+ usada para la memoria dinámica, o menores, como la pila.
+ En UNIX, la memoria montón no tiene soporte, está inicialmente a 0 y crece
+ conforme el proceso necesita memoria mediante las llamadas 
+\family typewriter
+brk
+\family default
+ y 
+\family typewriter
+sbrk
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+El sistema operativo suele estar mapeado en todos los procesos, con el bit
+ de visible en modo núcleo activado, por eficiencia en las transferencias
+ de datos entre usuario y núcleo
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+En procesadores como Intel, esto ya no se hace debido a Meltdown.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En Linux, al hacer la llamada al sistema 
+\family typewriter
+fork
+\family default
+, se usa 
+\series bold
+copia en escritura
+\series default
+ (
+\emph on
+copy on write
+\emph default
+, COW), consistente en desactivar el permiso de escritura de las páginas
+ y dar al proceso hijo una copia de la tabla de páginas del padre, de modo
+ que si uno de los dos intenta escribir en una región en la que tendría
+ permiso, el sistema operativo hace una copia de la página que provocó la
+ violación, la asigna a la tabla de páginas del proceso que hace la escritura
+ y activa el permiso de escritura en ambas páginas
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Linux usa conteo de referencias para que, si hay varios 
+\family typewriter
+fork
+\family default
+, no se active la escritura en la página original hasta que el resto de
+ procesos tenga una copia de la página.
+ Ver 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://stackoverflow.com/questions/13813636/how-does-copy-on-write-in-fork-handl
+e-multiple-fork
+\end_layout
+
+\end_inset
+
+ para más detalles.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Algoritmos de reemplazo de páginas:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Algoritmo óptimo
+\series default
+: Se elimina la página para la que pasará más tiempo antes de ser utilizada.
+ Modelo teórico imposible de implementar.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+NRU
+\series default
+ (no usada recientemente): Se limpia el bit de referenciado periódicamente
+ en todas las páginas, y al reemplazar se prefieren páginas con este bit
+ desactivado y, dentro de esto, con el de modificado desactivado.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+FIFO
+\series default
+ (primera en enterar, primera en salir): Se elimina la primera página de
+ una lista y se añade la nueva al final.
+ El algoritmo es de bajo coste, pero no tiene en cuenta ningún dato adicional
+ y produce demasiados fallos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Algoritmo de la segunda oportunidad
+\series default
+: Como el FIFO pero, si el bit de referenciado de la primera página está
+ activo, el bit se limpia, la página pasa al final y se comprueba la siguiente.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Algoritmo del reloj
+\series default
+: Equivalente al anterior pero con una lista circular donde una 
+\begin_inset Quotes fld
+\end_inset
+
+manecilla
+\begin_inset Quotes frd
+\end_inset
+
+ (un puntero) apunta a la página más antigua.
+ Si el bit de referenciado está inactivo, se expulsa y se reemplaza en la
+ lista la página apuntada y se avanza la manecilla a la siguiente, y de
+ lo contrario se inactiva el bit, se pasa a la siguiente página y se repite
+ el proceso.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+LRU
+\series default
+ (usada menos recientemente): Se elimina la página no usada desde hace más
+ tiempo.
+ Se podría usar una lista ligada de todas las páginas de memoria, pero tendría
+ que actualizarse en cada acceso a memoria.
+ También se podría tener un contador hardware que se incrementa en cada
+ referencia a memoria y un campo en las entradas de la tabla de páginas
+ y la TLB donde copiarlo.
+ Otra forma es usar una matriz 
+\begin_inset Formula $n\times n$
+\end_inset
+
+, siendo 
+\begin_inset Formula $n$
+\end_inset
+
+ el total de páginas, inicializada a 0, con lo que al referencial el marco
+ 
+\begin_inset Formula $k$
+\end_inset
+
+, el hardware activa todos los bits de la fila 
+\begin_inset Formula $k$
+\end_inset
+
+ y después desactiva todos los de la columna, con lo que la fila cuyo valor
+ en binario sea mínimo es la del marco que se usó hace más tiempo, pero
+ esto es inviable por el tamaño de la matriz.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Algoritmo de maduración
+\series default
+: Aproximación software de LRU.
+ En cada interrupción de reloj, se desplaza un contador en cada entrada
+ de la tabla de páginas un bit a la derecha y se añade a la izquierda el
+ bit de referenciado.
+\end_layout
+
+\begin_layout Standard
+Se debe decidir también si la página a reemplazar se busca sólo en las del
+ proceso (
+\series bold
+reemplazo local
+\series default
+) o en todas las de memoria (
+\series bold
+reemplazo global
+\series default
+), y si el número de marcos asignados a un proceso varía (
+\series bold
+asignación dinámica
+\series default
+) o no (
+\series bold
+asignación fija
+\series default
+ o 
+\series bold
+estática
+\series default
+).
+ No es posible el reemplazo global con asignación fija, pero el reemplazo
+ local con asignación dinámica puede evitar que un proceso que empieza a
+ producir fallos de página le quite páginas a otros siendo a la vez más
+ flexible que una asignación fija.
+ Llamamos 
+\series bold
+algoritmo de frecuencia de fallos de página
+\series default
+ al consistente en asignar más marcos a los procesos que producen muchos
+ fallos de página y quitarlos a los que producen pocos.
+ Otros aspectos son el número mínimo de marcos por proceso, que depende
+ entre otros del máximo de páginas que puede usar una sola instrucción
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Si, por ejemplo, una instrucción debe acceder a 5 páginas incluyendo la
+ de la propia instrucción pero sólo hay 4 marcos, uno de los accesos provocará
+ necesariamente un fallo de página que reemplazará otra de las 4 páginas
+ necesarias y reiniciará la instrucción, que nunca llegará a terminar.
+\end_layout
+
+\end_inset
+
+, y el reparto de marcos entre distintos procesos (equitativo, proporcional
+ al tamaño, etc.).
+\end_layout
+
+\begin_layout Standard
+Páginas pequeñas producen menos fragmentación interna, pero páginas grandes
+ aceleran el reemplazo porque las transferencias entre memoria y disco son
+ normalmente de una página y hay poca diferencia entre el tiempo de transferenci
+a de una página pequeña y el de una grande.
+ Los tamaños más frecuentes son de 4 y 
+\begin_inset Formula $\unit[8]{KiB}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+hiperpaginación
+\series default
+ ocurre cuando un proceso emplea más tiempo paginando (esperando a que se
+ resuelvan sus fallos de página) que ejecutando código porque necesita muchos
+ más marcos de los que tiene.
+ En tal caso, aparte de añadir más memoria principal, podemos suspender
+ temporalmente algunos procesos para liberar memoria y reanudarlos cuando
+ la tasa de fallos de página decaiga.
+\end_layout
+
+\begin_layout Standard
+Políticas de lectura y escritura de páginas:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Paginación por demanda
+\series default
+: Solo se lee la página que produce el fallo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Prepaginación
+\series default
+ o 
+\series bold
+paginación anticipada
+\series default
+: Se leen varias páginas más, normalmente las que se encuentran después
+ en el espacio de direcciones virtuales.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Escritura por demanda
+\series default
+: Una página se escribe en disco cuando se expulsa, aumentando el tiempo
+ de resolución de fallos de página.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Escritura anticipada
+\series default
+: Un hilo del núcleo, el 
+\series bold
+demonio de paginación
+\series default
+, cada cierto tiempo escribe en disco las páginas modificadas, aumentando
+ el rendimiento en discos duros al escribir varias páginas a la vez y acelerando
+ la resolución de fallos de página.
+ Muchas escrituras pueden ser inútiles si la páginas se modifican poco después,
+ por lo que el demonio puede buscar páginas que, según el algoritmo de reemplazo
+, podrían expulsarse próximamente y escribirlas en disco si han sido modificadas.
+ También puede liberar más páginas para tener páginas libres (
+\series bold
+caché de páginas
+\series default
+) y resolver rápidamente cualquier futuro fallo de página, de forma que
+ si una página liberada se necesita poco después su contenido siga en memoria.
+\end_layout
+
+\begin_layout Section
+Segmentación
+\end_layout
+
+\begin_layout Standard
+El espacio de direcciones lógicas de un proceso se compone de 
+\series bold
+segmentos
+\series default
+, zonas contiguas dadas por una 
+\series bold
+base
+\series default
+ (dirección de comienzo) y un 
+\series bold
+límite
+\series default
+ (tamaño), y las direcciones especifican el número de segmento y el desplazamien
+to dentro de él, de 0 al tamaño menos 1.
+ Esto facilita la protección y compartición de información, y se puede acelerar
+ la traducción con un TLB, pero sufre fragmentación externa, los segmentos
+ no pueden superar el tamaño de la memoria física y los intercambios con
+ el disco se hacen siempre moviendo segmentos enteros.
+\end_layout
+
+\begin_layout Standard
+En la 
+\series bold
+segmentación paginada
+\series default
+ estos segmentos se paginan, por lo que no hay fragmentación externa ni
+ hay que buscar un hueco adecuado para cada segmento.
+ El TLB es direccionable por el número de segmento a usar y el número de
+ la página dentro del segmento.
+\end_layout
+
+\end_body
+\end_document

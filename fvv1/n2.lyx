@@ -1,0 +1,1010 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Derivadas
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $E$
+\end_inset
+
+ y 
+\begin_inset Formula $F$
+\end_inset
+
+ normados, 
+\begin_inset Formula $\Omega\subseteq E$
+\end_inset
+
+ abierto y 
+\begin_inset Formula $f:\Omega\rightarrow F$
+\end_inset
+
+, dados 
+\begin_inset Formula $a\in\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $u\in E$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ es 
+\series bold
+derivable
+\series default
+ en 
+\begin_inset Formula $a$
+\end_inset
+
+ según 
+\begin_inset Formula $u$
+\end_inset
+
+ si existe la 
+\series bold
+derivada direccional
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $x$
+\end_inset
+
+ según 
+\begin_inset Formula $u$
+\end_inset
+
+, dada por
+\begin_inset Formula 
+\[
+d_{u}f(x_{0}):=\lim_{t\rightarrow0}\frac{f(a+tu)-f(a)}{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $u=\vec{e}_{i}$
+\end_inset
+
+ es el vector 
+\begin_inset Formula $i$
+\end_inset
+
+-ésimo de la base canónica hablamos de la 
+\series bold
+derivada parcial
+\series default
+ 
+\begin_inset Formula $i$
+\end_inset
+
+-ésima, que denotamos
+\begin_inset Formula 
+\[
+\frac{\partial f}{\partial x_{i}}(a):=d_{i}f(a):=d_{\vec{e}_{i}}f(a)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\vec{u}=\lambda\vec{v}$
+\end_inset
+
+ con 
+\begin_inset Formula $\lambda\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $d_{\vec{u}}f(t)$
+\end_inset
+
+ existe si y sólo si existe 
+\begin_inset Formula $d_{\vec{v}}f(t)$
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+, pues 
+\begin_inset Formula 
+\[
+d_{\vec{u}}f(t)=\lim_{t\rightarrow0}\frac{f(a+t\lambda\vec{v})-f(a)}{t}=\lim_{t\rightarrow0}\frac{f(a+t\lambda\vec{v})-f(a)}{t\lambda}\lambda\overset{t\lambda\rightarrow0}{=}\lambda d_{\vec{v}}f(t)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f:(a,b)\rightarrow\mathbb{R}^{n}$
+\end_inset
+
+ es derivable en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ si cada una de sus coordenadas lo es, y entonces 
+\begin_inset Formula $f'(x_{0})=(f'_{1}(x_{0}),\dots,f'_{n}(x_{0}))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Diferenciales
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $\Omega\subseteq E$
+\end_inset
+
+ abierto, 
+\begin_inset Formula $f:\Omega\rightarrow F$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ es 
+\series bold
+diferenciable
+\series default
+ en 
+\begin_inset Formula $a$
+\end_inset
+
+ si existe una aplicación lineal 
+\begin_inset Formula $L:E\rightarrow F$
+\end_inset
+
+ tal que
+\begin_inset Formula 
+\[
+\lim_{h\rightarrow0}\frac{f(a+h)-f(a)-L(h)}{\Vert h\Vert}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta aplicación es la 
+\series bold
+diferencial
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $a$
+\end_inset
+
+, denotada por 
+\begin_inset Formula $df(a)$
+\end_inset
+
+, y si existe es única.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $L,M:E\rightarrow F$
+\end_inset
+
+ dos diferenciales de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\lim_{h\rightarrow0}\frac{L(h)-M(h)}{\Vert h\Vert}=\lim_{h\rightarrow0}\left(\frac{f(a+h)-f(a)-M(h)}{\Vert h\Vert}-\frac{f(a+h)-f(a)-L(h)}{\Vert h\Vert}\right)=0-0=0$
+\end_inset
+
+, pero entonces, dado 
+\begin_inset Formula $v\neq0$
+\end_inset
+
+ arbitrario, 
+\begin_inset Formula $0=\lim_{t\rightarrow0^{+}}\frac{L(tv)-M(tv)}{\Vert tv\Vert}=\lim_{t\rightarrow0^{+}}\frac{L(v)-M(v)}{\Vert v\Vert}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $L(v)=M(v)$
+\end_inset
+
+ y 
+\begin_inset Formula $L=M$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Escribimos 
+\begin_inset Formula $L\equiv M$
+\end_inset
+
+ si 
+\begin_inset Formula $M$
+\end_inset
+
+ es la matriz asociada a la aplicación lineal 
+\begin_inset Formula $L$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f:\Omega\subseteq\mathbb{R}^{m}\rightarrow\mathbb{R}^{n}$
+\end_inset
+
+ es diferenciable en 
+\begin_inset Formula $a\in\Omega$
+\end_inset
+
+ con diferencial 
+\begin_inset Formula $L$
+\end_inset
+
+ si y sólo si cada 
+\begin_inset Formula $f_{i}:\mathbb{R}^{m}\rightarrow\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+, es diferenciable con diferencial 
+\begin_inset Formula $L_{i}$
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+, pues 
+\begin_inset Formula $\frac{f(a+h)-f(a)-L(h)}{\Vert h\Vert}\rightarrow0\iff\forall i\in\{1,\dots,n\},\left(\frac{f(a+h)-f(a)-L(h)}{\Vert h\Vert}\right)_{i}\rightarrow0\iff\frac{f_{i}(a+h)-f_{i}(a)-L_{i}(h)}{\Vert h\Vert}\rightarrow0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f:\Omega\subseteq E\rightarrow F$
+\end_inset
+
+ es diferenciable en 
+\begin_inset Formula $a\in\Omega$
+\end_inset
+
+, también es continua en 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $a$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\lim_{x\rightarrow a}f(x)=f(a)$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\lim_{h\rightarrow0}f(a+h)-f(a)=0$
+\end_inset
+
+.
+ Pero si 
+\begin_inset Formula $\lim_{h\rightarrow0}\frac{f(a+h)-f(a)-L(h)}{\Vert h\Vert}=0$
+\end_inset
+
+, multiplicando por 
+\begin_inset Formula $\Vert h\Vert$
+\end_inset
+
+, que tiende a 0, tenemos 
+\begin_inset Formula $\lim_{h\rightarrow0}f(a+h)-f(a)-L(h)=0$
+\end_inset
+
+, y como 
+\begin_inset Formula $L(h)$
+\end_inset
+
+ tiende a 0 nos queda la expresión de arriba.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f:\Omega\subseteq\mathbb{R}^{m}\rightarrow\mathbb{R}^{n}$
+\end_inset
+
+ es diferenciable en 
+\begin_inset Formula $a\in\Omega$
+\end_inset
+
+ (
+\begin_inset Formula $\Omega$
+\end_inset
+
+ abierto) si para todo 
+\begin_inset Formula $P\in\Omega$
+\end_inset
+
+ existen todas las derivadas parciales 
+\begin_inset Formula $\frac{\partial f_{i}}{\partial x_{j}}(P)$
+\end_inset
+
+ y son continuas en 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Podemos suponer 
+\begin_inset Formula $n=1$
+\end_inset
+
+, pues de lo contrario basta probar que cada 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ es diferenciable en 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ Se trata pues de probar que 
+\begin_inset Formula $\lim_{h\rightarrow0}\frac{f(a+h)-f(a)-\sum_{i=1}^{m}\frac{\partial f}{\partial x_{i}}(a)h_{i}}{\Vert h\Vert}=0$
+\end_inset
+
+, lo que ocurre si y sólo si
+\begin_inset Formula 
+\begin{eqnarray*}
+0 & = & \lim_{h\rightarrow0}\frac{|f(a+h)-f(a)-\sum_{i=1}^{m}\frac{\partial f}{\partial x_{i}}(a)h_{i}|}{\Vert h\Vert}=\lim_{h\rightarrow0}\frac{f(a+\sum_{i=1}^{m}h_{i}\vec{e}_{i})-f(a)-\sum_{i=1}^{m}\frac{\partial f}{\partial x_{i}}(a)h_{i}}{\Vert h\Vert}\\
+ & = & \lim_{h\rightarrow0}\frac{\left|\sum_{i=1}^{m}\left(f(a+h_{1}\vec{e}_{1}+\dots+h_{i}\vec{e}_{i})-f(a+h_{1}\vec{e}_{1}+\dots+h_{i-1}\vec{e}_{i-1})-\frac{\partial f}{\partial x_{i}}(a)h_{i}\right)\right|}{\Vert h\Vert}
+\end{eqnarray*}
+
+\end_inset
+
+El último sumatorio con sus dos primeros elementos forma una 
+\series bold
+suma telescópica
+\series default
+: todos los elementos se anulan salvo el primero y el último.
+ Sabemos que cada 
+\begin_inset Formula $a+h_{1}\vec{e}_{1}+\dots+h_{i}\vec{e}_{i}$
+\end_inset
+
+ está en el dominio de 
+\begin_inset Formula $f$
+\end_inset
+
+ porque 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ es abierto y 
+\begin_inset Formula $h$
+\end_inset
+
+ se supone lo suficientemente pequeño.
+ Ahora llamamos 
+\begin_inset Formula $\varphi_{i}(t):=f(a+h_{1}\vec{e}_{1}+\dots+h_{i-1}\vec{e}_{i-1}+t\vec{e}_{i})$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\varphi'_{i}(t)=\frac{\partial f}{\partial x_{i}}(a+h_{1}\vec{e}_{1}+\dots+h_{i-1}\vec{e}_{i-1}+t\vec{e}_{i})$
+\end_inset
+
+, y 
+\begin_inset Formula $\Delta_{i}:=\varphi_{i}(h_{i})-\varphi_{i}(0)=f(a+h_{1}\vec{e}_{1}+\dots+h_{i}\vec{e}_{i})-f(a+h_{1}\vec{e}_{1}+\dots+h_{i-1}\vec{e}_{i-1})=\varphi'_{i}(\xi_{i})h_{i}$
+\end_inset
+
+ para algún 
+\begin_inset Formula $\xi_{i}$
+\end_inset
+
+ entre 0 y 
+\begin_inset Formula $h_{i}$
+\end_inset
+
+, que tiende a 0.
+ Sustituyendo nos queda que lo anterior es igual a 
+\begin_inset Formula 
+\[
+\lim_{h\rightarrow0}\frac{\left|\sum_{i=1}^{m}\varphi'_{i}(\xi_{i})h_{i}-\frac{\partial f}{\partial x_{i}}(a)h_{i}\right|}{\Vert h\Vert}
+\]
+
+\end_inset
+
+Entonces,
+\begin_inset Formula 
+\begin{eqnarray*}
+0 & \leq & \frac{\left|\sum_{i=1}^{m}\varphi'_{i}(\xi_{i})h_{i}-\frac{\partial f}{\partial x_{i}}(a)h_{i}\right|}{\Vert h\Vert_{\infty}}\\
+ & \leq & \left|\sum_{i=1}^{m}\frac{\partial f}{\partial x_{i}}(a+h_{1}\vec{e}_{1}+\dots+h_{i-1}\vec{e}_{i-1}+\xi_{i}\vec{e}_{i})-\frac{\partial f}{\partial x_{i}}(a)\right|\frac{\left|h_{i}\right|}{\Vert h\Vert_{\infty}}\rightarrow0
+\end{eqnarray*}
+
+\end_inset
+
+Que esta última expresión tienda a 0 se debe a que 
+\begin_inset Formula $0\leq\frac{|h_{i}|}{\Vert h\Vert_{\infty}}\leq1$
+\end_inset
+
+ y a que las derivadas parciales de 
+\begin_inset Formula $f$
+\end_inset
+
+ sean continuas y por tanto 
+\begin_inset Formula $\lim_{h\rightarrow0}\frac{\partial f}{\partial x_{i}}(a+\dots)=\frac{\partial f}{\partial x_{i}}(\lim_{h\rightarrow0}(a+\dots))$
+\end_inset
+
+.
+ Entonces, por la regla del sandwich, el límite inicial tiende a 0.
+ Hemos utilizado la norma 
+\begin_inset Formula $\Vert\cdot\Vert_{\infty}$
+\end_inset
+
+, pero como dada una norma 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ 
+\begin_inset Formula $\exists\alpha,\beta>0:\forall h,\alpha\leq\frac{\Vert h\Vert_{\infty}}{\Vert h\Vert}\leq\beta$
+\end_inset
+
+, la convergencia a 0 no depende de la norma que tomemos.
+\end_layout
+
+\begin_layout Section
+Regla de la cadena
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+regla de la cadena
+\series default
+ afirma que si 
+\begin_inset Formula ${\cal U}\subseteq\mathbb{R}^{m}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal V}\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ son abiertos, 
+\begin_inset Formula $a\in{\cal U}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal U}\overset{f}{\rightarrow}{\cal V}\overset{g}{\rightarrow}\mathbb{R}^{k}$
+\end_inset
+
+ son diferenciables en 
+\begin_inset Formula $a$
+\end_inset
+
+ y en 
+\begin_inset Formula $f(a)$
+\end_inset
+
+, respectivamente, entonces 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ es diferenciable en 
+\begin_inset Formula $a$
+\end_inset
+
+ y 
+\begin_inset Formula $d(g\circ f)(a)=dg(f(a))\circ df(a)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $L:=df(a):\mathbb{R}^{m}\rightarrow\mathbb{R}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $S:=dg(f(a)):\mathbb{R}^{n}\rightarrow\mathbb{R}^{k}$
+\end_inset
+
+, tenemos que 
+\begin_inset Formula 
+\[
+\lim_{h\rightarrow0}\frac{f(a+h)-f(a)-L(h)}{\Vert h\Vert}=\lim_{\eta\rightarrow0}\frac{g(f(a)+\eta)-g(f(a))-S(\eta)}{\Vert\eta\Vert}=0
+\]
+
+\end_inset
+
+y queremos ver que 
+\begin_inset Formula 
+\[
+\lim_{h\rightarrow0}\frac{g(f(a+h))-g(f(a))-S(L(h))}{\Vert h\Vert}=0
+\]
+
+\end_inset
+
+Si llamamos 
+\begin_inset Formula $\eta:=f(a+h)-f(a)$
+\end_inset
+
+, que tiende a 0 por la continuidad de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $a$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\begin{multline*}
+\lim_{h\rightarrow0}\frac{g(f(a+h))-g(f(a))-S(L(h))}{\Vert h\Vert}=\lim_{h\rightarrow0}\frac{g(f(a)+\eta)-g(f(a))-S(\eta)}{\Vert h\Vert}+\frac{S(\eta)-S(L(h))}{\Vert h\Vert}\\
+=\lim_{h\rightarrow0}\frac{g(f(a)+\eta)-g(f(a))-S(\eta)}{\Vert\eta\Vert}\frac{\Vert\eta\Vert}{\Vert h\Vert}-S\left(\frac{f(a+h)-f(a)-L(h)}{\Vert h\Vert}\right)
+\end{multline*}
+
+\end_inset
+
+Como 
+\begin_inset Formula $S\left(\frac{f(a+h)-f(a)-L(h)}{\Vert h\Vert}\right)\rightarrow0$
+\end_inset
+
+ usando la linealidad de 
+\begin_inset Formula $S$
+\end_inset
+
+ y su continuidad (que se deduce de su linealidad), y como 
+\begin_inset Formula $\frac{g(f(a)+\eta)-g(f(a))-S(\eta)}{\Vert\eta\Vert}\rightarrow0$
+\end_inset
+
+, el límite tenderá a 0 si y sólo si 
+\begin_inset Formula $\frac{\Vert\eta\Vert}{\Vert h\Vert}$
+\end_inset
+
+ es acotado, pero 
+\begin_inset Formula 
+\begin{eqnarray*}
+0 & \leq & \frac{\Vert\eta\Vert}{\Vert h\Vert}=\frac{\Vert f(a+h)-f(a)-L(h)+L(h)\Vert}{\Vert h\Vert}\\
+ & \leq & \frac{\Vert f(a+h)-f(a)-L(h)\Vert}{\Vert h\Vert}+\frac{\Vert L(h)\Vert}{\Vert h\Vert}\rightarrow0+\frac{\Vert L(h)\Vert}{\Vert h\Vert}\leq\frac{\Vert L\Vert\Vert h\Vert}{\Vert h\Vert}<+\infty
+\end{eqnarray*}
+
+\end_inset
+
+ por la continuidad de 
+\begin_inset Formula $L$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Incremento finito
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+teorema del incremento finito
+\series default
+ afirma que, sean 
+\begin_inset Formula $f:\Omega\subseteq\mathbb{R}^{m}\rightarrow\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $a,b\in\Omega$
+\end_inset
+
+ con el segmento 
+\begin_inset Formula $[a,b]\subseteq\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $L:\mathbb{R}^{m}\rightarrow\mathbb{R}^{n}$
+\end_inset
+
+ lineal, si 
+\begin_inset Formula $\Vert df(x)\Vert\leq M$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $\Vert f(b)-f(a)\Vert\leq M\Vert b-a\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Fijado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, sabemos que para 
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+, 
+\begin_inset Formula $\lim_{h\rightarrow0}\frac{f(x+h)-f(x)-df(x)(h)}{\Vert h\Vert}=0$
+\end_inset
+
+ y por tanto existe 
+\begin_inset Formula $\delta_{x}>0$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $\Vert h\Vert<\delta_{x}$
+\end_inset
+
+ se tiene 
+\begin_inset Formula 
+\[
+\Vert f(x+h)-f(x)-df(x)(h)\Vert<\varepsilon\Vert h\Vert
+\]
+
+\end_inset
+
+con lo que 
+\begin_inset Formula 
+\[
+\Vert f(x+h)-f(x)\Vert-\Vert df(x)(h)\Vert\leq\Vert f(x+h)-f(x)-df(x)(h)\Vert<\varepsilon\Vert h\Vert
+\]
+
+\end_inset
+
+ y por tanto
+\begin_inset Formula 
+\[
+\Vert f(x+h)-f(x)\Vert<\varepsilon\Vert h\Vert+\Vert df(x)(h)\Vert\leq\varepsilon\Vert h\Vert+\Vert df(x)\Vert\Vert h\Vert\leq(\varepsilon+M)\Vert h\Vert
+\]
+
+\end_inset
+
+Esta desigualdad depende de 
+\begin_inset Formula $\delta_{x}$
+\end_inset
+
+ y por tanto de 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $\{B(x,\frac{\delta_{x}}{2})\}_{x\in[a,b]}$
+\end_inset
+
+ un re
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+cu
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+bri
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+mien
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+to por abiertos de 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y 
+\begin_inset Formula $\{B_{i}\}_{i=1}^{k}:=\{B(x_{i},\frac{\delta_{x_{i}}}{2})\}_{i=1}^{k}$
+\end_inset
+
+ un subrecubrimiento finito del que suponemos que no podemos quitar ninguna
+ bola.
+ Ahora llamamos 
+\begin_inset Formula $x_{0}:=a$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{k+1}:=b$
+\end_inset
+
+ y suponemos 
+\begin_inset Formula $a=x_{0}<x_{1}<\dots<x_{k}<x_{k+1}=b$
+\end_inset
+
+.
+ Por la desigualdad anterior, para 
+\begin_inset Formula $x,y\in[a,b]$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert y-x\Vert<\delta_{x}$
+\end_inset
+
+ o 
+\begin_inset Formula $\Vert x-y\Vert<\delta_{y}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert f(y)-f(x)\Vert\leq(M+\varepsilon)\Vert x-y\Vert$
+\end_inset
+
+.
+ El segmento 
+\begin_inset Formula $[x_{i},x_{i+1}]$
+\end_inset
+
+ queda cubierto por 
+\begin_inset Formula $B_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $B_{i+1}$
+\end_inset
+
+, pues si hiciera falta además 
+\begin_inset Formula $B_{j}$
+\end_inset
+
+ con 
+\begin_inset Formula $j\neq i,i+1$
+\end_inset
+
+ para cubrirlo sería 
+\begin_inset Formula $x_{j}<x_{i}$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $B_{i}\subseteq B_{j}$
+\end_inset
+
+ o 
+\begin_inset Formula $x_{j}>x_{i+1}$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $B_{i+1}\subseteq B_{j}$
+\end_inset
+
+, pero entonces podríamos quitar una bola del recubrimiento
+\begin_inset Formula $\#$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $\Vert x_{i+1}-x_{i}\Vert<\frac{\delta_{x_{i}}}{2}+\frac{\delta_{x_{i+1}}}{2}\leq\max\{\delta_{x_{i}},\delta_{x_{i+1}}\}$
+\end_inset
+
+.
+ Finalmente tenemos que 
+\begin_inset Formula $\Vert f(b)-f(a)\Vert=\Vert f(x_{k+1})-f(x_{k})+\dots+f(x_{1})-f(x_{0})\Vert\leq\sum_{i=0}^{k}\Vert f(x_{i+1})-f(x_{i})\Vert\leq\sum_{i=0}^{k}\Vert x_{i+1}-x_{i}\Vert(M+\varepsilon)$
+\end_inset
+
+ y, como todos los 
+\begin_inset Formula $x_{i+1}-x_{i}$
+\end_inset
+
+ tienen la forma 
+\begin_inset Formula $\lambda(b-a)$
+\end_inset
+
+ con 
+\begin_inset Formula $\lambda>0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\sum_{i=0}^{k}\Vert x_{i+1}-x_{i}\Vert(M+\varepsilon)=\Vert b-a\Vert(M+\varepsilon)$
+\end_inset
+
+.
+ Como esto se da para todo 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, el resultado queda probado.
+\end_layout
+
+\end_body
+\end_document

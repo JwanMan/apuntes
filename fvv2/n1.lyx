@@ -1,0 +1,3333 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{FUVR2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+partición
+\series default
+ de 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ es una colección de puntos 
+\begin_inset Formula $a=t_{0}<t_{1}<\dots<t_{n}=b$
+\end_inset
+
+ [...].
+ [...]
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f\in{\cal R}[a,b]$
+\end_inset
+
+, llamamos 
+\series bold
+integral indefinida
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ a la función 
+\begin_inset Formula $F:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $F(x):=\int_{a}^{x}f$
+\end_inset
+
+.
+ El 
+\series bold
+TEOREMA FUNDAMENTAL DEL CÁLCULO
+\series default
+ afirma que, si 
+\begin_inset Formula $f\in{\cal R}[a,b]$
+\end_inset
+
+ y 
+\begin_inset Formula $F$
+\end_inset
+
+ es su integral indefinida, entonces 
+\begin_inset Formula $F$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y si 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $c\in(a,b)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $F$
+\end_inset
+
+ es derivable en 
+\begin_inset Formula $c$
+\end_inset
+
+ y 
+\begin_inset Formula $F'(c)=f(c)$
+\end_inset
+
+, y esto también ocurre con los extremos del intervalo y las correspondientes
+ derivadas laterales.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Integral de Riemann para funciones de varias variables
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+gráfica
+\series default
+ de una función 
+\begin_inset Formula $f:[a_{1},b_{1}]\times\dots\times[a_{n},b_{n}]\rightarrow\mathbb{R}$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+\text{graf}(f):=\{(x_{1},\dots,x_{n},y)\in\mathbb{R}^{n+1}:(x_{1},\dots,x_{n})\in[a_{1},b_{1}]\times\dots\times[a_{n},b_{n}]\land y=f(x_{1},\dots,x_{n})\}
+\]
+
+\end_inset
+
+y 
+\series bold
+subgrafo
+\series default
+ a
+\begin_inset Formula 
+\begin{multline*}
+\text{subgraf}(f):=\\
+\{(x_{1},\dots,x_{n},y)\in\mathbb{R}^{n+1}:(x_{1},\dots,x_{n})\in[a_{1},b_{1}]\times\dots\times[a_{n},b_{n}]\land0\leq y\leq f(x_{1},\dots,x_{n})\}
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+volumen
+\series default
+ del 
+\series bold
+rectángulo
+\series default
+ 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional 
+\begin_inset Formula $R:=[a_{1},b_{1}]\times\dots\times[a_{n},b_{n}]\subset\mathbb{R}^{n}$
+\end_inset
+
+ se define como 
+\begin_inset Formula $v(R)=(b_{1}-a_{1})\cdots(b_{n}-a_{n})$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $n=1$
+\end_inset
+
+, 
+\begin_inset Formula $R$
+\end_inset
+
+ es un intervalo y 
+\begin_inset Formula $v(R)$
+\end_inset
+
+ es su 
+\series bold
+longitud
+\series default
+; si 
+\begin_inset Formula $n=2$
+\end_inset
+
+, 
+\begin_inset Formula $R$
+\end_inset
+
+ es un rectángulo y 
+\begin_inset Formula $v(R)$
+\end_inset
+
+ es su 
+\series bold
+área
+\series default
+, y si 
+\begin_inset Formula $n=3$
+\end_inset
+
+, 
+\begin_inset Formula $R$
+\end_inset
+
+ es un paralelepípedo recto y 
+\begin_inset Formula $v(R)$
+\end_inset
+
+ es su 
+\series bold
+volumen
+\series default
+ tridimensional.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+partición
+\series default
+ sobre este rectángulo es una lista 
+\begin_inset Formula $P:=(P_{1},\dots,P_{n})$
+\end_inset
+
+ en la que cada 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+ es una partición de 
+\begin_inset Formula $[a_{i},b_{i}]$
+\end_inset
+
+.
+ Si cada 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+ divide el intervalo 
+\begin_inset Formula $[a_{i},b_{i}]$
+\end_inset
+
+ en 
+\begin_inset Formula $k_{i}$
+\end_inset
+
+ subintervalos, los 
+\begin_inset Formula $k_{1}\cdots k_{n}$
+\end_inset
+
+ rectángulos en los que 
+\begin_inset Formula $P$
+\end_inset
+
+ divide a 
+\begin_inset Formula $R$
+\end_inset
+
+ son los 
+\series bold
+subrectángulos
+\series default
+ de la partición 
+\begin_inset Formula $P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f:R\rightarrow\mathbb{R}$
+\end_inset
+
+ es acotada y 
+\begin_inset Formula $P:=(P_{i})_{i=1}^{n}$
+\end_inset
+
+ es una partición de 
+\begin_inset Formula $R$
+\end_inset
+
+ que lo divide en una cantidad finita de subrectángulos 
+\begin_inset Formula $\{S_{i}\}_{i=1}^{N}$
+\end_inset
+
+, si para cada 
+\begin_inset Formula $S_{h}$
+\end_inset
+
+ denotamos 
+\begin_inset Formula $m_{S_{h}}(f):=\inf\{f(x)\}_{x\in S_{h}}$
+\end_inset
+
+ y 
+\begin_inset Formula $M_{S_{h}}(f)=\sup\{f(x)\}_{x\in S_{h}}$
+\end_inset
+
+, y definimos las 
+\series bold
+sumas inferior
+\series default
+ y 
+\series bold
+superior
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ correspondientes a la partición 
+\begin_inset Formula $P$
+\end_inset
+
+, respectivamente, como
+\begin_inset Formula 
+\begin{eqnarray*}
+s(f,P):=\sum_{h=1}^{N}m_{S_{h}}(f)v(S_{h}) & \text{y} & S(f,P):=\sum_{h=1}^{N}M_{S_{h}}(f)v(S_{h})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $P$
+\end_inset
+
+ y 
+\begin_inset Formula $P'$
+\end_inset
+
+ dos particiones del rectángulo 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional 
+\begin_inset Formula $R$
+\end_inset
+
+ tales que 
+\begin_inset Formula $P'\succeq P$
+\end_inset
+
+ (
+\begin_inset Formula $\forall i\in\{1,\dots,n\},P'_{i}\succeq P_{i}$
+\end_inset
+
+ o, equivalentemente, cada subrectángulo de 
+\begin_inset Formula $P'$
+\end_inset
+
+ está contenido en uno de 
+\begin_inset Formula $P$
+\end_inset
+
+) y 
+\begin_inset Formula $f:R\rightarrow\mathbb{R}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+s(f,P)\leq s(f,P')\leq S(f,P')\leq S(f,P)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Obviamente 
+\begin_inset Formula $s(f,P')\leq S(f,P')$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $P$
+\end_inset
+
+ se divide en los subrectángulos 
+\begin_inset Formula $\{S_{i},\dots,S_{N}\}$
+\end_inset
+
+ y 
+\begin_inset Formula $P'$
+\end_inset
+
+ en 
+\begin_inset Formula $\{S'_{1},\dots,S'_{M}\}$
+\end_inset
+
+, dado un subrectángulo 
+\begin_inset Formula $S_{i}$
+\end_inset
+
+ de 
+\begin_inset Formula $P$
+\end_inset
+
+ que se expresa como unión de subrectángulos 
+\begin_inset Formula $S_{i1},\dots,S_{ik_{i}}$
+\end_inset
+
+ de 
+\begin_inset Formula $P'$
+\end_inset
+
+, es claro que para 
+\begin_inset Formula $j\in\{1,\dots,k_{i}\}$
+\end_inset
+
+, 
+\begin_inset Formula $m_{S}(f)=\inf\{f(x)\}_{x\in S_{i}}\leq m_{S_{ij}}(f)=\inf\{f(x)\}_{x\in S_{ij}}$
+\end_inset
+
+.
+ Por otro lado, 
+\begin_inset Formula $v(S_{i})=\sum_{j=1}^{k_{i}}v(S_{ij})$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $m_{S_{i}}(f)v(S_{i})=m_{S_{i}}(f)\sum_{j=1}^{k_{i}}v(S_{ij})=\sum_{j=1}^{k_{i}}m_{S_{i}}(f)v(S_{ij})\leq\sum_{j=1}^{k_{i}}m_{S_{ij}}(f)v(S_{ij})$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $s(f,P)=\sum_{i=1}^{N}m_{S_{i}}(f)v(S_{i})\leq\sum_{i=1}^{N}\sum_{j=1}^{k_{i}}m_{S_{ij}}(f)v(S_{ij})=\sum_{i=1}^{M}m_{S'_{i}}(f)v(S'_{i})=s(f,P')$
+\end_inset
+
+.
+ La prueba de que 
+\begin_inset Formula $S(f,P')\leq S(f,P)$
+\end_inset
+
+ se hace de forma análoga.
+\end_layout
+
+\begin_layout Standard
+Definimos las 
+\series bold
+integrales superior e inferior de Riemann
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $R$
+\end_inset
+
+, respectivamente, como
+\begin_inset Formula 
+\begin{eqnarray*}
+\overline{\int_{R}}f(x_{1},\dots,x_{n})dx_{1}\dots dx_{n} & := & \inf\{S(f,P)\}_{P\text{ partición de }R}\\
+\underline{\int_{R}}f(x_{1},\dots,x_{n})dx_{1}\dots dx_{n} & := & \sup\{s(f,P)\}_{P\text{ partición de }R}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo anterior, es claro que la integral inferior es siempre menor o igual
+ a la su
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+pe
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+rior.
+ Si son iguales decimos que 
+\begin_inset Formula $f$
+\end_inset
+
+ es 
+\series bold
+integrable Riemann
+\series default
+ en 
+\begin_inset Formula $R$
+\end_inset
+
+ (
+\begin_inset Formula $f\in{\cal R}(R)$
+\end_inset
+
+) con 
+\series bold
+integral
+\series default
+ 
+\begin_inset Formula $\int_{R}f(x_{1},\dots,x_{n})dx_{1}\dots dx_{n}$
+\end_inset
+
+ igual a estas dos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f\in{\cal R}(R)\iff\forall\varepsilon>0,\exists P_{\varepsilon}:S(f,P_{\varepsilon})-s(f,P_{\varepsilon})\leq\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Basta tomar 
+\begin_inset Formula $P$
+\end_inset
+
+ y 
+\begin_inset Formula $P'$
+\end_inset
+
+ con 
+\begin_inset Formula $S(f,P)\leq\int_{R}f(x_{1},\dots,x_{n})dx_{1}\dots dx_{n}+\frac{\varepsilon}{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $s(f,P')\geq\int_{R}f(x_{1},\dots,x_{n})dx_{1}\dots dx_{n}-\frac{\varepsilon}{2}$
+\end_inset
+
+ y quedarnos con la partición 
+\begin_inset Formula $P\lor P'$
+\end_inset
+
+ (
+\begin_inset Formula $\{P_{i}\lor P'_{i}\}_{i=1}^{n}$
+\end_inset
+
+).
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si se cumple 
+\begin_inset Formula $0\leq\overline{\int_{R}}f(x_{1},\dots,x_{n})dx_{1}\dots dx_{n}-\underline{\int_{R}}f(x_{1},\dots,x_{n})dx_{1}\dots dx_{n}\leq S(f,P_{\varepsilon})-s(f,P_{\varepsilon})\leq\varepsilon$
+\end_inset
+
+ para todo 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, haciendo tender 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ a 0 obtenemos la igualdad de las integrales superior e inferior.
+\end_layout
+
+\begin_layout Standard
+La integral es un operador lineal: sean 
+\begin_inset Formula $f,g\in{\cal R}(R)$
+\end_inset
+
+ y 
+\begin_inset Formula $c\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $f+g\in{\cal R}(R)$
+\end_inset
+
+ con 
+\begin_inset Formula $\int_{R}(f+g)(x_{1},\dots,x_{n})dx_{1}\dots dx_{n}=\int_{R}f(x_{1},\dots,x_{n})dx_{1}\dots dx_{n}+\int_{R}g(x_{1},\dots,x_{n})dx_{1}\dots dx_{n}$
+\end_inset
+
+, y 
+\begin_inset Formula $cf\in{\cal R}(R)$
+\end_inset
+
+ con 
+\begin_inset Formula $\int_{R}(cf)(x_{1},\dots,x_{n})dx_{1}\dots dx_{n}=c\int_{R}f(x_{1},\dots,x_{n})dx_{1}\dots dx_{n}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Se deriva de que para 
+\begin_inset Formula $S\subseteq R$
+\end_inset
+
+, 
+\begin_inset Formula $m_{S}(f)+m_{S}(g)\leq m_{S}(f+g)$
+\end_inset
+
+, 
+\begin_inset Formula $M_{S}(f+g)\leq M_{S}(f)+M_{S}(g)$
+\end_inset
+
+ y 
+\begin_inset Formula $M_{S}(cf)=cM_{S}(f)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+También es un operador positivo.
+ Sean 
+\begin_inset Formula $f,g\in{\cal R}(R)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall(x_{1},\dots,x_{n})\in R,f(x_{1},\dots,x_{n})\geq0\implies\int_{R}(x_{1},\dots,x_{n})dx_{1}\dots dx_{n}\geq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall(x_{1},\dots,x_{n})\in R,f(x_{1},\dots,x_{n})\geq g(x_{1},\dots,x_{n})\implies\int_{R}f(x_{1},\dots,x_{n})dx_{1}\dots dx_{n}\geq\int_{R}g(x_{1},\dots,x_{n})dx_{1}\dots dx_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $|f|\in{\cal R}(R)$
+\end_inset
+
+ y 
+\begin_inset Formula $\left|\int_{R}f(x_{1},\dots,x_{n})dx_{1}\dots dx_{n}\right|\leq\int_{R}|f(x_{1},\dots,x_{n})|dx_{1}\dots dx_{n}$
+\end_inset
+
+ (desigualdad triangular).
+\end_layout
+
+\begin_layout Standard
+Definimos la 
+\series bold
+oscilación
+\series default
+ de 
+\begin_inset Formula $f:R\rightarrow\mathbb{R}$
+\end_inset
+
+ en 
+\begin_inset Formula $S\subseteq R$
+\end_inset
+
+ como
+\begin_inset Formula 
+\[
+\text{osc}(f,S):=M_{S}(f)-m_{S}(f)=\sup\{|f(x)-f(y)|\}_{x,y\in S}
+\]
+
+\end_inset
+
+ y la oscilación de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $x\in R$
+\end_inset
+
+ como
+\begin_inset Formula 
+\[
+\text{osc}(f,x):=\inf\{\text{osc}(f,S\cap T)\}_{T\text{ rectángulo abierto centrado en }S}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vemos que 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $x$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\text{osc}(f,x)=0$
+\end_inset
+
+, y que para cada 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ y cada 
+\begin_inset Formula $x$
+\end_inset
+
+ donde 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua existe un cubo abierto 
+\begin_inset Formula $C_{x}(d_{x})$
+\end_inset
+
+ centrado en 
+\begin_inset Formula $x$
+\end_inset
+
+ con diámetro 
+\begin_inset Formula $d_{x}$
+\end_inset
+
+ donde la oscilación de 
+\begin_inset Formula $f$
+\end_inset
+
+ es menor que 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{TEM}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Toda 
+\begin_inset Formula $f:(X,d)\rightarrow(Y,d')$
+\end_inset
+
+ continua, siendo 
+\begin_inset Formula $(X,{\cal T}_{d})$
+\end_inset
+
+ compacto, es uniformemente continua.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, toda 
+\begin_inset Formula $f:R\rightarrow\mathbb{R}$
+\end_inset
+
+ continua definida en un rectángulo cerrado 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional 
+\begin_inset Formula $R$
+\end_inset
+
+ es integrable Riemann en 
+\begin_inset Formula $R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Conjuntos de contenido y de medida nula
+\end_layout
+
+\begin_layout Standard
+Un subconjunto 
+\begin_inset Formula $S\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ tiene 
+\series bold
+medida
+\series default
+ (
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional) 
+\series bold
+nula
+\series default
+ si para cada 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe una sucesión 
+\begin_inset Formula $(R_{k})_{k}$
+\end_inset
+
+ de rectángulos 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensionales cerrados tal que 
+\begin_inset Formula $S\subseteq\bigcup_{j=1}^{\infty}R_{j}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sum_{j=1}^{\infty}v(R_{j})<\varepsilon$
+\end_inset
+
+.
+ Sustituyendo los rectángulos cerrados por rectángulos abiertos obtenemos
+ el mismo concepto.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, sea 
+\begin_inset Formula $(R_{k})_{k}$
+\end_inset
+
+ la sucesión de cerrados que cumple las propiedades y 
+\begin_inset Formula $0<d<\varepsilon-\sum_{j=1}^{\infty}v(R_{j})$
+\end_inset
+
+.
+ Para cada rectángulo 
+\begin_inset Formula $R_{k}$
+\end_inset
+
+, tomamos un rectángulo abierto 
+\begin_inset Formula $R'_{k}\supseteq R_{k}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $v(R'_{k})\leq R_{k}+\frac{d}{2^{k+1}}$
+\end_inset
+
+, y vemos que, en efecto, 
+\begin_inset Formula $\sum_{j=1}^{\infty}v(R'_{j})\leq\sum_{j=1}^{\infty}v(R_{j})+\sum_{j=1}^{\infty}\frac{d}{2^{k+1}}<\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Fijado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, sea 
+\begin_inset Formula $(R_{k})_{k\in\mathbb{N}}$
+\end_inset
+
+ una sucesión de rectángulos abiertos que cumple las propiedades, vemos
+ que 
+\begin_inset Formula $N\subseteq\bigcup_{k\in\mathbb{N}}R_{k}\subseteq\bigcup_{k\in\mathbb{N}}\overline{R_{k}}$
+\end_inset
+
+ y que 
+\begin_inset Formula $\sum_{j=1}^{\infty}v(\overline{R_{j}})=\sum_{j=1}^{\infty}v(R_{j})<\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, la unión numerable de conjuntos de medida nula tiene medida nula.
+ 
+\series bold
+Demostración:
+\series default
+ Consideremos 
+\begin_inset Formula $\bigcup_{i=1}^{\infty}S_{i}$
+\end_inset
+
+.
+ Fijado 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, para cada 
+\begin_inset Formula $i\in\mathbb{N}$
+\end_inset
+
+ utilizamos que 
+\begin_inset Formula $S_{i}$
+\end_inset
+
+ es de medida nula para recubrirlo con una sucesión 
+\begin_inset Formula $\{R_{ij}\}_{j\in\mathbb{N}}$
+\end_inset
+
+ cuyos volúmenes suman menos que 
+\begin_inset Formula $\frac{\varepsilon}{2^{i}}$
+\end_inset
+
+.
+ Vemos que 
+\begin_inset Formula $\{R_{ij}\}_{i,j\in\mathbb{N}}$
+\end_inset
+
+ es numerable y podemos describirlo como una sucesión que recubre 
+\begin_inset Formula $N$
+\end_inset
+
+ y cuyos volúmenes suman menos que 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, pues 
+\begin_inset Formula $\sum_{i,j=1}^{\infty}v(R_{ij})=\sum_{i=1}^{\infty}(\sum_{j=1}^{\infty}v(R_{ij}))<\sum_{i=1}^{\infty}\frac{\varepsilon}{2^{i}}=\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un subconjunto 
+\begin_inset Formula $S\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ tiene 
+\series bold
+contenido
+\series default
+ (
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional) 
+\series bold
+nulo
+\series default
+ si para cada 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe una familia finita de rectángulos 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensionales cerrados que cumplen las mismas condiciones que los de la
+ definición de medida nula.
+ Es claro que todo conjunto de contenido nulo tiene medida nula.
+ Como 
+\series bold
+teorema
+\series default
+, todo compacto en 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ de medida nula es de contenido nulo; basta usar un cubrimiento con rectángulos
+ abiertos en la definición de medida nula y extraer un subrecubrimiento
+ finito por compacidad.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f:R\subseteq\mathbb{R}^{m}\rightarrow\mathbb{R}$
+\end_inset
+
+ es integrable Riemann en el rectángulo cerrado 
+\begin_inset Formula $R$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\text{graf}(f)$
+\end_inset
+
+ tiene contenido 
+\begin_inset Formula $(m+1)$
+\end_inset
+
+-dimensional nulo.
+\end_layout
+
+\begin_layout Subsection
+El conjunto de Cantor
+\end_layout
+
+\begin_layout Standard
+Consideremos el intervalo 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+, que dividimos en 3 subintervalos y eliminamos el subintervalo abierto
+ central, 
+\begin_inset Formula $(\frac{1}{3},\frac{2}{3})$
+\end_inset
+
+.
+ A continuación, de cada subintervalo cerrado restante, eliminamos el subinterva
+lo abierto central de longitud la tercera parte del subintervalo original.
+ Repitiendo este proceso indefinidamente lo que nos queda es el 
+\series bold
+conjunto de Cantor
+\series default
+, 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ Observamos que un número está en el conjunto de Cantor si y sólo si su
+ representación en base 3, 
+\begin_inset Formula $0.c_{1}c_{2}c_{3}\cdots c_{n}\cdots$
+\end_inset
+
+, contiene sólo los dígitos 0 y 2, teniendo en cuenta que el número puede
+ también acabar por una secuencia infinita de doses.
+ Teoremas:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C$
+\end_inset
+
+ es incontable, con igual cardinalidad que 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+La función 
+\begin_inset Formula $f:C\rightarrow[0,1]$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f(0.c_{1}c_{2}\cdots c_{n}\cdots_{(3)}):=0.\frac{c_{1}}{2}\frac{c_{2}}{2}\cdots\frac{c_{n}}{2}\cdots_{(2)}$
+\end_inset
+
+ es suprayectiva, luego 
+\begin_inset Formula $|C|\geq|[0,1]|$
+\end_inset
+
+, pero es claro que 
+\begin_inset Formula $|C|\leq|[0,1]|$
+\end_inset
+
+, luego 
+\begin_inset Formula $|C|=|[0,1]|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C$
+\end_inset
+
+ es de medida nula.
+\begin_inset Newline newline
+\end_inset
+
+Al principio 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+ tiene longitud 1, y es fácil ver que si en un 
+\begin_inset Quotes fld
+\end_inset
+
+paso
+\begin_inset Quotes frd
+\end_inset
+
+ de la construcción el conjunto resultante tiene longitud 
+\begin_inset Formula $n$
+\end_inset
+
+, en el siguiente tendrá longitud 
+\begin_inset Formula $\frac{2}{3}n$
+\end_inset
+
+.
+ Por tanto la longitud de 
+\begin_inset Formula $C$
+\end_inset
+
+ es 
+\begin_inset Formula $\lim_{n}\left(\frac{2}{3}\right)^{n}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C$
+\end_inset
+
+ no tiene puntos interiores.
+\begin_inset Newline newline
+\end_inset
+
+Como es de medida nula no contiene puntos de acumulación, pues para ello
+ debería contener intervalos, de medida no nula.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C$
+\end_inset
+
+ está acotado.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C$
+\end_inset
+
+ es cerrado.
+\begin_inset Newline newline
+\end_inset
+
+Es el resultado de quitar a un cerrado (
+\begin_inset Formula $[0,1]$
+\end_inset
+
+) un abierto (la unión de los abiertos eliminados en su construcción).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C$
+\end_inset
+
+ no tiene puntos aislados.
+\begin_inset Newline newline
+\end_inset
+
+Dado 
+\begin_inset Formula $x\in C$
+\end_inset
+
+ y 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, sea 
+\begin_inset Formula $n$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\frac{2}{3^{n}}<\varepsilon$
+\end_inset
+
+, existe un punto, el resultado de cambiar la cifra 
+\begin_inset Formula $n$
+\end_inset
+
+-ésima de 
+\begin_inset Formula $x$
+\end_inset
+
+ por un 2 si era un 0 o viceversa, cuya distancia a 
+\begin_inset Formula $x$
+\end_inset
+
+ es menor que 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Dados 
+\begin_inset Formula $a,b\in C$
+\end_inset
+
+ distintos, existe una partición 
+\begin_inset Formula $\{A,B\}$
+\end_inset
+
+ de 
+\begin_inset Formula $C$
+\end_inset
+
+ con 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ cerrados, 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in B$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Sea 
+\begin_inset Formula $n$
+\end_inset
+
+ la posición de una cifra (en base 3) en la que 
+\begin_inset Formula $a$
+\end_inset
+
+ y 
+\begin_inset Formula $b$
+\end_inset
+
+ difieren, basta hacer la partición según el valor de dicha cifra.
+\end_layout
+
+\begin_layout Subsection
+Caracterización
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $A\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ cerrado, si 
+\begin_inset Formula $f:A\rightarrow\mathbb{R}$
+\end_inset
+
+ es acotada y 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, 
+\begin_inset Formula $B:=\{x\in A:\text{osc}(f,x)\geq\varepsilon\}$
+\end_inset
+
+ es cerrado.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $x\in\mathbb{R}^{n}\backslash B$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $x\notin A$
+\end_inset
+
+, existe una bola de centro 
+\begin_inset Formula $x$
+\end_inset
+
+ que no interseca con 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $x\in A$
+\end_inset
+
+, existe un rectángulo abierto 
+\begin_inset Formula $C\ni x$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{osc}(f,c)<\varepsilon$
+\end_inset
+
+, y para 
+\begin_inset Formula $y\in C$
+\end_inset
+
+ existe 
+\begin_inset Formula $\delta_{y}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $\Vert z-y\Vert<\delta_{y}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\Vert x-z\Vert<\delta$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\text{osc}(f,y)<\varepsilon$
+\end_inset
+
+ y 
+\begin_inset Formula $C\subseteq\mathbb{R}^{n}\backslash B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+teorema de Lebesgue de caracterización de las funciones integrables
+\series default
+ afirma que si 
+\begin_inset Formula $R$
+\end_inset
+
+ es un rectángulo 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional cerrado y 
+\begin_inset Formula $f:R\rightarrow\mathbb{R}$
+\end_inset
+
+ es acotada, entonces 
+\begin_inset Formula $f\in{\cal R}(R)$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $B:=\{x\in R:f\text{ no es continua en }x\}$
+\end_inset
+
+ tiene medida nula.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $B_{k}:=\{x\in R:o(f,x)\geq\frac{1}{k}\}$
+\end_inset
+
+, basta probar que cada 
+\begin_inset Formula $B_{k}$
+\end_inset
+
+ tiene medida nula dado que 
+\begin_inset Formula $B=\bigcup_{k\in\mathbb{N}}B_{k}$
+\end_inset
+
+.
+ Dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, sean 
+\begin_inset Formula $P$
+\end_inset
+
+ una partición de 
+\begin_inset Formula $R$
+\end_inset
+
+ con 
+\begin_inset Formula $S(f,P)-s(f,P)<\frac{\varepsilon}{k}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ el conjunto de subrectángulos de 
+\begin_inset Formula $P$
+\end_inset
+
+ que cortan a 
+\begin_inset Formula $B_{k}$
+\end_inset
+
+ , entonces para 
+\begin_inset Formula $S\in{\cal S}$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $M_{S}(f)-m_{S}(f)\geq\frac{1}{k}$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+\frac{1}{k}\sum_{S\in{\cal S}}v(S)\leq\sum_{S\in{\cal S}}(M_{S}(f)-m_{S}(f))v(S)\leq S(f,P)-s(f,P)<\frac{\varepsilon}{k}
+\]
+
+\end_inset
+
+con lo que 
+\begin_inset Formula $\sum_{S\in{\cal S}}v(S)<\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Fijado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, sea 
+\begin_inset Formula $K$
+\end_inset
+
+ tal que 
+\begin_inset Formula $|f(x)|\leq K\forall x\in R$
+\end_inset
+
+, y tenemos que 
+\begin_inset Formula $M_{N}(f)-m_{N}(f)\leq2K\forall N\subseteq R$
+\end_inset
+
+.
+ Consideramos el conjunto de puntos donde 
+\begin_inset Formula $\text{osc}(f,x)\geq\frac{\varepsilon}{2v(R)}$
+\end_inset
+
+, un cerrado de medida nula y por tanto un compacto de contenido nulo, que
+ podemos cubrir con una cantidad finita de abiertos 
+\begin_inset Formula $N_{k}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $\sum_{k}v(N_{k})<\frac{\varepsilon}{4K}$
+\end_inset
+
+, y por tanto 
+\begin_inset Formula $\sum_{k}\text{osc}(N_{k},f)v(N_{k})<2K\cdot\frac{\varepsilon}{4K}=\frac{\varepsilon}{2}$
+\end_inset
+
+.
+ Es claro que 
+\begin_inset Formula $C:=R\backslash\bigcup_{k}N_{k}$
+\end_inset
+
+ es compacto, y como para cada 
+\begin_inset Formula $x\in C$
+\end_inset
+
+ podemos tomar un 
+\begin_inset Formula $S_{x}$
+\end_inset
+
+ abierto tal que 
+\begin_inset Formula $\text{osc}(f,S_{x})<\frac{\varepsilon}{2v(R)}$
+\end_inset
+
+, existe un subrecubrimiento finito 
+\begin_inset Formula $S_{x_{i}}$
+\end_inset
+
+ a partir de este, de modo que 
+\begin_inset Formula $\sum_{i}\text{osc}(f,S_{x_{i}})v(S_{x_{i}})<\frac{\varepsilon}{2v(R)}\cdot v(R)=\frac{\varepsilon}{2}$
+\end_inset
+
+ La partición 
+\begin_inset Formula $P$
+\end_inset
+
+ cuyos subintervalos están contenidos bien en un rectángulo 
+\begin_inset Formula $S_{x_{i}}$
+\end_inset
+
+ o 
+\begin_inset Formula $N_{k}$
+\end_inset
+
+ cumple que 
+\begin_inset Formula $S(f,P)-s(f,P)\leq\sum_{k}\text{osc}(f,N_{k})v(N_{k})+\sum_{i}\text{osc}(f,S_{x_{i}})v(S_{x_{i}})<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Conjuntos medibles Jordan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ acotado es 
+\series bold
+medible Jordan
+\series default
+ si su 
+\series bold
+función característica
+\series default
+,
+\begin_inset Formula 
+\[
+\chi_{A}(x):=\begin{cases}
+1 & \text{si }x\in A\\
+0 & \text{si }x\notin A
+\end{cases}
+\]
+
+\end_inset
+
+ es integrable Riemann en un rectángulo cerrado 
+\begin_inset Formula $R\supseteq A$
+\end_inset
+
+, y se define el 
+\series bold
+volumen
+\series default
+ 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional de 
+\begin_inset Formula $A$
+\end_inset
+
+ como
+\begin_inset Formula 
+\[
+v(A):=\int_{R}\chi_{A}(x_{1},\dots,x_{n})dx_{1}\cdots dx_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Equivalentemente, 
+\begin_inset Formula $A$
+\end_inset
+
+ es medible Jordan si y sólo si su frontera, 
+\begin_inset Formula $\partial A=\overline{A}\backslash\mathring{A}$
+\end_inset
+
+, tiene medida nula.
+ Se dice que una función acotada 
+\begin_inset Formula $f:A\rightarrow\mathbb{R}$
+\end_inset
+
+ es integrable Riemann en 
+\begin_inset Formula $A$
+\end_inset
+
+ si 
+\begin_inset Formula $f\chi_{A}\in{\cal R}(R)$
+\end_inset
+
+.
+ Por ejemplo, si 
+\begin_inset Formula $N$
+\end_inset
+
+ tiene contenido nulo y 
+\begin_inset Formula $f:N\rightarrow\mathbb{R}$
+\end_inset
+
+ es acotada, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es integrable Riemann en 
+\begin_inset Formula $N$
+\end_inset
+
+ y 
+\begin_inset Formula $\int_{N}f(x)dx=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Teorema de Fubini
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $R_{1}\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $R_{2}\subseteq\mathbb{R}^{m}$
+\end_inset
+
+ rectángulos cerrados de dimensiones respectivas 
+\begin_inset Formula $n$
+\end_inset
+
+ y 
+\begin_inset Formula $m$
+\end_inset
+
+, 
+\begin_inset Formula $R=R_{1}\times R_{2}\subseteq\mathbb{R}^{n+m}$
+\end_inset
+
+ un rectángulo cerrado 
+\begin_inset Formula $(n+m)$
+\end_inset
+
+-dimensional y 
+\begin_inset Formula $f:R\rightarrow\mathbb{R}$
+\end_inset
+
+ una función acotada.
+ Para cada 
+\begin_inset Formula $x\in R_{1}$
+\end_inset
+
+ definimos 
+\begin_inset Formula $lf_{x}:R_{2}\rightarrow\mathbb{R}$
+\end_inset
+
+ como 
+\begin_inset Formula $lf_{x}(y):=f(x,y)$
+\end_inset
+
+, 
+\begin_inset Formula $s_{lf}(x):=\underline{\int_{R_{2}}}lf_{x}(y_{1},\dots,y_{m})dy_{1}\cdots dy_{m}$
+\end_inset
+
+ y 
+\begin_inset Formula $S_{lf}(x):=\overline{\int_{R_{2}}}lf_{x}(y_{1},\dots,y_{m})dy_{1}\cdots dy_{m}$
+\end_inset
+
+, y para cada 
+\begin_inset Formula $y\in R_{2}$
+\end_inset
+
+ definimos 
+\begin_inset Formula $rf_{y}(x):=f(x,y)$
+\end_inset
+
+, 
+\begin_inset Formula $s_{rf}(y):=\int_{R_{1}}rf_{y}(x_{1},\dots,x_{n})dx_{1}\cdots dx_{m}$
+\end_inset
+
+ y 
+\begin_inset Formula $S_{rf}(y):=\overline{\int_{R_{1}}}rf_{y}(x_{1},\dots,x_{n})dx_{1}\cdots dx_{m}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $f\in{\cal R}(R)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $s_{lf},S_{lf}\in{\cal R}(R_{1})$
+\end_inset
+
+, 
+\begin_inset Formula $s_{rf},S_{rf}\in{\cal R}(R_{2})$
+\end_inset
+
+ y
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{multline*}
+\int_{R}f(x_{1},\dots,x_{n},y_{1},\dots,y_{m})dx_{1}\cdots dx_{n}dy_{1}\cdots dy_{m}=\\
+=\int_{R_{1}}s_{lf}(x_{1},\dots,x_{n})dx_{1}\cdots dx_{n}=\int_{R_{1}}S_{lf}(x_{1},\dots,x_{n})dx_{1}\cdots dx_{n}=\\
+=\int_{R_{2}}s_{rf}(y_{1},\dots,y_{m})dy_{1}\cdots dy_{m}=\int_{R_{2}}S_{rf}(y_{1},\dots,y_{m})dy_{1}\cdots dy_{m}
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la práctica esto significa que
+\begin_inset Formula 
+\[
+\int_{R}f(\vec{x},\vec{y})d\vec{x}d\vec{y}=\int_{R_{1}}\left(\int_{R_{2}}f(\vec{x},\vec{y})d\vec{y}\right)d\vec{x}=\int_{R_{2}}\left(\int_{R_{1}}f(\vec{x},\vec{y})d\vec{x}\right)d\vec{y}
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $d\vec{x}:=dx_{1}\cdots dx_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $d\vec{y}:=dy_{1}\cdots dy_{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{FUVR2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Cálculo de primitivas
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int u^{n}u'\,dx=\frac{u^{n+1}}{n+1}+C\forall n\neq-1$
+\end_inset
+
+; 
+\begin_inset Formula $\int\frac{u'}{u}dx=\ln|u|+C\forall u\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int e^{u}u'\,dx=e^{u}+C$
+\end_inset
+
+; 
+\begin_inset Formula $\int a^{u}u'\,dx=\frac{a^{u}}{\ln a}+C\forall a>0,a\neq1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\cos u\,u'\,dx=\sin u+C$
+\end_inset
+
+; 
+\begin_inset Formula $\int\sin u\,u'\,dx=-\cos u+C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\cosh u\,u'\,dx=\sinh u+C$
+\end_inset
+
+; 
+\begin_inset Formula $\int\sinh u\,u'\,dx=\cosh u+C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\frac{u'}{\sin^{2}u}dx=\int\frac{u'}{\sinh^{2}u}dx=-\cot u+C$
+\end_inset
+
+; 
+\begin_inset Formula $\int\frac{u'}{\cos^{2}u}dx=\int\frac{u'}{\cosh^{2}u}dx=\tan u+C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\frac{u'}{1+u^{2}}dx=\arctan u+C$
+\end_inset
+
+; 
+\begin_inset Formula $\int\frac{u'}{1-u^{2}}dx=\arg\tanh u+C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\frac{u'}{\sqrt{1-u^{2}}}dx=\arcsin u+C=-\arccos u+C'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\frac{u'}{\sqrt{u^{2}+1}}dx=\arg\sinh u+C$
+\end_inset
+
+; 
+\begin_inset Formula $\int\frac{u'}{\sqrt{u^{2}-1}}dx=\arg\cosh u+C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\backslash
+sremember{FUVR2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\cosh(x)=\frac{e^{x}+e^{-x}}{2} &  & \arg\cosh(x)=\ln(x+\sqrt{x^{2}-1})\\
+\sinh(x)=\frac{e^{x}-e^{-x}}{2} &  & \arg\sinh(x)=\ln(x+\sqrt{x^{2}+1})\\
+\cosh^{2}(x)-\sinh^{2}(x)=1 &  & \arg\tanh(x)=\frac{1}{2}\ln\frac{1+x}{1-x}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Integración por partes
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $f,g\in{\cal R}[a,b]$
+\end_inset
+
+ con primitivas respectivas 
+\begin_inset Formula $F$
+\end_inset
+
+ y 
+\begin_inset Formula $G$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\int_{a}^{b}Fg=F(b)G(b)-F(a)G(a)-\int_{a}^{b}fG
+\]
+
+\end_inset
+
+lo que suele escribirse como 
+\begin_inset Formula $\int u\,dv=uv-\int v\,du$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Cambio de variable
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, sea 
+\begin_inset Formula $\varphi:[c,d]\rightarrow[a,b]\in{\cal C}^{1}[c,d]$
+\end_inset
+
+ con 
+\begin_inset Formula $\varphi(c)=a$
+\end_inset
+
+ y 
+\begin_inset Formula $\varphi(d)=b$
+\end_inset
+
+, sea 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ continua, entonces
+\begin_inset Formula 
+\[
+\int_{a}^{b}f=\int_{c}^{d}(f\circ\varphi)\varphi'
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Funciones racionales
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $P(x)$
+\end_inset
+
+ y 
+\begin_inset Formula $Q(x)$
+\end_inset
+
+ polinomios y queremos resolver 
+\begin_inset Formula $\int_{a}^{b}\frac{P(x)}{Q(x)}dx$
+\end_inset
+
+.
+ Si el grado de 
+\begin_inset Formula $P(x)$
+\end_inset
+
+ es mayor o igual que el de 
+\begin_inset Formula $Q(x)$
+\end_inset
+
+ hacemos 
+\begin_inset Formula $\int_{a}^{b}\frac{P(x)}{Q(x)}dx=\int C(x)dx+\int\frac{R(x)}{Q(x)}dx$
+\end_inset
+
+ para que el grado del numerador sea menor que el del denominador.
+ Entonces descomponemos en fracciones simples.
+\end_layout
+
+\begin_layout Standard
+Descomponemos 
+\begin_inset Formula $Q(x)$
+\end_inset
+
+ como 
+\begin_inset Formula $Q(x)=\prod_{i=1}^{r}(x-a_{i})^{m_{i}}\prod_{i=1}^{s}(x^{2}+p_{i}x+q_{i})^{n_{i}}$
+\end_inset
+
+, donde 
+\begin_inset Formula $q_{i}>\frac{p_{i}^{2}}{4}$
+\end_inset
+
+ para que los factores sean irreducibles.
+ Entonces (si el grado de 
+\begin_inset Formula $P(x)$
+\end_inset
+
+ es menor que el de 
+\begin_inset Formula $Q(x)$
+\end_inset
+
+) podemos expresar la fracción como
+\begin_inset Formula 
+\[
+\frac{P(x)}{Q(x)}=\sum_{i=1}^{r}\sum_{j=1}^{m_{i}}\frac{A_{ij}}{(x-a_{i})^{j}}+\sum_{i=1}^{M}\sum_{j=1}^{n_{i}}\frac{M_{ij}x+N_{ij}}{(x^{2}+p_{i}x+q_{i})^{j}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Resolvemos los 
+\begin_inset Formula $A_{k,i}$
+\end_inset
+
+, 
+\begin_inset Formula $M_{k,i}$
+\end_inset
+
+, 
+\begin_inset Formula $N_{k,i}$
+\end_inset
+
+ y nos queda hallar la integral de cada sumando como sigue:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\frac{A}{x-a}dx=A\ln|x-a|+C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\frac{A}{(x-a)^{n}}dx=-\frac{A}{(n-1)(x-a)^{n-1}}+C$
+\end_inset
+
+, donde 
+\begin_inset Formula $n\in2,3,\dots$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\backslash
+sremember{FUVR2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\frac{Mx+N}{x^{2}+px+q}dx=\frac{M}{2}\ln\left(\left(x+\frac{p}{2}\right)^{2}+c^{2}\right)+\frac{N-\frac{Mp}{2}}{c}\arctan\left(\frac{x+\frac{p}{2}}{c}\right)+C$
+\end_inset
+
+, donde 
+\begin_inset Formula $c=\frac{\sqrt{4q-p^{2}}}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Funciones que contienen 
+\begin_inset Formula $\cos x$
+\end_inset
+
+ y 
+\begin_inset Formula $\sin x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En general, haremos 
+\begin_inset Formula $t=\tan\frac{x}{2}$
+\end_inset
+
+ y entonces
+\begin_inset Formula 
+\begin{eqnarray*}
+\cos x=\frac{\cos(2\frac{x}{2})}{\sin^{2}\frac{x}{2}+\cos^{2}\frac{x}{2}}=\frac{\cos^{2}\frac{x}{2}-\sin^{2}\frac{x}{2}}{\sin^{2}\frac{x}{2}+\cos^{2}\frac{x}{2}} & \overset{\text{div. }\cos^{2}\frac{x}{2}}{=} & \frac{1-\tan^{2}\frac{x}{2}}{\tan^{2}\frac{x}{2}+1}=\frac{1-t^{2}}{1+t^{2}}\\
+\sin x=\frac{\sin(2\frac{x}{2})}{\sin^{2}\frac{x}{2}+\cos^{2}\frac{x}{2}}=\frac{2\sin\frac{x}{2}\cos\frac{x}{2}}{\sin^{2}\frac{x}{2}+\cos^{2}\frac{x}{2}} & \overset{\text{div. }\cos^{2}\frac{x}{2}}{=} & \frac{2\tan\frac{x}{2}}{\tan^{2}\frac{x}{2}+1}=\frac{2t}{1+t^{2}}\\
+x=2\arctan t & \text{ y } & dx=\frac{2}{1+t^{2}}dt
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si la función es de la forma 
+\begin_inset Formula $f(x)=g(\sin x)\cos x$
+\end_inset
+
+, siendo 
+\begin_inset Formula $g$
+\end_inset
+
+ una función racional, hacemos 
+\begin_inset Formula $t=\sin x$
+\end_inset
+
+, y si es 
+\begin_inset Formula $f(x)=g(\cos x)\sin x$
+\end_inset
+
+ hacemos 
+\begin_inset Formula $t=\cos x$
+\end_inset
+
+.
+ Si es 
+\begin_inset Formula $f(x)=g(\tan x)$
+\end_inset
+
+ hacemos 
+\begin_inset Formula $\tan x=t$
+\end_inset
+
+, y podemos llegar a esta situación cuando al sustituir 
+\begin_inset Formula $\sin x$
+\end_inset
+
+ por 
+\begin_inset Formula $\cos x\tan x$
+\end_inset
+
+ quedan solo potencias pares de 
+\begin_inset Formula $\cos x$
+\end_inset
+
+, y hacemos 
+\begin_inset Formula $\cos^{2}x=\frac{1}{1+\tan^{2}x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En el caso 
+\begin_inset Formula $f(x)=\cos^{n}x\sin^{m}x$
+\end_inset
+
+, si 
+\begin_inset Formula $n$
+\end_inset
+
+ es impar hacemos 
+\begin_inset Formula $t=\sin x$
+\end_inset
+
+, si 
+\begin_inset Formula $m$
+\end_inset
+
+ es impar, 
+\begin_inset Formula $t=\cos x$
+\end_inset
+
+, y si ambos son pares, usamos 
+\begin_inset Formula $\cos^{2}x=\frac{1+\cos(2x)}{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sin^{2}x=\frac{1-\cos(2x)}{2}$
+\end_inset
+
+ para 
+\begin_inset Quotes cld
+\end_inset
+
+reducir el grado
+\begin_inset Quotes crd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Funciones de la forma 
+\begin_inset Formula $f(e^{x})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hacemos el cambio 
+\begin_inset Formula $t=e^{x}$
+\end_inset
+
+ y 
+\begin_inset Formula $dt=e^{x}dx$
+\end_inset
+
+, y esto también sirve para el coseno y seno hiperbólicos (
+\begin_inset Formula $\cosh$
+\end_inset
+
+ y 
+\begin_inset Formula $\sinh$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Funciones que contienen 
+\begin_inset Formula $\sqrt{ax^{2}+2bx+c}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\begin_inset Formula $d:=\frac{ac-b^{2}}{a}$
+\end_inset
+
+ y se tiene 
+\begin_inset Formula $ax^{2}+2bx+c=a\left(x+\frac{b}{a}\right)^{2}+d$
+\end_inset
+
+.
+ Hacemos entonces el cambio de variable 
+\begin_inset Formula $t=x+\frac{b}{a}$
+\end_inset
+
+ y a continuación:
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a>0$
+\end_inset
+
+ y 
+\begin_inset Formula $d>0$
+\end_inset
+
+ hacemos 
+\begin_inset Formula $at^{2}=d\tan^{2}u$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $\sqrt{at^{2}+d}=[...]\sqrt{d}\sec u$
+\end_inset
+
+ y 
+\begin_inset Formula $dt=\sqrt{\frac{d}{a}}\sec^{2}u\,du$
+\end_inset
+
+.
+ También podemos hacer 
+\begin_inset Formula $at^{2}=d\sinh^{2}u$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $\sqrt{at^{2}+d}=[...]\sqrt{d}\cosh u$
+\end_inset
+
+ y 
+\begin_inset Formula $dt=\sqrt{\frac{d}{a}}\cosh u\,du$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a>0$
+\end_inset
+
+ y 
+\begin_inset Formula $d<0$
+\end_inset
+
+ hacemos 
+\begin_inset Formula $at^{2}=-d\sec^{2}u$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $\sqrt{at^{2}+d}=[...]\sqrt{-d}\tan u$
+\end_inset
+
+ y 
+\begin_inset Formula $dt=\sqrt{-\frac{d}{a}}\sec u\tan u\,du$
+\end_inset
+
+.
+ También podemos hacer 
+\begin_inset Formula $at^{2}=-d\cosh^{2}u$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $\sqrt{at^{2}+d}=[...]\sqrt{-d}\sinh u$
+\end_inset
+
+ y 
+\begin_inset Formula $dt=\sqrt{-\frac{d}{a}}\sinh u\,du$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\backslash
+sremember{FUVR2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a<0$
+\end_inset
+
+ y 
+\begin_inset Formula $d>0$
+\end_inset
+
+ hacemos 
+\begin_inset Formula $at^{2}=-d\sin^{2}u$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $\sqrt{at^{2}+d}=[..]\sqrt{d}\cos u$
+\end_inset
+
+ y 
+\begin_inset Formula $dt=\sqrt{-\frac{d}{a}}\cos u\,du$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Cambio de variable
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ un abierto y 
+\begin_inset Formula $T:\Omega\subseteq\mathbb{R}^{n}\rightarrow\mathbb{R}^{n}$
+\end_inset
+
+, llamamos 
+\series bold
+jacobiano
+\series default
+ de 
+\begin_inset Formula $T$
+\end_inset
+
+ en 
+\begin_inset Formula $a\in\Omega$
+\end_inset
+
+ a la matriz cuadrada asociada a 
+\begin_inset Formula $dT(a)$
+\end_inset
+
+, 
+\begin_inset Formula $\left(\frac{\partial T_{i}}{\partial x_{j}}(a)\right)_{ij}$
+\end_inset
+
+.
+ El 
+\series bold
+teorema de cambio de variable
+\series default
+ afirma que si 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ es un abierto medible Jordan y 
+\begin_inset Formula $T:\Omega\rightarrow\mathbb{R}^{n}$
+\end_inset
+
+ es una función inyectiva diferenciable con derivadas parciales continuas
+ tal que 
+\begin_inset Formula $\forall x\in\Omega,\det(dg(x))\neq0$
+\end_inset
+
+, si 
+\begin_inset Formula $f:T(\Omega)\rightarrow\mathbb{R}$
+\end_inset
+
+ es integrable Riemann en 
+\begin_inset Formula $T(\Omega)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f\circ T$
+\end_inset
+
+ es integrable Riemann en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+\int_{g(A)}f(\vec{x})d\vec{x}=\int f(T(\vec{y}))|\det(dg(\vec{y}))|d\vec{y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algunos cambios de variable importantes:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Coordenadas polares
+\series default
+ en 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+: Los puntos vienen dados por la distancia al origen, y el ángulo entre
+ el eje OX y el vector desde el origen al punto.
+ La función de cambio de variable es 
+\begin_inset Formula $T(\rho,\theta)=(\rho\cos\theta,\rho\sin\theta)$
+\end_inset
+
+, inyectiva en cualquier banda de la forma 
+\begin_inset Formula $(0,+\infty)\times(a,b)$
+\end_inset
+
+ con 
+\begin_inset Formula $b-a\leq2\pi$
+\end_inset
+
+, y
+\begin_inset Formula 
+\[
+|dT(\rho,\theta)|=\left|\begin{array}{cc}
+\cos\theta & -\rho\sin\theta\\
+\sin\theta & \rho\cos\theta
+\end{array}\right|=\rho
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Coordenadas cilíndricas
+\series default
+ en 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+: Los puntos vienen dados por las coordenadas de 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ en polares y la coordenada 
+\begin_inset Formula $z$
+\end_inset
+
+.
+ La función de cambio es 
+\begin_inset Formula $T(\rho,\theta,z)=(\rho\cos\theta,\rho\sin\theta,z)$
+\end_inset
+
+, inyectiva en cualquier banda de la forma 
+\begin_inset Formula $(0,+\infty)\times(a,b)\times\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $b-a\leq2\pi$
+\end_inset
+
+, y
+\begin_inset Formula 
+\[
+|dT(\rho,\theta,z)|=\left|\begin{array}{ccc}
+\cos\theta & -\rho\sin\theta & 0\\
+\sin\theta & \rho\cos\theta & 0\\
+0 & 0 & 1
+\end{array}\right|=\rho
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Coordenadas esféricas
+\series default
+ o 
+\series bold
+polares
+\series default
+ en 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+: Los puntos vienen dados por la distancia al origen; el ángulo entre el
+ eje OX y la proyección en el plano XY del vector del origen al punto, y
+ el ángulo entre el eje OZ y el vector del origen al punto.
+ La función de cambio es 
+\begin_inset Formula $T(\rho,\theta,\varphi)=(\rho\cos\theta\sin\varphi,\rho\sin\theta\sin\varphi,\rho,\rho\cos\varphi)$
+\end_inset
+
+, inyectiva en cualquier banda de la forma 
+\begin_inset Formula $(0,+\infty)\times(a,b)\times(0,\pi)$
+\end_inset
+
+ con 
+\begin_inset Formula $b-a\leq2\pi$
+\end_inset
+
+, y
+\begin_inset Formula 
+\[
+|dT(\rho,\theta,\varphi)|=\left|\begin{array}{ccc}
+\cos\theta\sin\varphi & -\rho\sin\theta\sin\varphi & \rho\cos\theta\cos\varphi\\
+\sin\theta\sin\varphi & \rho\cos\theta\sin\varphi & \rho\sin\theta\cos\varphi\\
+\cos\varphi & 0 & -\rho\sin\varphi
+\end{array}\right|=\rho^{2}\sin\varphi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+La integral de Riemann-Stieltjes
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $f,\varphi:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $P=\{a=t_{0}<\dots<t_{n}=b\}$
+\end_inset
+
+ una partición del intervalo, llamamos 
+\series bold
+suma de Riemann-Stieltjes
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ con respecto a 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ asociada a la partición 
+\begin_inset Formula $P$
+\end_inset
+
+ a cualquier suma de la forma
+\begin_inset Formula 
+\[
+R(f,\varphi,P,\{\xi_{i}\})=\sum_{i=1}^{n}f(\xi_{i})(\varphi(t_{i})-\varphi(t_{i-1}))
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $\xi_{i}\in[t_{i-1},t_{i}]\forall i\in\{1,\dots,n\}$
+\end_inset
+
+.
+ Si existe el límite de estas sumas cuando 
+\begin_inset Formula $|P|:=\sup\{t_{i}-t_{i-1}\}_{i=1}^{n}$
+\end_inset
+
+ tiende a 0 se dice que 
+\begin_inset Formula $f$
+\end_inset
+
+ es 
+\series bold
+integrable en el sentido de Riemann-Stieltjes
+\series default
+ con respecto a 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ en el intervalo 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+, y a este límite lo llamamos 
+\series bold
+integral de Riemann-Stieltjes
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ con respecto a 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+, denotado como
+\begin_inset Formula 
+\[
+\int_{a}^{b}f(x)d\varphi(x)=\int_{a}^{b}f\,d\varphi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vemos que si 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ es la identidad entonces la integral es exactamente la de Riemann.
+ Denotamos 
+\begin_inset Formula $\lambda_{\varphi}([a,b]):=\varphi(b)-\varphi(a)$
+\end_inset
+
+.
+ Para que esta medida sea positiva es necesario que 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ sea creciente.
+ Una función 
+\begin_inset Formula $\varphi:D\subseteq\mathbb{R}\rightarrow\mathbb{R}$
+\end_inset
+
+ es 
+\series bold
+continua por la derecha
+\series default
+ en 
+\begin_inset Formula $c\in D$
+\end_inset
+
+ si 
+\begin_inset Formula $\lim_{x\rightarrow c^{+}}\varphi(x)=\varphi(c)$
+\end_inset
+
+.
+ Si se quiere que 
+\begin_inset Formula $\lambda_{\varphi}$
+\end_inset
+
+ se comporte bien al hacer uniones crecientes o intersecciones decrecientes
+ de intervalos, es necesario que 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ sea continua por la derecha.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f$
+\end_inset
+
+ es integrable Riemann-Stieltjes con respecto a 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\forall\varepsilon>0,\exists\delta>0:\forall P,Q\in[a,b],(|P|,|Q|<\delta\implies|R(f,\varphi,P)-R(f,\varphi,Q)|<\varepsilon)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $|P|<\delta$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\left|R(f,\varphi,P)-\int_{a}^{b}f\,d\varphi\right|<\frac{\varepsilon}{2}$
+\end_inset
+
+, pero si 
+\begin_inset Formula $P$
+\end_inset
+
+ y 
+\begin_inset Formula $Q$
+\end_inset
+
+ son son particiones de 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ con 
+\begin_inset Formula $|P|,|Q|<\delta$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+|R(f,\varphi,P)-R(f,\varphi,Q)|\leq\left|R(f,\varphi,P)-\int_{a}^{b}f\,d\varphi\right|+\left|\int_{a}^{b}f\,d\varphi-R(f,\varphi,Q)\right|<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dada una sucesión de particiones 
+\begin_inset Formula $(P_{k})_{k}$
+\end_inset
+
+ de 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ con 
+\begin_inset Formula $|P_{k}|\rightarrow0$
+\end_inset
+
+, por la condición se tiene que 
+\begin_inset Formula $(R(f,\varphi,P_{k}))_{k}$
+\end_inset
+
+ es de Cauchy y por tanto converge hacia un 
+\begin_inset Formula $I\in\mathbb{R}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ es monótona creciente definida en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es integrable Riemann-Stieltjes respecto a 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Al ser 
+\begin_inset Formula $f$
+\end_inset
+
+ continua en un compacto, es uniformemente continua, luego para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $|x-y|<\delta$
+\end_inset
+
+ entonces 
+\begin_inset Formula $|f(x)-f(y)|<\frac{\varepsilon}{\varphi(b)-\varphi(a)}$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $P:=\{a=x_{0}<\dots<x_{n}=b\}$
+\end_inset
+
+ y 
+\begin_inset Formula $Q:=\{a=y_{0}<\dots<y_{m}=b\}$
+\end_inset
+
+ particiones con 
+\begin_inset Formula $|P|,|Q|<\frac{\delta}{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $P\lor Q=:\{a=t_{0}<\dots<t_{p}=b\}$
+\end_inset
+
+, podemos escribir las sumas de Riemann-Stieltjes asociadas a 
+\begin_inset Formula $P$
+\end_inset
+
+ y 
+\begin_inset Formula $Q$
+\end_inset
+
+ como 
+\begin_inset Formula $R(f,\varphi,P)=\sum_{i=1}^{n}f(\chi_{i})(\varphi(x_{i})-\varphi(x_{i-1}))=\sum_{j=1}^{p}f(\chi_{j}^{*})(\varphi(t_{j})-\varphi(t_{j-1}))$
+\end_inset
+
+ y 
+\begin_inset Formula $R(f,\varphi,Q)=\sum_{k=1}^{m}f(\eta_{i})(\varphi(y_{k})-\varphi(y_{k-1}))=\sum_{j=1}^{p}f(\eta_{j}^{*})(\varphi(t_{j})-\varphi(t_{j-1}))$
+\end_inset
+
+, respectivamente, donde 
+\begin_inset Formula $\chi_{j}^{*}=\chi_{i}$
+\end_inset
+
+ si 
+\begin_inset Formula $[t_{j-1},t_{j}]\subseteq[x_{i-1},x_{i}]$
+\end_inset
+
+ y 
+\begin_inset Formula $\eta_{j}^{*}=\eta_{k}$
+\end_inset
+
+ si 
+\begin_inset Formula $[t_{j-1},t_{j}]\subseteq[y_{k-1},y_{k}]$
+\end_inset
+
+.
+ De aquí, 
+\begin_inset Formula $|\chi_{j}^{*}-\eta_{j}^{*}|\leq|\chi_{j}^{*}-t_{j}|+|t_{j}-\eta_{j}^{*}|<\frac{\delta}{2}+\frac{\delta}{2}=\delta$
+\end_inset
+
+, y con esto 
+\begin_inset Formula 
+\begin{multline*}
+|R(f,\varphi,P)-R(f,\varphi,Q)|\leq\sum_{j=1}^{p}|f(\chi_{j}^{*})-f(\eta_{j}^{*})|(\varphi(t_{j})-\varphi(t_{j-1}))<\\
+<\sum_{j=1}^{p}\frac{\varepsilon}{\varphi(b)-\varphi(a)}(\varphi(t_{j})-\varphi(t_{j-1}))=\frac{\varepsilon}{\varphi(b)-\varphi(a)}(\varphi(b)-\varphi(a))=\varepsilon
+\end{multline*}
+
+\end_inset
+
+Por tanto si 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ es una función creciente de clase 
+\begin_inset Formula ${\cal C}^{1}$
+\end_inset
+
+ en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+, se cumple que
+\begin_inset Formula 
+\[
+\int_{a}^{b}f(x)d\varphi(x)=\int_{a}^{b}f(x)\varphi'(x)dx
+\]
+
+\end_inset
+
+ Propiedades: Dadas 
+\begin_inset Formula $f,g:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ integrables Riemann-Stieltjes en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ respecto a 
+\begin_inset Formula $\varphi,\psi:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda\in\mathbb{R}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\int_{a}^{b}(\lambda f)d\varphi=\int_{a}^{b}f\,d(\lambda\varphi)=\lambda\int_{a}^{b}f\,d\varphi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\int_{a}^{b}(f+g)d\varphi=\int_{a}^{b}f\,d\varphi+\int_{a}^{b}g\,d\varphi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f(t)\geq g(t)\forall t\in[a,b]$
+\end_inset
+
+ y 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ es monótona creciente, 
+\begin_inset Formula $\int_{a}^{b}f\,d\varphi\geq\int_{a}^{b}g\,d\varphi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\int_{a}^{b}f\,d(\varphi+\psi)=\int_{a}^{b}f\,d\varphi+\int_{a}^{b}f\,d\psi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $c\in(a,b)$
+\end_inset
+
+, 
+\begin_inset Formula $\int_{a}^{c}f\,d\varphi+\int_{c}^{b}f\,d\varphi=\int_{a}^{b}f\,d\varphi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+integración por partes
+\series default
+ en Riemann-Stieltjes se basa en que, si existe 
+\begin_inset Formula $\int_{a}^{b}f\,d\varphi$
+\end_inset
+
+ entonces también existe 
+\begin_inset Formula $\int_{a}^{b}\varphi\,df$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+\int_{a}^{b}\varphi\,df=(f(b)\varphi(b)-f(a)\varphi(a))-\int_{a}^{b}f\,d\varphi
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $P=\{a=t_{0}<\dots<t_{n}=b\}$
+\end_inset
+
+ una partición de 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y 
+\begin_inset Formula $\xi_{i}\in[t_{i-1},t_{i}]\forall i\in\{1,\dots,n\}$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $Q=\{a=\xi_{0}<\dots<\xi_{n}<\xi_{n+1}=b\}$
+\end_inset
+
+, 
+\begin_inset Formula $x_{1}:=t_{0}=a\in[\xi_{0},\xi_{1}]$
+\end_inset
+
+, 
+\begin_inset Formula $x_{i}:=t_{i-1}\in[\xi_{i-1},\xi_{i}]\forall i\in\{1,\dots,n\}$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{n+1}:=t_{n}=b\in[\xi_{n},\xi_{n+1}]$
+\end_inset
+
+.
+ Entonces
+\begin_inset Formula 
+\begin{multline*}
+R(\varphi,f,P,\{\xi_{i}\})=\sum_{i=1}^{n}\varphi(\xi_{i})(f(t_{i})-f(t_{i-1}))=\sum_{i=1}^{n}f(t_{i})\varphi(\xi_{i})-\sum_{i=1}^{n}f(t_{i-1})\varphi(\xi_{i})=\\
+=\sum_{i=1}^{n-1}f(t_{i})\varphi(\xi_{i})+f(b)\varphi(b)-f(a)\varphi(\xi_{1})-\sum_{i=2}^{n}f(t_{i-1})\varphi(\xi_{i})=\\
+=f(b)\varphi(b)-f(a)\varphi(a)-f(a)(\varphi(\xi_{1})-\varphi(a))+\sum_{i=2}^{n}f(x_{i})\varphi(\xi_{i-1})-\sum_{i=2}^{n}f(x_{i})\varphi(\xi_{i})=\\
+=f(b)\varphi(b)-f(a)\varphi(a)-\sum_{i=1}^{n}f(x_{i})(\varphi(\xi_{i})-\varphi(\xi_{i-1}))=f(b)\varphi(b)-f(a)\varphi(a)-R(f,\varphi,Q,\{x_{i}\})
+\end{multline*}
+
+\end_inset
+
+Basta pues tomar límites en esta última expresión cuando 
+\begin_inset Formula $|Q|\leq2|P|\rightarrow0$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,1997 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Gestión de procesos
+\end_layout
+
+\begin_layout Standard
+Linux realiza planificación por prioridades dinámicas, con una 
+\series bold
+prioridad base
+\series default
+ o valor 
+\emph on
+nice
+\emph default
+ que va de 
+\begin_inset Formula $-20$
+\end_inset
+
+ (máxima) a 20 (mínima), donde 19 o 20 indica que al proceso solo se le
+ da la CPU cuando nadie más la quiera.
+ Por defecto cada proceso hereda la prioridad base de su padre, y sólo 
+\family typewriter
+root
+\family default
+ puede aumentar la prioridad e un proceso.
+ La prioridad dinámica se calcula según la prioridad base dependiendo del
+ consumo de CPU realizado, ejecución de código en el núcleo, etc.
+\end_layout
+
+\begin_layout Standard
+Un proceso pueden recibir señales como STOP (19) que lo detiene, CONT (18)
+ que lo reanuda, KILL (9) que lo elimina (salvo si es zombie o bloqueado
+ por E/S) o TERM (15) que le notifica de que debe terminar.
+ Los procesos pueden 
+\series bold
+capturar
+\series default
+ algunas señales, como TERM pero no KILL, cambiando su comportamiento por
+ defecto al recibirlas.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+ps
+\end_layout
+
+\begin_layout Standard
+Muestra información sobre procesos activos.
+ Acepta varios tipos de opciones:
+\end_layout
+
+\begin_layout Enumerate
+Opciones UNIX, que pueden ser agrupadas y deben ser precedidas por un guion.
+\end_layout
+
+\begin_layout Enumerate
+Opciones BSD, que pueden ser agrupadas y no deben ser usadas con guion.
+\end_layout
+
+\begin_layout Enumerate
+Opciones largas GNU, precedidas por dos guiones.
+\end_layout
+
+\begin_layout Standard
+Pueden mezclarse opciones de distintos tipos, pero puede haber conflictos.
+ Por defecto, 
+\family typewriter
+\series bold
+ps
+\family default
+\series default
+ selecciona los procesos con igual EUID que el usuario actual y asociados
+ a terminal.
+\end_layout
+
+\begin_layout Subsubsection*
+SELECCIÓN SIMPLE DE PROCESOS
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+a
+\family default
+\series default
+ Quita la restricción 
+\begin_inset Quotes fld
+\end_inset
+
+sólo tus procesos
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+x
+\family default
+\series default
+ Quita la restricción 
+\begin_inset Quotes fld
+\end_inset
+
+debe tener una terminal
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+CONTROL DE FORMATO DE SALIDA
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+l
+\family default
+\series default
+ Formato largo de BSD (con campos como 
+\family typewriter
+ppid
+\family default
+, 
+\family typewriter
+uid
+\family default
+, 
+\family typewriter
+pri
+\family default
+, 
+\family typewriter
+ni
+\family default
+).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+o
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+formato
+\family default
+\emph default
+ Idéntico a 
+\family typewriter
+\series bold
+-o
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-o
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+formato
+\family default
+\emph default
+ Formato definido por el usuario en forma de lista separada por comas, una
+ forma de especificar columnas de salida (ver 
+\family typewriter
+\series bold
+ESPECIFICADORES DE FORMATO ESTÁNDARES
+\family default
+\series default
+).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+u
+\family default
+\series default
+ Formato orientado a usuario (
+\family typewriter
+user,pid,%cpu,%mem,vsz,rss,stat,tty
+\family default
+).
+\end_layout
+
+\begin_layout Subsubsection*
+CÓDIGOS DE ESTADO DE PROCESOS
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+D
+\family default
+ Bloqueo ininterrumpible (normalmente E/S).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+R
+\family default
+ En cola de ejecución.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+S
+\family default
+ Bloqueo interrumpible (esperando un evento).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+T
+\family default
+ Parado.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+Z
+\family default
+ Zombie, terminado pero no recogido por su padre.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+<
+\family default
+ Alta prioridad (
+\emph on
+not nice
+\emph default
+, 
+\begin_inset Formula $<0$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+N
+\family default
+ Baja prioridad (
+\emph on
+nice
+\emph default
+, 
+\begin_inset Formula $>0$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+s
+\family default
+ Líder de sesión.
+ (Una sesión está asociada a un grupo de procesos y el primero de ellos
+ es el líder.
+ Por ejemplo, si se crean desde una terminal, el líder es el de la terminal
+ en sí misma.)
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
++
+\family default
+ En primer plano.
+\end_layout
+
+\begin_layout Subsubsection*
+ESPECIFICADORES DE FORMATO ESTÁNDARES
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+%cpu
+\family default
+\series default
+ Tiempo de CPU usado entre tiempo de ejecución del proceso como porcentaje.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+%mem
+\family default
+\series default
+ Tamaño del conjunto residente del proceso entre memoria física, como porcentaje.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+euid
+\family default
+\series default
+ ID efectivo de usuario (alias 
+\family typewriter
+\series bold
+uid
+\family default
+\series default
+).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+euser
+\family default
+\series default
+ Nombre de usuario efectivo.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+ni
+\family default
+\series default
+ Valor 
+\emph on
+nice
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+pid
+\family default
+\series default
+ ID del proceso.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+ppid
+\family default
+\series default
+ ID del proceso padre.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+pri
+\family default
+\series default
+ Prioridad del proceso.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+rss
+\family default
+\series default
+ Tamaño del conjunto residente, la memoria física usada (en KiB).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+stat
+\family default
+\series default
+ Estado del proceso.
+ Ver 
+\family typewriter
+\series bold
+CÓDIGOS DE ESTADO DE PROCESOS
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+time
+\family default
+\series default
+ Tiempo acumulativo de CPU en segundos.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+tty
+\family default
+\series default
+ Terminal.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+uid
+\family default
+\series default
+ Ver 
+\family typewriter
+\series bold
+euid
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+user
+\family default
+\series default
+ Ver 
+\family typewriter
+\series bold
+euser
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+vsz
+\family default
+\series default
+ Tamaño de memoria virtual en kiB.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+pstree
+\end_layout
+
+\begin_layout Standard
+Muestra los procesos en ejecución como un árbol.
+ La raíz del árbol es 
+\family typewriter
+\series bold
+init
+\family default
+\series default
+.
+ 
+\family typewriter
+\series bold
+pstree
+\family default
+\series default
+ une ramas idénticas poniéndolas entre corchetes y añadiendo un prefijo
+ con el número de repeticiones.
+ Los hilos hijos de un proceso se encuentran bajo el proceso padre con el
+ nombre del proceso entre llaves.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+top
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Debido a la complejidad de la página 
+\family typewriter
+man
+\family default
+, se ha optado por no basarse en ella.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Muestra la actividad del procesador y procesos con una interfaz interactiva
+ que se actualiza cada cierto tiempo (normalmente cada 3 segundos).
+ Las 5 primeras líneas contienen:
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+top - 
+\emph on
+hh
+\emph default
+:
+\emph on
+mm
+\emph default
+:
+\emph on
+ss
+\emph default
+ up 
+\emph on
+DD
+\emph default
+ days, 
+\emph on
+HH
+\emph default
+:
+\emph on
+MM
+\emph default
+, 
+\emph on
+N
+\emph default
+ users, load average: 
+\emph on
+l1 l5 l15
+\family default
+\emph default
+
+\begin_inset Newline newline
+\end_inset
+
+Hora actual, tiempo en marcha del sistema, número de terminales de usuario
+ abiertas y carga en los 1, 5 y 15 últimos minutos en tanto por 1, con máximo
+ igual al número de núcleos de CPU.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+Tasks: 
+\emph on
+K
+\emph default
+ total, 
+\emph on
+R
+\emph default
+ running, 
+\emph on
+S
+\emph default
+ sleeping, 
+\emph on
+P
+\emph default
+ stopped, 
+\emph on
+Z
+\emph default
+ zombie
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+Número de procesos total, en ejecución, durmiendo, parados y zombis.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+%Cpu(s): 
+\emph on
+U
+\emph default
+ us, 
+\emph on
+S
+\emph default
+ sy, 
+\emph on
+C
+\emph default
+ ni, 
+\emph on
+I
+\emph default
+ id, 
+\emph on
+W
+\emph default
+ wa, 
+\emph on
+H
+\emph default
+ hi, 
+\emph on
+E
+\emph default
+ si, 
+\emph on
+T
+\emph default
+ st
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+Porcentaje de CPU para modo usuario, modo núcleo (no incluye tratamiento
+ de interrupciones), usuario 
+\emph on
+not nice
+\emph default
+ (prioridad 
+\begin_inset Formula $>0$
+\end_inset
+
+), ociosa (
+\emph on
+idle
+\emph default
+), ociosa esperando E/S, tratando interrupciones hardware, tratando interrupcion
+es software y espera involuntaria (
+\emph on
+stolen
+\emph default
+; en una máquina virtual, el tiempo usado por la máquina real u otras virtuales
+ que no dependen de esta; en una máquina real debería ser 0).
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+KiB Mem : 
+\emph on
+t
+\emph default
+ total, 
+\emph on
+f
+\emph default
+ free, 
+\emph on
+u
+\emph default
+ used, 
+\emph on
+b
+\emph default
+ buff/cache
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+Memoria total disponible, usada, totalmente libre y usada en 
+\emph on
+buffers
+\emph default
+/cachés.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+KiB Swap: 
+\emph on
+T
+\emph default
+ total, 
+\emph on
+F
+\emph default
+ free, 
+\emph on
+U
+\emph default
+ used.
+ 
+\emph on
+A
+\emph default
+ avail Mem
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+Memoria de intercambio total disponible, usada, libre y estimación de la
+ que se podría usar (incluyendo la libre, que no se usa en absoluto).
+\end_layout
+
+\begin_layout Standard
+A continuación una lista de procesos, con las siguientes columnas:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+PID
+\family default
+ ID del proceso.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+USER
+\family default
+ Usuario.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+PR
+\family default
+ Prioridad dinámica.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+NI
+\family default
+ Prioridad base (
+\emph on
+nice
+\emph default
+).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+VIRT
+\family default
+ 
+\family typewriter
+VSZ
+\family default
+ de 
+\family typewriter
+ps
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+RES
+\family default
+ 
+\family typewriter
+RSS
+\family default
+ de 
+\family typewriter
+ps
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+SHR
+\family default
+ Memoria que podría ser compartida con otros procesos.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+S
+\family default
+ Estado del proceso.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+%CPU
+\family default
+ Porcentaje de CPU usado en el intervalo de actualización.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+%MEM
+\family default
+ Porcentaje de RAM usado.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+TIME+
+\family default
+ 
+\family typewriter
+TIME
+\family default
+ de 
+\family typewriter
+ps
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Comandos interactivos:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+k
+\family default
+ Envía una señal a un proceso.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+n
+\family default
+ Cambia el número de procesos mostrados.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+q
+\family default
+ Sale.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+r
+\family default
+ Cambia la prioridad de un proceso.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+M
+\family default
+ Ordena según 
+\family typewriter
+%MEM
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+N
+\family default
+ Según 
+\family typewriter
+PID
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+P
+\family default
+ Según 
+\family typewriter
+%CPU
+\family default
+ (por defecto).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+T
+\family default
+ Según tiempo.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+nice [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+COMANDO
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Ejecuta el 
+\family typewriter
+\emph on
+COMANDO
+\family default
+\emph default
+ con el valor 
+\emph on
+nice
+\emph default
+ ajustado.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-n
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+N
+\family default
+\emph default
+ Añade 
+\family typewriter
+\emph on
+N
+\family default
+\emph default
+ al valor 
+\emph on
+nice
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+renice 
+\emph on
+PRIORIDAD PID
+\end_layout
+
+\begin_layout Standard
+Altera la prioridad de un proceso.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+kill [-
+\emph on
+SEÑAL
+\emph default
+] 
+\emph on
+PID
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Envía la 
+\family typewriter
+\emph on
+SEÑAL
+\family default
+\emph default
+ indicada a los procesos.
+ Si no se especifica la señal, se envía TERM.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+killall [-
+\emph on
+SEÑAL
+\emph default
+] 
+\emph on
+NOMBRE
+\end_layout
+
+\begin_layout Standard
+Envía una señal a todos los procesos ejecutando el comando especificado.
+ Si no se especifica la señal, se envía TERM.
+\end_layout
+
+\begin_layout Section
+Programación de tareas
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+at [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+TIEMPO
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+at
+\family default
+\series default
+ ejecuta comandos en una fecha especificada (de esto se encarga 
+\family typewriter
+atd.service
+\family default
+).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+atq
+\family default
+\series default
+ lista los trabajos pendientes.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+atrm
+\family default
+\series default
+ elimina trabajos.
+\end_layout
+
+\begin_layout Standard
+Acepta tiempos de la forma 
+\family typewriter
+\series bold
+HH:MM
+\family default
+\series default
+ para ejecutar un trabajo a un tiempo específico del día.
+ Los comandos se leen de la entrada estándar o del fichero especificado.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+cron
+\end_layout
+
+\begin_layout Standard
+Demonio para ejecutar comandos programados (
+\family typewriter
+crond.service
+\family default
+).
+\end_layout
+
+\begin_layout Subsubsection*
+FICHEROS
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+/etc/cron.d/
+\family default
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Directorio con ficheros 
+\family typewriter
+cronjob
+\family default
+ para distintos usuarios.
+ (El fichero 
+\family typewriter
+crontab
+\family default
+ 
+\family typewriter
+/etc/cron.d/0hourly
+\family default
+ está preparado para ejecutar cada hora las tareas en 
+\family typewriter
+/etc/cron.hourly/
+\family default
+, de las que ejecuta 
+\family typewriter
+anacron
+\family default
+.)
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+crontab(5)
+\end_layout
+
+\begin_layout Standard
+Un fichero 
+\family typewriter
+crontab
+\family default
+ contiene instrucciones para el demonio 
+\family typewriter
+\series bold
+cron
+\family default
+\series default
+.
+ Cada línea tiene cinco celdas de fecha y hora seguidas de un comando.
+ Los comandos se ejecutan cuando las celdas 
+\begin_inset Quotes fld
+\end_inset
+
+minuto
+\begin_inset Quotes frd
+\end_inset
+
+, 
+\begin_inset Quotes fld
+\end_inset
+
+hora
+\begin_inset Quotes frd
+\end_inset
+
+ y 
+\begin_inset Quotes fld
+\end_inset
+
+mes
+\begin_inset Quotes frd
+\end_inset
+
+ coinciden con la fecha actual 
+\series bold
+y
+\series default
+ al menos 
+\begin_inset Quotes fld
+\end_inset
+
+día del mes
+\begin_inset Quotes frd
+\end_inset
+
+ o 
+\begin_inset Quotes fld
+\end_inset
+
+día de la semana
+\begin_inset Quotes frd
+\end_inset
+
+ coinciden con la fecha actual.
+ Las celdas son:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Minuto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0–59
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hora
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0–23
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Día del mes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1–31
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1–12 (o nombres)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Día de la semana
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0–7 (0 o 7 es domingo, o nombres)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una celda puede contener un asterisco (
+\family typewriter
+*
+\family default
+), que siempre significa 
+\family typewriter
+\emph on
+primero
+\emph default
+-
+\emph on
+último
+\family default
+\emph default
+.
+ Se permiten rangos de números.
+ Los rangos son dos números separados por un guion.
+ El rango es inclusive.
+\end_layout
+
+\begin_layout Standard
+Se permiten conjuntos de números (o rangos) separados por comas.
+ Añadir 
+\begin_inset Quotes fld
+\end_inset
+
+
+\family typewriter
+/
+\emph on
+número
+\family default
+\emph default
+
+\begin_inset Quotes frd
+\end_inset
+
+ detrás de un rango especifica saltos del valor del número.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+crontab [
+\emph on
+OPCIÓN
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Mantiene ficheros 
+\family typewriter
+crontab
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-l
+\family default
+\series default
+ Muestra el 
+\family typewriter
+crontab
+\family default
+ actual.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-r
+\family default
+\series default
+ Elimina el 
+\family typewriter
+crontab
+\family default
+ actual.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-e
+\family default
+\series default
+ Edita el 
+\family typewriter
+crontab
+\family default
+ actual usando el editor.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+anacron
+\end_layout
+
+\begin_layout Standard
+Ejecuta comandos periódicamente.
+ No asume que la máquina se ejecute continuamente.
+ (Por defecto está configurado para ejecutar, diaria, semanal y mensualmente,
+ respectivamente, los trabajos en 
+\family typewriter
+/etc/cron.daily/
+\family default
+, 
+\family typewriter
+/etc/cron.weekly/
+\family default
+ y 
+\family typewriter
+/etc/cron.monthly/
+\family default
+.) Si un trabajo no se ha ejecutado en 
+\family typewriter
+\series bold
+n
+\family default
+\series default
+ días (el periodo) o más, 
+\family typewriter
+\series bold
+anacron
+\family default
+\series default
+ ejecuta el trabajo.
+\end_layout
+
+\begin_layout Section
+Memoria virtual
+\end_layout
+
+\begin_layout Standard
+Linux puede usar un 
+\series bold
+fichero de paginación
+\series default
+ o una 
+\series bold
+partición de intercambio
+\series default
+ (
+\emph on
+swap
+\emph default
+) para la memoria virtual, que funciona por paginación, si bien se prefiere
+ una partición porque no sufre fragmentación y se puede situar en la parte
+ más rápida de un disco duro (los cilindros exteriores).
+ El tamaño de la partición depende de factores como la memoria requerida
+ por los trabajos, tamaño de los programas, número de trabajos simultáneos,
+ demanda del sistema, etc.
+ Además, para hibernar se necesita tanto espacio de intercambio como total
+ de memoria usada.
+ Al montar un espacio de intercambio, la opción 
+\family typewriter
+pri=
+\emph on
+valor
+\family default
+\emph default
+, que podemos poner en 
+\family typewriter
+/etc/fstab
+\family default
+, establece la prioridad, siendo mayor cuanto mayor es el número.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+free
+\end_layout
+
+\begin_layout Standard
+Muestra el total de memoria física y de intercambio libre y usada en el
+ sistema.
+ Las columnas son:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+total
+\family default
+\series default
+ Total de memoria instalada (física y de intercambio).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+used
+\family default
+\series default
+ Memoria usada (física y de intercambio, 
+\begin_inset Formula $\mathtt{total}-\mathtt{free}-\mathtt{buff/cache}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+free
+\family default
+\series default
+ Memoria no usada (física y de intercambio).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+shared
+\family default
+\series default
+ (Física)
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+buff/cache
+\family default
+\series default
+ Suma de 
+\family typewriter
+\series bold
+buffers
+\family default
+\series default
+ y 
+\family typewriter
+\series bold
+cache
+\family default
+\series default
+ (física).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+available
+\family default
+\series default
+ Estimación de memoria disponible para nuevos procesos (física).
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+vmstat [
+\emph on
+PERIODO
+\emph default
+ [
+\emph on
+NÚMERO
+\emph default
+]]
+\end_layout
+
+\begin_layout Standard
+Muestra estadísticas de memoria virtual.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+PERIODO
+\family default
+\emph default
+ El periodo entre actualizaciones en segundos.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+NÚMERO
+\family default
+\emph default
+ Número de actualizaciones.
+\end_layout
+
+\begin_layout Subsubsection*
+DESCRIPCIÓN DE LAS CELDAS
+\end_layout
+
+\begin_layout Paragraph*
+Memoria (en KiBs)
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+swpd
+\family default
+ Memoria virtual usada.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+free
+\family default
+ Memoria sin usar.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+buff
+\family default
+ Memoria usada como 
+\emph on
+buffers
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+cache
+\family default
+ Memoria usada como caché.
+\end_layout
+
+\begin_layout Paragraph*
+Espacio de intercambio (
+\emph on
+swap
+\emph default
+)
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+si
+\family default
+ Memoria traída del disco (/s).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+so
+\family default
+ Memoria llevada al disco (/s).
+\end_layout
+
+\begin_layout Paragraph*
+E/S
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+bi
+\family default
+ Bloques recibidos de un dispositivo de bloques (bloques/s).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+bo
+\family default
+ Bloques enviados a un dispositivo de bloques (bloques/s).
+\end_layout
+
+\begin_layout Paragraph*
+Sistema
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+in
+\family default
+ Interrupciones por segundo, incluyendo el reloj.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+cs
+\family default
+ Cambios de contexto por segundo.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+mkswap 
+\emph on
+FICHERO
+\end_layout
+
+\begin_layout Standard
+Crea un área de intercambio Linux en un dispositivo o fichero.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+swapon
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+swapon
+\series default
+ 
+\emph on
+FICHERO
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+swapoff
+\series default
+ 
+\emph on
+FICHERO
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+swapon
+\family default
+\series default
+ especifica un dispositivo (o fichero) para intercambio.
+ 
+\family typewriter
+\series bold
+swapoff
+\family default
+\series default
+ desactiva el uso como área de intercambio.
+\end_layout
+
+\end_body
+\end_document

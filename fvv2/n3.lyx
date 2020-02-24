@@ -1,0 +1,3763 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Funciones medibles
+\end_layout
+
+\begin_layout Standard
+Una aplicación 
+\begin_inset Formula $f:\Omega\rightarrow\Omega'$
+\end_inset
+
+ es 
+\series bold
+
+\begin_inset Formula $(\Sigma,\Sigma')$
+\end_inset
+
+-medible
+\series default
+ si 
+\begin_inset Formula $\forall E'\in\Sigma',f^{-1}(E')\in\Sigma$
+\end_inset
+
+.
+ Cuando 
+\begin_inset Formula $\Omega'$
+\end_inset
+
+ es un espacio topológico, decimos que 
+\begin_inset Formula $f$
+\end_inset
+
+ es 
+\series bold
+
+\begin_inset Formula $\Sigma$
+\end_inset
+
+-medible
+\series default
+ si es 
+\begin_inset Formula $(\Sigma,{\cal B}(\Omega'))$
+\end_inset
+
+-medible.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\Sigma'=:\sigma({\cal D})$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ es 
+\begin_inset Formula $(\Sigma,\Sigma')$
+\end_inset
+
+-medible si y sólo si 
+\begin_inset Formula $\forall D\in{\cal D},f^{-1}(D)\in\Sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Obvio.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula ${\cal A}:=\{E\in\Sigma':f^{-1}(E)\in\Sigma\}$
+\end_inset
+
+, vemos que 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+ es una 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-álgebra que contiene a 
+\begin_inset Formula ${\cal D}$
+\end_inset
+
+, pues 
+\begin_inset Formula $f^{-1}(E^{\complement})=\Omega\backslash f^{-1}(E)$
+\end_inset
+
+ y 
+\begin_inset Formula $f^{-1}(\bigcup_{k=1}^{\infty}E_{k})=\bigcup_{k=1}^{\infty}f^{-1}(E_{k})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $T:=(X,{\cal T})$
+\end_inset
+
+ y 
+\begin_inset Formula $T':=(X,{\cal T}')$
+\end_inset
+
+ espacios topológicos, toda función 
+\begin_inset Formula $f:T\rightarrow T'$
+\end_inset
+
+ continua es 
+\begin_inset Formula $({\cal B}(T),{\cal B}(T'))$
+\end_inset
+
+-medible, pues 
+\begin_inset Formula ${\cal B}(T')=\sigma({\cal T}')$
+\end_inset
+
+ y la continuidad asegura que 
+\begin_inset Formula $\forall A\in{\cal T}',f^{-1}(A)\in{\cal T}\subseteq{\cal B}(T)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Composición de medibles:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f:\Omega\rightarrow\Omega'$
+\end_inset
+
+ y 
+\begin_inset Formula $g:f(\Omega)\rightarrow\Omega''$
+\end_inset
+
+ son medibles, 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ también lo es.
+ En particular, si 
+\begin_inset Formula $T$
+\end_inset
+
+ y 
+\begin_inset Formula $T'$
+\end_inset
+
+ son espacios topológicos, 
+\begin_inset Formula $f:\Omega\rightarrow T$
+\end_inset
+
+ es 
+\begin_inset Formula $(\Sigma,{\cal B}(T))$
+\end_inset
+
+-medible y 
+\begin_inset Formula $g:T\rightarrow T'$
+\end_inset
+
+ es continua, 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ es 
+\begin_inset Formula $(\Sigma,{\cal B}(T'))$
+\end_inset
+
+-medible.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $E\in\Sigma''$
+\end_inset
+
+, 
+\begin_inset Formula $g^{-1}(E)\in\Sigma'$
+\end_inset
+
+ por ser 
+\begin_inset Formula $g$
+\end_inset
+
+ medible y 
+\begin_inset Formula $f^{-1}(g^{-1}(E))=(g\circ f)^{-1}(E)\in\Sigma$
+\end_inset
+
+ por ser 
+\begin_inset Formula $g$
+\end_inset
+
+ medible, luego 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ es medible.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $u_{1},\dots u_{n}:\Omega\rightarrow\mathbb{R}$
+\end_inset
+
+ son medibles, 
+\begin_inset Formula $\varphi:\Omega\rightarrow\mathbb{R}^{n}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\varphi(\omega):=(u_{1}(\omega),\dots,u_{n}(\omega))$
+\end_inset
+
+ es medible.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Un abierto 
+\begin_inset Formula $G\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ se puede expresar como unión numerable de cubos diádicos disjuntos, y como
+ estos están en 
+\begin_inset Formula ${\cal B}(\mathbb{R}^{n})$
+\end_inset
+
+, lo generan.
+ Si 
+\begin_inset Formula $[a,b)$
+\end_inset
+
+ es uno de estos cubos,
+\begin_inset Formula 
+\[
+\varphi^{-1}([a,b))=\bigcap_{i=1}^{n}u_{i}^{-1}([a_{i},b_{i}))\in\Sigma
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $f:\Omega\rightarrow\mathbb{C}$
+\end_inset
+
+ es medible si y sólo si lo son 
+\begin_inset Formula $\omega\mapsto\text{Re}(f(\omega))$
+\end_inset
+
+ e 
+\begin_inset Formula $\omega\mapsto\text{Im}(f(\omega))$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ Se deriva de que 
+\begin_inset Formula $x\mapsto\text{Re}(x)$
+\end_inset
+
+ y 
+\begin_inset Formula $x\mapsto\text{Im}(x)$
+\end_inset
+
+ son continuas.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $\pi:\mathbb{R}^{2}\rightarrow\mathbb{C}$
+\end_inset
+
+ el isomorfismo canónico, como 
+\begin_inset Formula $\pi$
+\end_inset
+
+ es continua y 
+\begin_inset Formula $f(\omega)=\pi(\text{Re}(f(\omega)),\text{Im}(f(\omega)))$
+\end_inset
+
+, el punto anterior nos da que 
+\begin_inset Formula $f$
+\end_inset
+
+ es medible.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f,g:\Omega\rightarrow\mathbb{C}$
+\end_inset
+
+ son medibles, 
+\begin_inset Formula $f+g$
+\end_inset
+
+, 
+\begin_inset Formula $fg$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{f}{g}\chi_{\{g\neq0\}}$
+\end_inset
+
+ también lo son.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se debe a que 
+\begin_inset Formula $(x,y)\mapsto x+y$
+\end_inset
+
+, 
+\begin_inset Formula $(x,y)\mapsto xy$
+\end_inset
+
+ son continuas.
+ Para el cociente, si 
+\begin_inset Formula $\{g=0\}=\emptyset$
+\end_inset
+
+, la continuidad de 
+\begin_inset Formula $(x,y)\mapsto\frac{x}{y}$
+\end_inset
+
+ cuando 
+\begin_inset Formula $y\neq0$
+\end_inset
+
+ implica que 
+\begin_inset Formula $\frac{f}{g}$
+\end_inset
+
+ es medible.
+ En el caso general, sea 
+\begin_inset Formula $S\subseteq\mathbb{C}$
+\end_inset
+
+ medible,
+\begin_inset Formula 
+\begin{multline*}
+\left(\frac{f}{g}\chi_{\{g\neq0\}}\right)^{-1}(S)=\left(\left(\frac{f}{g}\chi_{\{g\neq0\}}\right)^{-1}(S)\cap\{g\neq0\}\right)\cup\left(\left(\frac{f}{g}\chi_{\{g\neq0\}}\right)^{-1}(S)\cap\{g=0\}\right)\\
+=\left(\frac{f}{g}\chi_{\{g\neq0\}}\right)^{-1}(S\backslash\{0\}))\cup\left(\frac{f}{g}\chi_{\{g\neq0\}}\right)^{-1}(S\cap\{0\})
+\end{multline*}
+
+\end_inset
+
+El primer elemento de esta última unión no contiene elementos de 
+\begin_inset Formula $\{g=0\}$
+\end_inset
+
+, pues para todos ellos 
+\begin_inset Formula $\frac{f}{g}\chi_{\{g\neq0\}}(\omega)\neq0$
+\end_inset
+
+, por tanto el conjunto es igual a 
+\begin_inset Formula $\left(\frac{f}{g}\right)^{-1}(S\backslash\{0\})$
+\end_inset
+
+, que es medible.
+ El segundo elemento es 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+ si 
+\begin_inset Formula $0\notin S$
+\end_inset
+
+ o 
+\begin_inset Formula $\{f=0\}\cup\{g=0\}$
+\end_inset
+
+ si 
+\begin_inset Formula $0\in S$
+\end_inset
+
+; en cualquier caso es medible.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f:\Omega\rightarrow\mathbb{C}$
+\end_inset
+
+ es medible, 
+\begin_inset Formula $|f|$
+\end_inset
+
+ también lo es y existe 
+\begin_inset Formula $\alpha:\Omega\rightarrow\mathbb{C}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall\omega\in\Omega,|\alpha(\omega)|=1$
+\end_inset
+
+ y 
+\begin_inset Formula $|f|=\alpha f$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $|f|$
+\end_inset
+
+ es medible por ser 
+\begin_inset Formula $\omega\mapsto\sqrt{\text{Re}(f(\omega))^{2}+\text{Im}(f(\omega))^{2}}$
+\end_inset
+
+, al igual que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\alpha(\omega)=\chi_{\{f=0\}}+\frac{f}{|f|}\chi_{\{f\neq0\}}$
+\end_inset
+
+, que cumple las condiciones.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Una función 
+\begin_inset Formula $f:\Omega\rightarrow[-\infty,+\infty]$
+\end_inset
+
+ es 
+\series bold
+
+\begin_inset Formula $\Sigma$
+\end_inset
+
+-medible
+\series default
+ si es 
+\begin_inset Formula $(\Sigma,\Sigma':=\sigma(\{(a,+\infty]\}_{a\in\mathbb{R}}))$
+\end_inset
+
+-medible.
+ Todos los cubos diádicos 
+\begin_inset Formula $[a,b)\subseteq\mathbb{R}$
+\end_inset
+
+ están en 
+\begin_inset Formula $\Sigma'$
+\end_inset
+
+, luego también están todos los abiertos de 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ como unión numerable de cubos diádicos y por tanto 
+\begin_inset Formula ${\cal B}(\mathbb{R})\subseteq\Sigma'$
+\end_inset
+
+.
+ Adoptamos el convenio 
+\begin_inset Formula $\pm\infty\cdot0=0\cdot\pm\infty=0$
+\end_inset
+
+ y la notación 
+\begin_inset Formula $\{f\bullet a\}:=\{\omega\in\Omega:f(\omega)\bullet a\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f:\Omega\rightarrow[-\infty,+\infty]$
+\end_inset
+
+, si tenemos que
+\begin_inset Formula 
+\begin{multline*}
+f\text{ es medible}\iff\forall a\in\mathbb{R},\{f>a\}\in\Sigma\iff\forall a\in\mathbb{R},\{f\geq a\}\in\Sigma\\
+\iff\forall a\in\mathbb{R},\{f<a\}\in\Sigma\iff\forall a\in\mathbb{R},\{f\leq a\}\in\Sigma
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies3]$
+\end_inset
+
+ Como 
+\begin_inset Formula $(a,+\infty]$
+\end_inset
+
+ es medible, 
+\begin_inset Formula $f^{-1}((a,+\infty])=\{f>a\}$
+\end_inset
+
+ también lo es.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies1]$
+\end_inset
+
+ Para cada elemento de 
+\begin_inset Formula $\{(a,+\infty]\}_{a\in\mathbb{R}}$
+\end_inset
+
+, 
+\begin_inset Formula $f^{-1}((a,+\infty])=\{f>a\}\in\Sigma$
+\end_inset
+
+, y por tanto 
+\begin_inset Formula $f$
+\end_inset
+
+ es medible.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies3]$
+\end_inset
+
+ 
+\begin_inset Formula $\{f\geq a\}=\bigcap_{k=1}^{\infty}\{f>a-\frac{1}{k}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies4]$
+\end_inset
+
+ 
+\begin_inset Formula $\{f<a\}=\Omega\backslash\{f\geq a\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $4\implies5]$
+\end_inset
+
+ 
+\begin_inset Formula $\{f\leq a\}=\bigcap_{k=1}^{\infty}\{f<a+\frac{1}{k}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $5\implies2]$
+\end_inset
+
+ 
+\begin_inset Formula $\{f>a\}=\Omega\backslash\{f\leq a\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Además, si 
+\begin_inset Formula $f$
+\end_inset
+
+ es medible, 
+\begin_inset Formula $\{f>-\infty\}$
+\end_inset
+
+, 
+\begin_inset Formula $\{f<+\infty\}$
+\end_inset
+
+, 
+\begin_inset Formula $\{f=-\infty\}$
+\end_inset
+
+, 
+\begin_inset Formula $\{f=+\infty\}$
+\end_inset
+
+, 
+\begin_inset Formula $\{a\leq f\leq b\}$
+\end_inset
+
+, 
+\begin_inset Formula $\{f=a\}$
+\end_inset
+
+, etc.
+ son medibles, y 
+\begin_inset Formula $f$
+\end_inset
+
+ es medible si y sólo si 
+\begin_inset Formula $\{f=-\infty\}$
+\end_inset
+
+ es medible y para 
+\begin_inset Formula $a\in\mathbb{R}$
+\end_inset
+
+,
+\begin_inset Formula $\{a<f<+\infty\}$
+\end_inset
+
+ es medible.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\{a<f<+\infty\}=\{f>a\}\cap\bigcup_{k=1}^{\infty}\{f<k\}$
+\end_inset
+
+, 
+\begin_inset Formula $\{f=-\infty\}=\bigcap_{k=1}^{\infty}\{f<-k\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\{f>a\}=\{a<f<+\infty\}\cup\left(\{f=-\infty\}\cup\bigcup_{k=1}^{\infty}\{-k<f<+\infty\}\right)^{\complement}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado un subconjunto denso 
+\begin_inset Formula $A\subseteq[-\infty,+\infty]$
+\end_inset
+
+, si 
+\begin_inset Formula $\{f>a\}$
+\end_inset
+
+ es medible para todo 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ es medible.
+ 
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $a\in\mathbb{R}$
+\end_inset
+
+, existe una sucesión 
+\begin_inset Formula $(a_{k})_{k}$
+\end_inset
+
+ de elementos de 
+\begin_inset Formula $A$
+\end_inset
+
+ que converge a 
+\begin_inset Formula $a$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{k}>a\forall k\in\mathbb{N}$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $\{f>a\}=\bigcup\{f>a_{k}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f:\Omega\rightarrow[-\infty,+\infty]$
+\end_inset
+
+ es medible si y sólo si para todo abierto 
+\begin_inset Formula $G\subseteq\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $f^{-1}(G)$
+\end_inset
+
+ es medible.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Los abiertos de 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ están en 
+\begin_inset Formula $\sigma(\{(a,+\infty]\}_{a\in\mathbb{R}})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para todo 
+\begin_inset Formula $a\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $f^{-1}((a,+\infty))=\{a<f<+\infty\}$
+\end_inset
+
+ es medible, luego 
+\begin_inset Formula $f$
+\end_inset
+
+ lo es.
+\end_layout
+
+\begin_layout Standard
+Una propiedad se cumple 
+\series bold
+en casi todo punto
+\series default
+ de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ si el conjunto de puntos 
+\begin_inset Formula $\omega\in\Omega$
+\end_inset
+
+ en los que no se cumple tiene medida cero.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f,g:\Omega\rightarrow[-\infty,+\infty]$
+\end_inset
+
+ son medibles, 
+\begin_inset Formula $\{f>g\}$
+\end_inset
+
+ también lo es.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $\{r_{k}\}_{k\in\mathbb{N}}=\mathbb{Q}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\{f>g\}=\bigcup_{k=1}^{\infty}\{f>r_{k}>g\}=\bigcup_{k=1}^{\infty}(\{f>r_{k}\}\cap\{g<r_{k}\})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es medible y 
+\begin_inset Formula $g=f$
+\end_inset
+
+ en casi todo punto, 
+\begin_inset Formula $g$
+\end_inset
+
+ es medible y 
+\begin_inset Formula $\mu(\{g>a\})=\mu(\{f>a\})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $Z:=\{f\neq g\}$
+\end_inset
+
+, 
+\begin_inset Formula $\{g>a\}\cup Z=\{f>a\}\cup Z$
+\end_inset
+
+, luego si 
+\begin_inset Formula $f$
+\end_inset
+
+ es medible, 
+\begin_inset Formula $\{g>a\}\cup Z$
+\end_inset
+
+ lo es y como difiere de 
+\begin_inset Formula $\{g>a\}$
+\end_inset
+
+ por un conjunto de medida cero, 
+\begin_inset Formula $g$
+\end_inset
+
+ es medible.
+ Por último, 
+\begin_inset Formula $\mu(\{g>a\})=\mu(\{g>a\}\cup Z)=\mu(\{f>a\}\cup Z)=\mu(\{f>a\})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es medible y 
+\begin_inset Formula $\lambda\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $f+\lambda$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda f$
+\end_inset
+
+ son medibles.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $a\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $\{f+\lambda>a\}=\{f>a-\lambda\}$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+\{\lambda f>a\}=\begin{cases}
+f>\frac{a}{\lambda} & \text{si }\lambda>0\\
+f<\frac{a}{\lambda} & \text{si }\lambda<0\\
+\Omega & \text{si }\lambda=0\land a<0\\
+\emptyset & \text{si }\lambda=0\land a\geq0
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ son medibles, también lo es 
+\begin_inset Formula $f+g$
+\end_inset
+
+.
+ Esto significa que las combinaciones lineales 
+\begin_inset Formula $\lambda_{1}f_{1}+\dots+\lambda_{n}f_{n}$
+\end_inset
+
+ de funciones medibles 
+\begin_inset Formula $f_{1},\dots,f_{n}$
+\end_inset
+
+ son medibles, por lo que el conjunto de funciones 
+\begin_inset Formula $\Omega\rightarrow[-\infty,+\infty]$
+\end_inset
+
+ 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+-medibles es un espacio vectorial.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $a\in\mathbb{R}$
+\end_inset
+
+, si 
+\begin_inset Formula $g$
+\end_inset
+
+ es medible, también lo es 
+\begin_inset Formula $a-g$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $\{f+g>a\}=\{f>a-g\}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $f,g:\Omega\rightarrow[-\infty,+\infty]$
+\end_inset
+
+ medibles, 
+\begin_inset Formula $fg$
+\end_inset
+
+ es medible y, si 
+\begin_inset Formula $g\neq0$
+\end_inset
+
+ en casi todo punto, 
+\begin_inset Formula $f/g$
+\end_inset
+
+ (definida en casi todo punto) es medible.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es medible, es fácil ver que 
+\begin_inset Formula $f^{2}=|f|^{2}$
+\end_inset
+
+ también lo es.
+ Para valores finitos, 
+\begin_inset Formula $fg=\frac{(f+g)^{2}-(f-g)^{2}}{4}$
+\end_inset
+
+.
+ Si alguna de las funciones puede tener valores infinitos, vemos que 
+\begin_inset Formula $\{f=+\infty\}$
+\end_inset
+
+, 
+\begin_inset Formula $\{f=-\infty\}$
+\end_inset
+
+, 
+\begin_inset Formula $\{f=0\}$
+\end_inset
+
+, 
+\begin_inset Formula $\{g=+\infty\}$
+\end_inset
+
+, etc.
+ son medibles y por tanto 
+\begin_inset Formula $\{fg=0\}=\{f=0\}\cup\{g=0\}$
+\end_inset
+
+, 
+\begin_inset Formula $\{fg=+\infty\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\{fg=-\infty\}$
+\end_inset
+
+ también lo son.
+ Para 
+\begin_inset Formula $f/g$
+\end_inset
+
+, basta ver que 
+\begin_inset Formula $1/g$
+\end_inset
+
+ es medible, pero dado 
+\begin_inset Formula $a\in\mathbb{R}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\{1/g>a\}=\begin{cases}
+\{0<g<\frac{1}{a}\} & \text{si }a>0\\
+\{0<g<+\infty\} & \text{si }a=0\\
+\{g<\frac{1}{a}\}\cup\{0<g<+\infty\} & \text{si }a<0
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Dada una sucesión de funciones medibles 
+\begin_inset Formula $(f_{k}:\Omega\rightarrow\mathbb{R})_{k}$
+\end_inset
+
+, las funciones 
+\begin_inset Formula $\sup_{k}f_{k}(\omega)$
+\end_inset
+
+, 
+\begin_inset Formula $\inf_{k}f_{k}(\omega)$
+\end_inset
+
+, 
+\begin_inset Formula $\limsup_{k}f_{k}(\omega)$
+\end_inset
+
+ y 
+\begin_inset Formula $\liminf_{k}f_{k}(\omega)$
+\end_inset
+
+ son medibles.
+ De aquí que, si 
+\begin_inset Formula $E$
+\end_inset
+
+ es el conjunto de puntos 
+\begin_inset Formula $\omega\in\Omega$
+\end_inset
+
+ en los que 
+\begin_inset Formula $(f_{n}(\omega))_{n}$
+\end_inset
+
+ converge, entonces el límite puntual de 
+\begin_inset Formula $(f_{n}|_{E})_{n}$
+\end_inset
+
+ es medible y 
+\begin_inset Formula $E$
+\end_inset
+
+ también lo es.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Basta probarlo para el supremo, pues 
+\begin_inset Formula $\inf_{k}f_{k}(x)=-\sup_{k}(-f_{k})$
+\end_inset
+
+, 
+\begin_inset Formula $\limsup_{n}f_{n}(\omega)=\inf_{m\in\mathbb{N}}\{\sup_{k\geq m}\{f_{k}(\omega)\}\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\liminf_{n}f_{n}(\omega)=\sup_{m\in\mathbb{N}}\{\inf_{k\geq m}\{f_{k}(\omega)\}\}$
+\end_inset
+
+, pero 
+\begin_inset Formula $\{\sup_{k}f_{k}>a\}=\bigcup_{k}\{f_{k}>a\}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Funciones simples
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+función simple
+\series default
+ es aquella cuya imagen es finita.
+ Si 
+\begin_inset Formula $f:\Omega\rightarrow\Omega'$
+\end_inset
+
+ es una función simple que toma valores distintos 
+\begin_inset Formula $a_{1},\dots,a_{n}$
+\end_inset
+
+ en conjuntos disjuntos respectivos 
+\begin_inset Formula $E_{1},\dots,E_{n}$
+\end_inset
+
+, su 
+\series bold
+forma canónica
+\series default
+ es
+\begin_inset Formula 
+\[
+f=\sum_{k=1}^{n}a_{k}\chi_{E_{k}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Claramente 
+\begin_inset Formula $\chi_{E}$
+\end_inset
+
+ es medible si y sólo si 
+\begin_inset Formula $E$
+\end_inset
+
+ lo es, por lo que 
+\begin_inset Formula $f$
+\end_inset
+
+ es medible si y sólo si lo son 
+\begin_inset Formula $E_{1},\dots,E_{n}$
+\end_inset
+
+.
+ Algunos autores sólo llaman funciones simples a las que además son medibles.
+ Como 
+\series bold
+teorema
+\series default
+:
+\end_layout
+
+\begin_layout Enumerate
+Toda función 
+\begin_inset Formula $f:\Omega\rightarrow[0,+\infty]$
+\end_inset
+
+ es límite de una sucesión creciente de funciones simples.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+, subdividimos 
+\begin_inset Formula $[0,k]$
+\end_inset
+
+ en subintervalos 
+\begin_inset Formula $\{[(j-1)2^{-k},j2^{-k}]\}_{j\in\{1,\dots,k2^{k}\}}$
+\end_inset
+
+ y definimos
+\begin_inset Formula 
+\[
+f_{k}(x):=\begin{cases}
+\frac{j-1}{2^{k}} & \text{si }\frac{j-1}{2^{k}}\leq f(x)<\frac{j}{2^{k}},j\in\{1,\dots,k2^{k}\}\\
+k & \text{si }f(x)\geq k
+\end{cases}
+\]
+
+\end_inset
+
+Cada 
+\begin_inset Formula $f_{k}$
+\end_inset
+
+ es una función simple definida en todo 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $f_{k}\leq f_{k+1}$
+\end_inset
+
+ porque al pasar de 
+\begin_inset Formula $f_{k}$
+\end_inset
+
+ a 
+\begin_inset Formula $f_{k+1}$
+\end_inset
+
+ dividimos los intervalos por la mitad y permitimos valores mayores en la
+ imagen, y 
+\begin_inset Formula $f_{k}\rightarrow f$
+\end_inset
+
+ porque para un valor 
+\begin_inset Formula $k$
+\end_inset
+
+ lo suficientemente grande, 
+\begin_inset Formula $0\leq f(x)-f_{k}(x)\leq2^{-k}$
+\end_inset
+
+ si 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ es finito y 
+\begin_inset Formula $f_{k}=k\rightarrow+\infty$
+\end_inset
+
+ si 
+\begin_inset Formula $f(x)=+\infty$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Toda función 
+\begin_inset Formula $f:\Omega\rightarrow[-\infty,+\infty]$
+\end_inset
+
+ es límite de una sucesión de funciones simples.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Basta aplicar lo anterior a 
+\begin_inset Formula $f^{+}:=\max\{0,f\}$
+\end_inset
+
+ y 
+\begin_inset Formula $f^{-}:=-\min\{0,f\}$
+\end_inset
+
+ y restar las sucesiones resultantes.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si la función 
+\begin_inset Formula $f$
+\end_inset
+
+ en los dos apartados anteriores es medible, podemos hacer que las 
+\begin_inset Formula $f_{k}$
+\end_inset
+
+ también lo sean.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+En el primer apartado,
+\begin_inset Formula 
+\[
+f_{k}=\sum_{j=1}^{k2^{k}}\frac{j-1}{2^{k}}\chi_{\left\{ \frac{j-1}{2^{k}}\leq f<\frac{j}{2^{k}}\right\} }+k\chi_{\{f\geq k\}}
+\]
+
+\end_inset
+
+que es medible porque todos los conjuntos involucrados lo son, y en el segundo
+ basta considerar 
+\begin_inset Formula $f^{+}$
+\end_inset
+
+ y 
+\begin_inset Formula $f^{-}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es acotada, las funciones simples dadas convergerán uniformemente a 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Integrales en funciones positivas
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $(\Omega,\Sigma,\mu)$
+\end_inset
+
+ un espacio de medida, 
+\begin_inset Formula ${\cal S}(\Omega)$
+\end_inset
+
+ el espacio vectorial de las funciones simples 
+\begin_inset Formula $\Omega\rightarrow[-\infty,+\infty]$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal S}(\Omega)^{+}:=\{h\in{\cal S}(\Omega):h\geq0\}$
+\end_inset
+
+, llamamos 
+\series bold
+integral
+\series default
+ de una función simple 
+\begin_inset Formula $h:=\sum_{k=1}^{n}a_{k}\chi_{E_{k}}\in{\cal S}(\Omega)^{+}$
+\end_inset
+
+ como
+\begin_inset Formula 
+\[
+\int h\,d\mu:=\sum_{k=1}^{n}a_{k}\mu(E_{k})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f,g\in{\cal S}(\Omega)^{+}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\alpha\in[0,+\infty)$
+\end_inset
+
+, 
+\begin_inset Formula $\int\alpha f\,d\mu=\alpha\int f\,d\mu$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Supongamos 
+\begin_inset Formula $f=:\sum_{i=1}^{n}a_{i}\chi_{A_{i}}$
+\end_inset
+
+ y 
+\begin_inset Formula $g=:\sum_{j=1}^{m}b_{j}\chi_{B_{j}}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\alpha f=\sum_{i=1}^{n}\alpha a_{i}\chi_{A_{i}}$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+\int\alpha f\,d\mu=\sum_{i=1}^{n}\alpha a_{i}\mu(A_{i})=\alpha\sum_{i=1}^{n}a_{i}\mu(A_{i})=\alpha\int f\,d\mu
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\int(f+g)d\mu=\int f\,d\mu+\int g\,d\mu$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $C:=\{c_{1},\dots,c_{r}\}=\{a_{i}+b_{j}\}_{i\in\{1,\dots,n\},j\in\{1,\dots,m\}}$
+\end_inset
+
+, y 
+\begin_inset Formula $C_{k}:=\bigcup_{a_{i}+b_{j}=c_{k}}(A_{i}\cap B_{j})$
+\end_inset
+
+ para cada 
+\begin_inset Formula $c_{k}$
+\end_inset
+
+, tenemos 
+\begin_inset Formula $f+g=\sum_{k=1}^{r}c_{k}\chi_{C_{k}}$
+\end_inset
+
+.
+ Entonces
+\begin_inset Formula 
+\begin{multline*}
+\int f+g\,d\mu=\sum_{k=1}^{r}c_{k}\mu(C_{k})=\sum_{k=1}^{r}c_{k}\mu(C_{k})=\sum_{k=1}^{r}c_{k}\left(\sum_{a_{i}+b_{j}=c_{k}}\mu(A_{i}\cap B_{j})\right)=\\
+=\sum_{k=1}^{r}\sum_{a_{i}+b_{j}=c_{k}}(a_{i}+b_{j})\mu(A_{i}\cap B_{j})=\sum_{i=1}^{n}\sum_{j=1}^{m}((a_{i}+b_{j})\mu(A_{i}\cap B_{j})=\\
+=\sum_{i=1}^{n}a_{i}\left(\sum_{j=1}^{m}\mu(A_{i}\cap B_{j})\right)+\sum_{j=1}^{m}b_{j}\left(\sum_{i=1}^{n}\mu(A_{i}\cap B_{j})\right)=\sum_{i=1}^{n}a_{i}\mu(A_{i})+\sum_{j=1}^{m}b_{i}\mu(B_{j})
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f\leq g$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\int f\,d\mu\leq\int g\,d\mu$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\int g\,d\mu=\int f\,d\mu+\int(g-f)d\mu\geq\int f\,d\mu
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\nu:\Sigma\rightarrow[0,+\infty]$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\nu(E):=\int f\chi_{E}d\mu$
+\end_inset
+
+ es una medida finita.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\nu(E)=\sum_{i=1}^{n}a_{i}\mu(A_{i}\cap E)$
+\end_inset
+
+, y como las aplicaciones 
+\begin_inset Formula $\nu_{i}(E)=\mu(E\cap A_{i})$
+\end_inset
+
+ son medidas, 
+\begin_inset Formula $\nu$
+\end_inset
+
+ también lo es.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $f:\Omega\rightarrow[0,+\infty]$
+\end_inset
+
+ medible, se define
+\begin_inset Formula 
+\[
+\int f\,d\mu:=\sup\left\{ \int s\,d\mu:s\in{\cal S}(\Omega)\land0\leq s\leq f\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta definición es compatible con la dada inicialmente para funciones simples.
+ Para 
+\begin_inset Formula $E\in\Sigma$
+\end_inset
+
+, se define
+\begin_inset Formula 
+\[
+\int_{E}f\,d\mu:=\int\chi_{E}f\,d\mu
+\]
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $f,g:\Omega\rightarrow[0,+\infty]$
+\end_inset
+
+ medibles y 
+\begin_inset Formula $A,B\in\Sigma$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f\leq g\implies\int f\,d\mu\leq\int g\,d\mu$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A\subseteq B\implies\int_{A}f\,d\mu\leq\int_{B}f\,d\mu$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall\alpha\in[0,+\infty),\int\alpha f\,d\mu=\alpha\int f\,d\mu$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f|_{A}=0\implies\int_{A}f\,d\mu=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mu(A)=0\implies\int_{A}f\,d\mu=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+desigualdad de Tchevichev
+\series default
+ afirma que si 
+\begin_inset Formula $f:\Omega\rightarrow[0,+\infty]$
+\end_inset
+
+ es medible y 
+\begin_inset Formula $E\in\Sigma$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Si para 
+\begin_inset Formula $t>0$
+\end_inset
+
+ definimos 
+\begin_inset Formula $E_{t}:=E\cap\{f>t\}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+t\mu(E_{t})\leq\int_{E_{t}}f\,d\mu\leq\int f\,d\mu
+\]
+
+\end_inset
+
+Se obtiene de integrar en 
+\begin_inset Formula $t\chi_{E_{t}}\leq f\chi_{E_{t}}\leq f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\int_{E}f\,d\mu=0$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f(\omega)=0$
+\end_inset
+
+ para casi todo 
+\begin_inset Formula $\omega\in E$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Por lo anterior, 
+\begin_inset Formula $\forall k\in\mathbb{N},\mu(E_{\frac{1}{k}})=0$
+\end_inset
+
+, y como 
+\begin_inset Formula $\{f\neq0\}=\bigcup_{k}E_{\frac{1}{k}}$
+\end_inset
+
+, este conjunto también tiene medida nula.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\int_{E}f\,d\mu<+\infty$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f(\omega)<+\infty$
+\end_inset
+
+ para casi todo 
+\begin_inset Formula $\omega\in E$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\mu(E_{k})\leq\frac{1}{k}\int f\,d\mu$
+\end_inset
+
+, luego 
+\begin_inset Formula $\mu(\{f=+\infty\})=\mu\left(\bigcap_{k}E_{k}\right)=\lim_{n}\mu(E_{k})=0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\int_{E}f\,d\mu<+\infty$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\{f>0\}$
+\end_inset
+
+ es 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-finito.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\{f>0\}=\bigcup_{k}E_{\frac{1}{k}}$
+\end_inset
+
+ y cada 
+\begin_inset Formula $E_{\frac{1}{k}}$
+\end_inset
+
+ tiene medida finita.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+El 
+\series bold
+teorema de convergencia monótona de Lebesgue
+\series default
+ afirma que si 
+\begin_inset Formula $(f_{n}:\Omega\rightarrow[0,+\infty])_{n}$
+\end_inset
+
+ es una sucesión creciente de funciones medibles que converge puntualmente
+ a 
+\begin_inset Formula $f:\Omega\rightarrow[0,+\infty]$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\int f\,d\mu=\lim_{n}\int f_{n}d\mu
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $\alpha:=\sup\int f_{n}d\mu\in[0,+\infty]$
+\end_inset
+
+, como 
+\begin_inset Formula $f_{n}\leq f\forall n$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ es medible por ser límite puntual de medibles, 
+\begin_inset Formula $\alpha\leq\int f$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $s\leq f$
+\end_inset
+
+ una función simple, al ser 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ creciente y convergente a 
+\begin_inset Formula $f$
+\end_inset
+
+, se tiene que 
+\begin_inset Formula $(E_{n}:=\{f_{n}\geq s\})_{n}$
+\end_inset
+
+ es creciente con 
+\begin_inset Formula $\bigcup_{n}E_{n}=\Omega$
+\end_inset
+
+.
+ Tenemos que 
+\begin_inset Formula $\int f_{n}d\mu\geq\int\chi_{E_{n}}f_{n}d\mu\geq\int\chi_{E_{n}}s\,d\mu$
+\end_inset
+
+.
+ Tomando límites aquí, vemos que 
+\begin_inset Formula $\alpha\geq\int\chi_{\Omega}s\,d\mu=\int s\,d\mu$
+\end_inset
+
+, y tomando supremos entre las funciones simples 
+\begin_inset Formula $s\leq f$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha\geq\int f\,d\mu$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Usando esto podemos probar para 
+\begin_inset Formula $f,g:\Omega\rightarrow[0,+\infty]$
+\end_inset
+
+ que 
+\begin_inset Formula $\int(f+g)d\mu=\int f\,d\mu+\int g\,d\mu$
+\end_inset
+
+, partiendo de la propiedad correspondiente para funciones simples.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+teorema de Beppo-Levi
+\series default
+ afirma que la suma de una sucesión de funciones medibles 
+\begin_inset Formula $f_{n}:\Omega\rightarrow[0,+\infty]$
+\end_inset
+
+ es medible y
+\begin_inset Formula 
+\[
+\int\left(\sum_{n=1}^{\infty}f_{n}\right)d\mu=\sum_{n=1}^{\infty}\int f_{n}d\mu
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $(F_{n}:=\sum_{k=1}^{n}f_{k})_{n}$
+\end_inset
+
+ es una sucesión de funciones medibles, por lo que basta tomar límites en
+ 
+\begin_inset Formula $\int F_{n}d\mu=\sum_{k=1}^{n}\int f_{k}d\mu$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una función 
+\begin_inset Formula $\Omega\rightarrow[0,+\infty]$
+\end_inset
+
+ medible es 
+\series bold
+integrable
+\series default
+ si su integral es finita.
+ Por ejemplo, si 
+\begin_inset Formula $\Sigma={\cal P}(\Omega)$
+\end_inset
+
+ y 
+\begin_inset Formula $\mu(E)=|E|\forall E\in\Sigma$
+\end_inset
+
+, una función 
+\begin_inset Formula $f$
+\end_inset
+
+ medible positiva es integrable si y sólo si 
+\begin_inset Formula $\int f\,d\mu=\sum_{\omega\in\Omega}f(\omega)<+\infty$
+\end_inset
+
+, y si además 
+\begin_inset Formula $\Omega=\mathbb{N}$
+\end_inset
+
+, la sucesión 
+\begin_inset Formula $f$
+\end_inset
+
+ es integrable si y sólo si la serie 
+\begin_inset Formula $\sum_{n}f(n)$
+\end_inset
+
+ converge, y la integral coincide con la suma.
+ En tal caso, el teorema de Beppo-Levi nos dice que si 
+\begin_inset Formula $a_{n,m}$
+\end_inset
+
+ es una sucesión doble de números positivos, entonces
+\begin_inset Formula 
+\[
+\sum_{n=1}^{\infty}\sum_{m=1}^{\infty}a_{m,n}=\sum_{m=1}^{\infty}\sum_{n=1}^{\infty}a_{m,n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+lema de Fatou
+\series default
+ afirma que si 
+\begin_inset Formula $f_{n}:\Omega\rightarrow[0,+\infty]$
+\end_inset
+
+ es una sucesión de funciones medibles, su límite inferior 
+\begin_inset Formula $f(\omega):=\liminf_{n}f_{n}(\omega)$
+\end_inset
+
+ es medible y 
+\begin_inset Formula $\int f\,d\mu\leq\liminf_{n}\int f_{n}d\mu$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $(g_{n}:=\inf_{m\geq n}\{f_{m}(x)\})_{n}$
+\end_inset
+
+ define una sucesión creciente de funciones medibles convergente hacia 
+\begin_inset Formula $f$
+\end_inset
+
+, y por la monotonía de la integral y el teorema de convergencia monótona,
+ 
+\begin_inset Formula 
+\[
+\int f\,d\mu=\sup_{n\in\mathbb{N}}\left\{ \int g_{n}d\mu\right\} \leq\sup_{n\in\mathbb{N}}\left\{ \inf_{m\geq n}\left\{ \int f_{m}d\mu\right\} \right\} =\liminf_{n}\int f_{n}d\mu
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $g:\Omega\rightarrow[0,+\infty]$
+\end_inset
+
+ es medible, entonces 
+\begin_inset Formula $\nu:\Sigma\rightarrow[0,+\infty]$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\nu(E):=\int_{E}g\,d\mu$
+\end_inset
+
+ es una medida y para 
+\begin_inset Formula $f:\Omega\rightarrow[0,+\infty]$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\int f\,d\nu=\int fg\,d\mu
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $\nu(\emptyset)=0$
+\end_inset
+
+ y, dada una sucesión 
+\begin_inset Formula $(A_{n})_{n}$
+\end_inset
+
+ de medibles disjuntos, 
+\begin_inset Formula $g\chi_{\bigcup_{n}A_{n}}=\sum_{n}g\chi_{A_{n}}$
+\end_inset
+
+ y el teorema de Beppo-Levi nos da que 
+\begin_inset Formula $\nu(\bigcup_{n}A_{n})=\sum_{n}\nu(A_{n})$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\nu$
+\end_inset
+
+ es una medida.
+ Sea 
+\begin_inset Formula $s:=\sum_{i=1}^{m}a_{i}\chi_{E_{i}}\in{\cal S}(\Omega)^{+}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\int s\,d\nu=\sum_{i=1}^{m}a_{i}\int\chi_{E_{i}}g\,d\mu=\int\left(\sum_{i=1}^{m}a_{i}\chi_{E_{i}}\right)g\,d\mu=\int sg\,d\mu
+\]
+
+\end_inset
+
+Usando el teorema de la convergencia monótona para tomar límites en una
+ sucesión creciente de funciones simples que converge a 
+\begin_inset Formula $f$
+\end_inset
+
+ se completa la prueba.
+\end_layout
+
+\begin_layout Section
+Funciones integrables
+\end_layout
+
+\begin_layout Standard
+Una función medible 
+\begin_inset Formula $f:\Omega\rightarrow\mathbb{R}$
+\end_inset
+
+ es integrable si 
+\begin_inset Formula $\int|f|d\mu<+\infty$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $f^{+}=\max\{f,0\},f^{-}=\min\{f,0\}:\Omega\rightarrow[-\infty,+\infty]$
+\end_inset
+
+ son integrables, y definimos
+\begin_inset Formula 
+\[
+\int f\,d\mu:=\int f^{+}\,d\mu-\int f^{-}\,d\mu
+\]
+
+\end_inset
+
+Si solo una de entre 
+\begin_inset Formula $f^{+}$
+\end_inset
+
+ y 
+\begin_inset Formula $f^{-}$
+\end_inset
+
+ es integrable, usamos esta misma definición y entonces 
+\begin_inset Formula $\int f\,d\mu\in[-\infty,+\infty]$
+\end_inset
+
+.
+ Una función medible 
+\begin_inset Formula $f:\Omega\rightarrow\mathbb{C}$
+\end_inset
+
+ es integrable si 
+\begin_inset Formula $\int|f|d\mu<+\infty$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $u,v:\Omega\rightarrow\mathbb{R}$
+\end_inset
+
+ son tales que 
+\begin_inset Formula $f=u+iv$
+\end_inset
+
+, es claro que 
+\begin_inset Formula $f$
+\end_inset
+
+ es integrable si y sólo si 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ lo son, y definimos
+\begin_inset Formula 
+\[
+\int f\,d\mu:=\int u\,d\mu+i\int v\,d\mu
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\begin_inset Formula ${\cal L}^{1}(\Omega,\Sigma,\mu)$
+\end_inset
+
+ al conjunto de funciones integrables 
+\begin_inset Formula $f:\Omega\rightarrow\mathbb{C}$
+\end_inset
+
+.
+ Cuando basta indicar uno de los componentes de la terna y se sobreentiende
+ el resto, podemos escribir 
+\begin_inset Formula ${\cal L}^{1}(\Omega)$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal L}^{1}(\Sigma)$
+\end_inset
+
+ o 
+\begin_inset Formula ${\cal L}^{1}(\mu)$
+\end_inset
+
+.
+ El subconjunto de 
+\begin_inset Formula ${\cal L}^{1}$
+\end_inset
+
+ formado por las funciones reales se denota 
+\begin_inset Formula ${\cal L}_{\mathbb{R}}^{1}(\mu)$
+\end_inset
+
+, y por definición 
+\begin_inset Formula $f\in{\cal L}^{1}(\mu)\iff|f|\in{\cal L}^{1}(\mu)$
+\end_inset
+
+.
+ Propiedades:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula ${\cal L}^{1}(\mu)$
+\end_inset
+
+ es un espacio vectorial complejo y, si lo consideramos como un espacio
+ vectorial real por el isomorfismo canónico entre 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal L}_{\mathbb{R}}^{1}$
+\end_inset
+
+ es un subespacio suyo.
+\begin_inset Newline newline
+\end_inset
+
+Sean 
+\begin_inset Formula $f,g\in{\cal L}^{1}(\mu)$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha\in\mathbb{C}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha f+g$
+\end_inset
+
+ es medible y 
+\begin_inset Formula $|\alpha f+g|\leq|\alpha||f|+|g|$
+\end_inset
+
+, e integrando y aplicando las propiedades de la integral en funciones positivas
+, 
+\begin_inset Formula $\int|\alpha f+g|d\mu\leq\int(|\alpha||f|+|g|)d\mu=|\alpha|\int|f|d\mu+\int|g|d\mu<+\infty$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+La aplicación 
+\begin_inset Formula $\nu:{\cal L}^{1}(\mu)\rightarrow\mathbb{C}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\nu(f):=\int f\,d\mu$
+\end_inset
+
+ es lineal.
+\begin_inset Newline newline
+\end_inset
+
+Sean 
+\begin_inset Formula $u,v\in{\cal L}_{\mathbb{R}}^{1}(\mu)$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha\in\mathbb{R}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $i\int(u+iv)d\mu=i\int ud\mu+i^{2}\int v\,d\mu=\int(-v+iu)d\mu=\int i(u+iv)d\mu$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $h:=u+v\implies h^{+}-h^{-}=u^{+}-u^{-}+v^{+}-v^{-}\implies h^{+}+(u^{-}+v^{-})=(u^{+}+v^{+})+h^{-}\implies\int h^{+}d\mu+\int u^{-}d\mu+\int v^{-}d\mu=\int u^{+}d\mu+\int v^{+}d\mu+\int h^{-}d\mu\implies\int h\,d\mu=\int h^{+}d\mu-\int h^{-}d\mu=\int u^{+}d\mu-\int u^{-}d\mu+\int v^{+}d\mu-\int v^{-}d\mu=\int u\,d\mu+\int v\,d\mu$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\alpha\geq0\implies(\alpha u)^{+}=\alpha u^{+}\land(\alpha u)^{-}=\alpha u^{-}\implies\int\alpha u\,d\mu=\int\alpha u^{+}d\mu-\int\alpha u^{-}d\mu=\alpha\left(\int u^{+}d\mu-\int u^{-}d\mu\right)=\alpha\int u\,d\mu$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\alpha<0\implies(\alpha u)^{+}=(-\alpha)u^{-}\land(\alpha u)^{-}=(-\alpha)u^{+}\implies\int\alpha u\,d\mu=\int(-\alpha)u^{-}d\mu-\int(-\alpha)u^{+}d\mu=(-\alpha)\left(\int u^{-}d\mu-\int u^{+}d\mu\right)=\alpha\int u\,d\mu$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Desigualdad triangular:
+\begin_inset Formula 
+\[
+\forall f\in{\cal L}^{1}(\mu),\left|\int f\,d\mu\right|\leq\int|f|d\mu
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $\left|\int f\,d\mu\right|=0$
+\end_inset
+
+ es trivial.
+ Si 
+\begin_inset Formula $\left|\int f\,d\mu\right|\neq0$
+\end_inset
+
+, sea 
+\begin_inset Formula $a:=\frac{\int f\,d\mu}{|\int f\,d\mu|}$
+\end_inset
+
+ y como 
+\begin_inset Formula $\forall z\in\mathbb{C},|\text{Re}(z)|\leq|z|$
+\end_inset
+
+, 
+\begin_inset Formula $|\text{Re}(af)|\leq|af|=|f|$
+\end_inset
+
+; de aquí que 
+\begin_inset Formula $\left|\int f\,d\mu\right|=a\int f\,d\mu=\text{Re}\left(\int af\,d\mu\right)=\int\text{Re}(af)d\mu\leq\int|f|d\mu$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una función medible 
+\begin_inset Formula $f:E\rightarrow\mathbb{C}$
+\end_inset
+
+ definida en 
+\begin_inset Formula $E\in\Sigma$
+\end_inset
+
+ es 
+\series bold
+integrable sobre 
+\begin_inset Formula $E$
+\end_inset
+
+
+\series default
+ si la 
+\series bold
+extensión canónica
+\series default
+ 
+\begin_inset Formula $\tilde{f}:=f\chi_{E}$
+\end_inset
+
+ es integrable, y entonces se define 
+\begin_inset Formula $\int_{E}f\,d\mu:=\int\tilde{f}\,d\mu$
+\end_inset
+
+.
+ Con esto:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f:E\rightarrow\mathbb{C}$
+\end_inset
+
+ es una función medible definida en 
+\begin_inset Formula $E\in\Sigma$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ es integrable sobre 
+\begin_inset Formula $E$
+\end_inset
+
+ y 
+\begin_inset Formula $\forall A\in\Sigma\cap{\cal P}(E),\int_{A}f\,d\mu=0$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $f$
+\end_inset
+
+ se anula en casi todo 
+\begin_inset Formula $\omega\in E$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+En particular, 
+\begin_inset Formula $\int(\text{Re}(f))^{+}d\mu=\text{Re}\left(\int_{\{\text{Re}(f)\geq0\}}f\,d\mu\right)=0$
+\end_inset
+
+, y por la desigualdad de Tchevichev, 
+\begin_inset Formula $\mu\{\text{Re}(f)^{+}>t\}\leq\frac{1}{t}\int(\text{Re}(f))^{+}d\mu=0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $t>0$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\text{Re}(f)^{+}$
+\end_inset
+
+ se anula en casi todo punto.
+ Lo mismo sucede con 
+\begin_inset Formula $(\text{Re}(f))^{-}$
+\end_inset
+
+, 
+\begin_inset Formula $(\text{Im}(f))^{+}$
+\end_inset
+
+ e 
+\begin_inset Formula $(\text{Im}(f))^{-}$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $f$
+\end_inset
+
+ se anula en casi todo punto.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $A\in\Sigma\cap{\cal P}(E)$
+\end_inset
+
+, 
+\begin_inset Formula $(\text{Re}(f))^{+}$
+\end_inset
+
+, 
+\begin_inset Formula $(\text{Re}(f))^{-}$
+\end_inset
+
+, 
+\begin_inset Formula $(\text{Im}(f))^{+}$
+\end_inset
+
+ e 
+\begin_inset Formula $(\text{Im}(f))^{-}$
+\end_inset
+
+ se anulan en casi todo 
+\begin_inset Formula $\omega\in A\subseteq E$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\text{Re}\left(\int f\,d\mu\right)=\int\text{Re}(f)d\mu=\int(\text{Re}(f))^{+}d\mu-\int(\text{Re}(f))^{-}d\mu=0-0=0$
+\end_inset
+
+ y, análogamente, 
+\begin_inset Formula $\text{Im}\left(\int f\,d\mu\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f,g:E\rightarrow\mathbb{C}$
+\end_inset
+
+ son medibles iguales en casi todo punto y 
+\begin_inset Formula $f$
+\end_inset
+
+ es integrable sobre 
+\begin_inset Formula $E$
+\end_inset
+
+ entonces 
+\begin_inset Formula $g$
+\end_inset
+
+ también lo es y 
+\begin_inset Formula $\int_{E}f\,d\mu=\int_{E}g\,d\mu$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Basta aplicar el punto anterior a 
+\begin_inset Formula $f-g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+teorema de la convergencia dominada
+\series default
+ afirma que, dada una sucesión 
+\begin_inset Formula $(f_{n}:\Omega\rightarrow\mathbb{C})_{n}$
+\end_inset
+
+ de funciones que converge en casi todo punto, si existe 
+\begin_inset Formula $g:\Omega\rightarrow\mathbb{C}$
+\end_inset
+
+ integrable con 
+\begin_inset Formula $|f_{n}|\leq g\forall n\in\mathbb{N}$
+\end_inset
+
+, entonces la función límite 
+\begin_inset Formula $f(\omega):=\lim_{n}f_{n}(\omega)$
+\end_inset
+
+, definida en casi todo punto, es integrable, 
+\begin_inset Formula 
+\[
+\lim_{n}\int|f_{n}-f|d\mu=0
+\]
+
+\end_inset
+
+y, en particular, 
+\begin_inset Formula 
+\[
+\lim_{n}\int f_{n}d\mu=\int f\,d\mu
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Las 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ son integrables al estar acotadas por una función integrable.
+ Te
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ne
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+mos que 
+\begin_inset Formula $|f-f_{n}|\leq|f|+|f_{n}|\leq2g$
+\end_inset
+
+ y, teniendo en cuenta que 
+\begin_inset Formula $\limsup_{n}|f-f_{n}|=0$
+\end_inset
+
+ y aplicando el lema de Fatou a la sucesión de medibles positivas 
+\begin_inset Formula $2g-|f-f_{n}|$
+\end_inset
+
+, queda que 
+\begin_inset Formula $\int2g\,d\mu=\int\liminf_{n}(2g-|f-f_{n}|)d\mu\leq\liminf_{n}\int(2g-|f-f_{n}|)d\mu=\int2g\,d\mu-\limsup_{n}\int|f-f_{n}|$
+\end_inset
+
+.
+ Restando la cantidad finita 
+\begin_inset Formula $\int2g\,d\mu$
+\end_inset
+
+ a ambos miembros de la desigualdad, 
+\begin_inset Formula $0\leq-\limsup_{n}\int|f-f_{n}|\leq0$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\lim_{n}\int|f-f_{n}|=0$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ es integrable porque 
+\begin_inset Formula $|f|\leq|f_{n}|+|f-f_{n}|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Como 
+\series bold
+teorema
+\series default
+, dada una sucesión de funciones integrables 
+\begin_inset Formula $(f_{n}:\Omega\rightarrow\mathbb{C})_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $\sum_{n=1}^{\infty}\int|f_{n}|d\mu<+\infty$
+\end_inset
+
+, la serie 
+\begin_inset Formula $\sum_{n=1}^{\infty}f_{n}(\omega)$
+\end_inset
+
+ converge absolutamente en casi todo punto y su suma es integrable con 
+\begin_inset Formula $\int\left(\sum_{n=1}^{\infty}f_{n}\right)d\mu=\sum_{n=1}^{\infty}\int f_{n}d\mu$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Por el teorema de la convergencia monótona, 
+\begin_inset Formula $G:=\sum_{n}|f_{n}|$
+\end_inset
+
+ converge en casi todo punto y es integrable, y 
+\begin_inset Formula $S:=\sum_{n}f_{n}$
+\end_inset
+
+ también, y como para 
+\begin_inset Formula $(g_{m}:=\sum_{n=0}^{m}f_{n})_{m}$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $|g_{m}|\leq G$
+\end_inset
+
+, podemos aplicar el teorema de la convergencia dominada para obtener el
+ resultado.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Relación entre las integrales de Riemann y Lebesgue
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, las funciones integrables Riemann son integrables respecto a la medida
+ de Lebesgue y las integrales coinciden.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $f:[a,b]\rightarrow\mathbb{R}$
+\end_inset
+
+ integrable Riemann, y por tanto acotada, existe una sucesión 
+\begin_inset Formula $(P_{k})_{k}$
+\end_inset
+
+ de particiones en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert P_{n}\Vert\rightarrow0$
+\end_inset
+
+ y 
+\begin_inset Formula $\int_{[a,b]}f(\vec{x})d\vec{x}=\lim_{k}s(f,P_{k})$
+\end_inset
+
+, y si 
+\begin_inset Formula $\{N_{k1},\dots,N_{km_{k}}\}$
+\end_inset
+
+ es el conjunto de subrectángulos de 
+\begin_inset Formula $P_{k}$
+\end_inset
+
+, la sucesión 
+\begin_inset Formula $(s_{k})_{k}$
+\end_inset
+
+ de funciones simples 
+\begin_inset Formula $s_{k}(t):=\sum_{i=1}^{m_{k}}\chi_{N_{ki}}\inf_{x\in N_{ki}}\{f(x)\}$
+\end_inset
+
+ está acotada por la función constante 
+\begin_inset Formula $M:=\chi_{[a,b]}\sup_{x\in[a,b]}\{|f(x)|\}$
+\end_inset
+
+ y converge a 
+\begin_inset Formula $f$
+\end_inset
+
+ en todos sus puntos de continuidad y por tanto en casi todo punto.
+ Entonces, por el teorema de la convergencia dominada, 
+\begin_inset Formula $f$
+\end_inset
+
+ es integrable Lebesgue en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y 
+\begin_inset Formula $\int_{[a,b]}f\,d\lambda_{n}=\int_{[a,b]}f(\vec{x})d\vec{x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una función 
+\begin_inset Formula $f:S\rightarrow\mathbb{R}$
+\end_inset
+
+ definida en un intervalo 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional 
+\begin_inset Formula $S\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ se dice 
+\series bold
+localmente integrable Riemann
+\series default
+ si es integrable Riemann sobre cada intervalo compacto 
+\begin_inset Formula $I\subseteq S$
+\end_inset
+
+.
+ Definimos entonces la 
+\series bold
+integral impropia
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $S$
+\end_inset
+
+ como
+\begin_inset Formula 
+\[
+\int_{S}f(x)dx:=\lim_{I\nearrow S}\int_{I}f(x)dx
+\]
+
+\end_inset
+
+y si existe, decimos que 
+\series bold
+converge
+\series default
+.
+ La integral impropia 
+\begin_inset Formula $\int_{S}f(x)dx$
+\end_inset
+
+ es 
+\series bold
+absolutamente convergente
+\series default
+ si 
+\begin_inset Formula $\int_{S}|f(x)|dx$
+\end_inset
+
+ es convergente.
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $f:S\rightarrow\mathbb{R}$
+\end_inset
+
+ localmente integrable Riemann sobre un intervalo 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional 
+\begin_inset Formula $S\subseteq\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\int_{S}f(x)dx$
+\end_inset
+
+ es absolutamente convergente si y sólo si 
+\begin_inset Formula $f$
+\end_inset
+
+ es integrable Lebesgue sobre 
+\begin_inset Formula $S$
+\end_inset
+
+ y 
+\begin_inset Formula $\int_{S}f\,d\lambda_{n}=\int_{S}f(x)dx$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $f$
+\end_inset
+
+ es integrable Riemann, y por tanto Lebesgue, sobre todo intervalo compacto
+ 
+\begin_inset Formula $I\subseteq S$
+\end_inset
+
+, y dada una sucesión 
+\begin_inset Formula $(I_{k})_{k}$
+\end_inset
+
+ de intervalos compactos en 
+\begin_inset Formula $S$
+\end_inset
+
+ que tiende a 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $(f_{k}:=\chi_{I_{k}}f)$
+\end_inset
+
+ es una sucesión de funciones que tiende a 
+\begin_inset Formula $f$
+\end_inset
+
+ tal que 
+\begin_inset Formula $|f_{k}|<|f|\forall k\in\mathbb{N}$
+\end_inset
+
+, y por la convergencia dominada tenemos que 
+\begin_inset Formula $\int_{S}f\,d\lambda_{n}=\lim_{k}\int f_{k}d\lambda_{n}=\lim_{k}\int_{I_{k}}f\,dx=\int_{S}f(x)dx$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es integrable Riemann en un intervalo compacto 
+\begin_inset Formula $I\subseteq S$
+\end_inset
+
+, también es acotada en ese intervalo y por tanto 
+\begin_inset Formula $f^{+}$
+\end_inset
+
+ y 
+\begin_inset Formula $f^{-}$
+\end_inset
+
+ también lo son.
+ Si además 
+\begin_inset Formula $f$
+\end_inset
+
+ es integrable Lebesgue sobre 
+\begin_inset Formula $S$
+\end_inset
+
+, por la convergencia monótona tenemos que si 
+\begin_inset Formula $(I_{k})_{k}$
+\end_inset
+
+ es una sucesión creciente de in
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+va
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+los compactos que tiende a 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $\int_{S}f^{+}(x)dx=\lim_{I\nearrow S}\int_{I}f^{+}(x)dx=\lim_{k}\int_{I_{k}}f^{+}(x)dx=\lim_{k}\int_{I_{k}}f^{+}(x)d\lambda_{n}=\int\lim_{k}\chi_{I_{k}}f^{+}(x)d\lambda_{n}=\int_{S}f^{+}(x)d\lambda_{n}<+\infty$
+\end_inset
+
+, y análogamente 
+\begin_inset Formula $\int_{S}f^{-}(x)dx<+\infty$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\int_{S}|f(x)|dx=\int_{S}f^{+}(x)dx+\int_{S}f^{-}(x)dx<+\infty$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+soporte
+\series default
+ de una función 
+\begin_inset Formula $g:\Omega\rightarrow\mathbb{C}$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{sop}(g):=\overline{\{g\neq0\}}$
+\end_inset
+
+, y 
+\begin_inset Formula ${\cal C}_{0}(\Omega)$
+\end_inset
+
+ al conjunto de funciones continuas 
+\begin_inset Formula $g:\Omega\rightarrow\mathbb{C}$
+\end_inset
+
+ con soporte compacto.
+ Como 
+\series bold
+teorema
+\series default
+, 
+\begin_inset Formula ${\cal C}_{0}(\mathbb{R}^{n})$
+\end_inset
+
+ es denso en 
+\begin_inset Formula ${\cal L}^{1}(\mathbb{R}^{n})$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Como las funciones simples medibles son densas en 
+\begin_inset Formula ${\cal L}^{1}(\mathbb{R}^{n})$
+\end_inset
+
+, basta ver que la función característica de cualquier conjunto medible
+ Lebesgue es límite de una sucesión de funciones en 
+\begin_inset Formula ${\cal C}_{0}(\mathbb{R}^{n})$
+\end_inset
+
+.
+ Para ello, dado un medible 
+\begin_inset Formula $E$
+\end_inset
+
+ y 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, existen 
+\begin_inset Formula $K$
+\end_inset
+
+ compacto y 
+\begin_inset Formula $A$
+\end_inset
+
+ abierto con 
+\begin_inset Formula $K\subseteq E\subseteq A$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda(A\backslash K)<\frac{\varepsilon}{2}$
+\end_inset
+
+, y si 
+\begin_inset Formula $f\in{\cal C}_{0}(\mathbb{R}^{n})$
+\end_inset
+
+ cumple que 
+\begin_inset Formula $K\subseteq\text{sop}(f)\subseteq A$
+\end_inset
+
+ y 
+\begin_inset Formula $\chi_{K}\leq f\leq1$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\Vert f-\chi_{E}\Vert_{\infty}\leq2\chi_{A\backslash K}$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert f-\chi_{E}\Vert_{\infty}\leq2\lambda(A\backslash K)<\varepsilon$
+\end_inset
+
+.
+ Para ver que existe 
+\begin_inset Formula $f$
+\end_inset
+
+, fijado un cerrado 
+\begin_inset Formula $F\subseteq\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $d(x,F)$
+\end_inset
+
+ es continua, y como 
+\begin_inset Formula $\delta:=\min\{d(x,K):x\notin A\}>0$
+\end_inset
+
+, 
+\begin_inset Formula $A_{0}:=\{x:d(x,K)<\frac{\delta}{2}\}$
+\end_inset
+
+ es un abierto acotado con 
+\begin_inset Formula $K\subseteq A_{0}\subseteq\overline{A_{0}}\subseteq A$
+\end_inset
+
+.
+ Tomando 
+\begin_inset Formula $F_{0}:=\mathbb{R}^{n}\backslash A_{0}=\{x:d(x,K)\geq\frac{\delta}{2}\}$
+\end_inset
+
+, podemos definir 
+\begin_inset Formula $f_{0}(y):=\frac{d(y,F_{0})}{1+d(y,F_{0})}$
+\end_inset
+
+, que cumple 
+\begin_inset Formula $0\leq f_{0}\leq1$
+\end_inset
+
+, 
+\begin_inset Formula $f_{0}(x)=0\forall x\in F_{0}\supseteq\mathbb{R}^{n}\backslash A$
+\end_inset
+
+ y, como para 
+\begin_inset Formula $y\in K$
+\end_inset
+
+, 
+\begin_inset Formula $d(y,F_{0})\geq\frac{\delta}{2}$
+\end_inset
+
+, 
+\begin_inset Formula $f_{0}(y)\geq k_{0}:=\frac{\frac{\delta}{2}}{1+\frac{\delta}{2}}$
+\end_inset
+
+ y la función continua 
+\begin_inset Formula $f(x):=\min\{1,\frac{f_{0}(x)}{k_{0}}\}$
+\end_inset
+
+ tiene soporte compacto en 
+\begin_inset Formula $\overline{A_{0}}\subseteq A$
+\end_inset
+
+ y 
+\begin_inset Formula $\chi_{K}\leq f\leq1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Integrales dependientes de un parámetro
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+ sean 
+\begin_inset Formula $(\Omega,\Sigma,\mu)$
+\end_inset
+
+ un espacio de medida, 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ un espacio métrico y 
+\begin_inset Formula $f:X\times\Omega\rightarrow\mathbb{C}$
+\end_inset
+
+ una función tal que:
+\end_layout
+
+\begin_layout Enumerate
+Para casi todo 
+\begin_inset Formula $\omega\in\Omega$
+\end_inset
+
+ 
+\begin_inset Formula $f^{\omega}(x):=f(x,\omega)$
+\end_inset
+
+ es continua.
+\end_layout
+
+\begin_layout Enumerate
+Para todo 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ 
+\begin_inset Formula $f_{x}(\omega):=f(x,\omega)$
+\end_inset
+
+ es medible.
+\end_layout
+
+\begin_layout Enumerate
+Existe 
+\begin_inset Formula $g:\Omega\rightarrow[0,+\infty)$
+\end_inset
+
+ tal que para todo 
+\begin_inset Formula $x\in X$
+\end_inset
+
+, para casi todo 
+\begin_inset Formula $\omega\in\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $|f(x,\omega)|\leq g(\omega)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Entonces para todo 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ 
+\begin_inset Formula $f_{x}$
+\end_inset
+
+ es integrable y 
+\begin_inset Formula $F(x):=\int f(x,\omega)d\mu(\omega)$
+\end_inset
+
+ es continua.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Como 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ es un espacio métrico, la continuidad de las funciones en 
+\begin_inset Formula $X$
+\end_inset
+
+ se puede caracterizar mediante sucesiones, por lo que basta tomar una sucesión
+ 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ de elementos de 
+\begin_inset Formula $X$
+\end_inset
+
+ que converge a un cierto 
+\begin_inset Formula $x$
+\end_inset
+
+ arbitrario y probar que 
+\begin_inset Formula 
+\[
+\left(F(x_{n})=\int f(x_{n},\omega)d\mu(\omega)\right)_{n}
+\]
+
+\end_inset
+
+ converge a 
+\begin_inset Formula $F(x)$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $N\in\Sigma$
+\end_inset
+
+ de medida cero tal que 
+\begin_inset Formula $f^{\omega}$
+\end_inset
+
+ es continua para 
+\begin_inset Formula $\omega\notin N$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $f^{\omega}(x_{n})=f(x_{n},\omega)\rightarrow f(x,\omega)$
+\end_inset
+
+.
+ Podemos tomar una sucesión 
+\begin_inset Formula $(A_{n})_{n}$
+\end_inset
+
+ de conjuntos de medida nula tales que para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ y 
+\begin_inset Formula $\omega\notin A_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $|f(x_{n},\omega)|\leq g(\omega)$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $N\cup\bigcup_{n}A_{n}$
+\end_inset
+
+ tiene medida nula y fuera de él, como la sucesión 
+\begin_inset Formula $(f_{x_{n}})_{n}$
+\end_inset
+
+ converge puntualmente y 
+\begin_inset Formula $|f_{x_{n}}|\leq g\forall n\in\mathbb{N}$
+\end_inset
+
+, podemos aplicar el teorema de la convergencia dominada y 
+\begin_inset Formula 
+\[
+\lim_{n}F(x_{n})=\lim_{n}\int f(x_{n},\omega)d\mu(\omega)=\int\lim_{n}f(x_{n},\omega)d\mu(\omega)=\int f(x,\omega)d\mu(\omega)=F(x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otro 
+\series bold
+teorema
+\series default
+ nos dice que si 
+\begin_inset Formula $I\subseteq\mathbb{R}$
+\end_inset
+
+ es un intervalo y 
+\begin_inset Formula $f:I\times\Omega\rightarrow\mathbb{C}$
+\end_inset
+
+ cumple que:
+\end_layout
+
+\begin_layout Enumerate
+Para casi todo 
+\begin_inset Formula $\omega\in\Omega$
+\end_inset
+
+ 
+\begin_inset Formula $f^{\omega}(x):=f(x,\omega)$
+\end_inset
+
+ es derivable (
+\begin_inset Formula $\exists\frac{\partial f}{\partial x}(x,\omega)$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Para todo 
+\begin_inset Formula $x\in I$
+\end_inset
+
+ 
+\begin_inset Formula $f_{x}(\omega):=f(x,\omega)$
+\end_inset
+
+ es medible, siendo integrable para algún 
+\begin_inset Formula $x_{0}\in I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Existe 
+\begin_inset Formula $g:\Omega\rightarrow[0,+\infty)$
+\end_inset
+
+ integrable tal que para casi todo 
+\begin_inset Formula $\omega\in\Omega$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in I$
+\end_inset
+
+ 
+\begin_inset Formula $\left|\frac{\partial f}{\partial x}(x,\omega)\right|\leq g(\omega)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Entonces para todo 
+\begin_inset Formula $x\in I$
+\end_inset
+
+, 
+\begin_inset Formula $f_{x}$
+\end_inset
+
+ es integrable, 
+\begin_inset Formula $F(x):=\int f(x,\omega)d\mu(\omega)$
+\end_inset
+
+ es derivable y 
+\begin_inset Formula $F'(x)=\int\frac{\partial f}{\partial x}(x,\omega)d\mu(\omega)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $A\in\Sigma$
+\end_inset
+
+ de medida nula tal que 
+\begin_inset Formula 
+\[
+\left|\frac{\partial f}{\partial x}(s,\omega)\right|\leq g(\omega)
+\]
+
+\end_inset
+
+ para 
+\begin_inset Formula $\omega\notin A$
+\end_inset
+
+ para todo 
+\begin_inset Formula $s\in I$
+\end_inset
+
+, por el teorema del incremento finito, si 
+\begin_inset Formula $\omega\notin A$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+|f(x,\omega)-f(x_{0},\omega)|=\left|\frac{\partial f}{\partial x}(\xi_{x,\omega},\omega)(x-x_{0})\right|\leq g(\omega)|x-x_{0}|
+\]
+
+\end_inset
+
+Entonces 
+\begin_inset Formula $f_{x}$
+\end_inset
+
+ se diferencia de 
+\begin_inset Formula $f_{x_{0}}$
+\end_inset
+
+ en un múltiplo de una función integrable 
+\begin_inset Formula $g$
+\end_inset
+
+, por lo que también es integrable.
+ Para ver que la integral es derivable, basta tomar una sucesión 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ de elementos de 
+\begin_inset Formula $X$
+\end_inset
+
+ que converge a un cierto 
+\begin_inset Formula $x$
+\end_inset
+
+ arbitrario y probar que existe 
+\begin_inset Formula $\lim_{n}\frac{F(x_{n})-F(x)}{x_{n}-x}$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $N\in\Sigma$
+\end_inset
+
+ de medida nula tal que para 
+\begin_inset Formula $\omega\notin N$
+\end_inset
+
+, 
+\begin_inset Formula $f^{\omega}$
+\end_inset
+
+ es derivable y por tanto 
+\begin_inset Formula 
+\[
+\frac{f(x_{n},\omega)-f(x,\omega)}{x_{n}-x}\rightarrow\frac{\partial f}{\partial x}(x,\omega)
+\]
+
+\end_inset
+
+Entonces 
+\begin_inset Formula $N\cup A$
+\end_inset
+
+ tiene medida nula y fuera de él, la sucesión
+\begin_inset Formula 
+\[
+\left(h_{n,\omega}:=\frac{f(x_{n},\omega)-f(x,\omega)}{x_{n}-x}\right)_{n}
+\]
+
+\end_inset
+
+ cumple que 
+\begin_inset Formula 
+\[
+|h_{n,\omega}|=\left|\frac{f(x_{n},\omega)-f(x,\omega)}{x_{n}-x}\right|=\left|\frac{\partial f}{\partial x}f(\eta_{x,x_{n},\omega},\omega)\right|\leq g(\omega)
+\]
+
+\end_inset
+
+ y, como además converge puntualmente, podemos aplicar el teorema de la
+ convergencia dominada y 
+\begin_inset Formula 
+\begin{eqnarray*}
+F'(x) & = & \lim_{n}\frac{F(x_{n})-F(x)}{x_{n}-x}=\lim_{n}\frac{\int f(x_{n},\omega)d\mu(\omega)-\int f(x_{n},\omega)d\mu(\omega)}{x_{n}-x}\\
+ & = & \lim_{n}\int\frac{f(x_{n},\omega)-f(x,\omega)}{x_{n}-x}d\mu(\omega)=\int\left(\lim_{n}\frac{f(x_{n},\omega)-f(x,\omega)}{x_{n}-x}\right)d\mu(\omega)\\
+ & = & \int\frac{\partial f}{\partial x}(x,\omega)d\mu(\omega)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

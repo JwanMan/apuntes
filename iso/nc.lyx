@@ -1,0 +1,1408 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Internamente los usuarios se identifican por un número, el UID, que es 0
+ para el su
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+per
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+u
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+sua
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+rio, y que en general está en el rango 1–999 para las cuentas del sistema
+ y es mayor o igual a 1000 para usuarios normales.
+ Una cuenta del sistema ejecuta programas o posee ficheros para ciertos
+ servicios, pero no está asociada a una persona.
+ Por ejemplo, la cuenta 
+\family typewriter
+apache
+\family default
+ ejecuta servicios para un servidor Web, el demonio 
+\family typewriter
+httpd
+\family default
+ de Apache.
+\end_layout
+
+\begin_layout Standard
+Los usuarios también tienen un nombre de usuario, contraseña, un directorio
+ personal y una 
+\emph on
+shell
+\emph default
+, programa que se ejecuta al iniciar sesión.
+ Se puede indicar que esta sea un ejecutable específico, no necesariamente
+ una 
+\emph on
+shell
+\emph default
+, convirtiendo la cuenta en una 
+\series bold
+cuenta restringida
+\series default
+, pues el usuario solo puede ejecutar este fichero y al finalizar su ejecución
+ sale del sistema.
+\end_layout
+
+\begin_layout Standard
+Cuando un usuario crea un fichero, su grupo propietario es el grupo activo
+ del usuario (generalmente su grupo primario), pero al determinar los permisos
+ que tiene un usuario sobre un fichero, se usan todos los grupos a los que
+ pertenece.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+/etc/passwd
+\end_layout
+
+\begin_layout Standard
+Fichero de texto que describe las cuentas de usuario del sistema.
+ Debe ser legible por todos los usuarios pero escribible sólo para el superusuar
+io.
+ 
+\end_layout
+
+\begin_layout Standard
+Tradicionalmente no había problema con este permiso general de lectura.
+ Hoy en día se usa el caracter 
+\family typewriter
+x
+\family default
+ en la celda de contraseña para indicar que las contraseñas están en 
+\family typewriter
+/etc/shadow
+\family default
+, que sólo puede ser leída por el superusuario.
+ 
+\end_layout
+
+\begin_layout Standard
+Cada línea del fichero describe un sólo usuario, y contiene los siguientes
+ campos:
+\end_layout
+
+\begin_layout Quotation
+
+\family typewriter
+nombre:contraseña:UID:GID:GECOS:directorio:shell
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+nombre
+\family default
+\emph default
+ Nombre de usuario.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+contraseña
+\family default
+\emph default
+ Contraseña encriptada del usuario, 
+\family typewriter
+*
+\family default
+ o 
+\family typewriter
+x
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+UID
+\family default
+\emph default
+ El UID.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+GID
+\family default
+\emph default
+ ID numérico del grupo primario del usuario.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+GECOS
+\family default
+\emph default
+ Opcional, con propósito informativo.
+ Normalmente contiene el nombre completo del usuario.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+directorio
+\family default
+\emph default
+ Directorio personal del usuario, donde se le posiciona tras iniciar sesión.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+shell
+\family default
+\emph default
+ Programa a ejecutar al iniciar sesión.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+/etc/shells
+\end_layout
+
+\begin_layout Standard
+Fichero de texto que contiene las rutas absolutas de los 
+\emph on
+shells
+\emph default
+ de inicio de sesión válidos.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+/etc/shadow
+\end_layout
+
+\begin_layout Standard
+Fichero que contiene la información de las contraseñas de los usuarios e
+ información opcional de caducidad.
+ Debe no ser legible para usuarios normales por seguridad.
+ Hay una entrada por línea, con formato:
+\end_layout
+
+\begin_layout Quotation
+
+\family typewriter
+nombre:contraseña:último_cambio:vida_mínima:vida_máxima:periodo_alerta:
+\begin_inset Newline newline
+\end_inset
+
+periodo_inactividad:fecha_expiración:reservado
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+nombre
+\family default
+\emph default
+ Nombre de usuario.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+contraseña
+\family default
+\emph default
+ Contraseña encriptada.
+ Si contiene algo que no es una contraseña encriptada válida, como 
+\family typewriter
+!!
+\family default
+ o 
+\family typewriter
+*
+\family default
+, el usuario no podrá usar una contraseña Unix para iniciar sesión.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+último_cambio
+\family default
+\emph default
+ Fecha del último cambio de contraseña.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+vida_mínima
+\family default
+\emph default
+ Número de días que el usuario debe esperar antes de poder cambiar nuevamente
+ su contraseña.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+vida_máxima
+\family default
+\emph default
+ Número de días tras el cual el usuario deberá cambiar su contraseña.
+ Tras esto la contraseña podría seguir siendo válida, pero se pedirá al
+ usuario una nueva contraseña la próxima vez que inicie sesión.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+periodo_alerta
+\family default
+\emph default
+ Número de días antes de que la contraseña expire durante los cuales se
+ avisará al usuario.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+periodo_inactividad
+\family default
+\emph default
+ Número de días después de que la contraseña expire durante los que esta
+ seguirá siendo válida.
+ Tras este tiempo el usuario no podrá iniciar sesión.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+fecha_expiración
+\family default
+\emph default
+ Fecha en la que la cuenta expira, tras la cual el usuario no podrá iniciar
+ sesión.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+/etc/group
+\end_layout
+
+\begin_layout Standard
+Fichero de texto que define los grupos del sistema.
+ Hay una entrada por línea, con formato:
+\end_layout
+
+\begin_layout Quotation
+
+\family typewriter
+nombre:contraseña:GID:lista_de_usuarios
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+/etc/gshadow
+\end_layout
+
+\begin_layout Standard
+Información de seguridad de los grupos.
+ Debe no ser legible por usuarios normales por seguridad.
+ Hay una entrada por línea, con formato:
+\end_layout
+
+\begin_layout Quotation
+
+\family typewriter
+nombre:contraseña:administradores:miembros
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+/etc/issue
+\end_layout
+
+\begin_layout Standard
+Fichero de texto con un mensaje a imprimir antes de pedir el nombre de usuario
+ en un inicio de sesión por terminal.
+ Puede contener secuencias 
+\family typewriter
+\series bold
+@
+\series default
+\emph on
+caracter
+\family default
+\emph default
+ o 
+\family typewriter
+\series bold
+
+\backslash
+
+\series default
+\emph on
+caracter
+\family default
+\emph default
+ si la terminal lo soporta (por ejemplo, 
+\family typewriter
+
+\backslash
+l
+\family default
+ se sustituye po el nombre de la terminal: 
+\family typewriter
+tty1
+\family default
+, 
+\family typewriter
+tty2
+\family default
+, etc.).
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+/etc/motd
+\end_layout
+
+\begin_layout Standard
+Fichero de texto a mostrar tras un inicio de sesión por terminal exitoso
+ y antes de ejecutar el 
+\emph on
+shell
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+nologin
+\end_layout
+
+\begin_layout Standard
+Muestra un mensaje de que una cuenta no está disponible y termina.
+ Usado como campo 
+\family typewriter
+\emph on
+shell
+\family default
+\emph default
+ en 
+\family typewriter
+/etc/passwd
+\family default
+ para denegar el inicio de sesión a una cuenta.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+id 
+\emph on
+USUARIO
+\end_layout
+
+\begin_layout Standard
+Muestra la información de usuario y grupos para el 
+\family typewriter
+\emph on
+USUARIO
+\family default
+\emph default
+ indicado.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+groups 
+\emph on
+USUARIO
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Muestra los grupos a los que pertenece cada 
+\family typewriter
+\emph on
+USUARIO
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+newgrp 
+\emph on
+GRUPO
+\end_layout
+
+\begin_layout Standard
+Inicia sesión en un nuevo grupo.
+ Si el usuario no es 
+\family typewriter
+root
+\family default
+, se le pedirá una contraseña si este no tiene o no es miembro del grupo
+ y el grupo tiene contraseña.
+ Al usuario se le denegará el acceso si la contraseña de grupo es vacía
+ y el usuario no es miembro.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+who
+\end_layout
+
+\begin_layout Standard
+Muestra información sobre los usuarios con sesiones abiertas.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+su [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+USUARIO
+\emph default
+]
+\end_layout
+
+\begin_layout Standard
+Ejecuta un nuevo 
+\emph on
+shell
+\emph default
+ con los ID de usuario y grupo indicados (por defecto 
+\family typewriter
+root
+\family default
+).
+ Cambia las variables de entorno 
+\family typewriter
+\series bold
+HOME
+\family default
+\series default
+ y 
+\family typewriter
+\series bold
+SHELL
+\family default
+\series default
+ (más 
+\family typewriter
+\series bold
+USER
+\family default
+\series default
+ y 
+\family typewriter
+\series bold
+LOGNAME
+\family default
+\series default
+ si el 
+\family typewriter
+\emph on
+USUARIO
+\family default
+\emph default
+ no es 
+\family typewriter
+root
+\family default
+).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-
+\family default
+\series default
+,
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+\series bold
+-l
+\family default
+\series default
+ Inicia el 
+\emph on
+shell
+\emph default
+ como uno de inicio de sesión con un entorno similar a un inicio de sesión
+ real.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+whoami
+\end_layout
+
+\begin_layout Standard
+Imprime el nombre de usuario asociado con el ID efectivo de usuario (EUID)
+ actual.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+useradd [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+USUARIO
+\end_layout
+
+\begin_layout Standard
+Crea una nueva cuenta de usuario usando los valores especificados más los
+ valores por defecto del sistema.
+ Por defecto la contraseña de este está desactivada.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-d
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+DIRECTORIO
+\family default
+\emph default
+ Indica el 
+\family typewriter
+\emph on
+DIRECTORIO
+\family default
+\emph default
+ personal del usuario.
+ Por defecto, aunque depende de la configuración, se crea un directorio
+ con ruta 
+\family typewriter
+/home/
+\emph on
+USUARIO
+\family default
+\emph default
+ y se copia dentro de este el contenido de 
+\family typewriter
+/etc/skel
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-g
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+GRUPO
+\family default
+\emph default
+ El nombre o número del grupo primario del usuario, que debe existir.
+ Si no se especifica, dependiendo de la configuración, se creará un nuevo
+ grupo con el mismo nombre que el usuario o se le asignará un grupo por
+ defecto.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-G
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+GRUPO1
+\emph default
+[
+\emph on
+,GRUPO2,...
+\emph default
+[
+\emph on
+,GRUPON
+\emph default
+]]]
+\family default
+ Lista de grupos adicionales de los que el usuario también es miembro.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-m
+\family default
+\series default
+ Crea el directorio personal del usuario si no existe ya.
+ Por defecto, la creación de este depende de la configuración.
+\end_layout
+
+\begin_layout Subsubsection*
+FICHEROS
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+/etc/default/useradd
+\family default
+ Valores por defecto para la nueva cuenta.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+/etc/login.defs
+\family default
+ Configuración adicional.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+usermod [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+USUARIO
+\end_layout
+
+\begin_layout Standard
+Modifica los ficheros de la cuenta del 
+\family typewriter
+\emph on
+USUARIO
+\family default
+\emph default
+ para reflejar los cambios especificados.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-c
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+COMENTARIO
+\family default
+\emph default
+ El nuevo valor del campo de comentario del fichero de contraseña para el
+ usuario.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-g
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+GRUPO
+\family default
+\emph default
+ Nombre o número del nuevo grupo primario del usuario, que debe existir.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-G
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+GRUPO1
+\emph default
+[
+\emph on
+,GRUPO2,...
+\emph default
+[
+\emph on
+,GRUPON
+\emph default
+]]]
+\family default
+ Lista de grupos adicionales del que el usuario también es miembro.
+ Si el usuario es miembro del algún grupo que no está en la lista, será
+ eliminado del grupo, salvo si se añade la opción 
+\family typewriter
+\series bold
+-a
+\family default
+\series default
+ que añade al usuario esta lista en vez de sustituir.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-s
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+SHELL
+\family default
+\emph default
+ El nombre de la nueva 
+\emph on
+shell
+\emph default
+ inicial del usuario.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+userdel 
+\emph on
+USUARIO
+\end_layout
+
+\begin_layout Standard
+Borra del sistema todas las entradas de usuario que hacen referencia al
+ 
+\family typewriter
+\emph on
+USUARIO
+\family default
+\emph default
+ dado, que debe existir.
+ Por defecto no borra el directorio personal.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+groupadd 
+\emph on
+GRUPO
+\end_layout
+
+\begin_layout Standard
+Crea un nuevo grupo.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+groupdel 
+\emph on
+GRUPO
+\end_layout
+
+\begin_layout Standard
+Borra del sistema todas las entradas de grupo que hacen referencia al 
+\family typewriter
+\emph on
+GRUPO
+\family default
+\emph default
+ dado, que debe existir.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+gpasswd [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+GRUPO
+\end_layout
+
+\begin_layout Standard
+Administra 
+\family typewriter
+/etc/group
+\family default
+ y 
+\family typewriter
+/etc/gshadow
+\family default
+.
+ Cada grupo puede tener administradores, miembros y una contraseña.
+\end_layout
+
+\begin_layout Standard
+Salvo por las opciones 
+\family typewriter
+\series bold
+-A
+\family default
+\series default
+ y 
+\family typewriter
+\series bold
+-M
+\family default
+\series default
+, las opciones no pueden combinarse.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-a
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+USUARIO
+\family default
+\emph default
+ Añade el 
+\family typewriter
+\emph on
+USUARIO
+\family default
+\emph default
+ al 
+\family typewriter
+\emph on
+GRUPO
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-d
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+USUARIO
+\family default
+\emph default
+ Elimina al 
+\family typewriter
+\emph on
+USUARIO
+\family default
+\emph default
+ del 
+\family typewriter
+\emph on
+GRUPO
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-A
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+USUARIO
+\emph default
+,...
+
+\family default
+ Establece la lista de administradores.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-M
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+USUARIO
+\emph default
+,...
+
+\family default
+ Establece la lista de miembros.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+passwd [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+USUARIO
+\emph default
+]
+\end_layout
+
+\begin_layout Standard
+Actualiza la información de autenticación del 
+\family typewriter
+\emph on
+USUARIO
+\family default
+\emph default
+.
+ Por defecto cambia su contraseña.
+ Sólo 
+\family typewriter
+root
+\family default
+ puede especificar el 
+\family typewriter
+\emph on
+USUARIO
+\family default
+\emph default
+; si no se especifica, se cambia la contraseña propia.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-l
+\family default
+\series default
+ Bloquea la contraseña del usuario.
+ Sólo para 
+\family typewriter
+root
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+--stdin
+\family default
+\series default
+ La contraseña se lee de la entrada estándar, que puede ser una tubería.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-u
+\family default
+\series default
+ Desbloquea la contraseña del usuario.
+ Sólo para 
+\family typewriter
+root
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-e
+\family default
+\series default
+ El usuario será forzado a cambiar la contraseñá en el siguiente intento
+ de inicio de sesión.
+ Sólo para 
+\family typewriter
+root
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Este comando fuerza algunos requisitos de seguridad en la nueva contraseña
+ (longitud mínima, etc.).
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+chage [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+USUARIO
+\end_layout
+
+\begin_layout Standard
+Cambia el número de días entre cambios de contraseña y la fecha de último
+ cambio para el 
+\family typewriter
+\emph on
+USUARIO
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-E
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+FECHA
+\family default
+\emph default
+ Establece la fecha de expiración de la cuenta, con formato 
+\family typewriter
+YYYY-MM-DD
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-I
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+DÍAS
+\family default
+\emph default
+ Establece el número de días de inactividad tras la expiración de una contraseña
+ durante los cuales el usuario todavía puede iniciar sesión.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-M
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+DÍAS
+\family default
+\emph default
+ Establece el máximo de días durante los que una contraseña es válida.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-W
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+DÍAS
+\family default
+\emph default
+ Establece el número de días antes de la expiración de una contraseña en
+ los que el usuario es avisado de ello.
+\end_layout
+
+\begin_layout Subsubsection*
+NOTA
+\end_layout
+
+\begin_layout Standard
+Este programa requiere de un fichero 
+\family typewriter
+/etc/shadow
+\family default
+, y sólo puede usarlo 
+\family typewriter
+root
+\family default
+s.
+\end_layout
+
+\end_body
+\end_document

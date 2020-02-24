@@ -1,0 +1,743 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+En Eclipse, todo el código fuente o compilado se encuentra en un directorio
+ llamado 
+\series bold
+espacio de trabajo
+\series default
+.
+ Para importar un proyecto, movemos su directorio al espacio de trabajo
+ y, desde Eclipse, usamos 
+\begin_inset Quotes fld
+\end_inset
+
+Archivo
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+Importar
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+General
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+Proyectos existentes en el espacio de trabajo
+\begin_inset Quotes frd
+\end_inset
+
+, donde nos pide el directorio raíz introducimos la ruta del espacio de
+ trabajo, pulsamos 
+\begin_inset Quotes fld
+\end_inset
+
+Examinar
+\begin_inset Quotes frd
+\end_inset
+
+ y, en el panel inferior 
+\begin_inset Quotes fld
+\end_inset
+
+Proyectos
+\begin_inset Quotes frd
+\end_inset
+
+, seleccionamos el que deseamos importar, y pulsamos 
+\begin_inset Quotes fld
+\end_inset
+
+Finalizar
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El código fuente Java se guarda en ficheros 
+\family typewriter
+\emph on
+Clase
+\emph default
+.java
+\family default
+ que, al compilarlos, se convierten en ficheros compilados o de 
+\emph on
+bytecode
+\emph default
+ 
+\family typewriter
+\emph on
+Clase
+\emph default
+.class
+\family default
+, uno por clase.
+ Para ejecutar un programa usamos el comando 
+\family typewriter
+java [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+CLASE
+\family default
+\emph default
+, donde 
+\family typewriter
+\emph on
+CLASE
+\family default
+\emph default
+ es la ruta completa de la clase principal.
+ Las clases se buscan según un 
+\emph on
+classpath
+\emph default
+, una lista de directorios (o ficheros com
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+pri
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+mi
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+dos) separados por 
+\family typewriter
+;
+\family default
+, de forma que en uno de ellos debe haber un fichero de 
+\emph on
+bytecode
+\emph default
+ cuya ruta relativa al directorio debe ser el resultado de cambiar los separador
+es 
+\family typewriter
+.
+
+\family default
+ en la ruta completa de la clase por 
+\family typewriter
+/
+\family default
+ y añadir al final la extensión 
+\family typewriter
+.class
+\family default
+.
+ El 
+\emph on
+classpath
+\emph default
+ se indica al comando con la opción 
+\family typewriter
+-cp 
+\emph on
+CLASSPATH
+\family default
+\emph default
+; si no aparece, se toma de la variable de entorno 
+\family typewriter
+CLASSPATH
+\family default
+, y si esta tampoco existe, se asume que es 
+\begin_inset Quotes fld
+\end_inset
+
+
+\family typewriter
+.
+\family default
+
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un fichero JAR es un comprimido con extensión (normalmente) 
+\family typewriter
+.jar
+\family default
+ que contiene los ficheros compilados y un 
+\series bold
+manifiesto
+\series default
+ que describe el contenido.
+ El manifiesto se encuentra en 
+\family typewriter
+META-INF/MANIFEST.MF
+\family default
+ dentro del comprimido, y suele tener el siguiente aspecto:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+Class-Path: 
+\emph on
+ELEMENTO
+\emph default
+ 
+\family default
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Main-Class: 
+\emph on
+RUTA_CLASE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde la entrada 
+\family typewriter
+Class-Path
+\family default
+ indica el 
+\emph on
+classpath
+\emph default
+ como lista separada por espacios en la que 
+\family typewriter
+.
+
+\family default
+ indica el propio fichero y las rutas relativas que no comienzan con 
+\family typewriter
+.
+
+\family default
+ lo son respecto al directorio donde se encuentra el comprimido.
+ 
+\family typewriter
+Main-Class
+\family default
+ indica el nombre completo de la clase principal.
+ Esto permite ejecutar un programa en Java con el comando 
+\family typewriter
+java -jar 
+\emph on
+fichero.jar
+\family default
+\emph default
+, o abriendo el fichero desde un explorador de ficheros.
+\end_layout
+
+\begin_layout Standard
+Si tenemos una biblioteca en un fichero JAR que queremos usar en nuestro
+ proyecto, creamos dentro una carpeta 
+\family typewriter
+lib
+\family default
+, copiamos el comprimido dentro junto con su documentación JavaDoc (descomprimid
+a) y, dentro de Eclipse, pulsamos F5 para actualizar el contenido de 
+\family typewriter
+lib
+\family default
+.
+ Pulsamos el fichero de la biblioteca con el botón derecho del ratón, usamos
+ 
+\begin_inset Quotes fld
+\end_inset
+
+Vía de acceso de construcción
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+Añadir a la vía de construcción
+\begin_inset Quotes frd
+\end_inset
+
+ y aparece una sección 
+\begin_inset Quotes fld
+\end_inset
+
+Li
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+bre
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+rí
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+as referidas
+\begin_inset Quotes frd
+\end_inset
+
+ con la biblioteca añadida.
+ Pulsamos aquí con el botón derecho del ratón, en 
+\begin_inset Quotes fld
+\end_inset
+
+Propiedades
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+Ubicación del JavaDoc
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+Vía de acceso de ubicación JavaDoc
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+Examinar
+\begin_inset Quotes frd
+\end_inset
+
+ seleccionamos el directorio con la documentación, y pulsamos 
+\begin_inset Quotes fld
+\end_inset
+
+Validar
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para generar un archivo JAR de nuestro proyecto, usamos 
+\begin_inset Quotes fld
+\end_inset
+
+Archivo
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+Exportar
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+Java
+\begin_inset Quotes frd
+\end_inset
+
+ y podemos elegir 
+\begin_inset Quotes fld
+\end_inset
+
+Archivo JAR
+\begin_inset Quotes frd
+\end_inset
+
+ para empaquetar una biblioteca (sin clase principal), 
+\begin_inset Quotes fld
+\end_inset
+
+Archivo JAR ejecutable
+\begin_inset Quotes frd
+\end_inset
+
+ para un ejecutable o 
+\begin_inset Quotes fld
+\end_inset
+
+JavaDoc
+\begin_inset Quotes frd
+\end_inset
+
+ para extraer la documentación JavaDoc.
+\end_layout
+
+\begin_layout Standard
+Si elegimos la segunda opción, tenemos las opciones:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Launch configuration
+\emph default
+: Para elegir la clase principal de entre las posibles.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Export destination
+\emph default
+: Dónde queremos que se guarde el fichero JAR.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Library handling
+\emph default
+: 
+\begin_inset Quotes fld
+\end_inset
+
+
+\emph on
+Extract required libraries into generated JAR
+\emph default
+
+\begin_inset Quotes frd
+\end_inset
+
+ descomprime los ficheros JAR de las bibliotecas e introduce las clases
+ en el JAR de salida.
+ 
+\begin_inset Quotes fld
+\end_inset
+
+
+\emph on
+Package required libraries into generated JAR
+\emph default
+
+\begin_inset Quotes frd
+\end_inset
+
+ guarda los propios ficheros JAR de las bibliotecas dentro del nuestro.
+ 
+\begin_inset Quotes fld
+\end_inset
+
+
+\emph on
+Copy required libraries into a sub-folder next to the generated JAR
+\emph default
+
+\begin_inset Quotes frd
+\end_inset
+
+ crea un directorio junto al fichero JAR donde mete las bibliotecas, que
+ añade como dependencias en el 
+\family typewriter
+Class-Path
+\family default
+ del manifiesto.
+\end_layout
+
+\begin_layout Standard
+JavaDoc es una forma de generar documentación de código Java a partir de
+ comentarios.
+ Para ello, encima de cada clase, interfaz, etc., método o incluso paquete,
+ creamos un comentario como el siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+* 
+\emph on
+Descripción.
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+*
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+* @param 
+\emph on
+nombre
+\emph default
+ 
+\emph on
+Descripción del parámetro 
+\begin_inset Quotes fld
+\end_inset
+
+nombre
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+* 
+\family default
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+* @return 
+\emph on
+Valor devuelto.
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+* @throws 
+\emph on
+Tipo Significado si el método lanza una excepción del Tipo dado.
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+* 
+\family default
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+* @seeAlso 
+\emph on
+Clase,método,etc.
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+*/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cualquier parte puede omitirse (de hecho muchas son específicas para métodos),
+ y puede usarse código HTML o marcadores propios de JavaDoc (por ejemplo,
+ para enlazar a otra clase o método).
+ Si un método redefine a otro sin cambiar la semántica, podemos usar 
+\family typewriter
+/** {@inheritDoc} */
+\family default
+ para heredar la documentación.
+\end_layout
+
+\end_body
+\end_document

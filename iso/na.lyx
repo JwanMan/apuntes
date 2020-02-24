@@ -1,0 +1,7090 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+En UNIX/Linux existen tres grandes familias de intérpretes de órdenes o
+ 
+\emph on
+shells
+\emph default
+: 
+\family typewriter
+sh
+\family default
+, 
+\family typewriter
+csh
+\family default
+ y 
+\family typewriter
+ksh
+\family default
+.
+ Nos centraremos en 
+\family typewriter
+bash
+\family default
+, el Bourne-Again Shell, un 
+\emph on
+shell
+\emph default
+ libre de la familia de 
+\family typewriter
+sh
+\family default
+.
+ Podemos acceder a este:
+\end_layout
+
+\begin_layout Itemize
+Directamente, si el sistema arranca en modo texto.
+\end_layout
+
+\begin_layout Itemize
+El sistema suele tener 12 terminales virtuales.
+ El modo gráfico suele usar las dos primeras, por lo que podemos acceder
+ a modo texto pulsando 
+\family typewriter
+C-M-F
+\emph on
+
+\begin_inset Formula $i$
+\end_inset
+
+
+\family default
+\emph default
+ con 
+\begin_inset Formula $i=3,\dots,12$
+\end_inset
+
+ y volver al modo gráfico con 
+\family typewriter
+C-M-F1
+\family default
+ o 
+\family typewriter
+C-M-F2
+\family default
+ dependiendo del sistema.
+\end_layout
+
+\begin_layout Itemize
+También, desde el modo gráfico, podemos usar un programa de simulación del
+ terminal, que permite ejecutar órdenes desde el entorno de ventanas.
+ Destacan 
+\family typewriter
+konsole
+\family default
+ de KDE y 
+\family typewriter
+gnome-terminal
+\family default
+ de GNOME.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+bash
+\family default
+ es programable a partir de ficheros de texto con listas de órdenes, llamados
+ 
+\series bold
+guiones 
+\emph on
+shell
+\series default
+\emph default
+ (
+\emph on
+shell scripts
+\emph default
+) o 
+\series bold
+\emph on
+scripts
+\series default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+En general, las órdenes que aceptan varias opciones a la vez de una sola
+ letra permiten escribir, por ejemplo, 
+\family typewriter
+-abcd
+\family default
+ en vez de 
+\family typewriter
+-a -b -c -d
+\family default
+, y esto también vale si la última orden requiere un argumento.
+ Todos los procesos, cuando finalizan, devuelven un 
+\series bold
+código de salida
+\series default
+ (
+\emph on
+exit code
+\emph default
+) o 
+\series bold
+estado de salida
+\series default
+ (
+\emph on
+exit status
+\emph default
+) al proceso padre, que generalmente es 0 cuando la ejecución es correcta
+ y un valor entre 1 y 255 cuando hay un error.
+ 
+\end_layout
+
+\begin_layout Standard
+Ejecutar 
+\family typewriter
+\emph on
+comando
+\emph default
+ --help
+\family default
+ en general muestra una breve ayuda sobre una orden externa.
+ Otras fuentes son la ayuda de 
+\family typewriter
+bash
+\family default
+, la de 
+\family typewriter
+man
+\family default
+, la documentación de las distribuciones, sitios como FAQs, foros, etc.,
+ y proyectos de documentación libre como TLDP.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+De aquí en adelante buscad en todos estos sitios antes de preguntarme a
+ mí.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las órdenes se ejecutan siempre desde el 
+\series bold
+directorio actual
+\series default
+ en el que nos encontremos.
+ Cada usuario tiene un 
+\series bold
+directorio personal
+\series default
+, que suele ser 
+\family typewriter
+/home/
+\emph on
+usuario
+\family default
+\emph default
+, siendo 
+\family typewriter
+\emph on
+usuario
+\family default
+\emph default
+ el nombre del usuario.
+\end_layout
+
+\begin_layout Standard
+Los ficheros y directorios tienen una serie de permisos para el propietario
+ (o usuario), el grupo y el resto de usuarios.
+ Para cada uno de estos se definen los siguientes permisos:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="20text%">
+<column alignment="center" valignment="top" width="30text%">
+<column alignment="center" valignment="top" width="40text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Permiso
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Fichero
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Directorio
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Lectura (
+\family typewriter
+r
+\family default
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Leer el contenido.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Obtener la lista de entradas.
+ No es necesario para acceder a ellas si conocemos su nombre.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Escritura (
+\family typewriter
+w
+\family default
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Modificar el contenido.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Crear, borrar o modificar entradas.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ejecución (
+\family typewriter
+x
+\family default
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ejecutar el fichero.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Acceder al nodo-i de las entradas para acceder a subdirectorios o ficheros
+ u obtener los metadatos de estos.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Además de los permisos especiales:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+t
+\family default
+ (
+\emph on
+sticky bit
+\emph default
+): En un directorio, un usuario con permiso de lectura puede crear ficheros,
+ pero sólo puede borrar los que le pertenecen.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+u+s
+\family default
+ (suid): En un ejecutable, el UID cambia al del propietario al ejecutarlo.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+g+s
+\family default
+ (sgid): En un ejecutable, el GID cambia al del grupo del fichero al ejecutarlo.
+ En un directorio, los ficheros creados dentro pertenecen al grupo del directori
+o, y no (ne
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ce
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+sa
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ria
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+men
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+te) al grupo activo de quien lo crea.
+\end_layout
+
+\begin_layout Standard
+Los permisos se representan en notación estándar como la cadena 
+\family typewriter
+rwxrwxrwx
+\family default
+, con 3 grupos para usuario, grupo y otros, respectivamente, donde se sustituyen
+ los caracteres de los permisos que no están por 
+\family typewriter
+-
+\family default
+.
+ La 
+\family typewriter
+x
+\family default
+ de usuario o grupo, respectivamente, cambia a una 
+\family typewriter
+s
+\family default
+ si está activo el suid o el sgid.
+ La 
+\family typewriter
+x
+\family default
+ de otros cambia a una 
+\family typewriter
+t
+\family default
+ si está activo el 
+\emph on
+sticky bit
+\emph default
+.
+ También se puede representar en octal, considerando en esta cadena que
+ un permiso que se da es un 1 y uno que no es un 0, y convirtiendo el número
+ binario resultante a octal.
+\end_layout
+
+\begin_layout Standard
+A continuación vemos versiones reducidas y traducidas de las páginas 
+\family typewriter
+man
+\family default
+ (del manual) de los principales comandos, que definen un subconjunto de
+ la funcionalidad de estos en la implementación de GNU.
+\end_layout
+
+\begin_layout Section
+
+\family typewriter
+bash
+\end_layout
+
+\begin_layout Standard
+Si bien veremos que el 
+\emph on
+shell
+\emph default
+ permite crear variables, estas son variables locales, que son heredadas
+ por los hijos del 
+\emph on
+shell
+\emph default
+ (si bien al modificarlas estos no se actualizan en el proceso padre ni
+ al revés) pero desaparecen en cuanto estos llaman a 
+\family typewriter
+exec
+\family default
+.
+ No obstante, cada proceso en UNIX incluye un 
+\series bold
+entorno
+\series default
+ con una serie de 
+\series bold
+variables de entorno
+\series default
+, que se heredan de padres a hijos en 
+\family typewriter
+fork
+\family default
+, no se borran al usar 
+\family typewriter
+exec
+\family default
+ y los procesos pueden crear, modificar o borrar.
+ Por ejemplo, 
+\family typewriter
+LOGNAME
+\family default
+ contiene el nombre del usuario que ha iniciado sesión.
+\end_layout
+
+\begin_layout Standard
+Los procesos disponen por defecto de tres descriptores de fichero:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Entrada estándar
+\series default
+ (0): Para recibir datos de entrada.
+ Normalmente es el teclado.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Salida estándar
+\series default
+ (1): Para mostrar resultados.
+ Normalmente la pantalla.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Salida estándar de error
+\series default
+ (2): Para mostrar mensajes de error.
+ Normalmente la pantalla.
+\end_layout
+
+\begin_layout Standard
+Estos se pueden redireccionar para almacenar datos de salida o recibir datos
+ de entrada de un fichero, o comunicar unos procesos con otros
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+bash
+\family default
+ — 
+\emph on
+GNU Bourne-Again SHell
+\end_layout
+
+\begin_layout Subsubsection*
+SINOPSIS
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+bash
+\series default
+ [opciones] [comando | archivo]
+\end_layout
+
+\begin_layout Subsubsection*
+OPCIONES
+\end_layout
+
+\begin_layout Standard
+Todas las opciones de un caracter documentadas en la descripción del comando
+ interno 
+\family typewriter
+\series bold
+set
+\family default
+\series default
+ pueden usarse como opciones al invocar el 
+\emph on
+shell
+\emph default
+.
+\end_layout
+
+\begin_layout Subsubsection*
+ARGUMENTOS
+\end_layout
+
+\begin_layout Standard
+Si quedan argumentos tras las 
+\family typewriter
+\emph on
+opciones
+\family default
+\emph default
+, el primero de estos se entiende como el nombre de un fichero con comandos
+ 
+\emph on
+shell
+\emph default
+, que guarda en el parámetro 
+\family typewriter
+\series bold
+$0
+\family default
+\series default
+, y el resto de argumentos los guarda en los parámetros posicionales, en
+ orden creciente.
+ Entonces 
+\family typewriter
+\series bold
+bash
+\family default
+\series default
+ lee y ejecuta los comandos de este archivo y termina su ejecución.
+ El estado de salida de 
+\family typewriter
+\series bold
+bash
+\family default
+\series default
+ es el del último comando ejecutado en el 
+\emph on
+script
+\emph default
+.
+\end_layout
+
+\begin_layout Subsubsection*
+INVOCACIÓN
+\end_layout
+
+\begin_layout Standard
+Cuando 
+\family typewriter
+\series bold
+bash
+\family default
+\series default
+ se invoca como 
+\emph on
+shell
+\emph default
+ de inicio de sesión interactivo, ejecuta los comandos de 
+\family typewriter
+~/.bash_profile
+\family default
+, si existe.
+ Cuando un 
+\emph on
+shell
+\emph default
+ de inicio de sesión interactivo termina, ejecuta los comandos de 
+\family typewriter
+~/.bash_logout
+\family default
+.
+ Cuando se inicia un 
+\emph on
+shell
+\emph default
+ interactivo que no es de inicio de sesión, 
+\family typewriter
+\series bold
+bash
+\family default
+\series default
+ ejecuta los comandos de 
+\family typewriter
+~/.bashrc
+\family default
+, si existe.
+\end_layout
+
+\begin_layout Subsubsection*
+DEFINICIONES
+\end_layout
+
+\begin_layout Description
+Blanco Espacio o tabulador.
+\end_layout
+
+\begin_layout Description
+Palabra Secuencia de caracteres interpretada como una unidad por el 
+\emph on
+shell
+\emph default
+.
+\end_layout
+
+\begin_layout Description
+Nombre Palabra con solo caracteres alfanuméricos y barras bajas que no comienza
+ por un número.
+\end_layout
+
+\begin_layout Description
+Metacaracter Caracter que, si no está entre comillas, separa palabras.
+ Uno de 
+\family typewriter
+|
+\family default
+, 
+\family typewriter
+&
+\family default
+, 
+\family typewriter
+;
+\family default
+, 
+\family typewriter
+(
+\family default
+, 
+\family typewriter
+)
+\family default
+, 
+\family typewriter
+<
+\family default
+, 
+\family typewriter
+>
+\family default
+, espacio, tabulador y salto de línea.
+\end_layout
+
+\begin_layout Description
+Operador
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+control Palabra que realiza una función de control.
+ Una de 
+\family typewriter
+||
+\family default
+, 
+\family typewriter
+&
+\family default
+, 
+\family typewriter
+&&
+\family default
+, 
+\family typewriter
+;
+\family default
+, 
+\family typewriter
+;;
+\family default
+, 
+\family typewriter
+;&
+\family default
+, 
+\family typewriter
+;;&
+\family default
+, 
+\family typewriter
+(
+\family default
+, 
+\family typewriter
+)
+\family default
+, 
+\family typewriter
+|
+\family default
+, 
+\family typewriter
+|&
+\family default
+ y salto de línea.
+\end_layout
+
+\begin_layout Subsubsection*
+GRAMÁTICA DEL SHELL
+\end_layout
+
+\begin_layout Paragraph*
+Comandos simples
+\end_layout
+
+\begin_layout Standard
+Secuencia opcional de asignaciones de variables seguida de una lista de
+ palabras separadas por blancos, seguida de redirecciones, y terminada por
+ un operador de control.
+ La primera palabra indica el comando a ejecutar, pasado como argumento
+ 0, y el resto son los argumentos a dicho comando.
+\end_layout
+
+\begin_layout Paragraph*
+Tuberías, 
+\emph on
+pipelines
+\emph default
+ o 
+\emph on
+pipes
+\end_layout
+
+\begin_layout Standard
+Formadas por uno o varios comandos simples separados por 
+\family typewriter
+\series bold
+|
+\family default
+\series default
+, para conectar la salida estándar del de la izquierda con la entrada estándar
+ de la siguiente, o por 
+\family typewriter
+|&
+\family default
+, abreviación para 
+\family typewriter
+2>&1|
+\family default
+, y que se ejecutan en paralelo en sus respectivos procesos.
+\end_layout
+
+\begin_layout Paragraph*
+Listas
+\end_layout
+
+\begin_layout Standard
+Formadas por una o más tuberías separadas por 
+\family typewriter
+;
+\family default
+, 
+\family typewriter
+&
+\family default
+, 
+\family typewriter
+&&
+\family default
+ o 
+\family typewriter
+||
+\family default
+, y terminadas opcionalmente por 
+\family typewriter
+;
+\family default
+, 
+\family typewriter
+&
+\family default
+ o un salto de línea.
+ 
+\family typewriter
+\series bold
+&&
+\family default
+\series default
+ y 
+\family typewriter
+\series bold
+||
+\family default
+\series default
+ tienen igual precedencia, seguidos por 
+\family typewriter
+\series bold
+;
+\family default
+\series default
+ y 
+\family typewriter
+\series bold
+&
+\family default
+\series default
+, de igual precedencia.
+ Una secuencia de uno o más saltos de línea puede aparecer en una lista
+ en lugar de un 
+\family typewriter
+;
+\family default
+ para delimitar comandos.
+\end_layout
+
+\begin_layout Standard
+Si un comando termina con 
+\family typewriter
+\series bold
+&
+\family default
+\series default
+, se ejecuta en segundo plano en una 
+\emph on
+subshell
+\emph default
+.
+ Comandos separados por 
+\family typewriter
+\series bold
+;
+\family default
+\series default
+ se ejecutan secuencialmente.
+\end_layout
+
+\begin_layout Standard
+Las listas Y (AND) y O (OR) son secuencias de una o más tuberías separadas
+ por 
+\family typewriter
+\series bold
+&&
+\family default
+\series default
+ o 
+\family typewriter
+\series bold
+||
+\family default
+\series default
+, respectivamente.
+ Una lista AND tiene forma 
+\family typewriter
+\emph on
+comando1
+\emph default
+ 
+\series bold
+&&
+\series default
+ 
+\emph on
+comando2
+\family default
+\emph default
+, y en esta 
+\family typewriter
+\emph on
+comando2
+\family default
+\emph default
+ se ejecuta si y sólo si 
+\family typewriter
+\emph on
+comando1
+\family default
+\emph default
+ devuelve 0.
+ Una lista OR tiene forma 
+\family typewriter
+\emph on
+comando1
+\emph default
+ 
+\series bold
+||
+\series default
+ 
+\emph on
+comando2
+\family default
+\emph default
+, y en esta 
+\family typewriter
+\emph on
+comando2
+\family default
+\emph default
+ se ejecuta si y sólo si 
+\family typewriter
+\emph on
+comando1
+\family default
+\emph default
+ devuelve un valor distinto de 0.
+ El estado de salida de las listas Y y O es el del último comando ejecutado
+ en la lista.
+\end_layout
+
+\begin_layout Subsubsection*
+Comandos compuestos
+\end_layout
+
+\begin_layout Standard
+En la mayoría de los siguientes casos los 
+\family typewriter
+;
+\family default
+ pueden sustituirse por uno o más saltos de línea.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+(
+\emph on
+lista
+\emph default
+)
+\family default
+ La 
+\family typewriter
+\emph on
+lista
+\family default
+\emph default
+ se ejecuta en un 
+\emph on
+subshell
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+{
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+lista
+\emph default
+;
+\begin_inset space ~
+\end_inset
+
+}
+\family default
+ La 
+\family typewriter
+\emph on
+lista
+\family default
+\emph default
+ se ejecuta en el 
+\emph on
+shell
+\emph default
+ actual.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+if
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+lista
+\emph default
+;
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+then
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+lista
+\emph default
+;
+\begin_inset space ~
+\end_inset
+
+[
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+elif
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+lista
+\emph default
+;
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+then
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+lista
+\emph default
+;
+\begin_inset space ~
+\end_inset
+
+]
+\begin_inset space ~
+\end_inset
+
+...
+\begin_inset space ~
+\end_inset
+
+[
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+else
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+lista
+\emph default
+;
+\begin_inset space ~
+\end_inset
+
+]
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+fi
+\family default
+\series default
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ Ejecuta la 
+\family typewriter
+\emph on
+lista
+\family default
+\emph default
+ en 
+\family typewriter
+\series bold
+if
+\family default
+\series default
+ y, si devuelve cero, ejecuta la 
+\family typewriter
+\emph on
+lista
+\family default
+\emph default
+ en 
+\family typewriter
+\series bold
+then
+\family default
+\series default
+.
+ De lo contrario evalúa la 
+\family typewriter
+\emph on
+lista
+\family default
+\emph default
+ de cada 
+\family typewriter
+\series bold
+elif
+\family default
+\series default
+ y, si devuelve cero, ejecuta la 
+\family typewriter
+\emph on
+lista
+\family default
+\emph default
+ en el 
+\family typewriter
+\series bold
+then
+\family default
+\series default
+ correspondiente y termina el comando, y si esto no ocurre, se ejecuta la
+ 
+\family typewriter
+\emph on
+lista
+\family default
+\emph default
+ en 
+\family typewriter
+\series bold
+else
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+case
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+palabra
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+in
+\series default
+
+\begin_inset space ~
+\end_inset
+
+[
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+patrón
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+[
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+|
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+patrón
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+]
+\begin_inset space ~
+\end_inset
+
+...
+\begin_inset space ~
+\end_inset
+
+)
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+lista
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+;;
+\begin_inset space ~
+\end_inset
+
+]
+\begin_inset space ~
+\end_inset
+
+...
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+esac
+\family default
+\series default
+ Busca el primer 
+\family typewriter
+\emph on
+patrón
+\family default
+\emph default
+ que coincida (según 
+\begin_inset Quotes fld
+\end_inset
+
+Expansión de nombres de archivo
+\begin_inset Quotes frd
+\end_inset
+
+ pero sin considerar 
+\family typewriter
+/
+\family default
+ de manera especial) con el valor de la 
+\family typewriter
+\emph on
+palabra
+\family default
+\emph default
+ una vez expandida y ejecuta la 
+\family typewriter
+\emph on
+lista
+\family default
+\emph default
+ correspondiente.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+while
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+lista1
+\emph default
+;
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+do
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+lista2
+\emph default
+;
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+done
+\family default
+\series default
+ Ejecuta 
+\family typewriter
+\emph on
+lista1
+\family default
+\emph default
+ y, si devuelve 0, ejecuta 
+\family typewriter
+\emph on
+lista2
+\family default
+\emph default
+ y repite esta acción.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+for
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+nombre
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+in
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+palabra
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+...
+\begin_inset space ~
+\end_inset
+
+;
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+do
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+lista
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+;
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+done
+\family default
+\series default
+ Una vez expandida la lista de 
+\family typewriter
+\emph on
+palabra
+\family default
+\emph default
+s, para cada una, ejecuta 
+\family typewriter
+\emph on
+lista
+\family default
+\emph default
+ con la variable 
+\family typewriter
+\emph on
+nombre
+\family default
+\emph default
+ establecida a dicha palabra, en orden.
+\end_layout
+
+\begin_layout Paragraph*
+Definiciones de funciones
+\end_layout
+
+\begin_layout Standard
+Una función 
+\emph on
+shell
+\emph default
+ es un objeto que se llama como un comando simple y ejecuta un comando compuesto
+ con un nuevo conjunto de parámetros posicionales.
+ Se declaran como:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+function
+\series default
+ 
+\emph on
+nombre
+\emph default
+ 
+\emph on
+comando_compuesto
+\end_layout
+
+\begin_layout Subsubsection*
+PARÁMETROS
+\end_layout
+
+\begin_layout Standard
+Un parámetro es una entidad que almacena valores, y puede ser un nombre,
+ un número o uno de los caracteres en 
+\begin_inset Quotes fld
+\end_inset
+
+Parámetros especiales
+\begin_inset Quotes frd
+\end_inset
+
+.
+ Si es un nombre se le llama 
+\series bold
+variable
+\series default
+, y puede ser asignado mediante la sentencia 
+\family typewriter
+nombre=[
+\emph on
+valor
+\emph default
+]
+\family default
+.
+ No puede haber espacios entre el 
+\family typewriter
+\emph on
+nombre
+\family default
+\emph default
+, el signo 
+\family typewriter
+=
+\family default
+ y el 
+\family typewriter
+\emph on
+valor
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Paragraph*
+Parámetros posicionales
+\end_layout
+
+\begin_layout Standard
+Se denotan por un número positivo distinto de 0 en decimal.
+\end_layout
+
+\begin_layout Paragraph*
+Parámetros especiales
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+@
+\family default
+\series default
+ Todos los parámetros posicionales, en orden creciente.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+#
+\family default
+\series default
+ Número de parámetros posicionales, en decimal.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+?
+\family default
+\series default
+ Estado de salida de la tubería ejecutada más recientemente en primer plano.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+$
+\family default
+\series default
+ PID del 
+\emph on
+shell
+\emph default
+ actual.
+ Si se ejecuta en un 
+\emph on
+subshell
+\emph default
+ con 
+\family typewriter
+()
+\family default
+, no devuelve el PID del 
+\emph on
+subshell
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+!
+\family default
+\series default
+ PID del último trabajo puesto a ejecutar en segundo plano.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+0
+\family default
+\series default
+ Nombre con el que se ha invocado al 
+\emph on
+script
+\emph default
+.
+\end_layout
+
+\begin_layout Paragraph*
+Variables de shell
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+PWD
+\family default
+ El directorio actual, variable establecida por el 
+\emph on
+shell
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+HOME
+\family default
+\series default
+ Directorio personal del usuario actual.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+PATH
+\family default
+\series default
+ Lista de directorios separados por 
+\family typewriter
+:
+\family default
+ en los que el 
+\emph on
+shell
+\emph default
+ busca comandos.
+\end_layout
+
+\begin_layout Subsubsection*
+EXPANSIÓN
+\end_layout
+
+\begin_layout Standard
+Una barra invertida (
+\family typewriter
+
+\backslash
+
+\family default
+) anula el significado especial del caracter siguiente.
+ Encerrar ca
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+rac
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+te
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+res entre comillas simples (
+\family typewriter
+'
+\family default
+) preserva el valor literal de todos, incluso de 
+\family typewriter
+
+\backslash
+
+\family default
+, anulando la expansión y la separación de palabras.
+ Encerrarlos entre comillas dobles (
+\family typewriter
+"
+\family default
+) anula toda expansión salvo la expansión de parámetros, la sustitución
+ de comandos y el significado de 
+\family typewriter
+
+\backslash
+
+\family default
+ cuando el siguiente caracter es 
+\family typewriter
+$
+\family default
+, 
+\family typewriter
+`
+\family default
+, 
+\family typewriter
+"
+\family default
+ o un salto de línea.
+\end_layout
+
+\begin_layout Paragraph*
+Expansión de llaves
+\end_layout
+
+\begin_layout Standard
+Una palabra que contenga 
+\family typewriter
+{
+\emph on
+arg1
+\emph default
+,
+\emph on
+arg2
+\emph default
+,
+\family default
+...
+\family typewriter
+}
+\family default
+ es sustituida (recursivamente) por varias palabras resultado de sustituir
+ dicha expresión por cada una de las palabras entre llaves.
+\end_layout
+
+\begin_layout Paragraph*
+Expansión de tilde
+\end_layout
+
+\begin_layout Standard
+En una palabra no entrecomillada, si empieza por 
+\family typewriter
+\series bold
+~
+\family default
+\series default
+ seguido de 
+\family typewriter
+\series bold
+/
+\family default
+\series default
+, o si este es el único caracter de la palabra, este es sustituido por el
+ valor del parámetro 
+\family typewriter
+\series bold
+HOME
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Paragraph*
+Expansión de parámetros
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+${
+\emph on
+parámetro
+\emph default
+}
+\family default
+ es sustituido por el valor del 
+\family typewriter
+\emph on
+parámetro
+\family default
+\emph default
+.
+ Las llaves son opcionales y sirven para delimitar el parámetro (de lo contrario
+ se considera que es el nombre más largo formado por caracteres consecutivos
+ después del 
+\family typewriter
+$
+\family default
+ o, si no hay ninguno, por el primer caracter).
+ Si el primer caracter del 
+\family typewriter
+\emph on
+parámetro
+\family default
+\emph default
+ es 
+\family typewriter
+\series bold
+!
+\family default
+\series default
+, el valor de la variable formada por el resto del 
+\family typewriter
+\emph on
+parámetro
+\family default
+\emph default
+ se usa como nombre del parámetro y es expandido en lugar del propio parámetro.
+\end_layout
+
+\begin_layout Paragraph*
+Sustitución de comandos
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+$(
+\emph on
+comando
+\emph default
+)
+\family default
+ o 
+\family typewriter
+`
+\emph on
+comando
+\emph default
+`
+\family default
+ ejecuta el 
+\family typewriter
+\emph on
+comando
+\family default
+\emph default
+ en una 
+\emph on
+subshell
+\emph default
+ y es sustituido por la salida del comando.
+ Sin comillas, el intérprete entiende los saltos de línea dentro de la salida
+ como separadores de palabras.
+\end_layout
+
+\begin_layout Subsubsection*
+Expansión aritmética
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+$((
+\emph on
+expresión
+\emph default
+))
+\family default
+ se sustituye por el resultado de evaluar la 
+\family typewriter
+\emph on
+expresión
+\family default
+\emph default
+ aritmética (ver 
+\begin_inset Quotes fld
+\end_inset
+
+Evaluación aritmética
+\begin_inset Quotes frd
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Paragraph*
+División de palabras
+\end_layout
+
+\begin_layout Standard
+Se preservan los argumentos nulos 
+\family typewriter
+""
+\family default
+ y 
+\family typewriter
+''
+\family default
+, pero no los que resultan de una expansión de un parámetro sin valor.
+\end_layout
+
+\begin_layout Paragraph*
+Expansión de rutas de archivo
+\end_layout
+
+\begin_layout Standard
+Cuando una palabra contiene 
+\family typewriter
+*
+\family default
+, 
+\family typewriter
+?
+\family default
+ o 
+\family typewriter
+[
+\family default
+, el intérprete lo sustituye por una lista de nombres de archivo que cumplan
+ el patrón indicado.
+ El caracter 
+\family typewriter
+.
+
+\family default
+ al principio de un nombre o inmediatamente detrás de una 
+\family typewriter
+/
+\family default
+ debe reconocerse explícitamente en el patrón.
+ En este, la mayoria de caracteres se reconocen a sí mismo, 
+\family typewriter
+*
+\family default
+ reconoce cero o más caracteres cualesquiera, 
+\family typewriter
+?
+\family default
+ un caracter cualquiera, y 
+\family typewriter
+[
+\family default
+...
+\family typewriter
+]
+\family default
+ indica cualquiera de los caracteres entre corchetes, salvo porque si el
+ primer caracter es 
+\family typewriter
+!
+\family default
+, el significado pasa a ser cualquier caracter no indicado tras el 
+\family typewriter
+!
+\family default
+, pudiendo en ambos casos indicar rangos como 
+\family typewriter
+\emph on
+a
+\emph default
+-
+\emph on
+z
+\family default
+\emph default
+,
+\end_layout
+
+\begin_layout Paragraph
+Eliminación de comillas
+\end_layout
+
+\begin_layout Standard
+Una vez realizadas todas las expansiones se eliminan todas las ocurrencias
+ no entrecomilladas de los caracteres 
+\family typewriter
+
+\backslash
+
+\family default
+, 
+\family typewriter
+'
+\family default
+ y 
+\family typewriter
+"
+\family default
+ que no fueran generadas por dichas expansiones.
+\end_layout
+
+\begin_layout Subsubsection*
+REDIRECCIÓN
+\end_layout
+
+\begin_layout Standard
+Estos operadores pueden aparecer detrás de un comando para redirigir su
+ entrada y salida.
+\end_layout
+
+\begin_layout Paragraph*
+Redirección de entrada
+\end_layout
+
+\begin_layout Standard
+Con 
+\family typewriter
+[
+\emph on
+n
+\emph default
+]<
+\emph on
+fichero
+\family default
+\emph default
+ para redirigir la entrada del descriptor 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+ (o 0) desde 
+\family typewriter
+\emph on
+fichero
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Paragraph*
+Redirección de salida
+\end_layout
+
+\begin_layout Standard
+Con 
+\family typewriter
+[
+\emph on
+n
+\emph default
+]>
+\emph on
+fichero
+\family default
+\emph default
+ para redirigir la salida del descriptor 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+ (o 1) al 
+\family typewriter
+\emph on
+fichero
+\family default
+\emph default
+, truncándolo si ya existía.
+\end_layout
+
+\begin_layout Paragraph*
+Anexado de salida redirigida
+\end_layout
+
+\begin_layout Standard
+Con 
+\family typewriter
+[
+\emph on
+n
+\emph default
+]>>
+\emph on
+fichero
+\family default
+\emph default
+, similar a lo anterior pero si el 
+\family typewriter
+\emph on
+fichero
+\family default
+\emph default
+ existe añade los nuevos datos al final.
+\end_layout
+
+\begin_layout Paragraph*
+Duplicado de descriptores de archivo
+\end_layout
+
+\begin_layout Standard
+Con 
+\family typewriter
+[
+\emph on
+n
+\emph default
+]>&
+\emph on
+m
+\family default
+\emph default
+ para duplicar la salida del descriptor 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+ (o 1) al descriptor 
+\family typewriter
+\emph on
+m
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Subsubsection*
+ALIAS
+\end_layout
+
+\begin_layout Standard
+Permiten que una cadena sea sustituida por una palabra cuando se usa como
+ la primera de un comando simple.
+ Si esta primera palabra no está entre comillas, se comprueba para ver si
+ es un alias, en cuyo caso se reemplaza por el texto del alias.
+\end_layout
+
+\begin_layout Subsubsection*
+EVALUACIÓN ARITMÉTICA
+\end_layout
+
+\begin_layout Standard
+Las expresiones entre paréntesis (que no tienen que ir precedidos por 
+\family typewriter
+
+\backslash
+
+\family default
+) se evalúan primero.
+ De mayor a menor prioridad:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+-
+\begin_inset space ~
+\end_inset
+
++
+\family default
+ Menos y más unarios.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+**
+\family default
+ Exponencial.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+*
+\begin_inset space ~
+\end_inset
+
+/
+\begin_inset space ~
+\end_inset
+
+%
+\family default
+ Multiplicación, división y resto.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
++
+\begin_inset space ~
+\end_inset
+
+-
+\family default
+ Suma y resta.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+=
+\family default
+ Asignación (a la izquierda está el nombre de una variable).
+\end_layout
+
+\begin_layout Standard
+La expansión de parámetros se realiza antes de evaluar la expresión, y los
+ valores de parámetros se fuerzan a un entero.
+ Las constantes que empiezan por 
+\family typewriter
+0
+\family default
+ se interpretan en octal, mientras que las que empiezan por 
+\family typewriter
+0x
+\family default
+ o 
+\family typewriter
+0X
+\family default
+ se interpretan como hexadecimal.
+ No debe haber espacio entre operandos y operadores.
+\end_layout
+
+\begin_layout Subsubsection*
+EJECUCIÓN DE COMANDOS
+\end_layout
+
+\begin_layout Standard
+Si el nombre del comando no contiene 
+\family typewriter
+/
+\family default
+, si es el nombre de una función la ejecuta, o si es el nombre de un comando
+ interno, y de lo contrario busca en los directorios en 
+\family typewriter
+\series bold
+PATH
+\family default
+\series default
+ uno que contenga un ejecutable con el nombre del comando.
+ Si contiene 
+\family typewriter
+/
+\family default
+, lo interpreta como una ruta a un ejecutable.
+ La ejecución de un fichero ejecutable se realiza mediante un 
+\family typewriter
+fork
+\family default
+ tras el cual el proceso hijo hace un 
+\family typewriter
+exec
+\family default
+ y el padre, salvo que el proceso se deba ejecutar en segundo plano, espera
+ a que termine el hijo con 
+\family typewriter
+wait
+\family default
+.
+\end_layout
+
+\begin_layout Subsubsection*
+PROMPTS
+\end_layout
+
+\begin_layout Standard
+El intérprete suele mostrar un prompt como 
+\family typewriter
+[
+\emph on
+usuario
+\emph default
+@
+\emph on
+nombremáquina
+\emph default
+ 
+\emph on
+directorio
+\emph default
+] $
+\family default
+, donde 
+\family typewriter
+\emph on
+usuario
+\family default
+\emph default
+ es el nombre del usuario conectado al sistema, 
+\family typewriter
+\emph on
+nombremáquina
+\family default
+\emph default
+ es el nombre de la máquina y 
+\family typewriter
+\emph on
+directorio
+\family default
+\emph default
+ es el nombre del directorio actual, o 
+\family typewriter
+~
+\family default
+ para el directorio personal del usuario.
+\end_layout
+
+\begin_layout Subsubsection*
+COMANDOS INTERNOS DEL SHELL
+\end_layout
+
+\begin_layout Standard
+Muchos de estos también son externos pero han sido incorporados al código
+ de 
+\family typewriter
+bash
+\family default
+ para acelerar su ejecución.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+alias
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+nombre
+\emph default
+=
+\emph on
+valor
+\family default
+\emph default
+ Establece un alias con el 
+\family typewriter
+\emph on
+nombre
+\family default
+\emph default
+ y 
+\family typewriter
+\emph on
+valor
+\family default
+\emph default
+ dados.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+break
+\family default
+\series default
+ Sale de un bucle 
+\family typewriter
+\series bold
+for
+\family default
+\series default
+ o 
+\family typewriter
+\series bold
+while
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+cd
+\series default
+
+\begin_inset space ~
+\end_inset
+
+[
+\emph on
+dir
+\emph default
+]
+\series bold
+ 
+\family default
+\series default
+Cambia el directorio actual al último en que habíamos estado si 
+\family typewriter
+\emph on
+dir
+\family default
+\emph default
+ es 
+\family typewriter
+-
+\family default
+, al directorio 
+\family typewriter
+\emph on
+dir
+\family default
+\emph default
+ en caso contrario, o al directorio personal si 
+\family typewriter
+\emph on
+dir
+\family default
+\emph default
+ no se especifica.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+continue
+\family default
+\series default
+ Continúa un bucle 
+\family typewriter
+\series bold
+for
+\family default
+\series default
+ o 
+\family typewriter
+\series bold
+while
+\family default
+\series default
+ por la siguiente iteración.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+echo
+\series default
+
+\begin_inset space ~
+\end_inset
+
+[
+\emph on
+opción
+\emph default
+]...
+ [
+\emph on
+arg
+\emph default
+]...
+
+\family default
+ Imprime los 
+\family typewriter
+\emph on
+arg
+\family default
+\emph default
+umentos por la salida estándar, separados por espacio y seguidos de un salto
+ de línea.
+ Con 
+\family typewriter
+\series bold
+-n
+\family default
+\series default
+, no se imprime el salto de línea al final.
+ Con 
+\family typewriter
+\series bold
+-e
+\family default
+\series default
+, interpreta las secuencias:
+\end_layout
+
+\begin_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+
+\backslash
+b
+\family default
+\series default
+ Retrocede una posición.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+
+\backslash
+f
+\family default
+\series default
+ Alimentación de página.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+
+\backslash
+n
+\family default
+\series default
+ Salto de línea.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+
+\backslash
+t
+\family default
+\series default
+ Tabulador horizontal.
+\end_layout
+
+\end_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+exit
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+n
+\family default
+\emph default
+ Provoca que el 
+\emph on
+shell
+\emph default
+ termine su ejecución con un estado de salida de 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+export
+\series default
+
+\begin_inset space ~
+\end_inset
+
+[
+\emph on
+nombre
+\emph default
+[=
+\emph on
+palabra
+\emph default
+]]
+\family default
+ El 
+\family typewriter
+\emph on
+nombre
+\family default
+\emph default
+ dado se convierte en variable de entorno.
+ Si se proporciona una 
+\family typewriter
+\emph on
+palabra
+\family default
+\emph default
+, se asigna como valor a la variable.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+help
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+comando
+\family default
+\emph default
+ Muestra ayuda detallada de un 
+\family typewriter
+\emph on
+comando
+\family default
+\emph default
+ interno.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+let
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+expr
+\emph default
+...
+
+\family default
+ Evalúa una lista de 
+\family typewriter
+\emph on
+expr
+\family default
+\emph default
+esiones aritméticas.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+printf
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+formato
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+[
+\emph on
+arg
+\emph default
+]...
+
+\family default
+ Imprime los 
+\family typewriter
+\emph on
+arg
+\family default
+\emph default
+umentos por la salida estándar según un 
+\family typewriter
+\emph on
+formato
+\family default
+\emph default
+, al estilo de C.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+pwd
+\family default
+\series default
+ Imprime la ruta absoluta del directorio actual.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+read
+\series default
+
+\begin_inset space ~
+\end_inset
+
+[
+\emph on
+nombre
+\emph default
+]
+\family default
+ Lee una línea de la entrada estándar y la asigna como valor de 
+\family typewriter
+\emph on
+nombre
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+set
+\series default
+
+\begin_inset space ~
+\end_inset
+
+[
+\emph on
+opción
+\emph default
+]...
+
+\family default
+ Sin opciones, imprime el nombre y el valor de todas las variables del 
+\emph on
+shell
+\emph default
+ (incluyendo las de entorno).
+ Opciones:
+\end_layout
+
+\begin_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-u
+\family default
+\series default
+ Trata las variables no asignadas como errores en la expansión, mostrando
+ un mensaje de error.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-v
+\family default
+\series default
+ Muestra las líneas de entrada de órdenes conforme se leen.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-x
+\family default
+\series default
+ Tras expandir cada comando simple, 
+\family typewriter
+\series bold
+for
+\family default
+\series default
+ o 
+\family typewriter
+\series bold
+case
+\family default
+\series default
+, muestra el comando y sus argumentos expandidos.
+\end_layout
+
+\end_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+shift
+\family default
+\series default
+ Los parámetros posicionales desde el 2 cambian su número a uno menos, y
+ el re
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+pre
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+sen
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ta
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+do por el número 
+\family typewriter
+$#
+\family default
+ se desestablece.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+test
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+expr
+\family default
+\emph default
+ Funciona como la orden externa 
+\family typewriter
+test
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+[
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+expr
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+]
+\family default
+\series default
+ Ídem.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+env
+\end_layout
+
+\begin_layout Standard
+Imprime el nombre y el valor de las variables de entorno.
+\end_layout
+
+\begin_layout Section
+Ficheros y directorios
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+ls [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+FICHERO
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Lista información sobre los 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+s (por defecto, el directorio actual).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-l
+\family default
+\series default
+ Lista en formato largo.
+ Cada línea se corresponde con una entrada.
+ El primer ca
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+rac
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ter es 
+\family typewriter
+d
+\family default
+ para un directorio, 
+\family typewriter
+-
+\family default
+ para un fichero regular, 
+\family typewriter
+l
+\family default
+ para un enlace simbólico, 
+\family typewriter
+b
+\family default
+ para un fichero especial de bloques, etc.
+ A continuación, los permisos en notación estándar, el número de enlaces
+ físicos que tiene la entrada, el usuario y el grupo al que pertenece, el
+ tamaño del fichero en bytes, su fecha y hora de última modificación y finalment
+e su nombre.
+ Si no se especifica se usa el formato corto, que solo muestra el nombre.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-R
+\family default
+\series default
+ Lista también los subdirectorios de forma recursiva.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-a
+\family default
+\series default
+ No omite los ficheros y directorios 
+\begin_inset Quotes fld
+\end_inset
+
+ocultos
+\begin_inset Quotes frd
+\end_inset
+
+ (los que empiezan por 
+\family typewriter
+.
+\family default
+).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-S
+\family default
+\series default
+ Ordena por tamaño, empezando por el fichero más grande.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-t
+\family default
+\series default
+ Ordena por tiempo de modificación, empezando por la entrada modificada
+ más recientemente.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-r
+\family default
+\series default
+ Invierte el orden del listado.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-d
+\family default
+\series default
+ Lista los directorios que se pasan como parámetros y no su contenido.
+\end_layout
+
+\begin_layout Standard
+Si hay dos opciones contradictorias, predomina la última.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+touch [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+FICHERO
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Cambia el tiempo de modificación de cada 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+ al actual.
+ Un 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+ que no existe es creado vacío.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+cp
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+cp
+\series default
+ [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+-T
+\emph default
+] 
+\emph on
+ORIGEN DESTINO
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+cp
+\series default
+ [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+ORIGEN
+\emph default
+...
+ 
+\emph on
+DIRECTORIO
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+cp
+\series default
+ [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+-t DIRECTORIO ORIGEN
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Copia 
+\family typewriter
+\emph on
+ORIGEN
+\family default
+\emph default
+ a 
+\family typewriter
+\emph on
+DESTINO
+\family default
+\emph default
+, o múltiples 
+\family typewriter
+\emph on
+ORÍGEN
+\family default
+\emph default
+es a un 
+\family typewriter
+\emph on
+DIRECTORIO
+\family default
+\emph default
+ existente.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-r
+\family default
+\series default
+ Copia directorios recursivamente.
+ Usado para copiar directorios.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-i
+\family default
+\series default
+ Pide confirmación antes de sobrescribir.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-a
+\family default
+\series default
+ Equivale a 
+\family typewriter
+-dR --preserve=all
+\family default
+, que conserva todos los atributos posibles de los 
+\family typewriter
+\emph on
+ORÍGEN
+\family default
+\emph default
+es.
+ Sin esto, los elementos copiados tienen como usuario y grupo a quien hace
+ la copia, como tiempos asociados los de cuando la copia termina, los permisos
+ dependen de la configuración del sistema y usuario, etc.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+mv
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+mv
+\series default
+ [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+-T
+\emph default
+] 
+\emph on
+ORIGEN DESTINO
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+mv
+\series default
+ [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+ORIGEN
+\emph default
+...
+ 
+\emph on
+DIRECTORIO
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+mv
+\series default
+ [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+-t DIRECTORIO ORIGEN
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Cambia el nombre de 
+\family typewriter
+\emph on
+ORIGEN
+\family default
+\emph default
+ a 
+\family typewriter
+\emph on
+DESTINO
+\family default
+\emph default
+, o mueve 
+\family typewriter
+\emph on
+ORÍGEN
+\family default
+\emph default
+es a 
+\family typewriter
+\emph on
+DIRECTORIO
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-i
+\family default
+\series default
+ Pide confirmación antes de sobrescribir.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+rm [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+FICHERO
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Borra (desenlaza) los 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+s.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-i
+\family default
+\series default
+ Pide confirmación antes de borrar cada entrada.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-r
+\family default
+\series default
+ Elimina directorios y sus contenidos recursivamente.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-f
+\family default
+\series default
+ Nunca pide confirmación.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+mkdir [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+DIRECTORIO
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Crea los 
+\family typewriter
+\emph on
+DIRECTORIO
+\family default
+\emph default
+s, si no existen ya.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+rmdir [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+DIRECTORIO
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Elimina los 
+\family typewriter
+\emph on
+DIRECTORIO
+\family default
+\emph default
+s, si están vacíos.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+cat [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+FICHERO
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Concatena 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+s a la salida estándar.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+less [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+FICHERO
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Muestra el contenido de los 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+s (o de la entrada estándar) página a página, pudiendo avanzar y retroceder.
+\end_layout
+
+\begin_layout Subsubsection*
+COMANDOS
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+/
+\emph on
+patrón
+\family default
+\emph default
+ Busca hacia delante una línea que contenga el 
+\family typewriter
+\emph on
+patrón
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+chown [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+PROPIETARIO
+\emph default
+][
+\emph on
+:
+\emph default
+[
+\emph on
+GRUPO
+\emph default
+]] 
+\emph on
+FICHERO
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Cambia el usuario y/o grupo de cada fichero dado.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-R
+\family default
+\series default
+ Opera en ficheros y directorios recursivamente.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+chgrp [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+GRUPO FICHERO
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Cambia el grupo de cada 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+ a 
+\family typewriter
+\emph on
+GRUPO
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+chmod [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+MODO FICHERO
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Establece los permisos de los 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+s a los indicados en 
+\family typewriter
+\emph on
+MODO
+\family default
+\emph default
+, que puede ser una representación simbólica de los cambios o un número
+ en octal.
+\end_layout
+
+\begin_layout Standard
+La representación simbólica tiene formato 
+\family typewriter
+[
+\series bold
+ugo
+\series default
+...][[
+\series bold
+-+
+\series default
+][
+\emph on
+perms
+\emph default
+...]...]
+\family default
+, donde 
+\family typewriter
+\emph on
+perms
+\family default
+\emph default
+ es 0 o más letras de 
+\family typewriter
+\series bold
+rwxXst
+\family default
+\series default
+ o una sola letra del conjunto 
+\family typewriter
+\series bold
+ugo
+\family default
+\series default
+.
+ La combinación de las letras 
+\family typewriter
+\series bold
+ugo
+\family default
+\series default
+ controla qué permisos cambian: los de usuario (
+\family typewriter
+\series bold
+u
+\family default
+\series default
+), grupo (
+\family typewriter
+\series bold
+g
+\family default
+\series default
+) u otros (
+\family typewriter
+\series bold
+o
+\family default
+\series default
+).
+ El operador 
+\family typewriter
+\series bold
++
+\family default
+\series default
+ causa que los bits seleccionados se añadan a los existentes, y 
+\family typewriter
+\series bold
+-
+\family default
+\series default
+ causa que se eliminen.
+ Las letras 
+\family typewriter
+\series bold
+rwxXst
+\family default
+\series default
+ seleccionan los bits de modo.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+find [
+\emph on
+punto-de-inicio
+\emph default
+]...
+ [expresión]
+\end_layout
+
+\begin_layout Standard
+Busca en los árboles de directorios a partir de cada 
+\family typewriter
+punto-de-inicio
+\family default
+ dado (por defecto 
+\family typewriter
+.
+\family default
+) evaluando la 
+\family typewriter
+expresión
+\family default
+, de izquierda a derecha, de acuerdo a las reglas de precedencia, hasta
+ que se conoce el resultado.
+\end_layout
+
+\begin_layout Subsubsection*
+EXPRESIÓN
+\end_layout
+
+\begin_layout Standard
+Está compuesta por una secuencia de:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Tests Devuelven verdadero o falso normalmente según alguna propiedad del
+ fichero.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Acciones Tienen efectos secundarios y devuelven verdadero o falso normalmente
+ según si tienen éxito o no.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Opciones
+\begin_inset space ~
+\end_inset
+
+globales Afectan a la operación de los tests y acciones en cualquier parte
+ de la línea de comandos.
+ Siempre devuelven verdadero.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Operadores Unen los otros elementos dentro de la expresión.
+\end_layout
+
+\begin_layout Subsubsection*
+OPCIONES GLOBALES
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-depth
+\family default
+\series default
+ Procesa el contenido de cada directorio antes del directorio en sí.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-maxdepth
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+N
+\family default
+\emph default
+ Desciende un máximo de 
+\family typewriter
+\emph on
+N
+\family default
+\emph default
+ (entero no negativo) niveles.
+ Así, si 
+\family typewriter
+\emph on
+N
+\family default
+\emph default
+ es 0, solo se procesan los 
+\family typewriter
+punto
+\family default
+s
+\family typewriter
+-de-inicio
+\family default
+.
+\end_layout
+
+\begin_layout Subsubsection*
+TESTS
+\end_layout
+
+\begin_layout Standard
+Los argumentos numéricos (indicados como 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+) pueden ser especificados como 
+\family typewriter
+\emph on
++n
+\family default
+\emph default
+ para mayor que 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+, 
+\family typewriter
+\emph on
+-n
+\family default
+\emph default
+ para menor que 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+ o 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+ para exactamente 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-empty
+\family default
+\series default
+ El fichero o directorio es vacío.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-name
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+patrón
+\emph default
+ 
+\family default
+El nombre coincide con el patrón, el cual reconoce 
+\family typewriter
+*
+\family default
+, 
+\family typewriter
+?
+\family default
+ y 
+\family typewriter
+[
+\family default
+ igual que 
+\family typewriter
+bash
+\family default
+ pero no excluye del reconocimiento un 
+\family typewriter
+.
+
+\family default
+ al comienzo del nombre de archivo.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-iname
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+patrón
+\family default
+\emph default
+ Como 
+\family typewriter
+-name
+\family default
+, pero sin distinguir mayúsculas de minúsculas.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-size
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+n
+\emph default
+[cwbkMG] 
+\family default
+El tamaño del fichero es, redondeando al alza a la unidad especificada,
+ 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+.
+ La unidad puede ser: 
+\family typewriter
+c
+\family default
+ para bytes, 
+\family typewriter
+w
+\family default
+ para palabras de 2 bytes, 
+\family typewriter
+b
+\family default
+ para bloques de 512 bytes (por defecto), 
+\family typewriter
+k
+\family default
+ para kiBs, 
+\family typewriter
+M
+\family default
+ para MiBs y 
+\family typewriter
+G
+\family default
+ para GiBs.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-mtime
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+n
+\emph default
+ 
+\family default
+El archivo fue modificado por última vez hace 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+ días, redondeando a la baja.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-atime
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+n
+\emph default
+ 
+\family default
+Igual pero para el último acceso.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-ctime
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+n
+\emph default
+ 
+\family default
+Igual pero para el último cambio de estado (ubicación y metadatos).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-newer
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+fichero
+\emph default
+ 
+\family default
+El fichero ha sido modificado más recientemente que el fichero dado.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-type
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+c
+\emph default
+ 
+\family default
+El fichero es de tipo 
+\family typewriter
+\emph on
+c
+\family default
+\emph default
+, que es 
+\family typewriter
+d
+\family default
+ para directorios, 
+\family typewriter
+f
+\family default
+ para ficheros ordinarios, 
+\family typewriter
+l
+\family default
+ para enlaces simbólicos, etc.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-perm
+\series default
+
+\begin_inset space ~
+\end_inset
+
+[-|/]
+\emph on
+mode
+\emph default
+ 
+\family default
+El fichero tiene los permisos indicados (si no hay un prefijo), al menos
+ estos permisos (
+\family typewriter
+-
+\family default
+) y alguno de estos (
+\family typewriter
+/
+\family default
+).
+\end_layout
+
+\begin_layout Subsubsection*
+ACCIONES
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-print
+\family default
+\series default
+ Imprime la ruta de archivo completa seguida de un salto de línea y devuelve
+ verdadero.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-exec
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+comando
+\emph default
+ 
+\family default
+Ejecuta un comando, formado por todos los argumentos que siguen a 
+\family typewriter
+-exec
+\family default
+ hasta encontrar un argumento 
+\begin_inset Quotes fld
+\end_inset
+
+
+\family typewriter
+;
+\family default
+
+\begin_inset Quotes frd
+\end_inset
+
+ (exclusive), sustituyendo en este la cadena 
+\family typewriter
+{}
+\family default
+ por el nombre del archivo.
+ Devuelve verdadero si y sólo si el comando devuelve 0.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-ok
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+comando
+\emph default
+ 
+\family default
+Como 
+\family typewriter
+-exec
+\family default
+ pero pregunta primero al usuario si desea ejecutar el comando, y si no
+ acepta, devuelve falso.
+ La entrada de dicho comando se redirige desde 
+\family typewriter
+/dev/null
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-printf
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+formato
+\family default
+\emph default
+ Imprime 
+\family typewriter
+\emph on
+formato
+\family default
+\emph default
+ interpretando secuencias de escape con 
+\family typewriter
+
+\backslash
+
+\family default
+ como en C y directivas 
+\family typewriter
+%
+\family default
+: 
+\family typewriter
+%p 
+\family default
+indica el nombre del fichero,
+\family typewriter
+ %s
+\family default
+ su tamaño, 
+\family typewriter
+%u
+\family default
+ el nombre de su pro
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+pie
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ta
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+rio, etc.
+\end_layout
+
+\begin_layout Subsubsection*
+OPERADORES
+\end_layout
+
+\begin_layout Standard
+De mayor a menor prioridad:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+(
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+expr
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+)
+\family default
+ Fuerza prioridad.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+!
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+expr
+\family default
+\emph default
+ Cierto si 
+\family typewriter
+\emph on
+expr
+\family default
+\emph default
+ es falso.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+expr1
+\begin_inset space ~
+\end_inset
+
+expr2
+\family default
+\emph default
+ Conjunción.
+ 
+\family typewriter
+\emph on
+expr2
+\family default
+\emph default
+ no es evaluada si 
+\family typewriter
+\emph on
+expr1
+\family default
+\emph default
+ devuelve falso.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+expr1
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+-a
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+expr2
+\family default
+\emph default
+ Igual que 
+\family typewriter
+\emph on
+expr1 expr2
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+expr1
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+-o
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+expr2
+\family default
+\emph default
+ Disyunción.
+ 
+\family typewriter
+\emph on
+expr2
+\family default
+\emph default
+ no es evaluada si 
+\family typewriter
+\emph on
+expr1
+\family default
+\emph default
+ devuelve verdadero.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+mktemp
+\end_layout
+
+\begin_layout Standard
+Crea un fichero temporal de forma segura e imprime su nombre.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+dd [
+\emph on
+OPERANDO
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Copia un fichero, convirtiendo y formateando según los operandos.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+bs=
+\series default
+\emph on
+BYTES
+\family default
+\emph default
+ Lee y escribe hasta 
+\family typewriter
+\emph on
+BYTES
+\family default
+\emph default
+ bytes a la vez.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+count
+\series default
+=
+\emph on
+N
+\family default
+\emph default
+ Copia sólo 
+\family typewriter
+\emph on
+N
+\family default
+\emph default
+ bloques de la entrada.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+if=
+\series default
+\emph on
+FICHERO
+\family default
+\emph default
+ Lee del 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+of=
+\series default
+\emph on
+FICHERO
+\family default
+\emph default
+ Escribe al 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\emph on
+BYTES
+\family default
+\emph default
+ y 
+\family typewriter
+\emph on
+N
+\family default
+\emph default
+ pueden ir seguidos de sufijos multiplicativos: 
+\begin_inset Formula $\mathtt{M}=1024\cdot1024$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+/dev/zero
+\end_layout
+
+\begin_layout Standard
+Las lecturas desde este fichero especial siempre devuelven bytes que contienen
+ 0.
+\end_layout
+
+\begin_layout Section
+Ayuda
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+apropos [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+palabra-clave
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Busca la 
+\family typewriter
+\emph on
+palabra-clave
+\family default
+\emph default
+ en las descripciones de las páginas del manual.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+whatis [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+nombre
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Busca entre los nombres de las páginas del manual aquellos que se asemejen
+ al 
+\family typewriter
+\emph on
+nombre
+\family default
+\emph default
+ dado.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+man
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+man
+\series default
+ [
+\series bold
+-a
+\series default
+] [
+\series bold
+-S
+\series default
+ 
+\emph on
+lista
+\emph default
+] [[
+\emph on
+sección
+\emph default
+] 
+\emph on
+página
+\emph default
+...
+ ]...
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+man -k
+\series default
+ 
+\emph on
+palabra-clave
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+man -f
+\series default
+ 
+\emph on
+página
+\emph default
+...
+\end_layout
+
+\begin_layout Subsubsection*
+DESCRIPCIÓN
+\end_layout
+
+\begin_layout Standard
+Muestra la 
+\family typewriter
+\emph on
+página
+\family default
+\emph default
+ indicada en la 
+\family typewriter
+\emph on
+sección
+\family default
+\emph default
+ indicada (si no se especifica, va buscándola en las secciones en un cierto
+ orden) dentro del manual del sistema.
+ Las 
+\family typewriter
+\emph on
+página
+\family default
+\emph default
+s están ordenadas en 
+\family typewriter
+\emph on
+seccion
+\family default
+\emph default
+es para programación, administración del sistema, funciones de biblioteca
+ de C, ficheros de configuración, etc.
+ El número de 
+\family typewriter
+\emph on
+sección
+\family default
+\emph default
+ aparece, junto con el nombre de la 
+\family typewriter
+\emph on
+página
+\family default
+\emph default
+, en la primera línea de esta.
+\end_layout
+
+\begin_layout Subsubsection*
+OPCIONES
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-a
+\family default
+\series default
+ No termina la búsqueda en la primera página, sino que muestra todas las
+ coincidentes.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-S
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+lista
+\family default
+\emph default
+ 
+\family typewriter
+\emph on
+lista
+\family default
+\emph default
+ es una lista de números de sección separadas por 
+\family typewriter
+:
+\family default
+ que sobrescribe el orden en que se buscan las páginas (puede especificarse
+ una sola sección).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-k
+\family default
+\series default
+ Equivale a 
+\family typewriter
+apropos
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-f
+\family default
+\series default
+ Equivale a 
+\family typewriter
+whatis
+\family default
+.
+\end_layout
+
+\begin_layout Subsubsection*
+FICHEROS
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+/etc/man.db.conf
+\family default
+ Configuración de 
+\family typewriter
+man
+\family default
+.
+\end_layout
+
+\begin_layout Section
+Filtros
+\end_layout
+
+\begin_layout Standard
+Son programas que reciben información por la entrada estándar, la procesan
+ y muestran el resultado por su salida estándar.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+grep [
+\emph on
+OPCIÓN
+\emph default
+]...
+ PATRÓN [
+\emph on
+FICHERO
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Busca un 
+\family typewriter
+\emph on
+PATRÓN
+\family default
+\emph default
+ en cada 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+ (o en la entrada estándar).
+\end_layout
+
+\begin_layout Paragraph*
+Control de reconocimiento
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-i
+\family default
+\series default
+ Ignora diferencias entre mayúsculas y minúsculas
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-v
+\family default
+\series default
+ Invierte el sentido del reconocimiento, seleccionando sólo las líneas que
+ no coinciden.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-w
+\family default
+\series default
+ Selecciona solo las líneas que contienen el patrón como palabra completa,
+ esto es, al principio de la línea o precedido por un caracter no alfabético,
+ y al final de la línea o seguido de un caracter no alfabético.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-x
+\family default
+\series default
+ Selecciona sólo las líneas que coinciden completamente con el patrón.
+\end_layout
+
+\begin_layout Subsubsection*
+Control de salida general
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-c
+\family default
+\series default
+ No muestra las líneas coincidentes sino su número.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-l
+\family default
+\series default
+ No muestras las líneas coincidentes sino los archivos en los que hay alguna.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-o
+\family default
+\series default
+ Muestra solo las partes coincidentes no vacías de cada línea, con cada
+ parte en una línea separada.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-q
+\family default
+\series default
+ No imprime nada a la salida estándar.
+\end_layout
+
+\begin_layout Paragraph
+Control de los prefijos de línea en la salida
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-h
+\family default
+\series default
+ Suprime el nombre de archivo como prefijo de cada línea.
+ Esto es por defecto cuando sólo hay un 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+ (o sólo la entrada estándar).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-n
+\family default
+\series default
+ Prefija cada línea con su número dentro del fichero, siendo la primera
+ la 1.
+\end_layout
+
+\begin_layout Subsubsection*
+EXPRESIONES REGULARES
+\end_layout
+
+\begin_layout Standard
+Una expresión regular es un patrón que describe un conjunto de cadenas de
+ caracteres.
+ La mayoría de caracteres son expresiones que se reconocen a sí mismas.
+ Un caracter con significado especial debe ser precedido por 
+\family typewriter
+
+\backslash
+
+\family default
+ para que tenga este comportamiento.
+ El 
+\family typewriter
+.
+
+\family default
+ reconoce un único caracter cualquiera.
+\end_layout
+
+\begin_layout Paragraph*
+Clases de caracteres y expresiones entre corchetes
+\end_layout
+
+\begin_layout Standard
+La sintaxis 
+\family typewriter
+[
+\family default
+...
+\family typewriter
+]
+\family default
+ indica un caracter cualquiera entre los corchetes, salvo si el primero
+ es ^, que entonces es un caracter cualquiera que no este entre dicho 
+\family typewriter
+^
+\family default
+ y el 
+\family typewriter
+]
+\family default
+, exclusive.
+ En ambos casos se pueden usar rangos como 
+\family typewriter
+\emph on
+a
+\emph default
+-
+\emph on
+z
+\family default
+\emph default
+, que indican todos los caracteres entre 
+\family typewriter
+\emph on
+a
+\family default
+\emph default
+ y 
+\family typewriter
+\emph on
+z
+\family default
+\emph default
+, inclusive.
+\end_layout
+
+\begin_layout Paragraph*
+Posicionamiento
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+^
+\family default
+ y 
+\family typewriter
+$
+\family default
+ se refieren respectivamente a una cadena vacía al principio o al final
+ de una línea.
+\end_layout
+
+\begin_layout Paragraph
+Repetición
+\end_layout
+
+\begin_layout Standard
+Una expresión puede ir seguida por 
+\family typewriter
+*
+\family default
+ para indicar que esta se puede repetir cero o más veces, por 
+\family typewriter
+
+\backslash
++
+\family default
+ indicando que se puede repetir una o más veces o por 
+\family typewriter
+
+\backslash
+{
+\emph on
+n
+\emph default
+,
+\emph on
+m
+\emph default
+}
+\family default
+ para indicar que se puede repetir entre 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+ y 
+\family typewriter
+\emph on
+m
+\family default
+\emph default
+ veces, inclusive.
+\end_layout
+
+\begin_layout Subsubsection*
+Concatenación
+\end_layout
+
+\begin_layout Standard
+Dos expresiones regulares se pueden concatenar para formar una expresión
+ que reconoce a cualquier cadena formada por la concatenación de dos subcadenas
+ reconocidas respectivamente por estas subexpresiones.
+\end_layout
+
+\begin_layout Subsubsection*
+ESTADO DE SALIDA
+\end_layout
+
+\begin_layout Standard
+0 si alguna línea coincide, 1 si no coincide, y 2 si hay un error y no se
+ ha especificado 
+\family typewriter
+-q
+\family default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+sort [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+FICHERO
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Concatena los 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+s (o lee de la entrada estándar) e imprime por la salida estándar el resultado
+ de ordenarlos.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-n
+\family default
+\series default
+ Ordena numéricamente (por defecto lo hace alfabéticamente), incluyendo
+ números negativos y con decimales, considerando que un número termina cuando
+ aparece el primer caracter no numérico, incluyendo espacios.
+ El separador decimal es 
+\family typewriter
+.
+
+\family default
+ en inglés y 
+\family typewriter
+,
+\family default
+ en español.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-r
+\family default
+\series default
+ Invierte el resultado de las comparaciones.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-k
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+KEYDEF
+\family default
+\emph default
+ Ordena según una clave dada por 
+\family typewriter
+\emph on
+KEYDEF
+\family default
+\emph default
+.
+ Se puede especificar varias veces para indicar una lista de claves de las
+ que cada una se comprueba en caso de empate en la anterior.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-t
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+SEP
+\family default
+\emph default
+ Usa el caracter 
+\family typewriter
+\emph on
+SEP
+\family default
+\emph default
+ como separador de campos.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\emph on
+KEYDEF
+\family default
+\emph default
+ tiene formato 
+\family typewriter
+F[.C][OPTS][,F[.C][OPTS]]
+\family default
+ para las posiciones de inicio y final, donde 
+\family typewriter
+F
+\family default
+ es un número de campo y 
+\family typewriter
+C
+\family default
+ una posición de caracter en el campo, ambos empezando por 1, y la posición
+ de final por defecto es el final de línea.
+ Si no se ha especificado 
+\family typewriter
+-t
+\family default
+, los caracteres de un campo se cuentan desde el principio del espacio en
+ blanco precedente, y 
+\family typewriter
+OPTS
+\family default
+ es una o más 
+\family typewriter
+\emph on
+OPCION
+\family default
+\emph default
+es de una letra que sobrescriben las opciones de orden global para dicha
+ clave.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+tr [
+\emph on
+OPCIÓN
+\emph default
+]...
+ 
+\emph on
+CONJUNTO1
+\emph default
+ [
+\emph on
+CONJUNTO2
+\emph default
+]
+\end_layout
+
+\begin_layout Standard
+Sustituye, elimina repeticiones o elimina caracteres de la entrada estándar,
+ escribiendo a la salida estándar.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-c
+\family default
+\series default
+ Usa el complemento de 
+\family typewriter
+\emph on
+CONJUNTO1
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-d
+\family default
+\series default
+ Elimina caracteres de 
+\family typewriter
+\emph on
+CONJUNTO1
+\family default
+\emph default
+, no sustituye.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-s
+\family default
+\series default
+ Reemplaza secuencias de caracteres que aparecen en el último 
+\family typewriter
+\emph on
+CONJUNTO
+\family default
+\emph default
+ dado por una sola ocurrencia.
+\end_layout
+
+\begin_layout Standard
+Los 
+\family typewriter
+\emph on
+CONJUNTO
+\family default
+\emph default
+s se especifican como secuencias de caracteres.
+ La mayoría se representan a sí mismos.
+ Secuencias interpretadas:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+
+\backslash
+n
+\family default
+ Salto de línea.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+
+\backslash
+t
+\family default
+ Tabulador.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+a
+\emph default
+-
+\emph on
+z
+\family default
+\emph default
+ Todos los caracteres desde 
+\family typewriter
+\emph on
+a
+\family default
+\emph default
+ hasta 
+\family typewriter
+\emph on
+z
+\family default
+\emph default
+ en orden ascendente.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+[
+\emph on
+c
+\emph default
+*
+\emph on
+n
+\emph default
+] 
+\emph on
+n
+\family default
+\emph default
+ copias de 
+\family typewriter
+\emph on
+c
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+[:alnum:]
+\family default
+ Todas las letras y dígitos.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+[:blank:]
+\family default
+ Todos los caracteres de espaciado horizontal.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+[:digit:]
+\family default
+ Todos los dígitos.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+cut 
+\emph on
+OPCIÓN
+\emph default
+...
+ [
+\emph on
+FICHERO
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Imprime las partes seleccionadas de líneas de cada 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+, o de la entrada estándar, a la salida estándar.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-c
+\series default
+\emph on
+
+\begin_inset space ~
+\end_inset
+
+LISTA
+\family default
+\emph default
+ Selecciona solo estos caracteres.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-d
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+DELIM
+\family default
+\emph default
+ Usa 
+\family typewriter
+\emph on
+DELIM
+\family default
+\emph default
+ en vez de el tabulador como delimitador de campos.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-f
+\series default
+\emph on
+
+\begin_inset space ~
+\end_inset
+
+LISTA
+\family default
+\emph default
+ Selecciona sólo estos campos; imprimiendo también por defecto cualquier
+ línea que no contenga delimitador.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+--complement
+\family default
+\series default
+ Imprime el complemento de los caracteres o campos seleccionados.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-s
+\family default
+\series default
+ No imprime líneas que no contengan delimitadores.
+\end_layout
+
+\begin_layout Standard
+Usar 
+\family typewriter
+-c
+\family default
+ o 
+\family typewriter
+-f
+\family default
+, pero no ambos.
+ Cada 
+\family typewriter
+\emph on
+LISTA
+\family default
+\emph default
+ contiene un rango, o varios separados por comas.
+ Cada rango puede ser:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+ Caracter o campo 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+-ésimo, contando desde 1.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+-
+\family typewriter
+\emph on
+m
+\family default
+\emph default
+ Del caracter o campo 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+-ésimo al 
+\family typewriter
+\emph on
+m
+\family default
+\emph default
+-ésimo, inclusive.
+\end_layout
+
+\begin_layout Standard
+Nótese que los campos vacíos también cuentan, por lo que a veces es necesario
+ usar 
+\family typewriter
+tr
+\family default
+ para eliminar repeticiones de 
+\family typewriter
+\emph on
+DELIM
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+uniq [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+ENTRADA
+\emph default
+ [
+\emph on
+SALIDA
+\emph default
+]]
+\end_layout
+
+\begin_layout Standard
+Filtra lineas adyacentes coincidentes de 
+\family typewriter
+\emph on
+ENTRADA
+\family default
+\emph default
+ (o la entrada estándar), escribiendo a 
+\family typewriter
+\emph on
+SALIDA
+\family default
+\emph default
+ (o la salida estándar).
+ Sin opciones, las líneas coincidentes (iguales) se eliminan a partir de
+ la segunda.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-c
+\family default
+\series default
+ Añade antes de cada línea el número de ocurrencias.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-d
+\family default
+\series default
+ Sólo imprime líneas duplicadas, una por grupo.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-D
+\family default
+\series default
+ Imprime todas las líneas duplicadas.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-i
+\family default
+\series default
+ No distingue mayúsculas de minúsculas al comparar.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-s
+\begin_inset space ~
+\end_inset
+
+
+\series default
+\emph on
+n
+\family default
+\emph default
+ No compara los 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+ primeros caracteres.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-w
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+n
+\family default
+\emph default
+ Sólo compara los 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+ primeros caracteres.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+head [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+FICHERO
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Imprime las primeras 10 líneas del 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+ (o la entrada estándar) a la salida estándar.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-
+\series default
+\emph on
+n
+\family default
+\emph default
+ Imprime las primeras 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+ líneas en vez de las primeras 10.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+tail [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+FICHERO
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Imprime las últimas 10 líneas del 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+ (o la entrada estándar) a la salida estándar.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-n
+\series default
+\emph on
++n
+\family default
+\emph default
+ Imprime empezando por la línea 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+column [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+FICHERO
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Formatea su entrada en múltiples columnas.
+ Modos:
+\end_layout
+
+\begin_layout Paragraph*
+Tabla
+\end_layout
+
+\begin_layout Standard
+Determina el número de columnas de la entrada y crea una tabla.
+ Este modo se activa con la opción 
+\family typewriter
+\series bold
+-t
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+wc [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+FICHERO
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Imprime el número de saltos de línea, palabras y bytes del 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+ (o la salida estándar).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-l
+\family default
+\series default
+ Imprime el número de saltos de línea.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+tee [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+FICHERO
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Copia la entrada estándar a cada 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+, y también a la salida estándar.
+\end_layout
+
+\begin_layout Section
+
+\emph on
+Scripting
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+seq 
+\emph on
+PRIMERO INCREMENTO ÚLTIMO
+\end_layout
+
+\begin_layout Standard
+Imprime los números de 
+\family typewriter
+\emph on
+PRIMERO
+\family default
+\emph default
+ a 
+\family typewriter
+\emph on
+ÚLTIMO
+\family default
+\emph default
+, inclusive, en pasos de 
+\family typewriter
+\emph on
+INCREMENTO
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+echo [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+CADENA
+\emph default
+]...
+\end_layout
+
+\begin_layout Standard
+Muestra las 
+\family typewriter
+\emph on
+CADENA
+\family default
+\emph default
+s de caracteres por la salida estándar.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+test
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+test
+\series default
+ 
+\emph on
+EXPRESIÓN
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+[
+\series default
+ 
+\emph on
+EXPRESIÓN
+\emph default
+ ]
+\end_layout
+
+\begin_layout Standard
+Termina con el estado determinado por la 
+\family typewriter
+\emph on
+EXPRESIÓN
+\family default
+\emph default
+, devolviendo 0 si esta es verdadera y 1 si es falsa.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+(
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+EXPR
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+)
+\family default
+ Fuerza precedencia.
+ Devuelve lo que devuelva la expresión.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+!
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+EXPR
+\family default
+\emph default
+ 
+\begin_inset Quotes fld
+\end_inset
+
+No
+\begin_inset Quotes frd
+\end_inset
+
+ lógico.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+EXPR1
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+-a
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+EXPR2
+\family default
+\emph default
+ 
+\begin_inset Quotes fld
+\end_inset
+
+Y
+\begin_inset Quotes frd
+\end_inset
+
+ lógico.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+EXPR1
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+-o
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+EXPR2
+\family default
+\emph default
+ 
+\begin_inset Quotes fld
+\end_inset
+
+O
+\begin_inset Quotes frd
+\end_inset
+
+ lógico.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+INT1
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+-eq
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+INT2
+\family default
+\emph default
+ Los enteros son iguales.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+INT1
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+-ne
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+INT2
+\family default
+\emph default
+ Los enteros son distintos.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+INT1
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+-lt
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+INT2
+\family default
+\emph default
+ 
+\family typewriter
+\emph on
+INT1
+\family default
+\emph default
+
+\begin_inset Formula $<$
+\end_inset
+
+
+\family typewriter
+\emph on
+INT2
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+INT1
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+-le
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+INT2
+\family default
+\emph default
+ 
+\family typewriter
+\emph on
+INT1
+\family default
+\emph default
+
+\begin_inset Formula $\leq$
+\end_inset
+
+
+\family typewriter
+\emph on
+INT2
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+INT1
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+-gt
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+INT2
+\family default
+\emph default
+ 
+\family typewriter
+\emph on
+INT1
+\family default
+\emph default
+
+\begin_inset Formula $>$
+\end_inset
+
+
+\family typewriter
+\emph on
+INT2
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+INT1
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\series bold
+-ge
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+INT2
+\family default
+\emph default
+ 
+\family typewriter
+\emph on
+INT1
+\family default
+\emph default
+
+\begin_inset Formula $\geq$
+\end_inset
+
+
+\family typewriter
+\emph on
+INT2
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-z
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+STR
+\family default
+\emph default
+ La cadena es vacía.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-n
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+STR
+\family default
+\emph default
+ La cadena no es vacía.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+STR1
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+=
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+STR2
+\family default
+\emph default
+ Las cadenas son iguales.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+STR1
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+!=
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+STR2
+\family default
+\emph default
+ Las cadenas son distintas.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+STR1
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+<
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+STR2
+\family default
+\emph default
+ 
+\family typewriter
+\emph on
+STR1
+\family default
+\emph default
+
+\begin_inset Formula $<$
+\end_inset
+
+
+\family typewriter
+\emph on
+STR2
+\family default
+\emph default
+, en orden lexicográfico.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\emph on
+STR1
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+>
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+STR2
+\family default
+\emph default
+ 
+\family typewriter
+\emph on
+STR1
+\family default
+\emph default
+
+\begin_inset Formula $>$
+\end_inset
+
+
+\family typewriter
+\emph on
+STR2
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-e
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+FICHERO
+\family default
+\emph default
+ El 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+ existe.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-r
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+FICHERO
+\family default
+\emph default
+ Existe y se tiene permiso de lectura.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-w
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+FICHERO
+\family default
+\emph default
+ Existe y se tiene permiso de escritura.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-x
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+FICHERO
+\family default
+\emph default
+ Existe y se tiene permiso de ejecución.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-f
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+FICHERO
+\family default
+\emph default
+ Existe y es regular.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-d
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+FICHERO
+\family default
+\emph default
+ Existe y es un directorio.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-s
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+FICHERO
+\family default
+\emph default
+ Existe y no es vacío.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+true
+\end_layout
+
+\begin_layout Standard
+Devuelve 0.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+false
+\end_layout
+
+\begin_layout Standard
+Devuelve 1.
+\end_layout
+
+\end_body
+\end_document

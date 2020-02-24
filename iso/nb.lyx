@@ -1,0 +1,1092 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Administración de paquetes
+\end_layout
+
+\begin_layout Standard
+Muchos programas Linux se distribuyen como código fuente, que el usuario
+ construye, junto con las páginas de manual, ficheros de configuración,
+ etc., si bien la mayoría del software se distribuye en 
+\series bold
+paquetes
+\series default
+ precompilados y listos para instalar.
+\end_layout
+
+\begin_layout Standard
+El sistema de paquetes de Fedora es RPM (
+\emph on
+Red Hat Package Manager
+\emph default
+), en el que los paquetes se llaman como 
+\family typewriter
+\emph on
+nombre
+\emph default
+-
+\emph on
+versión
+\emph default
+-
+\emph on
+revisión
+\emph default
+.[
+\emph on
+arquitectura
+\emph default
+|
+\series bold
+src
+\series default
+|
+\series bold
+noarch
+\series default
+].rpm
+\family default
+.
+ La arquitectura es 
+\family typewriter
+i386
+\family default
+ para Intel x86 (IA-32) y compatibles, 
+\family typewriter
+i586
+\family default
+ para Pentium y posteriores, 
+\family typewriter
+i686
+\family default
+ para Pentium II y posteriores, 
+\family typewriter
+x86_64
+\family default
+ para IA-64 (Intel/AMD de 64 bits), etc.
+ Los paquetes 
+\family typewriter
+src
+\family default
+ son los fuentes, a compilar por 
+\family typewriter
+rpmbuild
+\family default
+, y los 
+\family typewriter
+noarch
+\family default
+ son independientes de la arquitectura.
+ El sistema gestiona una base de datos de paquetes instalados con información
+ de su estado y ficheros.
+ Podemos referirnos a paquetes instalados simplemente por su 
+\family typewriter
+\emph on
+nombre
+\family default
+\emph default
+.
+ Puede haber dependencias entre paquetes, de modo que para instalar uno
+ sea necesario tener otro, que no se puede desinstalar sin desinstalar el
+ primero (ni causar errores).
+\end_layout
+
+\begin_layout Standard
+Podemos usar 
+\family typewriter
+rpm
+\family default
+, que da error al instalar o eliminar si las dependencias no se satisfacen,
+ o 
+\family typewriter
+dnf
+\family default
+, que resuelve automáticamente las dependencias y descarga los paquetes
+ de repositorios.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+rpm
+\end_layout
+
+\begin_layout Subsubsection*
+OPCIONES DE INSTALACIÓN Y ACTUALIZACIÓN
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+rpm -i
+\series default
+ 
+\emph on
+FICHERO
+\family default
+\emph default
+ instala un paquete.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+rpm -U
+\series default
+ 
+\emph on
+FICHERO
+\family default
+\emph default
+ actualiza a una nueva versión (los ficheros de configuración modificados
+ de la versión anterior se guardan como 
+\family typewriter
+\emph on
+nombre_fichero
+\emph default
+.rpmsave
+\family default
+, y si el fichero ha cambiado de formato y no puede ser adaptado a partir
+ de las modificaciones del anterior, se deja el fichero antiguo y se crea
+ uno nuevo 
+\family typewriter
+\emph on
+nombre_fichero
+\emph default
+.rpmnew
+\family default
+).
+\end_layout
+
+\begin_layout Subsubsection*
+OPCIONES DE ELIMINACIÓN
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+rpm -e
+\series default
+ 
+\emph on
+NOMBRE
+\family default
+\emph default
+ elimina un paquete.
+\end_layout
+
+\begin_layout Subsubsection*
+OPCIONES DE CONSULTA
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+rpm -q
+\series default
+ {[
+\emph on
+OPCIÓN_SELECCIÓN
+\emph default
+]...|[
+\emph on
+OPCIÓN_CONSULTA
+\emph default
+]...
+ 
+\emph on
+PAQUETE
+\emph default
+...}
+\end_layout
+
+\begin_layout Paragraph*
+Opciones de selección
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-f
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+FICHERO
+\family default
+\emph default
+ Paquete al que pertenece el 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Paragraph*
+Opciones de consulta
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-i
+\family default
+\series default
+ Información del paquete.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-l
+\family default
+\series default
+ Listado de ficheros en el paquete.
+\end_layout
+
+\begin_layout Subsubsection*
+OPCIONES DE VERIFICACIÓN
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\series bold
+rpm -V
+\series default
+ 
+\emph on
+PAQUETE
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+dnf [
+\emph on
+OPCIÓN
+\emph default
+]...
+ [
+\emph on
+COMANDO
+\emph default
+] [
+\emph on
+ARGUMENTO
+\emph default
+]...
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-h
+\family default
+\series default
+ Muestra la ayuda.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+dnf
+\begin_inset space ~
+\end_inset
+
+check-update
+\family default
+\series default
+ Comprueba si hay actualizaciones.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+dnf
+\begin_inset space ~
+\end_inset
+
+download
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+PAQUETE
+\emph default
+...
+
+\family default
+ Descarga la última versión de los paquetes indicados, sin llegar a instalarlos.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+dnf
+\begin_inset space ~
+\end_inset
+
+erase
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+PAQUETE
+\emph default
+...
+
+\family default
+ Alias obsoleto para 
+\family typewriter
+\series bold
+remove
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+dnf
+\begin_inset space ~
+\end_inset
+
+install
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+PAQUETE
+\emph default
+...
+
+\family default
+ Se asegura de que los paquetes dados y sus dependencias están ins
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ta
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+la
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+dos.
+ (Para instalar el repositorio 
+\family typewriter
+rpmfusion
+\family default
+, parte libre pero con más paquetes que la instalación por defecto, usar
+ 
+\family typewriter
+dnf install http://download1.rpmfusion.
+\begin_inset Newline newline
+\end_inset
+
+org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+\family default
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+También se pueden instalar paquetes de los repositorios y paquetes previamente
+ descargados.)
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+dnf
+\begin_inset space ~
+\end_inset
+
+remove
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+PAQUETE
+\emph default
+...
+
+\family default
+ Elimina los paquetes indicados junto con cualquiera que dependa de estos.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+dnf
+\begin_inset space ~
+\end_inset
+
+update
+\family default
+\series default
+ Alias obsoleto para 
+\family typewriter
+\series bold
+upgrade
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+dnf
+\begin_inset space ~
+\end_inset
+
+upgrade
+\family default
+\series default
+ Actualiza cada paquete a la última versión disponible y resoluble.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+dnf
+\begin_inset space ~
+\end_inset
+
+upgrade
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+PAQUETE
+\emph default
+...
+
+\family default
+ Actualiza cada paquete indicado a la última versión.
+ Actualiza dependencias según sea necesario.
+\end_layout
+
+\begin_layout Subsubsection*
+FICHEROS
+\end_layout
+
+\begin_layout Paragraph*
+Configuración principal
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+/etc/dnf/dnf.conf
+\end_layout
+
+\begin_layout Paragraph*
+Repositorio
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+/etc/yum.repos.d/
+\family default
+ (Contiene ficheros 
+\family typewriter
+.repo
+\family default
+, que se dividen en tres secciones: una para paquetes normales, otra para
+ paquetes de depuración y otra para paquetes fuentes, y que informa a 
+\family typewriter
+dnf
+\family default
+ de dónde encontrar la lista de espejos para cada sección, de donde descargar
+ los paquetes.
+ 
+\family typewriter
+fedora.repo
+\family default
+ contiene información para la instalación base, y
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+fedora-updates.repo
+\family default
+ contiene la información para localizar los paquetes a actualizar.)
+\end_layout
+
+\begin_layout Section
+Módulos del núcleo
+\end_layout
+
+\begin_layout Standard
+Aunque Linux tiene una arquitectura monolítica, su diseño es modular, y
+ hay porciones (
+\series bold
+módulos
+\series default
+) que se pueden cargar o descargar en caliente, que proporcionan soporte
+ para distintos sistemas de ficheros, periféricos y protocolos de red, y
+ que se suelen guardar con extensión 
+\family typewriter
+.ko.xz
+\family default
+ en 
+\family typewriter
+/lib/modules/
+\emph on
+versión
+\family default
+\emph default
+, según la 
+\family typewriter
+\emph on
+versión
+\family default
+\emph default
+ de Linux, con los siguientes subdirectorios entre otros:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+drivers
+\family default
+\series default
+ Gestión de dispositivos hardware.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+fs
+\family default
+\series default
+ Sistemas de ficheros.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+net
+\family default
+\series default
+ Protocolos de red.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+sound
+\family default
+\series default
+ Tarjetas de sonido.
+\end_layout
+
+\begin_layout Standard
+Para que un módulo se pueda usar, el núcleo debe tener exportadas todas
+ las funciones que este usa.
+ Algunas están en otros módulos, por lo que existen dependencias entre módulos
+ descritas en 
+\family typewriter
+/lib/modules/
+\emph on
+versión
+\emph default
+/modules.dep
+\family default
+.
+ Los módulos se pueden cargar en cualquier momento, aunque suelen cargarlos
+ el 
+\emph on
+script
+\emph default
+ 
+\family typewriter
+init
+\family default
+ del disco RAM (para acceder al sistema de ficheros raíz), los servicios
+ de 
+\family typewriter
+systemd
+\family default
+ al iniciarse o 
+\family typewriter
+udev
+\family default
+ al detectar un nuevo dispositivo.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+lsmod
+\end_layout
+
+\begin_layout Standard
+Formatea el contenido de 
+\family typewriter
+/proc/modules
+\family default
+, mostrando los módulos del núcleo cargados (nombre, tamaño, contador de
+ usos y módulos que lo usan).
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+modinfo 
+\emph on
+NOMBRE_MÓDULO
+\emph default
+...
+\end_layout
+
+\begin_layout Standard
+Extrae información sobre los módulos dados (fichero, autor, descripción,
+ licencia, dependencias, parámetros, etc.)
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+insmod 
+\emph on
+FICHERO_MÓDULO
+\end_layout
+
+\begin_layout Standard
+Inserta un módulo en el núcleo.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+rmmod 
+\emph on
+NOMBRE_MÓDULO
+\end_layout
+
+\begin_layout Standard
+Elimina un módulo del núcleo (si no se está usando).
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+modprobe 
+\emph on
+NOMBRE_MÓDULO
+\end_layout
+
+\begin_layout Standard
+Añade o elimina un módulo del núcleo (junto a los módulos de los que depende).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+-r
+\family default
+\series default
+ Elimina en vez de insertar.
+ Si los módulos de los que este depende tampoco se están usando, 
+\family typewriter
+\series bold
+modprobe
+\family default
+\series default
+ intentará eliminarlos también.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+\series bold
+--show-depends
+\family default
+\series default
+ Lista las dependencias de un módulo.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+/etc/modprobe.d/
+\end_layout
+
+\begin_layout Standard
+Configuración para 
+\family typewriter
+modprobe
+\family default
+.
+ Los ficheros bajo el directorio con extensión 
+\family typewriter
+.conf
+\family default
+ especifican opciones.
+\end_layout
+
+\begin_layout Subsubsection*
+COMANDOS
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+alias
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+alias
+\begin_inset space ~
+\end_inset
+
+nombre_módulo
+\family default
+\emph default
+ Da un nombre alternativo a un módulo.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+blacklist
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+nombre-módulo
+\family default
+\emph default
+ Los módulos pueden contener sus propios alias.
+ 
+\family typewriter
+\series bold
+blacklist
+\family default
+\series default
+ indica que todos los alias internos del módulo deben ser ignorados.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+install
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+nombre_módulo
+\begin_inset space ~
+\end_inset
+
+comando
+\emph default
+...
+
+\family default
+ Ejecuta un comando en vez de insertar el módulo.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+options
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+nombre_módulo
+\begin_inset space ~
+\end_inset
+
+opción
+\emph default
+...
+
+\family default
+ Añade opciones al módulo cada vez que se inserta en el núcleo.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+remove
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+nombre_módulo
+\begin_inset space ~
+\end_inset
+
+comando
+\emph default
+...
+
+\family default
+ Como 
+\family typewriter
+\series bold
+install
+\family default
+\series default
+ pero se invoca al ejecutar 
+\family typewriter
+modprobe -r
+\family default
+.
+\end_layout
+
+\begin_layout Subsection*
+
+\family typewriter
+depmod
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Crea una lista de dependencias entre módulos bajo 
+\family typewriter
+/lib/modules/
+\emph on
+versión
+\family default
+\emph default
+ (la versión del núcleo actual).
+ Esta lista es escrita a 
+\family typewriter
+modules.dep
+\family default
+.
+ Finalmente, genera un fichero 
+\family typewriter
+modules.
+\emph on
+dispositivo
+\family default
+\emph default
+ si los módulos proporcionan nombres de dispositivo que deben añadirse a
+ 
+\family typewriter
+/dev
+\family default
+ en el arranque (
+\family typewriter
+modules.usbmap
+\family default
+, 
+\family typewriter
+modules.pcimap
+\family default
+, etc., que sirven para indicar los módulos a cargar cuando se conecta un
+ dispositivo, pero que no se usan actualmente).
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

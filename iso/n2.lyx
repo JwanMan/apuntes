@@ -1,0 +1,1232 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Normalmente hay bastantes más procesos que CPUs, por lo que hay que repartir
+ el uso de estas por parte de los procesos, buscando bien la eficiencia,
+ como en sistemas antiguos, o el poder ejecutar varios programas dando la
+ sensación de que todos se ejecutan a la vez, como ocurre actualmente.
+ El paralelismo y el pseudoparalelismo, que se dan normalmente a la vez,
+ permiten compartir recursos físicos y lógicos entre varios resultados y
+ acelerar los cálculos dividiéndolos entre varias CPUs, además de aportar
+ modularidad, al poder diseñar un sistema como un conjunto de procesos,
+ y comodidad, permitiendo a los usuarios hacer varias cosas a la vez.
+\end_layout
+
+\begin_layout Standard
+El cambio de un proceso a otro se llama 
+\series bold
+cambio de proceso
+\series default
+ o de 
+\series bold
+contexto
+\series default
+.
+ El 
+\series bold
+planificador
+\series default
+ es el procedimiento que decide el siguiente proceso a ejecutar mediante
+ un 
+\series bold
+algoritmo de planificación
+\series default
+, y modifica las estructuras necesarias para que el cambio de contexto sea
+ correcto.
+\end_layout
+
+\begin_layout Standard
+En UNIX, los procesos se organizan en un árbol de procesos y se crean con
+ la llamada al sistema 
+\family typewriter
+fork()
+\family default
+, que crea una copia idéntica del proceso que hace la llamada y devuelve
+ al hijo el valor 0 y al padre el PID (
+\emph on
+process identifier
+\emph default
+) del proceso hijo.
+ El PID del propio proceso se obtiene con la llamada al sistema 
+\family typewriter
+getpid
+\family default
+.
+ Las llamadas de la familia 
+\family typewriter
+exec
+\family default
+, como 
+\family typewriter
+execve
+\family default
+, hacen que un proceso sustituya su código y datos por los de otro programa,
+ que comienza la ejecución desde el principio, si bien se conservan los
+ ficheros abiertos (aunque se puede especificar el cierre de algunos descriptore
+s de ficheros en 
+\family typewriter
+execve
+\family default
+), el PID y casi todas las propiedades.
+\end_layout
+
+\begin_layout Standard
+En Windows la jerarquía de procesos de UNIX desaparece al poder un proceso
+ cambiar de proceso padre, y los procesos se crean con 
+\family typewriter
+CreateProcess
+\family default
+, que equivale a ejecutar un 
+\family typewriter
+fork
+\family default
+ seguido de 
+\family typewriter
+exec
+\family default
+ en el proceso hijo.
+\end_layout
+
+\begin_layout Standard
+La terminación voluntaria de un proceso se hace mediante la llamada al sistema
+ 
+\family typewriter
+exit
+\family default
+ en UNIX y 
+\family typewriter
+ExitProcess
+\family default
+ en Windows.
+ La terminación involuntaria es producida por el sistema operativo si se
+ produce un error fatal (división por cero, acceso a una zona memoria incorrecta
+, etc.) o por otro proceso autorizado a ello con la llamada al sistema 
+\family typewriter
+kill
+\family default
+ en UNIX o 
+\family typewriter
+TerminateProcess
+\family default
+ en Windows.
+\end_layout
+
+\begin_layout Section
+Estados
+\end_layout
+
+\begin_layout Standard
+Un proceso puede estar en uno de varios estados:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Nuevo
+\series default
+: El proceso acaba de ser creado y todavía no tiene los recursos necesarios.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+En ejecución
+\series default
+: Utilizando la CPU.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Listo
+\series default
+ o 
+\series bold
+listo suspendido
+\series default
+: Ejecutable pero detenido porque otro proceso está usando la CPU.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Bloqueado
+\series default
+ o 
+\series bold
+bloqueado
+\series default
+ 
+\series bold
+suspendido
+\series default
+: A la espera de un evento externo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Saliente
+\series default
+ (
+\emph on
+zombie
+\emph default
+): El proceso ha terminado su ejecución pero todavía no ha desaparecido
+ del todo.
+ Por ejemplo, en UNIX, cuando un proceso acaba debe esperar a que su padre
+ recoja su estado de salida mediante la llamada al sistema 
+\family typewriter
+wait
+\family default
+ o 
+\family typewriter
+waitpid
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Un proceso suspendido no puede ejecutarse y suele guardarse en disco.
+ La 
+\series bold
+suspensión
+\series default
+ y posterior 
+\series bold
+reanudación
+\series default
+ de un proceso, por parte de otro(s), es útil:
+\end_layout
+
+\begin_layout Itemize
+Si el sistema está funcionando mal, mientras se corrige el problema.
+\end_layout
+
+\begin_layout Itemize
+Si se cree que los resultados del proceso son incorrectos, para comprobar
+ si lo son.
+\end_layout
+
+\begin_layout Itemize
+Si el sistema está muy cargado, para dar servicio a procesos de más prioridad.
+\end_layout
+
+\begin_layout Standard
+Cambios de estado:
+\end_layout
+
+\begin_layout Itemize
+De 
+\begin_inset Quotes fld
+\end_inset
+
+Nuevo
+\begin_inset Quotes frd
+\end_inset
+
+ a 
+\begin_inset Quotes fld
+\end_inset
+
+Listo
+\begin_inset Quotes frd
+\end_inset
+
+ cuando ya dispone de los recursos o a 
+\begin_inset Quotes fld
+\end_inset
+
+Listo suspendido
+\begin_inset Quotes frd
+\end_inset
+
+ si no hay memoria disponible y el proceso no tiene prioridad suficiente
+ para expulsar a otro.
+\end_layout
+
+\begin_layout Itemize
+De 
+\begin_inset Quotes fld
+\end_inset
+
+Listo
+\begin_inset Quotes frd
+\end_inset
+
+ a 
+\begin_inset Quotes fld
+\end_inset
+
+En ejecución
+\begin_inset Quotes frd
+\end_inset
+
+ o viceversa, debido al planificador.
+\end_layout
+
+\begin_layout Itemize
+De 
+\begin_inset Quotes fld
+\end_inset
+
+En ejecución
+\begin_inset Quotes frd
+\end_inset
+
+ a 
+\begin_inset Quotes fld
+\end_inset
+
+Bloqueado
+\begin_inset Quotes frd
+\end_inset
+
+, si el proces, ueado suspendido
+\begin_inset Quotes frd
+\end_inset
+
+ a 
+\begin_inset Quotes fld
+\end_inset
+
+Listo suspendido
+\begin_inset Quotes frd
+\end_inset
+
+, cuando ocurre el evento esperado.
+\end_layout
+
+\begin_layout Itemize
+De 
+\begin_inset Quotes fld
+\end_inset
+
+Bloqueado
+\begin_inset Quotes frd
+\end_inset
+
+ a 
+\begin_inset Quotes fld
+\end_inset
+
+Bloqueado suspendido
+\begin_inset Quotes frd
+\end_inset
+
+ o de 
+\begin_inset Quotes fld
+\end_inset
+
+Listo
+\begin_inset Quotes frd
+\end_inset
+
+ a 
+\begin_inset Quotes fld
+\end_inset
+
+Listo suspendido
+\begin_inset Quotes frd
+\end_inset
+
+, o viceversa.
+\end_layout
+
+\begin_layout Itemize
+De 
+\begin_inset Quotes fld
+\end_inset
+
+En ejecución
+\begin_inset Quotes frd
+\end_inset
+
+ a 
+\begin_inset Quotes fld
+\end_inset
+
+Saliente
+\begin_inset Quotes frd
+\end_inset
+
+ cuando termina.
+\end_layout
+
+\begin_layout Section
+Implementación
+\end_layout
+
+\begin_layout Standard
+El SO mantiene una 
+\series bold
+tabla de procesos
+\series default
+ con una entrada, 
+\series bold
+PCB
+\series default
+ (
+\emph on
+Process Control Block
+\emph default
+) o BCP para cada proceso, donde se guarda todo lo necesario para poder
+ continuar la ejecución tras perder la CPU y recuperarla luego, junto con
+ datos estadísticos, el estado del proceso, etc.
+ En concreto suelen guardarse:
+\end_layout
+
+\begin_layout Itemize
+Para 
+\series bold
+administración de procesos
+\series default
+, PID, registros (incluyendo contador del programa, palabra de estado y
+ puntero de pila), estado del proceso, prioridad, parámetros de planificación,
+ PID del proceso padre, grupo de procesos, señales, hora de inicio, tiempo
+ usado de CPU.
+\end_layout
+
+\begin_layout Itemize
+Para 
+\series bold
+administración de memoria
+\series default
+, apuntadores a los segmentos de texto, datos, memoria dinámica.
+\end_layout
+
+\begin_layout Itemize
+Para 
+\series bold
+administración de ficheros
+\series default
+, directorio raíz, directorio actual, descriptores de fichero, identificadores
+ de usuario y grupo.
+\end_layout
+
+\begin_layout Standard
+Crear un proceso consiste en darle nombre (como el PID en UNIX), insertarlo
+ en la tabla de procesos, determinar su prioridad inicial y asignarle recursos
+ iniciales.
+ En el caso de UNIX, 
+\family typewriter
+fork
+\family default
+ busca una entrada libre en la entrada de procesos y copia la información
+ del PCB del padre a esta, cambiando el PID; evita que uno sobrescriba la
+ memoria del otro
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Según los apuntes se copian los segmentos de datos y de pila, y el de código
+ se comparte por ser de sólo lectura.
+ Realmente, desde hace mucho Linux implementa copia en escritura, consistente
+ en marcar las entradas de la tabla de página de ambos de forma que el núcleo
+ solo tenga que hacer la copia de una página cuando uno de los procesos
+ escriba en ella.
+\end_layout
+
+\end_inset
+
+; incrementa los contadores de los descriptores de ficheros del padre para
+ reflejar que estos también están abiertos en el hijo, y marca el proceso
+ hijo como 
+\begin_inset Quotes fld
+\end_inset
+
+Listo
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Los procesos en UNIX tienen dos modos: modo usuario, en que ejecutan un
+ programa normal, y modo núcleo, común a todos los procesos, en que ejecutan
+ código del SO al hacer una llamada al sistema.
+ En este último los procesos pueden bloquearse esperando a algún evento,
+ lo que hace que se le ceda la CPU a otro proceso hasta que el evento suceda,
+ momento en que el proceso continuará su ejecución en modo núcleo.
+ Otro enfoque es considerar el SO como una colección de procesos de sistema
+ distintos a los procesos de usuario, de modo que cada proceso ejecuta sólo
+ código de usuario, lo que ocurre en los sistemas cliente-servidor.
+\end_layout
+
+\begin_layout Standard
+En las llamadas al sistema, el hardware almacena en una pila el contador
+ de programa del proceso que se interrumpe, pasa a modo núcleo y almacena
+ un elemento del vector de interrupciones, que debe ser la dirección de
+ inicio de alguna rutina del SO, en el contador de programa.
+ Entonces, un procedimiento guarda el contexto del proceso activo en su
+ PCB (pudiendo actualizarse otra información como estado, contabilidad o
+ auditoría), elimina la información introducida en la pila por el hardware,
+ configura una pila en el núcleo para la llamada al sistema, comprueba que
+ esta es válida y llama a un procedimiento que procesa la llamada.
+ Tras esta, el primer procedimiento ejecuta el planificador si lo determina
+ necesario, teniendo en cuenta que, si el proceso se ha bloqueado en la
+ llamada, este ya ha sido invocado y no es necesario llamarlo de nuevo,
+ y finalmente ejecuta el 
+\series bold
+despachador
+\series default
+, que restaura el contexto del proceso a ejecutar, entre otras cosas cambiando
+ a la pila de usuario e introduciendo en esta la dirección de su contador
+ de programa.
+\end_layout
+
+\begin_layout Section
+Hilos
+\end_layout
+
+\begin_layout Standard
+Un proceso tradicional es:
+\end_layout
+
+\begin_layout Itemize
+Unidad de propiedad de recursos, con un espacio de direcciones, variables
+ globales, ficheros abiertos, procesos hijos, alarmas, señales, semáforos,
+ información contable, etc.
+\end_layout
+
+\begin_layout Itemize
+Unidad de planificación y ejecución, con un contador de programa, una serie
+ de registros, una pila y un estado.
+\end_layout
+
+\begin_layout Standard
+Estas funciones son independientes, y los sistemas operativos modernos llaman
+ 
+\series bold
+hilos
+\series default
+ (
+\emph on
+threads
+\emph default
+), 
+\series bold
+procesos ligeros
+\series default
+ (
+\emph on
+LightWeight Processes
+\emph default
+, LWP), 
+\series bold
+hebras
+\series default
+ o 
+\series bold
+subprocesos
+\series default
+ a las unidades de ejecución y procesos a las de propiedad de recursos,
+ de forma que un mismo proceso puede tener uno o varios hilos.
+ Cuando comienza la ejecución de un programa existe un único hilo, el 
+\series bold
+hilo principal
+\series default
+, que puede crear otros.
+\end_layout
+
+\begin_layout Standard
+En Linux y otros muchos UNIX, un hilo puede crear otro mediante 
+\family typewriter
+pthread_create
+\family default
+, que entre sus parámetros recibe un puntero a otra función que es donde
+ comienza la ejecución el hilo hijo.
+ Todo hilo tiene un TID (
+\emph on
+thread identifier
+\emph default
+), que se obtiene desde el propio hilo con la llamada al sistema 
+\family typewriter
+gettid
+\family default
+.
+ Para facilitar la colabolación entre hilos, que pueden necesitar acceder
+ y modificar las mismas variables globales, existen métodos de sincronización
+ como 
+\emph on
+mutex
+\emph default
+ (exclusión mutua) y semáforos.
+\end_layout
+
+\begin_layout Standard
+Ventajas de los hilos:
+\end_layout
+
+\begin_layout Itemize
+Al compartir espacio de direcciones, se pueden comunicar entre sí sin intervenci
+ón del núcleo, por lo que esta comunicación es más rápida.
+\end_layout
+
+\begin_layout Itemize
+Los hilos se pueden bloquear mientras termina una llamada al sistema, por
+ lo que si hay varios, la E/S puede solaparse con el cómputo.
+\end_layout
+
+\begin_layout Itemize
+Es mucho más rápido crear un hilo en un proceso existente que un nuevo proceso,
+ y el cambio de uno a otro es más rápido.
+\end_layout
+
+\begin_layout Itemize
+Se puede conseguir paralelismo real dentro de un mismo proceso.
+\end_layout
+
+\begin_layout Standard
+Los hilos pueden ser soportados directamente por el núcleo, como en Windows
+ y Linux, o ser implementados mediante una biblioteca a nivel de usuario,
+ como se hacía en Linux antes de que implementara hilos en el núcleo.
+\end_layout
+
+\begin_layout Standard
+La implementación en modo usuario tiene como ventajas que el programa se
+ puede usar en núcleos que no implementan hilos, los cambios de contexto
+ son mucho más rápidos al no tener que pasar por el núcleo y cada proceso
+ puede tener un algoritmo distinto de planificación.
+ Sin embargo, en este caso una llamada al sistema bloqueante, o un fallo
+ de página, bloquearía a todos los hilos del proceso, y no es posible obtener
+ paralelismo real dentro de un mismo proceso.
+\end_layout
+
+\begin_layout Standard
+En la implementación en modo núcleo, la creación, destrucción y sincronización
+ entre hilos es más costosa, pero esto se puede aliviar usando una biblioteca
+ de sincronización que sólo realice llamadas al sistema cuando sea estrictamente
+ necesarios, y manteniendo las estructuras de un hilo después de que termine
+ para poder usarlo posteriormente en vez de crear otro nuevo.
+ En cualquier caso todos los hilos deben pasar a estado suspendido al mismo
+ tiempo, pues la memoria de todo el proceso se mueve al disco.
+\end_layout
+
+\begin_layout Section
+Planificación
+\end_layout
+
+\begin_layout Standard
+Metas:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Equidad
+\series default
+: Dar a cada proceso una proporción adecuada de CPU.
+\end_layout
+
+\begin_layout Itemize
+Maximizar la 
+\series bold
+eficacia
+\series default
+ de la CPU, 
+\begin_inset Formula $E:=\frac{\text{Tiempo útil}}{\text{Tiempo total}}\cdot100$
+\end_inset
+
+, y el 
+\series bold
+rendimiento
+\series default
+ o 
+\series bold
+productividad
+\series default
+, el número de tareas procesadas por unidad de tiempo.
+\end_layout
+
+\begin_layout Itemize
+Minimizar el 
+\series bold
+tiempo de espera
+\series default
+ (el que pasa un proceso en estado 
+\begin_inset Quotes fld
+\end_inset
+
+Listo
+\begin_inset Quotes frd
+\end_inset
+
+), el de 
+\series bold
+respuesta
+\series default
+ (el que pasa desde que se solicita la ejecución de una acción hasta que
+ se obtienen los primeros resultados, importante para usuarios interactivos)
+ y el de 
+\series bold
+regreso
+\series default
+ o 
+\series bold
+retorno
+\series default
+ (el que pasa desde que se entrega a un trabajo hasta que termina y se obtienen
+ sus resultados, importante para trabajos por lotes).
+\end_layout
+
+\begin_layout Standard
+Algunas de estas, como el tiempo de espera y la eficacia, son contradictorias.
+\end_layout
+
+\begin_layout Standard
+Una planificación es 
+\series bold
+apropiativa
+\series default
+ si puede expulsar a procesos de la CPU para ejecutar otros sin necesidad
+ de que se bloqueen, y 
+\series bold
+no apropiativa
+\series default
+ o 
+\series bold
+de ejecución hasta terminar
+\series default
+ en caso contrario.
+ Para los procesos por lotes son convenientes tanto una planificación no
+ apropiativa como una apropiativa con periodos de CPU largos (pues los cambios
+ de proceso desperdician CPU), mientras que para procesos interactivos suele
+ ser necesaria una planificación apropiativa para cambiar la CPU rápidamente
+ de un proceso a otro.
+\end_layout
+
+\begin_layout Standard
+Los procesos alternan entre ráfagas de CPU y de E/S, comenzando y terminando
+ por una de CPU.
+ Decimos que un proceso es 
+\series bold
+limitado por E/S
+\series default
+ si pasa la mayor parte de su tiempo en espera de E/S, y normalmente tendrá
+ muchas ráfagas de CPU aunque breves, y es 
+\series bold
+limitado por CPU
+\series default
+ si usa la CPU la mayor parte del tiempo, y normalmente tendrá pocas ráfagas
+ de CPU aunque muy largas.
+\end_layout
+
+\begin_layout Standard
+Podemos representar un algoritmo de planificación mediante un 
+\series bold
+diagrama de colas
+\series default
+, en el que cada rectángulo es una cola, los círculos son recursos que dan
+ servicio a las colas y las flechas indican el flujo de los procesos.
+ Un 
+\series bold
+diagrama de Gantt
+\series default
+ representa el proceso en ejecución en cada momento mediante rectángulos
+ de longitud proporcional a la duración de la ráfaga de CPU.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename pegado3.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de colas de planificación de procesos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename pegado4.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de Gantt.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algoritmos no apropiativos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+FCFS
+\series default
+ (
+\emph on
+First Coming, First Served
+\emph default
+, 
+\begin_inset Quotes fld
+\end_inset
+
+primero en llegar, primero en ser servido
+\begin_inset Quotes frd
+\end_inset
+
+).
+ Es el más simple y se puede implementar con una cola FIFO.
+ El tiempo medio de respuesta puede ser bastante largo debido al 
+\series bold
+efecto convoy
+\series default
+: Un proceso limitado por CPU ocupa la CPU mucho tiempo mientras el resto
+ terminan su E/S y entonces los dispositivos de E/S quedan inactivos hasta
+ que el proceso en ejecución pasa a realizar su E/S; entonces los procesos
+ limitados por E/S pasan a usar la CPU y terminan rápido por tener ráfagas
+ de CPU breves y la CPU queda inactiva hasta que el proceso limitado por
+ CPU continúa su ejecución, momento en que el ciclo se repite, resultando
+ en desaprovechamiento de recursos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+SJF
+\series default
+ (
+\emph on
+Shortest Job First
+\emph default
+, 
+\begin_inset Quotes fld
+\end_inset
+
+primero el trabajo más corto
+\begin_inset Quotes frd
+\end_inset
+
+).
+ Adecuado para procesos por lotes, donde los tiempos de ejecución aproximados
+ se suelen conocer de antemano, y de lo contrario se puede estimar mediante
+ 
+\series bold
+maduración
+\series default
+: 
+\begin_inset Formula $E_{t}=aE_{t-1}+(1-a)T_{t-1}$
+\end_inset
+
+, donde 
+\begin_inset Formula $E_{t}$
+\end_inset
+
+ es la estimación de tiempo actual, 
+\begin_inset Formula $E_{t-1}$
+\end_inset
+
+ la estimación anterior para el mismo proceso, 
+\begin_inset Formula $T_{t-1}$
+\end_inset
+
+ el tiempo que tardó realmente y 
+\begin_inset Formula $a$
+\end_inset
+
+ un parámetro ajustable entre 0 y 1, pues un valor de 
+\begin_inset Formula $a$
+\end_inset
+
+ pequeño hace que se olviden rápidamente los tiempos de ejecuciones anteriores
+ y un valor grande hace que se recuerden demasiado tiempo.
+ Si se dispone de todos los procesos de forma simultánea, este algoritmo
+ proporciona el mínimo tiempo medio de retorno.
+\end_layout
+
+\begin_layout Standard
+Algoritmos apropiativos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+SRTF
+\series default
+ (
+\emph on
+Shortest Remaining Time First
+\emph default
+, 
+\begin_inset Quotes fld
+\end_inset
+
+primero el que tenga el menor tiempo restante
+\begin_inset Quotes frd
+\end_inset
+
+).
+ Variante del SJF que permite quitar la CPU a un proceso para dársela a
+ otro con tiempo total de ráfaga de CPU menor al tiempo restante de CPU
+ de la ráfaga del proceso que se está ejecutando.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Round Robin
+\series default
+\emph default
+ (
+\series bold
+RR
+\series default
+) o 
+\series bold
+circular
+\series default
+.
+ Es de los más antiguos, sencillos, equitativos y de mayor uso.
+ Similar al FCFS pero con un 
+\emph on
+quantum
+\emph default
+ de tiempo 
+\begin_inset Formula $q$
+\end_inset
+
+ tal que, si un proceso consume un 
+\emph on
+quantum
+\emph default
+, pasa al final de la cola de procesos listos para dar la CPU al siguiente
+ proceso.
+ De esta forma, si hay 
+\begin_inset Formula $n$
+\end_inset
+
+ procesos, ninguno tiene tiempo de espera mayor a 
+\begin_inset Formula $(n-1)q$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $q$
+\end_inset
+
+ es pequeño se desperdicia tiempo de CPU en cambios de proceso, pero si
+ es grande, los últimos procesos tardan mucho en ser atendidos, resultando
+ en tiempos de respuesta muy pobres en procesos interactivos.
+\end_layout
+
+\begin_layout Standard
+Otras formas de planificación pueden hacerse apropiativas o no apropiativas:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Planificación por prioridad
+\series default
+.
+ Cada proceso tiene una prioridad, normalmente un número que es mayor a
+ mayor prioridad (en UNIX es al revés), de modo que la CPU se da al primer
+ proceso de la cola con la mayor prioridad.
+ La asignación de prioridad puede ser 
+\series bold
+estática
+\series default
+, si no cambia durante la ejecución del proceso, o 
+\series bold
+dinámica
+\series default
+ si depende de parámetros.
+ Un ejemplo de asignación dinámica para favorecer a los procesos limitados
+ por E/S, y que puedan ejecutarse pronto para enviar su siguiente solicitud
+ de E/S, es hacer que la prioridad sea inversamente proporcional a la fracción
+ del último 
+\emph on
+quantum
+\emph default
+ usado por el proceso.
+ Este 
+\emph on
+quantum
+\emph default
+ puede ser una referencia para medir el tiempo consumido o funcionar como
+ en la planificación 
+\emph on
+round-robin
+\emph default
+.
+\begin_inset Newline newline
+\end_inset
+
+El 
+\series bold
+bloqueo indefinido
+\series default
+ o 
+\series bold
+inanición
+\series default
+ ocurre cuando los procesos de baja prioridad nunca llegan a ejecutarse.
+ Para evitarlo se puede disminuir cada cierto tiempo la prioridad del proceso
+ en ejecución, lo que tiene sentido si la planificación es apropiativa.
+ Esto sigue teniendo el problema de que pueden llegar continuamente procesos
+ de mayor cantidad que los que llevan tiempo esperando, por lo que una alternati
+va es aumentar cada cierto tiempo la prioridad de los procesos listos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Planificación de múltiples colas con realimentación
+\series default
+.
+ Es la más general, pero también la más compleja.
+ Existen varias colas de procesos listos y un proceso va a una u otra según
+ si es interactivo o por lotes, de sistema o de usuario, su prioridad, la
+ cola que usó la última vez, el consumo de CPU, etc.
+ Debe haber una planificación dentro de cada cola, y una planificación entre
+ colas, que suele ser apropiativa por prioridad pero puede ser cualquiera,
+ como el reparto equitativo y que cada cola se administre de una forma.
+ Para evitar que el esquema sea inflexible, debe haber un criterio para
+ que los procesos cambien de cola (realimentación).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename pegado5.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Planificación de múltiples colas.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si no se dispone de suficiente memoria es necesario que algunos procesos
+ se mantengan en disco.
+ Para ello, los procesos en memoria los gestiona un 
+\series bold
+planificador a corto plazo
+\series default
+ (PCP) mientras que un 
+\series bold
+planificador a medio plazo
+\series default
+ (PMP) es llamado periódicamente y se encarga de la suspensión y reanudación
+ de procesos, teniendo en cuenta criterios como el tiempo desde el último
+ intercambio, el tiempo de CPU que ha consumido el proceso recientemente,
+ el tamaño del proceso (los pequeños no causan problemas) y la prioridad
+ de este.
+ También es posible añadir un 
+\series bold
+planificador a largo plazo
+\series default
+ (PLP) que decida, de entre los procesos por lotes preparados, cuál ejecutar
+ después, eligiendo si este pasa directamente a memoria o a disco.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename pegado6.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Planificación a corto, medio y largo plazo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

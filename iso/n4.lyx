@@ -1,0 +1,895 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Los sistemas de computación actuales necesitan un 
+\series bold
+almacenamiento secundario
+\series default
+ que complemente al primario, para almacenar grandes cantidades de información
+ que no caben en el primario; preservarla para que no desaparezca cuando
+ termine el proceso o el sistema se apague, y permitir que la información
+ sea fácilmente compartida y accedida.
+ Para ello se usan discos y otros dispositivos que almacenan la información
+ en un conjunto de bloques, o que se manejan como si fuera así, y sobre
+ los cuales el sistema operativo crea una abstracción para facilitar su
+ uso a usuarios y programadores.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+sistema de ficheros
+\series default
+ es una parte del sistema operativo que organiza un sistema de almacenamiento
+ secundario como una serie de ficheros o unidades de información que se
+ agrupan en directorios, y también es el formato que adquiere el disco para
+ ello.
+ Desde el punto de vista del usuario es importante la forma de nombrar los
+ ficheros, las operaciones permitidas, el tipo de protección que podemos
+ aplicar, etc., mientras que desde el punto de vista del sistema operativo
+ es importante la implementación.
+\end_layout
+
+\begin_layout Section
+Ficheros
+\end_layout
+
+\begin_layout Standard
+En los sistemas modernos, un fichero es una secuencia de bytes con significado
+ definido por el programa que accede al mismo.
+ Cada fichero tiene un nombre que lo identifica, y que dependiendo del diseño
+ del sistema de ficheros y del sistema operativo, distingue o no entre mayúscula
+s y minúsculas, tiene un cierto tamaño máximo, tiene o no una estructura
+ (como 
+\begin_inset Quotes fld
+\end_inset
+
+
+\family typewriter
+\emph on
+nombre
+\emph default
+.
+\emph on
+extensión
+\family default
+\emph default
+
+\begin_inset Quotes frd
+\end_inset
+
+), etc.
+\end_layout
+
+\begin_layout Standard
+Los ficheros suelen tener atributos, como por ejemplo:
+\end_layout
+
+\begin_layout Itemize
+ACLs, contraseña, creador, propietario.
+\end_layout
+
+\begin_layout Itemize
+Sólo lectura, ocultación, fichero de sistema, biblioteca, texto o binario,
+ acceso aleatorio, temporal, bloqueo.
+\end_layout
+
+\begin_layout Itemize
+Tiempos de creación, último acceso y última modificación.
+\end_layout
+
+\begin_layout Itemize
+Tamaño actual y tamaño máximo.
+\end_layout
+
+\begin_layout Standard
+En general hay operaciones para crear un fichero vacío, eliminar un fichero,
+ abirlo, cerrar un fichero abierto, leer una cantidad de bytes, escribir
+ una cantidad de bytes al final (añadir) o (si es posible) en otra posición,
+ cambiar de posición dentro del fichero, obtener y establecer los atributos,
+ cambiar de nombre o mover el fichero a otro directorio, y truncar el fichero
+ a partir de una posición.
+\end_layout
+
+\begin_layout Subsection
+Ficheros regulares
+\end_layout
+
+\begin_layout Standard
+Contienen información del usuario.
+ Distinguimos entre ficheros 
+\series bold
+de texto
+\series default
+, codificados en UTF-8 o algún otro sistema y con líneas que terminan en
+ CR, LF o LF/CR y que se pueden ver tal cual de forma legible, y los 
+\series bold
+binarios
+\series default
+, que tienen cierta estructura pero no son de texto.
+\end_layout
+
+\begin_layout Standard
+Así, los ejecutables, binarios generalmente manejados por el sistema operativo,
+ contienen una cabecera con un 
+\series bold
+número mágico
+\series default
+ (número que identifica el formato de archivo), el tamaño de las secciones
+ de código y datos, el punto de entrada (dirección donde debe empezar la
+ ejecución) y otra información, seguida de las propias secciones.
+ Por su parte, los archivos de biblioteca son ficheros binarios que almacenan
+ código máquina de funciones (e información asociada).
+\end_layout
+
+\begin_layout Standard
+Muchas veces el nombre del fichero contiene una 
+\series bold
+extensión
+\series default
+ que identifica el tipo, que en los sistemas operativos modernos como Linux
+ no es significativa pero sí lo es para algunos programas, como exploradores
+ de ficheros para saber con qué programa abrirlo, y ayudan al usuario a
+ identificar el tipo rápidamente.
+ 
+\end_layout
+
+\begin_layout Standard
+Ejemplos de extensiones son 
+\family typewriter
+.bak
+\family default
+ para copias de seguridad; 
+\family typewriter
+.hlp
+\family default
+ para ficheros de ayuda; 
+\family typewriter
+.gif
+\family default
+ o 
+\family typewriter
+.jpg
+\family default
+ para imágenes GIF o JPEG; 
+\family typewriter
+.c
+\family default
+ para código fuente en C; 
+\family typewriter
+.html 
+\family default
+o 
+\family typewriter
+.tex
+\family default
+ o 
+\family typewriter
+.txt
+\family default
+ para documentos HTML, \SpecialChar TeX
+ o de texto plano; 
+\family typewriter
+.mp3
+\family default
+ para sonido MP3; 
+\family typewriter
+.mpg
+\family default
+ para vídeo MPEG; 
+\family typewriter
+.o
+\family default
+ para ficheros objeto; 
+\family typewriter
+.pdf
+\family default
+ o 
+\family typewriter
+.ps
+\family default
+ para documentos PDF; 
+\family typewriter
+.zip
+\family default
+ para archivos comprimidos ZIP; etc.
+\end_layout
+
+\begin_layout Subsection
+Ficheros especiales
+\end_layout
+
+\begin_layout Standard
+No se corresponden con un fichero en el propio sistema de almacenamiento,
+ sino con una forma de tratar otro tipo de datos como si fuera un fichero
+ (en el almacenamiento lo que se guarda es algún tipo de referencia).
+ En UNIX existen dos tipos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De caracteres
+\series default
+: Representan dispositivos de E/S como terminales, impresoras y conexiones
+ de red.
+ No es posible cambiar de posición, escribir en una posición distinta del
+ final o truncarlos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De bloques
+\series default
+: Representan dispositivos que permiten acceso aleatorio, en general almacenamie
+nto secundario.
+\end_layout
+
+\begin_layout Subsection
+Directorios
+\end_layout
+
+\begin_layout Standard
+Son ficheros gestionados por el sistema operativo para registrar los ficheros
+ y organizarlos en una 
+\series bold
+jerarquía de directorios
+\series default
+, de la que existen varios tipos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Directorio único
+\series default
+, con los ficheros de todos los usuarios.
+ Se usaban en los primeros microcomputadores.
+ Puede haber problemas si distintos usuarios utilizan los mismos nombres
+ de fichero.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Directorio por usuario
+\series default
+, aunque no es deseable si uno tiene muchos ficheros.
+ Se debe decidir si un usuario puede o no acceder a los directorios de otros
+ y cómo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Árbol de directorios
+\series default
+.
+ Un directorio puede contener a otros.
+ Es lo que se usa hoy en día.
+ Normalmente los directorios tienen una entrada especial 
+\family typewriter
+.
+
+\family default
+ para referirse al propio directorio y 
+\family typewriter
+..
+
+\family default
+ para referirse al directorio padre.
+ Se accede a los ficheros (y directorios) mediante una 
+\series bold
+ruta de acceso
+\series default
+, que indica el nombre de los directorios por los que hay que pasar hasta
+ llevar al fichero deseado (incluyendo el nombre del fichero), separados
+ por un cierto caracter, que es 
+\family typewriter
+/
+\family default
+ en UNIX y 
+\family typewriter
+
+\backslash
+
+\family default
+ en Windows.
+ Dos tipos:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Absoluta
+\series default
+: Parte desde la raíz y comienza por el caracter separador.
+ Es única para un mismo fichero siempre que no se usen 
+\family typewriter
+.
+
+\family default
+ y 
+\family typewriter
+..
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Relativa
+\series default
+: Parte de un 
+\series bold
+directorio actual
+\series default
+ o 
+\series bold
+de trabajo
+\series default
+, y no comienza por el caracter separador.
+ Existe una cantidad numerable de rutas relativas para un mismo fichero
+ desde un mismo directorio actual.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+No podemos leer y escribir en ellos como con los otros tipos de ficheros,
+ sino que en su lugar la apertura de un directorio sirve para recorrido
+ y hay operaciones para obtener la siguiente entrada; ligar o enlazar un
+ fichero al directorio, permitiendo que un mismo fichero aparezca en varios
+ directorios, y desligar una entrada del directorio, lo que equivale a borrarla
+ si esta es la única entrada del sistema de fichero en la que aparece.
+\end_layout
+
+\begin_layout Section
+Representación
+\end_layout
+
+\begin_layout Standard
+La representación en disco debe ser tal que consiga una buena velocidad
+ y aprovechamiento del espacio pero a la vez reduzca la fragmentación interna
+ (partes de un bloque sin aprovechar) y externa (bloques libres que no se
+ pueden ocupar).
+\end_layout
+
+\begin_layout Subsection
+Bloques lógicos
+\end_layout
+
+\begin_layout Standard
+Por lo general los discos proporcionan una interfaz basada en una lista
+ de 
+\series bold
+bloques físicos
+\series default
+ o 
+\series bold
+sectores
+\series default
+, la unidad mínima de lectura y escritura, cuyo tamaño es constante y suele
+ ser una potencia de 2 desde 
+\begin_inset Formula $\unit[512]{B}$
+\end_inset
+
+ hasta 
+\begin_inset Formula $\unit[4]{kB}$
+\end_inset
+
+.
+ Es común que el sistema de ficheros agrupe o incluso divida los sectores
+ para formar 
+\series bold
+bloques lógicos
+\series default
+ o unidades de asignación más grandes o pequeñas.
+\end_layout
+
+\begin_layout Standard
+Si el bloque lógico es grande, un fichero tendrá menos bloques y el rendimiento
+ en discos duros será mayor pero habrá más fragmentación interna, mientras
+ que si el bloque es pequeño habrá poca fragmentación interna pero las listas
+ de bloques ocuparán mucho.
+\end_layout
+
+\begin_layout Subsection
+Asignación de espacio
+\end_layout
+
+\begin_layout Standard
+Todo fichero tiene asociado un conjunto de bloques donde guarda sus datos.
+ La asignación de estos puede ser de varias formas:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Adyacente
+\series default
+ o 
+\series bold
+contigua
+\series default
+.
+ De fácil especificación, pues solo hay que recordar un número para localizar
+ los bloques, y ofrece un excelente rendimiento en discos duros al suponer
+ muy pocos movimientos del brazo del disco o ninguno.
+ En general no es realizable, pues si no se sabe el tamaño máximo de un
+ fichero no se sabe cuánto espacio reservarle; si este es muy pequeño, cuando
+ el fichero crezca hay que moverlo a un hueco mayor, algo costoso y no siempre
+ posible.
+ Sin embargo es útil en medios como CD-ROMs y DVD-ROMs, donde se sabe el
+ tamaño de los ficheros de antemano.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Mediante lista ligada
+\series default
+.
+ En cada bloque se guarda la dirección del siguiente.
+ No hay fragmentación externa y la entrada de directorio correspondiente
+ solo tiene que guardar la dirección del primer bloque, pero el acceso aleatorio
+ es muy lento y los programas que esperan que los bloques tengan un tamaño
+ potencia de 2 también se ralentizan.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Mediante lista ligada e índice
+\series default
+.
+ Similar, pero la dirección del siguiente bloque no se guarda en el bloque
+ sino en una tabla con una entrada por bloque que indica la dirección del
+ siguiente en el fichero.
+ Esto solo es eficiente si toda la tabla está en memoria, lo que es un problema
+ si la tabla es grande.
+ Se puede reducir el tamaño de la tabla usando bloques lógicos grandes,
+ pero entonces se desperdicia espacio por fragmentación.
+ Además, si la tabla se modifica y la modificación no se escribe en disco,
+ una caída del sistema puede hacer que los ficheros desaparezcan o queden
+ incompletos.
+\begin_inset Newline newline
+\end_inset
+
+Se puede usar un número de bloque inválido (como el 0) para indicar que
+ un bloque está libre.
+ El sistema FAT, usado por MS-DOS y uno de los implementados en Windows,
+ usa este sistema.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Mediante nodos-i
+\series default
+.
+ A cada fichero se le asigna un nodo-i (nodo índice) que contiene las direccione
+s en disco de los bloques del fichero, en orden.
+ Normalmente se usan nodos-i pequeños capaces de almacenar unas pocas direccione
+s y se guardan varios nodos-i en un mismo bloque, de modo que una zona contigua
+ del disco (o varias, por eficiencia), llamada
+\series bold
+ tabla de nodos-i
+\series default
+, se destinan a nodos-i.
+\begin_inset Newline newline
+\end_inset
+
+Para ficheros grandes se usa un 
+\series bold
+bloque simplemente indirecto
+\series default
+ (BSI), que contiene direcciones de bloques de datos adicionales; un 
+\series bold
+bloque doblemente indirecto
+\series default
+ (BDI), que contiene direcciones de más BSIs, y un 
+\series bold
+bloque triplemente indirecto
+\series default
+ (BTI), que contiene direcciones de más BDIs, de forma que 3 de las direcciones
+ del nodo-i se usan para estos bloques.
+\begin_inset Newline newline
+\end_inset
+
+Este es el esquema usado en la mayoría de sistemas de ficheros en sistemas
+ UNIX, y permite acceder a cualquier bloque de un fichero abierto accediendo,
+ como mucho, a 4 bloques del disco si el nodo-i está en memoria.
+\end_layout
+
+\begin_layout Standard
+Además, debe haber una forma de saber que bloques de datos (así como qué
+ números de nodos-i) están libres.
+ Principalmente hay dos métodos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Lista ligada de bloques
+\series default
+: Una lista con tantos números de bloques libres como pueda más un puntero
+ al siguiente bloque.
+ Los bloques de la lista son libres, por lo que podrán ser usados si es
+ necesario.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Mapa de bits
+\series default
+: Contiene un bit para cada bloque, que indica si el bloque es libre u ocupado.
+ Los bloques del mapa no son libres, pero los sistemas de ficheros actuales
+ como Ext2, Ext3, Ext4 o NTFS lo usan porque permite buscar de forma sencilla
+ grupos de bloques libres consecutivos.
+\end_layout
+
+\begin_layout Subsection
+Ficheros compartidos
+\end_layout
+
+\begin_layout Standard
+Un fichero es compartido si puede aparecer en varios directorios con el
+ mismo o distinto nombre, o en un mismo directorio con nombres distintos.
+ La conexión entre un directorio y un fichero se llama 
+\series bold
+enlace
+\series default
+, y si existe, el sistema de ficheros pasa de ser un árbol a ser simplemente
+ un grafo acíclico dirigido.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Enlace físico
+\series default
+ o 
+\emph on
+hard link
+\emph default
+: Los datos relativos a un fichero se guardan en una estructura de datos
+ y las entradas de directorio correspondientes apuntan a esta.
+ Es necesario que entre los datos del fichero exista un contador de enlaces,
+ pues el nodo solo debe liberarse cuando se borra un fichero y no quedan
+ más enlaces.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Enlace simbólico
+\series default
+ o 
+\emph on
+soft link
+\emph default
+: Se usa un tipo de fichero especial que contiene una ruta de acceso al
+ fichero al que se enlaza.
+ Cuando el fichero original se borra, el enlace simbólico queda invalidado
+ salvo que se cree un fichero con la misma ruta.
+\end_layout
+
+\begin_layout Standard
+UNIX implementa ambos.
+ Los enlaces simbólicos tienen más coste, pero presentan menos problemas,
+ con lo que UNIX permite enlaces simbólicos de directorios e incluso a otros
+ sistemas de ficheros pero no permite hacer lo mismo con enlaces físicos.
+ Un programa de copias de seguridad puede duplicar datos al copiar un fichero
+ compartido si no usa alguna forma de detectar los enlaces para evitar esta
+ duplicación.
+\end_layout
+
+\begin_layout Subsection
+Directorios
+\end_layout
+
+\begin_layout Standard
+En MS-DOS, los directorios son ficheros salvo el directorio raíz que ocupa
+ unos bloques fijos en disco, por lo que tiene un tamaño máximo preestablecido.
+ Estos almacenan una lista desordenada de entradas o registros de 32 bytes,
+ una por fichero, con los siguientes campos, en orden:
+\end_layout
+
+\begin_layout Enumerate
+8 bytes para el nombre del fichero y 3 para la extensión.
+\end_layout
+
+\begin_layout Enumerate
+Un byte para atributos donde los bits se usan como banderas.
+ Uno de ellos distingue a un directorio de un fichero normal.
+\end_layout
+
+\begin_layout Enumerate
+Un campo de 10 bytes reservado para futuros usos.
+\end_layout
+
+\begin_layout Enumerate
+2 bytes para la hora de última modificación: 5 bits para la hora (0–23),
+ 6 para el minuto (0–59) y 5 para el segundo, que debe ser par (0–58).
+\end_layout
+
+\begin_layout Enumerate
+2 bytes para la fecha de última modificación: 7 bits para el año (correspondiend
+o el valor 0 al 1980), 4 para el mes (1–12) y 5 para el día del mes (1–31).
+\end_layout
+
+\begin_layout Enumerate
+2 bytes para la dirección del primer bloque.
+\end_layout
+
+\begin_layout Enumerate
+4 bytes para el tamaño del fichero, en bytes.
+\end_layout
+
+\begin_layout Standard
+En la mayoría de sistemas de ficheros en sistemas UNIX, los atributos se
+ almacenan en los nodos-i y el directorio raíz no tiene tratamiento especial.
+ En el de los primeros UNIX, las entradas de un directorio eran de 16 bytes,
+ siendo 2 bytes para el número de nodo-i del fichero y otros 14 bytes para
+ el nombre, que tenía pues un máximo de 14 caracteres.
+ Posteriormente se crearon sistemas de ficheros para sistemas UNIX que soportaba
+n nombres de hasta 255 caracteres, con entradas con los siguientes campos,
+ en orden:
+\end_layout
+
+\begin_layout Enumerate
+4 bytes para el número de nodo-i.
+\end_layout
+
+\begin_layout Enumerate
+2 bytes para la longitud del registro.
+\end_layout
+
+\begin_layout Enumerate
+1 byte para la longitud del nombre.
+\end_layout
+
+\begin_layout Enumerate
+1 byte para el tipo de fichero (regular, de caracteres, de bloques o directorio).
+\end_layout
+
+\begin_layout Enumerate
+Hasta 255 bytes para el nombre.
+\end_layout
+
+\begin_layout Standard
+Una entrada no puede estar entre dos bloques, y el total de registros de
+ un bloque debe cubrirlo enteramente; de ahí que se permita que la longitud
+ de un registro sea mayor a la estrictamente necesaria.
+ Siempre que se crea un directorio se añaden dos entradas, 
+\family typewriter
+.
+
+\family default
+ y 
+\family typewriter
+..
+\family default
+.
+ Para añadir una nueva entrada, se elige una existente, se disminuye su
+ tamaño y se añade la nueva en el hueco, o se añade un nuevo bloque al directori
+o si esto no es posible.
+ Para eliminarla se añade su espacio al de la entrada anterior, o si esto
+ no es posible se marca el registro como libre utilizando un número de nodo-i
+ inválido.
+\end_layout
+
+\begin_layout Subsection
+Estructura general
+\end_layout
+
+\begin_layout Standard
+En general el bloque 0 del almacenamiento es el 
+\series bold
+bloque de arranque
+\series default
+ y puede contener código de arranque del sistema operativo que se encuentra
+ en la partición.
+ El bloque 1 suele ser el 
+\series bold
+superbloque
+\series default
+, que contiene información crítica del sistema de ficheros como el total
+ de bloques lógicos, tamaño de los mapas de bits, etc., por lo que algunos
+ sistemas de ficheros tienen varias copias de este en otras zonas del disco.
+ En otros, el superbloque es parte del bloque de arranque.
+\end_layout
+
+\begin_layout Standard
+A partir de entonces hay mucha variación, pero en los primeros sistemas
+ de ficheros en UNIX encontramos el mapa de bits de bloques, el de nodos-i,
+ la tabla de nodos-i y, finalmente, el resto de bloques, para ficheros y
+ bloques indirectos.
+\end_layout
+
+\begin_layout Section
+Cachés
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+caché de disco
+\series default
+, 
+\series bold
+bloques
+\series default
+ o 
+\series bold
+\emph on
+buffers
+\series default
+\emph default
+ es una colección de bloques del almacenamiento secundario que se mantienen
+ temporalmente en memoria principal por rendimiento.
+ La política de sustitución podría ser LRU mediante colas, pero el LRU puro
+ no es recomendable si se quiere mantener la consistencia del sistema de
+ ficheros ante posibles fallos del sistema, pues por ejemplo un bloque que
+ contiene nodos-i se usará mucho y si se modifica en caché y no se vuelve
+ a escribir en disco el sistema de ficheros quedará inconsistente ante un
+ fallo del sistema.
+\end_layout
+
+\begin_layout Standard
+Por ello se suele usar un LRU modificado, en el que los bloques que por
+ su tipo probablemente no se vuelvan a utilizar pronto pasan directamente
+ al frente de la cola y los bloques esenciales para la consistencia se escriben
+ directamente en disco sin esperar a ser expulsados.
+ Tampoco es recomendable mantener mucho tiempo los bloques de datos modificados
+ en caché por riesgo de perder los cambios.
+ Así, en muchos UNIX los bloques de datos se escriben en disco como tarde
+ a los 30 segundos de ser modificados, mientras que los de metadatos se
+ escriben como tarde a los 5 segundos.
+ También existe la orden 
+\family typewriter
+sync
+\family default
+, que al ejecutarse fuerza la escritura de todos los bloques modificados.
+\end_layout
+
+\begin_layout Standard
+Por su parte, como las resoluciones de ruta (localizar un fichero a través
+ de una ruta) son algo muy frecuente y una misma ruta puede resolverse muchas
+ veces en poco tiempo, el sistema operativo suele mantener en memoria informació
+n sobre las últimas resoluciones en otra caché, que en Linux se llama 
+\emph on
+dentry cache
+\emph default
+ o 
+\series bold
+caché de entradas de directorio
+\series default
+.
+\end_layout
+
+\begin_layout Section
+Particiones
+\end_layout
+
+\begin_layout Standard
+Son porciones de bloques consecutivos de un disco, manejadas por el sistema
+ operativo y tratadas de por sí como listas de bloques sobre las que se
+ puede implementar un sistema de ficheros.
+ Tradicionalmente la información de las particiones, como sus bloques de
+ inicio y fin, se guarda en la 
+\series bold
+tabla de particiones
+\series default
+ del bloque 
+\series bold
+MBR
+\series default
+ (
+\emph on
+Master Boot Record
+\emph default
+, registro de arranque maestro), el primer bloque del disco, que además
+ contiene una pequeña porción de código de arranque que la BIOS carga en
+ memoria y ejecuta para, tras una serie de pasos, arrancar un sistema operativo.
+ En general lo que hace este código es buscar una partición activa y cargar
+ el código de arranque en esta.
+\end_layout
+
+\begin_layout Standard
+Las particiones permiten tener distintos sistemas de ficheros en un mismo
+ disco, o incluso sistemas operativos distintos.
+ Por ejemplo, en Linux conviene tener al menos una partición para datos
+ con Ext4 y una 
+\series bold
+partición de intercambio
+\series default
+ usada para la memoria virtual.
+ También permite dar a cada partición un uso distinto, de modo que si hay
+ un error grave en el sistema de ficheros de una partición el resto siguen
+ siendo usables.
+\end_layout
+
+\end_body
+\end_document

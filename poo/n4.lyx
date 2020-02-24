@@ -1,0 +1,3827 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una 
+\series bold
+clase genérica
+\series default
+ es aquella que en su declaración tiene uno o varios tipos variables (
+\series bold
+parámetros
+\series default
+).
+ Se indican como 
+\family typewriter
+\emph on
+NombreClase
+\emph default
+<
+\emph on
+T
+\begin_inset Formula $_{1}$
+\end_inset
+
+
+\family default
+\emph default
+ [
+\family typewriter
+extends 
+\emph on
+K
+\emph default
+
+\begin_inset Formula $_{11}$
+\end_inset
+
+[& 
+\family default
+...]][
+\family typewriter
+, 
+\family default
+...]
+\family typewriter
+>
+\family default
+, y dentro de la clase se pueden usar los tipos 
+\family typewriter
+T
+\family default
+
+\begin_inset Formula $_{i}$
+\end_inset
+
+ como otros tipos cualesquiera, sobre los que se pueden usar los métodos
+ de los tipos no primitivos 
+\family typewriter
+K
+\begin_inset Formula $_{ij}$
+\end_inset
+
+
+\family default
+, o de 
+\family typewriter
+Object
+\family default
+ si no se especifican, salvo constructores.
+ El uso de tipos 
+\family typewriter
+K
+\begin_inset Formula $_{ij}$
+\end_inset
+
+
+\family default
+ permite 
+\series bold
+genericidad restringida
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+También existen las interfaces genéricas, con la misma sintaxis.
+ Una clase genérica puede heredar de otra e implementar interfaces genéricas.
+ En la herencia se establecen los parámetros de la clase padre e interfaces
+ implementadas, que pueden ser parámetros de la propia clase hija o tipos
+ concretos.
+\end_layout
+
+\begin_layout Standard
+La parametrización de una clase genérica se realiza en la declaración de
+ una variable (incluyendo parámetro, etc.) y en la construcción de objetos,
+ con la forma 
+\family typewriter
+\emph on
+NombreClase
+\emph default
+<
+\emph on
+T
+\begin_inset Formula $_{1}$
+\end_inset
+
+
+\emph default
+, 
+\family default
+...
+\family typewriter
+>
+\family default
+, donde los 
+\family typewriter
+T
+\begin_inset Formula $_{i}$
+\end_inset
+
+
+\family default
+ son los tipos parámetros y deben ser compatibles con todos los 
+\family typewriter
+K
+\begin_inset Formula $_{ij}$
+\end_inset
+
+
+\family default
+, si bien en la construcción se pueden omitir los parámetros con la sintaxis
+ 
+\family typewriter
+\emph on
+NombreClase
+\emph default
+<>
+\family default
+.
+ En la declaración de variables los 
+\family typewriter
+\emph on
+T
+\begin_inset Formula $_{i}$
+\end_inset
+
+
+\family default
+\emph default
+ se pueden cambiar por 
+\family typewriter
+? extends 
+\emph on
+E
+\begin_inset Formula $_{i}$
+\end_inset
+
+
+\family default
+\emph default
+ (
+\series bold
+tipo comodín
+\series default
+) para indicar que se permite cualquier tipo compatible con 
+\family typewriter
+\emph on
+E
+\begin_inset Formula $_{i}$
+\end_inset
+
+
+\family default
+\emph default
+, o 
+\family typewriter
+? super 
+\emph on
+S
+\begin_inset Formula $_{i}$
+\end_inset
+
+
+\family default
+\emph default
+ para cualquier tipo con el que 
+\family typewriter
+\emph on
+S
+\begin_inset Formula $_{i}$
+\end_inset
+
+
+\family default
+\emph default
+ sea compatible.
+\end_layout
+
+\begin_layout Standard
+También podemos declarar un tipo genérico sin especificar 
+\begin_inset Quotes cld
+\end_inset
+
+
+\family typewriter
+<
+\family default
+...
+\family typewriter
+>
+\family default
+
+\begin_inset Quotes crd
+\end_inset
+
+ con los parámetros de tipo (
+\series bold
+tipo puro
+\series default
+), en cuyo caso equivale a parametrizarlo a 
+\family typewriter
+Object
+\family default
+ (salvo genericidad restringida), si bien esto no es recomendable y el compilado
+r lo marca como un aviso.
+ La información de los tipos parámetro se pierde en tiempo de ejecución,
+ pues no se almacenan en el código compilado, por lo que solo podemos comprobar
+ si el tipo dinámico de una variable es o no del tipo puro (o compatible).
+ El compilador marca una conversión a un tipo genérico como un 
+\emph on
+warning
+\emph default
+, pues no se puede comprobar el tipo utilizado en la parametrización, pero
+ podemos suprimirlo escribiendo la línea 
+\family typewriter
+@SuppressWarnings("unchecked")
+\family default
+ encima de la sentencia que realiza la conversión.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+método genérico
+\series default
+ es el que en su declaración acepta uno o varios parámetros de tipo, independien
+tes de los de la clase (si los hay), que pueden aparecer en la signatura
+ y el cuerpo del método y que se indican poniendo 
+\family typewriter
+<
+\family default
+...
+\family typewriter
+>
+\family default
+ (sintaxis como en las clases genéricas) antes del tipo de retorno (o de
+ 
+\family typewriter
+void
+\family default
+).
+ Se llaman como un método normal, y los tipos se infieren a partir de sus
+ parámetros o la variable a la que se asigna el resultado.
+\end_layout
+
+\begin_layout Section
+Ordenación
+\end_layout
+
+\begin_layout Standard
+Las clases e interfaces que se definen a continuación están todas en 
+\family typewriter
+java.util
+\family default
+, salvo si se indica lo contrario.
+ Se omite cualquier declaración, o parte de declaración, que no es relevante.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+java.lang.Comparable<T>
+\family default
+ Una clase es 
+\series bold
+comparable
+\series default
+ si implementa esta interfaz, y si dice que tiene un 
+\series bold
+orden natural
+\series default
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+boolean equals(Object)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+int
+\begin_inset space ~
+\end_inset
+
+compareTo(T)
+\family default
+ Devuelve un entero positivo si el objeto receptor es mayor, negativo si
+ es menor y 0 si es igual al parámetro.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+@FunctionalInterface
+\begin_inset space ~
+\end_inset
+
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+Comparator<T>
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+int
+\begin_inset space ~
+\end_inset
+
+compare(T,
+\begin_inset space ~
+\end_inset
+
+T)
+\family default
+ Devuelve un entero positivo si el primer parámetro es mayor, ne
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ga
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ti
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+vo si es menor y 0 si es igual al segundo.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Iteradores
+\end_layout
+
+\begin_layout Standard
+Permiten recorrer una secuencia de elementos.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+Iterator<E>
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+boolean
+\begin_inset space ~
+\end_inset
+
+hasNext()
+\family default
+\series default
+ Indica si quedan elementos en la iteración.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+E
+\begin_inset space ~
+\end_inset
+
+next()
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws NoSuchElementException
+\end_layout
+
+\end_inset
+
+Devuelve (y 
+\begin_inset Quotes fld
+\end_inset
+
+consume
+\begin_inset Quotes frd
+\end_inset
+
+) el siguiente elemento en la iteración.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+default
+\begin_inset space ~
+\end_inset
+
+void
+\begin_inset space ~
+\end_inset
+
+remove()
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws UnsupportedOperationException, IllegalStateException
+\end_layout
+
+\end_inset
+
+Elimina de la colección el último elemento devuelto por el ite
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ra
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+dor, y sólo puede ser llamado una vez después de cada llamada a 
+\family typewriter
+next()
+\family default
+.
+ Si la colección se modifica mientras el iterador está en progreso, su comportam
+iento es no especificado.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+java.lang.Iterable<T>
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+Iterator<T>
+\begin_inset space ~
+\end_inset
+
+iterator()
+\family default
+ Devuelve un iterador sobre elementos de tipo 
+\family typewriter
+T
+\family default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Dado un objeto 
+\family typewriter
+\emph on
+c
+\family default
+\emph default
+ que implementa la interfaz 
+\family typewriter
+Iterable<
+\emph on
+T
+\emph default
+>
+\family default
+, la sintaxis 
+\family typewriter
+for (
+\emph on
+T
+\emph default
+ 
+\emph on
+e
+\emph default
+ : 
+\emph on
+c
+\emph default
+) 
+\emph on
+stmt
+\family default
+\emph default
+ equivale a:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \hspace*{}
+\length 4em
+\end_inset
+
+
+\begin_inset space \hspace*{}
+\length 4em
+\end_inset
+
+Iterator _it = 
+\emph on
+c
+\emph default
+.iterator();
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Extra indentation is because this'll typically be inside a method inside
+ a class, not (just) for centering.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \hspace*{}
+\length 4em
+\end_inset
+
+
+\begin_inset space \hspace*{}
+\length 4em
+\end_inset
+
+while (_it.hasNext()) {
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \hspace*{}
+\length 4em
+\end_inset
+
+
+\begin_inset space \hspace*{}
+\length 4em
+\end_inset
+
+
+\begin_inset space \hspace*{}
+\length 4em
+\end_inset
+
+
+\emph on
+T e
+\emph default
+ = _it.next();
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \hspace*{}
+\length 4em
+\end_inset
+
+
+\begin_inset space \hspace*{}
+\length 4em
+\end_inset
+
+
+\begin_inset space \hspace*{}
+\length 4em
+\end_inset
+
+
+\emph on
+stmt
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space \hspace*{}
+\length 4em
+\end_inset
+
+
+\begin_inset space \hspace*{}
+\length 4em
+\end_inset
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esto también se puede hacer si 
+\family typewriter
+\emph on
+c
+\family default
+\emph default
+ es de tipo 
+\family typewriter
+\emph on
+T
+\emph default
+[]
+\family default
+, en cuyo caso se hace recorrido secuencial.
+\end_layout
+
+\begin_layout Section
+Colecciones
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+Collection<E>
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+Iterable<E>
+\family default
+\series default
+ Colección de elementos.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+boolean containsAll(Collection<?>) throws ClassCastException, NullPointerExcepti
+on
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+boolean equals(Object)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+int hashCode()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+boolean removeAll(Collection<?>) throws UnsupportedOperationException, ClassCast
+Exception, NullPointerException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+boolean retainAll(Collection<?>) throws UnsupportedOperationException, ClassCast
+Exception, NullPointerException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Object[] toArray()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+<T> T[] toArray(T[]) throws ArrayStoreException, NullPointerException
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+int
+\begin_inset space ~
+\end_inset
+
+size()
+\family default
+\series default
+ Devuelve el número de elementos en la colección, si cabe en un entero.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+ Si contiene más que 
+\family typewriter
+Integer.MAX_VALUE
+\family default
+, devuelve 
+\family typewriter
+Integer.MAX_VALUE
+\family default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+boolean
+\begin_inset space ~
+\end_inset
+
+isEmpty()
+\family default
+\series default
+ Indica si la colección está vacía.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+boolean
+\begin_inset space ~
+\end_inset
+
+contains(Object)
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws ClassCastException, NullPointerException
+\end_layout
+
+\end_inset
+
+Indica si la colección contiene el elemento dado.
+ Es un error común pasar un elemento de tipo no compatible con 
+\family typewriter
+E
+\family default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+boolean
+\begin_inset space ~
+\end_inset
+
+add(E)
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws UnsupportedOperationException, ClassCastException, NullPointerException,
+ IllegalArgumentException, IllegalStateException
+\end_layout
+
+\end_inset
+
+Se asegura de que la colección contenga el elemento especificado, indicando
+ si la colección ha cambiado como resultado de la llamada.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+boolean
+\begin_inset space ~
+\end_inset
+
+remove(Object)
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws ClassCastException, NullPointerException
+\end_layout
+
+\end_inset
+
+Elimina una única instancia del elemento especificado de la colección, si
+ esta presente, indicando si la colección ha cambiado como resultado de
+ la llamada.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+boolean
+\begin_inset space ~
+\end_inset
+
+addAll(Collection<?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+E>)
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws UnsupportedOperationException, ClassCastException, NullPointerException,
+ IllegalArgumentException, IllegalStateException
+\end_layout
+
+\end_inset
+
+Añade a esta colección todos los elementos de otra, indicando si ha cambiado
+ como resultado de la llamada.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+boolean
+\begin_inset space ~
+\end_inset
+
+removeAll(Collection<?>)
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws UnsupportedOperationException, ClassCastException, NullPointerException
+\end_layout
+
+\end_inset
+
+Elimina de essta colección todos los elementos en común con otra, indicando
+ si ha cambiado como resultado de la llamada.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+void
+\begin_inset space ~
+\end_inset
+
+clear()
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws UnsupportedOperationException
+\end_layout
+
+\end_inset
+
+Elimina todos los elementos de la colección, que quedará vacía.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+default
+\begin_inset space ~
+\end_inset
+
+Stream<E>
+\begin_inset space ~
+\end_inset
+
+stream()
+\family default
+ Devuelve un flujo secuencial con esta colección como fuente.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+abstract
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+AbstractCollection<E>
+\begin_inset space ~
+\end_inset
+
+implements
+\begin_inset space ~
+\end_inset
+
+Collection<E> 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+public abstract Iterator<E> iterator()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+public abstract int size()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+String
+\begin_inset space ~
+\end_inset
+
+toString()
+\family default
+ Devuelve una representación como cadena de caracteres de la colección como
+ una lista de sus elementos.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+List<E>
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+Collection<E>
+\family default
+\series default
+ Lista, colección ordenada o secuencia.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+int indexOf(Object) throws ClassCastException, NullPointerException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+int lastIndexOf(Object) throws ClassCastException, NullPointerException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+ListIterator<E> listIterator()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+ListIterator<E> listIterator(int)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+List<E> subList(int, int)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+boolean
+\begin_inset space ~
+\end_inset
+
+add(E)
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws UnsupportedOperationException, ClassCastException, NullPointerException,
+ IllegalArgumentException
+\end_layout
+
+\end_inset
+
+Añade un elemento al final de la lista y devuelve 
+\family typewriter
+true
+\family default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+default
+\begin_inset space ~
+\end_inset
+
+void
+\begin_inset space ~
+\end_inset
+
+sort(Comparator<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+E>)
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws ClassCastException, UnsupportedOperationException, IllegalArgumentExcepti
+on
+\end_layout
+
+\end_inset
+
+Ordena una lista de acuerdo a un comparador.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+boolean
+\begin_inset space ~
+\end_inset
+
+equals(Object)
+\family default
+ Indica si el otro objeto es una lista del mismo tamaño y con los mismos
+ elementos en las mismas posiciones.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+E
+\begin_inset space ~
+\end_inset
+
+get(int)
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws IndexOutOfBoundsException
+\end_layout
+
+\end_inset
+
+Devuelve el elemento en una determinada posición en el rango 
+\begin_inset Formula $[0,\mathtt{size()})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+E
+\begin_inset space ~
+\end_inset
+
+set(int,
+\begin_inset space ~
+\end_inset
+
+E)
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws UnsupportedOperationException, ClassCastException, NullPointerException,
+ IllegalArgumentException, IndexOutOfBoundsException
+\end_layout
+
+\end_inset
+
+Sustituye el elemento en la posición dada, en el rango 
+\begin_inset Formula $[0,\mathtt{size()})$
+\end_inset
+
+, por el elemento dado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+void
+\begin_inset space ~
+\end_inset
+
+add(int,
+\begin_inset space ~
+\end_inset
+
+E)
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws UnsupportedOperationException, ClassCastException, NullPointerException,
+ IllegalArgumentException, IndexOutOfBoundsException
+\end_layout
+
+\end_inset
+
+Inserta el elemento dado en la posición dada, en el rango 
+\begin_inset Formula $[0,\mathtt{size()}]$
+\end_inset
+
+, moviendo todos los elementos posteriores una posición a la derecha.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+E
+\begin_inset space ~
+\end_inset
+
+remove(int)
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws UnsupportedOperationException, IndexOutOfBoundsException
+\end_layout
+
+\end_inset
+
+Elimina el elemento en la posición especificada, en el rango 
+\begin_inset Formula $[0,\mathtt{size()})$
+\end_inset
+
+, moviendo todos los elementos posteriores una posición a la izquierda.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+public abstract class AbstractList<E> extends AbstractCollection<E> implements
+ List<E>
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+abstract E get(int)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+abstract
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+AbstractSequentialList<E>
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+AbstractList<E>
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+abstract ListIterator<E> listIterator(int)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+public class LinkedList<E> extends AbstractSequentialList<E> implements
+ List<E>, Cloneable
+\end_layout
+
+\end_inset
+
+
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+, Serializable
+\end_layout
+
+\end_inset
+
+Lista doblemente enlazada, con la que podemos gestionar pilas y colas.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+LinkedList()
+\family default
+\series default
+ Construye una lista vacía.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+LinkedList(Collection<?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+E>)
+\family default
+\series default
+ Construye una lista con los elementos de la colección dada, en el orden
+ en que los devuelve el iterador.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+E
+\begin_inset space ~
+\end_inset
+
+getFirst()
+\begin_inset space ~
+\end_inset
+
+throws
+\begin_inset space ~
+\end_inset
+
+NoSuchElementException
+\family default
+ Devuelve el primer elemento.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+E
+\begin_inset space ~
+\end_inset
+
+getLast()
+\begin_inset space ~
+\end_inset
+
+throws
+\begin_inset space ~
+\end_inset
+
+NoSuchElementException
+\family default
+ Devuelve el último elemento.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+E
+\begin_inset space ~
+\end_inset
+
+removeFirst()
+\series default
+
+\begin_inset space ~
+\end_inset
+
+throws
+\begin_inset space ~
+\end_inset
+
+NoSuchElementException
+\family default
+ Elimina y devuelve el primer elemento.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+E
+\begin_inset space ~
+\end_inset
+
+removeLast()
+\begin_inset space ~
+\end_inset
+
+throws
+\begin_inset space ~
+\end_inset
+
+NoSuchElementException 
+\family default
+Elimina y devuelve el último elemento.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+void
+\begin_inset space ~
+\end_inset
+
+addFirst(E)
+\family default
+\series default
+ Inserta un elemento al principio.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+void
+\begin_inset space ~
+\end_inset
+
+addLast(E)
+\family default
+ Inserta un elemento al final.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+Object
+\begin_inset space ~
+\end_inset
+
+clone()
+\family default
+\series default
+ Devuelve una copia superficial (no se copian los elementos).
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+ArrayList<E>
+\begin_inset space ~
+\end_inset
+
+expands
+\begin_inset space ~
+\end_inset
+
+AbstractList<E>
+\begin_inset space ~
+\end_inset
+
+implements
+\begin_inset space ~
+\end_inset
+
+List<E>,
+\begin_inset space ~
+\end_inset
+
+Cloneable
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+, RandomAccess, Serializable
+\end_layout
+
+\end_inset
+
+Lista contigua redimensionable.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+ArrayList()
+\family default
+\series default
+ Construye una lista vacía.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+ArrayList(Collection<?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+E>)
+\family default
+\series default
+ Construye una lista con los elementos de la colección dada, en el orden
+ en que los devuelve el iterador.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+Object
+\begin_inset space ~
+\end_inset
+
+clone()
+\family default
+\series default
+ Devuelve una copia superficial (no se copian los elementos).
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+Set<E>
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+Collection<E>
+\family default
+\series default
+ Conjunto o colección sin elementos duplicados.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+boolean
+\begin_inset space ~
+\end_inset
+
+add(E)
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws UnsupportedOperationException, ClassCastException, NullPointerException,
+ IllegalArgumentException
+\end_layout
+
+\end_inset
+
+Añade un elemento si no estaba ya presente, indicando si se ha añadido (si
+ no estaba ya presente).
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+boolean
+\begin_inset space ~
+\end_inset
+
+equals(Object)
+\family default
+\series default
+ Indica si el objeto dado es un conjunto de igual longitud que este y todos
+ los miembros del conjunto dado están contenidos en este (o, equivalentemente,
+ todos los de este están en el otro).
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+public abstract class AbstractSet<E> extends AbstractCollection<E> implements
+ Set<E>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+HashSet<E>
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+AbstractSet<E>
+\begin_inset space ~
+\end_inset
+
+implements
+\begin_inset space ~
+\end_inset
+
+Set<E>,
+\begin_inset space ~
+\end_inset
+
+Cloneable
+\end_layout
+
+\end_inset
+
+
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+, Serializable
+\end_layout
+
+\end_inset
+
+Conjunto implementado por tabla de dispersión.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+HashSet()
+\family default
+\series default
+ Construye un conjunto vacío.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+HashSet(Collection<?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+E>)
+\family default
+\series default
+ Construye un conjunto con los elementos de la colección dada.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+Object
+\begin_inset space ~
+\end_inset
+
+clone()
+\family default
+\series default
+ Devuelve una copia superficial (no se copian los elementos).
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+SortedSet<E>
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+Set<E>
+\family default
+ Conjunto totalmente ordenado, por el orden natural de 
+\family typewriter
+E
+\family default
+ o por un 
+\family typewriter
+Comparator<? super E>
+\family default
+.
+ El iterador devuelve los elementos en orden ascendente.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+Comparator<? super E> comparator()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+SortedSet<E> subSet(E, E)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+SortedSet<E>
+\begin_inset space ~
+\end_inset
+
+headSet(E)
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws ClassCastException, NullPointerException, IllegalArgumentException
+\end_layout
+
+\end_inset
+
+Devuelve una vista de los elementos estrictamente menores que el dado, y
+ que depende del original.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Y que lanzará un 
+\family typewriter
+IllegalArgumentException
+\family default
+ si se intenta insertar un elemento fuera del rango.
+\end_layout
+
+\end_inset
+
+Una vista es un objeto que permite acceder a otro con una interfaz algo
+ distinta.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+SortedSet<E>
+\begin_inset space ~
+\end_inset
+
+tailSet(E)
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws ClassCastException, NullPointerException, IllegalArgumentException
+\end_layout
+
+\end_inset
+
+Devuelve una vista de los elementos estrictamente mayores que el dado, y
+ que depende del original.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Y que lanzará un 
+\family typewriter
+IllegalArgumentException
+\family default
+ si se intenta insertar un elemento fuera del rango.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+E
+\begin_inset space ~
+\end_inset
+
+first()
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws NoSuchElementException
+\end_layout
+
+\end_inset
+
+Devuelve el menor elemento del conjunto.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+E
+\begin_inset space ~
+\end_inset
+
+last()
+\family default
+\series bold
+ 
+\series default
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws NoSuchElementException
+\end_layout
+
+\end_inset
+
+Devuelve el mayor elemento del conjunto.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+NavigableSet<E>
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+SortedSet<E>
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+E ceiling(E) throws ClassCastException, NullPointerException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Iterator<E> descendingIterator()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+NavigableSet<E> descendingSet()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+E floor(E) throws ClassCastException, NullPointerException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+NavigableSet<E> headSet(E, boolean) throws ClassCastException, NullPointerExcept
+ion, IllegalArgumentException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+E higher(E) throws ClassCastException, NullPointerException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+E lower(E) throws ClassCastException, NullPointerException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+E pollFirst()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+E pollLast()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+E subset(E, boolean, E, boolean) throws ClassCastException, NullPointerException
+, IllegalArgumentException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+E tailSet(E, boolean) throws ClassCastException, NullPointerException, IllegalAr
+gumentException
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+public class TreeSet<E> extends AbstractSet<E> implements NavigableSet<E>,
+ Cloneable
+\end_layout
+
+\end_inset
+
+
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+, Serializable
+\end_layout
+
+\end_inset
+
+ Conjunto implementado por árbol rojo-negro.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+TreeSet()
+\family default
+\series default
+ Construye un conjunto vacío.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+TreeSet(Collection<?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+E>)
+\family default
+\series default
+ Construye un conjunto con los elementos de la colección dada.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+TreeSet(Comparator<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+E>)
+\family default
+\series default
+ Construye un conjunto vacío con el comparador dado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+Object
+\begin_inset space ~
+\end_inset
+
+clone()
+\family default
+\series default
+ Devuelve una copia superficial (no se copian los elementos).
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+Collections
+\family default
+ Utilidades estáticas para colecciones.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+static
+\begin_inset space ~
+\end_inset
+
+<T
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+Comparable<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>>
+\begin_inset space ~
+\end_inset
+
+void
+\begin_inset space ~
+\end_inset
+
+sort(List<T>)
+\end_layout
+
+\end_inset
+
+
+\family default
+\series default
+ Ordena una lista según el orden natural de sus elementos.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+static
+\begin_inset space ~
+\end_inset
+
+<T>
+\begin_inset space ~
+\end_inset
+
+void
+\begin_inset space ~
+\end_inset
+
+sort(List<T>,
+\begin_inset space ~
+\end_inset
+
+Comparator<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>)
+\end_layout
+
+\end_inset
+
+
+\family default
+\series default
+ Ordena una lista según un comparador.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+@SafeVarargs
+\begin_inset space ~
+\end_inset
+
+public
+\begin_inset space ~
+\end_inset
+
+static
+\begin_inset space ~
+\end_inset
+
+<T>
+\begin_inset space ~
+\end_inset
+
+boolean
+\begin_inset space ~
+\end_inset
+
+addAll(Collection<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>,
+\begin_inset space ~
+\end_inset
+
+T...)
+\family default
+ Añade todos los elementos a la colección dada, indicando si la colección
+ ha cambiado como resultado de la llamada.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+static
+\begin_inset space ~
+\end_inset
+
+<T>
+\begin_inset space ~
+\end_inset
+
+Set<T>
+\begin_inset space ~
+\end_inset
+
+unmodifiableSet(Set<?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+T>)
+\family default
+\series default
+ Devuelve una vista no modificable del conjunto dado.
+ Para dar acceso de solo lectura a un conjunto interno a una clase sin necesidad
+ de hacer una copia.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+static
+\begin_inset space ~
+\end_inset
+
+<T>
+\begin_inset space ~
+\end_inset
+
+List<T>
+\begin_inset space ~
+\end_inset
+
+unmodifiableList(List<?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+T>)
+\family default
+ Devuelve una vista no modificable de la lista dada.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+static
+\begin_inset space ~
+\end_inset
+
+<K,V>
+\begin_inset space ~
+\end_inset
+
+Map<K,V>
+\begin_inset space ~
+\end_inset
+
+unmodifiableMap(Map<?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+K,?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+V>)
+\family default
+\series default
+ Devuelve una copia no modificable del mapa dado.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+Arrays
+\family default
+ Utilidades estáticas para 
+\emph on
+arrays
+\emph default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+@SafeVarargs
+\begin_inset space ~
+\end_inset
+
+public
+\begin_inset space ~
+\end_inset
+
+static
+\begin_inset space ~
+\end_inset
+
+<T>
+\begin_inset space ~
+\end_inset
+
+List<T>
+\begin_inset space ~
+\end_inset
+
+asList(T...)
+\family default
+ Devuelve una vista de un 
+\emph on
+array
+\emph default
+ como lista de tamaño fijo.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Mapas
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+Map<K,V>
+\family default
+ Mapa o diccionario clave-valor.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+static interface Map.Entry<K,V>
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+boolean equals(Object)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+K getKey() throws IllegalStateException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+V getValue() throws IllegalStateException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+int hashCode()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+V setValue(V) throws UnsupportedOperationException, ClassCastException,
+ NullPointerException, IllegalArgumentException, IllegalStateException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Set<Map.Entry<K,V>> entrySet()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+boolean equals(Object)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+int hashCode()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+int
+\begin_inset space ~
+\end_inset
+
+size()
+\family default
+ Devuelve el total de asociaciones clave-valor.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+boolean
+\begin_inset space ~
+\end_inset
+
+isEmpty()
+\family default
+\series default
+ Indica si el mapa es vacío.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+boolean
+\begin_inset space ~
+\end_inset
+
+containsKey(Object)
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws ClassCastException, NullPointerException
+\end_layout
+
+\end_inset
+
+Indica si el mapa contiene una asociación para la clave dada.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+boolean
+\begin_inset space ~
+\end_inset
+
+containsValue(Object)
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws ClassCastException, NullPointerException
+\end_layout
+
+\end_inset
+
+Indica si el mapa contiene una asociación con el valor dado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+V
+\begin_inset space ~
+\end_inset
+
+get(Object)
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws ClassCastException, NullPointerException
+\end_layout
+
+\end_inset
+
+Obtiene el valor asociado a la clave dada, o 
+\family typewriter
+null
+\family default
+ si el mapa no tiene asociación para la clave.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+V
+\begin_inset space ~
+\end_inset
+
+put(K,
+\begin_inset space ~
+\end_inset
+
+V)
+\family default
+\series medium
+ 
+\series default
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws UnsupportedOperationException, ClassCastException, NullPointerException,
+ IllegalArgumentException
+\end_layout
+
+\end_inset
+
+
+\series medium
+Asocia el valor dado a la clave dada, sustituyendo la asociación anterior
+ para esta clave de haber alguna.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+V
+\begin_inset space ~
+\end_inset
+
+remove(Object)
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws UnsupportedOperationException, ClassCastException, NullPointerException
+\end_layout
+
+\end_inset
+
+Elimina la asociación para la clave dada, si existe.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+void
+\begin_inset space ~
+\end_inset
+
+putAll(Map<?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+K,
+\begin_inset space ~
+\end_inset
+
+?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+V>)
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws UnsupportedOperationException, ClassCastException, NullPointerException,
+ IllegalArgumentException
+\end_layout
+
+\end_inset
+
+Copia todas las asociaciones del mapa dado al objeto receptor.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+void
+\begin_inset space ~
+\end_inset
+
+clear()
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+throws UnsupportedOperationException
+\end_layout
+
+\end_inset
+
+Elimina todas las asociaciones del mapa, dejándolo vacío.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Set<K>
+\begin_inset space ~
+\end_inset
+
+keySet()
+\family default
+ Devuelve una vista de las claves del mapa, que depende de este.
+ Si el mapa se modifica mientras se itera la vista, el comportamiento es
+ no especificado.
+ Eliminar un elemento del conjunto elimina la asociación correspondiente
+ del mapa.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Collection<V>
+\begin_inset space ~
+\end_inset
+
+values()
+\family default
+ Devuelve una vista de los valores del mapa, que depende de este.
+ Si el mapa se modifica mientras se itera la vista, el comportamiento es
+ no especificado.
+ Eliminar un elemento de la colección elimina la asociación correspondiente
+ del mapa.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+default
+\begin_inset space ~
+\end_inset
+
+V
+\begin_inset space ~
+\end_inset
+
+getOrDefault(Object,
+\begin_inset space ~
+\end_inset
+
+V)
+\family default
+\series default
+ Devuelve el valor asociado a la clave dada, o el que se le pasa como parámetro
+ si no hay ninguno asociado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+default
+\begin_inset space ~
+\end_inset
+
+V
+\begin_inset space ~
+\end_inset
+
+putIfAbsent(K,
+\begin_inset space ~
+\end_inset
+
+V)
+\family default
+ Si la clave dada no está asociada ningún valor (o está asociada a 
+\family typewriter
+null
+\family default
+), la asocia al valor dado, devolviendo 
+\family typewriter
+null
+\family default
+ si este es el caso o su valor actual en caso contrario.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+AbstractMap<K,V>
+\begin_inset space ~
+\end_inset
+
+implements
+\begin_inset space ~
+\end_inset
+
+Map<K,V>
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+public abstract Set<Map.Entry<K,V>> entrySet()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+public class HashMap<K,V> extends AbstractMap<K,V> implements Map<K,V>,
+ Cloneable
+\end_layout
+
+\end_inset
+
+
+\family default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+, Serializable
+\end_layout
+
+\end_inset
+
+Diccionario implementado por tabla de dispersión.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+HashMap()
+\family default
+\series default
+ Construye un mapa vacío.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+HashMap(Map<?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+K,?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+V>)
+\family default
+\series default
+ Construye un mapa con las asociaciones del mapa dado.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+SortedMap<K,V>
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+Map<K,V>
+\family default
+ El iterador de 
+\family typewriter
+keySet()
+\family default
+ devuelve las claves en orden ascendente.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+Comparator<? super K> comparator()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+K firstKey() throws NoSuchElementException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+SortedMap<K,V> headMap(K) throws ClassCastException, NullPointerException,
+ IllegalArgumentException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+K lastKey() throws NoSuchelementException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+SortedMap<K,V> subMap(K, K)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+SortedMap<K,V> tailMap(K) throws ClassCastException, NullPointerException,
+ IllegalArgumentException
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+public
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+NavigableMap<K,V>
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+SortedMap<K,V>
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+Map.Entry<K,V> ceilingEntry(K) throws ClassCastException, NullPointerException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+K ceilingKey(K) throws ClassCastException, NullPointerException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+NavigableSet<K> descendingKeySet()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+NavigableMap<K,V> descendingMap()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Map.Entry<K,V> firstEntry()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Map.Entry<K,V> floorEntry(K) throws ClassCastException, NullPointerException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+K floorKey(K) throws ClassCastException, NullPointerException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+NavigableMap<K,V> headMap(K, boolean) throws ClassCastException, NullPointerExce
+ption, IllegalArgumentException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Map.Entry<K,V> higherEntry(K) throws ClassCastException, NullPointerException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+K higherKey(K) throws ClassCastException, NullPointerException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Map.Entry<K,V> lastEntry()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Map.Entry<K,V> lowerEntry(K) throws ClassCastException, NullPointerException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+K lowerKey(K) throws ClassCastException, NullPointerException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+NavigableSet<K> navigableKeySet()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Map.Entry<K,V> pollFirstEntry()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Map.Entry<K,V> pollLastEntry()
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+NavigableMap<K,V> subMap(K, boolean, K, boolean) throws ClassCastException,
+ NullPointerException, IllegalArgumentException
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+NavigableMap<K,V> tailMap(K, boolean) throws ClassCastException, NullPointerExce
+ption, IllegalArgumentException
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+public class TreeMap<K,V> extends AbstractMap<K,V> implements NavigableMap<K,V>,
+ Cloneable
+\end_layout
+
+\end_inset
+
+
+\family default
+\series default
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+, Serializable
+\end_layout
+
+\end_inset
+
+Diccionario implementado por árbol rojo-negro.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+TreeMap()
+\family default
+\series default
+ Construye un mapa vacío.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+TreeMap(Map<?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+K,?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+V>)
+\family default
+\series default
+ Construye un mapa con las asociaciones del mapa dado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+TreeMap(Comparator<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+K>)
+\family default
+\series default
+ Construye un mapa vacío con el comparador dado.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Recomendaciones
+\end_layout
+
+\begin_layout Enumerate
+En constructores y métodos públicos, especificar el tipo de retorno y tipo
+ de los pa
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+rá
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+me
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+tros mediante la interfaz, y no la clase.
+\end_layout
+
+\begin_layout Enumerate
+Evitar el uso de 
+\emph on
+arrays
+\emph default
+, pues tienen tamaño fijo, no definen las operaciones fundamentales de 
+\family typewriter
+Object
+\family default
+ y es necesario usar 
+\family typewriter
+java.util.Arrays
+\family default
+ para estas.
+\end_layout
+
+\end_body
+\end_document
