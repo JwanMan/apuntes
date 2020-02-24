@@ -39,6 +39,15 @@ Las asignaturas de ingeniería informática que se incluyen son las siguientes:
 * `pcd`: Programación Concurrente y Distribuida (sólo PDF).
 * `rc`: Redes de Comunicaciones (sólo PDF).
 
+Las siguientes asignaturas están en progreso:
+
+* `anm`: Análisis Numérico Matricial.
+* `bd`: Bases de Datos.
+* `cc`: Compiladores.
+* `ga`: Grupos y Anillos.
+* `st`: Servicios Telemáticos.
+* `ts`: Topología de Superficies.
+
 Los apuntes están escritos con [LyX](https://www.lyx.org/). En cada directorio,
 el fichero `n.lyx` es el fichero principal con los apuntes de la asignatura.
 En distribuciones basadas en Debian, LyX y todo lo necesario de

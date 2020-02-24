@@ -1,0 +1,594 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Es una familia de modelos propuesta por Peter P.
+ Chen en 1976 con extensiones y aportaciones de muchos otros autores, muy
+ extendida y soportada por herramientas 
+\series bold
+CASE
+\series default
+ (
+\emph on
+Computer-Aided Software Engineering
+\emph default
+) de bases de datos.
+\end_layout
+
+\begin_layout Section
+Entidades
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+entidad
+\series default
+ (
+\emph on
+entity
+\emph default
+) es aquello del mundo real con existencia propia distinguible del resto,
+ sea esta física o real, y abstracta o conceptual.
+ Un 
+\series bold
+atributo
+\series default
+ (
+\emph on
+attribute
+\emph default
+) es una propiedad de una entidad, de forma que una entidad particular se
+ describe por los valores de sus atributos.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+tipo de entidad
+\series default
+ (
+\emph on
+entity set
+\emph default
+) es un conjunto de entidades con los mismos atributos, y describe el 
+\series bold
+esquema
+\series default
+ o 
+\series bold
+intensión
+\series default
+ para un conjunto de entidades, las 
+\series bold
+instancias
+\series default
+ del tipo, con la misma estructura.
+ Las instancias de un tipo de entidad se agrupan en un 
+\series bold
+conjunto de entidades
+\series default
+ o 
+\series bold
+extensión
+\series default
+.
+ Representamos un tipo de entidad con un rectángulo que contiene el nombre
+ del tipo.
+\end_layout
+
+\begin_layout Section
+Atributos
+\end_layout
+
+\begin_layout Standard
+Un atributo se representa con una elipse que contiene su nombre, y se une
+ con una línea al tipo de entidad que lo tiene.
+ Su 
+\series bold
+dominio
+\series default
+ (
+\emph on
+value set
+\emph default
+) es el conjunto de valores que puede adoptar.
+\end_layout
+
+\begin_layout Standard
+Un atributo es 
+\series bold
+simple
+\series default
+ si es indivisible o 
+\series bold
+compuesto
+\series default
+ si puede dividirse en otros con significado propio, lo que representamos
+ uniendo los subatributos con el atributo compuesto en vez de con el tipo
+ de entidad.
+ Es 
+\series bold
+almacenado
+\series default
+ si su valor procede del mundo real o 
+\series bold
+derivado
+\series default
+ si se calcula a partir de otra información ya existente, siendo por tanto
+ redundante, y en tal caso la elipse se dibuja punteada.
+\end_layout
+
+\begin_layout Standard
+Es 
+\series bold
+monovalorado
+\series default
+ o 
+\series bold
+monovaluado
+\series default
+ si solo admite un valor para cada instancia en cada momento, o 
+\series bold
+multivalorado
+\series default
+ o 
+\series bold
+multivaluado
+\series default
+ si puede tener más de un valor a la vez para la misma entidad, en cuyo
+ caso la elipse es doble.
+ 
+\end_layout
+
+\begin_layout Standard
+Un atributo es 
+\series bold
+opcional
+\series default
+ si su valor puede ser 
+\series bold
+nulo
+\series default
+ (
+\emph on
+null value
+\emph default
+), que indica que el valor existe pero no se conoce, no se sabe si existe
+ o no o la entidad concreta no tiene ningún valor aplicable para el atributo.
+ 
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+cardinalidad
+\series default
+ de un atributo es un par 
+\begin_inset Formula $(m,n)$
+\end_inset
+
+ donde 
+\begin_inset Formula $0\leq m\leq n\leq+\infty$
+\end_inset
+
+, 
+\begin_inset Formula $m<+\infty$
+\end_inset
+
+, que indica que una instancia del padre puede tener un mínimo de 
+\begin_inset Formula $m$
+\end_inset
+
+ y un máximo de 
+\begin_inset Formula $n$
+\end_inset
+
+ (o no tener máximo si 
+\begin_inset Formula $n=+\infty$
+\end_inset
+
+) para el atributo.
+ Se indica añadiendo el par a la línea que conecta al atributo con el padre,
+ cambiando 
+\begin_inset Formula $+\infty$
+\end_inset
+
+ por una letra, siendo los valores por defecto 
+\begin_inset Formula $(1,1)$
+\end_inset
+
+ para atributos monovalorados o 
+\begin_inset Formula $(1,+\infty)$
+\end_inset
+
+ para multivalorados.
+ 
+\end_layout
+
+\begin_layout Standard
+Un atributo 
+\series bold
+clave
+\series default
+ o 
+\series bold
+identificador
+\series default
+ es uno con valor distinto para cada entidad, y se indica subrayando el
+ nombre.
+ Una 
+\series bold
+clave compuesta
+\series default
+ es un conjunto mínimo de atributos que, juntos, actúan como una clave,
+ y se indica añadiendo un punto en cada línea que une un elemento del conjunto
+ con su padre, uniendo estos puntos y haciendo esta unión el padre de un
+ nuevo atributo con nombre subrayado.
+ 
+\end_layout
+
+\begin_layout Standard
+Si hay varias claves, las llamamos 
+\series bold
+identificadores candidatos
+\series default
+ (ICs) y, de entre ellas, elegimos uno como 
+\series bold
+identificador principal
+\series default
+ (IP), que indicamos añadiendo 
+\begin_inset Quotes cld
+\end_inset
+
+IP
+\begin_inset Quotes crd
+\end_inset
+
+ a la línea que lo une con el padre, y llamando al resto 
+\series bold
+identificadores alternativos
+\series default
+.
+\end_layout
+
+\begin_layout Section
+Relaciones
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+tipo de relación
+\series default
+ es una estructura genérica o abstracción de un conjunto de 
+\series bold
+relaciones
+\series default
+ o 
+\series bold
+interrelaciones
+\series default
+ (
+\emph on
+relationship
+\emph default
+), asociación entre varias entidades representadas por el tipo de relación
+ y una 
+\begin_inset Formula $n$
+\end_inset
+
+-upla de entidades con 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+, donde las tuplas del mismo tipo tienen igual tamaño y cada posición de
+ estas tiene valores de un mismo tipo de entidad y cumple un mismo 
+\series bold
+rol
+\series default
+ o 
+\series bold
+papel
+\series default
+ en la relación.
+ 
+\end_layout
+
+\begin_layout Standard
+Un tipo de relación se representa por un rombo que contiene el nombre del
+ tipo con una línea de unión al tipo de entidad por cada elemento de las
+ relaciones que contiene.
+ El rol se puede indicar en esta línea mediante su nombre o se puede inferir
+ del orden de lectura de arriba a abajo y de izquierda a derecha según dónde
+ se hayan conectado las líneas.
+ 
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+grado
+\series default
+ de un tipo de relación es el número de tipos de entidad que participan.
+ Una relación es 
+\series bold
+binaria
+\series default
+ si su tipo de relación es de grado 2, 
+\series bold
+ternaria
+\series default
+ si es de grado 3, 
+\series bold
+cuaternaria
+\series default
+ si es de grado 4, etc., y 
+\series bold
+reflexiva
+\series default
+ o 
+\series bold
+recursiva
+\series default
+ si es de grado 1.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+cardinalidad
+\series default
+ de una posición en un tipo de relación es el número de relaciones que puede
+ haber del tipo en que la posición de la tupla tiene un mismo elemento.
+ Se representa igual que la cardinalidad de atributos, en la línea que une
+ el tipo de relación con el tipo de entidad, y es obligatorio indicarla.
+\end_layout
+
+\begin_layout Standard
+Una puede tener atributos, pero no claves, y estos se representan poniendo
+ el tipo de relación como 
+\begin_inset Quotes cld
+\end_inset
+
+padre
+\begin_inset Quotes crd
+\end_inset
+
+ del atributo.
+\end_layout
+
+\begin_layout Standard
+Un tipo de entidad es 
+\series bold
+fuerte
+\series default
+ si tiene un atributo identificador o 
+\series bold
+débil
+\series default
+ si no lo tiene, en cuyo caso debe estar en una o varias relaciones de cardinali
+dad 
+\begin_inset Formula $(1,1)$
+\end_inset
+
+ con tipos de entidad fuerte y, si es necesario, incluir una 
+\series bold
+clave parcial
+\series default
+ o 
+\series bold
+discriminante
+\series default
+, de forma que, dadas dos entidades distintas del tipo, o estas difieren
+ en la entidad fuerte con la que se relacionan para alguna relación, o difieren
+ en la clave parcial.
+ 
+\end_layout
+
+\begin_layout Standard
+Las claves parciales pueden ser compuestas, puede haber varias y se representan
+ como los identificadores pero haciendo el subrayado punteado.
+ Para indicar que un tipo de entidad es débil, se rodea de un doble rectángulo
+ y se hacen dobles tanto las líneas que las unen con tipos de relación con
+ entidades fuertes que participan de la identificación como los rombos que
+ representan estos tipos de relación.
+\end_layout
+
+\begin_layout Standard
+A veces una herramienta de diseño solo permite relaciones entre dos entidades,
+ en cuyo caso podemos representar un tipo de relación entre más entidades
+ como un tipo de entidad débil con una relación binaria identificadora por
+ cada posición de las relaciones.
+\end_layout
+
+\begin_layout Section
+Tipos de relación excluyentes
+\end_layout
+
+\begin_layout Standard
+Dos o más tipos de relación son 
+\series bold
+exclusivos
+\series default
+ respecto a una posición de cada uno con un mismo tipo de entidad si cada
+ instancia de dicho tipo solo puede participar en uno de los tipos en dicha
+ posición.
+ Esto se representa con una curva que corta con todas las uniones entre
+ el tipo de entidad y los tipos de relación para dichas posiciones.
+\end_layout
+
+\begin_layout Standard
+Un tipo de entidad puede ser 
+\series bold
+subtipo
+\series default
+ de otro, creando una 
+\series bold
+jerarquía
+\series default
+ entre tipos de entidad que se puede formar 
+\series bold
+especialización
+\series default
+, partiendo del tipo general y creando a los específicos, o por 
+\series bold
+generalización
+\series default
+, partiendo de los específicos y creando el general.
+ El tipo de entidad general es el 
+\series bold
+supertipo
+\series default
+ de los específicos.
+\end_layout
+
+\begin_layout Standard
+En general los subtipos están definidos según una característica distintiva
+ o 
+\series bold
+discriminante
+\series default
+ de las entidades del supertipo.
+ Este se representa mediante un círculo sin nombre, que puede tener atributos
+ y que se une con una línea al supertipo y con una línea cortada por una
+ curva a cada subtipo.
+ Un subtipo puede tener atributos propios específicos y participar en relaciones
+, y 
+\series bold
+hereda
+\series default
+ todos los atributos del supertipo y relaciones en las que participa.
+\end_layout
+
+\begin_layout Standard
+Para un cierto discriminante, los subtipos son 
+\series bold
+solapados
+\series default
+ (
+\emph on
+overlapped
+\emph default
+) si una instancia del supertipo puede serlo de más de un subtipo, opción
+ por defecto que puede representarse si se quiere con una 
+\begin_inset Quotes cld
+\end_inset
+
+o
+\begin_inset Quotes crd
+\end_inset
+
+ dentro del círculo, o 
+\series bold
+disjuntos
+\series default
+ si una instancia del supertipo puede serlo de un solo subtipo como máximo,
+ lo que se representa con una 
+\begin_inset Quotes cld
+\end_inset
+
+d
+\begin_inset Quotes crd
+\end_inset
+
+ dentro del círculo.
+\end_layout
+
+\begin_layout Standard
+La especialización puede ser 
+\series bold
+parcial
+\series default
+ si puede haber instancias que no pertenecen a ninguno de los subtipos,
+ la opción por defecto, o 
+\series bold
+total
+\series default
+ o 
+\series bold
+completa
+\series default
+ si toda instancia del supertipo debe serlo también de uno de los subtipos,
+ lo que se representa haciendo doble la línea que une el supertipo con el
+ discriminante.
+\end_layout
+
+\end_body
+\end_document

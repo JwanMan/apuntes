@@ -1,0 +1,2358 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Dado un conjunto 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal T}\subseteq{\cal P}(X)$
+\end_inset
+
+ es una 
+\series bold
+topología
+\series default
+ si 
+\begin_inset Formula $\emptyset,X\in{\cal T}$
+\end_inset
+
+, 
+\begin_inset Formula $\forall{\cal A}\subseteq{\cal T},\bigcup{\cal A}\in{\cal T}$
+\end_inset
+
+ y 
+\begin_inset Formula $\forall A_{1},\dots,A_{n}\in{\cal T},\bigcap\{A_{1},\dots,A_{n}\}\in{\cal T}$
+\end_inset
+
+.
+ Entonces llamamos 
+\series bold
+espacio topológico
+\series default
+ al par 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+, (
+\series bold
+conjuntos
+\series default
+) 
+\series bold
+abiertos
+\series default
+ a los elementos de 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ y (
+\series bold
+conjuntos
+\series default
+) 
+\series bold
+cerrados
+\series default
+ a sus complementarios.
+ Así, 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+ y 
+\begin_inset Formula $X$
+\end_inset
+
+ son cerrados, la intersección arbitraria de cerrados es un cerrado y la
+ unión finita de cerrados es un cerrado.
+\end_layout
+
+\begin_layout Standard
+Dado 
+\begin_inset Formula $X\neq\emptyset$
+\end_inset
+
+, llamamos 
+\series bold
+topología trivial
+\series default
+ o 
+\series bold
+indiscreta
+\series default
+ a 
+\begin_inset Formula ${\cal T}_{\text{ind}}:=\{\emptyset,X\}$
+\end_inset
+
+ y 
+\series bold
+topología discreta
+\series default
+ a 
+\begin_inset Formula ${\cal T}_{\text{dis}}:={\cal P}(X)$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+espacio indiscreto
+\series default
+ a 
+\begin_inset Formula $(X,{\cal T}_{\text{ind}})$
+\end_inset
+
+ y 
+\series bold
+espacio discreto
+\series default
+ a 
+\begin_inset Formula $(X,{\cal T}_{\text{dis}})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Interior y clausura
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ un espacio topológico y 
+\begin_inset Formula $S\subseteq X$
+\end_inset
+
+, llamamos 
+\series bold
+interior
+\series default
+ de 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $\text{int}S$
+\end_inset
+
+ o 
+\begin_inset Formula $\mathring{S}$
+\end_inset
+
+ al mayor abierto contenido en 
+\begin_inset Formula $S$
+\end_inset
+
+, que es la unión de todos ellos, y 
+\series bold
+clausura
+\series default
+ de 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $\text{cl}S$
+\end_inset
+
+ o 
+\begin_inset Formula $\overline{S}$
+\end_inset
+
+ al menor cerrado que lo contiene, que es la intersección de todos ellos.
+ Así, 
+\begin_inset Formula $\mathring{S}\subseteq S\subseteq\overline{S}$
+\end_inset
+
+, y 
+\begin_inset Formula $S$
+\end_inset
+
+ es abierto si y sólo si 
+\begin_inset Formula $S=\mathring{S}$
+\end_inset
+
+ y cerrado si y sólo si 
+\begin_inset Formula $S=\overline{S}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+entorno
+\series default
+ de 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ es un elemento de 
+\begin_inset Formula ${\cal E}(x):=\{U\in{\cal T}:x\in{\cal U}\}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $x\in\mathring{S}$
+\end_inset
+
+ si y sólo si existe un entorno de 
+\begin_inset Formula $x$
+\end_inset
+
+ contenido en 
+\begin_inset Formula $S$
+\end_inset
+
+, y 
+\begin_inset Formula $x\in\overline{S}$
+\end_inset
+
+ si y sólo si todo entorno de 
+\begin_inset Formula $x$
+\end_inset
+
+ interseca con 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Espacios métricos
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+distancia
+\series default
+ en un conjunto 
+\begin_inset Formula $X$
+\end_inset
+
+ es una función 
+\begin_inset Formula $d:X\times X\to\mathbb{R}$
+\end_inset
+
+ tal que para cada 
+\begin_inset Formula $x,y,z\in X$
+\end_inset
+
+, 
+\begin_inset Formula $0\leq d(x,y)=d(y,x)\leq d(x,z)+d(z,y)$
+\end_inset
+
+.
+ Decimos entonces que 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ es un 
+\series bold
+espacio métrico
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+En 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ tenemos la distancia usual 
+\begin_inset Formula $d_{u}(x,y):=|x-y|$
+\end_inset
+
+.
+ Dado un espacio métrico en 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+, definimos en 
+\begin_inset Formula $X^{n}$
+\end_inset
+
+ la distancia 
+\begin_inset Formula 
+\[
+d_{p}(x,y):=\left(\sum_{k=1}^{n}d(x_{k},y_{k})^{p}\right)^{\frac{1}{p}}
+\]
+
+\end_inset
+
+ para 
+\begin_inset Formula $p\in\mathbb{N}^{*}$
+\end_inset
+
+, y 
+\begin_inset Formula $d_{\infty}(x,y):=\max_{k=1}^{n}d(x_{k},y_{k})$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+distancia Manhattan
+\series default
+ o 
+\series bold
+del taxi
+\series default
+ a 
+\begin_inset Formula $d_{1}$
+\end_inset
+
+, 
+\series bold
+distancia euclídea
+\series default
+ a 
+\begin_inset Formula $d_{2}$
+\end_inset
+
+ y 
+\series bold
+distancia del ajedrez
+\series default
+ a 
+\begin_inset Formula $d_{\infty}$
+\end_inset
+
+.
+ Además, en un conjunto 
+\begin_inset Formula $X$
+\end_inset
+
+ definimos la 
+\series bold
+distancia discreta
+\series default
+ como
+\begin_inset Formula 
+\[
+d_{D}(x,y):=\left\{ \begin{aligned}1 & \text{si }x\neq y,\\
+0 & \text{si }x=y.
+\end{aligned}
+\right.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ un espacio métrico, 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ y 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+, llamamos 
+\series bold
+bola
+\series default
+ (
+\series bold
+abierta
+\series default
+) en la distancia 
+\begin_inset Formula $d$
+\end_inset
+
+ de centro 
+\begin_inset Formula $x$
+\end_inset
+
+ y radio 
+\begin_inset Formula $\delta$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+B_{d}(x,\delta):=\{y\in X:d(x,y)<\varepsilon\}.
+\]
+
+\end_inset
+
+Llamamos 
+\series bold
+topología
+\series default
+ (
+\series bold
+métrica
+\series default
+) 
+\series bold
+inducida
+\series default
+ por 
+\begin_inset Formula $d$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+ a la topología 
+\begin_inset Formula ${\cal T}_{d}:=\{A\in X:\forall x\in A,\exists\delta>0:B_{d}(x,\delta)\subseteq A\}$
+\end_inset
+
+.
+ Las bolas son abiertas en la topología inducida, por lo que en esta los
+ abiertos son uniones de bolas.
+\end_layout
+
+\begin_layout Standard
+La distancia discreta induce la topología discreta, y las distancias del
+ taxi, euclídea y del ajedrez sobre 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ con la distancia usual en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ inducen una misma topología que llamamos 
+\series bold
+topología usual
+\series default
+ en 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ (
+\begin_inset Formula $n\geq1$
+\end_inset
+
+).
+ En 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+, los abiertos de esta topología son las uniones de intervalos abiertos.
+\end_layout
+
+\begin_layout Section
+Subespacios topológicos
+\end_layout
+
+\begin_layout Standard
+Dados un espacio topológico 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ e 
+\begin_inset Formula $Y\subseteq X$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal T}_{Y}:=\{U\cap Y\}_{U\in{\cal T}}$
+\end_inset
+
+ es una topología sobre 
+\begin_inset Formula $Y$
+\end_inset
+
+, la 
+\series bold
+topología del subespacio
+\series default
+ o 
+\series bold
+inducida
+\series default
+ sobre 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+ Algunos subespacios topológicos importantes:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{Z}\subseteq\mathbb{R}$
+\end_inset
+
+.
+ En este caso, la topología inducida por la usual es la discreta.
+\end_layout
+
+\begin_layout Enumerate
+La 
+\series bold
+
+\begin_inset Formula $n$
+\end_inset
+
+-esfera
+\series default
+, 
+\begin_inset Formula $\mathbb{S}^{n}(r):=\{(x_{1},\dots,x_{n+1})\in\mathbb{R}^{n+1}:x_{1}^{2}+\dots+x_{n+1}^{2}=r^{2}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+El 
+\series bold
+plano agujereado
+\series default
+ 
+\begin_inset Formula $\mathbb{R}^{2}\setminus\{0\}\subseteq\mathbb{R}^{2}$
+\end_inset
+
+ y el 
+\series bold
+espacio agujereado
+\series default
+ 
+\begin_inset Formula $\mathbb{R}^{n}\setminus\{0\}\subseteq\mathbb{R}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+El 
+\series bold
+intervalo cerrado
+\series default
+ 
+\begin_inset Formula $I:=[0,1]\subseteq\mathbb{R}$
+\end_inset
+
+ o el 
+\series bold
+cuadrado unidad
+\series default
+ 
+\begin_inset Formula $I\times I\subseteq\mathbb{R}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+El 
+\series bold
+cilindro
+\series default
+, 
+\begin_inset Formula $C:=\{(x,y,z)\in\mathbb{R}^{3}:x^{2}+y^{2}=1,0\leq z\leq1\}$
+\end_inset
+
+, cono de rotación sobre el eje 
+\begin_inset Formula $z$
+\end_inset
+
+ de 
+\begin_inset Formula $\{(1,0,s)\}_{s\in[0,1]}$
+\end_inset
+
+, esto es, 
+\begin_inset Formula $C=\{R_{\theta}(1,0,s)\}_{\theta\in[0,2\pi],s\in[0,1]}$
+\end_inset
+
+ con 
+\begin_inset Formula 
+\[
+R_{\theta}:=\left(\begin{array}{ccc}
+\cos\theta & -\sin\theta & 0\\
+\sin\theta & \cos\theta & 0\\
+0 & 0 & 1
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+El 
+\series bold
+toro
+\series default
+, 
+\begin_inset Formula $\mathbb{T}:=\{(x,y,z)\in\mathbb{R}^{3}:x^{2}+y^{2}+z^{2}-4\sqrt{x^{2}+y^{2}}+3=0\}$
+\end_inset
+
+, cono de rotación sobre el eje 
+\begin_inset Formula $z$
+\end_inset
+
+ de 
+\begin_inset Formula $\{(x,0,z):(x-2)^{2}+z^{2}=1\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\supseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Tenemos 
+\begin_inset Formula $\{(x,0,z):(x-2)^{2}+z^{2}=1\}=\{\alpha(s):=(\cos s+2,0,\sin s)\}_{s\in[0,2\pi]}$
+\end_inset
+
+, luego el cono de rotación es 
+\begin_inset Formula $\{(\cos\theta(\cos s+2),\sin\theta(\cos s+2),\sin s)\}_{s,\theta\in[0,2\pi]}$
+\end_inset
+
+.
+ Sustituyendo en la ecuación implícita y teniendo en cuenta que 
+\begin_inset Formula $x^{2}+y^{2}=(\cos s+2)^{2}$
+\end_inset
+
+, tenemos
+\begin_inset Formula 
+\begin{multline*}
+(\cos s+2)^{2}+\sin^{2}s-4(\cos s+2)+3=\\
+=\cos^{2}s+4\cos s+4+\sin^{2}s-4\cos s-8+3=0.
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\subseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dado 
+\begin_inset Formula $(x,y,z)\in\mathbb{T}$
+\end_inset
+
+, sea 
+\begin_inset Formula $s$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\sin s=z$
+\end_inset
+
+, concretamente, 
+\begin_inset Formula $s\in[0,\frac{\pi}{2}]\cup[\frac{3\pi}{2},2\pi]$
+\end_inset
+
+ si 
+\begin_inset Formula $x^{2}+y^{2}\geq4$
+\end_inset
+
+ o 
+\begin_inset Formula $s\in[\frac{\pi}{2},\frac{3\pi}{2}]$
+\end_inset
+
+ en caso contrario.
+ Esto es válido porque, si 
+\begin_inset Formula $z^{2}>1$
+\end_inset
+
+, entonces 
+\begin_inset Formula $x^{2}+y^{2}-4\sqrt{x^{2}+y^{2}}+4<0$
+\end_inset
+
+, pero 
+\begin_inset Formula $x^{2}+y^{2}-4\sqrt{x^{2}+y^{2}}+4=(x^{2}+y^{2}-2)^{2}\geq0\#$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $x^{2}+y^{2}+\sin^{2}s-4\sqrt{x^{2}+y^{2}}+3=0\iff\sqrt{x^{2}+y^{2}}=\frac{4\pm\sqrt{16-4\sin^{2}s-12}}{2}=2\pm\sqrt{1-\sin^{2}s}=2\pm\cos s$
+\end_inset
+
+, luego 
+\begin_inset Formula $x^{2}+y^{2}=(2\pm\cos s)^{2}$
+\end_inset
+
+, y por cómo hemos elegido 
+\begin_inset Formula $s$
+\end_inset
+
+, es 
+\begin_inset Formula $x^{2}+y^{2}=(2+\cos s)^{2}$
+\end_inset
+
+.
+ Entonces basta tomar 
+\begin_inset Formula $\theta$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\cos\theta=\frac{x}{\sqrt{x^{2}+y^{2}}}=\frac{x}{\cos s+2}$
+\end_inset
+
+ (es claro que 
+\begin_inset Formula $\cos s+2\neq0$
+\end_inset
+
+) y 
+\begin_inset Formula $\sin\theta=\frac{y}{\sqrt{x^{2}+y^{2}}}=\frac{y}{\cos s+2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+La 
+\series bold
+cinta de Möbius
+\series default
+, 
+\begin_inset Formula $M:=\{(\cos\theta(3-t\sin\frac{\theta}{2}),\sin\theta(3-t\sin\frac{\theta}{2}),t\cos\frac{\theta}{2})\}_{\theta\in[0,2\pi],t\in[-1,1]}$
+\end_inset
+
+.
+ La idea es tener una varilla inicialmente paralela al eje 
+\begin_inset Formula $Z$
+\end_inset
+
+ a longitud 3 que va girando alrededor del eje a la vez que gira alrededor
+ de su punto medio a la mitad de velocidad angular de forma perpendicular
+ al eje.
+\end_layout
+
+\begin_layout Enumerate
+El 
+\series bold
+grupo lineal general
+\series default
+ 
+\begin_inset Formula ${\cal GL}(n,\mathbb{R})\subseteq{\cal M}_{n}(\mathbb{R})$
+\end_inset
+
+, compuesto por las matrices invertibles, con la topología para 
+\begin_inset Formula ${\cal M}_{n}(\mathbb{R})$
+\end_inset
+
+ dada por isomorfismo lineal con 
+\begin_inset Formula $\mathbb{R}^{n^{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+El 
+\series bold
+grupo ortogonal
+\series default
+ 
+\begin_inset Formula ${\cal O}(n)\subseteq{\cal GL}(n,\mathbb{R})$
+\end_inset
+
+, formado por las matrices cuya inversa es su traspuesta.
+\end_layout
+
+\begin_layout Enumerate
+El 
+\series bold
+grupo ortogonal especial
+\series default
+ 
+\begin_inset Formula ${\cal SO}(n)\subseteq{\cal O}(n)$
+\end_inset
+
+, formado por las matrices ortogonales con determinante 1.
+\end_layout
+
+\begin_layout Section
+Continuidad
+\end_layout
+
+\begin_layout Standard
+Dados dos espacios topológicos 
+\begin_inset Formula $(X,{\cal T}_{X})$
+\end_inset
+
+ e 
+\begin_inset Formula $(Y,{\cal T}_{Y})$
+\end_inset
+
+, 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+, o 
+\begin_inset Formula $f:(X,{\cal T}_{X})\to(Y,{\cal T}_{Y})$
+\end_inset
+
+ si queremos resaltar la dependencia de las topologías, es 
+\series bold
+continua
+\series default
+ si 
+\begin_inset Formula $\forall V\in{\cal T}_{Y},f^{-1}(V)\in{\cal T}_{X}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dados dos espacios topológicos 
+\begin_inset Formula $X_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $X_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $f:X_{1}\to X_{2}$
+\end_inset
+
+ continua, si 
+\begin_inset Formula $Y_{1}\subseteq X_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $f|_{Y_{1}}:Y_{1}\to X_{2}$
+\end_inset
+
+ es continua, por lo que en particular la inclusión 
+\begin_inset Formula $i:Y_{1}\to X_{1}$
+\end_inset
+
+ es continua, y si 
+\begin_inset Formula $f(X_{1})\subseteq Y_{2}\subseteq X_{2}$
+\end_inset
+
+, la 
+\series bold
+restricción del rango
+\series default
+ 
+\begin_inset Formula $f':X_{1}\to Y_{2}$
+\end_inset
+
+, dada por 
+\begin_inset Formula $f'(x):=f(x)$
+\end_inset
+
+, es continua.
+ Además, si 
+\begin_inset Formula $X_{2}$
+\end_inset
+
+ es un subespacio topológico de 
+\begin_inset Formula $X'$
+\end_inset
+
+, la 
+\series bold
+extensión de la imagen
+\series default
+ 
+\begin_inset Formula $f':X_{1}\to X'$
+\end_inset
+
+ es continua.
+\end_layout
+
+\begin_layout Standard
+Son funciones continuas:
+\end_layout
+
+\begin_layout Enumerate
+Las de forma 
+\begin_inset Formula $f:(X,{\cal T}_{\text{dis}})\to Y$
+\end_inset
+
+ o 
+\begin_inset Formula $f:X\to(Y,{\cal T}_{\text{ind}})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Las constantes.
+\end_layout
+
+\begin_layout Enumerate
+La composición de aplicaciones continuas.
+ No obstante, dadas 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ y 
+\begin_inset Formula $g:Y\to Z$
+\end_inset
+
+, que 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ sea continua no significa que lo sean 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+, pues por ejemplo, si tomamos 
+\begin_inset Formula $g$
+\end_inset
+
+ constante, 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ es continua aun si 
+\begin_inset Formula $f$
+\end_inset
+
+ es discontinua.
+ 
+\end_layout
+
+\begin_layout Enumerate
+La 
+\series bold
+suma
+\series default
+ 
+\begin_inset Formula $s:\mathbb{R}^{2}\to\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $s(x,y):=x+y$
+\end_inset
+
+, con la topología usual.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Como los abiertos en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ son uniones de intervalos abiertos, basta ver que, dado 
+\begin_inset Formula $(a,b)\subseteq\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $s^{-1}((a,b))=\{(x,y):a<s(x,y)=x+y<b\}=\{(x,y):a-x<y<b-x\}$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $(x_{0},y_{0})\in s^{-1}((a,b))$
+\end_inset
+
+, 
+\begin_inset Formula $t:=s(x_{0},y_{0})$
+\end_inset
+
+ y 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $B(t,\delta)\subseteq(a,b)$
+\end_inset
+
+, para 
+\begin_inset Formula $(x,y)\in B_{d_{1}}((x_{0},y_{0}),\delta)$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+d(s(x,y),s(x_{0},y_{0}))=|x+y-x_{0}-y_{0}|=|(x-x_{0})-(y-y_{0})|\leq\delta
+\]
+
+\end_inset
+
+y por tanto 
+\begin_inset Formula $s(x,y)\in(a,b)$
+\end_inset
+
+ y 
+\begin_inset Formula $(x,y)\in s^{-1}((a,b))$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $B_{d_{1}}((x_{0},y_{0}),\delta)\subseteq s^{-1}((a,b))$
+\end_inset
+
+ y 
+\begin_inset Formula $s^{-1}((a,b))$
+\end_inset
+
+ es abierto.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+El 
+\series bold
+producto
+\series default
+ 
+\begin_inset Formula $p:\mathbb{R}^{2}\to\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $p(x,y):=xy$
+\end_inset
+
+, con la topología usual.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Dado 
+\begin_inset Formula $(a,b)\subseteq\mathbb{R}$
+\end_inset
+
+, queremos ver que 
+\begin_inset Formula $p^{-1}((a,b))=\{(x,y):a<p(x,y)=xy<b\}$
+\end_inset
+
+ es abierto.
+ Sean 
+\begin_inset Formula $(x_{0},y_{0})\in p^{-1}((a,b))$
+\end_inset
+
+, 
+\begin_inset Formula $t:=p(x_{0},y_{0})$
+\end_inset
+
+, 
+\begin_inset Formula $r>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $B(t,\delta)\subseteq(a,b)$
+\end_inset
+
+ y 
+\begin_inset Formula $\delta:=\min\{1,\frac{r}{|x_{0}|+|y_{0}|+1}\}$
+\end_inset
+
+, para 
+\begin_inset Formula $(x,y)\in B_{d_{\infty}}((x_{0},y_{0}),\delta)$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{multline*}
+|p(x,y)-p(x_{0},y_{0})|=|xy-x_{0}y_{0}|=|xy-xy_{0}+xy_{0}-x_{0}y_{0}|\leq\\
+\leq|x||y-y_{0}|+|x-x_{0}||y_{0}|\leq(|x_{0}|+\delta)\delta+|y_{0}|\delta=\delta(|x_{0}|+|y_{0}|+\delta)\leq\\
+\leq\delta(|x_{0}|+|y_{0}|+1)\leq r,
+\end{multline*}
+
+\end_inset
+
+con lo que 
+\begin_inset Formula $B_{d_{\infty}}((x_{0},y_{0}),\delta)\subseteq p^{-1}((a,b))$
+\end_inset
+
+ y 
+\begin_inset Formula $p^{-1}((a,b))$
+\end_inset
+
+ es abierto.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+La 
+\series bold
+diagonal
+\series default
+ 
+\begin_inset Formula $d:\mathbb{R}\to\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $d(x):=(x,\dots,x)$
+\end_inset
+
+, con la topología usual.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Basta ver que, dada una bola 
+\begin_inset Formula $B_{\infty}(y,r)$
+\end_inset
+
+ con 
+\begin_inset Formula $y\in\mathbb{R}^{n}$
+\end_inset
+
+, su inversa es un abierto.
+ Tenemos 
+\begin_inset Formula $d^{-1}(B_{d_{\infty}}(y,r))=\{x:d_{\infty}((x,\dots,x),y)<r\}=\{t:|x-y_{1}|,\dots,|x-y_{n}|<r\}$
+\end_inset
+
+, pero 
+\begin_inset Formula $|x-y_{k}|<r\iff-r<x-y_{k}<r\iff y_{k}-r<x<y_{k}+r\iff x\in B(y_{k},r)$
+\end_inset
+
+, luego 
+\begin_inset Formula $d^{-1}(B_{d_{\infty}}((x,y),r))=\bigcap_{k=1}^{n}B(y_{k},r)$
+\end_inset
+
+, que es abierto.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Los polinomios reales, con la topología usual.
+\end_layout
+
+\begin_layout Enumerate
+El determinante 
+\begin_inset Formula $\det:{\cal M}_{n}(\mathbb{R})\to\mathbb{R}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Es un polinomio.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+La inversa matricial 
+\begin_inset Formula $\text{inv}:GL(n,\mathbb{R})\to GL(n,\mathbb{R})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Es una función racional en cada componente.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:angle"
+
+\end_inset
+
+La aplicación 
+\begin_inset Formula $f:\mathbb{S}^{3}\to{\cal SO}(3)$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+f(w,x,y,z):=\left(\begin{array}{ccc}
+w^{2}+x^{2}-y^{2}-z^{2} & 2(xy-wz) & 2(wy+xz)\\
+2(xy+wz) & w^{2}-x^{2}+y^{2}-z^{2} & 2(yz-wx)\\
+2(xz-wy) & 2(yz+wx) & w^{2}-x^{2}-y^{2}+z^{2}
+\end{array}\right),
+\]
+
+\end_inset
+
+que asocia a 
+\begin_inset Formula $(\cos\theta,x,y,z)\in\mathbb{S}^{3}$
+\end_inset
+
+ la rotación de ángulo 
+\begin_inset Formula $2\theta$
+\end_inset
+
+ alrededor de la recta 
+\begin_inset Formula $\langle(x,y,z)\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+La función es continua porque lo es en cada componente, al serlo la suma
+ y el producto.
+ Dado 
+\begin_inset Formula $u:=(\cos\theta,x,y,z)$
+\end_inset
+
+, sean 
+\begin_inset Formula $v:=(x,y,z)$
+\end_inset
+
+ y 
+\begin_inset Formula $n:=\Vert v\Vert$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $n=0$
+\end_inset
+
+, la matriz es la identidad, que es lo que tendría sentido ya que el ángulo
+ sería de 
+\begin_inset Formula $2\theta=2k\pi$
+\end_inset
+
+ con 
+\begin_inset Formula $k\in\mathbb{Z}$
+\end_inset
+
+, aunque realmente es un caso degenerado porque no hay recta.
+ Supongamos 
+\begin_inset Formula $n\neq0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Rotamos sobre el eje 
+\begin_inset Formula $Z$
+\end_inset
+
+ para situar a 
+\begin_inset Formula $u$
+\end_inset
+
+ en el plano 
+\begin_inset Formula $XZ$
+\end_inset
+
+.
+ El ángulo es aquel entre la proyección de 
+\begin_inset Formula $v$
+\end_inset
+
+ en el plano 
+\begin_inset Formula $XY$
+\end_inset
+
+ y el eje 
+\begin_inset Formula $X$
+\end_inset
+
+, que es un 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ tal que 
+\begin_inset Formula $(1,0,0)\cdot(x,y,0)=|(1,0,0)||(x,y,0)|\cos\alpha\iff x=\sqrt{x^{2}+y^{2}}\cos\alpha\iff x,y=0\lor\cos\alpha=\frac{x}{\sqrt{x^{2}+y^{2}}}$
+\end_inset
+
+.
+ Tenemos 
+\begin_inset Formula 
+\[
+\sin\alpha=\pm\sqrt{1-\cos^{2}\alpha}=\pm\sqrt{1-\frac{x^{2}}{x^{2}+y^{2}}}=\pm\sqrt{\frac{y^{2}}{x^{2}+y^{2}}}=\frac{\pm y}{\sqrt{x^{2}+y^{2}}},
+\]
+
+\end_inset
+
+ pero como 
+\begin_inset Formula $\alpha<0$
+\end_inset
+
+ cuando 
+\begin_inset Formula $y>0$
+\end_inset
+
+, 
+\begin_inset Formula $\sin\alpha=-\frac{y}{\sqrt{x^{2}+y^{2}}}$
+\end_inset
+
+ y la rotación es
+\begin_inset Formula 
+\[
+A:=\left(\begin{array}{ccc}
+\frac{x}{\sqrt{x^{2}+y^{2}}} & \frac{y}{\sqrt{x^{2}+y^{2}}}\\
+-\frac{y}{\sqrt{x^{2}+y^{2}}} & \frac{x}{\sqrt{x^{2}+y^{2}}}\\
+ &  & 1
+\end{array}\right).
+\]
+
+\end_inset
+
+Para 
+\begin_inset Formula $(x,y)=(0,0)$
+\end_inset
+
+, esta matriz no está definida, pero entonces no es necesaria la rotación.
+ Tras la transformación, 
+\begin_inset Formula $x\geq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Rotamos sobre el eje 
+\begin_inset Formula $Y$
+\end_inset
+
+ para situar a 
+\begin_inset Formula $u$
+\end_inset
+
+ en el eje 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ El ángulo es aquel entre el nuevo valor de 
+\begin_inset Formula $u$
+\end_inset
+
+ y el eje 
+\begin_inset Formula $Z$
+\end_inset
+
+, un 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ tal que 
+\begin_inset Formula $(0,0,1)\cdot Au=|(0,0,1)||Av|\cos\alpha=|v|\cos\alpha\iff z=n\cos\alpha\iff\cos\alpha=\frac{z}{n}$
+\end_inset
+
+.
+ Tenemos 
+\begin_inset Formula 
+\[
+\sin\alpha=\pm\sqrt{1-\cos^{2}\alpha}=\pm\sqrt{\frac{n^{2}-z^{2}}{n^{2}}}=\pm\frac{\sqrt{x^{2}+y^{2}}}{n},
+\]
+
+\end_inset
+
+ pero como 
+\begin_inset Formula $\alpha<0$
+\end_inset
+
+, 
+\begin_inset Formula $\sin\alpha=-\frac{\sqrt{x^{2}+y^{2}}}{n}$
+\end_inset
+
+, y la rotación es
+\begin_inset Formula 
+\[
+B:=\left(\begin{array}{ccc}
+\frac{z}{n} &  & -\frac{\sqrt{x^{2}+y^{2}}}{n}\\
+ & 1\\
+\frac{\sqrt{x^{2}+y^{2}}}{n} &  & \frac{z}{n}
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Hacemos la rotación de ángulo 
+\begin_inset Formula $2\theta$
+\end_inset
+
+ sobre el eje 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ Tenemos 
+\begin_inset Formula 
+\begin{eqnarray*}
+\cos(2\theta) & = & \cos^{2}\theta-\sin^{2}\theta=2\cos^{2}\theta-1=2w^{2}-1,\\
+\sin(2\theta) & = & 2\sin\theta\cos\theta=2w\sqrt{1-w^{2}}=2w\sqrt{x^{2}+y^{2}+z^{2}}=2wn,
+\end{eqnarray*}
+
+\end_inset
+
+luego la rotación es
+\begin_inset Formula 
+\[
+C:=\left(\begin{array}{ccc}
+2w^{2}-1 & -2wn\\
+2wn & 2w^{2}-1\\
+ &  & 1
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Revertimos las dos rotaciones anteriores.
+ Sea 
+\begin_inset Formula $t:=\sqrt{x^{2}+y^{2}}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+BA=\left(\begin{array}{ccc}
+\frac{z}{n} &  & -\frac{t}{n}\\
+ & 1\\
+\frac{t}{n} &  & \frac{z}{n}
+\end{array}\right)\left(\begin{array}{ccc}
+\frac{x}{t} & \frac{y}{t}\\
+-\frac{y}{t} & \frac{x}{t}\\
+ &  & 1
+\end{array}\right)=\left(\begin{array}{ccc}
+\frac{xz}{nt} & \frac{yz}{nt} & -\frac{t}{n}\\
+-\frac{y}{t} & \frac{x}{t}\\
+\frac{x}{n} & \frac{y}{n} & \frac{z}{n}
+\end{array}\right).
+\]
+
+\end_inset
+
+Ahora bien, como todas estas matrices son rotaciones y por tanto son ortonormale
+s especiales, su inversa es su traspuesta,
+\begin_inset Formula 
+\[
+D:=(BA)^{-1}=(BA)^{t}=\left(\begin{array}{ccc}
+\frac{xz}{nt} & -\frac{y}{t} & \frac{x}{n}\\
+\frac{yz}{nt} & \frac{x}{t} & \frac{y}{n}\\
+-\frac{t}{n} &  & \frac{z}{n}
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Multiplicando todo, la matriz es
+\begin_inset Formula 
+\begin{eqnarray*}
+DCBA & = & \left(\begin{array}{ccc}
+\frac{xz}{nt} & -\frac{y}{t} & \frac{x}{n}\\
+\frac{yz}{nt} & \frac{x}{t} & \frac{y}{n}\\
+-\frac{t}{n} &  & \frac{z}{n}
+\end{array}\right)\left(\begin{array}{ccc}
+2w^{2}-1 & -2wn\\
+2wn & 2w^{2}-1\\
+ &  & 1
+\end{array}\right)\left(\begin{array}{ccc}
+\frac{xz}{nt} & \frac{yz}{nt} & -\frac{t}{n}\\
+-\frac{y}{t} & \frac{x}{t}\\
+\frac{x}{n} & \frac{y}{n} & \frac{z}{n}
+\end{array}\right)\\
+ & \overset{\text{Maxima}}{=} & \left(\begin{array}{ccc}
+1-2y^{2}-2z^{2} & 2(xy-wz) & 2(wy+xz)\\
+2(xy+wz) & 1-2x^{2}-2z^{2} & 2(yz-wx)\\
+2(xz-wy) & 2(yz-wx) & 1-2x^{2}-2y^{2}
+\end{array}\right)\\
+ & = & \left(\begin{array}{ccc}
+w^{2}+x^{2}-y^{2}-z^{2} & 2(xy-wz) & 2(wy+xz)\\
+2(xy+wz) & w^{2}-x^{2}+y^{2}-z^{2} & 2(yz-wx)\\
+2(xz-wy) & 2(yz-wx) & w^{2}-x^{2}-y^{2}+z^{2}
+\end{array}\right).
+\end{eqnarray*}
+
+\end_inset
+
+Claramente esta matriz es ortogonal especial por ser producto de matrices
+ ortogonales especiales.
+ Vemos que, cuando 
+\begin_inset Formula $(x,y)=(0,0)$
+\end_inset
+
+, 
+\begin_inset Formula $z^{2}=n^{2}$
+\end_inset
+
+ y tenemos la matriz 
+\begin_inset Formula $C$
+\end_inset
+
+, que también es ortogonal especial.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+La aplicación 
+\begin_inset Formula $f:\mathbb{S}^{2}\to{\cal SO}(3)$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+f(x,y,z):=\left(\begin{array}{ccc}
+2x^{2}-1 & 2xy & 2xz\\
+2xy & 2y^{2}-1 & 2yz\\
+2xz & 2yz & 2z^{2}-1
+\end{array}\right),
+\]
+
+\end_inset
+
+que asocia a cada punto de la esfera la rotación de 
+\begin_inset Formula $180^{\text{o}}$
+\end_inset
+
+ alrededor de la recta que genera.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se obtiene tomando 
+\begin_inset Formula $w=0$
+\end_inset
+
+ en el punto 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:angle"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ y simplificando.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Base de una topología
+\end_layout
+
+\begin_layout Standard
+Dado un espacio topológico 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal B}\subseteq{\cal T}$
+\end_inset
+
+ es una 
+\series bold
+base
+\series default
+ para 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall A\in{\cal T},\exists{\cal A}\subseteq{\cal B}:A=\bigcup{\cal A}$
+\end_inset
+
+, en cuyo caso llamamos 
+\series bold
+elementos básicos
+\series default
+ a los elementos de 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+.
+ Vemos que 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ es una base para 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\forall U\in{\cal T},\forall x\in U,\exists B\in{\cal B}:x\in B\subseteq U$
+\end_inset
+
+, y entonces, si 
+\begin_inset Formula ${\cal B}_{Y}$
+\end_inset
+
+ es base de 
+\begin_inset Formula ${\cal T}_{Y}$
+\end_inset
+
+, 
+\begin_inset Formula $f:(X,{\cal T}_{X})\to(Y,{\cal T}_{Y})$
+\end_inset
+
+ es continua si y solo si 
+\begin_inset Formula $\forall B\in{\cal B}_{Y},f^{-1}(B)\in{\cal T}_{X}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dadas dos topologías 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal T}'$
+\end_inset
+
+ sobre 
+\begin_inset Formula $X$
+\end_inset
+
+, decimos que 
+\begin_inset Formula ${\cal T}'$
+\end_inset
+
+ es 
+\series bold
+más fina
+\series default
+ o 
+\series bold
+más grande
+\series default
+ que 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+, y que 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ es 
+\series bold
+más gruesa
+\series default
+ o 
+\series bold
+más pequeña
+\series default
+ que 
+\begin_inset Formula ${\cal T}'$
+\end_inset
+
+, si 
+\begin_inset Formula ${\cal T}\subseteq{\cal T}'$
+\end_inset
+
+.
+ Si la inclusión es estricta, decimos que 
+\begin_inset Formula ${\cal T}'$
+\end_inset
+
+ es 
+\series bold
+estrictamente más fina
+\series default
+ o 
+\series bold
+estrictamente más grande
+\series default
+ que 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ y que 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ es 
+\series bold
+estrictamente más gruesa
+\series default
+ o 
+\series bold
+estrictamente más pequeña
+\series default
+ que 
+\begin_inset Formula ${\cal T}'$
+\end_inset
+
+.
+ 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal T}'$
+\end_inset
+
+ son 
+\series bold
+comparables
+\series default
+ si 
+\begin_inset Formula ${\cal T}\subseteq{\cal T}'$
+\end_inset
+
+ o 
+\begin_inset Formula ${\cal T}'\subseteq{\cal T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal B}'$
+\end_inset
+
+ bases respectivas para las topologías 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal T}'$
+\end_inset
+
+ sobre 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal T}\subseteq{\cal T}'$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula ${\cal B}\subseteq{\cal T}'$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\forall B\in{\cal B},\forall x\in B,\exists B'\in{\cal B}':x\in B'\subseteq B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $[1\implies2]$
+\end_inset
+
+ Obvio.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $[2\implies3]$
+\end_inset
+
+ Como 
+\begin_inset Formula $B\in{\cal T}'$
+\end_inset
+
+, 
+\begin_inset Formula $B$
+\end_inset
+
+ se puede expresar como unión de elementos de 
+\begin_inset Formula ${\cal B}'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $[3\implies1]$
+\end_inset
+
+ Todo 
+\begin_inset Formula $A\in{\cal T}$
+\end_inset
+
+ se puede expresar como unión de elementos 
+\begin_inset Formula $B\in{\cal B}$
+\end_inset
+
+.
+ Si para 
+\begin_inset Formula $x\in B$
+\end_inset
+
+ llamamos 
+\begin_inset Formula $B_{x}$
+\end_inset
+
+ a un elemento 
+\begin_inset Formula $B'\in{\cal B}'$
+\end_inset
+
+ con 
+\begin_inset Formula $x\in B'\subseteq B$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+A=\bigcup_{\begin{subarray}{c}
+B\in{\cal B}\\
+B\subseteq A
+\end{subarray}}\bigcup_{x\in B}B_{x},
+\]
+
+\end_inset
+
+una unión de elementos de 
+\begin_inset Formula ${\cal B}'\subseteq{\cal T}'$
+\end_inset
+
+, luego 
+\begin_inset Formula $A\in{\cal T}'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\cal B}\subseteq{\cal P}(X)$
+\end_inset
+
+ es una 
+\series bold
+base
+\series default
+ para una topología sobre 
+\begin_inset Formula $X$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall x\in X,\exists B\in{\cal B}:x\in B$
+\end_inset
+
+ y 
+\begin_inset Formula $\forall B_{1},B_{2}\in{\cal B},\forall x\in B_{1}\cap B_{2},\exists B_{3}\in{\cal B}:x\in B_{3}\subseteq B_{1}\cap B_{2}$
+\end_inset
+
+.
+ En tal caso, llamamos 
+\series bold
+topología generada
+\series default
+ por 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ a 
+\begin_inset Formula ${\cal T}_{{\cal B}}:=\{U\subseteq X:\forall x\in U,\exists B\in{\cal B}:x\in B\subseteq U\}$
+\end_inset
+
+, y se tiene que 
+\begin_inset Formula ${\cal T}_{{\cal B}}$
+\end_inset
+
+ es una topología y 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ es base para 
+\begin_inset Formula ${\cal T}_{{\cal B}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+topología del límite inferior
+\series default
+, 
+\begin_inset Formula ${\cal T}_{\ell i}$
+\end_inset
+
+, a la topología 
+\begin_inset Formula ${\cal T}_{\ell i}$
+\end_inset
+
+ generada por la base 
+\begin_inset Formula ${\cal B}_{\ell i}:=\{[a,b)\}_{a,b\in\mathbb{R};a<b}$
+\end_inset
+
+.
+ Para indicar que 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ está equipado con esta topología, escribimos 
+\begin_inset Formula $\mathbb{R}_{\ell i}$
+\end_inset
+
+.
+ Esta topología es estrictamente más fina que la topología usual de 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+.
+ En efecto, 
+\begin_inset Formula $[a,b)$
+\end_inset
+
+ no es abierto con la topología usual de 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+, pero tomando la base 
+\begin_inset Formula ${\cal B}_{u}:=\{(a,b)\}_{a,b\in\mathbb{R},a<b}$
+\end_inset
+
+ de la topología usual de 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+, dado 
+\begin_inset Formula $(a,b)\subseteq{\cal B}_{u}$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in(a,b)$
+\end_inset
+
+, 
+\begin_inset Formula $[x,b)\in{\cal B}_{\ell i}$
+\end_inset
+
+ cumple 
+\begin_inset Formula $x\in[x,b)\subseteq(a,b)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Axiomas de numerabilidad
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ cumple el 
+\series bold
+segundo axioma de numerabilidad
+\series default
+ o es 
+\begin_inset Formula $\mathbf{2A\mathbb{N}}$
+\end_inset
+
+ si 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ admite una base numerable.
+ Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es finito, toda topología es 2A
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+, pues 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ es base finita de 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(X,{\cal T}_{\text{dis}})$
+\end_inset
+
+ es 2A
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $X$
+\end_inset
+
+ es numerable, y 
+\begin_inset Formula $(X,{\cal T}_{\text{ind}})$
+\end_inset
+
+ siempre es 2A
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ es 2A
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Tomamos la base 
+\begin_inset Formula $\{(p,q)\}_{p,q\in\mathbb{Q},p<q}$
+\end_inset
+
+.
+ En efecto, la base usual es 
+\begin_inset Formula $\{(a,b)\}_{a,b\in\mathbb{R},a<b}$
+\end_inset
+
+, pero dado 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+, sean 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $b-a>\frac{2}{n_{0}}$
+\end_inset
+
+, 
+\begin_inset Formula $(p_{n}:=\frac{\lceil an\rceil}{n})_{n\geq n_{0}}$
+\end_inset
+
+ y 
+\begin_inset Formula $(q_{n}:=\frac{\lfloor bn\rfloor}{n})_{n\geq n_{0}}$
+\end_inset
+
+, 
+\begin_inset Formula $p_{n}<a+\frac{1}{n}\leq a+\frac{1}{n_{0}}<b-\frac{1}{n_{0}}\leq b-\frac{1}{n}\leq q_{n}$
+\end_inset
+
+, luego 
+\begin_inset Formula $((p_{n},q_{n}))_{n\geq n_{0}}$
+\end_inset
+
+ es una sucesión de intervalos de extremos racionales cuya unión es 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{R}_{\ell i}$
+\end_inset
+
+ no es 2A
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ una base de 
+\begin_inset Formula $\mathbb{R}_{\ell i}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $x\in\mathbb{R}$
+\end_inset
+
+, sea 
+\begin_inset Formula $U_{x}:=[x,x+1)\in{\cal T}_{\ell i}$
+\end_inset
+
+, existe 
+\begin_inset Formula $B_{x}\in{\cal B}$
+\end_inset
+
+ con 
+\begin_inset Formula $x\in B_{x}\subseteq U_{x}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\inf B_{x}=x$
+\end_inset
+
+.
+ Así, para 
+\begin_inset Formula $x\neq y$
+\end_inset
+
+, 
+\begin_inset Formula $\inf B_{x}=x\neq y=\inf B_{y}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $B_{x}\neq B_{y}$
+\end_inset
+
+, luego hay al menos tantos elementos básicos como números reales y la base
+ no es numerable.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Dados 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in X$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal B}_{x}\subseteq{\cal E}(x)$
+\end_inset
+
+ es una 
+\series bold
+base de entornos
+\series default
+ de 
+\begin_inset Formula $x$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall U\in{\cal E}(x),\exists B\in{\cal B}_{x}:B\subseteq U$
+\end_inset
+
+, en cuyo caso llamamos 
+\series bold
+entornos básicos
+\series default
+ en 
+\begin_inset Formula $x$
+\end_inset
+
+ a los elementos de 
+\begin_inset Formula ${\cal B}_{x}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ satisface el 
+\series bold
+primer axioma de numerabilidad
+\series default
+ o es 
+\begin_inset Formula ${\bf 1A\mathbb{N}}$
+\end_inset
+
+ si todo 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ tiene una base de entornos numerable.
+ Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{R}_{\ell i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula ${\cal B}_{x}:=\{[x,x+\frac{1}{n})\}_{n\in\mathbb{N}^{*}}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Todo espacio métrico 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula ${\cal B}_{x}:=\{B_{d}(x-\frac{1}{n},x+\frac{1}{n})\}_{n\in\mathbb{N}^{*}}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Todo espacio 2A
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Dada una base 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ numerable, 
+\begin_inset Formula ${\cal B}_{x}:=\{B\in{\cal B}:x\in B\}$
+\end_inset
+
+ es base de entornos de 
+\begin_inset Formula $x$
+\end_inset
+
+, pues todo 
+\begin_inset Formula $U\in{\cal E}(x)$
+\end_inset
+
+ puede expresarse como unión de elementos de 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ y basta tomar el elemento de esta unión que contenga a 
+\begin_inset Formula $x$
+\end_inset
+
+, que estará en 
+\begin_inset Formula ${\cal B}_{x}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_body
+\end_document

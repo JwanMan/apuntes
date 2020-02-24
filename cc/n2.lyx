@@ -1,0 +1,1032 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{tikz}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+\emph on
+token
+\series default
+\emph default
+ es un par formado por un 
+\series bold
+nombre de 
+\emph on
+token
+\series default
+\emph default
+, que representa un tipo de unidad léxica, y un atributo opcional, cuyo
+ tipo depende del nombre de 
+\emph on
+token
+\emph default
+.
+ Todo nombre de 
+\emph on
+token
+\emph default
+ lleva asociado un 
+\series bold
+patrón
+\series default
+, un lenguaje regular que describe las secuencias de caracteres que deben
+ ser convertidas a un 
+\emph on
+token
+\emph default
+ con dicho nombre, llamadas 
+\series bold
+lexemas
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+analizador léxico
+\series default
+ es un programa que separa una secuencia de caracteres de entrada en lexemas
+ y genera una lista ordenada de 
+\emph on
+tokens
+\emph default
+, informando de errores y pudiendo hacer otras tareas como ignorar comentarios
+ y caracteres de espaciado.
+ 
+\end_layout
+
+\begin_layout Standard
+El analizador sintáctico usa los nombres de 
+\emph on
+token
+\emph default
+ como símbolos terminales de una gramática libre de contexto, pues aunque
+ esta gramática podría incluir la definición de los 
+\emph on
+tokens
+\emph default
+, dividir el análisis en dos fases simplifica el diseño, y mejora la portabilida
+d al no tener que preocuparse el analizador sintáctico de la codificación
+ de caracteres.
+ En general el analizador léxico está subordinado al sintáctico, ofreciéndole
+ una interfaz de llamadas.
+\end_layout
+
+\begin_layout Section
+Fundamentos teóricos
+\end_layout
+
+\begin_layout Standard
+Dado un alfabeto 
+\begin_inset Formula $V$
+\end_inset
+
+, los símbolos 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ y 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+ y los elementos de 
+\begin_inset Formula $V$
+\end_inset
+
+ son 
+\series bold
+expresiones regulares
+\series default
+; también lo son 
+\begin_inset Formula $(\alpha|\beta)$
+\end_inset
+
+, 
+\begin_inset Formula $(\alpha\circ\beta)$
+\end_inset
+
+ y 
+\begin_inset Formula $(\alpha^{*})$
+\end_inset
+
+ si 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta$
+\end_inset
+
+ son expresiones regulares, y solo son expresiones regulares las expresiones
+ que se obtienen aplicando estas reglas.
+ Se pueden omitir los paréntesis si no causa ambigüedad, entendiendo que
+ 
+\begin_inset Formula $*$
+\end_inset
+
+ tiene más precedencia que 
+\begin_inset Formula $\circ$
+\end_inset
+
+ y 
+\begin_inset Formula $\circ$
+\end_inset
+
+ más que 
+\begin_inset Formula $|$
+\end_inset
+
+ y que los tres operadores son asociativos por la izquierda, y se puede
+ escribir 
+\begin_inset Formula $\alpha\beta:=\alpha\circ\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Toda expresión regular 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ lleva asociado un lenguaje 
+\begin_inset Formula $L(\alpha)$
+\end_inset
+
+, dado por 
+\begin_inset Formula $L(\emptyset):=\emptyset$
+\end_inset
+
+; 
+\begin_inset Formula $L(\lambda):=\{\lambda\}$
+\end_inset
+
+; si 
+\begin_inset Formula $a\in V$
+\end_inset
+
+, 
+\begin_inset Formula $L(a):=\{a\}$
+\end_inset
+
+, y si 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta$
+\end_inset
+
+ son expresiones regulares, 
+\begin_inset Formula $L(\alpha|\beta):=L(\alpha)\cup L(\beta)$
+\end_inset
+
+, 
+\begin_inset Formula $L(\alpha\beta):=L(\alpha)L(\beta)$
+\end_inset
+
+ y 
+\begin_inset Formula $L(\alpha^{*}):=L(\alpha)^{*}$
+\end_inset
+
+.
+ Un lenguaje es 
+\series bold
+regular
+\series default
+ si es el lenguaje asociado alguna expresión regular.
+ Dos expresiones regulares son 
+\series bold
+equivalentes
+\series default
+, 
+\begin_inset Formula $\alpha=\beta$
+\end_inset
+
+, si 
+\begin_inset Formula $L(\alpha)=L(\beta)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+AFD
+\series default
+ es una tupla 
+\begin_inset Formula $(Q,V,\delta,q_{0},F)$
+\end_inset
+
+ donde 
+\begin_inset Formula $Q$
+\end_inset
+
+ es un conjunto finito de 
+\series bold
+estados
+\series default
+, 
+\begin_inset Formula $V$
+\end_inset
+
+ es un alfabeto, 
+\begin_inset Formula $q_{0}\in Q$
+\end_inset
+
+ es el 
+\series bold
+estado inicial
+\series default
+, 
+\begin_inset Formula $F\subseteq Q$
+\end_inset
+
+ es el conjunto de 
+\series bold
+estados finales
+\series default
+ y 
+\begin_inset Formula $\delta:D\subseteq(Q\times V)\to Q$
+\end_inset
+
+ es la 
+\series bold
+función de transición
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+AFND
+\series default
+ es una tupla 
+\begin_inset Formula $(Q,V,\delta,q_{0},F)$
+\end_inset
+
+, definida como un AFD salvo que 
+\begin_inset Formula $\delta:Q\times(V\dot{\cup}\{\lambda\})\to{\cal P}(Q)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Diseño
+\end_layout
+
+\begin_layout Standard
+Para diseñar un analizador léxico usamos 
+\emph on
+Flex
+\emph default
+, una herramienta multiplataforma que genera código en C basándose en un
+ fichero de especificación de expresiones regulares, sucesora de 
+\emph on
+Lex
+\emph default
+ para Unix.
+ Los ficheros de especificación suelen tener extensión 
+\family typewriter
+.l
+\family default
+ y constan de 3 partes separadas por una línea 
+\family typewriter
+%%
+\family default
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\series bold
+Definiciones
+\series default
+: Macros para expresiones regulares auxiliares con formato 
+\family typewriter
+\emph on
+nombre expresión
+\family default
+\emph default
+ en una línea.
+ Código C, entre una línea 
+\family typewriter
+%{
+\family default
+ y una 
+\family typewriter
+}%
+\family default
+.
+ Opciones con 
+\family typewriter
+%option 
+\emph on
+opción
+\family default
+\emph default
+.
+ Condiciones de contexto, tablas, etc.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Reglas
+\series default
+: Con forma 
+\family typewriter
+\emph on
+expresión código
+\family default
+\emph default
+, donde 
+\family typewriter
+\emph on
+expresión
+\family default
+\emph default
+ es una expresión regular que puede incluir macros con formato 
+\family typewriter
+{
+\emph on
+nombre
+\emph default
+}
+\family default
+ y 
+\family typewriter
+\emph on
+código
+\family default
+\emph default
+ es una línea de C o un bloque código entre llaves que se ejecuta cuando
+ se reconoce un lexema asociado a la expresión regular.
+ Si en el código hay una sentencia 
+\family typewriter
+return
+\family default
+, esta sale del analizador léxico devolviendo el entero indicado, normalmente
+ el código de 
+\emph on
+token
+\emph default
+.
+ De lo contrario sigue leyendo, por lo que es habitual usar reglas para
+ espacios y comentarios con la sentencia vacía (
+\family typewriter
+;
+\family default
+).
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Subrutinas de usuario
+\series default
+: Código C auxiliar que se añade al final del fichero generado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+La orden 
+\family typewriter
+flex [-o 
+\emph on
+SALIDA
+\emph default
+] 
+\emph on
+FICHERO
+\family default
+\emph default
+ genera un analizador léxico 
+\family typewriter
+\emph on
+SALIDA
+\family default
+\emph default
+ (por defecto, 
+\family typewriter
+lex.yy.c
+\family default
+) desde la especificación 
+\family typewriter
+\emph on
+FICHERO
+\family default
+\emph default
+.
+ Este debe enlazarse a la biblioteca 
+\family typewriter
+fl
+\family default
+, por ejemplo mediante la opción 
+\family typewriter
+-lfl
+\family default
+ de 
+\family typewriter
+gcc
+\family default
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Identificar los 
+\emph on
+tokens
+\emph default
+ y definir los patrones
+\end_layout
+
+\begin_layout Standard
+Se suelen considerar 
+\emph on
+tokens
+\emph default
+:
+\end_layout
+
+\begin_layout Itemize
+Los identificadores.
+\end_layout
+
+\begin_layout Itemize
+Las 
+\series bold
+palabras clave
+\series default
+, que pueden estar 
+\series bold
+reservadas
+\series default
+, en cuyo caso el usuario no puede modificar su significado y el analizador
+ léxico puede reconocerlas directamente, o no estarlo, en cuyo caso el analizado
+r léxico debe reconocerlas como identificadores para que una fase posterior
+ las distinga.
+\end_layout
+
+\begin_layout Itemize
+Los operadores y signos de puntuación.
+\end_layout
+
+\begin_layout Itemize
+Las constantes simples, como reales, enteros, caracteres o cadenas de caracteres.
+\end_layout
+
+\begin_layout Itemize
+Los espacios en blanco y comentarios, aunque en general en analizador léxico
+ los ignora y no los devuelve.
+\end_layout
+
+\begin_layout Standard
+Las expresiones regulares en 
+\emph on
+Flex
+\emph default
+ se forman combinando símbolos y operadores.
+ Los operadores son, en orden de prioridad:
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+?
+\family default
+, 
+\family typewriter
+*
+\family default
+ y 
+\family typewriter
++
+\family default
+, respectivamente, de 0–1, 0 o más y 1 o más repeticiones de lo anterior.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Concatenación de símbolos.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+{
+\family default
+...
+\family typewriter
+}
+\family default
+, de repetición.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+^
+\family default
+, de comienzo de línea, y 
+\family typewriter
+$
+\family default
+, de final.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+|
+\family default
+ de disyunción entre los elementos a izquierda y derecha.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+/
+\family default
+, para reconocer la expresión regular de la izquierda solo si va seguida
+ de la de la derecha (
+\emph on
+look-ahead
+\emph default
+).
+\end_layout
+
+\begin_layout Standard
+También se puede agrupar con paréntesis 
+\family typewriter
+(
+\family default
+...
+\family typewriter
+)
+\family default
+, preceder un símbolo de 
+\family typewriter
+
+\backslash
+
+\family default
+ para evitar que se trate como un operador o indicar una cadena de caracteres
+ literal con 
+\family typewriter
+"
+\family default
+...
+\family typewriter
+"
+\family default
+.
+ Otros operadores:
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+[
+\family default
+...
+\family typewriter
+]
+\family default
+ indica disyunción entre los caracteres del conjunto indicado.
+ 
+\family typewriter
+\emph on
+a
+\emph default
+-
+\emph on
+b
+\family default
+\emph default
+ indica todos los caracteres entre 
+\family typewriter
+\emph on
+a
+\family default
+\emph default
+ y 
+\family typewriter
+\emph on
+b
+\family default
+\emph default
+, inclusive; 
+\family typewriter
+^
+\family default
+ al principio complementa el conjunto; 
+\family typewriter
+
+\backslash
+
+\family default
+ indica caracteres de escape; 
+\family typewriter
+[:
+\family default
+...
+\family typewriter
+:]
+\family default
+ indica una clase de caracteres como 
+\family typewriter
+[:digit:]
+\family default
+ o 
+\family typewriter
+[:alnum:]
+\family default
+, y cualquier otro caracter dentro de los corchetes se indica a sí mismo.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+.
+
+\family default
+ indica cualquier caracter salvo salto de línea.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+<<EOF>>
+\family default
+ indica final de fichero.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+caracteres de anticipación
+\series default
+ a los que se leen al hacer 
+\emph on
+look-ahead
+\emph default
+ para determinar el final de un 
+\emph on
+token
+\emph default
+, lo que hace falta cuando hay reglas que acaban en 
+\family typewriter
++
+\family default
+, 
+\family typewriter
+*
+\family default
+, 
+\family typewriter
+?
+\family default
+, 
+\family typewriter
+$
+\family default
+ y 
+\family typewriter
+/
+\family default
+, y cuando un lexema de una expresión regular puede ser prefijo de uno de
+ otra.
+ 
+\emph on
+Flex
+\emph default
+ maneja esto de forma automática, devolviendo a la entrada los caracteres
+ no usados (
+\emph on
+push back
+\emph default
+).
+ 
+\end_layout
+
+\begin_layout Standard
+En caso de ambigüedad en las reglas, 
+\emph on
+Flex
+\emph default
+ reconoce el lexema más largo posible que pueda estar asociado a una expresión
+ regular, y si este puede corresponder a varias, se asocia a la que aparezca
+ antes.
+ Así, las palabras reservadas deben estar antes que la expresión regular
+ que reconoce los identificadores.
+\end_layout
+
+\begin_layout Subsection
+Construcción e implementación del autómata
+\end_layout
+
+\begin_layout Standard
+Se podría obtener un AFD correspondiente a las expresiones regulares directament
+e, pero esto es difícil, por lo que se obtiene un AFND y, como su simulación
+ es costosa, se construye entonces un AFD equivalente y se minimiza.
+ Podemos simular directamente la tabla de transiciones con los estados o
+ simular el diagrama de transiciones mediante código específico.
+ De esto se encarga 
+\emph on
+Flex
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection
+Diseño de la interfaz de entrada y salida
+\end_layout
+
+\begin_layout Standard
+Para la entrada, es muy ineficiente leer el código de caracter a caracter,
+ por lo que se lee en bloques que se guardan en 
+\emph on
+buffers
+\emph default
+, que deben diseñarse permitiendo secuencias largas de caracteres de anticipació
+n.
+ La salida suele ser una o varias funciones que el analizador sintáctico
+ llama para obtener el siguiente 
+\emph on
+token
+\emph default
+.
+ 
+\emph on
+Flex
+\emph default
+ proporciona la siguiente interfaz:
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+yytext
+\family default
+ Último lexema leído.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+yyleng
+\family default
+ Longitud de 
+\family typewriter
+yytext
+\family default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+yylineno
+\family default
+ Activando la opción 
+\family typewriter
+yylineno
+\family default
+, número de línea actual.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+yymore()
+\family default
+ Indica que, la próxima vez que se lea un lexema, este se debería concatenar
+ al de 
+\family typewriter
+yytext
+\family default
+ en vez de reemplazarlo.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+yyless(int)
+\family default
+ Retrasa el puntero de lectura para que apunte al caracter de 
+\family typewriter
+yytext
+\family default
+ con el índice dado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+yywrap()
+\family default
+ Se ejecuta al alcanzarse el final del fichero.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+yyin
+\family default
+ Descriptor de fichero de donde se lee.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+yyout
+\family default
+ Descriptor de fichero al que se escribe al usar la opción 
+\family typewriter
+echo
+\family default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+input()
+\family default
+ Lee el siguiente caracter del flujo de entrada.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+output(char)
+\family default
+ Escribe el caracter dado en la salida.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+unput(char)
+\family default
+ Coloca el caracter dado en el flujo de entrada, para que sea el primero
+ leído en la próxima ocasión.
+\end_layout
+
+\begin_layout Subsection
+Manejo de errores
+\end_layout
+
+\begin_layout Standard
+Una forma sencilla es la 
+\series bold
+recuperación en modo pánico
+\series default
+: ignorar caracteres hasta encontrar un caracter válido para un nuevo 
+\emph on
+token
+\emph default
+.
+ Para implementarlo es necesaria una expresión regular capaz de reconocer
+ un conjunto de caracteres erróneos antes del comienzo de un nuevo lexema.
+ Otras técnicas permiten borrar un caracter extraño, insertar uno que falta,
+ reemplazar un caracter incorrecto por otro correcto o intercambiar caracteres
+ adyacentes.
+\end_layout
+
+\end_body
+\end_document
