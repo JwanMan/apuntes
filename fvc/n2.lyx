@@ -1,0 +1,1670 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Teorema de Cauchy en dominios estrellados
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Cauchy-Goursat:
+\series default
+ Sea 
+\begin_inset Formula $f\in{\cal H}(\Omega)$
+\end_inset
+
+ y 
+\begin_inset Formula $\Delta(a,b,c):=\{\mu a+\lambda b+\gamma c:\mu+\lambda+\gamma=1;\mu,\lambda,\gamma\geq0\}\subseteq\Omega$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\int_{[a,b,c,a]}f=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $\gamma:=[a,b,c,a]$
+\end_inset
+
+, 
+\begin_inset Formula $\Delta:=\Delta(a,b,c)$
+\end_inset
+
+, 
+\begin_inset Formula $a':=\frac{b+c}{2}$
+\end_inset
+
+, 
+\begin_inset Formula $b':=\frac{a+c}{2}$
+\end_inset
+
+, 
+\begin_inset Formula $c':=\frac{a+b}{2}$
+\end_inset
+
+ e
+\begin_inset Formula 
+\[
+I:=\int_{\gamma}f=\int_{[a,c',b',a]}f+\int_{[c',b,a',c']}f+\int_{[a',c,b',a']}f+\int_{[b',c',a',b']}f.
+\]
+
+\end_inset
+
+Sean 
+\begin_inset Formula $J_{1},\dots,J_{4}$
+\end_inset
+
+ las cuatro integrales a la derecha, 
+\begin_inset Formula $\sigma_{1},\dots,\sigma_{4}$
+\end_inset
+
+ las correspondientes curvas y 
+\begin_inset Formula $T_{1},\dots,T_{4}$
+\end_inset
+
+ los triángulos definidos por estas curvas.
+ Entonces:
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $|J_{k}|:=\max_{i}|J_{i}|$
+\end_inset
+
+, 
+\begin_inset Formula $|I|\leq4|J_{k}|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\ell(\sigma_{1})=\dots=\ell(\sigma_{4})=\frac{1}{2}\ell(\gamma)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\ell(\sigma_{1})=|a-c'|+|c'-b'|+|b'-a|=\left|a-\frac{a+b}{2}\right|+\left|\frac{a+b}{2}-\frac{a+c}{2}\right|+\left|\frac{a+c}{2}-a\right|=\left|\frac{a-b}{2}\right|+\left|\frac{b-c}{2}\right|+\left|\frac{c-a}{2}\right|=\frac{1}{2}(|a-b|+|b-c|+|c-a|)=\frac{1}{2}\ell(\gamma)$
+\end_inset
+
+.
+ Para el resto de curvas se hace algo análogo.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Sea 
+\begin_inset Formula $d.(S)$
+\end_inset
+
+ el diámetro de 
+\begin_inset Formula $S\subseteq\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $D(T_{1})=\dots=D(T_{4})=\frac{1}{2}D(\Delta)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $T_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $F(x):=\frac{x+a}{2}$
+\end_inset
+
+ es una biyección de 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ a 
+\begin_inset Formula $T_{1}$
+\end_inset
+
+, pues si 
+\begin_inset Formula $x:=ra+sb+tc$
+\end_inset
+
+, 
+\begin_inset Formula $F(x):=\frac{ra+sb+tc+a}{2}=\frac{ra+sb+tc+(r+s+t)a}{2}=ra+s\frac{a+b}{2}+t\frac{a+c}{2}=ra+sc'+tb'$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $D(T_{1})=\sup_{x,y\in T_{1}}|x-y|=\sup_{x,y\in\Delta}|F(x)-F(y)|=\sup_{x,y\in\Delta}\left|\frac{x+a}{2}-\frac{y+a}{2}\right|=\sup_{x,y\in\Delta}\frac{|x+y|}{2}=\frac{1}{2}D(\Delta)$
+\end_inset
+
+.
+ Para los otros triángulos se hace de forma análoga, usando para 
+\begin_inset Formula $T_{4}$
+\end_inset
+
+ la biyección 
+\begin_inset Formula $F(x):=\frac{a+b+c-x}{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Sean entonces 
+\begin_inset Formula $I_{1}:=\max_{i}|J_{i}|$
+\end_inset
+
+, 
+\begin_inset Formula $\gamma_{1}:=[a_{1},b_{1},c_{1},a_{1}]$
+\end_inset
+
+ la curva correspondiente a 
+\begin_inset Formula $I_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\Delta_{1}:=\Delta(a_{1},b_{1},c_{1})$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $|I|\leq4|I_{1}|$
+\end_inset
+
+, 
+\begin_inset Formula $\ell(\gamma_{1})=\frac{1}{2}\ell(\gamma)$
+\end_inset
+
+ y 
+\begin_inset Formula $D(\Delta_{1})=\frac{1}{2}\Delta$
+\end_inset
+
+.
+ Repitiendo este proceso se obtienen sucesiones donde 
+\begin_inset Formula $|I|\leq4^{n}|I_{n}|$
+\end_inset
+
+, 
+\begin_inset Formula $\ell(\gamma_{n})=\frac{1}{2^{n}}\ell(\gamma)$
+\end_inset
+
+ y 
+\begin_inset Formula $D(\Delta_{n})=\frac{1}{2^{n}}D(\Delta)$
+\end_inset
+
+.
+ Al ser 
+\begin_inset Formula $(\Delta_{n})_{n}$
+\end_inset
+
+ una sucesión decreciente de cerrados no vacíos donde el diámetro tiende
+ a 0, existe un único 
+\begin_inset Formula $\alpha\in\bigcap_{n}\Delta_{n}$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $p(z):=f(\alpha)+f'(\alpha)(z-\alpha)$
+\end_inset
+
+ una función polinómica y por tanto con primitiva, entonces
+\begin_inset Formula 
+\[
+I_{n}=\int_{\gamma_{n}}f=\int_{\gamma_{n}}f-\int_{\gamma_{n}}p=\int_{\gamma_{n}}(f(z)-f(\alpha)-f'(\alpha)(z-\alpha))dz.
+\]
+
+\end_inset
+
+Dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, como 
+\begin_inset Formula $f$
+\end_inset
+
+ es derivable en 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $D(\alpha,\delta)\subseteq\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $\forall z\in D(\alpha,\delta),|f(z)-f(\alpha)-f'(\alpha)(z-\alpha)|\leq\varepsilon|z-\alpha|$
+\end_inset
+
+.
+ Dado 
+\begin_inset Formula $n$
+\end_inset
+
+ con 
+\begin_inset Formula $D(\Delta_{n})<\delta$
+\end_inset
+
+, 
+\begin_inset Formula $\Delta_{n}\subseteq D(\alpha,\delta)$
+\end_inset
+
+ y
+\begin_inset Formula 
+\begin{multline*}
+|I|\leq4^{n}|I_{n}|\leq4^{n}\ell(\gamma_{n})\max_{z\in\gamma_{n}^{*}}|f(z)-f(\alpha)+f'(\alpha)(z-\alpha)|\leq4^{n}\ell(\gamma_{n})\varepsilon\max_{z\in\gamma_{n}^{*}}|z-\alpha|\leq\\
+\leq4^{n}\ell(\gamma_{n})\varepsilon D(\Delta_{n})=4^{n}\varepsilon\frac{1}{2^{n}}\ell(\gamma)\frac{1}{2^{n}}D(\Delta)=\varepsilon\ell(\gamma)D(\Delta),
+\end{multline*}
+
+\end_inset
+
+y haciendo tender 
+\begin_inset Formula $\varepsilon\to0$
+\end_inset
+
+ se obtiene el resultado.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Cauchy para dominios estrellados:
+\series default
+ Sea 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ un dominio estrellado en 
+\begin_inset Formula $z_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $f\in{\cal H}(\Omega)$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+F(z):=\int_{[z_{0},z]}f
+\]
+
+\end_inset
+
+es una primitiva de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $a\in\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $\rho>0$
+\end_inset
+
+ y 
+\begin_inset Formula $z\in D(a,\rho)$
+\end_inset
+
+, como 
+\begin_inset Formula $[a,z]\subseteq\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $[z_{0},b]\subseteq\Omega$
+\end_inset
+
+ para todo 
+\begin_inset Formula $b\in[a,z]$
+\end_inset
+
+ y 
+\begin_inset Formula $\Delta(z_{0},a,z)\subseteq\Omega$
+\end_inset
+
+.
+ Por el teorema de Cauchy-Goursat,
+\begin_inset Formula 
+\[
+0=\int_{[z_{0},z,a,z_{0}]}f=\int_{[z_{0},z]}f+\int_{[z,a]}f+\int_{[a,z_{0}]}f=F(z)-F(a)-\int_{[z,a]}f,
+\]
+
+\end_inset
+
+luego si 
+\begin_inset Formula $z\neq a$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\frac{F(z)-F(a)-f(a)(z-a)}{z-a}=\frac{\int_{[z,a]}f-f(a)(z-a)}{z-a}=\frac{\int_{[z,a]}(f(w)-f(a))dw}{z-a},
+\]
+
+\end_inset
+
+con lo que
+\begin_inset Formula 
+\[
+\left|\frac{F(z)-F(a)}{z-a}-f(a)\right|=\left|\frac{\int_{[z,a]}(f(w)-f(a))dw}{z-a}\right|\leq\max_{w\in[a,z]^{*}}|f(w)-f(a)|.
+\]
+
+\end_inset
+
+Como 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $a$
+\end_inset
+
+, haciendo 
+\begin_inset Formula $z\to a$
+\end_inset
+
+ este máximo tiende a 0 y se obtiene 
+\begin_inset Formula $F'(a)=f(a)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Cauchy-Goursat 
+\begin_inset Quotes cld
+\end_inset
+
+light
+\begin_inset Quotes crd
+\end_inset
+
+:
+\series default
+ Sean 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ un abierto, 
+\begin_inset Formula $\alpha\in\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $f\in{\cal C}(\Omega),{\cal H}(\Omega\setminus\{\alpha\})$
+\end_inset
+
+, y 
+\begin_inset Formula $\Delta(a,b,c)\subseteq\Omega$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\int_{[a,b,c,a]}f=0.
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\alpha\notin\Delta(a,b,c)$
+\end_inset
+
+, podemos tomar como abierto 
+\begin_inset Formula $\Omega\setminus\{\alpha\}$
+\end_inset
+
+ y aplicar Cauchy-Goursat.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es un vértice, por ejemplo, 
+\begin_inset Formula $\alpha=a$
+\end_inset
+
+, sean 
+\begin_inset Formula $c_{\rho}:=(1-\rho)a+\rho b$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{\rho}:=(1-\rho)a+\rho c$
+\end_inset
+
+ para 
+\begin_inset Formula $\rho\in[0,1]$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\int_{[a,b,c,a]}f=\int_{[a,c_{\rho},b_{\rho},a]}f+\int_{[c_{\rho},b,c,c_{\rho}]}+\int_{[c,b_{\rho},c_{\rho},c]}f=\int_{[a,c_{\rho},b_{\rho},a]}f,
+\]
+
+\end_inset
+
+dado que los otros dos sumandos se anulan por el caso anterior.
+ Entonces
+\begin_inset Formula 
+\[
+\left|\int_{[a,b,c,a]}f\right|=\left|\int_{[a,c_{\rho},b_{\rho},a]}f\right|\leq\max_{z\in\Delta(a,b,c)}|f(z)|\rho(|a-b|+|b-c|+|c-a|),
+\]
+
+\end_inset
+
+y haciendo tender 
+\begin_inset Formula $\rho\to0$
+\end_inset
+
+ se obtiene el resultado.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ está en un lado del triángulo, por ejemplo 
+\begin_inset Formula $\alpha\subseteq[a,b]$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\int_{[a,b,c,a]}f=\int_{[a,\alpha,c,a]}f+\int_{[c,\alpha,b,c]}f,
+\]
+
+\end_inset
+
+y cada sumando se anula por el caso anterior.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ está en el interior del triángulo, sea 
+\begin_inset Formula $p$
+\end_inset
+
+ el punto en la intersección de la recta 
+\begin_inset Formula $a\alpha$
+\end_inset
+
+ con 
+\begin_inset Formula $[b,c]$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\int_{[a,b,c,a]}f=\int_{[a,b,p,a]}f+\int_{[a,p,c,a]}f
+\]
+
+\end_inset
+
+y cada sumando se anula por el caso anterior.
+\end_layout
+
+\begin_layout Standard
+De aquí se obtiene el 
+\series bold
+teorema de Cauchy para dominios estrellados 
+\begin_inset Quotes cld
+\end_inset
+
+light
+\begin_inset Quotes crd
+\end_inset
+
+
+\series default
+, que afirma que si 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ es un dominio estrellado en 
+\begin_inset Formula $z_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha\in\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $f\in{\cal C}(\Omega),{\cal H}(\Omega\setminus\{\alpha\})$
+\end_inset
+
+ entonces
+\begin_inset Formula 
+\[
+F(z):=\int_{[z_{0},z]}f
+\]
+
+\end_inset
+
+es una primitiva de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Funciones holomorfas y analíticas
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Fórmula de Cauchy para una circunferencia:
+\series default
+ Sea 
+\begin_inset Formula $f\in{\cal H}(\Omega)$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{D}(a,R)\subseteq\Omega$
+\end_inset
+
+, para 
+\begin_inset Formula $z\in D(a,R)$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+f(z)=\frac{1}{2\pi i}\int_{C(a,R)}\frac{f(w)}{w-z}dw.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $\rho>R$
+\end_inset
+
+ con 
+\begin_inset Formula $D(a,\rho)\subseteq\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $z\in D(a,R)$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+g(w):=\begin{cases}
+\frac{f(w)-f(z)}{w-z} & \text{si }w\neq z,\\
+f'(z) & \text{si }w=z.
+\end{cases}
+\]
+
+\end_inset
+
+Como 
+\begin_inset Formula $f$
+\end_inset
+
+ es derivable en 
+\begin_inset Formula $z$
+\end_inset
+
+, 
+\begin_inset Formula $g$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $D(a,\rho)$
+\end_inset
+
+, y es derivable en 
+\begin_inset Formula $D(a,\rho)\setminus\{z\}$
+\end_inset
+
+, luego por el teorema de Cauchy para dominios estrellados 
+\begin_inset Quotes cld
+\end_inset
+
+light
+\begin_inset Quotes crd
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+0=\int_{C(a,R)}g=\int_{C(a,R)}\frac{f(w)-f(z)}{w-z}dw=\int_{C(a,R)}\frac{f(w)}{w-z}dw-f(z)\int_{C(a,R)}\frac{1}{w-z}dw.
+\]
+
+\end_inset
+
+Ahora bien, para 
+\begin_inset Formula $w\in C(a,R)^{*}$
+\end_inset
+
+, como 
+\begin_inset Formula $|z-a|<R$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{|z-a|}{|w-a|}<1$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+\frac{1}{w-z}=\frac{1}{w-a-(z-a)}=\frac{1}{w-a}\frac{1}{1-\frac{z-a}{w-a}}=\frac{1}{w-a}\sum_{n}\left(\frac{z-a}{w-a}\right)^{n}=\sum_{n}\frac{|z-a|^{n}}{|w-a|^{n+1}}.
+\]
+
+\end_inset
+
+Pero tomando 
+\begin_inset Formula 
+\[
+\alpha_{n}:=\frac{|z-a|^{n}}{|w-a|^{n+1}}=\frac{1}{R}\left(\frac{|z-a|}{R}\right)^{n},
+\]
+
+\end_inset
+
+como 
+\begin_inset Formula $\frac{|z-a|}{R}<1$
+\end_inset
+
+, la serie 
+\begin_inset Formula $\sum_{n}\alpha_{n}$
+\end_inset
+
+ converge y, por el criterio de Weierstrass, la serie anterior converge
+ uniformemente con 
+\begin_inset Formula $w\in C(a,R)^{*}$
+\end_inset
+
+.
+ Por tanto
+\begin_inset Formula 
+\[
+\int_{C(a,R)}\frac{1}{w-z}dw=\int_{C(a,R)}\sum_{n}\frac{(z-a)^{n}}{(w-a)^{n+1}}dw=\sum_{n}(z-a)^{n}\int_{C(a,R)}\frac{1}{(w-a)^{n+1}}dw,
+\]
+
+\end_inset
+
+pero 
+\begin_inset Formula $w\mapsto\frac{1}{(w-a)^{n+1}}$
+\end_inset
+
+ tiene primitiva 
+\begin_inset Formula $\frac{1}{-n}(w-a)^{-n}$
+\end_inset
+
+ para 
+\begin_inset Formula $n\neq0$
+\end_inset
+
+, luego se anula en 
+\begin_inset Formula $n>0$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+\int_{C(a,R)}\frac{1}{w-z}dw=\int_{C(a,R)}\frac{1}{w-a}dw=\int_{-\pi}^{\pi}\frac{1}{a+Re^{it}-a}Rie^{it}dt=\int_{-\pi}^{\pi}idt=2\pi i.
+\]
+
+\end_inset
+
+Sustituyendo,
+\begin_inset Formula 
+\[
+\int_{C(a,R)}\frac{f(w)}{w-z}dw-2\pi if(z)=0,
+\]
+
+\end_inset
+
+y despejando se obtiene el resultado.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Taylor:
+\series default
+ Sean 
+\begin_inset Formula $f\in{\cal H}(\Omega)$
+\end_inset
+
+, 
+\begin_inset Formula $\overline{D}(a,R)\subseteq\Omega$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+c_{n}:=\frac{1}{2\pi i}\int_{C(a,R)}\frac{f(w)}{(w-a)^{n+1}}dw
+\]
+
+\end_inset
+
+para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+f(z):=\sum_{n}c_{n}(z-a)^{n}
+\]
+
+\end_inset
+
+para todo 
+\begin_inset Formula $z\in D(a,R)$
+\end_inset
+
+.
+ En particular, 
+\begin_inset Formula $f$
+\end_inset
+
+ es analítica en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $f^{(n)}(a)=n!c_{n}$
+\end_inset
+
+ para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ y los 
+\begin_inset Formula $c_{n}$
+\end_inset
+
+ no dependen del radio escogido.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $z\in D(a,R)$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\frac{f(w)}{w-z}=\frac{f(w)}{w-a-(z-a)}=\frac{f(w)}{w-a}\frac{1}{1-\frac{z-a}{w-a}}=\frac{f(w)}{w-a}\sum_{n}\left(\frac{z-a}{w-a}\right)^{n}=\sum_{n}\frac{f(w)}{(w-a)^{n+1}}(z-a)^{n}.
+\]
+
+\end_inset
+
+Como
+\begin_inset Formula 
+\[
+\frac{|f(w)|}{|w-a|^{n+1}}|z-a|^{n}\leq\alpha_{n}:=\frac{\max_{w\in C(a,R)^{*}}|f(w)|}{R}\left(\frac{|z-a|}{R}\right)^{n}
+\]
+
+\end_inset
+
+y 
+\begin_inset Formula $\sum_{n}\alpha_{n}$
+\end_inset
+
+ es convergente por ser una serie geométrica de razón menor que 1, por el
+ criterio de Weierstrass, la serie converge uniformemente en 
+\begin_inset Formula $C(a,R)^{*}$
+\end_inset
+
+ y, por la fórmula de Cauchy,
+\begin_inset Formula 
+\begin{multline*}
+f(z)=\frac{1}{2\pi i}\int_{C(a,R)}\frac{f(w)}{w-z}dw=\frac{1}{2\pi i}\int_{C(a,R)}\sum_{n}\frac{f(w)}{(w-a)^{n+1}}(z-a)^{n}dw=\\
+=\sum_{n}\left(\frac{1}{2\pi i}\int_{C(a,R)}\frac{f(w)}{(w-a)^{n+1}}dw\right)(z-a)^{n}.
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Morera:
+\series default
+ Sea 
+\begin_inset Formula $f\in{\cal C}(\Omega)$
+\end_inset
+
+, 
+\begin_inset Formula $f\in{\cal H}(\Omega)$
+\end_inset
+
+ si y sólo si
+\begin_inset Formula 
+\[
+\int_{[a,b,c,a]}f=0
+\]
+
+\end_inset
+
+para todo 
+\begin_inset Formula $\Delta(a,b,c)\subseteq\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Teorema de Cauchy-Goursat.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $D(z_{0},R)\subseteq\Omega$
+\end_inset
+
+ un dominio estrellado, como la integral de 
+\begin_inset Formula $f$
+\end_inset
+
+ sobre cualquier triángulo contenido en el disco es 0, por la demostración
+ del teorema de Cauchy para dominios estrellados,
+\begin_inset Formula 
+\[
+F(z)=\int_{[z_{0},z]}f
+\]
+
+\end_inset
+
+es una primitiva de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $D(z_{0},R)$
+\end_inset
+
+, esto es, 
+\begin_inset Formula $\forall z\in D(z_{0},R),F'(z)=f(z)$
+\end_inset
+
+, luego 
+\begin_inset Formula $f$
+\end_inset
+
+ es la derivada de una función holomorfa en 
+\begin_inset Formula $D(z_{0},R)$
+\end_inset
+
+ y en particular 
+\begin_inset Formula $f$
+\end_inset
+
+ es derivable en 
+\begin_inset Formula $z_{0}$
+\end_inset
+
+, pero como 
+\begin_inset Formula $z_{0}\in\Omega$
+\end_inset
+
+ es arbitrario, 
+\begin_inset Formula $f\in{\cal H}(\Omega)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Propiedades de funciones holomorfas
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Desigualdad de Cauchy:
+\series default
+ Sean 
+\begin_inset Formula $f\in{\cal H}(\Omega)$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{D}(a,R)\subseteq\Omega$
+\end_inset
+
+, para 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\frac{|f^{(k)}(a)|}{k!}\leq\frac{\max_{w\in C(a,R)^{*}}|f(w)|}{R^{k}}.
+\]
+
+\end_inset
+
+En efecto, tomando módulos sobre la fórmula de la derivada del teorema de
+ Taylor,
+\begin_inset Formula 
+\[
+\frac{|f^{(k)}(a)|}{k!}=\frac{1}{2\pi}\int_{C(a,R)}\frac{f(w)}{(w-a)^{k+1}}dw\leq\frac{1}{2\pi}\max_{w\in C(a,R)^{*}}\left|\frac{f(w)}{(w-a)^{k+1}}\right|2\pi R=\frac{1}{R^{k}}\max_{w\in C(a,R)^{*}}|f(w)|.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Liouville:
+\series default
+ Toda función entera acotada es constante.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $f\in{\cal H}(\mathbb{C})$
+\end_inset
+
+ para la que existe 
+\begin_inset Formula $M>0$
+\end_inset
+
+ con 
+\begin_inset Formula $|f(z)|<M$
+\end_inset
+
+ para todo 
+\begin_inset Formula $z\in\mathbb{C}$
+\end_inset
+
+.
+ Por el teorema de Taylor, para 
+\begin_inset Formula $z\in\mathbb{C}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+f(z)=\sum_{n}\frac{f^{(n)}(0)}{n!}z^{n},
+\]
+
+\end_inset
+
+pero por la desigualdad de Cauchy, para todo 
+\begin_inset Formula $R>0$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\frac{|f^{(n)}(0)|}{n!}\leq\frac{\max_{w\in C(a,R)^{*}}|f(w)|}{R^{n}}\leq\frac{M}{R^{n}},
+\]
+
+\end_inset
+
+y tomando límites cuando 
+\begin_inset Formula $R\to+\infty$
+\end_inset
+
+ tenemos que 
+\begin_inset Formula $f^{(n)}(0)=0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $f(z)=f(0)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $z$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema fundamental del álgebra:
+\series default
+ 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ es algebraicamente cerrado, esto es, todo polinomio complejo de grado 
+\begin_inset Formula $n$
+\end_inset
+
+ es la forma 
+\begin_inset Formula $p(x)=\alpha\prod_{k=1}^{n}(x-a_{k})$
+\end_inset
+
+ con 
+\begin_inset Formula $\alpha,a_{1},\dots,a_{n}\in\mathbb{C}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Basta ver que todo polinomio complejo no constante tiene alguna raíz, pues
+ el resto se obtiene por inducción.
+ Sea 
+\begin_inset Formula $p$
+\end_inset
+
+ un polinomio de este tipo y supongamos que 
+\begin_inset Formula $\forall z\in\mathbb{C},p(z)\neq0$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $f(z):=\frac{1}{p(z)}$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ es entera por serlo 
+\begin_inset Formula $p$
+\end_inset
+
+ y, como 
+\begin_inset Formula $\lim_{z\to+\infty}f(z)=0$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ es acotada y, por el teorema de Liouville, constante, y por tanto 
+\begin_inset Formula $p$
+\end_inset
+
+ es constante.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La imagen de una función entera no constante es densa en el plano.
+ 
+\series bold
+Demostración:
+\series default
+ Supongamos que existe 
+\begin_inset Formula $\alpha\in\mathbb{C}\setminus\overline{f(\mathbb{C})}$
+\end_inset
+
+, con lo que existe 
+\begin_inset Formula $\rho>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\overline{D}(\alpha,\rho)\cap f(\mathbb{C})=\emptyset$
+\end_inset
+
+, esto es, 
+\begin_inset Formula $|f(z)-\alpha|>\rho$
+\end_inset
+
+ para 
+\begin_inset Formula $z\in\mathbb{C}$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $g(z):=\frac{1}{f(z)-\alpha}$
+\end_inset
+
+ una función entera, como 
+\begin_inset Formula $|g(z)|=\frac{1}{|f(z)-\alpha|}<\frac{1}{\rho}$
+\end_inset
+
+, 
+\begin_inset Formula $g$
+\end_inset
+
+ es acotada, luego 
+\begin_inset Formula $g$
+\end_inset
+
+ es constante y por tanto 
+\begin_inset Formula $f$
+\end_inset
+
+ también.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de extensión de Riemann:
+\series default
+ Sean 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ un abierto, 
+\begin_inset Formula $\alpha\in\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $f\in{\cal H}(\Omega\setminus\{\alpha\})$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene una extensión holomorfa a 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ si y sólo si tiene una extensión continua a 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, si y sólo si está acotada en un entorno reducido de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\lim_{z\to\alpha}(z-\alpha)f(z)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies2\implies3\implies4]$
+\end_inset
+
+ Obvio.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $4\implies1]$
+\end_inset
+
+ Sea 
+\begin_inset Formula 
+\[
+F(z):=\begin{cases}
+(z-\alpha)^{2}f(z) & \text{si }z\neq\alpha,\\
+0 & \text{si }z=\alpha.
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $F$
+\end_inset
+
+ es holomorfa en 
+\begin_inset Formula $\Omega\setminus\{\alpha\}$
+\end_inset
+
+, pero
+\begin_inset Formula 
+\[
+F'(\alpha)=\lim_{z\to\alpha}\frac{F(z)-F(\alpha)}{z-\alpha}=\lim_{z\to\alpha}(z-\alpha)f(z)=0,
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $F\in{\cal H}(\Omega)$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $D(\alpha,\rho)\subseteq\Omega$
+\end_inset
+
+, por el teorema de Taylor, sea 
+\begin_inset Formula $c_{n}:=\frac{F^{(n)}(\alpha)}{n!}$
+\end_inset
+
+, como 
+\begin_inset Formula $c_{0}=c_{1}=0$
+\end_inset
+
+, para 
+\begin_inset Formula $z\in D(\alpha,\rho)$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+F(z)=\sum_{n=2}^{\infty}c_{n}(z-\alpha)^{n}=(z-\alpha)^{2}\sum_{n=2}^{\infty}c_{n}(z-\alpha)^{n-2}=(z-\alpha)^{2}\sum_{n=0}^{\infty}c_{n+2}(z-\alpha)^{n},
+\]
+
+\end_inset
+
+luego si 
+\begin_inset Formula $z\in D(\alpha,\rho)\setminus\{\alpha\}$
+\end_inset
+
+, 
+\begin_inset Formula $f(z)=\sum_{n}c_{n+2}(z-\alpha)^{n}$
+\end_inset
+
+.
+ Entonces
+\begin_inset Formula 
+\[
+g(z):=\begin{cases}
+f(z) & \text{si }z\neq\alpha,\\
+c_{2} & \text{si }z=\alpha
+\end{cases}
+\]
+
+\end_inset
+
+es una extensión de 
+\begin_inset Formula $f$
+\end_inset
+
+ expresable como suma de potencias, y por tanto derivable, en 
+\begin_inset Formula $D(\alpha,\rho)$
+\end_inset
+
+, por lo que es derivable en 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y por tanto una extensión holomorfa de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de convergencia de Weierstrass:
+\series default
+ Sean 
+\begin_inset Formula $\{f_{n}\}_{n}\subseteq{\cal H}(\Omega)$
+\end_inset
+
+, si 
+\begin_inset Formula $(f_{n})_{n}$
+\end_inset
+
+ converge uniformemente en subconjuntos compactos de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $f(z):=\lim_{n}f_{n}(z)$
+\end_inset
+
+ para 
+\begin_inset Formula $z\in\Omega$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es holomorfa en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ si y sólo si para cada 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $(f_{n}^{(k)})_{n}$
+\end_inset
+
+ converge uniformemente a 
+\begin_inset Formula $f^{(k)}$
+\end_inset
+
+ en subconjuntos compactos de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Como el límite uniforme de funciones continuas es continuo, 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $\Delta(a,b,c)\subseteq\Omega$
+\end_inset
+
+, como 
+\begin_inset Formula $[a,b,c,a]^{*}$
+\end_inset
+
+ es compacto y la integral respeta la convergencia uniforme,
+\begin_inset Formula 
+\[
+\int_{[a,b,c,a]}f=\lim_{n}\int_{[a,b,c,a]}f_{n}=0
+\]
+
+\end_inset
+
+por el teorema de Cauchy-Goursat, pues las 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ son holomorfas.
+ Como el triángulo es arbitrario, por el teorema de Morera, 
+\begin_inset Formula $f$
+\end_inset
+
+ es holomorfa en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $K\subseteq\Omega$
+\end_inset
+
+ compacto, 
+\begin_inset Formula $0<\rho<d(K,\partial\Omega)$
+\end_inset
+
+ y 
+\begin_inset Formula $H:=\{z\in\mathbb{C}:d(z,K)\leq\rho\}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $H$
+\end_inset
+
+ es compacto y 
+\begin_inset Formula $K\subseteq H\subseteq\Omega$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $a\in K$
+\end_inset
+
+ y 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+, aplicando la desigualdad de Cauchy a 
+\begin_inset Formula $f_{n}-f$
+\end_inset
+
+ en 
+\begin_inset Formula $\overline{D}(a,\rho)\subseteq H$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+|f_{n}^{(k)}(a)-f^{(k)}(a)|\leq\frac{k!}{\rho^{k}}\max_{w\in C(a,\rho)^{*}}|f_{n}(w)-f(w)|\leq\frac{k!}{\rho^{k}}\max_{w\in H}|f_{n}(w)-f(w)|.
+\]
+
+\end_inset
+
+Por la convergencia uniforme de 
+\begin_inset Formula $(f_{n})_{n}$
+\end_inset
+
+ en 
+\begin_inset Formula $H$
+\end_inset
+
+, dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n\geq0$
+\end_inset
+
+ es 
+\begin_inset Formula $\max_{w\in H}|f_{n}(w)-f(w)|\leq\varepsilon$
+\end_inset
+
+, luego 
+\begin_inset Formula $|f_{n}^{(k)}(a)-f^{(k)}(a)|\leq\frac{k!}{\rho^{k}}\varepsilon$
+\end_inset
+
+ para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in K$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\max_{a\in K}|f_{n}^{(k)}(a)-f^{(k)}(a)|\leq\frac{k!}{\rho^{k}}\varepsilon$
+\end_inset
+
+, de donde 
+\begin_inset Formula $(f_{n}^{(k)})_{n}\to f^{(k)}$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

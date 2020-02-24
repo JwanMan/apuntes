@@ -1,0 +1,2076 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Índice de un punto respecto a una curva
+\end_layout
+
+\begin_layout Standard
+Toda curva 
+\begin_inset Formula $\gamma:[a,b]\to\mathbb{C}^{*}$
+\end_inset
+
+ tiene argumentos continuos, y si 
+\begin_inset Formula $\theta$
+\end_inset
+
+ y 
+\begin_inset Formula $\theta'$
+\end_inset
+
+ son argumentos continuos de 
+\begin_inset Formula $\gamma$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\theta(b)-\theta(a)=\theta'(b)-\theta'(a)$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $\rho:=\min_{t\in[a,b]}|\gamma(t)|>0$
+\end_inset
+
+, 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $|s-t|<\delta$
+\end_inset
+
+ entonces 
+\begin_inset Formula $|\gamma(s)-\gamma(t)|<\rho$
+\end_inset
+
+, 
+\begin_inset Formula $a=t_{0}<\dots<t_{n}=b$
+\end_inset
+
+ una partición de 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ tal que 
+\begin_inset Formula $t_{k}-t_{k-1}<\delta$
+\end_inset
+
+ para cada 
+\begin_inset Formula $k$
+\end_inset
+
+ y 
+\begin_inset Formula $D_{k}:=D(\gamma(t_{k}),\rho)$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $0\notin D_{k}$
+\end_inset
+
+ para ningún 
+\begin_inset Formula $k$
+\end_inset
+
+ y 
+\begin_inset Formula $\gamma(t)\in D_{k}$
+\end_inset
+
+ para 
+\begin_inset Formula $t\in[t_{k-1},t_{k}]$
+\end_inset
+
+, luego los discos consecutivos se cortan.
+ Como cada 
+\begin_inset Formula $D_{k}$
+\end_inset
+
+ es un dominio estrellado que no contiene al 0, existe un logaritmo holomorfo,
+ y por tanto un argumento continuo, de la identidad, una función 
+\begin_inset Formula $A_{k}:D_{k}\to\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $A_{k}(z)\in\text{Arg}z$
+\end_inset
+
+ para cada 
+\begin_inset Formula $z\in D_{k}$
+\end_inset
+
+.
+ Sean ahora 
+\begin_inset Formula $\theta_{k}(t):=A_{k}(\gamma(t))\in\text{Arg}(\gamma(t))$
+\end_inset
+
+ y 
+\begin_inset Formula $m_{k}:=\theta_{k}(t_{k})-\theta_{k+1}(t_{k})$
+\end_inset
+
+, y definimos 
+\begin_inset Formula $\theta:[a,b]\to\mathbb{R}$
+\end_inset
+
+ como 
+\begin_inset Formula $\theta(t):=\theta_{k}(t)+\sum_{i=0}^{k-1}m_{k}$
+\end_inset
+
+ para 
+\begin_inset Formula $t\in[t_{k-1},t_{k}]$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\theta$
+\end_inset
+
+ está bien definido, pues 
+\begin_inset Formula $\theta_{k+1}(t_{k})+\sum_{i=0}^{k}m_{k}=\theta_{k+1}(t_{k})+\sum_{i=0}^{k-1}m_{k}+\theta_{k}(t_{k})-\theta_{k+1}(t_{k})=\theta_{k}t_{k}+\sum_{i=0}^{k-1}m_{k}$
+\end_inset
+
+, y es un argumento continuo de 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+.
+ Ahora bien, si 
+\begin_inset Formula $\theta$
+\end_inset
+
+ y 
+\begin_inset Formula $\theta'$
+\end_inset
+
+ son argumentos continuos de 
+\begin_inset Formula $\gamma$
+\end_inset
+
+, 
+\begin_inset Formula $\theta-\theta'$
+\end_inset
+
+ es una función continua en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ que toma valores múltiplos de 
+\begin_inset Formula $2\pi$
+\end_inset
+
+ y por tanto debe ser constate, existiendo 
+\begin_inset Formula $k\in\mathbb{Z}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\theta(t)-\theta'(t)=2k\pi$
+\end_inset
+
+ para todo 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\gamma:[a,b]\to\mathbb{C}$
+\end_inset
+
+ una curva, 
+\begin_inset Formula $z\notin\gamma^{*}$
+\end_inset
+
+ y 
+\begin_inset Formula $\theta$
+\end_inset
+
+ un argumento de 
+\begin_inset Formula $\gamma-z$
+\end_inset
+
+, llamamos 
+\series bold
+variación del argumento
+\series default
+ de 
+\begin_inset Formula $z$
+\end_inset
+
+ a lo largo de 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ a 
+\begin_inset Formula $\theta(b)-\theta(a)$
+\end_inset
+
+, e 
+\series bold
+índice
+\series default
+ de 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ respecto de 
+\begin_inset Formula $z$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+\text{Ind}_{\gamma}(z):=\frac{\theta(b)-\theta(a)}{2\pi}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ es una curva cerrada:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{Ind}_{\gamma}:\mathbb{C}\setminus\gamma^{*}\to\mathbb{Z}$
+\end_inset
+
+ es continua, y por tanto constante en cada componente conexa del dominio.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $z_{0}\notin\gamma^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $\rho:=\min_{t\in[a,b]}|\gamma(t)-z_{0}|>0$
+\end_inset
+
+ y 
+\begin_inset Formula $z\in D(z_{0},\rho)\subseteq\mathbb{C}\setminus\gamma^{*}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\gamma(t)-z=(\gamma(t)-z_{0})\frac{\gamma(t)-z}{\gamma(t)-z_{0}}$
+\end_inset
+
+, pero 
+\begin_inset Formula 
+\[
+\left|1-\frac{\gamma(t)-z}{\gamma(t)-z_{0}}\right|=\left|\frac{z-z_{0}}{\gamma(t)-z_{0}}\right|<1,
+\]
+
+\end_inset
+
+ luego para 
+\begin_inset Formula $t\in[a,b]$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{\gamma(t)-z}{\gamma(t)-z_{0}}\in D(1,1)$
+\end_inset
+
+, donde el argumento principal es continuo.
+ Sea 
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+ un argumento de 
+\begin_inset Formula $\gamma-z_{0}$
+\end_inset
+
+, tenemos que 
+\begin_inset Formula $\theta(t):=\theta_{0}(t)+\arg\frac{\gamma(t)-z}{\gamma(t)-z_{0}}$
+\end_inset
+
+ es un argumento continuo de 
+\begin_inset Formula $\gamma(t)-z$
+\end_inset
+
+, pero como 
+\begin_inset Formula $\theta(b)-\theta(a)=\theta_{0}(b)-\theta_{0}(a)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\text{Ind}_{\gamma}(z)=\text{Ind}_{\gamma}(z_{0})$
+\end_inset
+
+ para todo 
+\begin_inset Formula $z\in D(z_{0},\rho)$
+\end_inset
+
+.
+ Así, 
+\begin_inset Formula $\text{Ind}_{\gamma}$
+\end_inset
+
+ es localmente constante y por tanto continua.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{Ind}_{\gamma}$
+\end_inset
+
+ se anula en la única componente no acotada de 
+\begin_inset Formula $\mathbb{C}\setminus\gamma^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+La componente existe y es única porque 
+\begin_inset Formula $\gamma^{*}$
+\end_inset
+
+, al ser la imagen de un compacto por una función continua, es un compacto
+ y existe 
+\begin_inset Formula $R$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\gamma^{*}\subseteq D(0,R)$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\mathbb{C}\setminus D(0,R)\subseteq\mathbb{C}\setminus\gamma^{*}$
+\end_inset
+
+, y al ser conexo, está en una componente conexa del conjunto.
+ Sea ahora 
+\begin_inset Formula $z_{0}$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{Re}z_{0}<-R$
+\end_inset
+
+, es claro que 
+\begin_inset Formula $z_{0}\notin\gamma^{*}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\text{Re}(\gamma(t)-z_{0})>0$
+\end_inset
+
+ y, como 
+\begin_inset Formula $(\gamma-z_{0})^{*}$
+\end_inset
+
+ está en el semiplano de la derecha, el argumento principal es continuo.
+ Como 
+\begin_inset Formula $z_{0}$
+\end_inset
+
+ está en la componente conexa no acotada y el índice es constante en cada
+ componente, para 
+\begin_inset Formula $z$
+\end_inset
+
+ en la componente no acotada, 
+\begin_inset Formula $\text{Ind}_{\gamma}z=\text{Ind}_{\gamma}z_{0}=\frac{\arg(\gamma(b)-z_{0})-\arg(\gamma(a)-z_{0})}{2\pi}=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ un camino cerrado y 
+\begin_inset Formula $z\notin\gamma^{*}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\text{Ind}_{\gamma}(z)=\frac{1}{2\pi i}\int_{\gamma}\frac{1}{w-z}dw.
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $\theta$
+\end_inset
+
+ un argumento continuo de 
+\begin_inset Formula $\gamma-z$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\varphi(t):=\log|\gamma(t)-z|+i\theta(t)$
+\end_inset
+
+ es un logaritmo continuo de 
+\begin_inset Formula $\gamma(t)-z$
+\end_inset
+
+ .
+ Sea 
+\begin_inset Formula $a=t_{0}<\dots<t_{n}=b$
+\end_inset
+
+ una partición del dominio 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ de 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\gamma|_{[t_{k-1},t_{k}]}$
+\end_inset
+
+ es derivable.
+ Entonces 
+\begin_inset Formula $\varphi_{k}:=\varphi|_{[t_{k-1},t_{k}]}$
+\end_inset
+
+ también lo es y 
+\begin_inset Formula $\varphi'_{k}(t)=\frac{\gamma'(t)}{\gamma(t)-z}$
+\end_inset
+
+ para 
+\begin_inset Formula $t\in(t_{k-1},t_{k})$
+\end_inset
+
+.
+ Integrando,
+\begin_inset Formula 
+\begin{multline*}
+\int_{\gamma}\frac{1}{w-z}dw=\int_{a}^{b}\frac{\gamma'(t)}{\gamma(t)-z}dt=\sum_{k=1}^{n}\int_{t_{k-1}}^{t_{k}}\frac{\gamma'(t)}{\gamma(t)-z}dt=\sum_{k=1}^{n}(\varphi_{k}(t_{k})-\varphi_{k}(t_{k-1}))=\\
+=\sum_{k=1}^{n}(\varphi(t_{k})-\varphi(t_{k-1}))=\varphi(b)-\varphi(a)=\log|\gamma(b)-z|+i\theta(b)-\log|\gamma(a)-z|-i\theta(a)=\\
+=i(\theta(b)-\theta(a))=2\pi i\text{Ind}_{\gamma}(z).
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Cadenas
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+cadena
+\series default
+ es una expresión de la forma 
+\begin_inset Formula $\Gamma:=m_{1}\gamma_{1}+\dots+m_{q}\gamma_{q}$
+\end_inset
+
+ donde los 
+\begin_inset Formula $m_{i}$
+\end_inset
+
+ son enteros y los 
+\begin_inset Formula $\gamma_{i}$
+\end_inset
+
+ son caminos.
+ Llamamos 
+\series bold
+soporte
+\series default
+ de 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ a 
+\begin_inset Formula $\Gamma^{*}:=\bigcup_{k}\gamma_{k}^{*}$
+\end_inset
+
+ y 
+\series bold
+longitud
+\series default
+ de 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ a 
+\begin_inset Formula $\ell(\Gamma):=\sum_{k}|m_{k}|\ell(\gamma_{k})$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\Sigma:=n_{1}\sigma_{1}+\dots+n_{p}\sigma_{p}$
+\end_inset
+
+ es otra cadena, llamamos 
+\begin_inset Formula $\Gamma+\Sigma:=m_{1}\gamma_{1}+\dots+m_{q}\gamma_{q}+k_{1}\sigma_{1}+\dots+k_{p}\sigma_{p}$
+\end_inset
+
+.
+ Dada 
+\begin_inset Formula $f:\Gamma^{*}\to\mathbb{C}$
+\end_inset
+
+, llamamos
+\begin_inset Formula 
+\[
+\int_{\Gamma}f:=\sum_{k}m_{k}\int_{\gamma_{k}}f,
+\]
+
+\end_inset
+
+y claramente se cumplen la aditividad de la integral y la acotación básica
+\begin_inset Formula 
+\[
+\left|\int_{\Gamma}f\right|\leq\ell(\Gamma)\max_{z\in\Gamma^{*}}|f(z)|.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+ciclo
+\series default
+ es una cadena formada por caminos cerrados, y llamamos 
+\series bold
+índice
+\series default
+ de 
+\begin_inset Formula $z\notin\Gamma^{*}$
+\end_inset
+
+ respecto al ciclo 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{Ind}_{\Gamma}(z):=\sum_{k}m_{k}\text{Ind}_{\gamma_{k}}(z)$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\text{Ind}_{\Gamma}:\mathbb{C}\setminus\Gamma^{*}\to\mathbb{Z}$
+\end_inset
+
+ es continua y constante en cada componente conexa del dominio, y se anula
+ en la componente conexa no acotada.
+\end_layout
+
+\begin_layout Standard
+Dos cadenas 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ y 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ son 
+\series bold
+equivalentes
+\series default
+ si para toda 
+\begin_inset Formula $f$
+\end_inset
+
+ continua en 
+\begin_inset Formula $\Gamma^{*}\cup\Sigma^{*}$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\int_{\Gamma}f=\int_{\Sigma}f.
+\]
+
+\end_inset
+
+Dado un abierto 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, un ciclo 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ es 
+\series bold
+nulhomólogo
+\series default
+ respecto de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall z\in\mathbb{C}\setminus\Omega,\text{Ind}_{\Gamma}(z)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Forma general del teorema de Cauchy
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Fórmula integral de Cauchy:
+\series default
+ Sean 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ un ciclo en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ nulhomólogo respecto de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $f\in{\cal H}(\Omega)$
+\end_inset
+
+, para 
+\begin_inset Formula $z\in\Omega\setminus\Gamma^{*}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+f(z)\text{Ind}_{\Gamma}(z)=\frac{1}{2\pi i}\int_{\Gamma}\frac{f(w)}{w-z}dw.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Primero vemos que si 
+\begin_inset Formula $F:\Omega\times\Gamma^{*}\to\mathbb{C}$
+\end_inset
+
+ es continua, entonces 
+\begin_inset Formula $h:\Omega\to\mathbb{C}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+h(z):=\int_{\Gamma}F(z,w)dw
+\]
+
+\end_inset
+
+es continua en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ En efecto, sean 
+\begin_inset Formula $a\in\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $(z_{n})_{n}$
+\end_inset
+
+ una sucesión de puntos de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ convergente a 
+\begin_inset Formula $a$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+|h(z_{n})-h(a)|=\left|\int_{\Gamma}(F(z_{n},w)-F(a,w))dw\right|\leq\ell(\Gamma)\max_{w\in\Gamma^{*}}|F(z_{n},w)-F(a,w)|.
+\]
+
+\end_inset
+
+Como 
+\begin_inset Formula $K:=\{\{z_{n}\}_{n}\cup\{a\}\}\times\Gamma^{*}$
+\end_inset
+
+ es compacto por ser producto de compactos, 
+\begin_inset Formula $F$
+\end_inset
+
+ es uniformemente continua en 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ Dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $|z-z'|,|w-w'|<\delta$
+\end_inset
+
+ entonces 
+\begin_inset Formula $|F(z,w)-F(z',w')|<\varepsilon$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $|z_{n}-z_{0}|<\delta$
+\end_inset
+
+, entonces 
+\begin_inset Formula $|F(z_{n},w)-F(a,w)|<\varepsilon$
+\end_inset
+
+, luego 
+\begin_inset Formula $|h(z_{n})-h(a)|\leq\ell(\Gamma)\varepsilon$
+\end_inset
+
+ para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $h(z_{n})\to h(a)$
+\end_inset
+
+ y, como 
+\begin_inset Formula $a$
+\end_inset
+
+ es arbitrario, 
+\begin_inset Formula $h$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Si además, para 
+\begin_inset Formula $w\in\Gamma^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $F_{w}:\Omega\to\mathbb{C}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $F_{w}(z):=F(z,w)$
+\end_inset
+
+ es holomorfa en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, entonces 
+\begin_inset Formula $h\in{\cal H}(\Omega)$
+\end_inset
+
+.
+ Primero vemos que, dados 
+\begin_inset Formula $\gamma:[a,b]\to\mathbb{C}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma:[c,d]\to\mathbb{C}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{multline*}
+\int_{\sigma}\int_{\gamma}F(z,w)dw\,dz=\int_{c}^{d}\int_{a}^{b}F(\sigma(s),\gamma(t))\gamma'(t)dt\,\sigma'(s)ds=\\
+=\int_{a}^{b}\int_{c}^{d}F(\sigma(s),\gamma(t))\sigma'(s)ds\,\gamma'(t)dt=\int_{\gamma}\int_{\sigma}F(z,w)dz\,dw,
+\end{multline*}
+
+\end_inset
+
+y por linealidad esto también sirve cuando en vez de curvas tenemos cadenas.
+ Entonces, para 
+\begin_inset Formula $\Delta(a,b,c)\subseteq\Omega$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\int_{[a,b,c,a]}h=\int_{[a,b,c,a]}\int_{\Gamma}F(z,w)dw\,dz=\int_{\Gamma}\int_{[a,b,c,a]}F(z,w)dz\,dw=\int_{\Gamma}0\,dw=0,
+\]
+
+\end_inset
+
+pues 
+\begin_inset Formula $F_{w}(z)=F(z,w)$
+\end_inset
+
+ es holomorfa en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ Como el triángulo era arbitrario, el teorema de Morera nos dice que 
+\begin_inset Formula $h\in{\cal H}(\Omega)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Sea ahora 
+\begin_inset Formula 
+\[
+F(z,w):=\begin{cases}
+\frac{f(w)-f(z)}{w-z} & \text{si }z\neq w,\\
+f'(z) & \text{si }z=w.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $F$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $\{(z,w)\in\Omega\times\Omega:z\neq w\}$
+\end_inset
+
+.
+ Para ver que también lo es en los puntos de la forma 
+\begin_inset Formula $(a,a)$
+\end_inset
+
+ con 
+\begin_inset Formula $a\in\Omega$
+\end_inset
+
+, dado 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ con 
+\begin_inset Formula $D(a,\delta)\subseteq\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $|f'(z)-f'(a)|<\varepsilon$
+\end_inset
+
+ para 
+\begin_inset Formula $z\in D(a,\delta)$
+\end_inset
+
+, y queremos ver que, si 
+\begin_inset Formula $|z-a|,|w-a|<\delta$
+\end_inset
+
+, entonces 
+\begin_inset Formula $|F(z,w)-F(a,a)|=|F(z,w)-f'(a)|<\varepsilon$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $z=w$
+\end_inset
+
+, esto equivale a que 
+\begin_inset Formula $|f'(z)-f'(a)|<\varepsilon$
+\end_inset
+
+, que se cumple por hipótesis.
+ Para 
+\begin_inset Formula $z\neq w$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+f(z)-f(w)=\int_{[w,z]}f'(u)du=\int_{0}^{1}f'((1-t)w+tz)(z-w)dt,
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula 
+\[
+F(z,w)=\int_{0}^{1}f'((1-t)w+tz)dt.
+\]
+
+\end_inset
+
+Entonces
+\begin_inset Formula 
+\[
+|F(z,w)-f'(a)|=\left|\int_{0}^{1}(f'((1-t)w+tz)-f'(a))dt\right|\leq\int_{0}^{1}|f'((1-t)w+tz)-f'(a)|dt<\varepsilon,
+\]
+
+\end_inset
+
+pues 
+\begin_inset Formula $(1-t)w+tz\in[w,z]^{*}\subseteq D(a,\delta)$
+\end_inset
+
+ y podemos usar esta acotación.
+\end_layout
+
+\begin_layout Standard
+Ahora bien, fijado 
+\begin_inset Formula $w\in\Omega$
+\end_inset
+
+, sea 
+\begin_inset Formula $F_{w}(z):=F(w,z)$
+\end_inset
+
+, es claro que 
+\begin_inset Formula $F_{w}\in{\cal H}(\Omega\setminus\{w\})$
+\end_inset
+
+, y como 
+\begin_inset Formula $F_{w}\in{\cal C}(\Omega)$
+\end_inset
+
+, por el teorema de extensión de Riemann, 
+\begin_inset Formula $F_{w}\in{\cal H}(\Omega)$
+\end_inset
+
+, de donde 
+\begin_inset Formula $h\in{\cal H}(\Omega)$
+\end_inset
+
+ por el resultado de antes.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $\Omega_{0}:=\{z\in\mathbb{C}\setminus\Gamma^{*}:\text{Ind}_{\Gamma}(z)=0\}$
+\end_inset
+
+, que es abierto por ser unión de componentes conexas de 
+\begin_inset Formula $\mathbb{C}\setminus\Gamma^{*}$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+¿por qué las componentes son abiertas?
+\end_layout
+
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ es nulhomólogo respecto a 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{C}\setminus\Omega\subseteq\Omega_{0}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\Omega\cup\Omega_{0}=\mathbb{C}$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $F_{0}:\Omega_{0}\times\Gamma^{*}\to\mathbb{C}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $F_{0}(z,w):=\frac{f(w)}{w-z}$
+\end_inset
+
+.
+ Esta está bien definida por ser 
+\begin_inset Formula $\Omega_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $\Gamma^{*}$
+\end_inset
+
+ disjuntos y por tanto 
+\begin_inset Formula $z\neq w$
+\end_inset
+
+, y es continua.
+ Fijado 
+\begin_inset Formula $w\in\Omega^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $F_{0w}\in{\cal H}(\Omega_{0})$
+\end_inset
+
+ por ser una función racional, con lo que por el resultado del principio,
+\begin_inset Formula 
+\[
+h_{0}(z):=\int_{\Gamma}F_{0}(z,w)dw=\int_{\Gamma}\frac{f(w)}{w-z}dw
+\]
+
+\end_inset
+
+es holomorfa en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ Sea ahora
+\begin_inset Formula 
+\[
+\varphi(z):=\begin{cases}
+h(z) & \text{si }z\in\Omega,\\
+h_{0}(z) & \text{si }z\in\Omega_{0},
+\end{cases}
+\]
+
+\end_inset
+
+para ver que 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ está bien definida debemos ver que para 
+\begin_inset Formula $z\in\Omega\cap\Omega_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $h(z)=h_{0}(z)$
+\end_inset
+
+, pero como 
+\begin_inset Formula $z\in\Omega_{0}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $z\notin\Gamma^{*}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{multline*}
+h(z)=\int_{\Gamma}\frac{f(w)-f(z)}{w-z}dw=\int_{\Gamma}\frac{f(w)}{w-z}dw-f(z)\int_{\Gamma}\frac{1}{w-z}dw=\\
+=\int_{\Gamma}\frac{f(w)}{w-z}dw-f(z)\text{Ind}_{\Gamma}(z)2\pi i\overset{\text{Ind}_{\gamma}(z)=0}{=}h_{0}(z).
+\end{multline*}
+
+\end_inset
+
+Como 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ es holomorfa en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $\Omega_{0}$
+\end_inset
+
+, es entera.
+ Sea 
+\begin_inset Formula $R>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\Gamma^{*}\subseteq D(0,R)$
+\end_inset
+
+ y 
+\begin_inset Formula $|z|>R$
+\end_inset
+
+, entonces 
+\begin_inset Formula $z$
+\end_inset
+
+ está en la componente no acotada de 
+\begin_inset Formula $\mathbb{C}\setminus\Gamma^{*}$
+\end_inset
+
+ y por tanto en 
+\begin_inset Formula $\Omega_{0}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\varphi(z)=h_{0}(z)$
+\end_inset
+
+, y como 
+\begin_inset Formula $\forall w\in\Gamma^{*},|w-z|\geq|z|-R$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+|\varphi(z)|=\left|\int_{\Gamma}\frac{f(w)}{w-z}dw\right|\leq\ell(\Gamma)\max_{w\in\Gamma^{*}}\left|\frac{f(w)}{w-z}\right|\leq\ell(\Gamma)\frac{\max_{w\in\Gamma^{*}}|f(w)|}{|z|-R}.
+\]
+
+\end_inset
+
+Tomando límites cuando 
+\begin_inset Formula $z\to\infty$
+\end_inset
+
+ queda 
+\begin_inset Formula $\lim_{z\to\infty}\varphi(z)=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ está acotada y, por el teorema de Liouville, es constante, y como el límite
+ vale 0, es idénticamente nula.
+ Entonces, para 
+\begin_inset Formula $z\in\Omega\setminus\Gamma^{*}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{multline*}
+0=\varphi(z)=h(z)=\int_{\Gamma}\frac{f(w)-f(z)}{w-z}dw=\int_{\Gamma}\frac{f(w)}{w-z}dw-f(z)\int_{\Gamma}\frac{1}{w-z}dw=\\
+=\int_{\Gamma}\frac{f(w)}{w-z}dw-f(z)\text{Ind}_{\Gamma}(z)2\pi i,
+\end{multline*}
+
+\end_inset
+
+y despejando se obtiene la fórmula.
+\end_layout
+
+\begin_layout Standard
+En estas condiciones, la 
+\series bold
+forma general del teorema de Cauchy
+\series default
+ afirma que
+\begin_inset Formula 
+\[
+\int_{\Gamma}f=0.
+\]
+
+\end_inset
+
+ En efecto, para 
+\begin_inset Formula $a\in\Omega\setminus\Gamma^{*}$
+\end_inset
+
+, aplicando la fórmula integral de Cauchy a 
+\begin_inset Formula $g(z):=(z-a)f(z)$
+\end_inset
+
+, como 
+\begin_inset Formula $g(a)=0$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+0=g(a)\text{Ind}_{\Gamma}(a)=\frac{1}{2\pi i}\int_{\Gamma}\frac{(w-a)f(w)}{w-a}dw=\frac{1}{2\pi i}\int_{\Gamma}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dos ciclos 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ y 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ en un abierto 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ son 
+\series bold
+homológicamente equivalentes
+\series default
+ respecto de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall z\in\mathbb{C}\setminus\Omega,\text{Ind}_{\Gamma}(z)=\text{Ind}_{\Sigma}(z)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ es 
+\series bold
+homológicamente conexo
+\series default
+ si todo ciclo en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ es nulhomólogo respecto de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, si y sólo si es un abierto cuyo complemento no tiene componentes conexas
+ acotadas.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ un abierto de este tipo, 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ un camino cerrado en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $R>0$
+\end_inset
+
+ con 
+\begin_inset Formula $\gamma^{*}\subseteq D(0,R)$
+\end_inset
+
+, 
+\begin_inset Formula $z\notin\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $C$
+\end_inset
+
+ la componente conexa de 
+\begin_inset Formula $\mathbb{C}\setminus\Omega$
+\end_inset
+
+ que contiene a 
+\begin_inset Formula $z$
+\end_inset
+
+ y 
+\begin_inset Formula $U$
+\end_inset
+
+ la componente conexa no acotada de 
+\begin_inset Formula $\mathbb{C}\setminus\gamma^{*}$
+\end_inset
+
+.
+ Claramente 
+\begin_inset Formula $\mathbb{C}\setminus D(0,R)\subseteq U$
+\end_inset
+
+, y como por hipótesis, 
+\begin_inset Formula $C$
+\end_inset
+
+ no está acotada, debe ser 
+\begin_inset Formula $C\cap U\neq\emptyset$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $C\subseteq\mathbb{C}\setminus\Omega\subseteq\mathbb{C}\setminus\gamma^{*}$
+\end_inset
+
+, debe ser 
+\begin_inset Formula $C\subseteq U$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $z\in U$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\text{Ind}_{\gamma}(z)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Singularidades aisladas
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ un abierto, 
+\begin_inset Formula $a\in\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $f\in{\cal H}(\Omega\setminus\{a\})$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ es 
+\series bold
+regular
+\series default
+ en 
+\begin_inset Formula $a$
+\end_inset
+
+ o 
+\begin_inset Formula $a$
+\end_inset
+
+ es un 
+\series bold
+punto regular
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ si podemos definir 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $a$
+\end_inset
+
+ de forma que sea derivable en 
+\begin_inset Formula $a$
+\end_inset
+
+, si y solo si 
+\begin_inset Formula $\lim_{z\to a}f(z)\in\mathbb{C}$
+\end_inset
+
+ (suponiendo que dicho límite exista) por el teorema de extensión de Riemann,
+ y de lo contrario decimos que 
+\begin_inset Formula $a$
+\end_inset
+
+ es un 
+\series bold
+punto singular
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ o 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene una 
+\series bold
+singularidad aislada
+\series default
+ en 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un punto singular 
+\begin_inset Formula $a$
+\end_inset
+
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ es un 
+\series bold
+polo
+\series default
+ de orden 
+\begin_inset Formula $k$
+\end_inset
+
+ si 
+\begin_inset Formula $k$
+\end_inset
+
+ es el mínimo natural tal que 
+\begin_inset Formula $z\mapsto(z-a)^{k}f(z)$
+\end_inset
+
+ es regular, y si no existe tal 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $a$
+\end_inset
+
+ es una 
+\series bold
+singularidad esencial
+\series default
+.
+ La función 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene un polo en 
+\begin_inset Formula $a$
+\end_inset
+
+ de orden 
+\begin_inset Formula $k$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\lim_{z\to a}(z-a)^{k}f(z)\in\mathbb{C}^{*}$
+\end_inset
+
+ (suponiendo que el límite exista), si y sólo si 
+\begin_inset Formula $\exists\varphi\in{\cal H}(\Omega):(\varphi(a)\neq0\land\forall z\in\Omega\setminus\{a\},f(z)=\frac{\varphi(z)}{(z-a)^{k}})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dados un abierto 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $a\in\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $f\in{\cal H}(\Omega\setminus\{a\})$
+\end_inset
+
+, llamamos 
+\series bold
+residuo
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $a$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+\text{Res}(f,a):=\frac{1}{2\pi i}\int_{C(a,\rho)}f,
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $\rho$
+\end_inset
+
+ es cualquier radio tal que 
+\begin_inset Formula $D(a,\rho)\setminus\{a\}\subseteq\Omega$
+\end_inset
+
+.
+ El valor no depende del radio, pues 
+\begin_inset Formula 
+\begin{multline*}
+\int_{C(a,R)}f-\int_{C(a,\rho)}f=\\
+=\int_{C(a,R)|_{[0,\pi]}\dot{+}[-R,-\rho]\dot{-}C(a,\rho)|_{[0,\pi]}\dot{+}[\rho,R]}f+\int_{C(a,R)|_{[-\pi,0]}\dot{+}[R,\rho]\dot{-}C(a,\rho)|_{[-\pi,0]}\dot{+}[-\rho,-R]}f=0+0=0,
+\end{multline*}
+
+\end_inset
+
+incluyendo cada curva en un abierto nulhomólogo que contenga al semianillo.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a$
+\end_inset
+
+ es regular, 
+\begin_inset Formula $\text{Res}(f,a)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Basta extender 
+\begin_inset Formula $f$
+\end_inset
+
+ a 
+\begin_inset Formula $a$
+\end_inset
+
+ de forma holomorfa y aplicar el teorema de Cauchy.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Si 
+\begin_inset Formula $a$
+\end_inset
+
+ es un polo de orden 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\text{Res}(f,a)=\frac{1}{(k-1)!}\lim_{z\to a}\left((z-a)^{k}f(z)\right)^{(k-1)}.
+\]
+
+\end_inset
+
+Existe 
+\begin_inset Formula $g\in{\cal H}(\Omega)$
+\end_inset
+
+ con 
+\begin_inset Formula $g(z)=(z-a)^{k}f(z)$
+\end_inset
+
+ para 
+\begin_inset Formula $z\in\Omega\setminus\{a\}$
+\end_inset
+
+.
+ Cerca de 
+\begin_inset Formula $a$
+\end_inset
+
+, tendrá una serie de Taylor 
+\begin_inset Formula $\sum_{n}c_{n}(z-a)^{n}$
+\end_inset
+
+, pero por el teorema de Taylor, 
+\begin_inset Formula 
+\[
+\frac{g^{(n)}(a)}{n!}=c_{n}=\frac{1}{2\pi i}\int_{C(a,\rho)}\frac{g(z)}{(z-a)^{n+1}}dz,
+\]
+
+\end_inset
+
+y en particular
+\begin_inset Formula 
+\[
+\text{Res}(f,a)=\frac{1}{2\pi i}\int_{C(a,\rho)}f=\frac{1}{2\pi i}\int_{C(a,\rho)}\frac{g(z)}{(z-a)^{k}}dz=c_{k-1}=\frac{g^{(k-1)}(a)}{(k-1)!}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $f=\frac{g}{h}$
+\end_inset
+
+ con 
+\begin_inset Formula $g,h\in{\cal H}(\Omega)$
+\end_inset
+
+, las únicas singularidades de 
+\begin_inset Formula $f$
+\end_inset
+
+ son los ceros de 
+\begin_inset Formula $h$
+\end_inset
+
+, y si 
+\begin_inset Formula $h$
+\end_inset
+
+ tiene un cero de orden 
+\begin_inset Formula $k$
+\end_inset
+
+ en 
+\begin_inset Formula $a$
+\end_inset
+
+ y 
+\begin_inset Formula $g(a)\neq0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene un polo de orden 
+\begin_inset Formula $k$
+\end_inset
+
+ en 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ Si el polo es simple, 
+\begin_inset Formula 
+\[
+\text{Res}(f,a)=\frac{g(a)}{h'(a)}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\text{Res}(f,a)=\lim_{z\to a}(z-a)f(z)=\lim_{z\to a}(z-a)\frac{g(z)}{h(z)}=g(a)\lim_{z\to a}\frac{z-a}{h(z)}=\frac{g(a)}{h'(a)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Teorema de los residuos
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\Omega\subseteq\mathbb{C}$
+\end_inset
+
+ abierto, 
+\begin_inset Formula $S\subseteq\Omega$
+\end_inset
+
+ con 
+\begin_inset Formula $S'\cap\Omega=\emptyset$
+\end_inset
+
+, 
+\begin_inset Formula $f\in{\cal H}(\Omega\setminus S)$
+\end_inset
+
+ y 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ un ciclo en 
+\begin_inset Formula $\Omega\setminus S$
+\end_inset
+
+ nulhomólogo respecto de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\{a\in S:\text{Ind}_{\Gamma}(a)\neq0\}$
+\end_inset
+
+ es finito y
+\begin_inset Formula 
+\[
+\int_{\Gamma}f=2\pi i\sum_{a\in S}\text{Res}(f,a)\text{Ind}_{\Gamma}(a).
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $\Omega_{0}=\{z\in\mathbb{C}\setminus\Gamma^{*}:\text{Ind}_{\Gamma}(z)=0\}$
+\end_inset
+
+, que es abierto por ser unión de componentes conexas de 
+\begin_inset Formula $\mathbb{C}\setminus\Gamma^{*}$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+¿por qué?
+\end_layout
+
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ es nulhomólogo respecto de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{C}\setminus\Omega\subseteq\Omega_{0}$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $K:=\mathbb{C}\setminus\Omega_{0}=\Gamma^{*}\cup\{z\in\mathbb{C}\setminus\Gamma^{*}:\text{Ind}_{\Gamma}(z)\neq0\}$
+\end_inset
+
+, que es cerrado por ser complementario de un abierto y acotado porque no
+ corta a la componente no acotada de 
+\begin_inset Formula $\mathbb{C}\setminus\Gamma^{*}$
+\end_inset
+
+, luego es compacto.
+ Si 
+\begin_inset Formula $S\cap K=\{a\in S:\text{Ind}_{\Gamma}(z)\neq0\}$
+\end_inset
+
+ no fuera finito, tendría un punto de acumulación que, por compacidad, debería
+ quedarse en 
+\begin_inset Formula $K\subseteq\Omega$
+\end_inset
+
+, luego no sería 
+\begin_inset Formula $S'\cap\Omega=\emptyset\#$
+\end_inset
+
+.
+ Así, la suma en el enunciado del teorema es finita.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $S\cap K=:\{a_{1},\dots,a_{q}\}$
+\end_inset
+
+, 
+\begin_inset Formula $\rho>0$
+\end_inset
+
+ tal que para cada 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $\overline{D}(a_{k},\rho)\subseteq\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{D}(a_{k},\rho)\cap S=\{a_{k}\}$
+\end_inset
+
+, 
+\begin_inset Formula $m_{k}:=\text{Ind}_{\Gamma}(a_{k})$
+\end_inset
+
+, 
+\begin_inset Formula $\gamma_{k}:=C(a_{k},\rho)$
+\end_inset
+
+ y 
+\begin_inset Formula $\Sigma:=\sum_{k=1}^{q}m_{k}\gamma_{k}$
+\end_inset
+
+.
+ Veamos que 
+\begin_inset Formula $\Gamma-\Sigma$
+\end_inset
+
+ es nulhomólogo respecto de 
+\begin_inset Formula $\Omega\setminus S$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $z\notin\Omega\setminus S$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $z\notin\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $\text{Ind}_{\Gamma}(z)=0$
+\end_inset
+
+, y como 
+\begin_inset Formula $z\notin\overline{D}(a_{k},\rho)$
+\end_inset
+
+ para ningún 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $\text{Ind}_{\Sigma}(z)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $z\in S$
+\end_inset
+
+, 
+\begin_inset Formula $z\neq a_{1},\dots,a_{q}$
+\end_inset
+
+, 
+\begin_inset Formula $\text{Ind}_{\Gamma}(z)=0$
+\end_inset
+
+ y como, por definición, 
+\begin_inset Formula $z\notin\overline{D}(a_{k},\rho)$
+\end_inset
+
+ para ningún 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $\text{Ind}_{\Sigma}(z)=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $z=a_{j}$
+\end_inset
+
+ para algún 
+\begin_inset Formula $j$
+\end_inset
+
+, 
+\begin_inset Formula $\text{Ind}_{\Gamma}(a_{j})=m_{j}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\text{Ind}_{\gamma_{j}}(a_{j})=1$
+\end_inset
+
+, y para 
+\begin_inset Formula $k\neq j$
+\end_inset
+
+, 
+\begin_inset Formula $a_{j}\notin\overline{D}(a_{k},\rho)$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\text{Ind}_{\gamma_{k}}(a_{j})=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\text{Ind}_{\Sigma}(a_{j})=m_{j}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Aplicando ahora el teorema de Cauchy,
+\begin_inset Formula 
+\[
+\int_{\Gamma-\Sigma}f=0,
+\]
+
+\end_inset
+
+luego
+\begin_inset Formula 
+\[
+\int_{\Gamma}f=\int_{\Sigma}f=\sum_{k=1}^{q}m_{k}\int_{\gamma_{k}}f=\sum_{k=1}^{q}\text{Ind}_{\Gamma}(a_{j})\int_{C(a_{j},\rho)}f=2\pi i\sum_{k=1}^{q}\text{Ind}_{\Gamma}(a_{j})\text{Res}(f,a_{j}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

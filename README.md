@@ -21,6 +21,8 @@ son las siguientes:
 * `fvv3`: Funciones de Varias Variables III (sólo PDF).
 * `edo`: Ecuaciones Diferenciales Ordinarias (sólo PDF).
 * `epe`: Elementos de Probabilidad y Estadística (sólo PDF).
+* `cn`: Cálculo Numérico (sólo PDF).
+* `fvc`: Funciones de Variable Compleja (falta la primera parte).
 
 Las asignaturas de ingeniería informática que se incluyen son las siguientes:
 
