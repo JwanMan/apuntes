@@ -22,6 +22,7 @@ son las siguientes:
 * `edo`: Ecuaciones Diferenciales Ordinarias (sólo PDF).
 * `epe`: Elementos de Probabilidad y Estadística (sólo PDF).
 * `cn`: Cálculo Numérico (sólo PDF).
+* `ol`: Optimización Lineal (sólo PDF).
 * `fvc`: Funciones de Variable Compleja (falta la primera parte).
 
 Las asignaturas de ingeniería informática que se incluyen son las siguientes:
@@ -38,6 +39,8 @@ Las asignaturas de ingeniería informática que se incluyen son las siguientes:
 * `aed2`: Algoritmos y Estructuras de Datos II (sólo PDF).
 * `pcd`: Programación Concurrente y Distribuida (sólo PDF).
 * `rc`: Redes de Comunicaciones (sólo PDF).
+* `aec`: Ampliación y Estructura de Computadores (sólo PDF).
+* `ar`: Ampliación de Redes (sólo PDF).
 
 Las siguientes asignaturas están en progreso:
 
