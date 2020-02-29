@@ -1,0 +1,1571 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+lector de correo
+\series default
+ o 
+\series bold
+agente de usuario
+\series default
+ de correo (
+\series bold
+UA
+\series default
+, 
+\emph on
+User Agent
+\emph default
+) es un programa como Thunderbird que permite componer, editar y leer mensajes
+ de correo electrónico.
+ Los mensajes enviados y recibidos se almacenan en un 
+\series bold
+servidor de correo
+\series default
+ (
+\emph on
+mail server
+\emph default
+), que contiene 
+\series bold
+\emph on
+mailboxes
+\series default
+\emph default
+ con los mensajes recibidos de cada usuario y 
+\series bold
+colas de mensajes
+\series default
+ (
+\emph on
+message queues
+\emph default
+) con los mensajes que se van a enviar.
+\end_layout
+
+\begin_layout Section
+SMTP
+\end_layout
+
+\begin_layout Standard
+El envío de correos del agente de usuario a su servidor y entre servidores
+ se hace con el protocolo 
+\series bold
+SMTP
+\series default
+ (
+\emph on
+Simple Mail Transfer Protocol
+\emph default
+), en el RFC 2821, que funciona sobre TCP, tradicionalmente en el puerto
+ 25.
+ La conexión la inicia el servidor que envía el correo y la transferencia
+ se hace en tres fases, que si no hay problemas transcurren como sigue:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\emph on
+Handshaking
+\series default
+\emph default
+ o 
+\series bold
+\emph on
+greeting
+\series default
+\emph default
+: El receptor envía una línea 
+\family typewriter
+220 
+\emph on
+dominio_receptor
+\family default
+\emph default
+, el emisor responde con una línea 
+\family typewriter
+HELO 
+\emph on
+dominio_emisor
+\family default
+\emph default
+ y el receptor confirma con una línea 
+\family typewriter
+250 
+\emph on
+saludo_cordial
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+Transferencia de mensajes: Para cada mensaje a enviar, el emisor envía una
+ línea 
+\family typewriter
+MAIL FROM: 
+\emph on
+emisor
+\family default
+\emph default
+ y el receptor responde con 
+\family typewriter
+250 
+\emph on
+mensaje
+\family default
+\emph default
+, el emisor envía una línea 
+\family typewriter
+RCPT TO: 
+\emph on
+receptor
+\family default
+\emph default
+ y el receptor responde con 
+\family typewriter
+250 
+\emph on
+mensaje
+\family default
+\emph default
+, el emisor envía una línea 
+\family typewriter
+DATA
+\family default
+, el receptor envía una línea 
+\family typewriter
+354 
+\emph on
+mensaje
+\family default
+\emph default
+, y el emisor envía el texto del correo seguido de una línea sólo con un
+ punto.
+ Los mensajes están en ASCII de 7 bits y no pueden contener una línea sólo
+ con un punto.
+ El emisor y receptor tienen formato 
+\family typewriter
+<
+\emph on
+usuario
+\emph default
+@
+\emph on
+dominio
+\emph default
+>
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Cierre: El emisor envía una línea 
+\family typewriter
+QUIT
+\family default
+ y el receptor responde con una 
+\family typewriter
+221 
+\emph on
+mensaje
+\family default
+\emph default
+ y cierra la conexión.
+\end_layout
+
+\begin_layout Standard
+Las líneas se separan con retorno de carro y salto de línea (
+\begin_inset Quotes cld
+\end_inset
+
+CRLF
+\begin_inset Quotes crd
+\end_inset
+
+), y no se puede enviar uno de los dos caracteres sin que forme parte de
+ esta combinación.
+ Las líneas tienen un máximo de 1000 caracteres, contando el CRLF.
+ El programa de servidor que recibe y que guarda o reenvía los mensajes
+ SMTP según corresponda es el 
+\emph on
+Mail Transfer Agent
+\emph default
+ (
+\series bold
+MTA
+\series default
+).
+\end_layout
+
+\begin_layout Standard
+El RFC 822 y sus actualizaciones definen el formato estándar del texto de
+ los correos, con líneas de cabecera, una línea vacía y el cuerpo del mensaje.
+ Las líneas de cabecera tienen formato 
+\family typewriter
+\emph on
+Nombre
+\emph default
+: 
+\emph on
+valor
+\family default
+\emph default
+:
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Bcc
+\family default
+ Direcciones para copias 
+\begin_inset Quotes cld
+\end_inset
+
+ciegas
+\begin_inset Quotes crd
+\end_inset
+
+.
+ Las direcciones indicadas reciben el correo, pero ningún receptor recibe
+ esta cabecera, por lo que solo aparece en carpetas de correo enviado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Cc
+\family default
+ Direcciones de los destinatarios secundarios.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Date
+\family default
+ Fecha y hora de envío del mensaje.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+From
+\family default
+ Quién escribió el mensaje.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+In-Reply-To
+\family default
+ Identificador del mensaje al que este responde.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Message-Id
+\family default
+ Identificador único del mensaje.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Received
+\family default
+ MTA por el que ha pasado el mensaje.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Reply-To
+\family default
+ Dirección a la que deben enviarse las respuestas.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Return-Path
+\family default
+ Añadido por el último MTA, indica la trayectoria de regreso calculada según
+ las cabeceras 
+\family typewriter
+Received
+\family default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Sender
+\family default
+ Quién envió el mensaje.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Subject
+\family default
+ Asunto del mensaje.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+To
+\family default
+ Direcciones de los destinatarios primarios.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+X-
+\emph on
+Algo
+\family default
+\emph default
+ Cabecera no estándar.
+\end_layout
+
+\begin_layout Section
+Protocolos de acceso
+\end_layout
+
+\begin_layout Standard
+Hay varios protocolos para acceder al correo recibido en el servidor.
+ 
+\series bold
+POP
+\series default
+ (
+\emph on
+Post Office Protocol
+\emph default
+), en el RFC 1939, permite control de acceso y descarga.
+ Su evolución, 
+\series bold
+POP3
+\series default
+, tiene 3 estados:
+\end_layout
+
+\begin_layout Description
+Autorización
+\begin_inset space ~
+\end_inset
+
+(
+\family typewriter
+AUTHORIZATION
+\family default
+) Comandos 
+\family typewriter
+\series bold
+user 
+\emph on
+usuario
+\family default
+\series default
+\emph default
+ y 
+\family typewriter
+pass 
+\emph on
+password
+\family default
+\emph default
+, en orden, para autenticarse, o 
+\family typewriter
+quit
+\family default
+ para desconectar, a los que el servidor responde con 
+\family typewriter
++OK
+\family default
+ en caso de éxito o 
+\family typewriter
+-ERR
+\family default
+ si hay fallo.
+ Si ambos tienen éxito, el servidor bloquea el 
+\emph on
+mailbox
+\emph default
+ y pasa al siguiente estado.
+\end_layout
+
+\begin_layout Description
+Transacción
+\begin_inset space ~
+\end_inset
+
+(
+\family typewriter
+TRANSACTION
+\family default
+) Comandos 
+\family typewriter
+list
+\family default
+ para obtener una lista de mensajes del servidor, con una línea 
+\family typewriter
+\emph on
+n ID
+\family default
+\emph default
+ para cada mensaje, siendo 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+ el ordinal del mensaje que no cambia mientras el 
+\emph on
+mailbox
+\emph default
+ siga bloqueado e 
+\family typewriter
+\emph on
+ID
+\family default
+\emph default
+ su identificador, ambos números, y finalmente una línea con 
+\begin_inset Quotes cld
+\end_inset
+
+
+\family typewriter
+.
+\family default
+
+\begin_inset Quotes crd
+\end_inset
+
+; 
+\family typewriter
+retr 
+\emph on
+n
+\family default
+\emph default
+ para obtener un mensaje con un cierto ordinal, acabado en una línea con
+ 
+\begin_inset Quotes cld
+\end_inset
+
+
+\family typewriter
+.
+\family default
+
+\begin_inset Quotes crd
+\end_inset
+
+; 
+\family typewriter
+dele 
+\emph on
+n
+\family default
+\emph default
+ para borrar un mensaje, a lo que el servidor no responde, y 
+\family typewriter
+quit
+\family default
+ para pasar al siguiente estado, con igual respuesta que en 
+\family typewriter
+AUTHORIZATION
+\family default
+.
+\end_layout
+
+\begin_layout Description
+Actualización
+\begin_inset space ~
+\end_inset
+
+(
+\family typewriter
+\series bold
+UPDATE
+\family default
+)
+\series default
+ El servidor libera el bloqueo del 
+\emph on
+mailbox
+\emph default
+ y desconecta.
+\end_layout
+
+\begin_layout Standard
+Los clientes POP3 suelen funcionar en modo 
+\begin_inset Quotes cld
+\end_inset
+
+descargar y borrar
+\begin_inset Quotes crd
+\end_inset
+
+, enviando 
+\family typewriter
+list
+\family default
+ seguido de 
+\family typewriter
+retr
+\family default
+ y 
+\family typewriter
+dele
+\family default
+ repetidamente para descargar los mensajes, lo que impide acceder a estos
+ desde varios dispositivos, o 
+\begin_inset Quotes cld
+\end_inset
+
+descargar y mantener
+\begin_inset Quotes crd
+\end_inset
+
+, igual pero sin ejecutar 
+\family typewriter
+dele
+\family default
+, lo que normalmente hace que se descarguen duplicados.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+IMAP
+\series default
+ (
+\emph on
+Internet Mail Access Protocol
+\emph default
+), en el RFC 2060 y que funciona en el puerto TCP 143, mantiene los mensajes
+ en el servidor y permite al usuario organizarlos en carpetas y acceder
+ a ellas de forma remota, dando flexibilidad de acceso entre distintos dispositi
+vos, a cambio de que, si no hay conexión a internet, no se puede acceder
+ al correo.
+ Funciona con 4 estados:
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+NOT
+\begin_inset space ~
+\end_inset
+
+AUTHENTICATED
+\family default
+ Comandos 
+\family typewriter
+LOGIN
+\family default
+, 
+\family typewriter
+AUTHENTICATE
+\family default
+ y 
+\family typewriter
+STARTTLS
+\family default
+ para pasar al siguiente estado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+AUTHENTICATED
+\family default
+ Comandos 
+\family typewriter
+CREATE
+\family default
+, 
+\family typewriter
+DELETE
+\family default
+, 
+\family typewriter
+RENAME
+\family default
+, 
+\family typewriter
+SUBSCRIBE
+\family default
+, 
+\family typewriter
+UNSUBSCRIBE
+\family default
+, 
+\family typewriter
+LIST
+\family default
+, 
+\family typewriter
+LSUB
+\family default
+, 
+\family typewriter
+STATUS
+\family default
+ y 
+\family typewriter
+APPEND
+\family default
+ para manejar el correo y 
+\family typewriter
+SELECT
+\family default
+ y 
+\family typewriter
+EXAMINE
+\family default
+ para pasar al siguiente estado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+SELECTED
+\family default
+ Comando 
+\family typewriter
+CLOSE
+\family default
+ o fallo en 
+\family typewriter
+SELECT
+\family default
+ o 
+\family typewriter
+EXAMINE
+\family default
+ para pasar al estado anterior y comando 
+\family typewriter
+LOGOUT
+\family default
+ para pasar al siguiente.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+LOGOUT
+\family default
+ Desconecta.
+\end_layout
+
+\begin_layout Standard
+Muchos servidores de correo proporcionan un servicio 
+\emph on
+webmail
+\emph default
+, que permite enviar y acceder al correo por HTTP a través de página web
+ con un navegador.
+\end_layout
+
+\begin_layout Section
+MIME
+\end_layout
+
+\begin_layout Standard
+SMTP no permite caracteres no ASCII, ficheros binarios, líneas largas o
+ líneas sólo con un punto.
+ Para solucionarlo se crea 
+\series bold
+MIME
+\series default
+ (
+\emph on
+Multipurpose Internet Mail Extensions
+\emph default
+), en los RFCs 2045–9, una extensión del formato de los mensajes de correo
+ que añade las siguientes cabeceras:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="16" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="middle" width="14col%">
+<column alignment="left" valignment="middle" width="17col%">
+<column alignment="left" valignment="middle" width="60col%">
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tipo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Subtipo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+text
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+plain
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Texto plano, por defecto.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+enriched
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Texto enriquecido con 
+\emph on
+tags
+\emph default
+ XML como 
+\family typewriter
+<bold>
+\family default
+, 
+\family typewriter
+<italic>
+\family default
+, 
+\family typewriter
+<smaller>
+\family default
+ o 
+\family typewriter
+<bigger>
+\family default
+.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+multipart
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+mixed
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Parámetro 
+\family typewriter
+boundary=
+\emph on
+boundary
+\family default
+\emph default
+.
+ Varios ficheros independientes separados por una línea 
+\family typewriter
+--
+\emph on
+boundary
+\family default
+\emph default
+, con preámbulo antes de la primera línea 
+\family typewriter
+--
+\emph on
+boundary
+\family default
+\emph default
+ y epílogo tras la última ignorados.
+ Cada fichero tiene sus propias cabeceras.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+parallel
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Igual, pero las partes se abren a la vez.
+ Por ejemplo, un vídeo y un audio que reproducen en paralelo.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+alternative
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Igual, pero cada parte es una versión alternativa del mismo contenido, en
+ orden creciente de parecido con el original.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+digest
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Como 
+\family typewriter
+mixed
+\family default
+ pero el tipo/subtipo por defecto de cada parte es 
+\family typewriter
+message/rfc822
+\family default
+ en vez de 
+\family typewriter
+text/plain
+\family default
+.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+message
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+rfc822
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mensaje de correo encapsulado.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+partial
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Usado para permitir fragmentación de objetos grandes de forma transparente
+ al receptor cuando se supera el tamaño máximo permitido por el MTA.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+external-body
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Puntero a un objeto en otra ubicación.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+image
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+jpeg
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Imagen en formato JPEG/JFIF.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+gif
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Imagen en formato GIF.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+video
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+mpeg
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vídeo en formato MPEG.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+audio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+basic
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Audio PCM mono de 8 bits con ratio de muestreo de 
+\begin_inset Formula $\unit[8]{kHz}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+application
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+postscript
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Documento en formato Adobe PostScript.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+octet-stream
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Flujo de bytes de 8 bits no interpretado.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:mime"
+
+\end_inset
+
+Algunos tipos MIME.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+MIME-Version
+\family default
+ 
+\family typewriter
+1.0
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Content-Type
+\family default
+ Tipo de contenido, con formato 
+\family typewriter
+\emph on
+tipo
+\emph default
+/
+\emph on
+subtipo
+\family default
+\emph default
+[
+\family typewriter
+; 
+\emph on
+parámetro
+\emph default
+=
+\emph on
+valor
+\emph default
+; 
+\family default
+...], de los que vemos algunos en el cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:mime"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Content-Transfer-Encoding
+\family default
+ Codificación del cuerpo del mensaje:
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+7bit
+\family default
+ Líneas de hasta 1000 bytes, contando el CRLF, en ASCII.
+ Por defecto.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+8bit
+\family default
+ Igual, pero puede haber caracteres no ASCII.
+ Puede no estar soportado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+binary
+\family default
+ Igual, pero puede haber líneas arbitrariamente largas.
+ Puede no estar soportado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+quoted-printable
+\family default
+ Permite añadir caracteres de 8 bits mediante 
+\family typewriter
+=XX
+\family default
+, siendo 
+\family typewriter
+XX
+\family default
+ el caracter en hexadecimal.
+ El caracter 
+\family typewriter
+=
+\family default
+ también se sustituye.
+ Las líneas tienen tamaño máximo de 76 caracteres sin contar el CRLF, pero
+ un 
+\family typewriter
+=
+\family default
+ antes de un salto de línea hace que este se ignore, permitiendo líneas
+ más largas.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+base64
+\family default
+ Cada 3 caracteres de 8 bits se agrupan en 4 grupos de 6 bits, y los valores
+ resultantes de 0 a 63 se convierten, en orden ascendente, en 
+\family typewriter
+A
+\family default
+–
+\family typewriter
+Z
+\family default
+, 
+\family typewriter
+a
+\family default
+–
+\family typewriter
+z
+\family default
+, 
+\family typewriter
+0
+\family default
+–
+\family typewriter
+9
+\family default
+, 
+\family typewriter
++
+\family default
+ y 
+\family typewriter
+/
+\family default
+, a representar en líneas de hasta 76 caracteres sin contar el CRLF.
+ Si el tamaño del fichero no es múltiplo de 3, se añaden bits 0 a la derecha
+ para que el resultado sea múltiplo de 6 bits y se añade un 
+\family typewriter
+=
+\family default
+ al final del mensaje codificado por cada 2 bits añadidos.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+x-
+\emph on
+algo
+\family default
+\emph default
+ Codificación no estándar.
+\end_layout
+
+\end_deeper
+\end_body
+\end_document
