@@ -1,0 +1,943 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una 
+\series bold
+página web
+\series default
+ es un fichero HTML que puede tener referencias a objetos: otros ficheros
+ HTML, imágenes, vídeos, etc., cada uno direccionable a través de una 
+\series bold
+URL
+\series default
+, con formato 
+\family typewriter
+\emph on
+protocolo
+\emph default
+:/
+\family default
+*
+\family typewriter
+\emph on
+host
+\emph default
+/
+\emph on
+ruta
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+HTTP
+\series default
+, 
+\emph on
+Hypertext Transfer Protocol
+\emph default
+, es el protocolo usado en la web, en el que un cliente, normalmente un
+ navegador, solicita objetos web a un servidor y este se los envía en respuesta,
+ usando TCP normalmente en el puerto 80.
+ Es un protocolo sin estado, en el que el servidor no mantiene información
+ sobre peticiones de cliente anteriores.
+ Los protocolos con estado persistente requieren que el servidor almacene
+ información de forma permanente, y si el cliente o el servidor caen, sus
+ vistas del estado pueden quedar inconsistentes y deben resincronizarse.
+ 
+\end_layout
+
+\begin_layout Standard
+Una conexión HTTP es 
+\series bold
+no persistente
+\series default
+ si, una vez se envía un objeto, se cierra la conexión, requiriendo 2 RTTs
+ por objeto más el tiempo de transmisión del fichero y sobrecargado el sistema
+ operativo al necesitar varias conexiones TCP, normalmente paralelas, para
+ traer los objetos.
+ Es 
+\series bold
+persistente
+\series default
+ si la misma conexión se puede usar para varios objetos, en cuyo caso normalment
+e el cliente envía la petición por la conexión tan pronto encuentra una
+ referencia (
+\emph on
+pipeline
+\emph default
+) y solo es necesario un RTT por objeto referenciado.
+\end_layout
+
+\begin_layout Standard
+Los mensajes de solicitud están formados por una línea 
+\family typewriter
+\emph on
+MÉTODO
+\emph default
+ /
+\emph on
+ruta
+\emph default
+ HTTP/
+\emph on
+versión
+\family default
+\emph default
+, líneas de cabecera y un cuerpo opcional, y los de respuesta tienen el
+ mismo formato salvo que la primera línea es 
+\family typewriter
+HTTP/
+\emph on
+versión estado descripción
+\family default
+\emph default
+.
+ En la versión 
+\family typewriter
+1.0
+\family default
+, los métodos son:
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+GET
+\family default
+ Solicita un objeto.
+ No incluye cuerpo.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+POST
+\family default
+ Envía datos al servidor en el cuerpo.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+HEAD
+\family default
+ Como 
+\family typewriter
+GET
+\family default
+, pero indica al servidor que no incluya el cuerpo en la respuesta.
+\end_layout
+
+\begin_layout Standard
+Al rellenar un formulario en una página web, se pasa a la página indicada
+ en el formulario indicando al servidor los datos introducidos.
+ Esto se puede hacer mediante 
+\family typewriter
+POST
+\family default
+, con los datos en el cuerpo, en cuyo caso la página no se añade al historial
+ del navegador, o mediante 
+\family typewriter
+GET
+\family default
+, en cuyo caso los datos se añaden al final de la URL separado por 
+\family typewriter
+?
+\family default
+.
+ Así, 
+\family typewriter
+GET
+\family default
+ permite al usuario conservar las consultas realizadas en el historial,
+ pero 
+\family typewriter
+POST
+\family default
+ no está restringido por el tamaño de URL máximo soportado por el servidor.
+\end_layout
+
+\begin_layout Standard
+El tipo MIME 
+\family typewriter
+application/x-www-form-urlencoded
+\family default
+ se refiere al formato usado para estos datos en peticiones 
+\family typewriter
+GET
+\family default
+ y, normalmente, también en peticiones 
+\family typewriter
+POST
+\family default
+.
+ En este, se envían una serie de asociaciones 
+\family typewriter
+\emph on
+clave
+\emph default
+=
+\emph on
+valor
+\family default
+\emph default
+ separadas por 
+\family typewriter
+&
+\family default
+, donde los espacios se sustituyen por 
+\family typewriter
++
+\family default
+ y los caracteres 
+\family typewriter
+=
+\family default
+, 
+\family typewriter
+&
+\family default
+, 
+\family typewriter
++
+\family default
+, 
+\family typewriter
+%
+\family default
+ y no imprimibles se sustituyen por 
+\family typewriter
+%XX
+\family default
+, donde 
+\family typewriter
+XX
+\family default
+ es la representación del byte en hexadecimal en mayúscula.
+ Cuando hay varios tipos de datos en 
+\family typewriter
+POST
+\family default
+, se usa el tipo MIME 
+\family typewriter
+multipart/form-data
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+La versión 
+\family typewriter
+1.1
+\family default
+ de HTTP incluye también los métodos:
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+PUT
+\family default
+ Carga el fichero en el cuerpo del mensaje en el directorio indicado en
+ la URL.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+DELETE
+\family default
+ Elimina el fichero indicado.
+ No incluye cuerpo.
+\end_layout
+
+\begin_layout Standard
+Los estados de respuesta tienen un código numérico y van seguidos de una
+ descripción.
+ Son:
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+200
+\begin_inset space ~
+\end_inset
+
+OK
+\family default
+ Solicitud exitosa.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+301
+\begin_inset space ~
+\end_inset
+
+Moved
+\begin_inset space ~
+\end_inset
+
+Permanently
+\family default
+ Objeto movido a otra URL.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+304
+\begin_inset space ~
+\end_inset
+
+Not
+\begin_inset space ~
+\end_inset
+
+Modified
+\family default
+ Objeto no modificado desde la última vez.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+400
+\begin_inset space ~
+\end_inset
+
+Bad
+\begin_inset space ~
+\end_inset
+
+Request
+\family default
+ Solicitud no entendida por el servidor.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+404
+\begin_inset space ~
+\end_inset
+
+Not
+\begin_inset space ~
+\end_inset
+
+Found
+\family default
+ Objeto no encontrado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+505
+\begin_inset space ~
+\end_inset
+
+HTTP
+\begin_inset space ~
+\end_inset
+
+Version
+\begin_inset space ~
+\end_inset
+
+Not
+\begin_inset space ~
+\end_inset
+
+Supported
+\family default
+ Versión de HTTP no soportada.
+\end_layout
+
+\begin_layout Standard
+La cabecera está formada por líneas 
+\family typewriter
+\emph on
+Clave
+\emph default
+: 
+\emph on
+valor
+\family default
+\emph default
+, siendo claves comunes en una solicitud las siguientes:
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Accept
+\family default
+ Formatos de objeto aceptados por el cliente.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Accept-Language
+\family default
+ Lenguajes aceptados por el cliente.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Connection
+\family default
+ Si es 
+\family typewriter
+close
+\family default
+, la conexión es no persistente.
+ Si es 
+\family typewriter
+Keep-Alive
+\family default
+, solicita que sea persistente.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Cookie
+\family default
+ Devuelve una 
+\emph on
+cookie
+\emph default
+ al servidor.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Date
+\family default
+ Fecha actual.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Host
+\family default
+ Nombre de dominio del host.
+ Usado para distinguir entre varios nombres de dominio con la misma IP y
+ puerto para HTTP.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+If-Modified-Since
+\family default
+ Solo se quiere el documento si se ha modificado desde la fecha indicada.
+ De lo contrario, el servidor responde con código de estado 304.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Referer
+\family default
+ URL del documento desde el que se accedió al actual.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+User-Agent
+\family default
+ Navegador del cliente.
+\end_layout
+
+\begin_layout Standard
+Claves comunes en una respuesta:
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Content-Length
+\family default
+ Longitud en bytes del cuerpo de la respuesta.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Content-Type
+\family default
+ Tipo MIME que identifica al dato de la respuesta.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Cookie
+\family default
+ Solicita al cliente que almacene una 
+\emph on
+cookie
+\emph default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Last-Modified
+\family default
+ Fecha y hora de última modificación.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Location
+\family default
+ Nueva URL del documento en caso de redirección.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+MIME-Version
+\family default
+ Versión del protocolo MIME usada por el servidor.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Server
+\family default
+ Nombre y versión del servidor.
+\end_layout
+
+\begin_layout Standard
+El cuerpo de un mensaje está separado de la cabecera mediante una línea
+ vacía, y las líneas se separan por retorno de carro y salto de línea (
+\family typewriter
+
+\backslash
+r
+\backslash
+n
+\family default
+).
+\end_layout
+
+\begin_layout Standard
+Los clientes pueden tener un fichero de 
+\emph on
+cookies
+\emph default
+ donde, para cada nombre de dominio, almacenan asociaciones clave-valor
+ indicadas por el servidor en líneas de cabecera, y que devuelven al servidor
+ en las líneas de cabecera de solicitudes posteriores.
+ El formato de las 
+\emph on
+cookies
+\emph default
+ es una lista de campos separados por 
+\begin_inset Quotes cld
+\end_inset
+
+
+\family typewriter
+; 
+\family default
+
+\begin_inset Quotes crd
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\emph on
+nombre
+\emph default
+=
+\emph on
+valor
+\family default
+\emph default
+ Asocia a una propiedad un valor específico.
+ Espacio, coma y punto y coma se traducen en secuencias de escape.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+expires=
+\series bold
+\emph on
+weekday
+\series default
+\emph default
+,
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+DD
+\emph default
+-
+\emph on
+MM
+\emph default
+-
+\emph on
+YY
+\emph default
+ 
+\series bold
+\emph on
+hh
+\emph default
+:
+\emph on
+mm
+\emph default
+:
+\emph on
+ss
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+GMT
+\family default
+\series default
+ Fecha de caducidad de la 
+\emph on
+cookie
+\emph default
+, por defecto al cerrar el navegador.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+domain=
+\emph on
+ámbito
+\family default
+\emph default
+ Ámbito de la 
+\emph on
+cookie
+\emph default
+, por defecto el dominio desde donde se genera.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+path=
+\emph on
+camino
+\family default
+\emph default
+ Recursos a los que se envía la 
+\emph on
+cookie
+\emph default
+, por defecto la página que la genera.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+secure
+\family default
+ La 
+\emph on
+cookie
+\emph default
+ solo se envía cuando se usa HTTPS.
+\end_layout
+
+\begin_layout Standard
+Son una forma de mantener un estado y se pueden usar para autenticación,
+ preferencias y rastreo a través de la web.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+caché web
+\series default
+ o 
+\series bold
+servidor 
+\emph on
+proxy
+\series default
+\emph default
+ es un servidor distinto al origen al que se envían peticiones web y que
+ puede responder a solicitudes sin involucrar a este a través de una caché,
+ solicitando el objeto desde el servidor origen si no está en caché.
+ Normalmente son instalados por ISPs para reducir el tiempo de respuesta
+ o el tráfico en el enlace de acceso a un servidor, permitiendo que un servidor
+ lento pueda entregar el contenido de modo efectivo sin saturarse.
+\end_layout
+
+\begin_layout Standard
+Un servidor web 
+\begin_inset Quotes cld
+\end_inset
+
+genérico
+\begin_inset Quotes crd
+\end_inset
+
+ no puede procesar cualquier tipo de consulta, por lo que normalmente se
+ encarga solo del envío de objetos convencional y, para otro tipo de peticiones,
+ como peticiones 
+\family typewriter
+POST
+\family default
+, envía el contenido a un programa mediante una interfaz como 
+\series bold
+CGI
+\series default
+, 
+\emph on
+Common Gateway Interface
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+En esta, el servidor inicia un proceso con el programa 
+\series bold
+\emph on
+gateway
+\series default
+\emph default
+ correspondiente, pasándole los datos de la petición por variables de entorno
+ y parámetros y el cuerpo de la solicitud por la entrada estándar; el programa
+ procesa la solicitud y envía la respuesta por la salida estándar, y el
+ servidor envía al cliente los resultados que emite el programa, normalmente
+ completando las cabeceras de respuesta.
+\end_layout
+
+\begin_layout Standard
+Algunas variables de entorno son:
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+DOCUMENT_ROOT
+\family default
+ Directorio con las páginas HTML del servidor.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+SERVER_NAME
+\family default
+ Nombre del servidor.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+SERVER_PORT
+\family default
+ Puerto del servidor.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+HTTP_ACCEPT
+\family default
+ Tipos MIME soportados por el cliente.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+HTTP_COOKIE
+\family default
+ 
+\emph on
+Cookies
+\emph default
+ incluidas en la solicitud.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+REMOTE_ADDR
+\family default
+ Dirección IP del cliente.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+CONTENT_LENGTH
+\family default
+ Tamaño en bytes del contenido de la información.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+CONTENT_TYPE
+\family default
+ Tipo MIME de la petición.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+QUERY_STRING
+\family default
+ Parte detrás de la 
+\family typewriter
+?
+\family default
+ de la ruta solicitada.
+\end_layout
+
+\begin_layout Standard
+En 2015 se define 
+\family typewriter
+HTTP/2
+\family default
+ en el RFC 7540, que añade:
+\end_layout
+
+\begin_layout Itemize
+Multiplexado de conexiones TCP dividiendo las solicitudes y respuestas en
+ marcos.
+ Todas las conexiones son persistentes.
+\end_layout
+
+\begin_layout Itemize
+Control de flujo interno, direccional basado en crédito o salto a salto.
+\end_layout
+
+\begin_layout Itemize
+Priorizado de transmisiones.
+\end_layout
+
+\begin_layout Itemize
+Varias respuestas a una sola petición mediante envío 
+\emph on
+push
+\emph default
+ de recursos todavía no solicitados.
+\end_layout
+
+\begin_layout Itemize
+Compresión de cabeceras, no enviando las cabeceras que no hayan cambiado
+ respecto de la petición anterior, contando también como cabeceras el método
+ y la ruta.
+\end_layout
+
+\end_body
+\end_document
