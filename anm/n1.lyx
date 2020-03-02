@@ -1,0 +1,2253 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+p1[7] no incluída.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Matrices
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Una 
+\series bold
+matriz
+\series default
+ de tamaño 
+\begin_inset Formula $m\times n$
+\end_inset
+
+, o de 
+\begin_inset Formula $m$
+\end_inset
+
+ filas y 
+\begin_inset Formula $n$
+\end_inset
+
+ columnas, sobre un anillo 
+\begin_inset Formula $A$
+\end_inset
+
+ es una disposición de elementos de 
+\begin_inset Formula $A$
+\end_inset
+
+ ordenados por un índice de 1 a 
+\begin_inset Formula $m$
+\end_inset
+
+ y otro de 1 a 
+\begin_inset Formula $n$
+\end_inset
+
+, que se representa como
+\begin_inset Formula 
+\[
+\left(\begin{array}{ccc}
+a_{11} & \cdots & a_{1n}\\
+\vdots &  & \vdots\\
+a_{m1} & \cdots & a_{mn}
+\end{array}\right).
+\]
+
+\end_inset
+
+Llamamos 
+\begin_inset Formula ${\cal M}_{m\times n}(A)$
+\end_inset
+
+ o 
+\begin_inset Formula ${\cal M}_{mn}(A)$
+\end_inset
+
+ al conjunto de las matrices 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ sobre el anillo 
+\begin_inset Formula $A$
+\end_inset
+
+, o 
+\begin_inset Formula ${\cal M}_{n}(A):={\cal M}_{nn}(A)$
+\end_inset
+
+, pudiendo omitir 
+\begin_inset Formula $(A)$
+\end_inset
+
+ si el anillo está claro.
+ Una matriz es 
+\series bold
+fila
+\series default
+ si solo tiene una fila o 
+\series bold
+columna
+\series default
+ si solo tiene una columna, y podemos identificar 
+\begin_inset Formula ${\cal M}_{1n}(A)$
+\end_inset
+
+ o 
+\begin_inset Formula ${\cal M}_{n1}(A)$
+\end_inset
+
+ con 
+\begin_inset Formula $A^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Dadas 
+\begin_inset Formula $X,Y\in{\cal M}_{m\times n}(A)$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $X+Y:=(X_{ij}+Y_{ij})_{1\leq i\leq m}^{1\leq j\leq n}$
+\end_inset
+
+, y dadas 
+\begin_inset Formula $X\in{\cal M}_{m\times n}(A)$
+\end_inset
+
+ e 
+\begin_inset Formula $Y\in{\cal M}_{n\times p}(A)$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $XY:=(\sum_{k=1}^{n}X_{ik}Y_{kj})_{1\leq i\leq m}^{1\leq j\leq p}$
+\end_inset
+
+.
+ Con esto, 
+\begin_inset Formula ${\cal M}_{n}(A)$
+\end_inset
+
+ es un anillo con elemento nulo 
+\begin_inset Formula $(0)_{ij}$
+\end_inset
+
+ y elemento unidad la 
+\series bold
+matriz identidad
+\series default
+, 
+\begin_inset Formula $(\delta_{ij})_{ij}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dada 
+\begin_inset Formula $M\in{\cal M}_{m\times n}(\mathbb{C})$
+\end_inset
+
+, llamamos 
+\series bold
+matriz adjunta
+\series default
+ de 
+\begin_inset Formula $M$
+\end_inset
+
+ a 
+\begin_inset Formula $M^{*}:=(\overline{M_{ji}})_{ij}\in{\cal M}_{n\times m}(\mathbb{C})$
+\end_inset
+
+ y 
+\series bold
+matriz traspuesta
+\series default
+ de 
+\begin_inset Formula $M$
+\end_inset
+
+ a 
+\begin_inset Formula $M^{t}:=(M_{ji})_{ij}\in{\cal M}_{n\times m}(\mathbb{C})$
+\end_inset
+
+, que coincide con la adjunta cuando los coeficientes son reales, y se tiene
+ 
+\begin_inset Formula $(AB)^{*}=B^{*}A^{*}$
+\end_inset
+
+ y 
+\begin_inset Formula $A^{**}=A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+traza
+\series default
+ de una matriz 
+\begin_inset Formula $A\in{\cal M}_{n}$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+\text{tr}A:=\sum_{k=1}^{n}a_{kk}.
+\]
+
+\end_inset
+
+El 
+\series bold
+determinante
+\series default
+ es la única aplicación 
+\begin_inset Formula $\det:{\cal M}_{n}(\mathbb{K})\to\mathbb{K}$
+\end_inset
+
+ multilineal (lineal en cada fila o columna) y alternada (que cambia de
+ signo al permutar dos filas o columnas) que le asocia 1 a la identidad,
+ y cumple 
+\begin_inset Formula $\det(AB)=\det(A)\det(B)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $A\in{\cal M}_{n}(\mathbb{K})$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda\in\mathbb{K}$
+\end_inset
+
+ y 
+\begin_inset Formula $p\in\mathbb{K}^{n}\setminus0$
+\end_inset
+
+, si 
+\begin_inset Formula $Ap=\lambda p$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ es un 
+\series bold
+valor propio
+\series default
+ y 
+\begin_inset Formula $p$
+\end_inset
+
+ es un 
+\series bold
+vector propio
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Los valores propios de 
+\begin_inset Formula $A$
+\end_inset
+
+ son los ceros de su 
+\series bold
+polinomio característico
+\series default
+, 
+\begin_inset Formula $p_{A}(\lambda):=\det(A-\lambda I)$
+\end_inset
+
+.
+ Si estos son 
+\begin_inset Formula $\lambda_{1},\dots,\lambda_{n}$
+\end_inset
+
+, el 
+\series bold
+espectro
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ es 
+\begin_inset Formula $\sigma(A):=\{\lambda_{1},\dots,\lambda_{n}\}$
+\end_inset
+
+ y su 
+\series bold
+radio espectral
+\series default
+ es 
+\begin_inset Formula $\rho(A):=\max\{|\lambda_{1}|,\dots,|\lambda_{n}|\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Sistemas de ecuaciones
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+sistema
+\series default
+ de 
+\begin_inset Formula $m$
+\end_inset
+
+ ecuaciones lineales con 
+\begin_inset Formula $n$
+\end_inset
+
+ incógnitas es un sistema de la forma
+\begin_inset Formula 
+\[
+\left\{ \begin{aligned}a_{11}x_{1}+\dots+a_{1n}x_{n} & =b_{1},\\
+ & \vdots\\
+a_{m1}x_{1}+\dots+a_{mn}x_{n} & =b_{m}.
+\end{aligned}
+\right.
+\]
+
+\end_inset
+
+Llamamos 
+\series bold
+coeficientes
+\series default
+ a los escalares 
+\begin_inset Formula $a_{ij}$
+\end_inset
+
+, 
+\series bold
+términos independientes
+\series default
+ a los escalares 
+\begin_inset Formula $b_{i}$
+\end_inset
+
+ y 
+\series bold
+soluciones
+\series default
+ del sistema a los vectores 
+\begin_inset Formula $(x_{1},\dots,x_{n})$
+\end_inset
+
+ que cumplen todas las igualdades.
+ Un sistema es 
+\series bold
+compatible
+\series default
+ si tiene soluciones, en cuyo caso es 
+\series bold
+determinado
+\series default
+ si solo tiene una o 
+\series bold
+indeterminado
+\series default
+ si tiene más, y en otro caso es 
+\series bold
+incompatible
+\series default
+.
+ Es 
+\series bold
+homogéneo
+\series default
+ si todos los términos independientes son 0, en cuyo caso tiene al menos
+ la 
+\series bold
+solución trivial
+\series default
+ 0.
+ Dos sistemas de ecuaciones son 
+\series bold
+equivalentes
+\series default
+ si tienen el mismo conjunto de soluciones.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+matriz de coeficientes
+\series default
+ a la matriz 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ 
+\begin_inset Formula $A:=(a_{ij})_{ij}$
+\end_inset
+
+, 
+\series bold
+columna de términos independientes
+\series default
+ a la matriz columna 
+\begin_inset Formula $b:=(b_{i})_{ij}$
+\end_inset
+
+ y 
+\series bold
+matriz ampliada
+\series default
+ a 
+\begin_inset Formula $\left(\begin{array}{c|c}
+A & b\end{array}\right)$
+\end_inset
+
+.
+ Entonces podemos representar el sistema como 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es invertible, el sistema es compatible determinado, pues 
+\begin_inset Formula $x=A^{-1}Ax=A^{-1}b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Aplicaciones lineales
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+base
+\series default
+ de un espacio vectorial 
+\begin_inset Formula $E$
+\end_inset
+
+ de dimensión finita sobre un cuerpo 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+ es un conjunto 
+\begin_inset Formula $\{v_{1},\dots,v_{n}\}$
+\end_inset
+
+ de vectores linealmente independientes de 
+\begin_inset Formula $E$
+\end_inset
+
+ tal que todo 
+\begin_inset Formula $x\in E$
+\end_inset
+
+ se puede escribir como
+\begin_inset Formula 
+\[
+\sum_{k=1}^{n}x_{k}v_{k}
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $x_{1},\dots,x_{n}\in\mathbb{K}$
+\end_inset
+
+.
+ Esto nos permite identificar los vectores 
+\begin_inset Formula $x\in E$
+\end_inset
+
+ con sus coordenadas 
+\begin_inset Formula $(x_{1},\dots,x_{n})\in\mathbb{K}^{n}$
+\end_inset
+
+, y por tanto con la correspondiente matriz columna.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+producto escalar euclídeo
+\series default
+ en 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+\langle x,y\rangle:=\sum_{k=1}^{n}x_{k}y_{k}=x^{t}y=y^{t}x,
+\]
+
+\end_inset
+
+y 
+\series bold
+producto escalar hermitiano
+\series default
+ en 
+\begin_inset Formula $\mathbb{C}^{n}$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+\langle x,y\rangle:=\sum_{k=1}^{n}x_{k}\overline{y_{k}}=y^{*}x=\overline{x^{*}y}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $M\in{\cal M}_{m\times n}(\mathbb{C})$
+\end_inset
+
+, 
+\begin_inset Formula $u\in\mathbb{C}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $v\in\mathbb{C}^{m}$
+\end_inset
+
+, 
+\begin_inset Formula $\langle Mu,v\rangle=\langle u,M^{*}v\rangle$
+\end_inset
+
+, y en particular, para 
+\begin_inset Formula $M\in{\cal M}_{m\times n}(\mathbb{R})$
+\end_inset
+
+, 
+\begin_inset Formula $u\in\mathbb{R}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $v\in\mathbb{R}^{m}$
+\end_inset
+
+, 
+\begin_inset Formula $\langle Mu,v\rangle=\langle u,M^{t}v\rangle$
+\end_inset
+
+.
+ En efecto, 
+\begin_inset Formula $\langle Me_{i},e_{j}\rangle=\langle(M_{ki})_{k},e_{j}\rangle=M_{ji}$
+\end_inset
+
+, y 
+\begin_inset Formula $\langle e_{i},M^{*}e_{j}\rangle=\langle e_{i},((M^{*})_{kj})_{k}\rangle=\langle e_{i},(\overline{M_{jk}})_{k}\rangle=\overline{\overline{M_{ji}}}=M_{ji}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dos vectores 
+\begin_inset Formula $x,y\in\mathbb{C}^{n}$
+\end_inset
+
+ son 
+\series bold
+ortogonales
+\series default
+ si 
+\begin_inset Formula $\langle x,y\rangle=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $f:V\to W$
+\end_inset
+
+ una aplicación lineal y 
+\begin_inset Formula ${\cal B}:=(v_{1},\dots,v_{n})$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal B}':=(w_{1},\dots,w_{m})$
+\end_inset
+
+ bases respectivas de 
+\begin_inset Formula $V$
+\end_inset
+
+ y 
+\begin_inset Formula $W$
+\end_inset
+
+, si
+\begin_inset Formula 
+\[
+\left\{ \begin{aligned}f(v_{1}) & =a_{11}w_{1}+\dots+a_{m1}w_{1},\\
+ & \vdots\\
+f(v_{m}) & =a_{1n}w_{1}+\dots+a_{mn}w_{m},
+\end{aligned}
+\right.
+\]
+
+\end_inset
+
+llamamos 
+\series bold
+matriz asociada
+\series default
+ a 
+\begin_inset Formula $f$
+\end_inset
+
+ con respecto de las bases 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal B}'$
+\end_inset
+
+ a 
+\begin_inset Formula $(a_{ij})_{1\leq i\leq m}^{1\leq j\leq n}$
+\end_inset
+
+.
+ Dadas dos aplicaciones lineales 
+\begin_inset Formula $U\overset{f}{\to}V\overset{g}{\to}W$
+\end_inset
+
+, 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ también es lineal, y si 
+\begin_inset Formula $U$
+\end_inset
+
+, 
+\begin_inset Formula $V$
+\end_inset
+
+ y 
+\begin_inset Formula $W$
+\end_inset
+
+ son de dimensión finita y 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ tienen matrices respectivas 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+, 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ tiene matriz 
+\begin_inset Formula $BA$
+\end_inset
+
+ respecto de las mismas bases.
+\end_layout
+
+\begin_layout Section
+Matrices especiales
+\end_layout
+
+\begin_layout Standard
+Una matriz 
+\begin_inset Formula $A$
+\end_inset
+
+ es 
+\series bold
+cuadrada
+\series default
+ si tiene el mismo número de filas que de columnas, en cuyo caso es 
+\series bold
+diagonal
+\series default
+ si 
+\begin_inset Formula $\forall i\neq j,A_{ij}=0$
+\end_inset
+
+, 
+\series bold
+triangular superior
+\series default
+ si 
+\begin_inset Formula $\forall i>j,A_{ij}=0$
+\end_inset
+
+ y 
+\series bold
+triangular inferior
+\series default
+ si 
+\begin_inset Formula $\forall i<j,A_{ij}=0$
+\end_inset
+
+.
+ Es 
+\series bold
+simétrica
+\series default
+ si 
+\begin_inset Formula $A=A^{t}$
+\end_inset
+
+, 
+\series bold
+hermitiana
+\series default
+ si 
+\begin_inset Formula $A=A^{*}$
+\end_inset
+
+, 
+\series bold
+ortogonal
+\series default
+ si 
+\begin_inset Formula $A^{-1}=A^{t}$
+\end_inset
+
+, 
+\series bold
+unitaria
+\series default
+ si 
+\begin_inset Formula $A^{-1}=A^{*}$
+\end_inset
+
+ y 
+\series bold
+normal
+\series default
+ si 
+\begin_inset Formula $AA^{*}=A^{*}A$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $A\in{\cal M}_{n}(\mathbb{C})$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Existe 
+\begin_inset Formula $U\in{\cal M}_{n}$
+\end_inset
+
+ unitaria tal que 
+\begin_inset Formula $U^{-1}AU$
+\end_inset
+
+ es triangular superior.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+a1[19]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es normal, existe 
+\begin_inset Formula $U\in{\cal M}_{n}$
+\end_inset
+
+ unitaria tal que 
+\begin_inset Formula $U^{-1}AU$
+\end_inset
+
+ es diagonal.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Existe 
+\begin_inset Formula $U$
+\end_inset
+
+ unitaria tal que 
+\begin_inset Formula $T:=U^{-1}AU=U^{*}AU$
+\end_inset
+
+ es triangular superior, pero 
+\begin_inset Formula $T^{*}T=(U^{*}AU)^{*}U^{*}AU=U^{*}A^{*}U^{**}U^{*}AU=U^{*}A^{*}UU^{*}AU=U^{*}A^{*}AU$
+\end_inset
+
+ y 
+\begin_inset Formula $TT^{*}=U^{*}AU(U^{*}AU)^{*}=U^{*}AUU^{*}A^{*}U=U^{*}AA^{*}U=U^{*}A^{*}AU=T^{*}T$
+\end_inset
+
+, luego 
+\begin_inset Formula $T$
+\end_inset
+
+ es normal.
+ Entonces, para 
+\begin_inset Formula $i<j$
+\end_inset
+
+, 
+\begin_inset Formula $A_{ij}=(A^{*})_{ij}=\overline{A_{ji}}=\overline{0}=0$
+\end_inset
+
+, pues 
+\begin_inset Formula $j>i$
+\end_inset
+
+ y 
+\begin_inset Formula $A$
+\end_inset
+
+ es triangular superior.
+ Por tanto 
+\begin_inset Formula $T$
+\end_inset
+
+ es diagonal.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es simétrica real, existe 
+\begin_inset Formula $O$
+\end_inset
+
+ ortogonal con 
+\begin_inset Formula $O^{-1}AO$
+\end_inset
+
+ diagonal.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+a1[19]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dada 
+\begin_inset Formula $A\in{\cal M}_{n}$
+\end_inset
+
+, los valores propios de 
+\begin_inset Formula $A^{*}A$
+\end_inset
+
+ son no negativos, pues si 
+\begin_inset Formula $p\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $A^{*}Ap=\lambda p\implies\lambda\Vert p\Vert^{2}=\lambda\langle p,p\rangle=\lambda p^{*}p=p^{*}\lambda p=p^{*}A^{*}Ap=(Ap)^{*}(Ap)=\Vert Ap\Vert^{2}\geq0\implies\lambda\geq0$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+valores singulares
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ a las raíces cuadradas de estos valores propios, y existen 
+\begin_inset Formula $U$
+\end_inset
+
+ y 
+\begin_inset Formula $V$
+\end_inset
+
+ ortogonales tales que 
+\begin_inset Formula $U^{*}AV$
+\end_inset
+
+ es una matriz diagonal cuya diagonal está formada por los valores singulares
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+a1[20]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Cocientes de Rayleigh
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+cociente de Rayleigh
+\series default
+ de una matriz 
+\begin_inset Formula $A\in{\cal M}_{n}$
+\end_inset
+
+ es una aplicación 
+\begin_inset Formula $R_{A}:\mathbb{C}^{n}\setminus\{0\}\to\mathbb{C}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+R_{A}(v):=\frac{\langle Av,v\rangle}{\langle v,v\rangle}=\frac{v^{*}Av}{v^{*}v}.
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es hermitiana, este cociente toma valores reales, pues entonces 
+\begin_inset Formula $\overline{R_{A}(v)}=\frac{\overline{\langle Av,v\rangle}}{\langle v,v\rangle}=\frac{\langle v,Av\rangle}{\langle v,v\rangle}=\frac{\langle A^{*}v,v\rangle}{\langle v,v\rangle}=\frac{\langle Av,v\rangle}{\langle v,v\rangle}=R_{A}(v)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $A\in{\cal M}_{n}$
+\end_inset
+
+ es hermitiana con valores propios 
+\begin_inset Formula $\lambda_{1}\leq\dots\leq\lambda_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $(p_{1},\dots,p_{n})$
+\end_inset
+
+ una base ortonormal (
+\begin_inset Formula $(p_{i},p_{j})=\delta_{ij}$
+\end_inset
+
+) de vectores propios correspondientes (
+\begin_inset Formula $Ap_{k}=\lambda_{k}p_{k}$
+\end_inset
+
+), 
+\begin_inset Formula $E_{k}:=\text{span}\{p_{1},\dots,p_{k}\}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal S}_{k}$
+\end_inset
+
+ la familia de todos los subespacios de 
+\begin_inset Formula $\mathbb{C}^{n}$
+\end_inset
+
+ con dimensión 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $E_{0}:=\{0\}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal S}_{k}:=\{E_{0}\}$
+\end_inset
+
+.
+ Entonces, para 
+\begin_inset Formula $1\leq k\leq n$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lambda_{k}=R_{A}(p_{k})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $U$
+\end_inset
+
+ unitaria tal que 
+\begin_inset Formula $D:=U^{*}AU=\text{diag}(\lambda_{1},\dots,\lambda_{n})$
+\end_inset
+
+, 
+\begin_inset Formula $v\in\mathbb{C}^{n}\setminus\{0\}$
+\end_inset
+
+ y 
+\begin_inset Formula $v=Uw$
+\end_inset
+
+, 
+\begin_inset Formula $R_{A}(v)=\frac{v^{*}Av}{v^{*}v}=\frac{w^{*}U^{*}AUw}{w^{*}U^{*}Uw}=\frac{D}{w^{*}w}=\frac{\sum_{k}\lambda_{k}|w_{k}|^{2}}{\sum_{k}|w_{k}|^{2}}$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $w$
+\end_inset
+
+ es 
+\begin_inset Formula $v$
+\end_inset
+
+ expresado respecto de la base 
+\begin_inset Formula $(p_{1},\dots,p_{n})$
+\end_inset
+
+, 
+\begin_inset Formula $Up_{k}=e_{k}$
+\end_inset
+
+, luego 
+\begin_inset Formula $R_{A}(p_{k})=\frac{\lambda_{k}}{1}=\lambda_{k}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\lambda_{k}=\max\{R_{A}(v):v\in E_{k}\setminus\{0\}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+a1[21]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\lambda_{k}=\min\{R_{A}(v):v\bot E_{k-1}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+a1[21]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\lambda_{k}=\min_{E\in{\cal S}_{k}}\max\{R_{A}(v):v\in E\setminus\{0\}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+a1[21]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\lambda_{k}=\max_{E\in{\cal S}_{k-1}}\min\{R_{A}(v):v\bot E\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+a1[21]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Normas matriciales
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $E$
+\end_inset
+
+ un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial, una 
+\series bold
+norma
+\series default
+ sobre 
+\begin_inset Formula $E$
+\end_inset
+
+ es una aplicación 
+\begin_inset Formula $\Vert\cdot\Vert:E\to[0,+\infty)$
+\end_inset
+
+ tal que:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\Vert x\Vert=0\iff x=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\Vert x+y\Vert\leq\Vert x\Vert+\Vert y\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\Vert ax\Vert=|a|\Vert x\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+espacio vectorial normado
+\series default
+ al par 
+\begin_inset Formula $(E,\Vert\cdot\Vert)$
+\end_inset
+
+.
+ La función 
+\begin_inset Formula $d(x,y)=\Vert x-y\Vert$
+\end_inset
+
+ es una distancia en 
+\begin_inset Formula $E$
+\end_inset
+
+.
+ Todas las normas en un espacio de dimensión finita son equivalentes, es
+ decir, definen la misma topología.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+norma 
+\begin_inset Formula $p$
+\end_inset
+
+
+\series default
+ de 
+\begin_inset Formula $x\in\mathbb{C}^{n}$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+\Vert x\Vert_{p}:=\sqrt[p]{\sum_{k=1}^{n}|x_{k}|^{p}},
+\]
+
+\end_inset
+
+
+\series bold
+norma euclídea
+\series default
+ a 
+\begin_inset Formula $\Vert x\Vert_{2}=\sqrt{\langle x,x\rangle}$
+\end_inset
+
+ y 
+\series bold
+norma infinito
+\series default
+ a
+\begin_inset Formula 
+\[
+\Vert x\Vert_{\infty}:=\max{_{k=1}^{n}}|x_{k}|.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+norma matricial
+\series default
+ en 
+\begin_inset Formula ${\cal M}_{n}(\mathbb{K})$
+\end_inset
+
+ es una que cumple 
+\begin_inset Formula $\forall A,B\in{\cal M}_{n}(\mathbb{K}),\Vert AB\Vert\leq\Vert A\Vert\Vert B\Vert$
+\end_inset
+
+.
+ Dada una norma 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{K}^{n}$
+\end_inset
+
+, llamamos 
+\series bold
+norma matricial subordinada
+\series default
+ a la norma 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ a la norma matricial en 
+\begin_inset Formula ${\cal M}_{n}(\mathbb{K})$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+\Vert A\Vert:=\sup\left\{ \frac{\Vert Ax\Vert}{\Vert x\Vert}\right\} _{x\in\mathbb{K}^{n}\setminus\{0\}}=\sup\left\{ \frac{\Vert Ax\Vert}{\Vert x\Vert}\right\} _{\Vert x\Vert\leq1}=\sup\left\{ \Vert Ax\Vert\right\} _{\Vert x\Vert=1}.
+\]
+
+\end_inset
+
+Entonces, para 
+\begin_inset Formula $A\in{\cal M}_{n}(\mathbb{K})$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in\mathbb{K}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert Ax\Vert\leq\Vert A\Vert\Vert x\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $A:=(a_{ij})_{ij}\in{\cal M}_{n}(\mathbb{C})$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\Vert A\Vert_{1}=\max_{j}\sum_{i}|a_{ij}|$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\sup\{\Vert Ax\Vert:\Vert x\Vert=1\}=\sup\{\sum_{k}|Ax|_{k}:\sum_{k}|x_{k}|=1\}=\sup\{\sum_{k,i}|a_{ki}||x_{i}|:\sum_{i}|x_{i}|=1\}$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $j$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\max_{i}\sum_{k}|a_{ki}|=\sum_{k}|a_{kj}|$
+\end_inset
+
+, para 
+\begin_inset Formula $x$
+\end_inset
+
+ con 
+\begin_inset Formula $\sum_{i}|x_{i}|$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\sum_{k,i}|a_{ki}||x_{i}|=\sum_{i}\left(|x_{i}|\sum_{k}|a_{ki}|\right)\leq\left(\sum_{i}|x_{i}|\right)\left(\sum_{k}|a_{kj}|\right)=\sum_{k}|a_{kj}|,
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $\sup\{\sum_{k,i}|a_{ki}||x_{i}|:\sum_{i}|x_{i}|=1\}=\max_{i}\sum_{k}|a_{ki}|$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\Vert A\Vert_{2}=\sqrt{\rho(A^{*}A)}=\Vert A^{*}\Vert_{2}$
+\end_inset
+
+.
+ En particular, 
+\begin_inset Formula $\Vert A\Vert_{2}$
+\end_inset
+
+ es el mayor valor singular de 
+\begin_inset Formula $A$
+\end_inset
+
+, y si 
+\begin_inset Formula $A$
+\end_inset
+
+ es unitaria o real ortogonal, 
+\begin_inset Formula $\Vert A\Vert_{2}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\Vert A\Vert_{2}^{2}=\sup\left\{ \frac{\Vert Ax\Vert_{2}^{2}}{\Vert x\Vert_{2}^{2}}:\Vert x\Vert_{2}=1\right\} =\sup\left\{ \frac{\langle Ax,Ax\rangle}{\langle x,x\rangle}=\frac{\langle A^{*}Ax,x\rangle}{\langle x,x\rangle}=R_{A^{*}A}(x):\Vert x\Vert_{2}=1\right\} $
+\end_inset
+
+, pero si 
+\begin_inset Formula $\lambda_{1},\dots,\lambda_{m}\geq0$
+\end_inset
+
+ son los valores propios de 
+\begin_inset Formula $A^{*}A$
+\end_inset
+
+ y 
+\begin_inset Formula $E_{1},\dots,E_{m}$
+\end_inset
+
+ son los subespacios propios asociados, 
+\begin_inset Formula $\rho(A^{*}A)=\max\{\lambda_{1},\dots,\lambda_{m}\}=\max_{k=1}^{m}\max\{R_{A^{*}A}(v):v\in E_{k}\setminus\{0\}\}=\max\{R_{A^{*}A}(v):v\neq0\}$
+\end_inset
+
+, y como 
+\begin_inset Formula 
+\[
+R_{A^{*}A}(v)=\frac{\langle Av,v\rangle}{\langle v,v\rangle}=\left\langle A\frac{v}{\sqrt{\langle v,v\rangle}},\frac{v}{\sqrt{\langle v,v\rangle}}\right\rangle =\left\langle A\frac{v}{\Vert v\Vert_{2}},\frac{v}{\Vert v\Vert_{2}}\right\rangle ,
+\]
+
+\end_inset
+
+queda 
+\begin_inset Formula $\rho(A^{*}A)=\max\{R_{A^{*}A}(v):v\neq0\}=\max\{R_{A^{*}A}(v):\Vert v\Vert_{2}=1\}=\Vert A\Vert_{2}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\Vert A\Vert_{\infty}=\max_{i}\sum_{j}|a_{ij}|$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Vert A\Vert_{\infty} & =\sup\{\Vert Ax\Vert_{\infty}:\Vert x\Vert_{\infty}=1\}=\sup\{\max_{k}|Ax|_{k}:\max_{k}|x_{k}|=1\}=\\
+ & =\sup\left\{ \max_{k}\left|\sum_{i}a_{ki}x_{i}\right|:\max_{i}|x_{i}|=1\right\} =\max_{k}\sup\left\{ \left|\sum_{i}a_{ki}x_{i}\right|:\max_{i}|x_{i}|=1\right\} .
+\end{align*}
+
+\end_inset
+
+ Este supremo se alcanza cuando, para cada 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $x_{i}=1$
+\end_inset
+
+ si 
+\begin_inset Formula $a_{ki}>0$
+\end_inset
+
+ o 
+\begin_inset Formula $x_{i}=-1$
+\end_inset
+
+ si 
+\begin_inset Formula $a_{ki}<0$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\sup\{|\sum_{i}a_{ki}x_{i}|:\max_{i}|x_{i}|=1\}=\left|\sum_{i}|a_{ki}|\right|=\sum_{i}|a_{ki}|$
+\end_inset
+
+, luego 
+\begin_inset Formula $\Vert A\Vert_{\infty}=\max_{k}\sum_{i}|a_{ki}|$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es normal, 
+\begin_inset Formula $\Vert A\Vert_{2}=\rho(A)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+norma euclídea
+\series default
+, 
+\begin_inset Formula $\Vert A\Vert_{E}:=\sqrt{\sum_{i,j}|a_{ij}|^{2}}$
+\end_inset
+
+, es una norma matricial no subordinada a ninguna norma en 
+\begin_inset Formula $\mathbb{K}^{n}$
+\end_inset
+
+, pero es más fácil de calcular que 
+\begin_inset Formula $\Vert\cdot\Vert_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert A\Vert_{2}\leq\Vert A\Vert_{E}\leq\sqrt{n}\Vert A\Vert_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A\in{\cal M}_{n}(\mathbb{K})$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Toda norma matricial 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ en 
+\begin_inset Formula ${\cal M}_{n}(\mathbb{K})$
+\end_inset
+
+ cumple 
+\begin_inset Formula $\rho(A)\leq\Vert A\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ un valor propio tal que 
+\begin_inset Formula $|\lambda|=\rho(A)$
+\end_inset
+
+, 
+\begin_inset Formula $p\neq0$
+\end_inset
+
+ un vector propio de 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ y 
+\begin_inset Formula $q\in\mathbb{K}^{n}$
+\end_inset
+
+ tal que la matriz 
+\begin_inset Formula $pq^{t}\neq0$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\rho(A)\Vert pq^{t}\Vert=\Vert\lambda pq^{t}\Vert=\Vert(Ap)q^{t}\Vert=\Vert A(pq^{t})\Vert\leq\Vert A\Vert\Vert pq^{t}\Vert$
+\end_inset
+
+, y despejando, 
+\begin_inset Formula $\rho(A)\leq\Vert A\Vert$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Para todo 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe una norma matricial subordinada 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\Vert A\Vert\leq\rho(A)+\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $U$
+\end_inset
+
+ la matriz unitaria tal que 
+\begin_inset Formula $U^{-1}AU$
+\end_inset
+
+ es triangular superior.
+ Entonces la diagonal está formada por los valores propios 
+\begin_inset Formula $\lambda_{1},\dots,\lambda_{n}$
+\end_inset
+
+, no necesariamente distintos, de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $D_{\delta}:=\text{diag}(1,\delta,\dots,\delta^{n-1})$
+\end_inset
+
+ para 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $(UD_{\delta})^{-1}A(UD_{\delta})=D_{\delta}^{-1}U^{-1}AUD_{\delta}=D_{\delta^{-1}}U^{-1}AUD_{\delta}$
+\end_inset
+
+, pero 
+\begin_inset Formula $(a_{ij})D_{\delta}=(\delta^{j}a_{ij})$
+\end_inset
+
+ y 
+\begin_inset Formula $D_{\delta^{-1}}(a_{ij})=(\delta^{-i}a_{ij})$
+\end_inset
+
+, luego si 
+\begin_inset Formula $U^{-1}AU=(u_{ij})$
+\end_inset
+
+, 
+\begin_inset Formula $D_{\delta}^{-1}U^{-1}AUD_{\delta}=D_{\delta^{-1}}(u_{ij})D_{\delta}=D_{\delta^{-1}}(\delta^{j}u_{ij})=(\delta^{j-i}u_{ij})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+La diagonal no cambia, la matriz sigue siendo triangular superior y, para
+ 
+\begin_inset Formula $\delta$
+\end_inset
+
+ suficientemente pequeño, 
+\begin_inset Formula $\sum_{j=i+1}^{n}|\delta^{j-i}u_{ij}|<\varepsilon$
+\end_inset
+
+ para cada 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Así, 
+\begin_inset Formula $\Vert(\delta^{j-i}u_{ij})\Vert_{\infty}=\max_{i}\sum_{j}\delta^{j-i}u_{ij}=\max_{i}(\lambda_{i}+\sum_{j=i+1}^{n}\delta^{j-i}u_{ij})\leq\rho(A)+\varepsilon$
+\end_inset
+
+.
+ Tomando la norma 
+\begin_inset Formula $\Vert v\Vert_{*}:=\Vert(UD_{\delta})^{-1}v\Vert_{\infty}$
+\end_inset
+
+, la norma subordinada a esta cumple 
+\begin_inset Formula $\Vert A\Vert_{*}=\Vert(UD_{\delta})^{-1}A(UD_{\delta})\Vert_{\infty}\leq\rho(A)+\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+De aquí que 
+\begin_inset Formula $\rho(A)=\inf\{\Vert A\Vert:\Vert\cdot\Vert\text{ es una norma matricial en }{\cal M}_{n}(\mathbb{K})\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $B\in{\cal M}_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\lim_{k}B^{k}=0$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\forall v\in\mathbb{K}^{n},\lim_{k}B^{k}v=0$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\rho(B)<1$
+\end_inset
+
+, si y sólo si existe una norma subordinada tal que 
+\begin_inset Formula $\Vert B\Vert<1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $[1\implies2]$
+\end_inset
+
+ 
+\begin_inset Formula $0\leq\lim_{k}\Vert B^{k}v\Vert\leq\lim_{k}\Vert B^{k}\Vert\Vert v\Vert=0\Vert v\Vert=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\lim_{k}B^{k}v=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $[2\implies3]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ un valor propio de 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $p$
+\end_inset
+
+ un vector propio asociado, entonces 
+\begin_inset Formula $\lim_{k}B^{k}p=\lim_{k}\lambda^{k}p=p\lim_{k}\lambda^{k}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $|\lambda|<1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $[3\implies4]$
+\end_inset
+
+ Por el teorema anterior, existe 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\Vert B\Vert<\rho(B)+(1-\rho(B))=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $[4\implies1]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ esta norma, 
+\begin_inset Formula $0\leq\lim_{k}\Vert B^{k}\Vert\leq\lim_{k}\Vert B\Vert^{k}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\lim_{k}B^{k}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Toda norma matricial cumple 
+\begin_inset Formula $\lim_{k}\Vert B^{k}\Vert^{1/k}=\rho(B)$
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+a1[26]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Análisis del error
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $A\in{\cal M}_{m\times n}$
+\end_inset
+
+ invertible, 
+\begin_inset Formula $0\neq b\in\mathbb{K}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ una norma subordinada:
+\end_layout
+
+\begin_layout Enumerate
+Considerando los sistemas 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+ y 
+\begin_inset Formula $A(x+\Delta x)=b+\Delta b$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{\Vert\Delta x\Vert}{\Vert x\Vert}\leq\Vert A\Vert\Vert A^{-1}\Vert\frac{\Vert\Delta b\Vert}{\Vert b\Vert}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Es claro que 
+\begin_inset Formula $A\Delta x=\Delta b$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\Delta x=A^{-1}\Delta b$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\Vert\Delta x\Vert\leq\Vert A^{-1}\Vert\Vert\Delta b\Vert$
+\end_inset
+
+, y como también 
+\begin_inset Formula $\Vert b\Vert=\Vert Ax\Vert\leq\Vert A\Vert\Vert x\Vert$
+\end_inset
+
+, podemos obtener la fórmula despejando.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Considerando los sistemas 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+ y 
+\begin_inset Formula $(A+\Delta A)(x+\Delta x)=b$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{\Vert\Delta x\Vert}{\Vert x+\Delta x\Vert}\leq\Vert A^{-1}\Vert\Vert\Delta A\Vert$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{\Vert\Delta x\Vert}{\Vert x\Vert}\leq\frac{\Vert A^{-1}\Vert\Vert\Delta A\Vert}{1-\Vert A^{-1}\Vert\Vert\Delta A\Vert}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $(A+\Delta A)(x+\Delta x)=Ax+A\Delta x+\Delta A(x+\Delta x)=b+A\Delta x+\Delta A(x+\Delta x)=b$
+\end_inset
+
+, luego 
+\begin_inset Formula $A\Delta x=-\Delta A(x+\Delta x)$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\Delta x=-A^{-1}\Delta A(x+\Delta x)$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\Vert\Delta x\Vert\leq\Vert A^{-1}\Vert\Vert\Delta A\Vert\Vert x+\Delta x\Vert$
+\end_inset
+
+, lo que nos da la primera desigualdad.
+ A partir de aquí, 
+\begin_inset Formula $\Vert x+\Delta x\Vert\leq\Vert x\Vert+\Vert\Delta x\Vert\leq\Vert x\Vert+\Vert A^{-1}\Vert\Vert\Delta A\Vert\Vert x+\Delta x\Vert$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\Vert x+\Delta x\Vert(1-\Vert A^{-1}\Vert\Vert\Delta A\Vert)\leq\Vert x\Vert$
+\end_inset
+
+, y despejando de esto y la primera desigualdad se obtiene la segunda.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Llamamos 
+\series bold
+número de condición
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ respecto a la norma 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{cond}A:=\Vert A\Vert\Vert A^{-1}\Vert$
+\end_inset
+
+, con lo que si 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+ y 
+\begin_inset Formula $A(x+\Delta x)=b+\Delta b$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\frac{\Vert\Delta x\Vert}{\Vert x\Vert}\leq\text{cond}A\frac{\Vert\Delta b\Vert}{\Vert b\Vert}$
+\end_inset
+
+, y si 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+ y 
+\begin_inset Formula $(A+\Delta)(x+\Delta x)=b$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\frac{\Vert\Delta x\Vert}{\Vert x+\Delta x\Vert}\leq\text{cond}A\frac{\Vert\Delta A\Vert}{\Vert A\Vert}$
+\end_inset
+
+.
+ Estas desigualdades son las mejores posibles en el sentido de que se pueden
+ encontrar 
+\begin_inset Formula $b,\Delta b\neq0$
+\end_inset
+
+ para los que se obtiene la igualdad en la primera desigualdad y 
+\begin_inset Formula $b\neq0$
+\end_inset
+
+ y 
+\begin_inset Formula $\Delta A\neq0$
+\end_inset
+
+ para los que se obtiene en la segunda.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\begin_inset Formula $\text{cond}_{p}(A):=\Vert A^{-1}\Vert_{p}\Vert A\Vert_{p}$
+\end_inset
+
+.
+ Para toda 
+\begin_inset Formula $A\in{\cal M}_{n}$
+\end_inset
+
+ invertible:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{cond}A\geq1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{cond}A=\text{cond}A^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall\alpha\in\mathbb{K}\setminus\{0\},\text{cond}(\alpha A)=\text{cond}A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Sean 
+\begin_inset Formula $M$
+\end_inset
+
+ el mayor valor singular de 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $m$
+\end_inset
+
+ el menor, 
+\begin_inset Formula $\text{cond}_{2}A=\frac{M}{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es normal, sean 
+\begin_inset Formula $M$
+\end_inset
+
+ el mayor valor propio de 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $m$
+\end_inset
+
+ el menor, 
+\begin_inset Formula $\text{cond}_{2}A=\rho(A)\rho(A^{-1})=\frac{|\lambda_{n}(A)|}{|\lambda_{1}(A)|}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es unitaria, 
+\begin_inset Formula $\text{cond}_{2}U=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Sea 
+\begin_inset Formula $U$
+\end_inset
+
+ una matriz unitaria, 
+\begin_inset Formula $\text{cond}_{2}A=\text{cond}_{2}(UA)=\text{cond}_{2}(AU)=\text{cond}_{2}(U^{-1}AU)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $A$
+\end_inset
+
+ diagonalizable, 
+\begin_inset Formula $P$
+\end_inset
+
+ invertible con 
+\begin_inset Formula $D:=P^{-1}AP=:\text{diag}(\lambda_{i})$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ una norma con 
+\begin_inset Formula $\Vert\text{diag}(d_{1},\dots,d_{n})\Vert=\max_{i}|d_{i}|$
+\end_inset
+
+ para toda matriz diagonal y 
+\begin_inset Formula $D_{i}:=B(\lambda_{i},\text{cond}(P)\Vert\Delta A\Vert)\subseteq\mathbb{C}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\sigma(A+\Delta A)\subseteq\bigcup_{i=1}^{n}D_{i}.
+\]
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+a1[31]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
