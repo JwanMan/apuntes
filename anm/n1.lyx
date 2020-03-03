@@ -865,6 +865,12 @@ normal
 \end_layout
 
 \begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:unitary"
+
+\end_inset
+
 Existe 
 \begin_inset Formula $U\in{\cal M}_{n}$
 \end_inset
@@ -874,18 +880,180 @@ Existe
 \end_inset
 
  es triangular superior.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-a1[19]
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+Lo probamos primero para 
+\begin_inset Formula $U$
 \end_inset
 
+ cualquiera.
+ Para 
+\begin_inset Formula $n=1$
+\end_inset
 
+ esto es claro.
+ Sea ahora 
+\begin_inset Formula $n>1$
+\end_inset
+
+ y supongamos esto probado para 
+\begin_inset Formula $n-1$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $f:\mathbb{C}^{n}\to\mathbb{C}^{n}$
+\end_inset
+
+ es la aplicación lineal asociada a 
+\begin_inset Formula $f$
+\end_inset
+
+, por el teorema fundamental del álgebra, el polinomio característico de
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ tendrá raíz y por tanto 
+\begin_inset Formula $f$
+\end_inset
+
+ tendrá un valor propio 
+\begin_inset Formula $\lambda\in\mathbb{C}$
+\end_inset
+
+ con vector propio asociado 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $p_{2},\dots,p_{n}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $(v_{1},p_{2},\dots,p_{n})$
+\end_inset
+
+ es base de 
+\begin_inset Formula $\mathbb{C}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $W:=\text{span}(p_{2},\dots,p_{n})$
+\end_inset
+
+, existen 
+\begin_inset Formula $g:W\to W$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha_{2},\dots,\alpha_{n}\in\mathbb{C}$
+\end_inset
+
+ tales que, para 
+\begin_inset Formula $2\leq k\leq n$
+\end_inset
+
+, 
+\begin_inset Formula $f(p_{k})=\alpha_{k}v_{1}+g(p_{k})$
+\end_inset
+
+.
+ 
 \end_layout
 
+\begin_layout Standard
+Por la hipótesis de inducción, existe una base 
+\begin_inset Formula $(v_{2},\dots,v_{n})$
+\end_inset
+
+ de 
+\begin_inset Formula $W$
+\end_inset
+
+ en la que la matriz de 
+\begin_inset Formula $g$
+\end_inset
+
+ es triangular superior.
+ Si, para 
+\begin_inset Formula $2\leq i\leq n$
+\end_inset
+
+, 
+\begin_inset Formula $v_{i}=:\sum_{j=2}^{n}\gamma_{ij}p_{j}$
+\end_inset
+
+, como 
+\begin_inset Formula $f(v_{1})=\lambda v_{1}$
+\end_inset
+
+ y, para 
+\begin_inset Formula $2\leq i\leq n$
+\end_inset
+
+, 
+\begin_inset Formula $f(v_{i})=\left(\sum_{k=2}^{n}\alpha_{k}\gamma_{ik}\right)v_{1}+g(v_{i})$
+\end_inset
+
+, tenemos que la matriz 
+\begin_inset Formula $(b_{ij})$
+\end_inset
+
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ con la base 
+\begin_inset Formula $(v_{1},\dots,v_{n})$
+\end_inset
+
+ es triangular superior.
+ 
+\end_layout
+
+\begin_layout Standard
+Por el método de Gram-Schmidt, existe una base ortonormal 
+\begin_inset Formula $(u_{1},\dots,u_{n})$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $1\leq k\leq n$
+\end_inset
+
+, 
+\begin_inset Formula $\text{span}(u_{1},\dots,u_{k})=\text{span}(v_{1},\dots,v_{k})$
+\end_inset
+
+, y como 
+\begin_inset Formula $f(v_{k})=\sum_{i=1}^{j}b_{ik}v_{i}$
+\end_inset
+
+ es combinación lineal de 
+\begin_inset Formula $(v_{1},\dots,v_{k})$
+\end_inset
+
+, también lo es de 
+\begin_inset Formula $(u_{1},\dots,u_{k})$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ se expresa en la base 
+\begin_inset Formula $(u_{1},\dots,u_{n})$
+\end_inset
+
+ como matriz triangular.
+ Como esta base es ortonormal respecto al producto escalar hermitiano, la
+ matriz de paso es unitaria.
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 Si 
 \begin_inset Formula $A$
@@ -959,23 +1127,47 @@ Si
 \begin_inset Formula $O$
 \end_inset
 
- ortogonal con 
+ ortogonal real con 
 \begin_inset Formula $O^{-1}AO$
 \end_inset
 
  diagonal.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+En este caso, la matriz es diagonalizable en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-a1[19]
+¿por qué?
 \end_layout
 
 \end_inset
 
+, por lo que podemos seguir los mismos pasos que
+\begin_inset space ~
+\end_inset
 
+en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:unitary"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ usando el producto escalar euclídeo.
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 Dada 
 \begin_inset Formula $A\in{\cal M}_{n}$
@@ -1002,7 +1194,152 @@ valores singulares
 \begin_inset Formula $A$
 \end_inset
 
- a las raíces cuadradas de estos valores propios, y existen 
+ a las raíces cuadradas de estos valores propios.
+ Entonces:
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $A\in\mathbb{C}^{n}$
+\end_inset
+
+ con valores singulares 
+\begin_inset Formula $\mu_{1},\dots,\mu_{n}$
+\end_inset
+
+, existen 
+\begin_inset Formula $U$
+\end_inset
+
+ y 
+\begin_inset Formula $V$
+\end_inset
+
+ unitarias tales que 
+\begin_inset Formula $U^{*}AV=\text{diag}(\mu_{1},\dots,\mu_{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $A^{*}A$
+\end_inset
+
+ es normal, pues 
+\begin_inset Formula $(A^{*}A)^{*}=A^{*}A$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $(A^{*}A)(A^{*}A)^{*}=(A^{*}A)^{*}(A^{*}A)$
+\end_inset
+
+.
+ Por el teorema anterior, existe 
+\begin_inset Formula $V$
+\end_inset
+
+ unitaria tal que 
+\begin_inset Formula $V^{*}A^{*}AV=\text{diag}(\mu_{1}^{2},\dots,\mu_{n}^{2})$
+\end_inset
+
+, donde los 
+\begin_inset Formula $\mu_{i}$
+\end_inset
+
+ son los valores singulares de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $f_{1},\dots,f_{n}$
+\end_inset
+
+ son las columnas de 
+\begin_inset Formula $AV$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f_{i}^{*}f_{j}=\mu_{i}^{2}\delta_{ij}$
+\end_inset
+
+ para 
+\begin_inset Formula $i,j\in\{1,\dots,n\}$
+\end_inset
+
+.
+ Podemos suponer que los valores singulares nulos son 
+\begin_inset Formula $\mu_{1},\dots,\mu_{r}$
+\end_inset
+
+, luego 
+\begin_inset Formula $f_{1},\dots,f_{r}=0$
+\end_inset
+
+, y haciendo 
+\begin_inset Formula $u_{j}:=\frac{f_{j}}{\mu_{j}}$
+\end_inset
+
+ para 
+\begin_inset Formula $j\in\{r+1,\dots,n\}$
+\end_inset
+
+, queda 
+\begin_inset Formula $u_{i}^{*}u_{j}=\delta_{ij}$
+\end_inset
+
+ para 
+\begin_inset Formula $i,j\in\{r+1,\dots,n\}$
+\end_inset
+
+, es decir, 
+\begin_inset Formula $\{u_{r+1},\dots,u_{n}\}$
+\end_inset
+
+ son ortogonales.
+ Completando con vectores ortogonales 
+\begin_inset Formula $u_{1},\dots,u_{r}$
+\end_inset
+
+ se obtiene una base ortonormal de 
+\begin_inset Formula $\mathbb{C}^{n}$
+\end_inset
+
+, y llamando 
+\begin_inset Formula $U$
+\end_inset
+
+ a la matriz con columnas 
+\begin_inset Formula $(u_{1},\dots,u_{n})$
+\end_inset
+
+, queda que
+\begin_inset Formula 
+\[
+(U^{*}AV)_{ij}=u_{i}^{*}f_{j}=\begin{cases}
+0 & \text{si }1\leq j\leq r\\
+\mu_{j}u_{i}^{*}u_{j} & \text{si }r+1\leq j\leq n
+\end{cases}=\mu_{i}\delta_{ij}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $A\in\mathbb{R}^{n}$
+\end_inset
+
+ con valores singulares 
+\begin_inset Formula $\mu_{1},\dots,\mu_{n}$
+\end_inset
+
+, existen 
 \begin_inset Formula $U$
 \end_inset
 
@@ -1011,28 +1348,22 @@ valores singulares
 \end_inset
 
  ortogonales tales que 
-\begin_inset Formula $U^{*}AV$
-\end_inset
-
- es una matriz diagonal cuya diagonal está formada por los valores singulares
- de 
-\begin_inset Formula $A$
+\begin_inset Formula $U^{t}AV=\text{diag}(\mu_{1},\dots,\mu_{n})$
 \end_inset
 
 .
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-a1[20]
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+Análogo, viendo que 
+\begin_inset Formula $A^{t}A$
 \end_inset
 
-
+ es simétrica y cambiando adjuntas por traspuestas y unitarias por ortogonales.
 \end_layout
 
+\end_deeper
 \begin_layout Section
 Cocientes de Rayleigh
 \end_layout
@@ -1144,7 +1475,7 @@ Sean
 \end_inset
 
 , 
-\begin_inset Formula $v\in\mathbb{C}^{n}\setminus\{0\}$
+\begin_inset Formula $v\in\mathbb{C}^{n}\setminus0$
 \end_inset
 
  y 
@@ -1152,10 +1483,13 @@ Sean
 \end_inset
 
 , 
-\begin_inset Formula $R_{A}(v)=\frac{v^{*}Av}{v^{*}v}=\frac{w^{*}U^{*}AUw}{w^{*}U^{*}Uw}=\frac{D}{w^{*}w}=\frac{\sum_{k}\lambda_{k}|w_{k}|^{2}}{\sum_{k}|w_{k}|^{2}}$
+\begin_inset Formula 
+\[
+R_{A}(v)=\frac{v^{*}Av}{v^{*}v}=\frac{w^{*}U^{*}AUw}{w^{*}U^{*}Uw}=\frac{D}{w^{*}w}=\frac{\sum_{k}\lambda_{k}|w_{k}|^{2}}{\sum_{k}|w_{k}|^{2}}.
+\]
+
 \end_inset
 
-.
  Como 
 \begin_inset Formula $w$
 \end_inset
@@ -1181,7 +1515,7 @@ Sean
 
 \end_deeper
 \begin_layout Enumerate
-\begin_inset Formula $\lambda_{k}=\max\{R_{A}(v):v\in E_{k}\setminus\{0\}\}$
+\begin_inset Formula $\lambda_{k}=\max_{v\in E_{k}\setminus0}R_{A}(v)$
 \end_inset
 
 .
@@ -1189,12 +1523,23 @@ Sean
 
 \begin_deeper
 \begin_layout Standard
-\begin_inset Note Note
-status open
+Si 
+\begin_inset Formula $v$
+\end_inset
 
-\begin_layout Plain Layout
-a1[21]
-\end_layout
+ es de la forma 
+\begin_inset Formula $\sum_{i=1}^{k}\alpha_{i}p_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $w=(\alpha_{1},\dots,\alpha_{k},0,\dots,0)$
+\end_inset
+
+, y como los valores propios están ordenados, 
+\begin_inset Formula 
+\[
+R_{A}(v)=\frac{\sum_{i=1}^{k}\lambda_{i}|\alpha_{i}|^{2}}{\sum_{i=1}^{k}|\alpha_{i}|^{2}}\leq\frac{\sum_{i=1}^{k}\lambda_{k}|\alpha_{k}|^{2}}{\sum_{i=1}^{k}|\alpha_{k}|^{2}}=\lambda_{k}=R_{A}(p_{k}).
+\]
 
 \end_inset
 
@@ -1203,7 +1548,7 @@ a1[21]
 
 \end_deeper
 \begin_layout Enumerate
-\begin_inset Formula $\lambda_{k}=\min\{R_{A}(v):v\bot E_{k-1}\}$
+\begin_inset Formula $\lambda_{k}=\min_{0\neq v\bot E_{k-1}}R_{A}(v)$
 \end_inset
 
 .
@@ -1211,43 +1556,111 @@ a1[21]
 
 \begin_deeper
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-a1[21]
-\end_layout
-
+En este caso, 
+\begin_inset Formula $v$
 \end_inset
 
+ es de la forma 
+\begin_inset Formula $\sum_{i=k}^{n}\alpha_{i}p_{i}$
+\end_inset
 
+, y el razonamiento es análogo al del punto anterior.
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
-\begin_inset Formula $\lambda_{k}=\min_{E\in{\cal S}_{k}}\max\{R_{A}(v):v\in E\setminus\{0\}\}$
+\begin_inset Formula $\lambda_{k}=\min_{W\in{\cal S}_{k}}\max_{v\in W\setminus0}R_{A}(v)$
 \end_inset
 
 .
 \end_layout
 
 \begin_deeper
-\begin_layout Standard
-\begin_inset Note Note
+\begin_layout Enumerate
+\begin_inset Argument item:1
 status open
 
 \begin_layout Plain Layout
-a1[21]
+\begin_inset Formula $\geq]$
+\end_inset
+
+
 \end_layout
 
 \end_inset
 
 
+\begin_inset Formula $\lambda_{k}=\max_{v\in E_{k}\setminus\{0\}}R_{A}(v)\overset{E_{k}\in{\cal S}_{k}}{\leq}\inf_{W\in{\cal S}_{k}}\max_{v\in W\setminus\{0\}}R_{A}(v)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\leq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Queremos ver que 
+\begin_inset Formula $\forall W\in{\cal S}_{k},\lambda_{k}\leq\max_{v\in W\setminus\{0\}}R_{A}(v)$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $E_{k-1}^{\bot}:=\{v\in V:v\bot E_{k-1}\}$
+\end_inset
+
+, basta ver que para todo subespacio 
+\begin_inset Formula $W$
+\end_inset
+
+ de dimensión 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $W\cap E_{k-1}^{\bot}\neq0$
+\end_inset
+
+, pues entonces, para 
+\begin_inset Formula $v\in(W\cap E_{k-1}^{\bot})\setminus0$
+\end_inset
+
+, como 
+\begin_inset Formula $0\neq v\bot E_{k-1}$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda_{k}\leq\min_{0\neq v\bot E_{k-1}}R_{A}(v)$
+\end_inset
+
+.
+ Pero como 
+\begin_inset Formula $E_{k-1}^{\bot}$
+\end_inset
+
+ tiene dimensión 
+\begin_inset Formula $n-k+1$
+\end_inset
+
+, por Grassmann, 
+\begin_inset Formula $\dim(W\cap E_{k-1}^{\bot})=\dim W+\dim E_{k-1}^{\bot}-\dim(W\oplus E_{k-1}^{\bot})\leq\dim W+\dim E_{k-1}^{\bot}-\dim\mathbb{C}^{n}=k+n-k+1-n=1$
+\end_inset
+
+.
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
-\begin_inset Formula $\lambda_{k}=\max_{E\in{\cal S}_{k-1}}\min\{R_{A}(v):v\bot E\}$
+\begin_inset Formula $\lambda_{k}=\max_{E\in{\cal S}_{k-1}}\min_{0\neq v\bot E}R_{A}(v)$
 \end_inset
 
 .
@@ -1255,16 +1668,7 @@ a1[21]
 
 \begin_deeper
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-a1[21]
-\end_layout
-
-\end_inset
-
-
+Análogo.
 \end_layout
 
 \end_deeper
@@ -1439,6 +1843,13 @@ Entonces, para
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1922,16 +2333,63 @@ Toda norma matricial cumple
 
 .
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-a1[26]
-\end_layout
-
+\series bold
+Demostración:
+\series default
+ Sabemos que 
+\begin_inset Formula $\rho(B)\leq\Vert B\Vert$
 \end_inset
 
+, y como 
+\begin_inset Formula $\rho(B)=\rho(B^{k})^{1/k}$
+\end_inset
 
+, queda 
+\begin_inset Formula $\rho(B)\leq\Vert B^{k}\Vert^{1/k}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ Fijado ahora 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, sea 
+\begin_inset Formula $B_{\varepsilon}:=\frac{B}{\rho(B)+\varepsilon}$
+\end_inset
+
+, se tiene 
+\begin_inset Formula $\rho(B_{\varepsilon})<1$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\lim_{k}B_{\varepsilon}^{k}=0$
+\end_inset
+
+ y existe 
+\begin_inset Formula $k_{0}$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $k\geq k_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $B_{\varepsilon}^{k}\leq1$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $\Vert B_{\varepsilon}^{k}\Vert=\frac{\Vert B^{k}\Vert}{(\rho(B)+\varepsilon)^{k}}\leq1$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert B^{k}\Vert^{1/k}\leq\rho(B)+\varepsilon$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -2237,16 +2695,107 @@ Sean
 \end_inset
 
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-a1[31]
 \end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $\lambda\neq\lambda_{1},\dots,\lambda_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $D-\lambda I$
+\end_inset
+
+ es invertible con inversa 
+\begin_inset Formula $\text{diag}(\frac{1}{\lambda_{1}-\lambda},\dots,\frac{1}{\lambda_{n}-\lambda})$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ es valor propio de 
+\begin_inset Formula $A+\Delta A$
+\end_inset
+
+, 
+\begin_inset Formula $A+\Delta A-\lambda I$
+\end_inset
+
+ no debe tener inversa, por lo que tampoco debe tener inversa 
+\begin_inset Formula $P^{-1}(A+\Delta A-\lambda I)P=P^{-1}AP-P^{-1}\lambda IP+P^{-1}\Delta AP=D-\lambda I+P^{-1}\Delta AP=(D-\lambda I)(I+(D-\lambda I)^{-1}P^{-1}\Delta AP)=:(D-\lambda I)(I+B)$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $I+B$
+\end_inset
+
+ no debe ser invertible.
+ Ahora bien, si 
+\begin_inset Formula $\Vert B\Vert<1$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{multline*}
+(I+B)\sum_{k=0}^{n}(-1)^{k}B^{k}=\sum_{k=0}^{n}(-1)^{k}(B^{k}+B^{k+1})=\sum_{k=0}^{n}(-1)^{k}B^{k}+\sum_{k=1}^{n+1}(-1)^{k-1}B^{n}=\\
+=\sum_{k=0}^{n}(-1)^{k}B^{k}-\sum_{k=1}^{n+1}(-1)^{k}B^{k}=B^{0}+(-1)^{n}B^{n+1}=I+(-1)^{n}B^{n+1},
+\end{multline*}
 
 \end_inset
 
+ pero 
+\begin_inset Formula $\lim_{n}B^{n+1}=0$
+\end_inset
 
+, luego 
+\begin_inset Formula 
+\[
+(I+B)\sum_{k=0}^{\infty}(-1)^{k}B^{k}=\lim_{n}(I+(-1)^{n}B^{n+1})=I
+\]
+
+\end_inset
+
+ y 
+\begin_inset Formula $\sum_{k=0}^{\infty}(-1)^{k}B^{k}$
+\end_inset
+
+ es la inversa de 
+\begin_inset Formula $I+B$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $\Vert B\Vert\geq1$
+\end_inset
+
+, luego 
+\begin_inset Formula $1\leq\Vert(D-\lambda I)^{-1}P^{-1}\Delta AP\Vert\leq\Vert(D-\lambda I)^{-1}\Vert\Vert P^{-1}\Vert\Vert\Delta A\Vert\Vert P\Vert=\Vert(D-\lambda I)^{-1}\Vert\Vert\Delta A\Vert\text{cond}(P)$
+\end_inset
+
+, y como 
+\begin_inset Formula 
+\[
+\Vert(D-\lambda I)^{-1}\Vert=\max_{k}\left|\frac{1}{\lambda_{k}-\lambda}\right|=\frac{1}{\min_{k}|\lambda_{k}-\lambda|},
+\]
+
+\end_inset
+
+ queda 
+\begin_inset Formula $1\leq\frac{\Vert\Delta A\Vert\text{cond}(P)}{\min_{k}|\lambda_{k}-\lambda|}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\min_{k}|\lambda_{k}-\lambda|\leq\Vert\Delta A\Vert\text{cond}(P)$
+\end_inset
+
+.
+ 
 \end_layout
 
 \end_body
