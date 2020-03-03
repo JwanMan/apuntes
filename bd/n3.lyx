@@ -1,0 +1,326 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+esquema conceptual
+\series default
+ es una descripción del contenido de una base de datos que persigue entender
+ su estructura, semántica, relaciones y restricciones, independientemente
+ de aspectos de implementación, usando un modelo de datos de alto nivel,
+ más expresivo y general que uno de representación, para servir de vehículo
+ de comunicación entre usuarios, diseñadores y analistas.
+ Consta de un 
+\series bold
+diagrama entidad-relación
+\series default
+ y un 
+\series bold
+diccionario de datos
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+El diseño conceptual es el proceso de construir un modelo de datos independiente
+ de toda consideración física, basándose en un análisis meticuloso del 
+\series bold
+catálogo de requisitos de datos
+\series default
+ y generando mediante refinamiento y estructuración progresivos un esquema
+ conceptual.
+ El diseño puede ser:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Centralizado
+\series default
+: El equipo de diseño de la base de datos reúne los requisitos de cada grupo
+ de usuarios, aplicación o subsistema, decide cómo combinarlos, diseña el
+ esquema conceptual y especifica los esquemas externos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Integración de vistas
+\series default
+: Cada grupo de usuarios diseña un esquema conceptual, y el equipo de diseño
+ de la base de datos integra estas vistas en un esquema global.
+\end_layout
+
+\begin_layout Standard
+El éxito en el diseño conceptual se obtiene de seguir una metodología estructura
+da en que se trabaje interactivamente con los usuarios tanto como sea posible,
+ siguiendo un enfoque guiado por los datos que combine técnicas para conceptuali
+zar, normalizar y validar los datos e incorpore consideraciones estructurales
+ y de integridad; usando diagramas para representar los modelos y un lenguaje
+ de diseño de bases de datos para representar semántica adicional que no
+ pueda expresarse en los diagramas; construyendo un diccionario de datos
+ para complementar los diagramas, y repitiendo pasos de la metodología siempre
+ que sea necesario.
+ 
+\end_layout
+
+\begin_layout Standard
+Pasos en el diseño:
+\end_layout
+
+\begin_layout Enumerate
+Identificar tipos de entidad.
+ Criterios:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Lingüístico: Suelen ser sujetos o complementos directos.
+ Los nombres propios suelen ser instancias.
+\end_layout
+
+\begin_layout Enumerate
+De categorización de objetos: Son conceptos con más propiedades que su nombre
+ y que describen un tipo de objetos con existencia autónoma.
+\end_layout
+
+\begin_layout Standard
+Se asigna un nombre significativo a cada tipo de entidad y se registra en
+ el diccionario de datos junto a su descripción y sinónimos si hay.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Identificar tipos de relación.
+ Criterios:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Lingüístico: Suelen ser verbos, locuciones verbales, preposiciones o locuciones
+ preposicionales entre nombres de entidad (instancias o tipos).
+ Del uso de tipos de entidad en singular o plural se obtiene la cardinalidad.
+\end_layout
+
+\begin_layout Enumerate
+De categorización de objetos: Proporcionan un vínculo entre entidades que
+ hace posible la selección de una entidad a través de una referencia a una
+ propiedad de otra.
+\end_layout
+
+\begin_layout Standard
+Solo se incluyen las relaciones de interés para el usuario.
+ La mayoría relacionan dos entidades, aunque pueden relacionan más.
+ Las relaciones se distinguen por la tupla de entidades relacionadas, por
+ lo que si hace falta un atributo para distinguirlas, este se ha de convertir
+ en entidad.
+\end_layout
+
+\begin_layout Standard
+Se asigna un nombre significativo a cada tipo de relación y se registra
+ en el diccionario de datos junto a su descripción, sinónimos si los hay
+ y, para cada entidad relacionada, el tipo de entidad, la cardinalidad y,
+ si es necesario, el rol.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Identificar y asignar atributos a los tipos de entidad y relación.
+ Criterios:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Lingüístico: Como para los tipos de relación, pero entre un nombre de entidad
+ y una propiedad.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Categorización: Son conceptos simples con un valor y sin propiedades asociadas.
+ 
+\end_layout
+
+\begin_layout Standard
+Se usa una entidad si el concepto tiene asociados otros atributos de interés
+ o está relacionado con más entidades, o atributos si solo tiene su valor
+ y no participa claramente en vínculos.
+\end_layout
+
+\begin_layout Standard
+Un atributo es compuesto si resulta natural dar nombre a un grupo de propiedades
+ simples y se referencia tanto el conjunto como unidad como sus partes por
+ separado, es simple si solo se referencia como unidad, y es un conjunto
+ de atributos simples si las propiedades son independientes y solo se referencia
+ a las propiedades individualmente.
+ Es opcional si puede no estar y derivado si puede obtenerse a partir de
+ otros.
+\end_layout
+
+\begin_layout Standard
+Dentro de cada tipo de entidad o relación, se asigna un nombre significativo
+ a cada atributo y se registra en el diccionario de datos, clasificado por
+ tipo al que pertenece, junto con su descripción, sinónimos si los hay,
+ tipo de datos, subatributos si el atributo es compuesto, fórmula de cálculo
+ si es derivado, y otras propiedades como si es opcional o no.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Determinar atributos clave.
+ Establecer los atributos identificadores de cada tipo de entidad y, si
+ un tipo de entidad tiene varios, elegir un identificador principal o 
+\series bold
+clave primaria
+\series default
+ buscando que tenga menos atributos, valores de menor longitud o sea más
+ usado por los usuarios.
+ El resto quedan como alternativas.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si una entidad no puede identificarse por sí misma, podría ser débil.
+ El verbo tener puede relacionar un tipo de entidad fuerte con uno débil
+ que depende de él o un tipo de entidad con sus atributos.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Considerar incorporar restricciones de integridad.
+ Documentar las restricciones necesarias para que los datos no queden incompleto
+s, imprecisos o incoherentes, redactando 
+\series bold
+reglas de integridad
+\series default
+ en lenguaje natural que no pueden expresarse en el diagrama entidad-relación.
+\end_layout
+
+\begin_layout Enumerate
+Comprobar redundancia.
+ El esquema conceptual debe ser mínimo.
+ Una relación es 
+\series bold
+redundante
+\series default
+ si se puede obtener la misma información mediante otras relaciones.
+ No debe haber elementos sinónimos, relaciones redundantes ni entidades
+ 
+\begin_inset Quotes cld
+\end_inset
+
+colgantes
+\begin_inset Quotes crd
+\end_inset
+
+.
+ Se debe considerar si hay que modelar los estados anteriores de cierta
+ información o solo el actual.
+\end_layout
+
+\begin_layout Enumerate
+Validar el esquema conceptual contra las transacciones de usuario.
+ Un 
+\series bold
+catálogo de requisitos de transacciones
+\series default
+ contiene los tipos de transacciones de entrada, actualización, eliminación
+ y consulta de datos que requiere el usuario.
+ Para asegurarse de que todas están soportadas, se dibuja sobre el diagrama
+ el camino tomado por cada transacción, lo que permite visualizar qué áreas
+ del modelo son cruciales; cuáles no son necesarias y se pueden eliminar,
+ y cuáles se han omitido o definido mal.
+ Como esto complica los diagramas, se suelen usar varias copias.
+ Finalmente se documenta el camino tomado por cada transacción del catálogo.
+\end_layout
+
+\begin_layout Enumerate
+Revisar el esquema conceptual con el usuario.
+ Ver que este considera el modelo como una verdadera representación de los
+ requisitos.
+ Si hay anomalías, se hacen cambios y se repite el proceso, hasta que el
+ usuario autorice el esquema.
+\end_layout
+
+\end_body
+\end_document
