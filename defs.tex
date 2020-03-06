@@ -1,8 +1,86 @@
-% Exercises (old format)
+% Documentation:
+% \exerc{n} -- Begin exercise number "n".
+% \rexerc{n} -- Begin recommended exercise number "n".
+% \answer -- Answer to the exercise (currently just disable indentation).
+% Usually this would be like: \(r)exerc{(n)} (question) \par\answer (answer).
+%
+% \soffsets -- Place before a table to avoid horizontal margins on cells.
+% \eoffsets -- Place after.
+% \offset{a}{b} -- An offset indication.
+% Usually, there's one row for the offset indication, with 3% of page width per
+% bit. Then 32 bits per row. This is usually used for illustrating a binary
+% format.
+%
+% \mixbox{...} -- A box for MIX 5-byte (plus sign) registers.
+% \mixsmbox{...} -- A box for MIX 2-byte (plus sign) registers.
+% \byte{n} -- Byte with contents "n".
+% \twobytes{n} -- Two bytes.
+% \threebytes{n} -- Three bytes.
+% \fourbytes{n} -- Four bytes.
+% \fivebytes{n} -- Five bytes.
+% \sixbytes{n} -- Six bytes.
+% The last six commands should only be used inside \mixbox or \mixsmbox. These
+% two commands should have the appropiate number of bytes including sign (six or
+% three, respectively).
+% Note: For tables, don't use \mixbox or \mixsmbox. Instead, put the table
+% between \soffsets and \eoffsets, add ~ when some separation is needed and
+% make sure the cells containing the bytes (one cell per box) has borders.
 \font\manual=manfnt
-\def\ejercicio#1#2{\medbreak\noindent\llap{\manual\char'170\rm\kern.15em}{\bf\small EJERCICIO #1}\\#2\par\nobreak\noindent}
-\def\exercise{\ejercicio}
-\def\cuestion#1#2{\vspace{.35in}\medbreak\noindent\llap{\manual\char'170\rm\kern.15em}{\bf\small CUESTI\'ON #1}\\#2\par\nobreak\noindent}
+\outer\def\exerc#1{\medbreak\paragraph{ #1.}}
+\outer\def\rexerc#1{\medbreak\paragraph{\noindent\llap{\manual\char'170\rm\kern.15em} #1.}}
+\outer\def\answer{\par\vskip3pt\nobreak\noindent}
+
+% Deprecated
+%\outer\def\exercise#1{\medbreak\noindent\llap{\manual\char'170\rm\kern.15em}{\bf\small EJERCICIO #1}\par\nobreak\noindent}
+%\def\onpart#1#2{\setcounter{part}{#1}\part{#2}}
+%\def\onchapter#1#2{\setcounter{chapter}{#1}\chapter{#2}}
+%\def\onsection#1#2{\setcounter{section}{#1}\section{#2}}
+%\def\onsubsection#1#2{\setcounter{subsection}{#1}\section{#2}}
+
+%% MACROS FOR MIX BOXES (mostly from taocpmac.tex)
+\def\ticky#1{\leavevmode\hbox{\chardef\_=`\_\tt#1}}
+\def\Hedge#1{\vbox{\dimen0=#1 em \advance\dimen0 .4 pt \hrule width \dimen0}} \def\Hed#1{\vbox{\dimen0=1.4em\relax \dimen0=#1\dimen0\relax         \advance\dimen0 .4pt\relax \hrule width \dimen0}}
+\def\hedge{\Hedge{8.4}}
+\def\smhedge{\Hedge{4.2}}
+
+\def\vedge{\vrule height 1.05em depth .55em} % 16pt 
+\def\tick{\vrule height 0.2em} 
+\def\Byte#1#2{\hbox to #1em{\hfill\ticky{#2}\hfill\hskip.4 pt }\hskip-.4pt \vrule}
+\def\byte{\Byte{1.4}}
+
+\newcount\nbytes
+\newdimen\byteswidth
+\newdimen\clearance
+\clearance=4.175pt
+\def\cb{\hskip-\clearance plus 1 fill } %center bytes
+% #1=number of bytes, #2=total width, #3=height to tick, #4=depth to tick,
+% #5=contents
+\def\multibytes#1#2#3#4#5{\nbytes=1 \byteswidth=#2em
+  \hbox to \byteswidth{\hfill{\tt#5}\hskip\clearance \hskip.4pt}\hskip-\byteswidth
+  \divide\byteswidth #1
+  \loop\ifnum\nbytes<#1 \advance\nbytes by1
+  \hskip\byteswidth
+  \hskip-.4pt\vrule height -#4 em \hskip -.4pt \vrule depth -#3 em \repeat
+  \hskip\byteswidth \hskip-.4pt \vrule}
+
+\def\twobytes{\multibytes2{2.8}{.85}{.35}} 
+\def\threebytes{\multibytes3{4.2}{.85}{.35}} 
+\def\fourbytes{\multibytes4{5.6}{.85}{.35}} 
+\def\fivebytes{\multibytes5{7.0}{.85}{.35}} 
+\def\sixbytes{\multibytes6{9.0}{.95}{.45}} 
+
+\def\opensign#1{\lower 5.5pt\vbox to 16pt{\hbox to 14pt{\hfil\tick}\vfill
+\hbox to 14pt{\hfil\ticky{#1}\hfil}\vfill\hbox to 14pt{\hfil\tick}}}
+\def\textindentindent#1{\noindent\hbox to 40pt{\hss#1\ }\!}
+
+\def\punct#1{\ifinner \,#1 \else\rlap{\enspace#1}\fi} % punctuation after box
+
+\def\mixbox#1{\,\hbox{\lower 5.5pt\vbox{\hedge\vskip-1.2pt\hbox{\vedge#1}\vskip-5.5pt\hedge}}\,}
+\def\mixsmbox#1{\,\hbox{\lower 5.5pt\vbox{\smhedge\vskip-1.2pt\hbox{\vedge#1}\vskip-5.5pt\smhedge}}\,}
+
+\def\soffsets{\begin{center}\setlength\tabcolsep{0pt}}
+\def\offset#1#2{\small\ #1\hfill{}#2\ }
+\def\eoffsets{\end{center}}
 
 % Notices
 \def\sremember#1{\begin{center}\begin{tabular}{|p{0.9\textwidth}|}\multicolumn{1}{p{0.9\textwidth}}{{\kern-.3em\small {[}#1{]}}}\tabularnewline\hline\kern-1ex}

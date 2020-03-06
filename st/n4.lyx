@@ -1,0 +1,616 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\series bold
+\emph on
+Domain Name System
+\series default
+\emph default
+ es una base de datos distribuida en una jerarquía de servidores de nombres
+ (
+\series bold
+\emph on
+name servers
+\series default
+\emph default
+) para traducir entre nombres de dominio y direcciones IP, que permite la
+ creación de alias o nombres de dominio alternativos y la distribución de
+ carga dando al mismo nombre varias direcciones IP, de las que se elige
+ una u otra en orden circular.
+ Las entradas o 
+\series bold
+\emph on
+resource records
+\series default
+\emph default
+ (
+\series bold
+RR
+\series default
+) tienen forma (nombre, valor, tipo, TTL), donde TTL son los segundos hasta
+ que expire la entrada y algunos tipos son:
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+A
+\family default
+ El nombre es el de un dominio y el valor es la IPv4.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+CNAME
+\family default
+ El nombre es un alias para el valor, ambos nombres de dominio.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+NS
+\family default
+ El nombres es el de un dominio y el valor es la IP del servidor DNS responsable.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+MX
+\family default
+ El valor es el servidor de correo asociado con el nombre, ambos nombres
+ de dominio.
+\end_layout
+
+\begin_layout Standard
+Los nombres de dominio tienen forma jerárquica, ...
+\family typewriter
+.
+\emph on
+nivel2
+\emph default
+.
+\emph on
+nivel1
+\emph default
+.
+\family default
+, y un servidor DNS responsable de un dominio se encarga de la dirección
+ de sus 
+\series bold
+subdominios
+\series default
+, dominios que tienen al dominio principal como sufijo, precedido de un
+ punto, con un nivel mayor.
+ Tipos de servidores DNS:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Root name servers
+\series default
+\emph default
+: 13 direcciones IP en el mundo que mantienen el nivel de jerarquía más
+ alto (nivel 1).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Top-level domain
+\series default
+\emph default
+ (
+\series bold
+TLD
+\series default
+): Responsables de los dominios de primer nivel: 
+\family typewriter
+com
+\family default
+, 
+\family typewriter
+org
+\family default
+, 
+\family typewriter
+net
+\family default
+, 
+\family typewriter
+edu
+\family default
+, 
+\family typewriter
+aero
+\family default
+, 
+\family typewriter
+jobs
+\family default
+, 
+\family typewriter
+museums
+\family default
+, etc., incluyendo los de los países, como 
+\family typewriter
+uk
+\family default
+, 
+\family typewriter
+fr
+\family default
+, 
+\family typewriter
+ca
+\family default
+, 
+\family typewriter
+jp
+\family default
+, etc.
+ Network Solutions mantiene servidores para el TLD 
+\family typewriter
+com
+\family default
+ y Educause para el TLD 
+\family typewriter
+edu
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Authoritative
+\series default
+\emph default
+: Servidor DNS de una organización, con información de mapeo entre nombre
+ e IP para los hosts de la organización.
+ Los mantiene la organización o un proveedor de servicio.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Servidores locales
+\series default
+: No son necesariamente responsables de ningún dominio, sino que son servidores
+ más cercanos al usuario a los que este consulta y que actúan como 
+\emph on
+proxy
+\emph default
+, pudiendo responder desde una caché o reenviar la consulta a otro servidor
+ local o a la jerarquía.
+ Llamamos 
+\series bold
+\emph on
+default name server
+\series default
+\emph default
+ al servidor local al que pregunta un cierto usuario.
+\end_layout
+
+\begin_layout Standard
+Una consulta es 
+\series bold
+iterativa
+\series default
+ si, cuando el servidor contactado no conoce un mapeo, responde con el nombre
+ del servidor al que contactar para obtenerlo, y es 
+\series bold
+recursiva
+\series default
+ si es este el que contacta.
+ La recursiva mejora la caché del servidor intermedio, pero sobrecarga los
+ niveles altos de la jerarquía.
+\end_layout
+
+\begin_layout Standard
+Cuando un servidor de nombre aprende un mapeo, lo guarda en una caché (
+\series bold
+\emph on
+caching
+\series default
+\emph default
+) hasta que expira el TTL.
+ Los TLD se cachean en servidores locales, por lo que los servidores raíz
+ no se consultan frecuentemente.
+ El RFC 2136 propone mecanismos de actualización y modificación.
+\end_layout
+
+\begin_layout Standard
+Los mensajes se envían sobre UDP con el siguiente formato:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+soffsets
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="48col%">
+<column alignment="center" valignment="top" width="48col%">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+offset0{15}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+offset{16}{31}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ID
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Opciones
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Número de preguntas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Número de respuestas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Número de respuestas autoritativas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Número de respuestas adicionales
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Preguntas
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RRs de respuestas
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RRs con los servidores autoritativos
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RRs con información adicional
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eoffsets
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El ID es el mismo en la petición que en la respuesta.
+ Las opciones indican si se trata de una petición (
+\emph on
+query
+\emph default
+) o respuesta (
+\emph on
+reply
+\emph default
+), si se desea recursividad, si esta está disponible, etc.
+\end_layout
+
+\begin_layout Standard
+Para registrar un nombre en un dominio, a través de un 
+\series bold
+\emph on
+DNS registrar
+\series default
+\emph default
+, se guardan en este un registro NS con el nombre de dominio 
+\emph on
+authoritative
+\emph default
+ y un registro A para dicho servidor, y en el servidor 
+\emph on
+authoritative
+\emph default
+ se incluyen los registros A para el dominio y subdominios, MX, etc.
+\end_layout
+
+\begin_layout Standard
+Para un dominio un servidor DNS puede ser 
+\series bold
+primario
+\series default
+ o 
+\series bold
+maestro
+\series default
+ si almacena la información sobre la zona o 
+\series bold
+secundario
+\series default
+ o 
+\series bold
+esclavo
+\series default
+ si obtiene información de esta copiándola del primario.
+\end_layout
+
+\begin_layout Standard
+DNS podría ser vulnerable a ataques de solicitud de servicio distribuidos
+ (DDoS).
+ Esto no se ha conseguido para los servidores raíz, pues estos implementan
+ filtrado de tráfico y, además, los servidores locales rara vez contactan
+ con estos porque tienen las IPs de los TLDs en caché; sin embargo, esto
+ es potencialmente más peligroso si el objetivo son los TLDs.
+ DNS se puede explotar para DDoS enviando solicitudes con una dirección
+ IP fuente que se pretende atacar, aunque se requiere algún mecanismo de
+ amplificación de las respuestas.
+ También es vulnerable a ataques 
+\emph on
+man-in-the-middle
+\emph default
+ (MITM); en concreto, el 
+\series bold
+\emph on
+DNS poisoning
+\series default
+\emph default
+ consiste en enviar respuestas DNS con información falsa a los servidores
+ locales para que la cacheen.
+\end_layout
+
+\end_body
+\end_document
