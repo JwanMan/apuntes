@@ -1,0 +1,640 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Introducido por Ted Codd en 1970 desde IBM Research, el 
+\series bold
+modelo relacional
+\series default
+ es un modelo de representación de datos lógico basado en registros y el
+ más usado en aplicaciones de pago de procesamiento de datos convencional.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+dominio
+\series default
+ es el conjunto de valores atómicos que puede tomar un atributo.
+ Si el SGBD soporta dominios, puede detectar errores como el de intentar
+ comparar atributos de distintos dominios.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+relación
+\series default
+ está compuesta por un 
+\series bold
+esquema
+\series default
+ o 
+\series bold
+cabecera
+\series default
+ 
+\begin_inset Formula $\{D_{i}\}_{i\in I}$
+\end_inset
+
+, donde 
+\begin_inset Formula $I$
+\end_inset
+
+ es un conjunto finito de atributos y 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+ es el dominio del atributo 
+\begin_inset Formula $i$
+\end_inset
+
+, y un 
+\series bold
+estado
+\series default
+, 
+\series bold
+cuerpo
+\series default
+ o 
+\series bold
+instancia
+\series default
+ 
+\begin_inset Formula $S\subseteq\prod_{i\in I}D_{i}$
+\end_inset
+
+ finito, cuyos elementos son 
+\series bold
+tuplas
+\series default
+.
+ El estado de una relación varía según el tiempo de forma discreta (los
+ tiempos en los que cambia son puntos aislados), mientras que el esquema
+ puede variar en el tiempo de forma discreta pero no suele hacerlo.
+ Llamamos 
+\series bold
+cardinalidad
+\series default
+ de una relación al número de tuplas en su estado y 
+\series bold
+grado
+\series default
+ al número de atributos.
+\end_layout
+
+\begin_layout Standard
+Podemos representar un 
+\series bold
+esquema
+\series default
+ de relación como 
+\family typewriter
+\emph on
+RELACIÓN
+\emph default
+(
+\emph on
+atributo
+\emph default
+, 
+\family default
+...
+\family typewriter
+)
+\family default
+ o mediante una tabla de la forma
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+\emph on
+RELACIÓN
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\emph on
+atributo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Representamos el esquema mediante una tabla con una columna por atributo
+ y una fila por tupla.
+ Esta representación es muy sencilla y fácil de utilizar y entender, pero
+ da a entender falsamente un orden entre las filas y columnas de la tabla.
+ 
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+base de datos relacional
+\series default
+ es un par que varía con el tiempo de forma discreta formado por una familia
+ finita de relaciones y una serie de 
+\series bold
+reglas
+\series default
+ o 
+\series bold
+restricciones de integridad
+\series default
+, proposiciones lógicas que debe cumplir la base de datos para que los datos
+ tengan sentido.
+ El esquema de la base de datos está formado por la familia de los esquemas
+ de las relaciones y las reglas de identidad, y el estado es la familia
+ de los estados de las relaciones.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Principio de información:
+\series default
+ Todo dato en una base de datos relacional se expresa únicamente como valor
+ explícito en una posición de columna dentro de una fila en una tabla.
+\end_layout
+
+\begin_layout Standard
+Existe un valor 
+\series bold
+nulo
+\series default
+ (
+\emph on
+null
+\emph default
+), que puede estar o no en el dominio de un atributo, que representa información
+ perdida, ausencia de información o valor no aplicable a cierto atributo.
+ Este no se trata como valor, sino como indicación de que el valor real
+ del atributo es desconocido, por lo que dos valores nulos no se consideran
+ iguales.
+\end_layout
+
+\begin_layout Standard
+Dada una relación 
+\begin_inset Formula $R$
+\end_inset
+
+ con conjunto de atributos 
+\begin_inset Formula $I$
+\end_inset
+
+, una 
+\series bold
+clave
+\series default
+ de 
+\begin_inset Formula $R$
+\end_inset
+
+ es un conjunto de atributos 
+\begin_inset Formula $J\subseteq I$
+\end_inset
+
+ que cumple la 
+\series bold
+restricción de unicidad
+\series default
+, consistente en que dos tuplas distintas de 
+\begin_inset Formula $R$
+\end_inset
+
+ deben diferir en alguno de los atributos de 
+\begin_inset Formula $J$
+\end_inset
+
+, y la 
+\series bold
+restricción de irreductibilidad
+\series default
+, que dice que no existe un 
+\begin_inset Formula $K\subsetneq J$
+\end_inset
+
+ tal que 
+\begin_inset Formula $K$
+\end_inset
+
+ cumpla la restricción de unicidad.
+ Una clave 
+\begin_inset Formula $J$
+\end_inset
+
+ es 
+\series bold
+simple
+\series default
+ si 
+\begin_inset Formula $|J|=1$
+\end_inset
+
+ y 
+\series bold
+compuesta
+\series default
+ si 
+\begin_inset Formula $|J|>1$
+\end_inset
+
+.
+ A cada clave le corresponde una regla de integridad.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R$
+\end_inset
+
+ debe tener al menos una clave, pues al menos 
+\begin_inset Formula $I$
+\end_inset
+
+ cumple la restricción de unicidad y es finito.
+ Llamamos 
+\series bold
+claves candidatas
+\series default
+ a las claves de 
+\begin_inset Formula $R$
+\end_inset
+
+, 
+\series bold
+clave primaria
+\series default
+ (
+\emph on
+primary key
+\emph default
+, 
+\series bold
+PK
+\series default
+) a la clave candidata que elegimos para identificar a las tuplas de 
+\begin_inset Formula $R$
+\end_inset
+
+ y 
+\series bold
+claves alternativas
+\series default
+ (
+\emph on
+alternative keys
+\emph default
+, 
+\series bold
+AK
+\series default
+) al resto de claves candidatas.
+ 
+\series bold
+Restricción de integridad de entidad:
+\series default
+ ningún atributo de una clave primaria puede valer nulo.
+\end_layout
+
+\begin_layout Standard
+La interrelación o vínculo de una relación 
+\begin_inset Formula $R$
+\end_inset
+
+ a una 
+\begin_inset Formula $R'$
+\end_inset
+
+ se hace incluyendo en 
+\begin_inset Formula $R$
+\end_inset
+
+ una 
+\series bold
+clave ajena
+\series default
+, 
+\series bold
+externa
+\series default
+ o 
+\series bold
+foránea
+\series default
+ (
+\emph on
+Foreign Key
+\emph default
+, 
+\series bold
+FK
+\series default
+).
+ Así, si 
+\begin_inset Formula $\{D_{i}\}_{i\in I}$
+\end_inset
+
+ es el esquema de 
+\begin_inset Formula $R$
+\end_inset
+
+, 
+\begin_inset Formula $\{E_{j}\}_{j\in J}$
+\end_inset
+
+ es el de 
+\begin_inset Formula $R'$
+\end_inset
+
+ y 
+\begin_inset Formula $P\subseteq J$
+\end_inset
+
+ es la clave primaria de 
+\begin_inset Formula $R'$
+\end_inset
+
+, una clave ajena en 
+\begin_inset Formula $R$
+\end_inset
+
+ hacia 
+\begin_inset Formula $R'$
+\end_inset
+
+ es un conjunto 
+\begin_inset Formula $F\subseteq I$
+\end_inset
+
+ de atributos para los que existe una biyección 
+\begin_inset Formula $\sigma:F\to P$
+\end_inset
+
+ con 
+\begin_inset Formula $E_{\sigma(f)}=D_{f}\setminus\{\mathtt{NULL}\}$
+\end_inset
+
+ para 
+\begin_inset Formula $f\in F$
+\end_inset
+
+ junto con una 
+\series bold
+restricción de integridad referencial
+\series default
+ que afirma que, para toda tupla 
+\begin_inset Formula $T$
+\end_inset
+
+ en el estado de 
+\begin_inset Formula $R$
+\end_inset
+
+, o 
+\begin_inset Formula $T_{f}$
+\end_inset
+
+ es nulo para todo 
+\begin_inset Formula $f\in F$
+\end_inset
+
+, o existe a la vez una tupla 
+\begin_inset Formula $U$
+\end_inset
+
+ en el estado de 
+\begin_inset Formula $R'$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\{T_{f}\}_{f\in F}=\{U_{\sigma(f)}\}_{f\in F}$
+\end_inset
+
+.
+ El primer caso, si se permite, indica que esa fila no participa en el vínculo
+ entre relaciones.
+\end_layout
+
+\begin_layout Standard
+Una clave ajena es simple o compuesta según lo sea la clave primaria a la
+ que referencia, y puede ser o formar parte de la clave primaria (para represent
+ar entidades débiles) o de una alternativa.
+ Si la clave ajena referencia a su misma tabla, hablamos de una 
+\series bold
+auto-referencia
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+diagrama referencial
+\series default
+ indica gráficamente la existencia de claves ajenas mediante la representación
+ por tablas de los esquemas de las relaciones de la base de datos junto
+ con una flecha de cada clave ajena a la clave primaria correspondiente.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+camino referencial
+\series default
+ es un recorrido del diagrama referencial para obtener información relacionada,
+ y si este empieza y acaba en la misma relación hablamos de un 
+\series bold
+ciclo referencial
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+El SGBD se encarga de mantener la integridad referencial rechazando operaciones
+ que rompan la integridad o ejecutando acciones adicionales que la restauren.
+ Las operaciones de crear una tupla con un valor de clave ajena que no se
+ corresponde con ninguno de la clave primaria correspondiente, o modificar
+ una tupla existente para que ocurra esto, siempre se rechazan.
+ En otros casos el diseñador del esquema especifica la acción a realizar:
+\end_layout
+
+\begin_layout Itemize
+Al borrar una tupla referenciada por otra:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Cascada (
+\family typewriter
+CASCADE
+\family default
+): borrar también la tupla que hacía referencia, lo que puede desencadenar
+ más borrados.
+\end_layout
+
+\begin_layout Itemize
+Establecer la clave ajena a nulo (
+\family typewriter
+SET NULL
+\family default
+), solo si esta lo permite.
+ 
+\end_layout
+
+\begin_layout Itemize
+Rechazar la operación (
+\family typewriter
+NO ACTION
+\family default
+).
+ Si el borrado se hacía como resultado de una cascada, la operación entera
+ se rechaza.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Al modificar la clave primaria de una tupla referenciada por otra:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Cascada: establecer la clave ajena al nuevo valor, lo que puede desencadenar
+ más cambios.
+\end_layout
+
+\begin_layout Itemize
+Establecer la clave ajena a nulo, solo si esta lo permite.
+\end_layout
+
+\begin_layout Itemize
+Rechazar la operación.
+ Si el cambio era resultado de una cascada, la operación entera se rechaza.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Las actualizaciones de una base de datos son siempre 
+\series bold
+atómicas
+\series default
+: o se modifica todo lo necesario o no se hace ningún cambio.
+ 
+\end_layout
+
+\end_body
+\end_document
