@@ -17,7 +17,7 @@ son las siguientes:
 * `tem`: Topología de Espacios Métricos.
 * `aalg`: Ampliación de Álgebra y Geometría.
 * `fvv1`: Funciones de Varias Variables I.
-* `fvv2`: Funciones de Varias Variables II (falta el capítulo 2).
+* `fvv2`: Funciones de Varias Variables II.
 * `fvv3`: Funciones de Varias Variables III (sólo PDF).
 * `edo`: Ecuaciones Diferenciales Ordinarias (sólo PDF).
 * `epe`: Elementos de Probabilidad y Estadística (sólo PDF).
