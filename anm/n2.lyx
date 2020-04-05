@@ -1,0 +1,3334 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Algunos sistemas de ecuaciones lineales 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+ son fáciles de resolver:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es diagonal no singular, para cada 
+\begin_inset Formula $k\in\{1,\dots,n\}$
+\end_inset
+
+ es 
+\begin_inset Formula $a_{kk}x_{k}=b_{k}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $x_{k}=\frac{b_{k}}{a_{kk}}$
+\end_inset
+
+.
+ La complejidad de resolverlo es 
+\begin_inset Formula $\Theta(n)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es triangular superior no singular podemos usar el 
+\series bold
+método ascendente
+\series default
+: para cada 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{i=k}^{n}a_{ki}x_{i}=b_{k}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $x_{k}=a_{kk}^{-1}\left(b_{k}-\sum_{i=k+1}^{n}a_{ki}x_{i}\right)$
+\end_inset
+
+, lo que podemos usar para calcular las coordenadas desde 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ hasta 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+ascendiendo por el sistema
+\begin_inset Quotes crd
+\end_inset
+
+.
+ La complejidad es 
+\begin_inset Formula $\Theta(n^{2})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es triangular inferior no singular podemos usar el 
+\series bold
+método descendente
+\series default
+: para cada 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{i=1}^{k}a_{ki}x_{i}=b_{k}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $x_{k}=a_{kk}^{-1}\left(b_{k}-\sum_{i=1}^{k-1}a_{ki}x_{i}\right)$
+\end_inset
+
+, y podemos calcular las coordenadas desde 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ hasta 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+descendiendo por el sistema
+\begin_inset Quotes crd
+\end_inset
+
+.
+ Como antes, la complejidad es 
+\begin_inset Formula $\Theta(n^{2})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Factorización LU
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+factorización LU
+\series default
+ de una matriz 
+\begin_inset Formula $A\in{\cal M}_{n}$
+\end_inset
+
+ es un par 
+\begin_inset Formula $(L,U)$
+\end_inset
+
+ formado por una matriz triangular inferior 
+\begin_inset Formula $L\in{\cal M}_{n}$
+\end_inset
+
+ y una superior 
+\begin_inset Formula $U\in{\cal M}_{n}$
+\end_inset
+
+ no singulares tales que 
+\begin_inset Formula $A=LU$
+\end_inset
+
+.
+ Dado un sistema de ecuaciones lineales 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+, si 
+\begin_inset Formula $(L,U)$
+\end_inset
+
+ es factorización LU de 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $Ax=b\iff LUx=b$
+\end_inset
+
+, y si 
+\begin_inset Formula $L$
+\end_inset
+
+ y 
+\begin_inset Formula $U$
+\end_inset
+
+ son no singulares, podemos obtener 
+\begin_inset Formula $x$
+\end_inset
+
+ resolviendo consecutivamente 
+\begin_inset Formula $Ly=b$
+\end_inset
+
+ y 
+\begin_inset Formula $Ux=y$
+\end_inset
+
+ con los métodos descendente y ascendente respectivamente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{$A:=(a_{ij})$, matriz cuadrada de tamaño $n$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Factorización $(L:=(l_{ij}),U:=(u_{ij}))$ de $A$, o error.}
+\end_layout
+
+\begin_layout Plain Layout
+
+Inicializar $L$ y $U$ a 0
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$k
+\backslash
+gets1$ 
+\backslash
+KwA $n$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+tcp{{
+\backslash
+rm Hemos calculado las $k-1$ primeras columnas de $L$ y
+\end_layout
+
+\begin_layout Plain Layout
+
+              filas de $U$.}}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$p
+\backslash
+gets a_{kk}-
+\backslash
+sum_{s=1}^{k-1}l_{ks}u_{sk}$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+tcp*{$a_{kk}=
+\backslash
+sum_{s=1}^kl_{ks}u_{sk}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$p=0$}{terminar con error}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lEnOtroCaso{establecer $l_{kk}$ y $u_{kk}$ de forma que 
+\end_layout
+
+\begin_layout Plain Layout
+
+                 $l_{kk}u_{kk}=p$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$i
+\backslash
+gets k+1$ 
+\backslash
+KwA $n$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		$u_{ki}
+\backslash
+gets 
+\end_layout
+
+\begin_layout Plain Layout
+
+         l_{kk}^{-1}
+\backslash
+left(a_{ki}-
+\backslash
+sum_{s=1}^{k-1}l_{ks}u_{si}
+\backslash
+right)$
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+tcp*{$a_{ki}=
+\backslash
+sum_{s=1}^kl_{ks}u_{si}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		$l_{ik}
+\backslash
+gets 
+\end_layout
+
+\begin_layout Plain Layout
+
+         u_{kk}^{-1}
+\backslash
+left(a_{ik}-
+\backslash
+sum_{s=1}^{k-1}l_{is}u_{sk}
+\backslash
+right)$
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+tcp*{$a_{ik}=
+\backslash
+sum_{s=1}^kl_{is}u_{sk}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:factor-lu"
+
+\end_inset
+
+Algoritmo de factorización LU.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:factor-lu"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ permite factorizar matrices LU en tiempo 
+\begin_inset Formula $\Theta(n^{3})$
+\end_inset
+
+ siempre que no se obtenga 
+\begin_inset Formula $p=0$
+\end_inset
+
+ en algún paso, y su validez se deriva de los comentarios al margen.
+ Para determinar 
+\begin_inset Formula $l_{kk}$
+\end_inset
+
+ y 
+\begin_inset Formula $u_{kk}$
+\end_inset
+
+ hay varios criterios:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Criterio de Dootlittle
+\series default
+: 
+\begin_inset Formula $l_{kk}=1$
+\end_inset
+
+, 
+\begin_inset Formula $u_{kk}=p_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Criterio de Crout
+\series default
+: 
+\begin_inset Formula $u_{kk}=1$
+\end_inset
+
+, 
+\begin_inset Formula $l_{kk}=p_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una matriz 
+\begin_inset Formula $A$
+\end_inset
+
+ no singular admite una factorización LU si y sólo si todos sus menores
+ principales (submatrices cuadradas obtenidas de tomar las 
+\begin_inset Formula $k$
+\end_inset
+
+ primeras filas y columnas de 
+\begin_inset Formula $A$
+\end_inset
+
+) son no singulares, si y sólo si el algoritmo dado termina con éxito.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $(L:=(l_{ij}),U:=(u_{ij}))$
+\end_inset
+
+ esta factorización, 
+\begin_inset Formula 
+\[
+\det A=\det L\det U=\prod_{k=1}^{n}l_{kk}\prod_{k=1}^{n}u_{kk}\neq0,
+\]
+
+\end_inset
+
+ luego 
+\begin_inset Formula $l_{11},\dots,l_{nn},u_{11},\dots,u_{nn}\neq0$
+\end_inset
+
+ y, si 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+ es el menor principal de 
+\begin_inset Formula $A$
+\end_inset
+
+ de tamaño 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $\det A_{k}=\prod_{i=1}^{k}l_{ii}\prod_{i=1}^{k}u_{ii}\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies3]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+ el menor principal de 
+\begin_inset Formula $A$
+\end_inset
+
+ de tamaño 
+\begin_inset Formula $k$
+\end_inset
+
+, por el punto anterior de la prueba, 
+\begin_inset Formula $l_{kk}u_{kk}=\frac{\det A_{k}}{\det A_{k-1}}$
+\end_inset
+
+.
+ Si el algoritmo falla es porque 
+\begin_inset Formula $p=0$
+\end_inset
+
+ en alguna iteración 
+\begin_inset Formula $k$
+\end_inset
+
+, luego 
+\begin_inset Formula $l_{kk}u_{kk}=\frac{\det A_{k}}{\det A_{k-1}}=0$
+\end_inset
+
+, con lo que si los menores 
+\begin_inset Formula $A_{1},\dots,A_{k-1}$
+\end_inset
+
+ eran no singulares, 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+ es singular.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies1]$
+\end_inset
+
+ Obvio.
+\end_layout
+
+\begin_layout Subsection
+Factorización LDU
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+factorización LDU
+\series default
+ de 
+\begin_inset Formula $A\in{\cal M}_{n}$
+\end_inset
+
+ es una terna 
+\begin_inset Formula $(L,D,U)$
+\end_inset
+
+ formada por una matriz triangular inferior 
+\begin_inset Formula $L\in{\cal M}_{n}$
+\end_inset
+
+, una diagonal no singular 
+\begin_inset Formula $D\in{\cal M}_{n}$
+\end_inset
+
+ y una triangular superior 
+\begin_inset Formula $U\in{\cal M}_{n}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $A=LDU$
+\end_inset
+
+ y las diagonales principales de 
+\begin_inset Formula $L$
+\end_inset
+
+ y 
+\begin_inset Formula $U$
+\end_inset
+
+ están formadas por unos.
+\end_layout
+
+\begin_layout Standard
+Esta factorización, si existe, es única.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $A=L_{1}D_{1}M_{1}^{t}=L_{2}D_{2}M_{2}^{t}$
+\end_inset
+
+ con 
+\begin_inset Formula $L_{1},L_{2},M_{1},M_{2}\in{\cal M}_{n}$
+\end_inset
+
+ triangulares inferiores con unos en la diagonal y 
+\begin_inset Formula $D_{1},D_{2}\in{\cal M}_{n}$
+\end_inset
+
+ diagonales, entonces 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $M_{1}^{t}$
+\end_inset
+
+ son invertibles por tener determinante 1 y 
+\begin_inset Formula $L_{2}^{-1}L_{1}D_{1}=D_{2}M_{2}^{t}(M_{1}^{t})^{-1}$
+\end_inset
+
+, pero como la matriz a la izquierda de la igualdad es triangular inferior
+ y la de la derecha es triangular superior, ambas son diagonales y por tanto
+ también son diagonales 
+\begin_inset Formula $L_{2}^{-1}L_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $M_{2}^{t}(M_{1}^{t})^{-1}$
+\end_inset
+
+.
+ Ahora bien, como 
+\begin_inset Formula $L_{2}^{-1}$
+\end_inset
+
+ es la traspuesta de la adjunta de 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+, los elementos de su diagonal son 
+\begin_inset Formula $\frac{1}{\det L_{2}}=1$
+\end_inset
+
+ y, como los de 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ también, y ambas son triangulares inferiores, los de 
+\begin_inset Formula $L_{2}^{-1}L_{1}$
+\end_inset
+
+ también lo son, luego 
+\begin_inset Formula $L_{2}^{-1}L_{1}=I_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $L_{1}=L_{2}$
+\end_inset
+
+.
+ Análogamente 
+\begin_inset Formula $M_{1}=M_{2}$
+\end_inset
+
+, y finalmente 
+\begin_inset Formula $D_{1}=L_{2}^{-1}L_{1}D_{1}=D_{2}M_{2}^{t}(M_{1}^{t})^{-1}=D_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A partir de la factorización de Dootlittle 
+\begin_inset Formula $A=LU$
+\end_inset
+
+, la factorización LDU de 
+\begin_inset Formula $A$
+\end_inset
+
+ es 
+\begin_inset Formula $(L,D,\tilde{U})$
+\end_inset
+
+ con 
+\begin_inset Formula $D:=\text{diag}(u_{11},\dots,u_{nn})$
+\end_inset
+
+ y 
+\begin_inset Formula $\tilde{U}:=(u_{ij}/u_{ii})_{ij}$
+\end_inset
+
+.
+ Así, si 
+\begin_inset Formula $A$
+\end_inset
+
+ es simétrica con 
+\begin_inset Formula $\det A\neq0$
+\end_inset
+
+ y admite una factorización LU, existe una única factorización de la forma
+ 
+\begin_inset Formula $LDL^{t}$
+\end_inset
+
+ donde 
+\begin_inset Formula $L$
+\end_inset
+
+ es triangular con unos en la diagonal y 
+\begin_inset Formula $D$
+\end_inset
+
+ es diagonal, pues sabemos que admite una factorización LDU 
+\begin_inset Formula $A=LDM^{t}$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $LDM^{t}=A=A^{t}=MDL^{t}$
+\end_inset
+
+, pero como esta factorización es única, 
+\begin_inset Formula $L=M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Transformaciones de Gauss sin permutar filas
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $v\in\mathbb{K}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $k\in\{1,\dots,n\}$
+\end_inset
+
+ con 
+\begin_inset Formula $v_{k}\neq0$
+\end_inset
+
+, se tiene
+\begin_inset Formula 
+\[
+Mv:=\left(\begin{array}{cccccc}
+1\\
+ & \ddots &  &  & 0\\
+ &  & 1\\
+ &  & -\frac{v_{k+1}}{v_{k}} & 1\\
+ & 0 & \vdots &  & \ddots\\
+ &  & -\frac{v_{n}}{v_{k}} &  &  & 1
+\end{array}\right)\left(\begin{array}{c}
+v_{1}\\
+\vdots\\
+v_{k}\\
+v_{k+1}\\
+\vdots\\
+v_{n}
+\end{array}\right)=\left(\begin{array}{c}
+v_{1}\\
+\vdots\\
+v_{k}\\
+0\\
+\vdots\\
+0
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\begin_inset Formula $M$
+\end_inset
+
+ corresponde a la operación de 
+\begin_inset Quotes cld
+\end_inset
+
+hacer ceros
+\begin_inset Quotes crd
+\end_inset
+
+ bajo 
+\begin_inset Formula $v_{k}$
+\end_inset
+
+ multiplicando las filas 
+\begin_inset Formula $k+1$
+\end_inset
+
+ hasta 
+\begin_inset Formula $n$
+\end_inset
+
+ por múltiplos de la fila 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ 
+\begin_inset Formula $M^{-1}$
+\end_inset
+
+ es similar a 
+\begin_inset Formula $M$
+\end_inset
+
+ pero cambiando el signo a los elementos debajo de la diagonal.
+ En efecto, sean 
+\begin_inset Formula $M'$
+\end_inset
+
+ la matriz descrita y
+\begin_inset Formula 
+\[
+\tau:=\left(\begin{array}{cccc}
+0 & \cdots & 0 & \frac{v_{k+1}}{v_{k}}\\
+\vdots &  & \vdots & \vdots\\
+0 & \cdots & 0 & \frac{v_{n}}{v_{k}}
+\end{array}\right)\in{\cal M}_{(n-k)\times k},
+\]
+
+\end_inset
+
+entonces
+\begin_inset Formula 
+\[
+MM'=\left(\begin{array}{c|c}
+I_{k} & 0\\
+\hline -\tau & I_{n-k}
+\end{array}\right)\left(\begin{array}{c|c}
+I_{k} & 0\\
+\hline \tau & I_{n-k}
+\end{array}\right)=\left(\begin{array}{c|c}
+I_{k} & 0\\
+\hline 0 & I_{n-k}
+\end{array}\right)=I_{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean ahora 
+\begin_inset Formula $A\in{\cal M}_{n}$
+\end_inset
+
+ con columnas 
+\begin_inset Formula $A_{1},\dots,A_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ una matriz de la forma anterior tal que 
+\begin_inset Formula $M_{1}A_{1}=(a_{11},0,\dots,0)$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+A^{(2)}:=M_{1}A=:\left(\begin{array}{cccc}
+a_{11} & a_{12} & \cdots & a_{1n}\\
+0 & a_{22}^{(2)} & \cdots & a_{2n}^{(2)}\\
+\vdots & \vdots & \ddots & \vdots\\
+0 & a_{n2}^{(2)} & \cdots & a_{nn}^{(2)}
+\end{array}\right).
+\]
+
+\end_inset
+
+Si ahora llamamos 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ a una matriz de la misma forma y tal que 
+\begin_inset Formula $M_{2}A_{2}^{(2)}=(a_{12},a_{22}^{(2)},0,\dots,0)$
+\end_inset
+
+, es fácil ver que 
+\begin_inset Formula $M_{2}A_{1}^{(2)}=A_{1}^{(2)}$
+\end_inset
+
+.
+ Definimos 
+\begin_inset Formula $A^{(3)},\dots,A^{(n)}$
+\end_inset
+
+ y 
+\begin_inset Formula $M_{3},\dots,M_{n-1}$
+\end_inset
+
+ por inducción, y entonces 
+\begin_inset Formula $A^{(n)}=M_{n-1}\cdots M_{1}A$
+\end_inset
+
+ es triangular superior, suponiendo que se puede construir, lo que ocurre
+ cuando 
+\begin_inset Formula $a_{11}\neq0$
+\end_inset
+
+ y, para 
+\begin_inset Formula $k\in\{2,\dots,n-1\}$
+\end_inset
+
+, 
+\begin_inset Formula $a_{kk}^{(k)}\neq0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Sabemos que las transformaciones del tipo de 
+\begin_inset Formula $M_{1},\dots,M_{n}$
+\end_inset
+
+ no afectan al determinante de la matriz ni el de sus menores, por lo que
+ la matriz es triangulable por el método de eliminación de Gauss sin permutacion
+es de filas si y sólo si ninguno de sus menores principales hasta 
+\begin_inset Formula $n-1$
+\end_inset
+
+ es singular, lo que si 
+\begin_inset Formula $A$
+\end_inset
+
+ es singular equivale a que sea factorizable LU.
+\end_layout
+
+\begin_layout Standard
+En tal caso, sean 
+\begin_inset Formula $L:=M_{1}^{-1}\cdots M_{n-1}^{-1}$
+\end_inset
+
+ y 
+\begin_inset Formula $U:=A^{(n)}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $LU=A$
+\end_inset
+
+, siendo 
+\begin_inset Formula $L$
+\end_inset
+
+ triangular inferior con unos en la diagonal y 
+\begin_inset Formula $U$
+\end_inset
+
+ triangular superior, por lo que 
+\begin_inset Formula $(L,U)$
+\end_inset
+
+ es una factorización de Dootlittle.
+\end_layout
+
+\begin_layout Section
+Método de Gauss
+\end_layout
+
+\begin_layout Standard
+Para evitar interrumpir una factorización LU al encontrar un cero en la
+ diagonal, podemos intercambiar la fila que da problemas con una de la inferiore
+s.
+ Esto además interesa cuando encontramos un número pequeño para evitar la
+ inestabilidad en los cálculos.
+\end_layout
+
+\begin_layout Standard
+En el método con 
+\series bold
+elección del pivote parcial
+\series default
+, además de las matrices 
+\begin_inset Formula $L$
+\end_inset
+
+ y 
+\begin_inset Formula $U$
+\end_inset
+
+, se construye una matriz 
+\begin_inset Formula $P$
+\end_inset
+
+ de permutación de filas de forma que 
+\begin_inset Formula $PA=LU$
+\end_inset
+
+, con lo que resolver un sistema 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+ equivale a resolver 
+\begin_inset Formula $LUx=Pb$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+En el algoritmo de Gauss sin permutaciones de filas, se inicializa 
+\begin_inset Formula $P$
+\end_inset
+
+ a 
+\begin_inset Formula $I_{n}$
+\end_inset
+
+ y, al principio de cada etapa 
+\begin_inset Formula $k$
+\end_inset
+
+, se busca el 
+\begin_inset Formula $i\in\{k,\dots,n\}$
+\end_inset
+
+ con mayor 
+\begin_inset Formula $|a_{ik}^{(k)}|$
+\end_inset
+
+ y se intercambian las filas 
+\begin_inset Formula $i$
+\end_inset
+
+ y 
+\begin_inset Formula $k$
+\end_inset
+
+ tanto en 
+\begin_inset Formula $A^{(k)}$
+\end_inset
+
+ como en 
+\begin_inset Formula $L$
+\end_inset
+
+ y 
+\begin_inset Formula $P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En el método con 
+\series bold
+elección del pivote total
+\series default
+, se construye además una matriz 
+\begin_inset Formula $Q$
+\end_inset
+
+ de permutación de columnas de forma que 
+\begin_inset Formula $PAQ=LU$
+\end_inset
+
+, y resolver 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+ equivale a resolver 
+\begin_inset Formula $LUy=Pb$
+\end_inset
+
+ y calcular 
+\begin_inset Formula $x=Qy$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En el algoritmo de Gauss sin permutaciones de filas, se inicializan 
+\begin_inset Formula $P$
+\end_inset
+
+ y 
+\begin_inset Formula $Q$
+\end_inset
+
+ a 
+\begin_inset Formula $I_{n}$
+\end_inset
+
+ y, al principio de cada etapa 
+\begin_inset Formula $k$
+\end_inset
+
+, se busca el 
+\begin_inset Formula $(i,j)\in\{k,\dots,n\}^{2}$
+\end_inset
+
+ con mayor 
+\begin_inset Formula $|a_{ij}^{(k)}|$
+\end_inset
+
+ y se intercambian las filas 
+\begin_inset Formula $i$
+\end_inset
+
+ y 
+\begin_inset Formula $k$
+\end_inset
+
+ en 
+\begin_inset Formula $A^{(k)}$
+\end_inset
+
+ y 
+\begin_inset Formula $P$
+\end_inset
+
+ y las columnas 
+\begin_inset Formula $j$
+\end_inset
+
+ y 
+\begin_inset Formula $k$
+\end_inset
+
+ en 
+\begin_inset Formula $A^{(k)}$
+\end_inset
+
+ y 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Sistemas con matrices especiales
+\end_layout
+
+\begin_layout Subsection
+Diagonal estrictamente dominante
+\end_layout
+
+\begin_layout Standard
+Una matriz 
+\begin_inset Formula $A:=(a_{ij})\in{\cal M}_{n}(\mathbb{C})$
+\end_inset
+
+ tiene 
+\series bold
+diagonal estrictamente dominante
+\series default
+ si para 
+\begin_inset Formula $k\in\{1,\dots,n\}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+|a_{kk}|>\sum_{\begin{subarray}{c}
+j=1\\
+j\neq i
+\end{subarray}}^{n}|a_{kj}|.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Toda matriz con diagonal estrictamente dominante es no singular y admite
+ una factorización LU.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $A:=(a_{ij})$
+\end_inset
+
+ fuese singular, sus columnas serían linealmente dependientes y existiría
+ 
+\begin_inset Formula $x\neq0$
+\end_inset
+
+ con 
+\begin_inset Formula $Ax=0$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $k$
+\end_inset
+
+ con 
+\begin_inset Formula $|x_{k}|=\max_{i}|x_{i}|$
+\end_inset
+
+, como 
+\begin_inset Formula $\sum_{j}a_{ij}x_{ij}=0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+a_{kk}x_{k}=-\sum_{\begin{subarray}{c}
+j=1\\
+j\neq k
+\end{subarray}}^{n}a_{kj}x_{j},
+\]
+
+\end_inset
+
+ luego 
+\begin_inset Formula 
+\[
+|a_{kk}||x_{k}|\leq\sum_{\begin{subarray}{c}
+j=1\\
+j\neq k
+\end{subarray}}^{n}|a_{kj}||x_{j}|\leq\sum_{\begin{subarray}{c}
+j=1\\
+j\neq k
+\end{subarray}}|a_{kj}||x_{k}|
+\]
+
+\end_inset
+
+y, despejando 
+\begin_inset Formula $|x_{k}|$
+\end_inset
+
+, queda que 
+\begin_inset Formula $A$
+\end_inset
+
+ no es estrictamente dominante.
+\begin_inset Formula $\#$
+\end_inset
+
+ Como 
+\begin_inset Formula $A$
+\end_inset
+
+ tiene diagonal estrictamente dominante, 
+\begin_inset Formula $a_{11}>0$
+\end_inset
+
+ y se puede utilizar la transformación de Gauss 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $B:=(b_{ij}):=M_{1}A$
+\end_inset
+
+ tiene la misma primera fila que 
+\begin_inset Formula $A$
+\end_inset
+
+, ceros bajo la diagonal en la primera columna y el resto de elementos son
+ 
+\begin_inset Formula $b_{ij}=a_{ij}-\frac{a_{i1}}{a_{11}}a_{1j}$
+\end_inset
+
+, para 
+\begin_inset Formula $i\in\{2,\dots,n\}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{align*}
+|b_{ii}| & =\left|a_{ii}-\frac{a_{i1}}{a_{11}}a_{1i}\right|\geq|a_{ii}|-\frac{|a_{i1}|}{|a_{11}|}|a_{1i}|>\sum_{j\neq i}|a_{ij}|-\frac{|a_{i1}|}{|a_{11}|}|a_{1i}|\\
+ & =|a_{i1}|+\sum_{j\neq1,i}\left|b_{ij}+\frac{a_{i1}}{a_{11}}a_{1j}\right|-\frac{|a_{i1}|}{|a_{11}|}|a_{1i}|\\
+ & \geq|a_{i1}|+\sum_{j\neq1,i}|b_{ij}|-\sum_{j\neq1,i}\frac{|a_{i1}|}{|a_{11}|}|a_{1j}|-\frac{|a_{i1}|}{|a_{11}|}|a_{1i}|\\
+ & =|a_{i1}|+\sum_{j\neq1,i}|b_{ij}|-\frac{|a_{i1}|}{|a_{11}|}\sum_{j\neq1}|a_{1j}|>|a_{i1}|+\sum_{j\neq1,i}|b_{ij}|-\frac{|a_{i1}|}{|a_{11}|}|a_{11}|\\
+ & =\sum_{j\neq1,i}|b_{ij}|=\sum_{j\neq i}|b_{ij}|.
+\end{align*}
+
+\end_inset
+
+Así, 
+\begin_inset Formula $B$
+\end_inset
+
+ es estrictamente dominante, por lo que podemos aplicarle la transformación
+ de Gauss en la segunda columna, y por inducción podemos convertir 
+\begin_inset Formula $A$
+\end_inset
+
+ en triangular superior por el método de Gauss sin intercambio de filas,
+ luego 
+\begin_inset Formula $A$
+\end_inset
+
+ admite una factorización LU.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es estrictamente dominante, los cálculos para el método de Gauss sin intercambi
+os de filas o columnas serán estables porque los pivotes no serán demasiado
+ pequeños.
+\end_layout
+
+\begin_layout Subsection
+Matrices definidas positivas
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A\in{\cal M}_{n}(\mathbb{R})$
+\end_inset
+
+ es 
+\series bold
+definida positiva
+\series default
+ (
+\series bold
+PD
+\series default
+, 
+\emph on
+positive definite
+\emph default
+) si 
+\begin_inset Formula $\forall x\in\mathbb{R}^{n}\setminus\{0\},x^{t}Ax>0.$
+\end_inset
+
+ En tal caso:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A$
+\end_inset
+
+ no es singular.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si lo fuera, las columnas serían linealmente dependientes y existiría 
+\begin_inset Formula $x\in\mathbb{R}^{n}\setminus\{0\}$
+\end_inset
+
+ con 
+\begin_inset Formula $Ax=0$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $x^{t}Ax=0\#$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $X\in{\cal M}_{n\times k}$
+\end_inset
+
+ con rango 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $B:=X^{t}AX\in{\cal M}_{k}$
+\end_inset
+
+ es PD.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $x\in\mathbb{R}^{k}\setminus\{0\}$
+\end_inset
+
+, 
+\begin_inset Formula $Xx\neq0$
+\end_inset
+
+, luego 
+\begin_inset Formula $x^{t}Bx=x^{t}X^{t}AXx=(Xx)^{t}AXx>0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Los menores principales de 
+\begin_inset Formula $A$
+\end_inset
+
+ son PD.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para cada 
+\begin_inset Formula $k\in\{1,\dots,n\}$
+\end_inset
+
+, tomamos 
+\begin_inset Formula $X$
+\end_inset
+
+ como la submatriz de 
+\begin_inset Formula $I_{n}$
+\end_inset
+
+ formada por las 
+\begin_inset Formula $k$
+\end_inset
+
+ primeras columnas y queda que 
+\begin_inset Formula $X^{t}AX$
+\end_inset
+
+, el menor principal de 
+\begin_inset Formula $A$
+\end_inset
+
+ de tamaño 
+\begin_inset Formula $k$
+\end_inset
+
+, es PD.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Todos los elementos de la diagonal de 
+\begin_inset Formula $A$
+\end_inset
+
+ son positivos.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $A=:(a_{ij})_{ij}$
+\end_inset
+
+, para 
+\begin_inset Formula $a_{kk}$
+\end_inset
+
+ tomamos 
+\begin_inset Formula $X$
+\end_inset
+
+ como la columna 
+\begin_inset Formula $k$
+\end_inset
+
+-ésima de 
+\begin_inset Formula $I_{n}$
+\end_inset
+
+ y queda que 
+\begin_inset Formula $X^{t}AX=(a_{kk})$
+\end_inset
+
+ es PD, luego 
+\begin_inset Formula $1a_{kk}1=a_{kk}>0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $A$
+\end_inset
+
+ admite una factorización LDU con matriz diagonal PD.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Todos los menores principales son PD y por tanto no singulares.
+ Sea 
+\begin_inset Formula $(L,D,U)$
+\end_inset
+
+ la factorización, 
+\begin_inset Formula $L$
+\end_inset
+
+ es no singular, luego 
+\begin_inset Formula $L^{-1}A(L^{-1})^{t}=DU(L^{-1})^{t}$
+\end_inset
+
+ es PD, pero al ser 
+\begin_inset Formula $U(L^{-1})^{t}$
+\end_inset
+
+ triangular superior con unos en la diagonal, 
+\begin_inset Formula $DM^{t}L^{-t}$
+\end_inset
+
+ y 
+\begin_inset Formula $D=:(d_{ij})_{ij}$
+\end_inset
+
+ tienen la misma diagonal, que tiene todos sus elementos positivos.
+ Entonces, para 
+\begin_inset Formula $x\in\mathbb{R}^{n}\setminus\{0\}$
+\end_inset
+
+, 
+\begin_inset Formula $x^{t}Dx=\sum_{k}d_{kk}x_{k}^{2}>0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Matrices simétricas definidas positivas (SPD)
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $A\in{\cal M}_{n}(\mathbb{R})$
+\end_inset
+
+ simétrica, 
+\begin_inset Formula $A$
+\end_inset
+
+ es definida positiva si y sólo si todos sus valores propios son positivos,
+ si y sólo si todos sus menores principales tienen determinante positivo,
+ si y sólo si admite una factorización LDU con diagonal definida positiva,
+ si y sólo si existe una matriz triangular inferior con diagonal positiva
+ 
+\begin_inset Formula $L_{C}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $A=L_{C}L_{C}^{t}$
+\end_inset
+
+, en cuyo caso esta es única.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $p$
+\end_inset
+
+ un vector propio, su valor propio asociado es el cociente de Rayleigh 
+\begin_inset Formula $R_{A}(p)=\frac{p^{t}Ap}{p^{t}p}>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies1]$
+\end_inset
+
+ Por ser 
+\begin_inset Formula $A$
+\end_inset
+
+ simétrica, existe 
+\begin_inset Formula $O$
+\end_inset
+
+ ortogonal con 
+\begin_inset Formula $D:=O^{t}AO$
+\end_inset
+
+ diagonal.
+ Sean 
+\begin_inset Formula $\lambda_{1},\dots,\lambda_{n}$
+\end_inset
+
+ los elementos de esta diagonal, si 
+\begin_inset Formula $\lambda_{1},\dots,\lambda_{n}>0$
+\end_inset
+
+, es claro que 
+\begin_inset Formula $D$
+\end_inset
+
+ es PD, y por tanto 
+\begin_inset Formula $A=ODO^{t}$
+\end_inset
+
+ también.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies3]$
+\end_inset
+
+ Los menores principales de 
+\begin_inset Formula $A$
+\end_inset
+
+ son simétricos y PD, luego todos sus valores propios son positivos y por
+ tanto el determinante es positivo.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies4]$
+\end_inset
+
+ Como los menores principales son no singulares, 
+\begin_inset Formula $A$
+\end_inset
+
+ admite una factorización LDU 
+\begin_inset Formula $(L,D,U)$
+\end_inset
+
+, y los elementos de la diagonal de 
+\begin_inset Formula $D$
+\end_inset
+
+, al ser cocientes de menores principales de 
+\begin_inset Formula $A$
+\end_inset
+
+, son positivos.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $4\implies1]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $(L,D,L^{t})$
+\end_inset
+
+ la factorización, como 
+\begin_inset Formula $D$
+\end_inset
+
+ es PD, 
+\begin_inset Formula $LDL^{t}=A$
+\end_inset
+
+ también.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $4\implies5]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $(L,D,U)$
+\end_inset
+
+ la factorización, como 
+\begin_inset Formula $D$
+\end_inset
+
+ es PD, 
+\begin_inset Formula $\sqrt{D}:=\text{diag}(\sqrt{D_{11}},\dots,\sqrt{D_{nn}})$
+\end_inset
+
+ tiene diagonal positiva, y como 
+\begin_inset Formula $A$
+\end_inset
+
+ es simétrica y 
+\begin_inset Formula $U=L^{t}$
+\end_inset
+
+, basta tomar 
+\begin_inset Formula $L_{C}:=L\sqrt{D}$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $L_{C}L_{C}^{t}=L\sqrt{D}\sqrt{D}^{t}L^{t}=L\sqrt{D}\sqrt{D}U=LDU=A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $5\implies4]$
+\end_inset
+
+ Sean 
+\begin_inset Formula $D$
+\end_inset
+
+ la matriz diagonal formada por los cuadrados de los elementos de la diagonal
+ de 
+\begin_inset Formula $L_{C}$
+\end_inset
+
+ y 
+\begin_inset Formula $L$
+\end_inset
+
+ el resultado de dividir cada columna de 
+\begin_inset Formula $L_{C}$
+\end_inset
+
+ por su elemento de la diagonal, entonces 
+\begin_inset Formula $(L,D,L^{t})$
+\end_inset
+
+ es una factorización LDU de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $L_{C}$
+\end_inset
+
+ no fuera única, podríamos obtener así factorizaciones LDU de 
+\begin_inset Formula $A$
+\end_inset
+
+ distintas.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Matrices tridiagonales
+\end_layout
+
+\begin_layout Standard
+Una matriz 
+\begin_inset Formula $A\in{\cal M}_{n}$
+\end_inset
+
+ es 
+\series bold
+banda
+\series default
+ si existen enteros 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $q$
+\end_inset
+
+ tales que 
+\begin_inset Formula $a_{ij}=0$
+\end_inset
+
+ para 
+\begin_inset Formula $j-i\geq p$
+\end_inset
+
+ o 
+\begin_inset Formula $j-i\leq-q$
+\end_inset
+
+, y llamamos 
+\series bold
+ancho de banda
+\series default
+ a 
+\begin_inset Formula $p+q-1$
+\end_inset
+
+.
+ Si esto se cumple para 
+\begin_inset Formula $p=q=2$
+\end_inset
+
+, 
+\begin_inset Formula $A$
+\end_inset
+
+ es 
+\series bold
+tridiagonal
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Dada una matriz tridiagonal
+\begin_inset Formula 
+\[
+A=\left(\begin{array}{ccccc}
+b_{1} & c_{1}\\
+a_{2} & b_{2} & c_{2}\\
+ & \ddots & \ddots & \ddots\\
+ &  & a_{n-1} & b_{n-1} & c_{n-1}\\
+ &  &  & a_{n} & b_{n}
+\end{array}\right),
+\]
+
+\end_inset
+
+llamando 
+\begin_inset Formula $\delta_{0},\delta_{1}:=1$
+\end_inset
+
+ y, para 
+\begin_inset Formula $k\in\{2,\dots,n\}$
+\end_inset
+
+, 
+\begin_inset Formula $\delta_{k}:=b_{k}\delta_{k-1}-a_{k}c_{k-1}\delta_{k-2}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\delta_{k}$
+\end_inset
+
+ es el determinante del menor principal de orden 
+\begin_inset Formula $k$
+\end_inset
+
+, y si todos los 
+\begin_inset Formula $\delta_{k}$
+\end_inset
+
+ son no nulos, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A=\left(\begin{array}{ccccc}
+1\\
+a_{2}\frac{\delta_{0}}{\delta_{1}} & 1\\
+ & \ddots & \ddots\\
+ &  & a_{n-1}\frac{\delta_{n-3}}{\delta_{n-2}} & 1\\
+ &  &  & a_{n}\frac{\delta_{n-2}}{\delta_{n-1}} & 1
+\end{array}\right)\left(\begin{array}{ccccc}
+\frac{\delta_{1}}{\delta_{0}} & c_{1}\\
+ & \frac{\delta_{2}}{\delta_{1}} & c_{2}\\
+ &  & \ddots & \ddots\\
+ &  &  & \frac{\delta_{n-1}}{\delta_{n-2}} & c_{n-1}\\
+ &  &  &  & \frac{\delta_{n}}{\delta_{n-1}}
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Factorización QR
+\end_layout
+
+\begin_layout Standard
+Dado 
+\begin_inset Formula $v\in\mathbb{C}^{n}$
+\end_inset
+
+, llamamos 
+\series bold
+matriz de Householder
+\series default
+ de 
+\begin_inset Formula $v$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+H_{v}:=\begin{cases}
+I_{n}-\frac{2}{v^{*}v}vv^{*} & \text{si }v\neq0,\\
+I_{n} & \text{si }v=0.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $a,v\in\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $H_{v}a$
+\end_inset
+
+ es el vector simétrico de 
+\begin_inset Formula $a$
+\end_inset
+
+ respecto al subespacio 
+\begin_inset Formula $v^{\bot}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $v=0$
+\end_inset
+
+, 
+\begin_inset Formula $v^{\bot}=\mathbb{C}^{n}$
+\end_inset
+
+ y esto es obvio.
+ Sea 
+\begin_inset Formula $v\neq0$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula 
+\[
+H_{v}a=a-\frac{2}{v^{*}v}vv^{*}a=a-\frac{2v^{*}a}{\Vert v\Vert^{2}}v=a-\frac{2\Vert v\Vert\Vert a\Vert\cos\alpha}{\Vert v\Vert^{2}}v=a-2(\Vert a\Vert\cos\alpha)\frac{v}{\Vert v\Vert},
+\]
+
+\end_inset
+
+ siendo 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ el ángulo entre 
+\begin_inset Formula $a$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+, pero 
+\begin_inset Formula $p:=(\Vert a\Vert\cos\alpha)\frac{v}{\Vert v\Vert}$
+\end_inset
+
+ es la proyección de 
+\begin_inset Formula $a$
+\end_inset
+
+ en 
+\begin_inset Formula $\langle v\rangle$
+\end_inset
+
+, luego 
+\begin_inset Formula $H_{v}a=a-2p$
+\end_inset
+
+ es la simetría de 
+\begin_inset Formula $a$
+\end_inset
+
+ sobre 
+\begin_inset Formula $v^{\bot}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H_{v}$
+\end_inset
+
+ es unitaria.
+ 
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $v=0$
+\end_inset
+
+ es obvio.
+ Para 
+\begin_inset Formula $v\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $(vv^{*})^{*}=v^{**}v^{*}=vv^{*}$
+\end_inset
+
+, luego 
+\begin_inset Formula 
+\[
+H_{v}H_{v}^{*}=\left(I_{n}-\frac{2}{v^{*}v}vv^{*}\right)\left(I_{n}-\frac{2}{v^{*}v}vv^{*}\right)=I_{n}-4\frac{vv^{*}}{v^{*}v}+4\frac{vv^{*}vv^{*}}{v^{*}vv^{*}v}=I_{n}-4\frac{vv^{*}}{v^{*}v}+4\frac{v\Vert v\Vert^{2}v^{*}}{\Vert v\Vert^{2}v^{*}v}=I_{n},
+\]
+
+\end_inset
+
+con lo que 
+\begin_inset Formula $H_{v}^{*}=H_{v}^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $a\in\mathbb{C}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ tal que 
+\begin_inset Formula $e^{i\alpha}=\text{sign}a_{1}$
+\end_inset
+
+, las matrices 
+\begin_inset Formula $A_{\gamma}:=H_{a+(\gamma,0,\dots,0)}$
+\end_inset
+
+ con 
+\begin_inset Formula $\gamma=\pm\Vert a\Vert e^{i\alpha}$
+\end_inset
+
+ cumplen 
+\begin_inset Formula $A_{\gamma}a=(\mp\Vert a\Vert e^{i\alpha},0,\dots,0)$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $a=0$
+\end_inset
+
+ es 
+\begin_inset Formula $\gamma=0$
+\end_inset
+
+ y 
+\begin_inset Formula $A_{\gamma}=H_{0}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $A_{\gamma}a=I_{n}0=0$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $a\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $e_{1}:=(1,0,\dots,0)$
+\end_inset
+
+ y 
+\begin_inset Formula $v_{\gamma}:=a+\gamma e_{1}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $v_{\gamma}^{*}a=(a^{*}+\overline{\gamma}e_{1}^{*})a=\Vert a\Vert^{2}+\overline{\gamma}a_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $v_{\gamma}^{*}v_{\gamma}=(a^{*}+\overline{\gamma}e_{1}^{*})(a+\gamma e_{1})=\Vert a\Vert^{2}+2\text{Re}(\overline{\gamma}a_{1})+|\gamma|^{2}$
+\end_inset
+
+, luego
+\begin_inset Formula 
+\begin{eqnarray*}
+H_{v}a & = & a-2\frac{\Vert a\Vert^{2}+\overline{\gamma}a_{1}}{\Vert a\Vert^{2}+2\text{Re}(\overline{\gamma}a_{1})+|\gamma|^{2}}(a+\gamma e_{1})\\
+ & = & \left(1-2\frac{\Vert a\Vert^{2}+\overline{\gamma}a_{1}}{\Vert a\Vert^{2}+2\text{Re}(\overline{\gamma}a_{1})+|\gamma|^{2}}\right)a-2\gamma\frac{\Vert a\Vert^{2}+\overline{\gamma}a_{1}}{\Vert a\Vert^{2}+2\text{Re}(\overline{\gamma}a_{1})+|\gamma|^{2}}e_{1},
+\end{eqnarray*}
+
+\end_inset
+
+pero para 
+\begin_inset Formula $\gamma=\pm\Vert a\Vert e^{i\alpha}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+2\frac{\Vert a\Vert^{2}+\overline{\gamma}a_{1}}{\Vert a\Vert^{2}+2\text{Re}(\overline{\gamma}a_{1})+|\gamma|^{2}}=2\frac{\Vert a\Vert^{2}\pm\Vert a\Vert e^{-i\alpha}a_{1}}{\Vert a\Vert^{2}+2\text{Re}(\pm\Vert a\Vert e^{-i\alpha}a_{1})+\Vert a\Vert^{2}\Vert e^{i\alpha}\Vert^{2}}=\frac{\Vert a\Vert^{2}\pm\Vert a\Vert e^{-i\alpha}a_{1}}{\Vert a\Vert^{2}\pm\Vert a\Vert e^{-i\alpha}a_{1}}=1,
+\]
+
+\end_inset
+
+luego el coeficiente de 
+\begin_inset Formula $a$
+\end_inset
+
+ en la última expresión de 
+\begin_inset Formula $H_{v}a$
+\end_inset
+
+ es 
+\begin_inset Formula $1-1=0$
+\end_inset
+
+ y el de 
+\begin_inset Formula $e_{1}$
+\end_inset
+
+ es 
+\begin_inset Formula $-\gamma=\mp\Vert a\Vert e^{i\alpha}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+factorización QR
+\series default
+ de una matriz 
+\begin_inset Formula $A\in{\cal M}_{m\times n}(\mathbb{C})$
+\end_inset
+
+ es un par 
+\begin_inset Formula $(Q,R)$
+\end_inset
+
+ con 
+\begin_inset Formula $Q\in{\cal M}_{m}$
+\end_inset
+
+ es ortogonal y 
+\begin_inset Formula $R\in{\cal M}_{m\times n}$
+\end_inset
+
+ es triangular superior.
+ El 
+\series bold
+método de Householder
+\series default
+ para obtener esta factorización es el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:householder"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, y consiste en usar matrices de Householder 
+\begin_inset Formula $H_{1},\dots,H_{m}$
+\end_inset
+
+ para ir eliminando la parte inferior de las columnas de 
+\begin_inset Formula $A$
+\end_inset
+
+ haciendo 
+\begin_inset Formula $R:=H_{m}\cdots H_{1}A$
+\end_inset
+
+ y 
+\begin_inset Formula $Q:=(H_{m}\cdots H_{1})^{-1}=H_{1}^{-1}\cdots H_{m}^{-1}=H_{1}^{*}\cdots H_{m}^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Matriz $A$ de tamaño $m
+\backslash
+times n$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Factorización $(Q,R:=(r_{ij}))$ de $A$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+Inicializar $R
+\backslash
+gets A$ y $Q
+\backslash
+gets I_m$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$k
+\backslash
+gets 1$ 
+\backslash
+KwA $n$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	Obtener un vector $v$ de tamaño $m-k+1$ tal que $H_v(r_{kk},
+\backslash
+dots,r_{mk})=(x,0,
+\backslash
+dots,0)$ para algún $x$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$H
+\backslash
+gets H_{(0,
+\backslash
+dots,0,v_1,
+\backslash
+dots,v_m-k+1)}=
+\backslash
+left(
+\backslash
+begin{array}{c|c} 
+\end_layout
+
+\begin_layout Plain Layout
+
+		I_{k-1} & 0 
+\backslash
+
+\backslash
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+		0       & H'
+\end_layout
+
+\begin_layout Plain Layout
+
+	 
+\backslash
+end{array}
+\backslash
+right)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$Q
+\backslash
+gets QH^*$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+tcp*{$QH^*HR=QR=A$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$R
+\backslash
+gets HR$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+tcp*{{
+\backslash
+rm Anula $r_{k+1,k},
+\backslash
+dots,r_{m,k}$}}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:householder"
+
+\end_inset
+
+Método de Householder de factorización QR
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A\in{\cal M}_{m\times n}$
+\end_inset
+
+ tiene rango 
+\begin_inset Formula $n\leq m$
+\end_inset
+
+ y admite una factorización QR 
+\begin_inset Formula $(Q,R)$
+\end_inset
+
+, sean 
+\begin_inset Formula $A_{1},\dots,A_{n}$
+\end_inset
+
+ las columnas de 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $Q_{1},\dots,Q_{m}$
+\end_inset
+
+ las de 
+\begin_inset Formula $Q$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\text{span}(A_{1},\dots,A_{k})=\text{span}(Q_{1},\dots,Q_{k})$
+\end_inset
+
+ para 
+\begin_inset Formula $k\in\{1,\dots,n\}$
+\end_inset
+
+, y 
+\begin_inset Formula $\text{span}(A_{1},\dots,A_{n})^{\bot}=\text{span}(Q_{n+1},\dots,Q_{m})$
+\end_inset
+
+.
+ Además, si 
+\begin_inset Formula $Q'$
+\end_inset
+
+ es la submatriz de 
+\begin_inset Formula $Q$
+\end_inset
+
+ formada por sus 
+\begin_inset Formula $n$
+\end_inset
+
+ primeras columnas y 
+\begin_inset Formula $R'$
+\end_inset
+
+ es la submatriz de 
+\begin_inset Formula $R$
+\end_inset
+
+ formada por sus 
+\begin_inset Formula $n$
+\end_inset
+
+ primeras filas, entonces 
+\begin_inset Formula $A=Q'R'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $(Q,R)$
+\end_inset
+
+ es una factorización QR de 
+\begin_inset Formula $A\in{\cal M}_{m\times n}$
+\end_inset
+
+, para resolver el sistema 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+, resolvemos 
+\begin_inset Formula $Rx=Q^{*}b=Qb$
+\end_inset
+
+ por el método ascendente.
+ Como las matrices de Householder son ortogonales, el condicionamiento del
+ problema no varía.
+\end_layout
+
+\begin_layout Standard
+En la práctica no se calculan las matrices de Householder, sino su acción
+ sobre los vectores:
+\begin_inset Formula 
+\begin{align*}
+H_{v}b & =b-2\frac{v^{*}b}{\Vert v\Vert^{2}}v; & b^{*}H_{v} & =b^{*}-2\frac{b^{*}v}{\Vert v\Vert^{2}}v^{*}.
+\end{align*}
+
+\end_inset
+
+Así, multiplicar una matriz de Householder de tamaño 
+\begin_inset Formula $n$
+\end_inset
+
+ por un vector (a la izquierda o la derecha) es 
+\begin_inset Formula $\Theta(n)$
+\end_inset
+
+, con lo que multiplicar una matriz de Householder por una matriz de tamaño
+ 
+\begin_inset Formula $n\times m$
+\end_inset
+
+ es 
+\begin_inset Formula $\Theta(nm)$
+\end_inset
+
+, y es fácil ver que la factorización QR de una matriz de tamaño 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ con el algoritmo indicado es 
+\begin_inset Formula $\Theta(nm(m+n))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Problemas de mínimos cuadrados
+\end_layout
+
+\begin_layout Standard
+Dado un espacio vectorial normado 
+\begin_inset Formula $(E,\Vert\cdot\Vert)$
+\end_inset
+
+, un subespacio 
+\begin_inset Formula $G$
+\end_inset
+
+ de 
+\begin_inset Formula $E$
+\end_inset
+
+ y 
+\begin_inset Formula $f\in E$
+\end_inset
+
+, decimos que 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ es una 
+\series bold
+mejor aproximación
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ si
+\begin_inset Formula 
+\[
+\Vert f-g\Vert=\inf_{h\in G}\Vert f-h\Vert.
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es de dimensión finita sobre 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ o 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+, esta mejor aproximación existe.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $K:=\{g\in G:\Vert f-g\Vert\leq\Vert f\Vert\}$
+\end_inset
+
+, 
+\begin_inset Formula $K\neq\emptyset$
+\end_inset
+
+ porque 
+\begin_inset Formula $0\in K$
+\end_inset
+
+.
+ 
+\begin_inset Formula $K$
+\end_inset
+
+ es cerrado y acotado al ser la bola 
+\begin_inset Formula $\overline{B}(f,\Vert f\Vert)$
+\end_inset
+
+, luego por estar en 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ o 
+\begin_inset Formula $\mathbb{C}^{n}\cong\mathbb{R}^{2n}$
+\end_inset
+
+, es compacto.
+ Sea 
+\begin_inset Formula $(g_{n})_{n}$
+\end_inset
+
+ una sucesión en 
+\begin_inset Formula $K$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\Vert f-g_{n}\Vert\to\inf_{h\in G}\Vert f-h\Vert$
+\end_inset
+
+, por compacidad, 
+\begin_inset Formula $g\in K$
+\end_inset
+
+, luego 
+\begin_inset Formula $g$
+\end_inset
+
+ es una mejor aproximación de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+espacio de Hilbert
+\series default
+ es un espacio normado completo.
+ Algunos son:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ con la norma euclídea.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula ${\cal C}([a,b])$
+\end_inset
+
+ con la norma dada por
+\begin_inset Formula 
+\[
+\langle f,g\rangle:=\int_{a}^{b}f(x)g(x)w(x)dx,
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $w\in{\cal C}([a,b])$
+\end_inset
+
+ tiene rango 
+\begin_inset Formula $(0,+\infty)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado un espacio vectorial 
+\begin_inset Formula $E$
+\end_inset
+
+ con producto escalar, llamamos 
+\series bold
+ángulo
+\series default
+ entre 
+\begin_inset Formula $f,g\in E\setminus\{0\}$
+\end_inset
+
+ al 
+\begin_inset Formula $\alpha\in[0,\pi]$
+\end_inset
+
+ con 
+\begin_inset Formula $\langle f,g\rangle=\Vert f\Vert\Vert g\Vert\cos\alpha$
+\end_inset
+
+, y decimos que 
+\begin_inset Formula $f,g\in E$
+\end_inset
+
+ son 
+\series bold
+ortogonales
+\series default
+, 
+\begin_inset Formula $f\bot g$
+\end_inset
+
+, si 
+\begin_inset Formula $\langle f,g\rangle=0$
+\end_inset
+
+.
+ Entonces, 
+\begin_inset Formula $\forall f,g\in E$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\Vert f+g\Vert^{2}=\Vert f\Vert^{2}+\Vert g\Vert^{2}+2\langle f,g\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Teorema de Pitágoras:
+\series default
+ 
+\begin_inset Formula $f\bot g\iff\Vert f+g\Vert^{2}=\Vert f\Vert^{2}+\Vert g\Vert^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Desigualdad de Cauchy-Schwartz:
+\series default
+ 
+\begin_inset Formula $|\langle f,g\rangle|\leq\Vert f\Vert\Vert g\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Identidad del paralelogramo:
+\series default
+ 
+\begin_inset Formula $\Vert f+g\Vert^{2}+\Vert f-g\Vert^{2}=2\Vert f\Vert^{2}+2\Vert g\Vert^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $E$
+\end_inset
+
+ un espacio normado con producto escalar y 
+\begin_inset Formula $C\subseteq E$
+\end_inset
+
+ no vacío, convexo y completo:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\exists!g\in C:\Vert g\Vert=\min_{h\in C}\Vert h\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $\alpha:=\inf_{h\in C}\Vert h\Vert$
+\end_inset
+
+, para 
+\begin_inset Formula $g,h\in C$
+\end_inset
+
+, por la identidad del paralelogramo, 
+\begin_inset Formula $\frac{1}{4}\Vert g-h\Vert^{2}=\frac{1}{2}\Vert g\Vert^{2}+\frac{1}{2}\Vert h\Vert^{2}-\frac{1}{4}\Vert g+h\Vert^{2}$
+\end_inset
+
+, pero 
+\begin_inset Formula $\frac{1}{4}\Vert g+h\Vert^{2}=\Vert\frac{g+h}{2}\Vert^{2}\overset{C\text{ convexo}}{\geq}\alpha^{2}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\frac{1}{4}\Vert g-h\Vert^{2}\leq\frac{1}{2}\Vert g\Vert^{2}+\frac{1}{2}\Vert h\Vert^{2}-\alpha^{2}$
+\end_inset
+
+.
+ Entonces, dada una sucesión 
+\begin_inset Formula $(g_{n})_{n}$
+\end_inset
+
+ de elementos de 
+\begin_inset Formula $C$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert g_{n}\Vert\to\alpha$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{1}{4}\Vert g_{n}-g_{m}\Vert^{2}\leq\frac{1}{2}\Vert g_{n}\Vert^{2}+\frac{1}{2}\Vert g_{m}\Vert^{2}-\alpha^{2}\to0$
+\end_inset
+
+ cuando 
+\begin_inset Formula $n,m\to\infty$
+\end_inset
+
+, luego 
+\begin_inset Formula $(g_{n})_{n}$
+\end_inset
+
+ es de Cauchy y, por completitud, convergente hacia un cierto 
+\begin_inset Formula $g\in C$
+\end_inset
+
+ que cumple 
+\begin_inset Formula $\Vert g\Vert=\lim_{n}\Vert g_{n}\Vert=\alpha$
+\end_inset
+
+.
+ Si hubiera otro 
+\begin_inset Formula $h\in C$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert h\Vert=\alpha$
+\end_inset
+
+, entonces 
+\begin_inset Formula $0\leq\frac{1}{4}\Vert g-h\Vert^{2}\leq\frac{1}{2}\alpha^{2}+\frac{1}{2}\alpha^{2}-\alpha^{2}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $g=h$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Para cada 
+\begin_inset Formula $f\in E$
+\end_inset
+
+ existe una única mejor aproximación 
+\begin_inset Formula $g\in C$
+\end_inset
+
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $f-C=\{f-h\}_{h\in C}$
+\end_inset
+
+ es convexo y completo, luego existe un único 
+\begin_inset Formula $t\in C$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert t\Vert=\min_{h\in f-C}\Vert h\Vert=\min_{h\in C}\Vert f-h\Vert$
+\end_inset
+
+ y 
+\begin_inset Formula $f-t$
+\end_inset
+
+ es la mejor aproximación buscada.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $E$
+\end_inset
+
+ un espacio normado con producto escalar, 
+\begin_inset Formula $G\subseteq E$
+\end_inset
+
+ un subespacio vectorial y 
+\begin_inset Formula $f\in E$
+\end_inset
+
+, 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ es una mejor aproximación de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $f-g\bot G$
+\end_inset
+
+, esto es, 
+\begin_inset Formula $\forall h\in G,f-g\bot h$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dados 
+\begin_inset Formula $h\in G$
+\end_inset
+
+ y 
+\begin_inset Formula $a>0$
+\end_inset
+
+, como 
+\begin_inset Formula $g-ah\in G$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert f-g\Vert^{2}\leq\Vert f-(g-ah)\Vert^{2}=\Vert f-g+ah\Vert^{2}=\Vert f-g\Vert^{2}+a^{2}\Vert h\Vert^{2}+2a\langle f-g,h\rangle$
+\end_inset
+
+, luego 
+\begin_inset Formula $\langle f-g,h\rangle\geq-\frac{a}{2}\Vert h\Vert^{2}$
+\end_inset
+
+ y, haciendo 
+\begin_inset Formula $a\to0$
+\end_inset
+
+, 
+\begin_inset Formula $\langle f-g,h\rangle\geq0$
+\end_inset
+
+, y cambiando 
+\begin_inset Formula $h$
+\end_inset
+
+ por 
+\begin_inset Formula $-h$
+\end_inset
+
+, 
+\begin_inset Formula $\langle f-g,-h\rangle=-\langle f-g,h\rangle\geq0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\langle f-g,h\rangle=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $h\in G$
+\end_inset
+
+, como 
+\begin_inset Formula $f-g\bot g-h$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert f-h\Vert^{2}=\Vert f-g\Vert^{2}+\Vert g-h\Vert^{2}\geq\Vert f-g\Vert^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $G\subseteq E$
+\end_inset
+
+ es de dimensión finita, 
+\begin_inset Formula $\{g_{1},\dots,g_{m}\}$
+\end_inset
+
+ es un conjunto de vectores que genera 
+\begin_inset Formula $G$
+\end_inset
+
+ y 
+\begin_inset Formula $f\in E$
+\end_inset
+
+, las tuplas 
+\begin_inset Formula $(x_{1},\dots,x_{m})$
+\end_inset
+
+ tales que 
+\begin_inset Formula $f\bot\sum_{k=1}^{m}x_{k}g_{k}$
+\end_inset
+
+ son precisamente las soluciones del sistema de 
+\series bold
+ecuaciones normales
+\series default
+ 
+\begin_inset Formula 
+\[
+\left\{ \sum_{j=1}^{m}\langle g_{j},g_{k}\rangle x_{j}=\langle f,g_{k}\rangle\right\} _{k\in\{1,\dots,m\}}.
+\]
+
+\end_inset
+
+En particular, si 
+\begin_inset Formula $(g_{1},\dots,g_{m})$
+\end_inset
+
+ es base de 
+\begin_inset Formula $G$
+\end_inset
+
+, el sistema es compatible determinado, y si esta base es ortonormal, la
+ proyección ortogonal de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\begin_inset Formula 
+\[
+\sum_{k=1}^{m}\langle f,g_{k}\rangle g_{k},
+\]
+
+\end_inset
+
+por lo que el problema de buscar una mejor aproximación por mínimos cuadrados
+ en un subespacio de un espacio de dimensión finita se reduce al de resolver
+ un sistema de ecuaciones lineales conocida una base del subespacio o al
+ de aplicar una fórmula conocida una base ortonormal de este.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+sistema lineal sobredeterminado
+\series default
+ es uno con más ecuaciones que incógnitas en que la matriz de coeficientes
+ tiene rango máximo.
+ En general estos son incompatibles.
+ No obstante, para 
+\begin_inset Formula $A\in{\cal M}_{m\times n}(\mathbb{R})$
+\end_inset
+
+ con 
+\begin_inset Formula $n\leq m$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\text{rg}A=n$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in\mathbb{R}^{m}$
+\end_inset
+
+, existe 
+\begin_inset Formula $u\in\mathbb{R}^{n}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall x\in\mathbb{R}^{n},\Vert Au-b\Vert\leq\Vert Ax-b\Vert$
+\end_inset
+
+, y este es la única solución de 
+\begin_inset Formula $A^{t}Ax=A^{t}b$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $A_{1},\dots,A_{n}$
+\end_inset
+
+ las columnas de 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $G:=\text{span}(A_{1},\dots,A_{n})$
+\end_inset
+
+, la mejor aproximación 
+\begin_inset Formula $\sum_{k=1}^{n}A_{k}x_{k}$
+\end_inset
+
+ de 
+\begin_inset Formula $b$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ existe y para cada 
+\begin_inset Formula $k\in\{1,\dots,n\}$
+\end_inset
+
+ cumple 
+\begin_inset Formula 
+\[
+(A_{k})^{t}Ax=\langle A_{k},Ax\rangle=\left\langle A_{k},\sum_{j=1}^{n}A_{j}x_{j}\right\rangle =\sum_{j=1}^{n}\langle A_{k},A_{j}\rangle x_{j}=\langle A_{k},b\rangle=(A_{k})^{t}b,
+\]
+
+\end_inset
+
+luego cumple 
+\begin_inset Formula $A^{t}Ax=A^{t}b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para resolver este sistema por factorización LU, hacemos los productos 
+\begin_inset Formula $A^{t}A$
+\end_inset
+
+ (
+\begin_inset Formula $\Theta(n^{2}m)$
+\end_inset
+
+) y 
+\begin_inset Formula $A^{t}b$
+\end_inset
+
+ (
+\begin_inset Formula $\Theta(nm)$
+\end_inset
+
+), factorizamos (
+\begin_inset Formula $\Theta(n^{3})$
+\end_inset
+
+) y resolvemos por los métodos ascendente y descendente (
+\begin_inset Formula $\Theta(n^{2})$
+\end_inset
+
+), y el tiempo es 
+\begin_inset Formula $\Theta(n^{2}(m+n))$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Por factorización QR, vemos que si 
+\begin_inset Formula $(Q,R)$
+\end_inset
+
+ es una factorización QR de 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $A^{t}=(QR)^{t}=R^{t}Q^{t}$
+\end_inset
+
+, luego 
+\begin_inset Formula $A^{t}A=R^{t}Q^{t}QR=R^{t}R$
+\end_inset
+
+ y solo tenemos que resolver 
+\begin_inset Formula $R^{t}Rx=A^{t}b$
+\end_inset
+
+.
+ Así, hacemos el producto 
+\begin_inset Formula $A^{t}b$
+\end_inset
+
+ (
+\begin_inset Formula $\Theta(nm)$
+\end_inset
+
+), factorizamos calculando solo 
+\begin_inset Formula $R$
+\end_inset
+
+ (
+\begin_inset Formula $\Theta(n^{2}m)$
+\end_inset
+
+) y resolvemos por los métodos ascendente y descendente (
+\begin_inset Formula $\Theta(n^{2})$
+\end_inset
+
+), y el tiempo es 
+\begin_inset Formula $\Theta(n^{2}m)$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
