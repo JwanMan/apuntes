@@ -1,0 +1,795 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+La seguridad en red se refiere a:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Confidencialidad
+\series default
+: Evitar que terceras partes entiendan el mensaje.
+ Si 
+\begin_inset Formula $K_{A}$
+\end_inset
+
+ es la clave de cifrado o encriptado de Alice y 
+\begin_inset Formula $K_{B}$
+\end_inset
+
+ es la clave de descifrado correspondiente de Bob, Alice encripta un 
+\series bold
+\emph on
+plaintext
+\series default
+\emph default
+ o mensaje en claro 
+\begin_inset Formula $m$
+\end_inset
+
+ con 
+\begin_inset Formula $K_{A}$
+\end_inset
+
+ y envía el 
+\series bold
+\emph on
+ciphertext
+\series default
+\emph default
+ o texto cifrado 
+\begin_inset Formula $K_{A}(m)$
+\end_inset
+
+ a Bob, que obtiene 
+\begin_inset Formula $m=K_{B}(K_{A}(m))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Autenticación
+\series default
+: Confirmar que la otra parte de la comunicación es quien dice ser.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Integridad
+\series default
+: Asegurar que los mensajes no han sido alterados.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Acceso
+\series default
+ y 
+\series bold
+disponibilidad
+\series default
+: Los servicios deben estar accesibles y disponibles a los usuarios.
+\end_layout
+
+\begin_layout Standard
+Alice y Bob puede ser personas, un navegador y un servidor web, servidores
+ DNS, routers intercambiando información de enrutamiento, etc.
+ Trudy, un intruso, puede:
+\end_layout
+
+\begin_layout Itemize
+Espiar mensajes (
+\series bold
+\emph on
+eavesdrop
+\series default
+\emph default
+).
+\end_layout
+
+\begin_layout Itemize
+Insertar o filtrar mensajes.
+\end_layout
+
+\begin_layout Itemize
+Modificar mensajes, por ejemplo para impersonar (
+\series bold
+\emph on
+spoof
+\series default
+\emph default
+) a Alice o a Bob cambiando la IP fuente en los paquetes.
+\end_layout
+
+\begin_layout Itemize
+Robar una conexión abierta sustituyendo al emisor o receptor (
+\series bold
+\emph on
+hijacking
+\series default
+\emph default
+).
+\end_layout
+
+\begin_layout Itemize
+Prevenir que un servicio sea usado por otros (
+\series bold
+\emph on
+denial of service
+\series default
+\emph default
+), por ejemplo sobrecargando los recursos.
+\end_layout
+
+\begin_layout Standard
+Clasificamos los ataques a un sistema de cifrado o encriptado en:
+\end_layout
+
+\begin_layout Itemize
+Ataques de solo 
+\emph on
+ciphertext
+\emph default
+ en que solo se analiza este, como la 
+\series bold
+fuerza bruta
+\series default
+, en que se prueban todas las claves hasta encontrar la correcta, o ataques
+ por análisis estadístico.
+\end_layout
+
+\begin_layout Itemize
+Con 
+\emph on
+plaintext
+\emph default
+ conocido, en que Trudy conoce el 
+\emph on
+plaintext
+\emph default
+ correspondiente a algún 
+\emph on
+\lang english
+ciphertext
+\emph default
+\lang spanish
+.
+\end_layout
+
+\begin_layout Itemize
+Con 
+\emph on
+plaintext
+\emph default
+ escogido, en que Trudy puede obtener el 
+\emph on
+ciphertext
+\emph default
+ de un 
+\emph on
+plaintext
+\emph default
+.
+\end_layout
+
+\begin_layout Section
+Criptografía de clave simétrica
+\end_layout
+
+\begin_layout Standard
+Las claves de cifrado y descifrado son la misma, aunque el procedimiento
+ para cifrar y descifrar puede ser distinto.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Cifrado de sustitución
+\series default
+: Sustituir un objeto por otro.
+ La clave es una biyección entre objetos.
+ En el 
+\series bold
+cifrado monoalfabético
+\series default
+ se sustituye una letra por otra.
+\end_layout
+
+\begin_layout Itemize
+Se puede usar un patrón cíclico para alternar entre distintos cifrados de
+ sustitución, y la clave es una lista de cifrados de sustitución y el patrón
+ cíclico.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Cifrado de flujo
+\series default
+: La clave tiene el mismo número de bits que el mensaje a cifrar y se aplica
+ XOR entre el mensaje y la clave.
+\end_layout
+
+\begin_layout Itemize
+Se puede usar una clave corta como semilla de un generador de números pseudo-ale
+atorio (
+\series bold
+PRNG
+\series default
+) para generar la clave en un cifrado de flujo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Cifrado de bloque
+\series default
+: El mensaje se divide en bloques de longitud fija cifrados por separado,
+ usando 
+\emph on
+padding
+\emph default
+ para ajustar los mensajes al tamaño del bloque.
+ Es importante la relación entre los bits.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Cipher Book Chaining
+\series default
+\emph default
+ (
+\series bold
+CBC
+\series default
+): Para ocular patrones, cada bloque se cifra con una clave prefijada combinada,
+ por ejemplo con XOR, con el 
+\emph on
+ciphertext
+\emph default
+ del bloque anterior, o con un 
+\series bold
+vector de inicialización
+\series default
+ para el primer bloque.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+DES
+\series default
+ (
+\emph on
+Data Encryption Standard
+\emph default
+): Estándar estadounidense NIST 1993 que usa CDC con bloques de 64 bits
+ y una clave simétrica de 56 bits.
+ A cada bloque se le hace una permutación inicial, 16 
+\emph on
+rounds
+\emph default
+ idénticos de una función que usa distintos 48 bits de la clave y una permutació
+n final, obteniendo un 
+\emph on
+ciphertext
+\emph default
+ de 64 bits.
+ En el 
+\series bold
+\emph on
+DES Challenge
+\series default
+\emph default
+ se vio que la clave se puede obtener por fuerza bruta en menos de un día,
+ pero no se conoce un buen ataque analítico.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+3DES
+\series default
+: Cifrar 3 veces seguidas con DES con 3 claves distintas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+AES
+\series default
+ (
+\emph on
+Advanced Encryption Standard
+\emph default
+): Estándar NIST que sustituye a DES desde noviembre de 2001.
+ Usa bloque de 128 bits y claves de 128, 192 y 256 bits.
+ Si descifrar DES por fuerza bruta tardara un segundo, con AES tardaría
+ 149 billones de años.
+\end_layout
+
+\begin_layout Section
+Criptografía de clave pública
+\end_layout
+
+\begin_layout Standard
+En la 
+\series bold
+criptografía de clave pública
+\series default
+, cada entidad tiene una 
+\series bold
+clave pública
+\series default
+ 
+\begin_inset Formula $K^{+}$
+\end_inset
+
+ conocida por todos y una 
+\series bold
+clave privada
+\series default
+ 
+\begin_inset Formula $K^{-}$
+\end_inset
+
+ solo conocida por la entidad, de forma que lo que se encripta con la clave
+ pública se puede desencriptar con la privada y es inviable calcular la
+ privada a partir de la pública.
+\end_layout
+
+\begin_layout Standard
+En 
+\series bold
+RSA
+\series default
+ (
+\emph on
+Rivest-Shamir-Adelson Algorithm
+\emph default
+), para generar las claves se escogen dos primos grandes 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $q$
+\end_inset
+
+; se calculan 
+\begin_inset Formula $n:=pq$
+\end_inset
+
+ y 
+\begin_inset Formula $z:=\phi(n)=(p-1)(q-1)$
+\end_inset
+
+; se escogen 
+\begin_inset Formula $e<n$
+\end_inset
+
+ con 
+\begin_inset Formula $e$
+\end_inset
+
+ y 
+\begin_inset Formula $z$
+\end_inset
+
+ coprimos y 
+\begin_inset Formula $d$
+\end_inset
+
+ tal que 
+\begin_inset Formula $ed\equiv1\bmod z$
+\end_inset
+
+, y se toma 
+\begin_inset Formula $(n,e)$
+\end_inset
+
+ como clave pública y 
+\begin_inset Formula $(n,d)$
+\end_inset
+
+ como clave privada.
+ Los mensajes se interpretan como enteros positivos.
+ Cifrar un mensaje 
+\begin_inset Formula $m$
+\end_inset
+
+ es calcular 
+\begin_inset Formula $m^{e}\mod n$
+\end_inset
+
+, y descifrar un texto cifrado 
+\begin_inset Formula $c$
+\end_inset
+
+ es calcular 
+\begin_inset Formula $c^{d}\bmod n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Con esto, para todo mensaje 
+\begin_inset Formula $m$
+\end_inset
+
+, 
+\begin_inset Formula $K^{-}(K^{+}(m))=m$
+\end_inset
+
+.
+ En efecto, sea 
+\begin_inset Formula $k$
+\end_inset
+
+ tal que 
+\begin_inset Formula $ed=kz+1$
+\end_inset
+
+, por el teorema de Euler, 
+\begin_inset Formula $m^{z}=m^{\phi(n)}\equiv1\bmod n$
+\end_inset
+
+, luego trabajando módulo 
+\begin_inset Formula $n$
+\end_inset
+
+, 
+\begin_inset Formula $K^{-}(K^{+}(m))\equiv(m^{e})^{d}=m^{ed}=m^{kz+1}=(m^{z})^{k}m\equiv1^{k}m=m$
+\end_inset
+
+.
+ Además, para determinar 
+\begin_inset Formula $d$
+\end_inset
+
+ a partir de 
+\begin_inset Formula $(n,e)$
+\end_inset
+
+, en esencia hay que calcular 
+\begin_inset Formula $\phi(n)$
+\end_inset
+
+ factorizando 
+\begin_inset Formula $n$
+\end_inset
+
+ en 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $q$
+\end_inset
+
+, pero factorizar un entero es NP-completo.
+\end_layout
+
+\begin_layout Section
+Intercambio de claves
+\end_layout
+
+\begin_layout Standard
+Encriptar en RSA es computacionalmente costoso, siendo DES al menos 100
+ veces más rápido en software, por lo que se suele usar RSA para enviar
+ una clave simétrica encriptada que es la que se usa para cifrar los datos.
+\end_layout
+
+\begin_layout Standard
+Otra opción es el 
+\series bold
+algoritmo de Diffie-Hellman
+\series default
+:
+\end_layout
+
+\begin_layout Enumerate
+Alice y Bob acuerdan, sin necesidad de cifrado, un número primo 
+\begin_inset Formula $q$
+\end_inset
+
+ y un entero 
+\begin_inset Formula $\alpha<q$
+\end_inset
+
+ coprimo con 
+\begin_inset Formula $q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Generan claves privadas respectivas 
+\begin_inset Formula $X_{A},X_{B}<q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Generan claves públicas respectivas 
+\begin_inset Formula $Y_{A}:=\alpha^{X_{A}}\bmod q$
+\end_inset
+
+ y 
+\begin_inset Formula $Y_{B}:=\alpha^{X_{B}}\bmod q$
+\end_inset
+
+ y las intercambian.
+\end_layout
+
+\begin_layout Enumerate
+Alice calcula 
+\begin_inset Formula $Y_{B}^{X_{A}}\bmod q$
+\end_inset
+
+ y Bob calcula 
+\begin_inset Formula $Y_{A}^{X_{B}}\bmod q$
+\end_inset
+
+.
+ El resultado coincide y se usa como clave simétrica.
+\end_layout
+
+\begin_layout Standard
+En efecto, 
+\begin_inset Formula $Y_{B}^{X_{A}}=(\alpha^{X_{B}})^{X_{A}}=(\alpha^{X_{A}})^{X_{B}}=Y_{A}^{X_{B}}$
+\end_inset
+
+, y la seguridad se debe a que es muy difícil calcular 
+\series bold
+logaritmos discretos
+\series default
+ (la inversa del exponente en aritmética modular).
+ Sin embargo, este algoritmo no ofrece autenticación de las partes, por
+ lo que es vulnerable a ataques 
+\series bold
+\emph on
+\lang english
+man-in-the-middle
+\series default
+\emph default
+\lang spanish
+ (
+\series bold
+MITM
+\series default
+), en los que un atacante se hace pasar por Bob para Alice y por Alice para
+ Bob haciendo de intermediario en la comunicación y viendo los mensajes
+ en claro.
+\end_layout
+
+\begin_layout Section
+Autenticación
+\end_layout
+
+\begin_layout Standard
+La autenticación permite a las partes de la comunicación saber que los mensajes
+ que reciben son realmente de quien dicen ser y que no han sido alterados.
+ 
+\end_layout
+
+\begin_layout Standard
+Un mecanismo de autenticación es 
+\series bold
+verificable
+\series default
+, 
+\series bold
+no falsificable
+\series default
+ o 
+\series bold
+no repudiable
+\series default
+ si el receptor puede probar que un mensaje realmente ha sido enviado por
+ el emisor, en cuyo caso el mecanismo es de 
+\series bold
+firma digital
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Una forma de firma digital es adjuntar al mensaje una copia de este cifrada
+ con la clave privada del emisor, que el receptor comprobará aplicando la
+ clave pública del emisor a esta copia y comparándola con el mensaje.
+ 
+\end_layout
+
+\begin_layout Standard
+Esto es computacionalmente costoso, por lo que en la práctica lo que se
+ cifra es una 
+\series bold
+huella
+\series default
+ (
+\emph on
+fingerprint
+\emph default
+) del mensaje, obtenida de aplicarle a este una 
+\series bold
+función 
+\emph on
+hash
+\emph default
+ criptográfica
+\series default
+ o 
+\series bold
+\emph on
+message digest
+\series default
+\emph default
+, una función fácil de calcular que genera una huella de longitud fija a
+ partir del mensaje y para la que es computacionalmente inviable encontrar
+ dos mensajes con un mismo 
+\emph on
+hash
+\emph default
+ y por tanto un mensaje que tenga un 
+\emph on
+hash
+\emph default
+ determinado.
+\end_layout
+
+\begin_layout Standard
+El 
+\emph on
+Internet checksum
+\emph default
+ no sirve, pues a partir de un mensaje es fácil encontrar otro con el mismo
+ 
+\emph on
+checksum
+\emph default
+.
+ Algunos 
+\emph on
+hash
+\emph default
+ criptográficos son 
+\series bold
+MD5
+\series default
+ (RFC 1321), que calcula una huella de 128 bits en 4 pasos, y 
+\series bold
+SHA-1
+\series default
+ (NIST FIPS PUB 180-1), que calcula una de 160 bits, pero ambos han sido
+ atacados al encontrar colisiones, por lo que ahora se usa 
+\series bold
+SHA-2
+\series default
+, que produce huellas de 224, 256, 384 o 512 bits.
+\end_layout
+
+\begin_layout Standard
+Otra forma de autenticación más eficiente, especialmente para sesiones interacti
+vas, es adjuntar a los mensajes un 
+\series bold
+MAC
+\series default
+ (
+\emph on
+Message Authentication Code
+\emph default
+), resultante de cifrar la huella con una clave simétrica preestablecida
+ (
+\emph on
+authentication key
+\emph default
+), aunque esto no sirve de firma digital porque el receptor también puede
+ calcular el MAC.
+\end_layout
+
+\begin_layout Standard
+Las 
+\series bold
+autoridades de certificación
+\series default
+ (
+\series bold
+CA
+\series default
+) sirven para evitar recibir la clave pública de una persona indicando que
+ es de otra.
+ Para ello, una entidad registra su clave pública en la CA aportando una
+ prueba de identidad, y la CA crea un certificado firmando la clave pública
+ a registrar con su clave privada.
+\end_layout
+
+\end_body
+\end_document
