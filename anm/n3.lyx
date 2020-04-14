@@ -1,0 +1,1611 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $A\in{\cal M}_{m\times n}(\mathbb{C})$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in\mathbb{C}^{m}$
+\end_inset
+
+, un 
+\series bold
+método iterativo de resolución
+\series default
+ del sistema lineal 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+ es un par 
+\begin_inset Formula $(T,c)$
+\end_inset
+
+ con 
+\begin_inset Formula $T\in{\cal M}_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $c\in\mathbb{C}^{n}$
+\end_inset
+
+ tal que la solución del sistema es el único punto fijo de 
+\begin_inset Formula $\Phi(x):=Tx+c$
+\end_inset
+
+.
+ Si para todo 
+\begin_inset Formula $x\in\mathbb{C}^{n}$
+\end_inset
+
+ la sucesión 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $x_{0}:=x$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{k+1}:=\Phi(x_{k})$
+\end_inset
+
+ converge hacia el punto fijo, 
+\begin_inset Formula $(T,c)$
+\end_inset
+
+ es 
+\series bold
+convergente
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $T\in{\cal M}_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\rho(T)<1$
+\end_inset
+
+ si y sólo si, para cualesquiera 
+\begin_inset Formula $c,x\in\mathbb{C}^{n}$
+\end_inset
+
+, la sucesión 
+\begin_inset Formula $x_{0}:=y$
+\end_inset
+
+, 
+\begin_inset Formula $x_{k+1}:=Tx_{k}+c$
+\end_inset
+
+, converge.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Entonces existe una norma matricial tal que 
+\begin_inset Formula $\Vert T\Vert<1$
+\end_inset
+
+, y si 
+\begin_inset Formula $\Phi(x):=Tx+c$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert\Phi(x)-\Phi(y)\Vert=\Vert Tx-Ty\Vert=\Vert T(x-y)\Vert\leq\Vert T\Vert\Vert x-y\Vert$
+\end_inset
+
+, luego 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ es contractiva y, por el teorema del punto fijo de Banach, la sucesión
+ converge a un punto fijo.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $c,v\in\mathbb{C}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $x$
+\end_inset
+
+ la solución de 
+\begin_inset Formula $x=Tx+c$
+\end_inset
+
+, 
+\begin_inset Formula $y:=x-v$
+\end_inset
+
+ y 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ la sucesión del enunciado, entonces 
+\begin_inset Formula $x-x_{0}=v=T^{0}v$
+\end_inset
+
+, y si 
+\begin_inset Formula $x-x_{k}=T^{k}v$
+\end_inset
+
+, entonces 
+\begin_inset Formula $x-x_{k+1}=(Tx+c)-(Tx_{k}+c)=T(x-x_{k})=TT^{k}v=T^{k+1}v$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $\lim_{k}T^{k}v=\lim_{k}(x-x_{k})=0$
+\end_inset
+
+, y que esto ocurra para 
+\begin_inset Formula $v$
+\end_inset
+
+ arbitrario equivale a que 
+\begin_inset Formula $\rho(T)<1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado un sistema lineal 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+, si 
+\begin_inset Formula $A=M-N$
+\end_inset
+
+ con 
+\begin_inset Formula $M$
+\end_inset
+
+ fácil de invertir, entonces 
+\begin_inset Formula $(M^{-1}N,M^{-1}b)$
+\end_inset
+
+ es un método iterativo de resolución de 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+, pues 
+\begin_inset Formula $Ax=Mx-Nx=b\iff Mx=Nx+b\iff x=M^{-1}Nx+M^{-1}b$
+\end_inset
+
+.
+ El 
+\series bold
+método iterativo de Richardson
+\series default
+ para una matriz 
+\begin_inset Formula $A:=(a_{ij})$
+\end_inset
+
+ sin ceros en la diagonal consiste en tomar como matriz fácil de invertir
+ en lo anterior una matriz 
+\begin_inset Formula $\alpha I_{n}$
+\end_inset
+
+ para un cierto 
+\begin_inset Formula $\alpha\in\mathbb{C}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Método de Jacobi
+\end_layout
+
+\begin_layout Standard
+En adelante, 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+ es un sistema lineal tal que 
+\begin_inset Formula $A$
+\end_inset
+
+ no tiene ceros en la diagonal, 
+\begin_inset Formula $D$
+\end_inset
+
+ es la matriz diagonal de 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $L$
+\end_inset
+
+ la matriz formada por los elementos de 
+\begin_inset Formula $A$
+\end_inset
+
+ bajo la diagonal y 
+\begin_inset Formula $U$
+\end_inset
+
+ la formada por los elementos sobre la diagonal, de modo que 
+\begin_inset Formula $A=L+D+U$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Para el método de Jacobi tomamos 
+\begin_inset Formula $M:=D$
+\end_inset
+
+ y 
+\begin_inset Formula $N:=-(L+U)$
+\end_inset
+
+, y nos queda el método iterativo 
+\begin_inset Formula $(T_{J}:=-D^{-1}(L+U),D^{-1}b)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Para calcular de forma eficiente, en cada iteración calculamos 
+\begin_inset Formula $r_{k}:=Ax_{k}-b$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{k+1}=x_{k}-D^{-1}r_{k}$
+\end_inset
+
+, pues 
+\begin_inset Formula $D^{-1}r_{k}=D^{-1}(Dx_{k}+(L+U)x_{k}-b)=x_{k}-(-D^{-1}(L+U)x_{k}+D^{-1}b)=x_{k}-x_{k+1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Método de Gauss-Seidel
+\end_layout
+
+\begin_layout Standard
+Es como el de Jacobi pero, para calcular una coordenada de 
+\begin_inset Formula $x_{k+1}$
+\end_inset
+
+, usamos las coordenadas anteriores, que ya habremos calculado, en vez de
+ las correspondientes de 
+\begin_inset Formula $x_{k}$
+\end_inset
+
+, pues serán una mejor aproximación.
+ Si 
+\begin_inset Formula $A\in{\cal M}_{n}$
+\end_inset
+
+, para 
+\begin_inset Formula $i$
+\end_inset
+
+ de 1 a 
+\begin_inset Formula $n$
+\end_inset
+
+, calculamos
+\begin_inset Formula 
+\[
+\tilde{r}_{ki}:=\sum_{j=1}^{i-1}a_{ij}x_{(k+1)j}+\sum_{j=i}^{n}a_{ij}x_{kj}-b_{i}
+\]
+
+\end_inset
+
+y
+\begin_inset Formula 
+\[
+x_{(k+1)i}:=x_{ki}-\frac{\tilde{r}_{ki}}{a_{ii}}=\frac{1}{a_{ii}}\left(b_{i}-\sum_{j=1}^{i-1}a_{ij}x_{(k+1)j}-\sum_{j=i+1}^{n}a_{ij}x_{kj}\right).
+\]
+
+\end_inset
+
+Esto es el método 
+\begin_inset Formula $(T_{G}:=-(L+D)^{-1}U,(L+D)^{-1}b)$
+\end_inset
+
+, equivalente a tomar 
+\begin_inset Formula $M:=L+D$
+\end_inset
+
+ y 
+\begin_inset Formula $N:=-U$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Despejando, 
+\begin_inset Formula 
+\[
+a_{ii}x_{(k+1)i}+\sum_{j=1}^{i-1}a_{ij}x_{(k+1)j}=b_{i}-\sum_{j=i+1}^{n}a_{ij}x_{kj},
+\]
+
+\end_inset
+
+esto es, 
+\begin_inset Formula $((L+D)x_{k+1})_{i}=b_{i}-(Ux_{k})_{i}$
+\end_inset
+
+, luego 
+\begin_inset Formula $(L+D)x_{k+1}=b-Ux_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Tenemos que 
+\begin_inset Formula $\tilde{r}_{ki}=A\tilde{x}_{ki}-b$
+\end_inset
+
+, donde 
+\begin_inset Formula $\tilde{x}_{ki}=(x_{(k+1)1},\dots,x_{(k+1)(i-1)},x_{ki},\dots,x_{kn})$
+\end_inset
+
+, por lo que podemos usar como condición de parada que 
+\begin_inset Formula $\tilde{r}_{k}$
+\end_inset
+
+ sea lo suficientemente pequeño.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de P.
+ Stein y R.
+ L.
+ Rosenberg
+\series default
+ (1948)
+\series bold
+:
+\series default
+ Si 
+\begin_inset Formula $A=D+L+U\in{\cal M}_{n}(\mathbb{R})$
+\end_inset
+
+ con 
+\begin_inset Formula $L,U\leq0$
+\end_inset
+
+, 
+\begin_inset Formula $L,U\neq0$
+\end_inset
+
+ y 
+\begin_inset Formula $L$
+\end_inset
+
+ y 
+\begin_inset Formula $U$
+\end_inset
+
+ triangulares estrictamente inferior y superior, respectivamente, se da
+ exactamente una de las siguientes afirmaciones:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $0\leq\rho(T_{G})\leq\rho(T_{J})<1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\rho(T_{J})=\rho(T_{G})=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $1<\rho(T_{J})\leq\rho(T_{G})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Por tanto, si el método de Jacobi converge, el de Gauss-Seidel lo hace más
+ rápido, y si diverge, también.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A\in{\cal M}_{n}(\mathbb{R})$
+\end_inset
+
+ tiene diagonal estrictamente dominante, los métodos de Jacobi y Gauss-Seidel
+ para resolver 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+ convergen y 
+\begin_inset Formula $\Vert T_{G}\Vert_{\infty}\leq\Vert T_{J}\Vert_{\infty}<1$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $(T_{J})_{ij}=-(1-\delta_{ij})\frac{a_{ij}}{a_{ii}}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\Vert T_{J}\Vert_{\infty}=\max_{i}\sum_{j}|(T_{J})_{ij}|=\max_{i}\sum_{j\neq i}\frac{|a_{ij}|}{|a_{ii}|}<1$
+\end_inset
+
+ y 
+\begin_inset Formula $\rho(T_{J})<1$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $y\in\mathbb{R}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $z:=T_{G}y$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $(L+D)z=-Uy$
+\end_inset
+
+, y queremos ver que, para 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+, 
+\begin_inset Formula $|z_{i}|\leq\frac{1}{|a_{ii}|}\sum_{j\neq i}|a_{ij}|\Vert y\Vert_{\infty}$
+\end_inset
+
+, y en particular 
+\begin_inset Formula $|z_{i}|\leq\Vert T_{J}\Vert_{\infty}\Vert y\Vert_{\infty}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $i=1$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+|a_{11}||z_{1}|=|(L+D)_{11}z_{1}|=|((L+D)z)_{1}|=|-Uy|=\left|\sum_{j=2}^{n}a_{1j}y_{j}\right|\leq\sum_{j=2}^{n}|a_{1j}||y_{j}|\leq\sum_{j=2}^{n}|a_{1j}|\Vert y\Vert_{\infty}.
+\]
+
+\end_inset
+
+Para 
+\begin_inset Formula $i>1$
+\end_inset
+
+, usando la fórmula con 
+\begin_inset Formula $b=0$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{eqnarray*}
+|z_{i}| & = & \left|\frac{1}{a_{ii}}\left(-\sum_{j=1}^{i-1}a_{ij}z_{j}-\sum_{j=i+1}^{n}a_{ij}y_{j}\right)\right|\leq\frac{1}{|a_{ii}|}\left(\sum_{j=1}^{i-1}|a_{ij}||z_{j}|+\sum_{i=j+1}^{n}|a_{ij}||y_{j}|\right)\\
+ & \leq & \frac{1}{|a_{ij}|}\left(\sum_{j=1}^{i-1}|a_{ij}|\Vert T_{J}\Vert_{\infty}+\sum_{j=1}^{i-1}|a_{ij}|\right)\Vert y\Vert_{\infty}\overset{\Vert T_{J}\Vert_{\infty}<1}{\leq}\frac{1}{|a_{ij}|}\sum_{j\neq i}|a_{ij}|\Vert y\Vert_{\infty}.
+\end{eqnarray*}
+
+\end_inset
+
+Por tanto 
+\begin_inset Formula $\Vert T_{G}y\Vert_{\infty}=\Vert z\Vert_{\infty}\leq\Vert T_{J}\Vert_{\infty}\Vert y\Vert_{\infty}$
+\end_inset
+
+ y, tomando 
+\begin_inset Formula $y:=(1,\dots,1)_{\infty}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert T_{G}\Vert_{\infty}=\max_{i}\sum_{j}|(T_{G})_{ij}||y_{j}|=\Vert T_{G}y\Vert_{\infty}\leq\Vert T_{J}\Vert_{\infty}\Vert y\Vert_{\infty}=\Vert T_{J}\Vert_{\infty}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es tridiagonal es 
+\begin_inset Formula $\rho(T_{G})=\rho(T_{J})^{2}$
+\end_inset
+
+, con lo que los métodos de Jacobi y Gauss-Seidel convergen simultáneamente
+ y, entonces, el de Gauss-Seidel converge más rápido.
+ 
+\series bold
+Demostración:
+\series default
+ Vemos primero que si 
+\begin_inset Formula $A:\mathbb{C}\to{\cal M}_{n}(\mathbb{C})$
+\end_inset
+
+ es de la forma 
+\begin_inset Formula 
+\[
+A(\lambda):=\left(\begin{array}{ccccc}
+\lambda b_{1} & c_{1}\\
+\lambda^{2}a_{2} & \lambda b_{2} & c_{2}\\
+ & \ddots & \ddots & \ddots\\
+ &  & \lambda^{2}a_{n-1} & \lambda b_{n-1} & c_{n-1}\\
+ &  &  & \lambda^{2}a_{n} & \lambda b_{n}
+\end{array}\right),
+\]
+
+\end_inset
+
+entonces 
+\begin_inset Formula $\det(A(\lambda))=\det(A(1))$
+\end_inset
+
+ para todo 
+\begin_inset Formula $\lambda\neq0$
+\end_inset
+
+.
+ En efecto, sea 
+\begin_inset Formula $Q(\lambda):=\text{diag}(\lambda,\lambda^{2},\dots,\lambda^{n})$
+\end_inset
+
+, es fácil ver que 
+\begin_inset Formula $A(\lambda)=Q(\lambda)A(1)Q(\lambda)^{-1}$
+\end_inset
+
+.
+ Los valores propios de 
+\begin_inset Formula $T_{J}$
+\end_inset
+
+ son los ceros de 
+\begin_inset Formula $p_{J}(\lambda):=\det(-D^{-1}(L+U)-\lambda I_{n})$
+\end_inset
+
+, que son los mismos que los de 
+\begin_inset Formula $q_{J}(\lambda):=\det(L+U+\lambda D)$
+\end_inset
+
+.
+ Los de 
+\begin_inset Formula $T_{G}$
+\end_inset
+
+ son los ceros de 
+\begin_inset Formula $p_{G}(\lambda):=\det(-(L+D)^{-1}U-\lambda I_{n})$
+\end_inset
+
+, que son los de 
+\begin_inset Formula $q_{G}(\lambda):=\det(U+\lambda L+\lambda D)$
+\end_inset
+
+.
+ Usando el resultado al principio, para 
+\begin_inset Formula $\lambda\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $q_{G}(\lambda^{2})=\det(\lambda^{2}D+\lambda^{2}L+U)=\det(\lambda^{2}L+\lambda(\lambda D)+U)=\det(L+\lambda D+U)=q_{J}(\lambda)$
+\end_inset
+
+, y para 
+\begin_inset Formula $\lambda=0$
+\end_inset
+
+ esto se cumple por continuidad.
+ Así, 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ es valor propio de 
+\begin_inset Formula $T_{J}$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+ lo es de 
+\begin_inset Formula $T_{G}$
+\end_inset
+
+, de donde se obtiene el resultado.
+\end_layout
+
+\begin_layout Section
+Método de relajación
+\end_layout
+
+\begin_layout Standard
+Se trata de encontrar un peso 
+\begin_inset Formula $\omega>0$
+\end_inset
+
+ para corregirlas coordenadas de 
+\begin_inset Formula $x_{k}$
+\end_inset
+
+ poniendo
+\begin_inset Formula 
+\[
+x_{(k+1)i}:=x_{ki}-\frac{\omega}{a_{ii}}\tilde{r}_{ki}
+\]
+
+\end_inset
+
+en el método de Gauss-Seidel.
+ Entonces el método es 
+\begin_inset Formula $(T_{R}(\omega):=(D+\omega L)^{-1}((1-\omega)D-\omega U),(D+\omega L)^{-1}\omega)$
+\end_inset
+
+, que equivale a tomar 
+\begin_inset Formula $M:=\frac{1}{\omega}D+L$
+\end_inset
+
+ y 
+\begin_inset Formula $N:=\frac{1-\omega}{\omega}D-U$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Ahora es
+\begin_inset Formula 
+\[
+a_{ii}x_{(k+1)i}=a_{ii}x_{ki}-\omega\left(\sum_{j=1}^{i-1}a_{ij}x_{(k+1)j}+\sum_{j=i}^{n}a_{ij}x_{kj}-b_{i}\right),
+\]
+
+\end_inset
+
+luego
+\begin_inset Formula 
+\[
+a_{ii}x_{(k+1)i}+\omega\sum_{j=1}^{i-1}a_{ij}x_{(k+1)j}=(1-\omega)a_{ii}x_{ki}-\omega\sum_{j=i+1}^{n}a_{ij}x_{kj}-b_{i},
+\]
+
+\end_inset
+
+con lo que 
+\begin_inset Formula $(D+\omega L)x_{k+1}=(1-\omega)D-\omega U-b$
+\end_inset
+
+.
+ Entonces, 
+\begin_inset Formula $(D+\omega L)^{-1}((1-\omega)D+\omega U)=(\frac{1}{\omega}D+\omega L)^{-1}(\frac{1-\omega}{\omega D}+U)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Kahan
+\series default
+ (1958)
+\series bold
+:
+\series default
+ 
+\begin_inset Formula $\rho(T_{R}(\omega))>|\omega-1|$
+\end_inset
+
+, y en particular el método de relajación solo puede ser convergente para
+ 
+\begin_inset Formula $\omega\in(0,2)$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula 
+\[
+\det T_{R}(\omega)=\frac{\det((1-\omega)D-\omega U)}{\det(D+\omega L)}=\frac{\det((1-\omega)D)}{\det(D)}=(1-\omega)^{n},
+\]
+
+\end_inset
+
+con lo que si 
+\begin_inset Formula $\lambda_{1},\dots,\lambda_{n}$
+\end_inset
+
+ son los valores propios de 
+\begin_inset Formula $T_{R}(\omega)$
+\end_inset
+
+, repetidos según sea su multiplicidad, 
+\begin_inset Formula $\rho(T_{R}(\omega))^{n}\geq\prod_{k=1}^{n}|\lambda_{k}|=|\det T_{R}(\omega)|=|1-\omega|^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es SPD, el método de relajación converge para 
+\begin_inset Formula $\omega\in(0,2)$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $M:=\frac{1}{\omega}D+L$
+\end_inset
+
+ y 
+\begin_inset Formula $N:=\frac{1-\omega}{\omega}D-U$
+\end_inset
+
+, 
+\begin_inset Formula $A=M-N$
+\end_inset
+
+ y 
+\begin_inset Formula $T_{R}(\omega)=M^{-1}N$
+\end_inset
+
+.
+ Además, como 
+\begin_inset Formula $L^{t}=U$
+\end_inset
+
+, 
+\begin_inset Formula $M^{t}+N=\frac{2-\omega}{\omega}D$
+\end_inset
+
+, que es SPD, y queremos ver que entonces 
+\begin_inset Formula $\rho(M^{-1}N)\leq\Vert M^{-1}N\Vert_{A}<1$
+\end_inset
+
+.
+ En dimensión finita, 
+\begin_inset Formula $\Vert M^{-1}N\Vert_{A}=\max\{\Vert M^{-1}Nv\Vert_{A}:\Vert v\Vert_{A}=1\}$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $v\in\mathbb{R}^{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert v\Vert_{A}^{2}=1$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\Vert M^{-1}N\Vert_{A}=\Vert M^{-1}Nv\Vert_{A}$
+\end_inset
+
+ y 
+\begin_inset Formula $w:=M^{-1}Av$
+\end_inset
+
+, entonces 
+\begin_inset Formula $Mw=Av$
+\end_inset
+
+, luego
+\begin_inset Formula 
+\begin{align*}
+\Vert M^{-1}Nv\Vert_{A}^{2} & =\langle AM^{-1}Nv,M^{-1}Nv\rangle=\langle AM^{-1}(M-A)v,M^{-1}(M-A)v\rangle=\\
+ & =\langle Av-AM^{-1}Av,v-M^{-1}Av\rangle=\\
+ & =\langle Av,v\rangle-\langle AM^{-1}Av,v\rangle-\langle Av,M^{-1}Av\rangle+\langle AM^{-1}Av,M^{-1}Av\rangle=\\
+ & =1-\langle M^{-1}Av,Av\rangle-\langle Mw,w\rangle+\langle Aw,w\rangle=\\
+ & =1-\langle w,Mw\rangle-\langle Mw,w\rangle+\langle(M-N)w,w\rangle=1-\langle M^{t}w,w\rangle-\langle Nw,w\rangle=\\
+ & =1-\langle(M^{t}+N)w,w\rangle<1,
+\end{align*}
+
+\end_inset
+
+por ser 
+\begin_inset Formula $M^{t}+N$
+\end_inset
+
+ definida positiva.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es SPD y tridiagonal, los métodos de Jacobi, Gauss-Seidel y relajación
+ para 
+\begin_inset Formula $0<\omega<2$
+\end_inset
+
+ convergen.
+ Además, el mínimo 
+\begin_inset Formula $\rho(T_{R}(\omega))$
+\end_inset
+
+ para 
+\begin_inset Formula $\omega\in(0,2)$
+\end_inset
+
+ se alcanza en 
+\begin_inset Formula 
+\[
+\omega=\omega_{0}:=\frac{2}{1+\sqrt{1-\rho(T_{J})^{2}}},
+\]
+
+\end_inset
+
+con lo que 
+\begin_inset Formula $\rho(T_{R}(\omega_{0}))\leq\rho(T_{G})<\rho(T_{J})$
+\end_inset
+
+, y se tiene 
+\begin_inset Formula $\rho(T_{R}(\omega_{0}))=\omega_{0}-1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Método del descenso rápido
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es SPD, 
+\begin_inset Formula $x\in\mathbb{R}^{n}$
+\end_inset
+
+ es solución de 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+ si y sólo si minimiza 
+\begin_inset Formula $g(x):=x^{t}Ax-2x^{t}b$
+\end_inset
+
+, y para 
+\begin_inset Formula $v\in\mathbb{R}^{n}\setminus0$
+\end_inset
+
+, el mínimo de 
+\begin_inset Formula $h(t):=g(x+tv)$
+\end_inset
+
+ es 
+\begin_inset Formula $\frac{v^{t}(b-Ax)}{v^{t}Av}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $v\in\mathbb{R}^{n}\setminus\{0\}$
+\end_inset
+
+ y 
+\begin_inset Formula $t\in\mathbb{R}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{multline*}
+g(x+tv)=(x+tv)^{t}A(x+tv)-2(x+tv)^{t}b=\\
+=x^{t}Ax+tv^{t}Ax+tx^{t}Av+t^{2}v^{t}Av-2x^{t}b-2tv^{t}b=g(x)-2tv^{t}(b-Ax)+t^{2}v^{t}Av,
+\end{multline*}
+
+\end_inset
+
+luego el mínimo de 
+\begin_inset Formula $h$
+\end_inset
+
+ es 
+\begin_inset Formula $t_{xv}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $h'(t_{xv})=2t_{xv}v^{t}Av-2v^{t}(b-Ax)=0\iff t_{xv}=\frac{v^{t}(b-Ax)}{v^{t}Av}$
+\end_inset
+
+.
+ En efecto, 
+\begin_inset Formula $h''(t_{xv})=2v^{t}Av>0$
+\end_inset
+
+.
+ Así:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+, 
+\begin_inset Formula $b-Ax=0$
+\end_inset
+
+ y 
+\begin_inset Formula $t_{xv}=0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $v\neq0$
+\end_inset
+
+, luego 
+\begin_inset Formula $x$
+\end_inset
+
+ es el mínimo de 
+\begin_inset Formula $g$
+\end_inset
+
+ en cualquier dirección.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $x$
+\end_inset
+
+ minimiza 
+\begin_inset Formula $g$
+\end_inset
+
+, para cualquier dirección 
+\begin_inset Formula $v\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $t_{xv}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $v^{t}(b-Ax)=0$
+\end_inset
+
+ y, en particular, 
+\begin_inset Formula $\Vert b-Ax\Vert=0$
+\end_inset
+
+ y 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El vector gradiente
+\begin_inset Formula 
+\[
+\nabla g(x)=\left(\frac{\partial g}{\partial x_{1}}(x),\dots,\frac{\partial g}{\partial x_{n}}(x)\right)
+\]
+
+\end_inset
+
+es el de máximo crecimiento en 
+\begin_inset Formula $x$
+\end_inset
+
+, y el 
+\series bold
+método del descenso rápido
+\series default
+ consiste en partir de un 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ y hacer 
+\begin_inset Formula $x_{k+1}:=x_{k}-\alpha\nabla g(x_{k})$
+\end_inset
+
+, donde 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ minimiza 
+\begin_inset Formula $g(x_{k+1})$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $g(x)=\sum_{k=1}^{n}a_{kk}x_{k}^{2}+2\sum_{1\leq i<j\leq n}a_{ij}x_{j}-2\sum_{k=1}^{n}b_{k}x_{k}$
+\end_inset
+
+, luego 
+\begin_inset Formula 
+\[
+\frac{\partial g}{\partial x_{k}}(x)=2a_{kk}x_{k}+2\left(\sum_{i=1}^{k-1}a_{ik}x_{i}+\sum_{j=k+1}^{n}a_{kj}x_{j}\right)-2b_{k}=2\left(\sum_{i=1}^{n}a_{ki}x_{i}-b_{k}\right)
+\]
+
+\end_inset
+
+y por tanto 
+\begin_inset Formula $\nabla g(x)=2(Ax-b)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Este método es seguro, pero no se usa en la práctica por ser muy lento.
+\end_layout
+
+\begin_layout Section
+Método del gradiente conjugado
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $A$
+\end_inset
+
+ una matriz SPD de dimensión 
+\begin_inset Formula $n$
+\end_inset
+
+, 
+\begin_inset Formula $(v_{1},\dots,v_{n})$
+\end_inset
+
+ una base de vectores de 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ ortogonal respecto a 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $y\in\mathbb{R}^{n}$
+\end_inset
+
+ y las secuencias 
+\begin_inset Formula $(r_{k})_{k=0}^{n}$
+\end_inset
+
+ 
+\begin_inset Formula $(t_{k})_{k=1}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $(x_{k})_{k=0}^{n}$
+\end_inset
+
+ dadas por
+\begin_inset Formula 
+\begin{align*}
+r_{k} & :=b-Ax_{k}, & t_{k} & :=\frac{v_{k}^{*}r_{k-1}}{v_{k}^{*}Av_{k}}, & x_{0} & :=y, & x_{k+1} & :=x_{k}+t_{k+1}v_{k+1},
+\end{align*}
+
+\end_inset
+
+entonces 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ es la solución del sistema 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Tenemos 
+\begin_inset Formula $r_{0}=b-Ax_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $r_{1}=b-Ax_{1}=b-A(x_{0}+t_{1}v_{1})=b-Ax_{0}-t_{1}Av_{1}$
+\end_inset
+
+, y por inducción 
+\begin_inset Formula $r_{k}=b-Ax_{0}-t_{1}Av_{1}-\dots-t_{k}Av_{k}=r_{0}-t_{1}Av_{1}-\dots-t_{k}Av_{k}$
+\end_inset
+
+.
+ Como los 
+\begin_inset Formula $v_{k}$
+\end_inset
+
+ son ortogonales, para 
+\begin_inset Formula $j\leq k$
+\end_inset
+
+, 
+\begin_inset Formula $v_{j}^{*}r_{k}=v_{j}^{*}r_{0}-t_{j}v_{j}^{*}Av_{j}$
+\end_inset
+
+, y por definición de los 
+\begin_inset Formula $t_{j}$
+\end_inset
+
+, 
+\begin_inset Formula $t_{j}v_{j}^{*}Av_{j}=v_{j}^{*}r_{j-1}=v_{j}^{*}r_{0}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $v_{j}^{*}r_{k}=v_{j}^{*}r_{0}-v_{j}^{*}r_{0}=0$
+\end_inset
+
+ y 
+\begin_inset Formula $r_{k}\bot v_{j}$
+\end_inset
+
+ en el producto escalar usual.
+ En particular 
+\begin_inset Formula $r_{n}$
+\end_inset
+
+ es ortogonal a todos los 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $Ax_{n}-b=r_{n}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+método del gradiente conjugado
+\series default
+, mostrado en el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:gradient"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, calcula la base 
+\begin_inset Formula $(v_{1},\dots,v_{n})$
+\end_inset
+
+ a la vez que los términos de las sucesiones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Matriz $A
+\backslash
+in{
+\backslash
+cal M}_n$ SPD de coeficientes, vector $b$ de términos independientes y vector
+ inicial $x_0$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Solución $x$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+$x
+\backslash
+gets x_0$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$v
+\backslash
+gets r
+\backslash
+gets b-Ax_0$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$
+\backslash
+gamma
+\backslash
+gets
+\backslash
+Vert r_0
+\backslash
+Vert^2$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$i
+\backslash
+gets1$ 
+\backslash
+KwA $n$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$y
+\backslash
+gets Av$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$t
+\backslash
+gets{
+\backslash
+gamma
+\backslash
+over v
+\backslash
+cdot y}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$x
+\backslash
+gets x+tv$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$r
+\backslash
+gets r-ty$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$
+\backslash
+beta
+\backslash
+gets
+\backslash
+Vert r
+\backslash
+Vert_2^2$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$s
+\backslash
+gets{
+\backslash
+beta
+\backslash
+over
+\backslash
+gamma}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$
+\backslash
+gamma
+\backslash
+gets
+\backslash
+beta$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$v
+\backslash
+gets r+sv$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:gradient"
+
+\end_inset
+
+Algoritmo del gradiente conjugado.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se puede usar como condición de parada que 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ sea suficientemente pequeño, comprobando que lo sea al terminar, ya que
+ de lo contrario tenemos inestabilidad en los cálculos.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $A$
+\end_inset
+
+ SPD, llamamos 
+\series bold
+precondicionamiento
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ a una matriz 
+\begin_inset Formula $C$
+\end_inset
+
+ fácil de invertir tal que 
+\begin_inset Formula $\tilde{A}:=C^{-1}A(C^{-1})^{t}$
+\end_inset
+
+ es SPD y 
+\begin_inset Formula $\text{cond}_{2}\tilde{A}<\text{cond}_{2}A$
+\end_inset
+
+.
+ El sistema 
+\begin_inset Formula $Ax=b$
+\end_inset
+
+, llamando 
+\begin_inset Formula $\tilde{x}:=C^{t}x$
+\end_inset
+
+, es equivale al sistema 
+\begin_inset Formula $(C^{-1}A(C^{-1})^{t})\tilde{x}=C^{-1}b$
+\end_inset
+
+, llamado 
+\series bold
+sistema precondicionado
+\series default
+.
+\end_layout
+
+\end_body
+\end_document
