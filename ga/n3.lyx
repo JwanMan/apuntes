@@ -1,0 +1,5111 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Dado un anillo conmutativo 
+\begin_inset Formula $A$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $A[[X]]$
+\end_inset
+
+ al anillo conmutativo de las sucesiones de elementos de 
+\begin_inset Formula $A$
+\end_inset
+
+ entendidos como 
+\series bold
+series de potencias
+\series default
+ en una 
+\series bold
+indeterminada
+\series default
+ 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{n=0}^{\infty}a_{n}X^{n}$
+\end_inset
+
+, con las operaciones
+\begin_inset Formula 
+\begin{align*}
+(a_{n})_{n}+(b_{n})_{n} & :=(a_{n}+b_{n})_{n}; & (a_{n})_{n}(b_{n})_{n} & :=\left(\sum_{k=0}^{n}a_{k}b_{n-k}\right)_{n}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\begin_inset Formula $A[X]$
+\end_inset
+
+ al subanillo de 
+\begin_inset Formula $A[[X]]$
+\end_inset
+
+ formado por las sucesiones con un número finito de elementos no nulos,
+ a las que llamamos 
+\series bold
+polinomios
+\series default
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ es un subanillo de 
+\begin_inset Formula $A[X]$
+\end_inset
+
+ identificando los elementos de 
+\begin_inset Formula $A$
+\end_inset
+
+ con los 
+\series bold
+polinomios constantes
+\series default
+, de la forma 
+\begin_inset Formula $P(X)=a_{0}$
+\end_inset
+
+.
+ Dado un ideal 
+\begin_inset Formula $I$
+\end_inset
+
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $\{a_{0}+a_{1}X+\dots+a_{n}X^{n}\in A[X]:a_{0}\in I\}$
+\end_inset
+
+ e 
+\begin_inset Formula $I[X]:=\{a_{0}+a_{1}X+\dots+a_{n}X^{n}\in A[X]:a_{0},\dots,a_{n}\in I\}$
+\end_inset
+
+ son ideales de 
+\begin_inset Formula $A[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado 
+\begin_inset Formula $p:=\sum_{k\in\mathbb{N}}p_{k}X^{k}\in A[X]\setminus\{0\}$
+\end_inset
+
+, llamamos 
+\series bold
+grado
+\series default
+ de 
+\begin_inset Formula $p$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{gr}(p):=\max\{k\in\mathbb{N}:p_{k}\neq0\}$
+\end_inset
+
+, 
+\series bold
+coeficiente
+\series default
+ de 
+\series bold
+grado
+\series default
+ 
+\begin_inset Formula $k$
+\end_inset
+
+ de 
+\begin_inset Formula $p$
+\end_inset
+
+ a 
+\begin_inset Formula $p_{k}$
+\end_inset
+
+, 
+\series bold
+coeficiente independiente
+\series default
+ al de grado 0 y 
+\series bold
+coeficiente principal
+\series default
+ al de grado 
+\begin_inset Formula $\text{gr}(p)$
+\end_inset
+
+.
+ Decimos que el polinomio 0 tiene grado 
+\begin_inset Formula $-\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $P,Q\in A[X]\setminus\{0\}$
+\end_inset
+
+ tienen coeficientes principales 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $q$
+\end_inset
+
+ respectivamente:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{gr}(P+Q)\leq\max\{\text{gr}(P),\text{gr}(Q)\}$
+\end_inset
+
+, con desigualdad estricta si y sólo si 
+\begin_inset Formula $\text{gr}(P)=\text{gr}(Q)$
+\end_inset
+
+ y 
+\begin_inset Formula $p+q=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $P=:\sum_{k}a_{k}X^{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $Q=:\sum_{k}b_{k}X^{k}$
+\end_inset
+
+ con grados respectivos 
+\begin_inset Formula $m$
+\end_inset
+
+ y 
+\begin_inset Formula $n$
+\end_inset
+
+ y 
+\begin_inset Formula $t:=\max\{m,n\}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $P+Q=\sum_{k}(a_{k}+b_{k})X^{k}$
+\end_inset
+
+, pero 
+\begin_inset Formula $a_{k}+b_{k}=0+0=0$
+\end_inset
+
+ para 
+\begin_inset Formula $k>m,n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si la desigualdad es estricta, 
+\begin_inset Formula $a_{t}+b_{t}=0$
+\end_inset
+
+.
+ Como al menos 
+\begin_inset Formula $a_{t}$
+\end_inset
+
+ o 
+\begin_inset Formula $b_{t}$
+\end_inset
+
+ no es nulo, el otro tampoco puede serlo, luego 
+\begin_inset Formula $m,n\geq t$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $m=n=t$
+\end_inset
+
+, 
+\begin_inset Formula $a_{t}=p$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{t}=q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+El coeficiente de grado 
+\begin_inset Formula $t$
+\end_inset
+
+ de 
+\begin_inset Formula $P+Q$
+\end_inset
+
+ es 
+\begin_inset Formula $a_{t}+b_{t}=a_{m}+b_{n}=p+q=0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{gr}(PQ)\leq\text{gr}(P)+\text{gr}(Q)$
+\end_inset
+
+, con igualdad si y sólo si 
+\begin_inset Formula $pq\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $N>n+m$
+\end_inset
+
+, el coeficiente de grado 
+\begin_inset Formula $N$
+\end_inset
+
+ de 
+\begin_inset Formula $PQ$
+\end_inset
+
+ es 
+\begin_inset Formula 
+\[
+\sum_{k=0}^{N}a_{k}b_{N-k}=\sum_{k=0}^{m}a_{k}b_{N-k}+\sum_{k=m+1}^{N}a_{k}b_{N-k}=\sum_{k=0}^{m}a_{k}\cdot0+\sum_{k=m+1}^{N}0\cdot b_{N-k}=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El coeficiente de grado 
+\begin_inset Formula $n+m$
+\end_inset
+
+ de 
+\begin_inset Formula $PQ$
+\end_inset
+
+ es 
+\begin_inset Formula $a_{m}b_{n}=pq$
+\end_inset
+
+, luego la igualdad se da si y sólo si esto es no nulo.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Formula $A[X]$
+\end_inset
+
+ no es un cuerpo, pues 
+\begin_inset Formula $(X)$
+\end_inset
+
+ es un ideal propio no nulo.
+ Es un dominio si y sólo si lo es 
+\begin_inset Formula $A$
+\end_inset
+
+, en cuyo caso llamamos 
+\series bold
+cuerpo de las funciones racionales
+\series default
+ sobre 
+\begin_inset Formula $A$
+\end_inset
+
+ al cuerpo de fracciones de 
+\begin_inset Formula $A[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $A$
+\end_inset
+
+ es subanillo de 
+\begin_inset Formula $A[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $P,Q\in A[X]\setminus\{0\}$
+\end_inset
+
+, como los coeficientes principales de 
+\begin_inset Formula $P$
+\end_inset
+
+ y 
+\begin_inset Formula $Q$
+\end_inset
+
+ no son nulos y 
+\begin_inset Formula $A$
+\end_inset
+
+ es un dominio, el de 
+\begin_inset Formula $PQ$
+\end_inset
+
+ tampoco lo es.
+\end_layout
+
+\begin_layout Section
+Propiedad universal
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $A$
+\end_inset
+
+ un anillo y 
+\begin_inset Formula $u:A\to A[X]$
+\end_inset
+
+ el homomorfismo inclusión:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Propiedad universal del anillo de polinomios
+\series default
+ (
+\series bold
+PUAP
+\series default
+)
+\series bold
+:
+\series default
+ Para cada homomorfismo de anillos conmutativos 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in B$
+\end_inset
+
+, el único homomorfismo 
+\begin_inset Formula $\tilde{f}:A[X]\to B$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\tilde{f}(X)=b$
+\end_inset
+
+ y 
+\begin_inset Formula $\tilde{f}\circ u=f$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\tilde{f}\left(\sum_{n}p_{n}X^{n}\right):=\sum_{n}f(p_{n})b^{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $\tilde{f}$
+\end_inset
+
+ cumple las condiciones,
+\begin_inset Formula 
+\[
+\tilde{f}\left(\sum_{n\in\mathbb{N}}p_{n}X^{n}\right)=\sum_{n\in\mathbb{N}}\tilde{f}(u(p_{n}))\tilde{f}(X)^{n}=\sum_{n\in\mathbb{N}}f(p_{n})b^{n},
+\]
+
+\end_inset
+
+lo que prueba la unicidad.
+ Es claro que 
+\begin_inset Formula $\tilde{f}(1)=1$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $p,q\in A[X]$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+\tilde{f}(p+q) & =\sum_{n\in\mathbb{N}}f(p_{n}+q_{n})b^{n}=\sum_{n\in\mathbb{N}}f(p_{n})b^{n}+\sum_{n\in\mathbb{N}}f(q_{n})b^{n}=\tilde{f}(p)+\tilde{f}(q);\\
+\tilde{f}(pq) & =\sum_{n\in\mathbb{N}}f\left(\sum_{k=0}^{n}p_{k}q_{n-k}\right)b^{n}=\sum_{n\in\mathbb{N}}\sum_{k=0}^{n}f(p_{k})f(q_{n-k})b^{n}=\\
+ & =\sum_{i,j\in\mathbb{N}}f(p_{i})f(q_{j})b^{i+j}=\left(\sum_{i\in\mathbb{N}}f(p_{i})b^{i}\right)\left(\sum_{j\in\mathbb{N}}f(q_{j})b^{j}\right)=\tilde{f}(p)\tilde{f}(q).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $A[X]$
+\end_inset
+
+ y 
+\begin_inset Formula $u$
+\end_inset
+
+ están determinados salvo isomorfismos por la propiedad universal: dados
+ un homomorfismo de anillos 
+\begin_inset Formula $v:A\to P$
+\end_inset
+
+ y 
+\begin_inset Formula $t\in P$
+\end_inset
+
+ tales que, para cada homomorfismo de anillos 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in B$
+\end_inset
+
+, existe un único 
+\begin_inset Formula $\tilde{f}:P\to B$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\tilde{f}\circ v=f$
+\end_inset
+
+ y 
+\begin_inset Formula $\tilde{f}(t)=b$
+\end_inset
+
+, existe un isomorfismo 
+\begin_inset Formula $\phi:A[X]\to P$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\phi\circ u=v$
+\end_inset
+
+ y 
+\begin_inset Formula $\phi(X)=t$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Tomando 
+\begin_inset Formula $v$
+\end_inset
+
+ como homomorfismo en la propiedad universal, existe 
+\begin_inset Formula $\tilde{v}:A[X]\to P$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\tilde{v}\circ u=v$
+\end_inset
+
+ y 
+\begin_inset Formula $\tilde{v}(X)=t$
+\end_inset
+
+, y tomando 
+\begin_inset Formula $u$
+\end_inset
+
+, existe 
+\begin_inset Formula $\tilde{u}:P\to A[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $\tilde{u}\circ v=u$
+\end_inset
+
+ y 
+\begin_inset Formula $\tilde{u}(t)=X$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $(\tilde{u}\circ\tilde{v})\circ u=\tilde{u}\circ v=u$
+\end_inset
+
+ y 
+\begin_inset Formula $(\tilde{u}\circ\tilde{v})(X)=\tilde{u}(t)=X$
+\end_inset
+
+, y por la unicidad en la propiedad universal, 
+\begin_inset Formula $\tilde{u}\circ\tilde{v}=1_{A[X]}$
+\end_inset
+
+.
+ Del mismo modo, 
+\begin_inset Formula $(\tilde{v}\circ\tilde{u})\circ v=\tilde{v}\circ u=v$
+\end_inset
+
+ y 
+\begin_inset Formula $(\tilde{v}\circ\tilde{u})(t)=\tilde{v}(X)=t$
+\end_inset
+
+, luego 
+\begin_inset Formula $\tilde{v}\circ\tilde{u}=1_{P}$
+\end_inset
+
+ y 
+\begin_inset Formula $\tilde{v}$
+\end_inset
+
+ es el isomorfismo buscado.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Así:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un subanillo de 
+\begin_inset Formula $B$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in B$
+\end_inset
+
+, el 
+\series bold
+homomorfismo de sustitución
+\series default
+ o 
+\series bold
+de evaluación
+\series default
+ en 
+\begin_inset Formula $b$
+\end_inset
+
+ es 
+\begin_inset Formula $S_{b}:A[X]\to B$
+\end_inset
+
+ dado por
+\begin_inset Formula 
+\[
+S_{b}(p):=p(b):=\sum_{n}p_{n}b^{n},
+\]
+
+\end_inset
+
+y su imagen es el subanillo generado por 
+\begin_inset Formula $A\cup\{b\}$
+\end_inset
+
+, llamado 
+\begin_inset Formula $A[b]$
+\end_inset
+
+.
+ Todo 
+\begin_inset Formula $p\in A[X]$
+\end_inset
+
+ induce una 
+\series bold
+función polinómica
+\series default
+ 
+\begin_inset Formula $\hat{p}:B\to B$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\hat{p}(b):=S_{b}(p)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $S_{b}$
+\end_inset
+
+ se obtiene al aplicar la PUAP a la inclusión.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Dado 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, el homomorfismo de sustitución 
+\begin_inset Formula $S_{X+a}$
+\end_inset
+
+ es un automorfismo de 
+\begin_inset Formula $A[X]$
+\end_inset
+
+ con inverso 
+\begin_inset Formula $S_{X-a}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $S_{X-a}(S_{X+a}(X))=S_{X-a}(X+a)=X$
+\end_inset
+
+ y, para 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, 
+\begin_inset Formula $S_{X-a}(S_{X+a}(a))=S_{X-a}(a)=a$
+\end_inset
+
+.
+ Análogamente, 
+\begin_inset Formula $S_{X+a}(S_{X-a}(X))=X$
+\end_inset
+
+ y, para 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, 
+\begin_inset Formula $S_{X+a}(S_{X-a}(a))=a$
+\end_inset
+
+, luego por unicidad de la PUAP, 
+\begin_inset Formula $S_{X-a}\circ S_{X+a}=S_{X+a}\circ S_{X-a}=1_{A[X]}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un anillo conmutativo, 
+\begin_inset Formula $\frac{A[X]}{(X)}\cong A$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+El homomorfismo 
+\begin_inset Formula $A[X]\to A$
+\end_inset
+
+ de sustitución en el 0 es suprayectivo con núcleo 
+\begin_inset Formula $(X)$
+\end_inset
+
+, y basta aplicar el primer teorema de isomorfía.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Todo homomorfismo de anillos 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ induce un homomorfismo 
+\begin_inset Formula $\hat{f}:A[X]\to B[X]$
+\end_inset
+
+ dado por
+\begin_inset Formula 
+\[
+\hat{f}(p)=\sum_{n}f(p_{n})X^{n},
+\]
+
+\end_inset
+
+que es inyectivo o suprayectivo si lo es 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se obtiene de aplicar la PUAP a la composición de la inclusión 
+\begin_inset Formula $B\to B[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un subanillo de 
+\begin_inset Formula $B$
+\end_inset
+
+, 
+\begin_inset Formula $A[X]$
+\end_inset
+
+ lo es de 
+\begin_inset Formula $B[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Basta aplicar lo anterior al homomorfismo inyectivo inclusión.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $I$
+\end_inset
+
+ es un ideal de 
+\begin_inset Formula $A$
+\end_inset
+
+, el 
+\series bold
+homomorfismo de reducción de coeficientes módulo 
+\begin_inset Formula $I$
+\end_inset
+
+
+\series default
+ es 
+\begin_inset Formula $\tilde{\pi}:A[X]\to(A/I)[X]$
+\end_inset
+
+ dado por
+\begin_inset Formula 
+\[
+\tilde{\pi}(p):=\sum_{n}(p_{n}+I)X^{n}.
+\]
+
+\end_inset
+
+Su núcleo es 
+\begin_inset Formula $I[X]:=\{a_{0}+a_{1}X+\dots+a_{n}X^{n}:a_{0},\dots,a_{n}\in I\}$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $(A/I)[X]\cong\frac{A[X]}{I[X]}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se obtiene de aplicar la PUAP a la proyección 
+\begin_inset Formula $A\to A/I$
+\end_inset
+
+.
+ Es fácil ver que 
+\begin_inset Formula $I[X]$
+\end_inset
+
+ es un ideal, y entonces basta aplicar el primer teorema de isomorfía.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Raíces de polinomios
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $f,g\in A[X]$
+\end_inset
+
+, si el coeficiente principal de 
+\begin_inset Formula $g$
+\end_inset
+
+ es invertible en 
+\begin_inset Formula $A$
+\end_inset
+
+, existen dos únicos polinomios 
+\begin_inset Formula $q,r\in A[X]$
+\end_inset
+
+, llamados respectivamente 
+\series bold
+cociente
+\series default
+ y 
+\series bold
+resto
+\series default
+ de la 
+\series bold
+división
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ entre 
+\begin_inset Formula $g$
+\end_inset
+
+, tales que 
+\begin_inset Formula $f=gq+r$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{gr}(r)<\text{gr}(g)$
+\end_inset
+
+, y se obtienen con el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:poly-div"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Para la existencia, basta ver que 
+\begin_inset Formula $d:=\mathtt{dividir}$
+\end_inset
+
+ termina y los valores 
+\begin_inset Formula $(q,r)$
+\end_inset
+
+ devueltos cumplen 
+\begin_inset Formula $f=g(q-acc)+r$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{gr}(r)<\text{gr}(q)$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $n<m$
+\end_inset
+
+, incluyendo si 
+\begin_inset Formula $f=0$
+\end_inset
+
+, 
+\begin_inset Formula $d(f,acc)=(acc,f)$
+\end_inset
+
+, y si 
+\begin_inset Formula $n=m=0$
+\end_inset
+
+, 
+\begin_inset Formula $d(f,acc)=d(f-\frac{f_{0}}{g_{0}}g,acc+\frac{f_{0}}{g_{0}})=(acc+\frac{f}{g},0)$
+\end_inset
+
+, y como en ambos casos se cumple la condición, esto queda probado para
+ 
+\begin_inset Formula $n=0$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $n>0$
+\end_inset
+
+, 
+\begin_inset Formula $n\geq m$
+\end_inset
+
+, suponiendo esto probado para grado menor que 
+\begin_inset Formula $n$
+\end_inset
+
+, sea 
+\begin_inset Formula $p:=\frac{f_{n}}{g_{m}}X^{n-m}$
+\end_inset
+
+, 
+\begin_inset Formula $(q,r):=d(f,acc)=d(f-pg,acc+p)$
+\end_inset
+
+, pero como 
+\begin_inset Formula $pg$
+\end_inset
+
+ tiene grado 
+\begin_inset Formula $n$
+\end_inset
+
+ y coeficiente principal 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\text{gr}(f-pg)<\text{gr}(f)$
+\end_inset
+
+, luego por hipótesis de inducción el algoritmo termina, 
+\begin_inset Formula $\text{gr}(r)<\text{gr}(g)$
+\end_inset
+
+ y 
+\begin_inset Formula $f-pg=g(q-acc-p)+r$
+\end_inset
+
+, y despejando, 
+\begin_inset Formula $f=g(q-acc)+r$
+\end_inset
+
+.
+ Para la unicidad, si 
+\begin_inset Formula $q,r,q',r'$
+\end_inset
+
+ son tales que 
+\begin_inset Formula $f=gq+r=gq'+r'$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{gr}(r),\text{gr}(r')<\text{gr}(g)$
+\end_inset
+
+, 
+\begin_inset Formula $\text{gr}(g)+\text{gr}(q-q')=\text{gr}(g(q-q'))=\text{gr}(r'-r)\leq\max\{\text{gr}(r),\text{gr}(r')\}<\text{gr}(g)$
+\end_inset
+
+, luego 
+\begin_inset Formula $\text{gr}(q-q')<0$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $q=q'$
+\end_inset
+
+, y despejando 
+\begin_inset Formula $r=r'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Polinomios $f$ y $g
+\backslash
+neq0$ con coeficiente principal de $g$ invertible.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Cociente $q$ y resto $r$ de $f$ entre $g$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwProg{Fn}{función}{}{fin}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwFunction{dividir}{dividir}
+\end_layout
+
+\begin_layout Plain Layout
+
+$m:=
+\backslash
+text{gr}(g)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Fn(
+\backslash
+tcp*[h]{{
+\backslash
+rm $acc$ acumula términos de $q$.}}){
+\backslash
+dividir{$f,acc$}}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$n:=
+\backslash
+text{gr}(f)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$n<m$}{$(acc,f)$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lEnOtroCaso{
+\backslash
+dividir{$f-{f_n
+\backslash
+over g_m}X^{n-m}g,acc+{f_n
+\backslash
+over g_m}X^{n-m}$}}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+$q,r
+\backslash
+gets$
+\backslash
+,
+\backslash
+dividir{$f,0$}
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:poly-div"
+
+\end_inset
+
+División de polinomios.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema del resto:
+\series default
+ Dados 
+\begin_inset Formula $f\in A[X]$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, el resto de 
+\begin_inset Formula $f$
+\end_inset
+
+ entre 
+\begin_inset Formula $X-a$
+\end_inset
+
+ es 
+\begin_inset Formula $f(a)$
+\end_inset
+
+.
+ En efecto, si 
+\begin_inset Formula $f=q(X-a)+r$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $p,q\in A[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{gr}(r)<1$
+\end_inset
+
+, 
+\begin_inset Formula $r$
+\end_inset
+
+ es constante y 
+\begin_inset Formula $r=r(a)=f(a)-q(a)(a-a)=f(a)$
+\end_inset
+
+.
+ De aquí se obtiene el 
+\series bold
+teorema de Ruffini
+\series default
+, que dice que 
+\begin_inset Formula $f$
+\end_inset
+
+ es divisible por 
+\begin_inset Formula $X-a$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $f(a)=0$
+\end_inset
+
+, en cuyo caso decimos que 
+\begin_inset Formula $a$
+\end_inset
+
+ es una 
+\series bold
+raíz
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $f\in A[X]\setminus\{0\}$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, existe 
+\begin_inset Formula $m:=\max\{k\in\mathbb{N}:(X-a)^{k}\mid f\}$
+\end_inset
+
+, pues 
+\begin_inset Formula $(X-a)^{0}\mid f$
+\end_inset
+
+ y si 
+\begin_inset Formula $(X-a)^{k}\mid f$
+\end_inset
+
+, 
+\begin_inset Formula $k=\text{gr}((X-a)^{k})\leq\text{gr}(f)$
+\end_inset
+
+.
+ Llamamos a 
+\begin_inset Formula $m$
+\end_inset
+
+ 
+\series bold
+multiplicidad
+\series default
+ de 
+\begin_inset Formula $a$
+\end_inset
+
+ en 
+\begin_inset Formula $f$
+\end_inset
+
+, y 
+\begin_inset Formula $a$
+\end_inset
+
+ es raíz de 
+\begin_inset Formula $f$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $m\geq1$
+\end_inset
+
+.
+ Decimos que 
+\begin_inset Formula $a$
+\end_inset
+
+ es una 
+\series bold
+raíz simple
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ si 
+\begin_inset Formula $m=1$
+\end_inset
+
+ y que es una 
+\series bold
+raíz compuesta
+\series default
+ si 
+\begin_inset Formula $m>1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La multiplicidad de 
+\begin_inset Formula $a$
+\end_inset
+
+ en 
+\begin_inset Formula $f$
+\end_inset
+
+ es el único natural 
+\begin_inset Formula $m$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f=(X-a)^{m}g$
+\end_inset
+
+ para algún 
+\begin_inset Formula $g\in A[X]$
+\end_inset
+
+ del que 
+\begin_inset Formula $a$
+\end_inset
+
+ no es raíz.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $n$
+\end_inset
+
+ la multiplicidad.
+ Entonces 
+\begin_inset Formula $f=(X-a)^{m}h$
+\end_inset
+
+ para algún 
+\begin_inset Formula $h\in A[X]$
+\end_inset
+
+, y si fuera 
+\begin_inset Formula $X-a\mid h$
+\end_inset
+
+, para algún 
+\begin_inset Formula $h'$
+\end_inset
+
+, 
+\begin_inset Formula $f=(X-a)^{m+1}h'\#$
+\end_inset
+
+.
+ Para la unicidad, si 
+\begin_inset Formula $f=(X-a)^{m}g$
+\end_inset
+
+, 
+\begin_inset Formula $(X-a)^{m}\mid f$
+\end_inset
+
+ y 
+\begin_inset Formula $n\ge m$
+\end_inset
+
+, pero como 
+\begin_inset Formula $X-a$
+\end_inset
+
+ es mónico, es cancelable en 
+\begin_inset Formula $A[X]$
+\end_inset
+
+ y de 
+\begin_inset Formula $(X-a)^{m}g=(X-a)^{n}h$
+\end_inset
+
+ obtenemos 
+\begin_inset Formula $g=(X-a)^{n-m}h$
+\end_inset
+
+, y como 
+\begin_inset Formula $X-a\nmid g$
+\end_inset
+
+, 
+\begin_inset Formula $n-m=0$
+\end_inset
+
+ y 
+\begin_inset Formula $n=m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $D$
+\end_inset
+
+ es un dominio, 
+\begin_inset Formula $f\in D[X]\setminus\{0\}$
+\end_inset
+
+, 
+\begin_inset Formula $a_{1},\dots,a_{n}$
+\end_inset
+
+ son 
+\begin_inset Formula $n$
+\end_inset
+
+ elementos de 
+\begin_inset Formula $D$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha_{1},\dots,\alpha_{n}\in\mathbb{Z}^{>0}$
+\end_inset
+
+ con 
+\begin_inset Formula $(X-a_{k})^{\alpha_{k}}\mid f$
+\end_inset
+
+ para cada 
+\begin_inset Formula $k$
+\end_inset
+
+, entonces 
+\begin_inset Formula $(X-a_{1})^{\alpha_{1}}\cdots(X-a_{n})^{\alpha_{n}}\mid f$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\sum_{k=1}^{n}\alpha_{k}\leq\text{gr}(f)$
+\end_inset
+
+ y, en particular, la suma de las multiplicidades de las raíces de 
+\begin_inset Formula $f$
+\end_inset
+
+, y el número de raíces, son no superiores a 
+\begin_inset Formula $\text{gr}(f)$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $s:=\sum_{k=1}^{n}\alpha_{k}=1$
+\end_inset
+
+ es evidente.
+ Para 
+\begin_inset Formula $s>1$
+\end_inset
+
+, sabemos que existen 
+\begin_inset Formula $g,h\in D[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $g(X-a_{1})^{\alpha_{1}}=f=h(X-a_{1})^{\alpha_{1}-1}(X-a_{2})^{\alpha_{2}}\cdots(X-a_{n})^{\alpha_{n}}$
+\end_inset
+
+, luego cancelando 
+\begin_inset Formula $(X-a_{1})^{\alpha_{1}-1}$
+\end_inset
+
+, 
+\begin_inset Formula $X-a_{1}\mid h(X-a_{2})^{\alpha_{2}}\cdots(X-a_{n})^{\alpha_{n}}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $a,b\in D[X]$
+\end_inset
+
+, si 
+\begin_inset Formula $X-a_{1}\mid ab$
+\end_inset
+
+, 
+\begin_inset Formula $a(a_{1})b(a_{1})=(ab)(a_{1})=0$
+\end_inset
+
+, luego o 
+\begin_inset Formula $a(a_{1})=0$
+\end_inset
+
+ y 
+\begin_inset Formula $X-a_{1}\mid a$
+\end_inset
+
+ o 
+\begin_inset Formula $b(a_{1})=0$
+\end_inset
+
+ y 
+\begin_inset Formula $X-a_{1}\mid b$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $X-a_{1}$
+\end_inset
+
+ es primo, y como no divide a ninguno de 
+\begin_inset Formula $X-a_{2},\dots,X-a_{n}$
+\end_inset
+
+, divide a 
+\begin_inset Formula $h$
+\end_inset
+
+, de donde se obtiene el resultado.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Principio de las identidades polinómicas:
+\series default
+ Sea 
+\begin_inset Formula $D$
+\end_inset
+
+ un dominio:
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $f,g\in D[X]$
+\end_inset
+
+, si las funciones polinómicas 
+\begin_inset Formula $f,g:D\to D$
+\end_inset
+
+ coinciden en 
+\begin_inset Formula $m$
+\end_inset
+
+ elementos de 
+\begin_inset Formula $D$
+\end_inset
+
+ con 
+\begin_inset Formula $m>\text{gr}(f),\text{gr}(g)$
+\end_inset
+
+, los polinomios 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ son iguales.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $a_{1},\dots,a_{m}$
+\end_inset
+
+ estos elementos, 
+\begin_inset Formula $(X-a_{1})\cdots(X-a_{m})\mid f-g$
+\end_inset
+
+, pero 
+\begin_inset Formula $\text{gr}(f-g)\leq\max\{\text{gr}(f),\text{gr}(g)\}<m$
+\end_inset
+
+, luego debe ser 
+\begin_inset Formula $f-g=0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $D$
+\end_inset
+
+ es infinito si y sólo si dos polinomios distintos cualesquiera en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+ definen funciones polinómicas distintas en 
+\begin_inset Formula $D$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si hubiera 
+\begin_inset Formula $f,g\in D[X]$
+\end_inset
+
+ con iguales funciones polinómicas, coincidirían en infinitos puntos y,
+ por lo anterior, 
+\begin_inset Formula $f=g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $D$
+\end_inset
+
+ fuera finito, habría infinitos polinomios pero una cantidad finita de funciones
+ polinómicas.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Como ejemplo de lo anterior, por el teorema pequeño de Fermat, dado un primo
+ 
+\begin_inset Formula $p$
+\end_inset
+
+, todos los elementos de 
+\begin_inset Formula $\mathbb{Z}_{p}$
+\end_inset
+
+ son raíces de 0 y 
+\begin_inset Formula $X^{p}-X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado un anillo conmutativo 
+\begin_inset Formula $A$
+\end_inset
+
+, definimos la 
+\series bold
+derivada
+\series default
+ de 
+\begin_inset Formula $P:=\sum_{k}a_{k}X^{k}\in A[X]$
+\end_inset
+
+ como 
+\begin_inset Formula $P':=D(P):=\sum_{k}ka_{k}X^{k-1}$
+\end_inset
+
+, y escribimos 
+\begin_inset Formula $P^{(0)}:=P$
+\end_inset
+
+ y 
+\begin_inset Formula $P^{(n+1)}:=P^{(n)\prime}$
+\end_inset
+
+.
+ Dados 
+\begin_inset Formula $a,b\in A$
+\end_inset
+
+ y 
+\begin_inset Formula $P,Q\in A[X]$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(aP+bQ)'=aP'+bQ'$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{multline*}
+D(aP+bQ)=D\left(a\sum_{k}p_{k}X^{k}+b\sum_{k}q_{k}X^{k}\right)=D\left(\sum_{k}(ap_{k}+bq_{k})X^{k}\right)=\\
+=\sum_{k}k(ap_{k}+bq_{k})X^{k-1}=a\sum_{k}kp_{k}X^{k-1}+b\sum_{k}kq_{k}X^{k-1}=aD(P)+bD(Q).
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $(PQ)'=P'Q+PQ'$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{multline*}
+D(PQ)=D\left(\left(\sum_{k}p_{k}X^{k}\right)\left(\sum_{k}q_{k}X^{k}\right)\right)=D\left(\sum_{k}\left(\sum_{i=0}^{k}p_{i}q_{k-i}\right)X^{k}\right)=\\
+=\sum_{k}\sum_{i=0}^{k}kp_{i}q_{k-i}X^{k-1}=\sum_{i,j}(i+j)p_{i}q_{j}X^{i+j-1}=\\
+=\sum_{i,j}ip_{i}q_{j}X^{i-1}X^{j}+\sum_{i,j}jp_{i}q_{j}X^{i}X^{j-1}=\\
+=\left(\sum_{i}ip_{i}X^{i-1}\right)\left(\sum_{j}q_{j}X^{j}\right)+\left(\sum_{i}p_{i}X^{i}\right)\left(\sum_{j}q_{j}X^{j-1}\right)=D(P)Q+PD(Q).
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $(P^{n})'=nP^{n-1}P'$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $P^{n-1}$
+\end_inset
+
+ está definido para 
+\begin_inset Formula $n\in\mathbb{N}\setminus\{0\}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $n=1$
+\end_inset
+
+, 
+\begin_inset Formula $1P^{1-1}P'=1\cdot1\cdot P'=(P^{1})'$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $n>1$
+\end_inset
+
+, supuesto esto probado para 
+\begin_inset Formula $n-1$
+\end_inset
+
+, 
+\begin_inset Formula $(P^{n})'=(P^{n-1}P)'=(P^{n-1})'P+P^{n-1}P'=(n-1)P^{n-1}P'+P^{n-1}P'=nP^{n-1}P'$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Dados un dominio 
+\begin_inset Formula $D$
+\end_inset
+
+ de característica 0, 
+\begin_inset Formula $P\in D[X]\setminus\{0\}$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in D$
+\end_inset
+
+, la multiplicidad de 
+\begin_inset Formula $a$
+\end_inset
+
+ en 
+\begin_inset Formula $P$
+\end_inset
+
+ es el menor 
+\begin_inset Formula $m\in\mathbb{N}_{0}$
+\end_inset
+
+ con 
+\begin_inset Formula $P^{(m)}(a)\neq0$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Veamos primero que, para 
+\begin_inset Formula $k>0$
+\end_inset
+
+, si 
+\begin_inset Formula $P=(X-a)Q$
+\end_inset
+
+ para un cierto 
+\begin_inset Formula $Q$
+\end_inset
+
+, 
+\begin_inset Formula $P^{(k)}=kQ^{(k-1)}+(X-a)Q^{(k)}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $k=1$
+\end_inset
+
+, 
+\begin_inset Formula $P'=((X-a)Q)'=Q+(X-a)Q'$
+\end_inset
+
+, y supuesto esto probado para un cierto 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $P^{(k+1)}=P^{(k)\prime}=(kQ^{(k-1)}+(X-a)Q^{(k)})'=kQ^{(k)}+Q^{(k)}+(X-a)Q^{(k+1)}=(k+1)Q^{(k)}+(X-a)Q^{(k+1)}$
+\end_inset
+
+.
+ Sea ahora 
+\begin_inset Formula $m$
+\end_inset
+
+ la multiplicidad.
+ Para 
+\begin_inset Formula $m=0$
+\end_inset
+
+ es claro que el enunciado se cumple.
+ Sea ahora 
+\begin_inset Formula $m>0$
+\end_inset
+
+ y supongamos esto probado para 
+\begin_inset Formula $m-1$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $P=(X-a)Q$
+\end_inset
+
+ para un cierto 
+\begin_inset Formula $Q$
+\end_inset
+
+ y la multiplicidad de 
+\begin_inset Formula $a$
+\end_inset
+
+ en 
+\begin_inset Formula $Q$
+\end_inset
+
+ es 
+\begin_inset Formula $m-1$
+\end_inset
+
+, luego 
+\begin_inset Formula $Q^{(k)}(a)=0$
+\end_inset
+
+ para 
+\begin_inset Formula $k<m-1$
+\end_inset
+
+ y 
+\begin_inset Formula $Q^{(m-1)}(a)\neq0$
+\end_inset
+
+.
+ Así, 
+\begin_inset Formula $P^{(0)}(a)=0$
+\end_inset
+
+, y por la propiedad probada al principio, 
+\begin_inset Formula $P^{(t)}(a)=tQ^{(t-1)}+(a-a)Q^{(t)}=tQ^{(t-1)}$
+\end_inset
+
+, luego para 
+\begin_inset Formula $1\leq k<m$
+\end_inset
+
+, 
+\begin_inset Formula $P^{(k)}(a)=kQ^{(k-1)}(a)=0$
+\end_inset
+
+, y 
+\begin_inset Formula $P^{(m)}(a)=kQ^{(m-1)}(a)\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Divisibilidad en anillos de polinomios
+\end_layout
+
+\begin_layout Standard
+Dado un anillo 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $A[X]$
+\end_inset
+
+ es un dominio euclídeo si y sólo si es un DIP, si y sólo si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un cuerpo.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Visto.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies3]$
+\end_inset
+
+ Si 
+\begin_inset Formula $X=PQ$
+\end_inset
+
+, 
+\begin_inset Formula $\text{gr}P+\text{gr}Q=1$
+\end_inset
+
+, y si, por ejemplo, 
+\begin_inset Formula $\text{gr}Q=0$
+\end_inset
+
+, el coeficiente principal de 
+\begin_inset Formula $P$
+\end_inset
+
+ es 
+\begin_inset Formula $Q^{-1}$
+\end_inset
+
+, luego 
+\begin_inset Formula $Q$
+\end_inset
+
+ es unidad.
+ Entonces 
+\begin_inset Formula $X$
+\end_inset
+
+ es irreducible, y al ser 
+\begin_inset Formula $A[X]$
+\end_inset
+
+ DIP, 
+\begin_inset Formula $(X)$
+\end_inset
+
+ es maximal.
+ Para 
+\begin_inset Formula $a\in A\setminus\{0\}$
+\end_inset
+
+, 
+\begin_inset Formula $a\notin(X)$
+\end_inset
+
+, luego al ser 
+\begin_inset Formula $(X)$
+\end_inset
+
+ maximal es 
+\begin_inset Formula $(a,X)=A[X]$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $1=aP+XQ$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $P,Q\in A[X]$
+\end_inset
+
+, luego 
+\begin_inset Formula $1=aP(0)$
+\end_inset
+
+ y 
+\begin_inset Formula $a$
+\end_inset
+
+ es invertible en 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies1]$
+\end_inset
+
+ El grado es una función euclídea en 
+\begin_inset Formula $A[X]$
+\end_inset
+
+.
+ En efecto, sea 
+\begin_inset Formula $D:=A[X]$
+\end_inset
+
+, es claro que 
+\begin_inset Formula $\forall a,b\in D\setminus\{0\},(a\mid b\implies\text{gr}(a)\leq\text{gr}(b))$
+\end_inset
+
+, y para la otra condición basta tomar el cociente y el resto teniendo en
+ cuenta que todos los elementos de 
+\begin_inset Formula $A\setminus\{0\}$
+\end_inset
+
+ son invertibles.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $D$
+\end_inset
+
+ un dominio y 
+\begin_inset Formula $p\in D$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $p$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $D$
+\end_inset
+
+ si y sólo si lo es en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si hubiera 
+\begin_inset Formula $Q\in D[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $pQ=1$
+\end_inset
+
+ sería 
+\begin_inset Formula $\text{gr}Q=0$
+\end_inset
+
+ y 
+\begin_inset Formula $Q\in D$
+\end_inset
+
+, pero sabemos que 
+\begin_inset Formula $p$
+\end_inset
+
+ no es unidad en 
+\begin_inset Formula $D\#$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $p=PQ$
+\end_inset
+
+ con 
+\begin_inset Formula $P,Q\in D[X]$
+\end_inset
+
+, como 
+\begin_inset Formula $P,Q\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $\text{gr}P=\text{gr}Q=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $P,Q\in D$
+\end_inset
+
+ y uno de 
+\begin_inset Formula $P$
+\end_inset
+
+ o 
+\begin_inset Formula $Q$
+\end_inset
+
+ es unidad.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Se obtiene de que 
+\begin_inset Formula $D\subseteq D[X]$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $p$
+\end_inset
+
+ es primo en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+, lo es en 
+\begin_inset Formula $D$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $a,b\in D$
+\end_inset
+
+ con 
+\begin_inset Formula $p\mid ab$
+\end_inset
+
+, 
+\begin_inset Formula $p\mid a$
+\end_inset
+
+ o 
+\begin_inset Formula $p\mid b$
+\end_inset
+
+ en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+, pero si, por ejemplo, 
+\begin_inset Formula $pt=a$
+\end_inset
+
+ para un 
+\begin_inset Formula $t\in D[X]$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\text{gr}t=0$
+\end_inset
+
+ y 
+\begin_inset Formula $p\mid a$
+\end_inset
+
+ en 
+\begin_inset Formula $D$
+\end_inset
+
+, y para 
+\begin_inset Formula $b$
+\end_inset
+
+ es análogo.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $D$
+\end_inset
+
+ es un DFU, 
+\begin_inset Formula $p$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $D$
+\end_inset
+
+ si y sólo si lo es en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+, si y sólo si es primo en 
+\begin_inset Formula $D$
+\end_inset
+
+, si y sólo si lo es en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+\begin_inset Formula $3\implies1,4\implies2]$
+\end_inset
+
+ Por ser 
+\begin_inset Formula $D$
+\end_inset
+
+ y 
+\begin_inset Formula $D[X]$
+\end_inset
+
+ dominios.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies3]$
+\end_inset
+
+ Por ser 
+\begin_inset Formula $D$
+\end_inset
+
+ un DFU.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\iff2,4\implies3]$
+\end_inset
+
+ Son los puntos anteriores.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies4]$
+\end_inset
+
+ Si 
+\begin_inset Formula $p$
+\end_inset
+
+ es primo en 
+\begin_inset Formula $D$
+\end_inset
+
+, sean 
+\begin_inset Formula $a:=a_{0}+\dots+a_{n}X^{n},b:=b_{0}+\dots+b_{m}X^{m}\in D[X]$
+\end_inset
+
+ tales que 
+\begin_inset Formula $p\nmid a,b$
+\end_inset
+
+, 
+\begin_inset Formula $i$
+\end_inset
+
+ el menor índice con 
+\begin_inset Formula $p\nmid a_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $j$
+\end_inset
+
+ el menor índice con 
+\begin_inset Formula $p\nmid b_{j}$
+\end_inset
+
+, el coeficiente de grado 
+\begin_inset Formula $i+j$
+\end_inset
+
+ de 
+\begin_inset Formula $ab$
+\end_inset
+
+ es 
+\begin_inset Formula $a_{0}b_{i+j}+\dots+a_{i-1}b_{j+1}+a_{i}b_{j}+a_{i+1}b_{j-1}+\dots+a_{i+j}b_{0}$
+\end_inset
+
+, y 
+\begin_inset Formula $p$
+\end_inset
+
+ divide a todos los sumandos de esta fórmula salvo a 
+\begin_inset Formula $a_{i}b_{j}$
+\end_inset
+
+ por ser 
+\begin_inset Formula $p$
+\end_inset
+
+ primo en 
+\begin_inset Formula $D$
+\end_inset
+
+, de donde 
+\begin_inset Formula $p\nmid ab$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $p$
+\end_inset
+
+ es primo en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $D$
+\end_inset
+
+ un DFU, definimos 
+\begin_inset Formula $\varphi:D\setminus0\to\mathbb{N}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\varphi(a)$
+\end_inset
+
+ es el número de factores irreducibles en la factorización por irreducibles
+ de 
+\begin_inset Formula $a$
+\end_inset
+
+ en 
+\begin_inset Formula $D$
+\end_inset
+
+, contando repetidos, y para 
+\begin_inset Formula $a,b\in D\setminus0$
+\end_inset
+
+, 
+\begin_inset Formula $\varphi(ab)=\varphi(a)+\varphi(b)$
+\end_inset
+
+ y 
+\begin_inset Formula $\varphi(a)=0\iff a\in D^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $D$
+\end_inset
+
+ es un DFU y 
+\begin_inset Formula $K$
+\end_inset
+
+ es su cuerpo de fracciones, 
+\begin_inset Formula $f\in D[X]$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+, es irreducible en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Si no lo fuera, existirían 
+\begin_inset Formula $G,H\in K[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $f=GH$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{gr}(G),\text{gr}(H)>0$
+\end_inset
+
+, pues los elementos de grado 0 son nulos o unidades.
+ Si tomamos representantes de los coeficientes de 
+\begin_inset Formula $G$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in D\setminus0$
+\end_inset
+
+ múltiplo común de los denominadores en estos representantes, 
+\begin_inset Formula $g:=bG\in D[X]$
+\end_inset
+
+, y si hacemos lo mismo con 
+\begin_inset Formula $H$
+\end_inset
+
+ obtenemos un 
+\begin_inset Formula $c\in D\setminus0$
+\end_inset
+
+ con 
+\begin_inset Formula $h:=cH\in D[X]$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $bcf=gh$
+\end_inset
+
+, y basta ver que existen 
+\begin_inset Formula $g',h'\in D[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $f=g'h'$
+\end_inset
+
+, 
+\begin_inset Formula $\text{gr}(g')=\text{gr}(g)$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{gr}(h')=\text{gr}(h)$
+\end_inset
+
+, pues entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ no es irreducible en 
+\begin_inset Formula $D[X]\#$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $\varphi(bc)=0$
+\end_inset
+
+, podemos tomar 
+\begin_inset Formula $g':=a^{-1}g$
+\end_inset
+
+ y 
+\begin_inset Formula $h':=h$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $n:=\varphi(bc)>0$
+\end_inset
+
+, probado esto para 
+\begin_inset Formula $\varphi(bc)=n-1$
+\end_inset
+
+, existen 
+\begin_inset Formula $p,d\in D$
+\end_inset
+
+ con 
+\begin_inset Formula $bc=pd$
+\end_inset
+
+ y 
+\begin_inset Formula $p$
+\end_inset
+
+ primo, luego 
+\begin_inset Formula $p\mid bcf=gh$
+\end_inset
+
+ en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+ y, por estar en un DFU, 
+\begin_inset Formula $p\mid g$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $\tilde{g}\in D[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $g=p\tilde{g}$
+\end_inset
+
+, y por tanto 
+\begin_inset Formula $\text{gr}(g)=\text{gr}(\tilde{g})$
+\end_inset
+
+, es 
+\begin_inset Formula $pdf=bcf=gh=p\tilde{g}h$
+\end_inset
+
+ y 
+\begin_inset Formula $df=\tilde{g}h$
+\end_inset
+
+, y como 
+\begin_inset Formula $\varphi(d)=\varphi(bc)-1=n-1$
+\end_inset
+
+, existen 
+\begin_inset Formula $g',h'\in D[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $f=g'h'$
+\end_inset
+
+, 
+\begin_inset Formula $\text{gr}(g')=\text{gr}(\tilde{g})=\text{gr}(g)$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{gr}(h')=\text{gr}(h)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, 
+\begin_inset Formula $D$
+\end_inset
+
+ es un DFU si y sólo si lo es 
+\begin_inset Formula $D[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Primero vemos que todo 
+\begin_inset Formula $a:=a_{0}+\dots+a_{n}X^{n}\in D[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{n}\neq0$
+\end_inset
+
+ no invertible es producto de irreducibles.
+ Si 
+\begin_inset Formula $n+\varphi(a_{n})=0$
+\end_inset
+
+, 
+\begin_inset Formula $a$
+\end_inset
+
+ es unidad.
+ Para 
+\begin_inset Formula $n+\varphi(a_{n})=1$
+\end_inset
+
+, tanto si 
+\begin_inset Formula $n=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\varphi(a_{n})=1$
+\end_inset
+
+ como si 
+\begin_inset Formula $n=1$
+\end_inset
+
+ y 
+\begin_inset Formula $\varphi(a_{n})=0$
+\end_inset
+
+, 
+\begin_inset Formula $a$
+\end_inset
+
+ sería irreducible.
+ Supongamos que 
+\begin_inset Formula $n+\varphi(a_{n})>1$
+\end_inset
+
+ y que esto se cumple para valores de 
+\begin_inset Formula $n+\varphi(a_{n})$
+\end_inset
+
+ menores.
+ Si 
+\begin_inset Formula $a$
+\end_inset
+
+ es irreducible o si 
+\begin_inset Formula $n=0$
+\end_inset
+
+ es obvio.
+ De lo contrario existen 
+\begin_inset Formula $b:=b_{0}+\dots+b_{m}X^{m},c:=c_{0}+\dots+c_{k}X^{k}\in D[X]$
+\end_inset
+
+ no invertibles ni unidades con 
+\begin_inset Formula $b_{m},c_{k}\neq0$
+\end_inset
+
+, luego 
+\begin_inset Formula $0<m+\varphi(b_{m}),k+\varphi(c_{k})<m+k+\varphi(b_{m})+\varphi(c_{k})=n+\varphi(a_{n})$
+\end_inset
+
+, y aplicando la hipótesis de inducción a 
+\begin_inset Formula $b$
+\end_inset
+
+ y 
+\begin_inset Formula $c$
+\end_inset
+
+ y 
+\begin_inset Quotes cld
+\end_inset
+
+pegando
+\begin_inset Quotes crd
+\end_inset
+
+ las factorizaciones se obtiene el resultado.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Queda ver que todo irreducible 
+\begin_inset Formula $f$
+\end_inset
+
+ de 
+\begin_inset Formula $D[X]$
+\end_inset
+
+ es primo.
+ Para 
+\begin_inset Formula $\text{gr}(f)=0$
+\end_inset
+
+ ya lo tenemos.
+ De lo contrario, sean 
+\begin_inset Formula $g,h\in D[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $f\mid gh$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f\mid gh$
+\end_inset
+
+ en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+, y 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible y por tanto primo en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+.
+ Si, por ejemplo, 
+\begin_inset Formula $f\mid g$
+\end_inset
+
+ en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+, existe 
+\begin_inset Formula $G\in K[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $g=fG$
+\end_inset
+
+, y queda ver que 
+\begin_inset Formula $G\in D[X]$
+\end_inset
+
+, para lo cual, si 
+\begin_inset Formula $a\in D$
+\end_inset
+
+ cumple 
+\begin_inset Formula $aG\in D[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $\varphi(a)$
+\end_inset
+
+ mínimo, basta ver que 
+\begin_inset Formula $\varphi(a)=0$
+\end_inset
+
+.
+ Supongamos 
+\begin_inset Formula $\varphi(a)>0$
+\end_inset
+
+ y sean 
+\begin_inset Formula $p,b\in D$
+\end_inset
+
+ con 
+\begin_inset Formula $a=pb$
+\end_inset
+
+ y 
+\begin_inset Formula $p$
+\end_inset
+
+ primo, con lo que 
+\begin_inset Formula $p\mid ag=afG$
+\end_inset
+
+ en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+.
+ Si fuera 
+\begin_inset Formula $p\mid f$
+\end_inset
+
+, sería 
+\begin_inset Formula $p\mid f_{k}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $k$
+\end_inset
+
+ y, como 
+\begin_inset Formula $\text{gr}(f)\geq1$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ no sería irreducible
+\begin_inset Formula $\#$
+\end_inset
+
+, luego 
+\begin_inset Formula $p\mid aG$
+\end_inset
+
+ en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $h\in D[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $aG=ph$
+\end_inset
+
+, entonces 
+\begin_inset Formula $pbG=ph$
+\end_inset
+
+ y 
+\begin_inset Formula $bG=h\in D[X]$
+\end_inset
+
+, pero 
+\begin_inset Formula $\varphi(b)<\varphi(a)$
+\end_inset
+
+, luego 
+\begin_inset Formula $\varphi(a)$
+\end_inset
+
+ no es mínimo.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $D$
+\end_inset
+
+ es un dominio y cada 
+\begin_inset Formula $a\in D\setminus(D^{*}\cup\{0\})$
+\end_inset
+
+ es producto de irreducibles de 
+\begin_inset Formula $D[X]$
+\end_inset
+
+, que tendrán grado 0 por tenerlo 
+\begin_inset Formula $a$
+\end_inset
+
+ y serán primos por ser 
+\begin_inset Formula $D[X]$
+\end_inset
+
+ un DFU, por lo que serán también primos en 
+\begin_inset Formula $D$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $D$
+\end_inset
+
+ es un DFU.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $D$
+\end_inset
+
+ es un DFU y 
+\begin_inset Formula $K$
+\end_inset
+
+ es su cuerpo de fracciones, definimos la relación de equivalencia 
+\begin_inset Formula $x\sim y:\iff\exists u\in D^{*}:y=ux$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $[x]=xD^{*}$
+\end_inset
+
+ y, en particular, si 
+\begin_inset Formula $x\in D$
+\end_inset
+
+, 
+\begin_inset Formula $[x]$
+\end_inset
+
+ es el conjunto de los asociados de 
+\begin_inset Formula $x$
+\end_inset
+
+ en 
+\begin_inset Formula $D$
+\end_inset
+
+.
+ Definimos 
+\begin_inset Formula $\cdot:K\times(K/\sim)\to K/\sim$
+\end_inset
+
+ como 
+\begin_inset Formula $a(bD^{*})=(ab)D^{*}$
+\end_inset
+
+.
+ Esto está bien definido, pues si 
+\begin_inset Formula $b_{1}\sim b_{2}$
+\end_inset
+
+ (por ejemplo, 
+\begin_inset Formula $b_{1}=ub_{2}$
+\end_inset
+
+), entonces 
+\begin_inset Formula $(ab_{2})D^{*}=(aub_{1})D^{*}=\{ab_{1}uv\}_{v\in D^{*}}=\{ab_{1}v\}_{v\in D^{*}}=(ab_{1})D^{*}$
+\end_inset
+
+.
+ Además, 
+\begin_inset Formula $a(b(cD^{*}))=(ab)(cD^{*})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Definimos 
+\begin_inset Formula $c:K[X]\to K/\sim$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $p:=\sum_{k\geq0}p_{k}X^{k}\in D[X]$
+\end_inset
+
+, 
+\begin_inset Formula $c(p):=\{x:x=\text{mcd}_{k\geq0}p_{k}\}$
+\end_inset
+
+, y para 
+\begin_inset Formula $p\in K[X]$
+\end_inset
+
+, si 
+\begin_inset Formula $a\in D\setminus\{0\}$
+\end_inset
+
+ cumple 
+\begin_inset Formula $ap\in D[X]$
+\end_inset
+
+, 
+\begin_inset Formula $c(p):=a^{-1}c(ap)$
+\end_inset
+
+.
+ Esto está bien definido, pues si 
+\begin_inset Formula $a_{1}p,a_{2}p\in D[X]$
+\end_inset
+
+, 
+\begin_inset Formula $c(a_{1}a_{2}p)=a_{1}c(a_{2}p)=a_{2}c(a_{1}p)$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $a_{1}^{-1}c(a_{1}p)=a_{2}^{-1}c(a_{2}p)$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $c(p)=aD^{*}$
+\end_inset
+
+, decimos que 
+\begin_inset Formula $a$
+\end_inset
+
+ es el 
+\series bold
+contenido
+\series default
+ de 
+\begin_inset Formula $p$
+\end_inset
+
+ (
+\begin_inset Formula $a=c(p)$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Propiedades: 
+\begin_inset Formula $\forall a\in K,p\in K[X]$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $a\in D$
+\end_inset
+
+ y 
+\begin_inset Formula $p\in D[X]$
+\end_inset
+
+, 
+\begin_inset Formula $a\mid p$
+\end_inset
+
+ en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $a\mid c(p)$
+\end_inset
+
+ en 
+\begin_inset Formula $D$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $a\mid p$
+\end_inset
+
+ en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+ si y sólo si divide a cada coeficiente de 
+\begin_inset Formula $p$
+\end_inset
+
+ en 
+\begin_inset Formula $D$
+\end_inset
+
+, si y sólo si divide a su máximo común divisor, que es 
+\begin_inset Formula $c(p)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $c(ap)=ac(p)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $a\in D$
+\end_inset
+
+ y 
+\begin_inset Formula $p=:\sum_{k=0}^{n}p_{k}X^{k}\in D[X]$
+\end_inset
+
+, 
+\begin_inset Formula $c(ap)=\text{mcd}(ap_{0},\dots,ap_{n})=a\text{mcd}(p_{0},\dots,p_{n})=ac(p)$
+\end_inset
+
+.
+ En otro caso basta multiplicar por un 
+\begin_inset Formula $b$
+\end_inset
+
+ tal que 
+\begin_inset Formula $p,ap\in D[X]$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $p\in D[X]\iff c(p)\in D$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Obvio.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $p=:\sum_{k}\frac{r_{k}}{s_{k}}X^{k}$
+\end_inset
+
+ de forma que para todo 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $r_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $s_{k}$
+\end_inset
+
+ son coprimos y 
+\begin_inset Formula $r_{k}=0\implies s_{k}=1$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $p\notin D[X]$
+\end_inset
+
+, existiría un 
+\begin_inset Formula $s_{k}\notin D^{*}$
+\end_inset
+
+, con lo que existe un irreducible 
+\begin_inset Formula $q\mid s_{k}$
+\end_inset
+
+ en 
+\begin_inset Formula $D$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $q\nmid r_{k}$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $n_{k}\in\mathbb{N}$
+\end_inset
+
+ y 
+\begin_inset Formula $h_{k}\in D$
+\end_inset
+
+ con 
+\begin_inset Formula $q^{n_{k}}h_{k}=s_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $q\nmid h_{k}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $n:=n_{i}:=\max_{k}n_{k}\geq1$
+\end_inset
+
+, 
+\begin_inset Formula $m:=\text{mcm}_{k}s_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $m=:q^{n}h$
+\end_inset
+
+, entonces 
+\begin_inset Formula $q\nmid h$
+\end_inset
+
+ en 
+\begin_inset Formula $D$
+\end_inset
+
+, 
+\begin_inset Formula $mp\in D[X]$
+\end_inset
+
+ y 
+\begin_inset Formula $c(mp)=mc(p)$
+\end_inset
+
+, pero el coeficiente 
+\begin_inset Formula $i$
+\end_inset
+
+-ésimo de 
+\begin_inset Formula $mp$
+\end_inset
+
+, 
+\begin_inset Formula $m\frac{r_{i}}{s_{i}}=\frac{q^{n}hr_{i}}{q^{n}h_{i}}=\frac{hr_{i}}{h_{i}}\in D$
+\end_inset
+
+, no es múltiplo de 
+\begin_inset Formula $q$
+\end_inset
+
+, luego 
+\begin_inset Formula $mc(p)$
+\end_inset
+
+, el máximo común divisor de estos coeficientes, no es múltiplo de 
+\begin_inset Formula $q$
+\end_inset
+
+ en 
+\begin_inset Formula $D$
+\end_inset
+
+, pese a que 
+\begin_inset Formula $m=\text{mcm}_{k}s_{k}$
+\end_inset
+
+ sí lo es.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Un polinomio 
+\begin_inset Formula $p$
+\end_inset
+
+ es 
+\series bold
+primitivo
+\series default
+ si 
+\begin_inset Formula $c(p)=1$
+\end_inset
+
+, esto es, si 
+\begin_inset Formula $p\in D[X]$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{mcd}_{k}p_{k}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Lema de Gauss:
+\series default
+ Para 
+\begin_inset Formula $f,g\in K[X]$
+\end_inset
+
+, 
+\begin_inset Formula $c(fg)=c(f)c(g)$
+\end_inset
+
+, y en particular 
+\begin_inset Formula $fg$
+\end_inset
+
+ es primitivo si y sólo si 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ lo son.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $f':=f/c(f)$
+\end_inset
+
+ es primitivo, pues 
+\begin_inset Formula $c(f')=c(c(f)^{-1}f)=c(f)^{-1}c(f)=1$
+\end_inset
+
+, y análogamente 
+\begin_inset Formula $g':=g/c(g)$
+\end_inset
+
+ es primitivo, luego 
+\begin_inset Formula $fg=c(f)c(g)f'g'$
+\end_inset
+
+ y basta ver que 
+\begin_inset Formula $f'g'\in D[X]$
+\end_inset
+
+ es primitivo.
+ Si no lo fuera, 
+\begin_inset Formula $c(f'g')$
+\end_inset
+
+ tendría un divisor irreducible, y por tanto primo, 
+\begin_inset Formula $p$
+\end_inset
+
+ en 
+\begin_inset Formula $D$
+\end_inset
+
+, luego 
+\begin_inset Formula $p\mid f'g'$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $p\mid f'$
+\end_inset
+
+ o 
+\begin_inset Formula $p\mid g'$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $p\mid c(f')=1$
+\end_inset
+
+ o 
+\begin_inset Formula $p\mid c(g')=1\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado 
+\begin_inset Formula $f\in D[X]\setminus D$
+\end_inset
+
+ primitivo, 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+ si y sólo si lo es en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\forall G,H\in K[X],(f=GH\implies\text{gr}(G)=0\lor\text{gr}(H)=0)$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\forall g,h\in D[X],(f=gh\implies\text{gr}(g)=0\lor\text{gr}(h)=0)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies2\implies3]$
+\end_inset
+
+ Visto.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies4]$
+\end_inset
+
+ Visto.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $4\implies1]$
+\end_inset
+
+ Como 
+\begin_inset Formula $f$
+\end_inset
+
+ es primitivo, sus únicos divisores de grado 0 son unidades, por lo que
+ para 
+\begin_inset Formula $g,h\in D[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $f=gh$
+\end_inset
+
+, 
+\begin_inset Formula $g$
+\end_inset
+
+ o 
+\begin_inset Formula $h$
+\end_inset
+
+ es unidad.
+\end_layout
+
+\begin_layout Standard
+De aquí que si 
+\begin_inset Formula $D$
+\end_inset
+
+ es un DFU con cuerpo de fracciones 
+\begin_inset Formula $K$
+\end_inset
+
+, los irreducibles de 
+\begin_inset Formula $D[X]$
+\end_inset
+
+ son precisamente los de 
+\begin_inset Formula $D$
+\end_inset
+
+ y los polinomios primitivos de 
+\begin_inset Formula $D[X]\setminus D$
+\end_inset
+
+ irreducibles en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Factorización en el anillo de polinomios de un DFU
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $K$
+\end_inset
+
+ un cuerpo y 
+\begin_inset Formula $f\in K[X]$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\text{gr}(f)=1$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $g,h\in K[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $f=gh$
+\end_inset
+
+, podemos suponer 
+\begin_inset Formula $\text{gr}g=0$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $g$
+\end_inset
+
+ es unidad.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\text{gr}(f)>1$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene una raíz en 
+\begin_inset Formula $K$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ no es irreducible en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $a$
+\end_inset
+
+ la raíz y 
+\begin_inset Formula $g\in K[X]$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f=(X-a)g$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\text{gr}g=1$
+\end_inset
+
+, luego ni 
+\begin_inset Formula $X-a$
+\end_inset
+
+ ni 
+\begin_inset Formula $g$
+\end_inset
+
+ son unidades.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\text{gr}(f)\in\{2,3\}$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ si y sólo si no tiene raíces en 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Es el contrarrecíproco de lo anterior.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+De haber 
+\begin_inset Formula $g,h\in K[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $f=gh$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{gr}(g),\text{gr}(h)>0$
+\end_inset
+
+, o 
+\begin_inset Formula $g$
+\end_inset
+
+ o 
+\begin_inset Formula $h$
+\end_inset
+
+ tendría grado 1.
+ Si, por ejemplo, 
+\begin_inset Formula $g=aX+b$
+\end_inset
+
+ con 
+\begin_inset Formula $a,b\in K$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f=(X+\frac{b}{a})(ah)$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{b}{a}$
+\end_inset
+
+ sería raíz.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $D$
+\end_inset
+
+ es un DFU con cuerpo de fracciones 
+\begin_inset Formula $K$
+\end_inset
+
+, 
+\begin_inset Formula $f:=\sum_{k}a_{k}X^{k}\in D[X]$
+\end_inset
+
+ y 
+\begin_inset Formula $n:=\text{gr}(f)$
+\end_inset
+
+, todas las raíces de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $K$
+\end_inset
+
+ son de la forma 
+\begin_inset Formula $\frac{r}{s}$
+\end_inset
+
+ con 
+\begin_inset Formula $r\mid a_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $s\mid a_{n}$
+\end_inset
+
+.
+ En efecto, sea 
+\begin_inset Formula $t=\frac{r}{s}$
+\end_inset
+
+ con 
+\begin_inset Formula $r,s\in D$
+\end_inset
+
+ coprimos una raíz de 
+\begin_inset Formula $f$
+\end_inset
+
+, multiplicando 
+\begin_inset Formula $f(t)=0$
+\end_inset
+
+ por 
+\begin_inset Formula $s^{n}$
+\end_inset
+
+ obtenemos 
+\begin_inset Formula $a_{0}s^{n}+a_{1}rs^{n-1}+\dots+a_{n-1}r^{n-1}s+a_{n}r^{n}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $r\mid a_{0}s^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $s\mid a_{n}r^{n}$
+\end_inset
+
+ y, por ser 
+\begin_inset Formula $r$
+\end_inset
+
+ y 
+\begin_inset Formula $s$
+\end_inset
+
+ coprimos, 
+\begin_inset Formula $r\mid a_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $s\mid a_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Criterio de reducción:
+\series default
+ Sean 
+\begin_inset Formula $\phi:D\to K$
+\end_inset
+
+ un homomorfismo de anillos donde 
+\begin_inset Formula $D$
+\end_inset
+
+ es un DFU y 
+\begin_inset Formula $K$
+\end_inset
+
+ es un cuerpo, 
+\begin_inset Formula $\hat{\phi}:D[X]\to K[X]$
+\end_inset
+
+ el homomorfismo inducido por 
+\begin_inset Formula $\phi$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ un polinomio primitivo de 
+\begin_inset Formula $D[X]\setminus D$
+\end_inset
+
+, si 
+\begin_inset Formula $\hat{\phi}(f)$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{gr}(\hat{\phi}(f))=\text{gr}(f)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $g,h\in D[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $f=gh$
+\end_inset
+
+ y 
+\begin_inset Formula $a$
+\end_inset
+
+, 
+\begin_inset Formula $b$
+\end_inset
+
+ y 
+\begin_inset Formula $c$
+\end_inset
+
+ los coeficientes principales respectivos de 
+\begin_inset Formula $f$
+\end_inset
+
+, 
+\begin_inset Formula $g$
+\end_inset
+
+ y 
+\begin_inset Formula $h$
+\end_inset
+
+, 
+\begin_inset Formula $a=bc\notin\ker\phi$
+\end_inset
+
+, luego 
+\begin_inset Formula $b,c\notin\ker\phi$
+\end_inset
+
+, 
+\begin_inset Formula $\text{gr}(\phi(g))=\text{gr}(g)$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{gr}(\phi(h))=\text{gr}(h)$
+\end_inset
+
+, y como 
+\begin_inset Formula $\hat{\phi}(f)$
+\end_inset
+
+ es irreducible en el cuerpo 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ y 
+\begin_inset Formula $\hat{\phi}(f)=\hat{\phi}(g)\hat{\phi}(h)$
+\end_inset
+
+, 
+\begin_inset Formula $\text{gr}(\phi(g))=0$
+\end_inset
+
+ o 
+\begin_inset Formula $\text{gr}(\phi(h))=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+En particular, si 
+\begin_inset Formula $p\in\mathbb{Z}$
+\end_inset
+
+ es primo, 
+\begin_inset Formula $f:=\sum_{k}a_{k}X^{k}\in\mathbb{Z}[X]$
+\end_inset
+
+ es primitivo y 
+\begin_inset Formula $n:=\text{gr}(f)$
+\end_inset
+
+, si 
+\begin_inset Formula $p\nmid a_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $\mathbb{Z}_{p}[X]$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $\mathbb{Z}[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Criterio de Eisenstein:
+\series default
+ Sean 
+\begin_inset Formula $D$
+\end_inset
+
+ un DFU, 
+\begin_inset Formula $f:=\sum_{k}a_{k}X^{k}\in D[X]$
+\end_inset
+
+ primitivo y 
+\begin_inset Formula $n:=\text{gr}f$
+\end_inset
+
+, si existe un irreducible 
+\begin_inset Formula $p\in D$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall k\in\{0,\dots,n-1\},p\mid a_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $p^{2}\nmid a_{0}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $g:=b_{0}+\dots+b_{m}X^{m},h:=c_{0}+\dots+c_{k}X^{k}\in D[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $b_{m},c_{k}\neq0$
+\end_inset
+
+ y 
+\begin_inset Formula $f=gh$
+\end_inset
+
+, como 
+\begin_inset Formula $p^{2}\nmid a_{0}=b_{0}c_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $p\nmid b_{0}$
+\end_inset
+
+ o 
+\begin_inset Formula $p\nmid c_{0}$
+\end_inset
+
+.
+ Si, por ejemplo, 
+\begin_inset Formula $p\nmid c_{0}$
+\end_inset
+
+, como 
+\begin_inset Formula $f$
+\end_inset
+
+ es primitivo, 
+\begin_inset Formula $p\nmid g$
+\end_inset
+
+, pues si fuera 
+\begin_inset Formula $p\mid g$
+\end_inset
+
+ sería 
+\begin_inset Formula $p\mid c(g)\mid c(f)\#$
+\end_inset
+
+, luego existe 
+\begin_inset Formula $i:=\min\{j:p\nmid b_{j}\}$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $p\nmid a_{i}=\sum_{j=0}^{i-1}b_{j}c_{i-j}+b_{i}c_{0}$
+\end_inset
+
+, luego 
+\begin_inset Formula $i=n$
+\end_inset
+
+, 
+\begin_inset Formula $\text{gr}(g)=n$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{gr}(h)=0$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $p\nmid b_{0}$
+\end_inset
+
+ es análogo.
+\end_layout
+
+\begin_layout Standard
+Así:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $a\in\mathbb{Z}$
+\end_inset
+
+ y existe 
+\begin_inset Formula $p\in\mathbb{Z}$
+\end_inset
+
+ cuya multiplicidad en 
+\begin_inset Formula $a$
+\end_inset
+
+ es 1, 
+\begin_inset Formula $X^{n}-a$
+\end_inset
+
+ es irreducible.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $X^{n}-a$
+\end_inset
+
+ es primitivo, 
+\begin_inset Formula $p\mid a$
+\end_inset
+
+ y 
+\begin_inset Formula $p^{2}\nmid a$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $n\geq3$
+\end_inset
+
+, llamamos 
+\series bold
+raíces 
+\begin_inset Formula $n$
+\end_inset
+
+-ésimas de la unidad
+\series default
+ o 
+\series bold
+de 1
+\series default
+ a las raíces de 
+\begin_inset Formula $X^{n}-1$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+, que son los 
+\begin_inset Formula $n$
+\end_inset
+
+ vértices del 
+\begin_inset Formula $n$
+\end_inset
+
+-ágono regular inscrito en el círculo unidad de 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ con un vértice en el 1.
+ 
+\begin_inset Formula $X^{n}-1=(X-1)\Phi_{n}(X)$
+\end_inset
+
+, donde 
+\begin_inset Formula $\Phi_{n}(X):=X^{n-1}+X^{n-2}+\dots+X+1$
+\end_inset
+
+ es el 
+\series bold
+
+\begin_inset Formula $n$
+\end_inset
+
+-ésimo polinomio ciclotómico
+\series default
+ y sus raíces en 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ son las raíces 
+\begin_inset Formula $n$
+\end_inset
+
+-ésimas de 1 distintas de 1.
+ En 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+, 
+\begin_inset Formula $X+1\mid\Phi_{4}(X)$
+\end_inset
+
+, pero si 
+\begin_inset Formula $n$
+\end_inset
+
+ es primo, 
+\begin_inset Formula $\Phi_{n}(X)$
+\end_inset
+
+ es irreducible.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Usando el automorfismo de sustitución en 
+\begin_inset Formula $X+1$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\Phi_{p}(X+1)=\frac{(X+1)^{n}-1}{(X+1)-1}=\frac{(X+1)^{n}-1}{X}=X^{n-1}+{n \choose n-1}X^{n-2}+\dots+{n \choose 2}X+{n \choose 1}.
+\]
+
+\end_inset
+
+Entonces 
+\begin_inset Formula $\Phi_{p}(X+1)$
+\end_inset
+
+ es primitivo, 
+\begin_inset Formula $n^{2}\nmid n$
+\end_inset
+
+ y, para 
+\begin_inset Formula $k\in\{1,\dots,n-1\}$
+\end_inset
+
+, 
+\begin_inset Formula $n$
+\end_inset
+
+ no divide a 
+\begin_inset Formula $k!$
+\end_inset
+
+ ni a 
+\begin_inset Formula $(n-k)!$
+\end_inset
+
+, por lo que divide a 
+\begin_inset Formula $\binom{n}{k}=\frac{n!}{k!(n-k)!}$
+\end_inset
+
+ y podemos aplicar el criterio de Eisenstein.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Polinomios en varias indeterminadas
+\end_layout
+
+\begin_layout Standard
+Dados un anillo conmutativo 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+, definimos el 
+\series bold
+anillo de polinomios
+\series default
+ en 
+\begin_inset Formula $n$
+\end_inset
+
+ indeterminadas con coeficientes en 
+\begin_inset Formula $A$
+\end_inset
+
+ como 
+\begin_inset Formula $A[X_{1},\dots,X_{n}]:=A[X_{1},\dots,X_{n-1}][X_{n}]$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+indeterminadas
+\series default
+ a los símbolos 
+\begin_inset Formula $X_{1},\dots,X_{n}$
+\end_inset
+
+ y 
+\series bold
+polinomios en 
+\begin_inset Formula $n$
+\end_inset
+
+ indeterminadas
+\series default
+ a los elementos de 
+\begin_inset Formula $A[X_{1},\dots,X_{n}]$
+\end_inset
+
+.
+ Dados un anillo conmutativo 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $n\in\mathbb{N}^{*}$
+\end_inset
+
+, por inducción:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A[X_{1},\dots,X_{n}]$
+\end_inset
+
+ no es un cuerpo.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A[X_{1},\dots,X_{n}]$
+\end_inset
+
+ es un dominio si y sólo si lo es 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un dominio, 
+\begin_inset Formula $A[X_{1},\dots,X_{n}]^{*}=A^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A[X_{1},\dots,X_{n}]$
+\end_inset
+
+ es un DFU si y sólo si lo es 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A[X_{1},\dots,X_{n}]$
+\end_inset
+
+ es un DIP si y sólo si 
+\begin_inset Formula $n=1$
+\end_inset
+
+ y 
+\begin_inset Formula $A$
+\end_inset
+
+ es un cuerpo.
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ e 
+\begin_inset Formula $i:=(i_{1},\dots,i_{n})\in\mathbb{N}^{n}$
+\end_inset
+
+, llamamos a 
+\begin_inset Formula $aX_{1}^{i_{1}}\cdots X_{n}^{i_{n}}\in A[X_{1},\dots,X_{n}]$
+\end_inset
+
+ 
+\series bold
+monomio
+\series default
+ de 
+\series bold
+tipo
+\series default
+ 
+\begin_inset Formula $i$
+\end_inset
+
+ y coeficiente 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ Todo 
+\begin_inset Formula $p\in A[X_{1},\dots,X_{n}]$
+\end_inset
+
+ se escribe de forma única como suma de monomios de distinto tipo,
+\begin_inset Formula 
+\[
+p:=\sum_{i\in\mathbb{N}^{n}}p_{i}X_{1}^{i_{1}}\cdots X_{n}^{i_{n}},
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $p_{i}=0$
+\end_inset
+
+ para casi todo 
+\begin_inset Formula $i\in\mathbb{N}^{n}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $n=1$
+\end_inset
+
+ es obvio.
+ Para 
+\begin_inset Formula $n>1$
+\end_inset
+
+, supuesto esto probado para 
+\begin_inset Formula $n-1$
+\end_inset
+
+, 
+\begin_inset Formula $p$
+\end_inset
+
+ es de la forma 
+\begin_inset Formula $\sum_{t\in\mathbb{N}}p_{t}X_{n}^{t}=:\sum_{t\in\mathbb{N}}(\sum_{i\in\mathbb{N}^{n-1}}p_{it}X_{1}^{i_{1}}\cdots X_{n-1}^{i_{n-1}})X_{n}^{t}=\sum_{i\in\mathbb{N}^{n}}p_{(i_{1},\dots,i_{n-1}),i_{n}}X_{1}^{i_{1}}\cdots X_{n-1}^{i_{n-1}}X_{n}^{i_{n}}$
+\end_inset
+
+, con casi todos los coeficientes nulos.
+ Si fuera 
+\begin_inset Formula 
+\[
+p=\sum_{i\in\mathbb{N}^{n}}p_{i}X_{1}^{i_{1}}\cdots X_{n}^{i_{n}}=\sum_{i\in\mathbb{N}^{n}}q_{i}X_{1}^{i_{1}}\cdots X_{n}^{i_{n}},
+\]
+
+\end_inset
+
+ para 
+\begin_inset Formula $n=1$
+\end_inset
+
+ es obvio que 
+\begin_inset Formula $p_{i}=q_{i}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $i$
+\end_inset
+
+, y para 
+\begin_inset Formula $n>1$
+\end_inset
+
+, supuesto esto probado para 
+\begin_inset Formula $n-1$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{t\in\mathbb{N}}\left(\sum_{i\in\mathbb{N}^{n-1}}p_{i_{1},\dots,i_{n-1},t}X_{1}^{i_{1}}\cdots X_{n-1}^{i_{n-1}}\right)X_{n}^{t}=\sum_{i\in\mathbb{N}^{n}}p_{i}X_{1}^{i_{1}}\cdots X_{n}^{i_{n}}=\sum_{i\in\mathbb{N}^{n}}q_{i}X_{1}^{i_{1}}\cdots X_{n}^{i_{n}}=\sum_{t\in\mathbb{N}}\left(\sum_{i\in\mathbb{N}^{n-1}}p_{i_{1},\dots,i_{n-1}t}X_{1}^{i_{1}}\cdots X_{n-1}^{i_{n-1}}\right)X_{n}^{t}$
+\end_inset
+
+, luego para cada 
+\begin_inset Formula $t$
+\end_inset
+
+ es 
+\begin_inset Formula 
+\[
+\sum_{i\in\mathbb{N}^{n-1}}p_{i_{1},\dots,i_{n-1},t}X_{1}^{i_{1}}\cdots X_{n-1}^{i_{n-1}}=\sum_{i\in\mathbb{N}^{n-1}}q_{i_{1},\dots,i_{n-1},t}X_{1}^{i_{1}}\cdots X_{n-1}^{i_{n-1}}
+\]
+
+\end_inset
+
+ y, por la hipótesis de inducción, para cada 
+\begin_inset Formula $i\in\mathbb{N}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $p_{i}=q_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $A$
+\end_inset
+
+ un anillo conmutativo, 
+\begin_inset Formula $n\in\mathbb{N}^{*}$
+\end_inset
+
+ y 
+\begin_inset Formula $u:A\to A[X_{1},\dots,X_{n}]$
+\end_inset
+
+ la inclusión, por inducción:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+PUAP en 
+\begin_inset Formula $n$
+\end_inset
+
+ indeterminadas:
+\series default
+ Dados un homomorfismo de anillos 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{1},\dots,b_{n}\in B$
+\end_inset
+
+, existe un único homomorfismo de anillos 
+\begin_inset Formula $\tilde{f}:A[X_{1},\dots,X_{n}]\to B$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\tilde{f}\circ u=f$
+\end_inset
+
+ y 
+\begin_inset Formula $\tilde{f}(X_{k})=b_{k}$
+\end_inset
+
+ para 
+\begin_inset Formula $k\in\{1,\dots,n\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Dados un anillo conmutativo 
+\begin_inset Formula $P$
+\end_inset
+
+, 
+\begin_inset Formula $T_{1},\dots,T_{n}\in P$
+\end_inset
+
+ y un homomorfismo 
+\begin_inset Formula $v:A\to P$
+\end_inset
+
+ tales que, dados un homomorfismo de anillos 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{1},\dots,b_{n}\in B$
+\end_inset
+
+, existe un único homomorfismo 
+\begin_inset Formula $\tilde{f}:P\to B$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\tilde{f}\circ v=f$
+\end_inset
+
+ y 
+\begin_inset Formula $\tilde{f}(T_{k})=b_{k}$
+\end_inset
+
+ para 
+\begin_inset Formula $k\in\{1,\dots,n\}$
+\end_inset
+
+, existe un isomorfismo 
+\begin_inset Formula $\phi:A[X_{1},\dots,X_{n}]\to P$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\phi\circ u=v$
+\end_inset
+
+ y 
+\begin_inset Formula $\phi(X_{k})=T_{k}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $k\in\{1,\dots,n\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así:
+\end_layout
+
+\begin_layout Enumerate
+Dados dos anillos conmutativos 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{1},\dots,b_{n}\in B$
+\end_inset
+
+, el 
+\series bold
+homomorfismo de sustitución
+\series default
+ 
+\begin_inset Formula $S:A[X_{1},\dots,X_{n}]\to B$
+\end_inset
+
+ viene dado por 
+\begin_inset Formula $p(b_{1},\dots,b_{n}):=S(p):=\sum_{i\in\mathbb{N}^{n}}p_{i}b_{1}^{i_{1}}\cdots b_{n}^{i_{n}}$
+\end_inset
+
+.
+ Su imagen es el subanillo de 
+\begin_inset Formula $B$
+\end_inset
+
+ generado por 
+\begin_inset Formula $A\cup\{b_{1},\dots,b_{n}\}$
+\end_inset
+
+, 
+\begin_inset Formula $A[b_{1},\dots,b_{n}]$
+\end_inset
+
+, y dados dos homomorfismos de anillos 
+\begin_inset Formula $f,g:A[b_{1},\dots,b_{n}]\to C$
+\end_inset
+
+, 
+\begin_inset Formula $f=g$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $f|_{A}=g|_{A}$
+\end_inset
+
+ y 
+\begin_inset Formula $f(b_{k})=g(b_{k})$
+\end_inset
+
+ para todo 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Sean 
+\begin_inset Formula $A$
+\end_inset
+
+ un anillo y 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ una permutación de 
+\begin_inset Formula $\mathbb{N}_{n}$
+\end_inset
+
+ con inversa 
+\begin_inset Formula $\tau:=\sigma^{-1}$
+\end_inset
+
+, tomando 
+\begin_inset Formula $B=A[X_{1},\dots,X_{n}]$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{k}=X_{\sigma(k)}$
+\end_inset
+
+ en el punto anterior obtenemos un automorfismo 
+\begin_inset Formula $\hat{\sigma}$
+\end_inset
+
+ en 
+\begin_inset Formula $A[X_{1},\dots,X_{n}]$
+\end_inset
+
+ con inversa 
+\begin_inset Formula $\hat{\tau}$
+\end_inset
+
+ que permuta las indeterminadas.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A[X_{1},\dots,X_{n},Y_{1},\dots,Y_{m}]\cong A[X_{1},\dots,X_{n}][Y_{1},\dots,Y_{m}]\cong A[Y_{1},\dots,Y_{m}][X_{1},\dots,X_{m}]$
+\end_inset
+
+, por lo que en la práctica no distinguimos entre estos anillos.
+\end_layout
+
+\begin_layout Enumerate
+Todo homomorfismo de anillos conmutativos 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ induce un homomorfismo 
+\begin_inset Formula $\hat{f}:A[X_{1},\dots,X_{n}]\to B[X_{1},\dots,X_{n}]$
+\end_inset
+
+ dado por 
+\begin_inset Formula $\hat{f}(p):=\sum_{i\in\mathbb{N}^{n}}f(p_{i})X_{1}^{i_{1}}\cdots X_{n}^{i_{n}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+grado
+\series default
+ de un monomio 
+\begin_inset Formula $aX_{1}^{i_{1}}\cdots X_{n}^{i_{n}}$
+\end_inset
+
+ a 
+\begin_inset Formula $i_{1}+\dots+i_{n}$
+\end_inset
+
+, y grado de 
+\begin_inset Formula $p\in A[X_{1},\dots,X_{n}]\setminus0$
+\end_inset
+
+, 
+\begin_inset Formula $\text{gr}(p)$
+\end_inset
+
+, al mayor de los grados de los monomios en la expresión por monomios de
+ 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\text{gr}(p+q)\leq\max\{\text{gr}(p),\text{gr}(q)\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{gr}(pq)\leq\text{gr}(p)+\text{gr}(q)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Un polinomio es 
+\series bold
+homogéneo
+\series default
+ de grado 
+\begin_inset Formula $n$
+\end_inset
+
+ si es suma de monomios de grado 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Todo polinomio se escribe de modo único como suma de polinomios homogéneos
+ de distintos grados, sin más que agrupar los monomios de igual grado en
+ la expresión como suma de monomios.
+ Así, si 
+\begin_inset Formula $D$
+\end_inset
+
+ es un dominio, 
+\begin_inset Formula $\text{gr}(pq)=\text{gr}(p)+\text{gr}(q)$
+\end_inset
+
+ para cualesquiera 
+\begin_inset Formula $p,q\in D[X_{1},\dots,X_{n}]$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
