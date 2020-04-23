@@ -1,0 +1,259 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un administrador de red puede asignar direcciones IP:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Fijas
+\series default
+, de forma 
+\series bold
+estática
+\series default
+, útil para equipos que no deben cambiar de IP como routers y servidores.
+ En Linux, la IP de una interfaz se indica en 
+\family typewriter
+/etc/network/interfaces
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Temporales
+\series default
+, de forma 
+\series bold
+dinámica
+\series default
+, útil en equipos de usuarios que no requieren direcciones IP fijas, el
+ número de equipos es alto y la gestión de direcciones es compleja.
+ Esto permite reutilizar direcciones, que solo se ocupan cuando el equipo
+ está conectado, y es especialmente útil para usuarios móviles que entran
+ en la red de forma esporádica.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+DHCP
+\series default
+ (
+\emph on
+Dynamic Host Configuration Protocol
+\emph default
+) es un protocolo sobre UDP para obtener una IP dinámica de un servidor
+ DHCP, junto con más información como la dirección del router de salida,
+ el nombre y la dirección del servidor DNS o la máscara de red.
+ Un 
+\series bold
+\emph on
+DHCP client
+\series default
+\emph default
+ es un equipo que solicita una IP dinámica por DHCP, un 
+\series bold
+\emph on
+DHCP server
+\series default
+\emph default
+ es uno que la asigna y un 
+\series bold
+\emph on
+DHCP relay
+\series default
+\emph default
+ redirige solicitudes DHCP para permitir que el cliente y el servidor estén
+ en subredes distintas.
+\end_layout
+
+\begin_layout Standard
+Tipos de mensaje:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Discover
+\series default
+\emph default
+: Enviado por un cliente a 
+\emph on
+broadcast
+\emph default
+ (IP 255.255.255.255, MAC ff:ff:ff:ff:ff:ff) al conectarse a la red para saber
+ si hay algún servidor DHCP.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Offer
+\series default
+\emph default
+: Respuesta de un servidor a 
+\emph on
+broadcast
+\emph default
+ a un 
+\emph on
+DHCP Discover
+\emph default
+, que incluye una dirección libre y la duración que tendría el 
+\begin_inset Quotes cld
+\end_inset
+
+
+\series bold
+alquiler
+\series default
+
+\begin_inset Quotes crd
+\end_inset
+
+ (
+\emph on
+lease
+\emph default
+) de la dirección por parte del cliente.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Request
+\series default
+\emph default
+: Solicitud del cliente de alquilar una IP, enviada tras recibir un 
+\emph on
+DHCP Offer
+\emph default
+ o al expirar el tiempo de alquiler para renovarlo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+ACK
+\series default
+\emph default
+: Confirmación de que el servidor ha recibido la 
+\emph on
+DHCP Request
+\emph default
+ y el cliente puede usar la IP.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Nak
+\series default
+\emph default
+: Indica que no se pudo llevar a cabo la petición del cliente, por ejemplo,
+ porque la dirección ya esté ocupada.
+ En una renovación, hace que el cliente reinicie el proceso general.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Inform
+\series default
+\emph default
+: Usado por el cliente tras un 
+\emph on
+ACK
+\emph default
+ para solicitar más información.
+\end_layout
+
+\end_body
+\end_document
