@@ -1,0 +1,2151 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\usepackage{blkarray}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\series bold
+Teorema de los círculos de Gershgorin:
+\series default
+ El conjunto de valores propios de 
+\begin_inset Formula $A\in{\cal M}_{n}(\mathbb{C})$
+\end_inset
+
+ está contenido en
+\begin_inset Formula 
+\[
+\bigcup_{k=1}^{n}\overline{B}\left(a_{kk},\sum_{\begin{subarray}{c}
+j=1\\
+j\neq k
+\end{subarray}}^{n}|a_{kj}|\right).
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ no está contenido en este conjunto, para cada 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $|a_{kk}-\lambda|>\sum_{j\neq k}|a_{kj}|$
+\end_inset
+
+, luego 
+\begin_inset Formula $A-\lambda I$
+\end_inset
+
+ tiene diagonal estrictamente dominante y por tanto es no singular y 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ no es valor propio de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Método de la potencia o del cociente de Rayleigh
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $A\in{\cal M}_{n}(\mathbb{C})$
+\end_inset
+
+ con valores propios 
+\begin_inset Formula $\lambda_{1},\dots,\lambda_{n}$
+\end_inset
+
+ dispuestos tal que 
+\begin_inset Formula $|\lambda_{1}|\geq\dots\geq|\lambda_{n}|$
+\end_inset
+
+ y vectores propios respectivos 
+\begin_inset Formula $v_{1},\dots,v_{n}$
+\end_inset
+
+ formando una base ortogonal de 
+\begin_inset Formula $\mathbb{C}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $p,y\in\mathbb{C}$
+\end_inset
+
+, si 
+\begin_inset Formula $\langle x_{0},v_{1}\rangle\neq0$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle v_{1},y\rangle\neq0$
+\end_inset
+
+, las sucesiones 
+\begin_inset Formula $(x_{k})_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $(r_{k})_{k}$
+\end_inset
+
+ dadas por 
+\begin_inset Formula $x_{0}:=p$
+\end_inset
+
+, 
+\begin_inset Formula $x_{k+1}:=Ax_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $r_{k}=\frac{\langle x_{k+1},y\rangle}{\langle x_{k},y\rangle}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $(r_{k})_{k}$
+\end_inset
+
+ está bien definida y converge a 
+\begin_inset Formula $\lambda_{1}$
+\end_inset
+
+, y 
+\begin_inset Formula $\frac{x_{2k}}{\Vert x_{2k}\Vert}$
+\end_inset
+
+ converge a un múltiplo de 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $\phi(x):=\langle x,y\rangle$
+\end_inset
+
+, 
+\begin_inset Formula $p=:\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}$
+\end_inset
+
+, se tiene 
+\begin_inset Formula $x_{k}=A^{k}p$
+\end_inset
+
+, con lo que suponiendo 
+\begin_inset Formula $|\lambda_{1}|>|\lambda_{2}|$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+x_{k}=\alpha_{1}\lambda_{1}^{k}v_{1}+\dots+\alpha_{n}\lambda_{n}^{k}v_{n}=\lambda_{1}^{k}\left(\alpha_{1}v_{1}+\sum_{j=2}^{n}\left(\frac{\lambda_{j}}{\lambda_{1}}\right)^{k}\alpha_{j}v_{j}\right)=:\lambda_{1}^{k}(\alpha_{1}v_{1}+\varepsilon_{k}).
+\]
+
+\end_inset
+
+Es claro que 
+\begin_inset Formula $\varepsilon_{k}\to0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\lim_{2k}\frac{x_{2k}}{\Vert x_{2k}\Vert}=\lim_{k}\frac{\alpha_{1}v_{1}+\varepsilon_{2k}}{\Vert\alpha_{1}v_{1}+\varepsilon_{2k}\Vert}=\frac{\alpha_{1}v_{1}}{\Vert\alpha_{1}v_{1}\Vert}$
+\end_inset
+
+ y por ser 
+\begin_inset Formula $\phi$
+\end_inset
+
+ lineal, como 
+\begin_inset Formula $\alpha_{1}\neq0$
+\end_inset
+
+ y 
+\begin_inset Formula $\phi(v_{1})\neq0$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\lim_{k}r_{k}=\lim_{k}\frac{\phi(x_{k+1})}{\phi(x_{k})}=\lim_{k}\frac{\lambda_{1}^{k+1}\phi(\alpha_{1}v_{1}+\varepsilon_{k+1})}{\lambda_{1}^{k}\phi(\alpha_{1}v_{1}+\varepsilon_{k})}=\lambda_{1}\lim_{k}\frac{\alpha_{1}\phi(v_{1})+\phi(\varepsilon_{k+1})}{\alpha_{1}\phi(v_{1})+\phi(\varepsilon_{k+1})}=\lambda_{1}.
+\]
+
+\end_inset
+
+Es fácil ver cómo se generalizaría esto para cuando los 
+\begin_inset Formula $j\in\{1,\dots,n\}$
+\end_inset
+
+ primeros valores propios tienen igual valor absoluto.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+método de la potencia
+\series default
+ o 
+\series bold
+del cociente de Rayleigh
+\series default
+ consiste en tomar 
+\begin_inset Formula $p,y\in\mathbb{C}$
+\end_inset
+
+ arbitrarios en lo anterior, pues todavía no conocemos 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+, e ir construyendo 
+\begin_inset Formula $(x_{k})_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $(r_{k})_{k}$
+\end_inset
+
+ para obtener el valor propio de 
+\begin_inset Formula $A$
+\end_inset
+
+ con mayor valor absoluto.
+ 
+\end_layout
+
+\begin_layout Standard
+En la práctica no se calcula 
+\begin_inset Formula $(x_{k})_{k}$
+\end_inset
+
+ directamente, pues puede tender a infinito o cero y esto da errores de
+ condicionamiento.
+ En su lugar se calcula 
+\begin_inset Formula $(y_{k})_{k}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $y_{0}:=\frac{x_{0}}{\Vert x_{0}\Vert}$
+\end_inset
+
+ e 
+\begin_inset Formula $y_{k+1}:=\frac{Ay_{k}}{\Vert Ay_{k}\Vert}$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $r_{k}=\frac{\langle Ay_{k},y\rangle}{\langle y_{k},y\rangle}$
+\end_inset
+
+.
+ En efecto, si 
+\begin_inset Formula $y_{k}=\frac{x_{k}}{\Vert x_{k}\Vert}$
+\end_inset
+
+, 
+\begin_inset Formula $y_{k+1}=\frac{Ay_{k}}{\Vert Ay_{k}\Vert}=\frac{Ax_{k}}{\Vert Ax_{k}\Vert}=\frac{x_{k+1}}{\Vert x_{k+1}\Vert}$
+\end_inset
+
+, luego por inducción esto ocurre para todo 
+\begin_inset Formula $k$
+\end_inset
+
+, y entonces, como 
+\begin_inset Formula $\Vert x_{k+1}\Vert=\Vert Ax_{k}\Vert=\Vert Ay_{k}\Vert\Vert x_{k}\Vert$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+r_{k}=\frac{\langle x_{k+1},y\rangle}{\langle x_{k},y\rangle}=\frac{\Vert x_{k+1}\Vert\langle y_{k+1},y\rangle}{\Vert x_{k}\Vert\langle y_{k},y\rangle}=\frac{\Vert x_{k+1}\Vert\langle Ay_{k},y\rangle}{\Vert x_{k}\Vert\Vert Ay_{k}\Vert\langle y_{k},y\rangle}=\frac{\langle Ay_{k},y\rangle}{\langle y_{k},y\rangle}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es invertible, el 
+\series bold
+método de la potencia inversa
+\series default
+ consiste en aplicar el método de la potencia a 
+\begin_inset Formula $A^{-1}$
+\end_inset
+
+, obteniendo el inverso del valor propio de 
+\begin_inset Formula $A$
+\end_inset
+
+ con menor valor absoluto, pues 
+\begin_inset Formula $Au=\lambda u\iff\lambda^{-1}u=A^{-1}u$
+\end_inset
+
+.
+ Para ello, se factoriza 
+\begin_inset Formula $A$
+\end_inset
+
+ y bien se obtiene 
+\begin_inset Formula $A^{-1}$
+\end_inset
+
+ resolviendo columna a columna o se resuelve en cada paso 
+\begin_inset Formula $Ax_{k+1}=x_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Los valores propios de 
+\begin_inset Formula $A-\mu I$
+\end_inset
+
+ son de la forma 
+\begin_inset Formula $\lambda-\mu$
+\end_inset
+
+, siendo 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ un valor propio de 
+\begin_inset Formula $A$
+\end_inset
+
+, por lo que los métodos de la potencia y la potencia inversa sobre 
+\begin_inset Formula $A-\mu I$
+\end_inset
+
+, llamados de la potencia y la potencia inversa 
+\series bold
+con desplazamiento
+\series default
+, nos darían respectivamente el valor propio más lejano y más cercano a
+ 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Método de Jacobi
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $A\in{\cal M}_{n}(\mathbb{R})$
+\end_inset
+
+ simétrica, y por tanto diagonalizable.
+ Entonces el problema de encontrar los valores y vectores propios de una
+ matriz se puede traducir en el de encontrar una matriz ortogonal que diagonalic
+e 
+\begin_inset Formula $A$
+\end_inset
+
+, que en el caso de 
+\begin_inset Formula $n=2$
+\end_inset
+
+ será un giro.
+ El 
+\series bold
+método de Jacobi
+\series default
+ consiste en construir una sucesión 
+\begin_inset Formula $(O_{k})_{k}$
+\end_inset
+
+ de giros en planos determinados por dos vectores de la base canónica de
+ forma que 
+\begin_inset Formula $(A_{k}:=(O_{1}\cdots O_{k})^{t}A(O_{1}\cdots O_{k}))_{k}$
+\end_inset
+
+, que podemos obtener como 
+\begin_inset Formula $A_{0}=A$
+\end_inset
+
+ y 
+\begin_inset Formula $A_{k+1}=O_{k+1}^{t}A_{k}O_{k+1}$
+\end_inset
+
+, converja a una matriz diagonal.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $1\leq p<q\leq n$
+\end_inset
+
+, 
+\begin_inset Formula $\theta\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $A:=(a_{ij})\in{\cal M}_{n}(\mathbb{R})$
+\end_inset
+
+ simétrica, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+bgroup
+\backslash
+small
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+O:=
+\backslash
+begin{blockarray}{cccccccccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+   &&&p&&&&q&&&&
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   &&&
+\backslash
+downarrow&&&&
+\backslash
+downarrow&&&&
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{block}{(ccccccccccc)c}
+\end_layout
+
+\begin_layout Plain Layout
+
+   1
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   &
+\backslash
+ddots
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   &&1
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   &&&
+\backslash
+cos
+\backslash
+theta&&&&
+\backslash
+sin
+\backslash
+theta&&&&
+\backslash
+gets p
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   &&&&1
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   &&&&&
+\backslash
+ddots
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   &&&&&&1
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   &&&-
+\backslash
+sin
+\backslash
+theta&&&&
+\backslash
+cos
+\backslash
+theta&&&&
+\backslash
+gets q
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   &&&&&&&&1
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   &&&&&&&&&
+\backslash
+ddots
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   &&&&&&&&&&1
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{block}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{blockarray},
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\backslash
+egroup 
+\end_layout
+
+\end_inset
+
+y 
+\begin_inset Formula $B:=(b_{ij}):=O^{t}AO$
+\end_inset
+
+, entonces:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $B$
+\end_inset
+
+ es simétrica y cumple 
+\begin_inset Formula $\sum_{i,j}b_{ij}^{2}=\sum_{i,j}a_{ij}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $B^{t}=(O^{t}AO)^{t}=O^{t}A^{t}O=O^{t}AO=B$
+\end_inset
+
+, luego 
+\begin_inset Formula $B$
+\end_inset
+
+ es simétrica.
+ 
+\begin_inset Formula $B^{t}B=O^{t}A^{t}OO^{t}AO=O^{t}A^{t}AO$
+\end_inset
+
+, luego 
+\begin_inset Formula $\text{tr}(B^{t}B)=\text{tr}(A^{t}A)$
+\end_inset
+
+, pero
+\begin_inset Formula 
+\[
+\text{tr}(A^{t}A)=\sum_{j}(A^{t}A)_{j}=\sum_{j,i}(A^{*})_{ji}A_{ij}=\sum_{i,j}a_{ij}^{2},
+\]
+
+\end_inset
+
+y análogamente, 
+\begin_inset Formula $\text{tr}(B^{t}B)=\sum_{i,j}b_{ij}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $a_{pq}\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $b_{pq}=0$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\cot(2\theta)=\frac{a_{qq}-a_{pp}}{2a_{pq}}$
+\end_inset
+
+, con lo que el valor de 
+\begin_inset Formula $\theta\in(-\frac{\pi}{4},\frac{\pi}{4}]\setminus\{0\}$
+\end_inset
+
+ que cumple esto es único, y para dicho valor, 
+\begin_inset Formula $\sum_{k}b_{kk}^{2}=\sum_{k}a_{kk}^{2}+2a_{pq}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Como
+\begin_inset Formula 
+\[
+\left(\begin{array}{cc}
+b_{pp} & b_{pq}\\
+b_{qp} & b_{qq}
+\end{array}\right)=\left(\begin{array}{cc}
+\cos\theta & -\sin\theta\\
+\sin\theta & \cos\theta
+\end{array}\right)\left(\begin{array}{cc}
+a_{pp} & a_{pq}\\
+a_{qp} & a_{qq}
+\end{array}\right)\left(\begin{array}{cc}
+\cos\theta & \sin\theta\\
+-\sin\theta & \cos\theta
+\end{array}\right),
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{align*}
+b_{pq} & =\cos\theta(a_{pp}\sin\theta+a_{pq}\cos\theta)-\sin\theta(a_{qp}\sin\theta+a_{qq}\cos\theta)\\
+ & =(a_{pp}-a_{qq})\sin\theta\cos\theta+a_{pq}(\cos^{2}\theta-\sin^{2}\theta)\\
+ & =\frac{a_{pp}-a_{qq}}{2}\sin(2\theta)+a_{pq}\cos(2\theta),
+\end{align*}
+
+\end_inset
+
+de donde se obtiene la primera parte del enunciado.
+ Aplicando el punto 1 a las submatrices cuadradas de 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ con las filas y columnas 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $q$
+\end_inset
+
+, 
+\begin_inset Formula $a_{pp}^{2}+a_{qq}^{2}+2a_{pq}^{2}=b_{pp}^{2}+b_{qq}^{2}+2b_{pq}^{2}$
+\end_inset
+
+.
+ Por la estructura de 
+\begin_inset Formula $O$
+\end_inset
+
+, las columnas de 
+\begin_inset Formula $AO$
+\end_inset
+
+ son las de 
+\begin_inset Formula $A$
+\end_inset
+
+ excepto 
+\begin_inset Formula $A_{p}$
+\end_inset
+
+ y 
+\begin_inset Formula $A_{q}$
+\end_inset
+
+, y dada 
+\begin_inset Formula $C:=(c_{ij})\in{\cal M}_{n}(\mathbb{R})$
+\end_inset
+
+, 
+\begin_inset Formula $O^{t}C$
+\end_inset
+
+ tiene las mismas filas que 
+\begin_inset Formula $C$
+\end_inset
+
+ salvo 
+\begin_inset Formula $c_{p}$
+\end_inset
+
+ y 
+\begin_inset Formula $c_{q}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $b_{kk}=a_{kk}$
+\end_inset
+
+ para 
+\begin_inset Formula $k\neq i,j$
+\end_inset
+
+ pero 
+\begin_inset Formula $b_{pq}^{2}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\sum_{k}b_{kk}^{2}=\sum_{k\neq i,j}b_{kk}^{2}+b_{pp}^{2}+b_{qq}^{2}=\sum_{k\neq i,j}a_{kk}^{2}+a_{pp}^{2}+a_{qq}^{2}+2a_{pq}^{2}=\sum_{k}a_{kk}^{2}+2a_{pq}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Para el 
+\begin_inset Formula $\theta$
+\end_inset
+
+ descrito en el apartado anterior, sean 
+\begin_inset Formula $x:=\frac{a_{qq}-a_{pp}}{2a_{pq}}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+t:=\begin{cases}
+-x+\sqrt{x^{2}+1} & \text{si }x\geq0,\\
+-x-\sqrt{x^{2}+1} & \text{si }x<0,
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $c:=\frac{1}{\sqrt{1+t^{2}}}$
+\end_inset
+
+ y 
+\begin_inset Formula $s:=\frac{t}{\sqrt{1+t^{2}}}$
+\end_inset
+
+, para 
+\begin_inset Formula $i,j\neq p,q$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+b_{pp} & =a_{pp}-ta_{pq}, & b_{qq} & =a_{qq}+ta_{pq}, & b_{pq} & =0,\\
+b_{pi}=b_{ip} & =ca_{ip}-sa_{iq}, & b_{qi}=b_{iq} & =sa_{ip}+ca_{iq}, & b_{ij} & =a_{ij}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $x:=\frac{a_{qq}-a_{pp}}{2a_{pq}}$
+\end_inset
+
+ y 
+\begin_inset Formula $t:=\tan\theta$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $x=\cot2\theta=\frac{\cos^{2}\theta-\sin^{2}\theta}{2\sin\theta\cos\theta}=\frac{1-\tan^{2}\theta}{2\tan\theta}=\frac{1-t^{2}}{2t}$
+\end_inset
+
+, luego 
+\begin_inset Formula $t^{2}-2xt-1=0$
+\end_inset
+
+ y 
+\begin_inset Formula $t=\frac{2x\pm\sqrt{4x^{2}+4}}{2}=x\pm\sqrt{x^{2}+1}$
+\end_inset
+
+, y como 
+\begin_inset Formula $|t|\leq1$
+\end_inset
+
+ porque 
+\begin_inset Formula $|\theta|\leq\frac{\pi}{4}$
+\end_inset
+
+, queda el valor de 
+\begin_inset Formula $t$
+\end_inset
+
+ dado.
+ Como 
+\begin_inset Formula $|\theta|\leq\frac{\pi}{4}$
+\end_inset
+
+, 
+\begin_inset Formula $\cos\theta>0$
+\end_inset
+
+, y como 
+\begin_inset Formula $\tan^{2}\theta+1=\frac{1}{\cos^{2}\theta}$
+\end_inset
+
+, 
+\begin_inset Formula $\cos\theta=c$
+\end_inset
+
+ y 
+\begin_inset Formula $\sin\theta=s$
+\end_inset
+
+.
+ Entonces los casos 
+\begin_inset Formula $b_{pi}$
+\end_inset
+
+, 
+\begin_inset Formula $b_{qi}$
+\end_inset
+
+, 
+\begin_inset Formula $b_{ip}$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{iq}$
+\end_inset
+
+ son obvios, y 
+\begin_inset Formula $b_{pq}$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{qp}$
+\end_inset
+
+ vienen dados por el ejercicio anterior.
+ Finalmente,
+\begin_inset Formula 
+\begin{align*}
+b_{pp} & =c(a_{pp}c-a_{qp}s)-s(a_{qp}c-a_{qq}s)=a_{pp}c^{2}+a_{qq}s^{2}-2csa_{pq}=\\
+ & =a_{pp}+s^{2}(a_{qq}-a_{pp})-2csa_{pq}=a_{pp}+\frac{t^{2}}{t^{2}+1}x2a_{pq}-\frac{2t}{t^{2}+1}a_{pq}=\\
+ & =a_{pp}+\frac{t(1-t^{2})}{t^{2}+1}a_{pq}-\frac{2t}{t^{2}+1}a_{pq}=a_{pp}-ta_{pq};\\
+b_{qq} & =s(a_{pp}s+a_{pq}c)+c(a_{qp}s+a_{qq}c)=a_{pp}s^{2}+a_{qq}c^{2}+2csa_{pq}=\\
+ & =a_{qq}+s^{2}(a_{pp}-a_{qq})+2csa_{pq}=a_{qq}-\frac{t^{2}}{t^{2}+1}x2a_{pq}+\frac{2t}{t^{2}+1}a_{pq}=\\
+ & =a_{qq}-\frac{t(1-t^{2})}{t^{2}+1}a_{pq}+\frac{2t}{t^{2}+1}a_{pq}=a_{qq}+ta_{pq}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Matriz simétrica real $A:=(a_{ij})$ de tamaño $n$ y nivel de tolerancia
+ a errores $e>0$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Vector $
+\backslash
+lambda$ de tamaño $n$ que aproxima los valores propios de $A$ y matriz ortogonal
+ $
+\backslash
+Omega$ de tamaño $n$ cuyas columnas aproximan los correspondientes vectores
+ propios.}
+\end_layout
+
+\begin_layout Plain Layout
+
+$
+\backslash
+Omega
+\backslash
+gets I_n$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{$
+\backslash
+sum_{1
+\backslash
+leq i<j
+\backslash
+leq n} a_{ij}
+\backslash
+leq e$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+tcp{{
+\backslash
+rm Elegimos $p$ y $q$ por el {
+\backslash
+bf criterio de Jacobi clásico}, y
+\end_layout
+
+\begin_layout Plain Layout
+
+               por la condición de parada elegida, $a_{pq}>0$.}}
+\end_layout
+
+\begin_layout Plain Layout
+
+	Establecer $p<q$ tales que $|a_{pq}|=
+\backslash
+max_{i<j}|a_{ij}|$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$x
+\backslash
+gets{a_{qq}-a{pp}
+\backslash
+over2a_{pq}}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$x
+\backslash
+geq0$}{$t
+\backslash
+gets-x+
+\backslash
+sqrt{x^2+1}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lEnOtroCaso{$t
+\backslash
+gets-x-
+\backslash
+sqrt{x^2+1}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$c
+\backslash
+gets{1
+\backslash
+over
+\backslash
+sqrt{1+t^2}}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$s
+\backslash
+gets{t
+\backslash
+over
+\backslash
+sqrt{1+t^2}}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$b_{pp}
+\backslash
+gets a_{pp}-ta_{pq}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$b_{qq}
+\backslash
+gets a_{qq}+ta_{pq}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$b_{pq},b_{qp}
+\backslash
+gets0$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$i
+\backslash
+neq p,q$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		$b_{pi},b_{ip}
+\backslash
+gets ca_{ip}-sa_{iq}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		$b_{qi},b_{iq}
+\backslash
+gets sa_{ip}+ca_{iq}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lPara{$i,j
+\backslash
+neq p,q$}{$b_{ij}
+\backslash
+gets a_{ij}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$A
+\backslash
+gets (b_{ij})$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+tcp*{$A
+\backslash
+gets O^tAO$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$i
+\backslash
+gets1$ 
+\backslash
+KwA $n$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		$o_{ip}
+\backslash
+gets c
+\backslash
+omega_{ip}-s
+\backslash
+omega_{iq}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		$o_{iq}
+\backslash
+gets s
+\backslash
+omega_{ip}-c
+\backslash
+omega_{iq}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lPara{$j
+\backslash
+neq p,q$}{$o_{ij}
+\backslash
+gets
+\backslash
+omega_{ij}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$
+\backslash
+Omega
+\backslash
+gets (o_{ij})$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+tcp*{$
+\backslash
+Omega
+\backslash
+gets
+\backslash
+Omega*O$}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+$
+\backslash
+lambda
+\backslash
+gets
+\backslash
+text{diagonal de }A$
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:jacobi"
+
+\end_inset
+
+Método de Jacobi clásico.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con esto, el método de Jacobi clásico es el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:jacobi"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, que en cada iteración multiplica implícitamente 
+\begin_inset Formula $A$
+\end_inset
+
+ por la matriz de giro 
+\begin_inset Formula $O$
+\end_inset
+
+ que anula 
+\begin_inset Formula $a_{pq}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+teorema de convergencia del método de Jacobi clásico
+\series default
+ nos dice que, dada una matriz 
+\begin_inset Formula $A\in{\cal M}_{n}(\mathbb{R})$
+\end_inset
+
+ simétrica, si para 
+\begin_inset Formula $k\geq0$
+\end_inset
+
+ llamamos 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+ a la matriz 
+\begin_inset Formula $A$
+\end_inset
+
+ tras 
+\begin_inset Formula $k$
+\end_inset
+
+ iteraciones del bucle y 
+\begin_inset Formula $\Omega_{k}$
+\end_inset
+
+ a la matriz 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ tras 
+\begin_inset Formula $k$
+\end_inset
+
+ iteraciones, ignorando la condición de parada y dejando 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ sin modificar si 
+\begin_inset Formula $A$
+\end_inset
+
+ es diagonal, 
+\begin_inset Formula $(A_{k})_{k}$
+\end_inset
+
+ converge a una matriz diagonal cuya diagonal está formada por los valores
+ propios de 
+\begin_inset Formula $A$
+\end_inset
+
+, y si además estos son distintos dos a dos, 
+\begin_inset Formula $(\Omega_{k})_{k}$
+\end_inset
+
+ converge a una matriz ortogonal cuyas columnas son los correspondientes
+ vectores propios de 
+\begin_inset Formula $A$
+\end_inset
+
+, en el mismo orden.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Si algún 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+ es diagonal, esto ya ocurre, pues 
+\begin_inset Formula $\Omega_{k}$
+\end_inset
+
+ es ortogonal y 
+\begin_inset Formula $A_{k}=\Omega_{k}^{t}A\Omega_{k}$
+\end_inset
+
+, por lo que supondremos que ningún 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+ lo es.
+ Por tanto 
+\begin_inset Formula $A$
+\end_inset
+
+ es de tamaño 
+\begin_inset Formula $n\geq3$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Vemos primero que, si 
+\begin_inset Formula $(x_{k})_{k}$
+\end_inset
+
+ es una sucesión acotada en un 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-espacio normado 
+\begin_inset Formula $X$
+\end_inset
+
+ de dimensión finita con una cantidad finita de puntos de acumulación 
+\begin_inset Formula $a_{1},\dots,a_{M}$
+\end_inset
+
+ y 
+\begin_inset Formula 
+\[
+\lim_{k}\Vert x_{k+1}-x_{k}\Vert=0,
+\]
+
+\end_inset
+
+ entonces 
+\begin_inset Formula $(x_{k})_{k}$
+\end_inset
+
+ es convergente.
+ Sea 
+\begin_inset Formula 
+\[
+\epsilon:=\frac{1}{3}\min_{i\neq j}\Vert a_{i}-a_{j}\Vert>0.
+\]
+
+\end_inset
+
+Existe un 
+\begin_inset Formula $k_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $k\geq k_{0}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+x_{k}\in\bigcup_{k=1}^{M}B(a_{k},\epsilon),
+\]
+
+\end_inset
+
+pues en otro caso existiría una subsucesión 
+\begin_inset Formula $(x_{k_{m}})_{m}$
+\end_inset
+
+ de 
+\begin_inset Formula $(x_{k})_{k}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $x_{k_{m}}\notin\bigcup_{i=1}^{M}B(a_{k},\epsilon)$
+\end_inset
+
+, pero esta subsucesión está en un espacio acotado y, por tanto, tiene un
+ punto de acumulación.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\begin_inset Formula $\lim_{k}\Vert x_{k+1}-x_{k}\Vert=0$
+\end_inset
+
+, existe 
+\begin_inset Formula $k_{1}\geq k_{0}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $k\geq k_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert x_{k+1}-x_{k}\Vert<\epsilon$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $i_{0}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $x_{k_{1}}\in B(a_{i_{0}},\epsilon)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\Vert x_{k_{1}+1}-a_{i_{0}}\Vert\leq\Vert x_{k_{1}+1}-x_{k_{1}}\Vert+\Vert x_{k_{1}}-a_{i_{0}}\Vert<2\epsilon$
+\end_inset
+
+, y por la desigualdad triangular, 
+\begin_inset Formula $\Vert x_{k_{1}+1}-a_{i}\Vert>\varepsilon$
+\end_inset
+
+ para 
+\begin_inset Formula $i\neq i_{0}$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $x_{k_{1}+1}\in B(a_{i_{0}},\varepsilon)$
+\end_inset
+
+, y por inducción, 
+\begin_inset Formula $x_{k}\in B(a_{i_{0}},\varepsilon)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $k\geq k_{1}$
+\end_inset
+
+, con lo que solo hay un punto de acumulación, 
+\begin_inset Formula $a_{i_{0}}$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $\lim_{k}x_{k}=a_{i_{0}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para la primera parte del teorema, sean 
+\begin_inset Formula $A_{k}=:(a_{kij})_{ij}$
+\end_inset
+
+ y 
+\begin_inset Formula $\varepsilon_{k}:=\sum_{i\neq j}(a_{kij})^{2}$
+\end_inset
+
+.
+ Dados los 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $q$
+\end_inset
+
+ de la iteración 
+\begin_inset Formula $k$
+\end_inset
+
+, restringiéndonos a la submatriz de 
+\begin_inset Formula $A$
+\end_inset
+
+ formada por las filas y columnas 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $q$
+\end_inset
+
+, la suma de los elementos de los 4 coeficientes se conserva tras el giro,
+ luego 
+\begin_inset Formula $2a_{kpq}^{2}+a_{kpp}^{2}+a_{kqq}^{2}=a_{(k+1)pp}^{2}+a_{(k+1)qq}^{2}$
+\end_inset
+
+.
+ Además, la suma de los cuadrados de los elementos de 
+\begin_inset Formula $A$
+\end_inset
+
+ no cambia, y tampoco cambian los elementos de su diagonal distintos de
+ 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $q$
+\end_inset
+
+, y como 
+\begin_inset Formula $\varepsilon_{k}$
+\end_inset
+
+ es la suma de los cuadrados de los elementos de 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+ fuera de la diagonal, 
+\begin_inset Formula $\varepsilon_{k+1}=\varepsilon_{k}-2(a_{kpq})^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\begin_inset Formula $a_{pq}=\max_{i\neq j}|a_{ij}|$
+\end_inset
+
+, 
+\begin_inset Formula $\varepsilon_{k}\leq n(n-1)a_{kpq}^{2}$
+\end_inset
+
+, pues 
+\begin_inset Formula $n(n-1)$
+\end_inset
+
+ es el número de elementos fuera de la diagonal principal.
+ Así, 
+\begin_inset Formula $a_{kpq}^{2}\geq\frac{\varepsilon_{k}}{n(n-1)}$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+\varepsilon_{k+1}\leq\left(1-\frac{2}{n(n-1)}\right)\varepsilon_{k},
+\]
+
+\end_inset
+
+de donde 
+\begin_inset Formula $\lim_{k}\varepsilon_{k}=0$
+\end_inset
+
+ y los elementos de 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+ fuera de la diagonal convergen a 0, y queda ver que los elementos de la
+ diagonal también convergen.
+ 
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $D_{k}:=\text{diag}(a_{k11},\dots,a_{knn})$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $(D_{k_{m}})_{m}$
+\end_inset
+
+ una subsucesión de 
+\begin_inset Formula $(D_{k})_{k}$
+\end_inset
+
+, por continuidad, y como los elementos de 
+\begin_inset Formula $A_{k_{m}}$
+\end_inset
+
+ fuera de la diagonal convergen a 0, 
+\begin_inset Formula $\lim_{m}\det(\lambda I_{n}-A_{k_{m}})=\det(\lambda I_{n}-D)$
+\end_inset
+
+.
+ Pero 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $A$
+\end_inset
+
+ son semejantes, luego tienen el mismo polinomio característico y, por tanto,
+ este coincide con el de 
+\begin_inset Formula $D$
+\end_inset
+
+.
+ Así, los elementos de la diagonal de 
+\begin_inset Formula $D$
+\end_inset
+
+ son los valores propios de 
+\begin_inset Formula $A$
+\end_inset
+
+ y con las mismas multiplicidades.
+ Por tanto, los puntos de acumulación de 
+\begin_inset Formula $(D_{k})_{k}$
+\end_inset
+
+ son las diagonales formadas por los valores propios de 
+\begin_inset Formula $A$
+\end_inset
+
+ en distinto orden, de las que hay un máximo de 
+\begin_inset Formula $n!$
+\end_inset
+
+, y en particular 
+\begin_inset Formula $(D_{k})_{k}$
+\end_inset
+
+ tiene una cantidad finita de puntos de acumulación.
+\end_layout
+
+\begin_layout Standard
+Tenemos que 
+\begin_inset Formula $\lim_{k}(D_{k+1}-D_{k})=0$
+\end_inset
+
+.
+ En efecto,
+\begin_inset Formula 
+\[
+a_{(k+1)ii}-a_{kii}=\begin{cases}
+0, & i\neq p,q;\\
+-\tan\theta_{k}a_{kpq}, & i=p;\\
+\tan\theta_{k}a_{kpq}, & i=q;
+\end{cases}
+\]
+
+\end_inset
+
+pero 
+\begin_inset Formula $|\tan\theta_{k}|\leq1$
+\end_inset
+
+ por ser 
+\begin_inset Formula $\theta_{k}\in(-\frac{\pi}{4},\frac{\pi}{4}]$
+\end_inset
+
+, y 
+\begin_inset Formula $|a_{kpq}|\leq\sqrt{\varepsilon_{k}}\to0$
+\end_inset
+
+.
+ Además, 
+\begin_inset Formula $(D_{k})_{k}$
+\end_inset
+
+ está acotada, pues 
+\begin_inset Formula $\Vert D_{k}\Vert_{E}\leq\Vert A_{k}\Vert_{E}=\Vert A\Vert_{E}$
+\end_inset
+
+.
+ Aplicando la propiedad al principio, 
+\begin_inset Formula $(D_{k})_{k}$
+\end_inset
+
+ converge a una diagonal formada por los valores propios de 
+\begin_inset Formula $A$
+\end_inset
+
+ en algún orden, y por tanto 
+\begin_inset Formula $(A_{k})_{k}$
+\end_inset
+
+ también.
+\end_layout
+
+\begin_layout Standard
+Para la segunda parte, sea 
+\begin_inset Formula $(\Omega_{k_{m}})_{m}$
+\end_inset
+
+ una subsucesión de 
+\begin_inset Formula $(\Omega_{k})_{k}$
+\end_inset
+
+ que converge a un cierto punto acumulación 
+\begin_inset Formula $P$
+\end_inset
+
+ de 
+\begin_inset Formula $(\Omega_{k})_{k}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\Omega_{k_{m}}^{t}\to P^{t}$
+\end_inset
+
+ e 
+\begin_inset Formula $I_{n}=\Omega_{k_{m}}^{t}\Omega_{k_{m}}\to P^{t}P$
+\end_inset
+
+, luego 
+\begin_inset Formula $P^{t}P=I_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $P$
+\end_inset
+
+ es ortogonal.
+ Como 
+\begin_inset Formula $\Omega_{k}^{t}A\Omega_{k}\to D$
+\end_inset
+
+, 
+\begin_inset Formula $P^{t}AP=D$
+\end_inset
+
+, lo que implica que las columnas de 
+\begin_inset Formula $P$
+\end_inset
+
+ forman una base ortonormal de vectores propios asociados a los valores
+ propios en 
+\begin_inset Formula $D$
+\end_inset
+
+.
+ Como estamos suponiendo que todos los valores propios son distintos, cada
+ uno tiene un subespacio propio de dimensión 1 y hay exactamente dos vectores
+ propios ortonormales, uno opuesto del otro, para cada valor propio, pudiendo
+ escribir
+\begin_inset Formula 
+\[
+P=:\begin{pmatrix}| &  & |\\
+\pm p_{1} & \cdots & \pm p_{n}\\
+| &  & |
+\end{pmatrix},
+\]
+
+\end_inset
+
+con lo que los puntos de acumulación de 
+\begin_inset Formula $(\Omega_{k})_{k}$
+\end_inset
+
+ solo se diferencian en el signo de las columnas y por tanto hay un máximo
+ de 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+, en particular una cantidad finita.
+\end_layout
+
+\begin_layout Standard
+Dada una matriz ortogonal 
+\begin_inset Formula $O$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert O\Vert_{2}=1$
+\end_inset
+
+, y como todas las normas en 
+\begin_inset Formula ${\cal M}_{n}(\mathbb{R})\cong\mathbb{R}^{n^{2}}$
+\end_inset
+
+ son equivalentes, existe 
+\begin_inset Formula $\beta>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\Vert O\Vert_{E}\leq\beta\Vert O\Vert_{2}=\beta$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $(\Omega_{k})_{k}$
+\end_inset
+
+ está acotada.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\theta_{k}$
+\end_inset
+
+ es tal que 
+\begin_inset Formula $t=\tan(2\theta_{k})$
+\end_inset
+
+ en la iteración 
+\begin_inset Formula $k$
+\end_inset
+
+, en esta iteración,
+\begin_inset Formula 
+\[
+\tan(2\theta_{k})=\frac{2a_{kpq}}{a_{kqq}-a_{kpp}}.
+\]
+
+\end_inset
+
+Como cada 
+\begin_inset Formula $(a_{kii})_{k}$
+\end_inset
+
+ converge a un valor propio, existe 
+\begin_inset Formula $k_{0}$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $k\geq k_{0}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\min_{i\neq j}|a_{kii}-a_{kjj}|\geq\frac{1}{2}\min_{i\neq j}|\lambda_{i}-\lambda_{j}|=:M>0,
+\]
+
+\end_inset
+
+con lo que 
+\begin_inset Formula $|a_{kqq}-a_{kpp}|\geq M$
+\end_inset
+
+ y, como todos los elementos de 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+ fuera de la diagonal principal tienden a 0, 
+\begin_inset Formula $(a_{kpq})_{k}$
+\end_inset
+
+ tiende a cero (aunque 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $q$
+\end_inset
+
+ cambien según 
+\begin_inset Formula $k$
+\end_inset
+
+), 
+\begin_inset Formula $\tan\theta_{k}\to0$
+\end_inset
+
+ y, como 
+\begin_inset Formula $|\theta_{k}|\leq\frac{\pi}{4}$
+\end_inset
+
+, 
+\begin_inset Formula $\theta_{k}\to0$
+\end_inset
+
+, luego si 
+\begin_inset Formula $O_{k}$
+\end_inset
+
+ es el giro tal que 
+\begin_inset Formula $\Omega_{k+1}=\Omega_{k}O_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $O_{k}\to I_{n}$
+\end_inset
+
+ y, por tanto, 
+\begin_inset Formula $\lim_{k}(\Omega_{k+1}-\Omega_{k})=\lim_{k}(O_{k}-I_{n})\Omega_{k}=0$
+\end_inset
+
+, pues 
+\begin_inset Formula $(\Omega_{k})_{k}$
+\end_inset
+
+ está acotada.
+ Con esto, y aplicando la propiedad del principio, 
+\begin_inset Formula $(\Omega_{k})_{k}$
+\end_inset
+
+ converge a una matriz, cuyas columnas formaran una base ortonormal de vectores
+ propios en el mismo orden que los valores propios de 
+\begin_inset Formula $D$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Método QR
+\end_layout
+
+\begin_layout Standard
+Dada una matriz 
+\begin_inset Formula $A\in{\cal M}_{n}$
+\end_inset
+
+, definimos la sucesión 
+\begin_inset Formula $(A_{k})_{k}$
+\end_inset
+
+ como 
+\begin_inset Formula $A_{0}:=A$
+\end_inset
+
+ y 
+\begin_inset Formula $A_{k+1}:=R_{k}Q_{k}$
+\end_inset
+
+, donde 
+\begin_inset Formula $(Q_{k},R_{k})$
+\end_inset
+
+ es la descomposición QR de 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+.
+ Bajo ciertas condiciones, esta sucesión tiende a una matriz triangular
+ superior, con los valores propios en la diagonal.
+\end_layout
+
+\begin_layout Standard
+Para obtener una aproximación de los valores propios a partir de una aproximació
+n 
+\begin_inset Formula $A_{p}:=(u_{ij})$
+\end_inset
+
+ de dicha matriz, definimos una matriz 
+\begin_inset Formula $V:=(v_{ij})\in{\cal M}_{n}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+v_{ij}:=\begin{cases}
+1, & i=j;\\
+0, & i>j;\\
+{\displaystyle -\frac{1}{u_{ii}-u_{jj}}\sum_{k=i+1}^{j}u_{ik}v_{kj}}, & i<j;
+\end{cases}
+\]
+
+\end_inset
+
+y los vectores propios son las columnas de 
+\begin_inset Formula $Q_{1}\cdots Q_{p}V$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
