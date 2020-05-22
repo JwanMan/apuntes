@@ -1,0 +1,1121 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\usepackage{blkarray}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Iteración de punto fijo
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{CN}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado un espacio métrico 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+, 
+\begin_inset Formula $f:X\to X$
+\end_inset
+
+ es 
+\series bold
+contractiva
+\series default
+ si existe 
+\begin_inset Formula $c\in(0,1)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall x,y\in X,d(f(x),f(y))\leq cd(x,y)$
+\end_inset
+
+, y decimos que 
+\begin_inset Formula $c$
+\end_inset
+
+ es una 
+\series bold
+constante de contractividad
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ [...] 
+\series bold
+Teorema del punto fijo de Banach:
+\series default
+ Si 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ es completo y 
+\begin_inset Formula $f:X\to X$
+\end_inset
+
+ es contractiva con constante 
+\begin_inset Formula $c$
+\end_inset
+
+, existe un único punto fijo 
+\begin_inset Formula $\xi\in X$
+\end_inset
+
+ y la sucesión dada por 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ arbitrario y 
+\begin_inset Formula $x_{n+1}=f(x)$
+\end_inset
+
+ converge a 
+\begin_inset Formula $\xi$
+\end_inset
+
+ con
+\begin_inset Formula 
+\[
+d(x_{n},\xi)\leq\frac{c^{n}}{1-c}d(x_{0},x_{1}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{FVV1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Definimos la norma de una aplicación 
+\begin_inset Formula $L:(E,\Vert\cdot\Vert)\rightarrow(F,\Vert\cdot\Vert')$
+\end_inset
+
+ como 
+\begin_inset Formula $\Vert L\Vert:=[...]\sup\{\Vert L(x)\Vert'\}_{x\in E,\Vert x\Vert\leq1}$
+\end_inset
+
+ [...].
+\end_layout
+
+\begin_layout Standard
+[...] En 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+, todas las normas son equivalentes.
+ [...] Un 
+\series bold
+espacio de Banach
+\series default
+ es un espacio normado completo.
+ [...] 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ es un espacio de Banach con cualquier norma.
+ 
+\end_layout
+
+\begin_layout Standard
+[...] El 
+\series bold
+teorema del incremento finito
+\series default
+ afirma que, sean 
+\begin_inset Formula $f:\Omega\subseteq\mathbb{R}^{m}\rightarrow\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $a,b\in\Omega$
+\end_inset
+
+ con el segmento 
+\begin_inset Formula $[a,b]\subseteq\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $L:\mathbb{R}^{m}\rightarrow\mathbb{R}^{n}$
+\end_inset
+
+ lineal, si 
+\begin_inset Formula $\Vert df(x)\Vert\leq M$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $\Vert f(b)-f(a)\Vert\leq M\Vert b-a\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember{FVV1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ abierto, 
+\begin_inset Formula $f:\Omega\to\mathbb{R}^{n}$
+\end_inset
+
+ 
+\begin_inset Formula ${\cal C}^{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in\Omega$
+\end_inset
+
+ un punto fijo de 
+\begin_inset Formula $f$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert df(x)\Vert<1$
+\end_inset
+
+, existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f(\overline{B}(x,\delta))\subseteq\overline{B}(x,r)$
+\end_inset
+
+, y toda sucesión 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $x_{0}\in\overline{B}(x,\delta)$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{k+1}:=f(x_{k})$
+\end_inset
+
+ converge.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $R:=[a_{1},b_{1}]\times\dots\times[a_{n},b_{n}]$
+\end_inset
+
+, 
+\begin_inset Formula $f:R\to R$
+\end_inset
+
+ diferenciable y 
+\begin_inset Formula $K\in(0,1)$
+\end_inset
+
+ tal que
+\begin_inset Formula 
+\[
+\left|\frac{\partial f_{i}}{\partial x_{j}}(x)\right|\leq\frac{K}{n}
+\]
+
+\end_inset
+
+para cada 
+\begin_inset Formula $x\in R$
+\end_inset
+
+ e 
+\begin_inset Formula $i,j\in\{1,\dots,n\}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\Vert df\Vert_{\infty}\leq K$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+aceleración de Gauss-Seidel
+\series default
+ de una iteración de punto fijo consiste en considerar, en vez de 
+\begin_inset Formula $x_{k+1}:=g(x_{k})$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{eqnarray*}
+x_{(k+1)1} & := & g_{1}(x_{k1},\dots,x_{kn}),\\
+x_{(k+1)2} & := & g_{2}(x_{(k+1)1},x_{k2},\dots,x_{kn}),\\
+ & \vdots\\
+x_{(k+1)n} & := & g_{n}(x_{(k+1)1},\dots,x_{(k+1)(n-1)},x_{kn}).
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Método de Newton
+\end_layout
+
+\begin_layout Standard
+Consideremos una ecuación 
+\begin_inset Formula $f(x)=0$
+\end_inset
+
+ con 
+\begin_inset Formula $f:\mathbb{R}^{n}\to\mathbb{R}^{n}$
+\end_inset
+
+ diferenciable.
+ Sustituyendo 
+\begin_inset Formula $f$
+\end_inset
+
+ por su polinomio de Taylor de primer orden en 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ tenemos 
+\begin_inset Formula $f(x_{0})+df(x_{0})(x-x_{0})=0$
+\end_inset
+
+, lo que nos da una aproximación de 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $f:\Omega\subseteq\mathbb{R}^{n}\to\mathbb{R}^{n}$
+\end_inset
+
+ es 
+\begin_inset Formula ${\cal C}^{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\xi\in\Omega$
+\end_inset
+
+ es un cero de 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $df(\xi)$
+\end_inset
+
+ es no singular, existe 
+\begin_inset Formula $r>0$
+\end_inset
+
+ tal que, para todo 
+\begin_inset Formula $x\in B(\xi,r)$
+\end_inset
+
+, la sucesión dada por 
+\begin_inset Formula $x_{0}:=x$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{k+1}:=x_{k}-df(x_{k})^{-1}f(x_{k})$
+\end_inset
+
+ converge a 
+\begin_inset Formula $\xi$
+\end_inset
+
+, y existe 
+\begin_inset Formula $M>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula 
+\[
+\Vert x_{k+1}-\xi\Vert\leq M\Vert x_{k}-\xi\Vert^{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración
+\series default
+ para 
+\begin_inset Formula $n=2$
+\end_inset
+
+
+\series bold
+:
+\series default
+ Queremos ver que 
+\begin_inset Formula $g(x):=x-df(x)^{-1}f(x)$
+\end_inset
+
+ es contractiva cerca de 
+\begin_inset Formula $\xi$
+\end_inset
+
+, para lo que basta ver que es 
+\begin_inset Formula ${\cal C}^{1}$
+\end_inset
+
+ y que 
+\begin_inset Formula $dg(\xi)=0$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $f$
+\end_inset
+
+ es 
+\begin_inset Formula ${\cal C}^{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\det\circ df$
+\end_inset
+
+ es continua y diferenciable en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, y en particular, en un entorno de 
+\begin_inset Formula $\xi$
+\end_inset
+
+, las diferenciales tienen inversa
+\begin_inset Formula 
+\[
+df(x)^{-1}\equiv\frac{1}{\det df(x)}\begin{pmatrix}\frac{\partial f_{2}}{\partial x_{2}}(x) & -\frac{\partial f_{1}}{\partial x_{2}}(x)\\
+\frac{\partial f_{2}(x)}{\partial x_{1}}(x) & \frac{\partial f_{1}(x)}{\partial x_{1}}(x)
+\end{pmatrix}=:\begin{pmatrix}a_{11}(x) & a_{12}(x)\\
+a_{21}(x) & a_{22}(x)
+\end{pmatrix},
+\]
+
+\end_inset
+
+y 
+\begin_inset Formula $a_{11},a_{12},a_{21},a_{22}$
+\end_inset
+
+ son 
+\begin_inset Formula ${\cal C}^{1}$
+\end_inset
+
+.
+ Entonces
+\begin_inset Formula 
+\[
+g(x,y):=\begin{pmatrix}x-a_{11}(x,y)f_{1}(x,y)-a_{12}(x,y)f_{2}(x,y)\\
+y-a_{21}(x,y)f_{1}(x,y)-a_{22}(x,y)f_{2}(x,y)
+\end{pmatrix}.
+\]
+
+\end_inset
+
+Las derivadas parciales de 
+\begin_inset Formula $g_{1}$
+\end_inset
+
+ son
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\partial g_{1}}{\partial x_{1}}(x) & = & 1-\frac{\partial a_{11}}{\partial x_{1}}(x)f_{1}(x)-a_{11}(x)\frac{\partial f_{1}}{\partial x_{1}}(x)-\frac{\partial a_{12}}{\partial x_{1}}(x)f_{2}(x)-a_{12}(x)\frac{\partial f_{2}}{\partial x_{1}}(x),\\
+\frac{\partial g_{1}}{\partial x_{2}}(x) & = & -\frac{\partial a_{11}}{\partial x_{2}}(x)f_{1}(x)-a_{11}(x)\frac{\partial f_{1}}{\partial x_{2}}(x)-\frac{\partial a_{12}}{\partial x_{2}}(x)f_{2}(x)-a_{12}(x)\frac{\partial f_{2}}{\partial x_{2}}(x).
+\end{eqnarray*}
+
+\end_inset
+
+Así, como 
+\begin_inset Formula $f(\xi)=0$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\partial g_{1}}{\partial x_{1}}(\xi) & = & 1-a_{11}(\xi)\frac{\partial f_{1}}{\partial x_{1}}(\xi)-a_{12}(\xi)\frac{\partial f_{2}}{\partial x_{1}}(\xi)\\
+ & = & 1-\frac{1}{\det df(x)}\left(\frac{\partial f_{2}}{\partial x_{2}}(\xi)\frac{\partial f_{1}}{\partial x_{1}}(\xi)-\frac{\partial f_{1}}{\partial x_{2}}(\xi)\frac{\partial f_{2}}{\partial x_{1}}(\xi)\right)=1-1=0;\\
+\frac{\partial g_{1}}{\partial x_{2}}(\xi) & = & -a_{11}(\xi)\frac{\partial f_{1}}{\partial x_{2}}(\xi)-a_{12}(\xi)\frac{\partial f_{2}}{\partial x_{2}}(\xi)\\
+ & = & -\frac{1}{\det df(x)}\left(\frac{\partial f_{2}}{\partial x_{2}}(\xi)\frac{\partial f_{1}}{\partial x_{2}}(\xi)-\frac{\partial f_{1}}{\partial x_{2}}(\xi)\frac{\partial f_{2}}{\partial x_{2}}(\xi)\right)=0.
+\end{eqnarray*}
+
+\end_inset
+
+Para 
+\begin_inset Formula $g_{2}$
+\end_inset
+
+ es análogo, y solo queda ver el orden de convergencia.
+ Dados un abierto conexo 
+\begin_inset Formula $C\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $f:C\to\mathbb{R}^{n}$
+\end_inset
+
+, si existe 
+\begin_inset Formula $K>0$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $x,y\in C$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert df(x)-df(y)\Vert\leq K\Vert x-y\Vert$
+\end_inset
+
+, entonces, para 
+\begin_inset Formula $x,y\in C$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\Vert f(x)-f(y)-df(y)(x-y)\Vert\leq\frac{K}{2}\Vert x-y\Vert^{2}.
+\]
+
+\end_inset
+
+ En efecto, sea 
+\begin_inset Formula $\varphi:[0,1]\to C$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\varphi(t):=f(y+t(x-y))$
+\end_inset
+
+, por la regla de la cadena, 
+\begin_inset Formula $\varphi'(t)=df(y+t(x-y))(x-y)$
+\end_inset
+
+, por lo que 
+\begin_inset Formula 
+\begin{align*}
+\Vert\varphi'(t)-\varphi'(0)\Vert & =\Vert(df(y+t(x-y))-df(y))(x-y)\Vert\leq\\
+ & \leq\Vert df(y+t(x-y))-df(y)\Vert\Vert x-y\Vert\leq Kt\Vert x-y\Vert^{2},
+\end{align*}
+
+\end_inset
+
+y como además 
+\begin_inset Formula 
+\[
+\Delta:=f(x)-f(y)-df(y)(x-y)=\varphi(1)-\varphi(0)-\varphi'(0)=\int_{0}^{1}(\varphi'(t)-\varphi'(0))dt,
+\]
+
+\end_inset
+
+queda
+\begin_inset Formula 
+\[
+\Vert\Delta\Vert\leq\int_{0}^{1}\Vert\varphi'(t)-\varphi'(0)\Vert dt\leq K\Vert x-y\Vert^{2}\int_{0}^{1}t\,dt=\frac{K}{2}\Vert x-y\Vert^{2}.
+\]
+
+\end_inset
+
+Cuando esto se cumple,
+\begin_inset Formula 
+\begin{align*}
+\Vert x_{k+1}-\xi\Vert & =\Vert(x_{k}-\xi)-df(x_{k})^{-1}f(x_{k})\Vert=\Vert df(x_{k})^{-1}(df(x_{k})(x_{k}-\xi)-f(x_{k}))\Vert\leq\\
+ & \leq\Vert df(x_{k})^{-1}\Vert\Vert df(x_{k})(x_{k}-\xi)-f(x_{k})\Vert\overset{f(\xi)=0}{=}\\
+ & =\Vert df(x_{k})^{-1}\Vert\Vert f(\xi)-f(x_{k})-df(x_{k})(\xi-x_{k})\Vert\leq\Vert df(x_{k})^{-1}\Vert\frac{K}{2}\Vert x_{k}-\xi\Vert^{2},
+\end{align*}
+
+\end_inset
+
+y tomando 
+\begin_inset Formula $M:=\frac{K}{2}\sup_{x\in B(\xi,r)}\Vert df(x)^{-1}\Vert$
+\end_inset
+
+ se obtiene la acotación.
+\end_layout
+
+\begin_layout Section
+Método de Broyden
+\end_layout
+
+\begin_layout Standard
+El método de Newton requiere calcular la matriz diferencial en cada iteración
+ (
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+ si se usa derivación numérica) y resolver un sistema lineal (
+\begin_inset Formula $O(n^{3})$
+\end_inset
+
+).
+ Para reducir el orden de complejidad, podemos aproximar la diferencial
+ con una matriz 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $A_{k}(x_{k}-x_{k-1})=f(x_{k})-f(x_{k-1})$
+\end_inset
+
+, con lo que solo necesitamos la diferencial para obtener 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+.
+ A cambio, pasamos de orden de convergencia cuadrático a supralineal.
+\end_layout
+
+\begin_layout Standard
+Podemos usar 
+\begin_inset Formula 
+\[
+A_{k}:=A_{k-1}+\frac{1}{\Vert x_{k}-x_{k-1}\Vert_{2}^{2}}f(x_{k})(x_{k}-x_{k-1})^{t},
+\]
+
+\end_inset
+
+tomando 
+\begin_inset Formula $A_{0}:=df(x_{0})$
+\end_inset
+
+.
+ En efecto, como 
+\begin_inset Formula $x_{k}=x_{k-1}-A_{k-1}^{-1}f(x_{k-1})$
+\end_inset
+
+, tenemos 
+\begin_inset Formula $A_{k-1}(x_{k}-x_{k-1})=f(x_{k-1})$
+\end_inset
+
+, y por tanto
+\begin_inset Formula 
+\[
+\left(A_{k-1}+\frac{1}{\Vert x_{k}-x_{k-1}\Vert_{2}^{2}}f(x_{k})(x_{k}-x_{k-1})^{t}\right)(x_{k}-x_{k-1})=A_{k-1}(x_{k}-x_{k-1})+f(x_{k})=f(x_{k})-f(x_{k-1}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para calcular la inversa de 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+ podemos usar la 
+\series bold
+fórmula de Sherman-Morrison
+\series default
+, 
+\begin_inset Formula 
+\[
+(A+vy^{t})^{-1}=A^{-1}-\frac{1}{1+y^{t}A^{-1}v}(A^{-1}v)(y^{t}A^{-1}),
+\]
+
+\end_inset
+
+suponiendo que 
+\begin_inset Formula $y^{t}A^{-1}x\neq-1$
+\end_inset
+
+.
+ Esto reduce el orden de complejidad de cada iteración a 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+ en el caso general.
+\end_layout
+
+\begin_layout Section
+Método del descenso rápido
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Función $f:
+\backslash
+mathbb{R}^n
+\backslash
+to
+\backslash
+mathbb{R}^n$, aproximación inicial $x
+\backslash
+in
+\backslash
+mathbb{R}^n$, margen de error $e>0$ y tolerancia $t>0$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{$x$ tal que $f(x)
+\backslash
+approx 0$, o error indicando que no se puede mejorar la aproximación.}
+\end_layout
+
+\begin_layout Plain Layout
+
+Definir $g(x):=
+\backslash
+sum_{k=1}^n f_k(x)^2$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{$g(x)>e$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$u
+\backslash
+gets{
+\backslash
+nabla g(x) 
+\backslash
+over 
+\backslash
+Vert
+\backslash
+nabla g(x)
+\backslash
+Vert}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$
+\backslash
+alpha
+\backslash
+gets 1$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lMientras{$g(x-
+\backslash
+alpha u) > g(x)$}{$
+\backslash
+alpha
+\backslash
+gets
+\backslash
+frac12
+\backslash
+alpha$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$|
+\backslash
+alpha|<t$}{
+\backslash
+Devolver error}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+tcp{{
+\backslash
+rm Interpolar en $(0,g(x)),(
+\backslash
+frac
+\backslash
+alpha2,g(x+
+\backslash
+frac
+\backslash
+alpha2u)),(
+\backslash
+alpha,g(x+
+\backslash
+alpha u))$.}}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$g_0
+\backslash
+gets g(x)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$g_1
+\backslash
+gets g(x+
+\backslash
+frac
+\backslash
+alpha2u)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$g_2
+\backslash
+gets g(x+
+\backslash
+alpha u)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$h_0
+\backslash
+gets {2(g_1 - g_0) 
+\backslash
+over 
+\backslash
+alpha}$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+tcp*{{
+\backslash
+rm Usamos diferencias divididas de Newton.}}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$h_1
+\backslash
+gets {2(g_2 - g_1) 
+\backslash
+over 
+\backslash
+alpha}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$h_{01}
+\backslash
+gets {h_2 - h_1 
+\backslash
+over 
+\backslash
+alpha}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+tcp{{
+\backslash
+rm Obtener y usar el vértice de la parábola resultante.}}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$
+\backslash
+alpha_0 
+\backslash
+gets 
+\backslash
+frac12 (
+\backslash
+frac
+\backslash
+alpha2 - 
+\backslash
+frac{h_0}{h_{01}})$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$g(x+
+\backslash
+alpha_0u) < g_2$}{$x 
+\backslash
+gets x + 
+\backslash
+alpha_0u$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lEnOtroCaso{$x 
+\backslash
+gets x + 
+\backslash
+alpha u$}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:steepest-descent"
+
+\end_inset
+
+Método del descenso rápido.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El método del descenso rápido o 
+\emph on
+\lang english
+steepest descent
+\emph default
+\lang spanish
+ es el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:steepest-descent"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, y consiste en minimizar la función 
+\begin_inset Formula $g(x):=\Vert f(x)\Vert_{2}^{2}$
+\end_inset
+
+ desplazándonos, en cada iteración, en la dirección de mayor descenso en
+ esta función.
+ No es un método muy rápido, pero permite una estimación inicial más lejana
+ que los métodos de Newton y Broyden, por lo que se suele usar para obtener
+ una aproximación no muy fina que a su vez se usa con Newton o Broyden.
+\end_layout
+
+\end_body
+\end_document
