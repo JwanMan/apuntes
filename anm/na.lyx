@@ -78,6 +78,308 @@
 \begin_body
 
 \begin_layout Standard
+Los ficheros de código de Octave tienen extensión 
+\family typewriter
+.m
+\family default
+ y pueden contener un 
+\emph on
+script
+\emph default
+ o una función.
+ Los 
+\emph on
+scripts
+\emph default
+ contienen una secuencia de órdenes y se invocan con 
+\family typewriter
+\emph on
+nombre
+\family default
+\emph default
+ (el nombre del fichero sin la extensión).
+ Las funciones tienen forma:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+function 
+\family default
+(
+\family typewriter
+\emph on
+val
+\family default
+\emph default
+|
+\family typewriter
+[
+\emph on
+val
+\emph default
+,
+\family default
+...
+\family typewriter
+]
+\family default
+)
+\family typewriter
+ = 
+\emph on
+nombre
+\emph default
+(
+\emph on
+par
+\emph default
+, 
+\family default
+...
+\family typewriter
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+stmt
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\family default
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+endfunction
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde 
+\family typewriter
+\emph on
+nombre
+\family default
+\emph default
+ debe coincidir con el nombre del fichero, los parámetros (
+\family typewriter
+\emph on
+par
+\family default
+\emph default
+) se pueden usar como variables, y los valores de retorno (
+\family typewriter
+\emph on
+val
+\family default
+\emph default
+) se usan como variables inicialmente no definidas, de modo que su valor
+ al final de la función es el valor devuelto.
+ La función se invoca con la expresión 
+\family typewriter
+\emph on
+nombre
+\emph default
+(
+\emph on
+arg
+\emph default
+, 
+\family default
+...
+\family typewriter
+)
+\family default
+ si devuelve un solo valor o con la sentencia 
+\family typewriter
+[
+\emph on
+var
+\emph default
+, 
+\family default
+...
+\family typewriter
+] = 
+\emph on
+nombre
+\emph default
+(
+\emph on
+arg
+\emph default
+, 
+\family default
+...
+\family typewriter
+)
+\family default
+ si devuelve varios.
+ Por defecto, Octave busca los 
+\emph on
+scripts
+\emph default
+ y funciones en el directorio actual (que se puede cambiar en la interfaz
+ gráfica) y en la biblioteca estándar.
+\end_layout
+
+\begin_layout Standard
+Las sentencias terminan con salto de línea o con 
+\family typewriter
+;
+\family default
+ (normalmente seguido de salto de línea), pero si termina en salto de línea,
+ el valor devuelto se imprime, bien como 
+\family typewriter
+ans = 
+\emph on
+valor
+\family default
+\emph default
+ si la sentencia es una expresión 
+\family typewriter
+\emph on
+expr
+\family default
+\emph default
+ que devuelve un 
+\family typewriter
+\emph on
+valor
+\family default
+\emph default
+, o como 
+\family typewriter
+\emph on
+A
+\emph default
+ = 
+\emph on
+valor
+\family default
+\emph default
+ si la sentencia es una asignación 
+\family typewriter
+\emph on
+A
+\family default
+\emph default
+ = 
+\family typewriter
+\emph on
+expr
+\family default
+\emph default
+.
+ Las variables se definen en su primera asignación.
+\end_layout
+
+\begin_layout Standard
+Los comentarios empiezan por 
+\family typewriter
+%
+\family default
+ o 
+\family typewriter
+#
+\family default
+ y terminan al final de la línea.
+\end_layout
+
+\begin_layout Standard
+Las variables de las funciones tienen ámbito local y las de los 
+\emph on
+scripts
+\emph default
+ tienen como ámbito el intérprete de comandos.
+ Existe un ámbito global, y para indicar que una variable pertenece a este,
+ se añade el comando 
+\family typewriter
+global 
+\emph on
+variable
+\family default
+\emph default
+ en cada ámbito en que se vaya a usar (en el intérprete, normalmente dentro
+ de un 
+\emph on
+script
+\emph default
+, y en las funciones).
+\end_layout
+
+\begin_layout Section
+Tipos de datos
+\end_layout
+
+\begin_layout Subsection
+Matrices
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -90,8 +392,7 @@ begin{sloppypar}
 
 \end_inset
 
-En Octave, todos los valores son matrices.
- Los números (con sintaxis 
+En Octave, los números (con sintaxis 
 \family typewriter
 [-+]?((
 \backslash
@@ -147,6 +448,19 @@ d+)?|[Ii]nf)
 )*"
 \family default
 ) representan matrices fila de caracteres.
+ En estas, 
+\family typewriter
+
+\backslash
+n
+\family default
+ indica un salto de línea y 
+\family typewriter
+
+\backslash
+t
+\family default
+ un tabulador.
 \begin_inset ERT
 status open
 
@@ -239,16 +553,74 @@ La expresión
 \end_layout
 
 \begin_layout Standard
+Si una operación 
+\begin_inset Formula $*$
+\end_inset
+
+ actúa sobre matrices, 
+\begin_inset Formula $\mathtt{.}*$
+\end_inset
+
+ actúa sobre cada elemento.
+ Si se aplica a dos matrices de igual tamaño, se aplica a cada elemento
+ de una con el correspondiente de la otra para obtener un elemento 
+\begin_inset Formula $1\times1$
+\end_inset
+
+ y se juntan todos estos elementos.
+ Si una de las dos es de un elemento, se extiende a una de igual tamaño
+ que la otra con todos los elementos iguales al original.
+\end_layout
+
+\begin_layout Subsection
+Números
+\end_layout
+
+\begin_layout Standard
 El operador 
 \family typewriter
 +
 \family default
- suma matrices numéricas de igual tamaño y 
+ suma matrices numéricas de igual tamaño, 
+\family typewriter
+-
+\family default
+ las resta y 
 \family typewriter
 *
 \family default
  multiplica matrices o una matriz por un escalar.
- Llamamos vector a una matriz fila.
+ Si 
+\family typewriter
+\emph on
+a
+\family default
+\emph default
+ y 
+\family typewriter
+\emph on
+b
+\family default
+\emph default
+ son escalares con 
+\begin_inset Formula $\text{\emph{\texttt{b}}}\neq0$
+\end_inset
+
+, 
+\family typewriter
+\emph on
+a
+\emph default
+/
+\emph on
+b
+\family default
+\emph default
+ es su cociente.
+\end_layout
+
+\begin_layout Standard
+Llamamos vector a una matriz fila.
  Entonces 
 \family typewriter
 \emph on
@@ -260,7 +632,7 @@ b
 \family default
 \emph default
  genera el vector 
-\begin_inset Formula $(a,a+1,\dots,b)$
+\begin_inset Formula $(\text{\emph{\texttt{a}}},\text{\emph{\texttt{a}}}+1,\dots,\text{\emph{\texttt{b}}})$
 \end_inset
 
  y 
@@ -278,43 +650,38 @@ b
 \family default
 \emph default
  genera el vector 
-\begin_inset Formula $(a,a+t,\dots,b)$
+\begin_inset Formula $(\text{\emph{\texttt{a}}},\text{\emph{\texttt{a}}}+\text{\emph{\texttt{t}}},\dots,\text{\emph{\texttt{b}}})$
 \end_inset
 
 .
  Cuando es posible, 
 \family typewriter
-
-\begin_inset Formula $A$
-\end_inset
-
-
+A
 \backslash
 
-\begin_inset Formula $B$
-\end_inset
-
-
+\emph on
+B
 \family default
+\emph default
  devuelve una matriz 
 \begin_inset Formula $X$
 \end_inset
 
  tal que 
-\begin_inset Formula $AX=B$
+\begin_inset Formula $\text{\emph{\texttt{A}}}X=\text{\emph{\texttt{B}}}$
 \end_inset
 
 .
  
 \family typewriter
 
-\begin_inset Formula $A$
+\begin_inset Formula $\text{\emph{\texttt{A}}}\mathtt{'}$
 \end_inset
 
-'
+
 \family default
- devuelve 
-\begin_inset Formula $A^{*}$
+ es 
+\begin_inset Formula $\text{\emph{\texttt{A}}}^{*}$
 \end_inset
 
 .
@@ -337,7 +704,7 @@ y
 \emph default
 )
 \family default
- devuelve la submatriz de 
+ es la submatriz de 
 \family typewriter
 \emph on
 A
@@ -367,7 +734,7 @@ x
 )
 \family default
  convierte la matriz en un vector concatenando las traspuestas de sus columnas
- y toma los elementos del vector con índice en el vector 
+ y toma los elementos del vector con índice en 
 \family typewriter
 \emph on
 x
@@ -383,35 +750,7 @@ x
 \end_layout
 
 \begin_layout Standard
-Las expresiones son sentencias, y estas deben terminar por salto de línea
- si se quiere que se imprima su resultado o por 
-\family typewriter
-;
-\family default
-, seguido opcionalmente de salto de línea, si no.
- La sentencia 
-\family typewriter
-\emph on
-A
-\emph default
- = 
-\emph on
-expr
-\family default
-\emph default
- asigna a la variable 
-\family typewriter
-\emph on
-A
-\family default
-\emph default
- el valor 
-\family typewriter
-\emph on
-expr
-\family default
-\emph default
-, y 
+
 \family typewriter
 \emph on
 A
@@ -458,8 +797,676 @@ A
  es más grande, esta se amplía y se rellena con ceros.
 \end_layout
 
+\begin_layout Subsection
+Booleanos
+\end_layout
+
+\begin_layout Standard
+Los booleanos son números: 0 para falso, cualquier otro número (normalmente
+ 1) para verdadero.
+ Entonces 
+\family typewriter
+|
+\family default
+ o 
+\family typewriter
+||
+\family default
+ es el operador disyunción; 
+\family typewriter
+&
+\family default
+ o 
+\family typewriter
+&&
+\family default
+ es la conjunción.
+ Los operadores de comparación 
+\family typewriter
+==
+\family default
+, 
+\family typewriter
+!=
+\family default
+ (o 
+\family typewriter
+~=
+\family default
+), 
+\family typewriter
+<
+\family default
+, 
+\family typewriter
+<=
+\family default
+, 
+\family typewriter
+>
+\family default
+ y 
+\family typewriter
+>=
+\family default
+ hacen lo que se esperaría.
+\end_layout
+
+\begin_layout Subsection
+Listas
+\end_layout
+
+\begin_layout Standard
+Las listas empiezan por 1 y pueden contener elementos de distintos tipos.
+ No se asigna a una lista, sino a sus elementos, a los que se hace referencia
+ por 
+\family typewriter
+\emph on
+lista
+\emph default
+{
+\emph on
+índice
+\emph default
+}
+\family default
+.
+ Los elementos con índice menor que el indicado se rellenan con matrices
+ numéricas vacías 
+\begin_inset Formula $0\times0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Funciones anónimas
+\end_layout
+
+\begin_layout Standard
+Una función anónima se expresa como 
+\family typewriter
+@(
+\emph on
+par
+\emph default
+, 
+\family default
+...
+\family typewriter
+) 
+\emph on
+expr
+\family default
+\emph default
+, puede asignarse y puede usarse como una función normal.
+ Solo pueden devolver un elemento.
+\end_layout
+
 \begin_layout Section
-Funciones sobre matrices
+Control de flujo
+\end_layout
+
+\begin_layout Standard
+La sentencia
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+for 
+\emph on
+var
+\emph default
+ = 
+\emph on
+vector
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+stmt
+\family default
+\emph default
+ ...
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+endfor
+\end_layout
+
+\end_inset
+
+evalúa los 
+\family typewriter
+\emph on
+stmt
+\family default
+\emph default
+ una vez por cada elemento del 
+\family typewriter
+\emph on
+vector
+\family default
+\emph default
+ con 
+\family typewriter
+\emph on
+var
+\family default
+\emph default
+ tomando el valor del elemento.
+ El 
+\family typewriter
+\emph on
+vector
+\family default
+\emph default
+ también puede ser una lista, pero entonces devuelve listas de un elemento
+ a las que hay que acceder con el índice 1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+while 
+\emph on
+condición
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+stmt
+\emph default
+ 
+\family default
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+endwhile
+\end_layout
+
+\end_inset
+
+evalúa los 
+\family typewriter
+\emph on
+stmt
+\family default
+\emph default
+ repetidamente mientras la 
+\family typewriter
+\emph on
+condición
+\family default
+\emph default
+ se cumpla, comprobándola al principio de cada iteración.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+do
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+stmt
+\family default
+\emph default
+ ...
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+until 
+\emph on
+condición
+\end_layout
+
+\end_inset
+
+evalúa los 
+\family typewriter
+\emph on
+stmt
+\family default
+\emph default
+ repetidamente mientras la 
+\family typewriter
+\emph on
+condición
+\family default
+\emph default
+ no se cumpla, comprobándola al principio de cada iteración salvo la primera.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+if 
+\emph on
+condición
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+then-stmts
+\end_layout
+
+\begin_layout Plain Layout
+[
+\family typewriter
+else
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+else-stmts
+\family default
+\emph default
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+endif
+\end_layout
+
+\end_inset
+
+evalúa 
+\family typewriter
+\emph on
+condición
+\family default
+\emph default
+ y, si se cumple, ejecuta 
+\family typewriter
+\emph on
+then-stmts
+\family default
+\emph default
+, y de lo contrario, si está, ejecuta 
+\family typewriter
+\emph on
+else-stmts
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+La sentencia 
+\family typewriter
+break
+\family default
+ sale del bucle (
+\family typewriter
+for
+\family default
+ o 
+\family typewriter
+while
+\family default
+) más interno en que se encuentra, y 
+\family typewriter
+continue
+\family default
+ pasa a su siguiente iteración.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+try
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+stmts
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+catch
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+handle-stmts
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+end
+\end_layout
+
+\end_inset
+
+ejecuta los 
+\family typewriter
+\emph on
+stmts
+\family default
+\emph default
+ y, si hay una excepción, la captura y ejecuta los 
+\family typewriter
+\emph on
+handle-stmts
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Section
+Biblioteca estándar
+\end_layout
+
+\begin_layout Standard
+La mayoría de funciones que reciben un número y devuelven otro también funcionan
+ punto a punto sobre matrices.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+abs(
+\emph on
+z
+\emph default
+)
+\family default
+\series default
+ 
+\begin_inset Formula $|\text{\emph{\texttt{z}}}|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+and(
+\emph on
+x1
+\emph default
+,
+\emph on
+x2
+\emph default
+,
+\family default
+\series bold
+...
+\family typewriter
+)
+\family default
+\series default
+ 
+\family typewriter
+\emph on
+x1
+\emph default
+ & 
+\emph on
+x2
+\emph default
+ & 
+\family default
+...
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+clc
+\family default
+\series default
+ Limpia la pantalla.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+clear
+\family default
+\series default
+ Borra todas las variables.
 \end_layout
 
 \begin_layout Description
@@ -525,6 +1532,104 @@ A
 \begin_layout Description
 
 \family typewriter
+contour(
+\emph on
+x
+\emph default
+,
+\emph on
+y
+\emph default
+,
+\emph on
+v
+\emph default
+,
+\emph on
+h
+\emph default
+,
+\emph on
+style
+\emph default
+)
+\family default
+ Si para cada elemento de 
+\family typewriter
+\emph on
+x
+\family default
+\emph default
+ con el correspondiente elemento de 
+\family typewriter
+\emph on
+y
+\family default
+\emph default
+ se le asigna el elemento correspondiente de 
+\family typewriter
+\emph on
+v
+\family default
+\emph default
+, dibuja la curva de nivel (aproximada) de la gráfica correspondiente a
+ la altura 
+\family typewriter
+\emph on
+h
+\family default
+\emph default
+.
+ El parámetro 
+\family typewriter
+\emph on
+style
+\family default
+\emph default
+ es una cadena donde cada caracter indica una propiedad: 
+\family typewriter
+r
+\family default
+ rojo, 
+\family typewriter
+b
+\family default
+ azul, 
+\family typewriter
+m
+\family default
+ magenta, etc.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+contour(
+\series bold
+\emph on
+x
+\emph default
+,
+\emph on
+y
+\emph default
+,
+\emph on
+z
+\emph default
+,
+\emph on
+h
+\emph default
+)
+\family default
+\series default
+ Como la anterior, con el estilo por defecto.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
 diag(
 \emph on
 A
@@ -547,6 +1652,24 @@ A
 \family typewriter
 \emph on
 A
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+disp(
+\emph on
+x
+\emph default
+)
+\family default
+ Imprime el valor de 
+\family typewriter
+\emph on
+x
 \family default
 \emph default
 .
@@ -613,6 +1736,34 @@ V
 \begin_layout Description
 
 \family typewriter
+eps
+\family default
+ Menor 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ tal que 
+\begin_inset Formula $1+\epsilon>1$
+\end_inset
+
+ con la precisión de la máquina.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+error(
+\emph on
+text
+\emph default
+)
+\family default
+ Lanza una excepción con un cierto texto.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
 eye(
 \emph on
 n
@@ -631,6 +1782,96 @@ n
 \begin_layout Description
 
 \family typewriter
+feval(
+\emph on
+función
+\series bold
+\emph default
+,
+\family default
+...
+\family typewriter
+)
+\family default
+ 
+\family typewriter
+\series default
+\emph on
+función
+\emph default
+(
+\family default
+...
+\family typewriter
+)
+\family default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+fprintf(
+\emph on
+fmt
+\emph default
+,
+\family default
+...
+\family typewriter
+)
+\family default
+ 
+\family typewriter
+printf(
+\emph on
+fmt
+\emph default
+,
+\family default
+...
+\family typewriter
+)
+\family default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+format
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+opción
+\family default
+\emph default
+ Cambia el formato en que se imprimen los números por defecto.
+ Posibles valores son 
+\family typewriter
+short
+\family default
+ o 
+\family typewriter
+long
+\family default
+ para la cantidad de decimales (pocos o muchos), seguidos opcionalmente
+ por 
+\family typewriter
+e
+\family default
+ para notación científica o 
+\family typewriter
+g
+\family default
+ para elegir en cada caso si es mejor usar notación científica o normal.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
 inv(
 \emph on
 A
@@ -643,6 +1884,64 @@ A
 A
 \family default
 \emph default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+isosurface(
+\series bold
+\emph on
+x
+\emph default
+,
+\emph on
+y
+\emph default
+,
+\emph on
+z
+\emph default
+,
+\emph on
+v
+\emph default
+,
+\emph on
+val
+\emph default
+)
+\family default
+\series default
+ Como 
+\family typewriter
+contour
+\family default
+ para funciones de 3 variables 
+\begin_inset Formula $(\text{\emph{\texttt{x}}},\text{\emph{\texttt{y}}},\text{\emph{\texttt{z}}})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+length(
+\emph on
+A
+\emph default
+)
+\family default
+ 
+\family typewriter
+max(size(
+\emph on
+A
+\emph default
+))
+\family default
 .
 \end_layout
 
@@ -681,6 +1980,232 @@ start
 end
 \family default
 \emph default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[
+\series bold
+\emph on
+L
+\emph default
+,
+\emph on
+U
+\emph default
+,
+\emph on
+P
+\emph default
+,
+\series default
+\emph on
+Q
+\series bold
+\emph default
+]=lu(
+\series default
+\emph on
+A
+\emph default
+)
+\family default
+ Descomposición de Gauss de 
+\family typewriter
+\series bold
+\emph on
+A
+\family default
+\series default
+\emph default
+ con elección de pivote total.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[
+\emph on
+L
+\emph default
+,
+\emph on
+U
+\emph default
+,
+\emph on
+P
+\emph default
+]=lu(
+\emph on
+A
+\emph default
+)
+\family default
+ Descomposición de Gauss de 
+\family typewriter
+\emph on
+A
+\family default
+\emph default
+ con elección de pivote parcial.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+max(
+\emph on
+A
+\emph default
+)
+\family default
+ 
+\begin_inset Formula $\max\text{\emph{\texttt{A}}}_{ij}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[
+\emph on
+xx
+\emph default
+,
+\emph on
+yy
+\emph default
+]=meshgrid(
+\emph on
+x
+\emph default
+,
+\series bold
+\emph on
+y
+\emph default
+)
+\family default
+\series default
+ Si 
+\family typewriter
+\emph on
+x
+\family default
+\emph default
+ es un vector de 
+\begin_inset Formula $m$
+\end_inset
+
+ elementos e 
+\family typewriter
+\emph on
+y
+\family default
+\emph default
+ es un vector de 
+\begin_inset Formula $y$
+\end_inset
+
+ elementos, 
+\family typewriter
+\emph on
+xx
+\family default
+\emph default
+ e 
+\family typewriter
+\emph on
+yy
+\family default
+\emph default
+ son matrices 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ donde las filas de 
+\family typewriter
+\emph on
+xx
+\family default
+\emph default
+ son copias de 
+\family typewriter
+\emph on
+x
+\family default
+\emph default
+ y las columnas de 
+\family typewriter
+\emph on
+yy
+\family default
+\emph default
+ son copias de 
+\family typewriter
+\emph on
+y
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+min(A)
+\family default
+ 
+\begin_inset Formula $\min\text{\emph{\texttt{A}}}_{ij}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+min(
+\emph on
+x
+\emph default
+,
+\series bold
+\emph on
+y
+\emph default
+)
+\family default
+\series default
+ 
+\begin_inset Formula $\min\{\text{\emph{\texttt{x}}},\text{\emph{\texttt{y}}}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+norm(
+\emph on
+A
+\emph default
+)
+\family default
+ 
+\family typewriter
+norm(
+\emph on
+A
+\emph default
+,2)
+\family default
 .
 \end_layout
 
@@ -729,18 +2254,181 @@ Inf
 
 \family typewriter
 norm(
+\series bold
 \emph on
 A
 \emph default
+,
+\series default
+\emph on
+p
+\emph default
+,
+\emph on
+opt
+\series bold
+\emph default
+)
+\family default
+\series default
+ Si 
+\family typewriter
+\series bold
+opt
+\family default
+\series default
+ es 
+\family typewriter
+
+\begin_inset Quotes qld
+\end_inset
+
+columns
+\begin_inset Quotes qrd
+\end_inset
+
+
+\family default
+ o 
+\family typewriter
+
+\begin_inset Quotes qld
+\end_inset
+
+cols
+\begin_inset Quotes qrd
+\end_inset
+
+
+\family default
+, vector fila con la norma de cada vector columna en 
+\family typewriter
+\emph on
+A
+\family default
+\emph default
+.
+ Si es 
+\family typewriter
+
+\begin_inset Quotes qld
+\end_inset
+
+rows
+\begin_inset Quotes qrd
+\end_inset
+
+
+\family default
+, vector columna con la norma de cada vector fila en 
+\family typewriter
+\emph on
+A
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+ones(
+\emph on
+m
+\emph default
+,
+\emph on
+n
+\emph default
+)
+\family default
+ Matriz 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ formada por unos.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+or(
+\emph on
+x1
+\emph default
+,
+\emph on
+x2
+\emph default
+,
+\family default
+...
+\family typewriter
 )
 \family default
  
 \family typewriter
-norm(
 \emph on
-A
+x1
 \emph default
-,2)
+ | 
+\emph on
+x2
+\emph default
+ | 
+\family default
+...
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+printf(
+\emph on
+fmt
+\emph default
+,
+\family default
+...
+\family typewriter
+)
+\family default
+ Imprime los argumentos con un cierto formato 
+\family typewriter
+\emph on
+fmt
+\family default
+\emph default
+, una cadena con caracteres normales que se representan a sí mismos pero
+ con secuencias de escape que empiezan por 
+\family typewriter
+%
+\family default
+.
+ Así, 
+\family typewriter
+%f
+\family default
+ imprime el siguiente argumento como número de punto flotante con varios
+ decimales, 
+\family typewriter
+%e
+\family default
+ también pero con notación científica, 
+\family typewriter
+%d
+\family default
+ también pero con pocos decimales, 
+\family typewriter
+%s
+\family default
+ como cadena y 
+\family typewriter
+%%
+\family default
+ representa un caracter 
+\family typewriter
+%
 \family default
 .
 \end_layout
@@ -771,6 +2459,99 @@ n
 \family default
 \emph default
  columnas con elementos aleatorios entre 0 y 1.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+size(
+\emph on
+A
+\emph default
+)
+\family default
+ Devuelve un vector con el número de elementos en cada dimensión de 
+\family typewriter
+\emph on
+A
+\family default
+\emph default
+.
+ Las matrices tienen dos dimensiones, y las listas también con primera dimensión
+ de tamaño 1.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+sign(
+\emph on
+x
+\emph default
+)
+\family default
+ Si 
+\begin_inset Formula $\text{\emph{\texttt{x}}}=0$
+\end_inset
+
+, 0, de lo contrario 
+\begin_inset Formula $\frac{x}{|x|}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+sort(
+\emph on
+v
+\emph default
+)
+\family default
+ Copia del vector 
+\family typewriter
+\emph on
+v
+\family default
+\emph default
+ con sus elementos en orden creciente.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+sortrows(
+\emph on
+A
+\emph default
+)
+\family default
+ Copia de la matriz 
+\family typewriter
+\emph on
+A
+\family default
+\emph default
+ con sus filas en orden de menor a mayor primer elemento, o segundo en caso
+ de empate, etc.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+sqrt(
+\emph on
+z
+\emph default
+)
+\family default
+ 
+\begin_inset Formula $\sqrt{\text{\emph{\texttt{z}}}}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Description
@@ -822,6 +2603,22 @@ S
 \begin_layout Description
 
 \family typewriter
+sum(
+\emph on
+A
+\emph default
+)
+\family default
+ 
+\begin_inset Formula $\sum\text{\emph{\texttt{A}}}_{ij}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
 trace(
 \emph on
 A
@@ -834,6 +2631,25 @@ A
 A
 \family default
 \emph default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+transpose(
+\series medium
+\emph on
+A
+\series default
+\emph default
+)
+\family default
+\series medium
+ 
+\begin_inset Formula $\text{\emph{\texttt{A}}}^{t}$
+\end_inset
+
 .
 \end_layout
 
@@ -942,6 +2758,18 @@ A
 \begin_layout Description
 
 \family typewriter
+warning(
+\emph on
+text
+\emph default
+)
+\family default
+ Muestra un texto a modo de alerta.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
 zeros(
 \emph on
 m
@@ -965,80 +2793,6 @@ n
 \family default
 \emph default
  columnas.
-\end_layout
-
-\begin_layout Section
-Descomposiciones matriciales
-\end_layout
-
-\begin_layout Description
-
-\family typewriter
-[
-\series bold
-\emph on
-L
-\emph default
-,
-\emph on
-U
-\emph default
-,
-\emph on
-P
-\emph default
-,
-\series default
-\emph on
-Q
-\series bold
-\emph default
-]=lu(
-\series default
-\emph on
-A
-\emph default
-)
-\family default
- Descomposición de Gauss de 
-\family typewriter
-\series bold
-\emph on
-A
-\family default
-\series default
-\emph default
- con elección de pivote total.
-\end_layout
-
-\begin_layout Description
-
-\family typewriter
-[
-\emph on
-L
-\emph default
-,
-\emph on
-U
-\emph default
-,
-\emph on
-P
-\emph default
-]=lu(
-\emph on
-A
-\emph default
-)
-\family default
- Descomposición de Gauss de 
-\family typewriter
-\emph on
-A
-\family default
-\emph default
- con elección de pivote parcial.
 \end_layout
 
 \end_body
