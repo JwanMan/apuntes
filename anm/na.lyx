@@ -1353,11 +1353,15 @@ for
 \family typewriter
 while
 \family default
-) más interno en que se encuentra, y 
+) más interno en que se encuentra, 
 \family typewriter
 continue
 \family default
- pasa a su siguiente iteración.
+ pasa a su siguiente iteración y 
+\family typewriter
+return
+\family default
+ sale de la función.
 \end_layout
 
 \begin_layout Standard
@@ -1440,7 +1444,7 @@ handle-stmts
 \begin_layout Plain Layout
 
 \family typewriter
-end
+end_try_catch
 \end_layout
 
 \end_inset
@@ -1485,6 +1489,19 @@ La mayoría de funciones que reciben un número y devuelven otro también funcio
  punto a punto sobre matrices.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO addpath, rmpath, vander con 2 parámetros
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Description
 
 \family typewriter
@@ -1501,6 +1518,26 @@ z
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+addpath(
+\emph on
+dir
+\emph default
+,
+\family default
+...
+\family typewriter
+)
+\family default
+ Añade los directorios indicados a la lista de rutas donde buscar 
+\emph on
+scripts
+\emph default
+ y funciones.
 \end_layout
 
 \begin_layout Description
@@ -1543,7 +1580,19 @@ x2
 clc
 \family default
 \series default
- Limpia la pantalla.
+ Limpia la pantalla de la 
+\emph on
+shell
+\emph default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+clf
+\family default
+ Limpia la ventana de gráficas.
 \end_layout
 
 \begin_layout Description
@@ -1851,6 +1900,24 @@ text
 \begin_layout Description
 
 \family typewriter
+exp(
+\series bold
+\emph on
+z
+\emph default
+)
+\family default
+\series default
+ 
+\begin_inset Formula $e^{\text{\emph{\texttt{z}}}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
 eye(
 \emph on
 n
@@ -1892,6 +1959,54 @@ función
 \family typewriter
 )
 \family default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+figure(
+\emph on
+n
+\emph default
+)
+\family default
+\series medium
+ Crea una ventana para gráficas identificada por 
+\family typewriter
+\series default
+\emph on
+n
+\family default
+\emph default
+ si esta no existe, y la usa para los dibujos posteriores.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+fminunc(
+\emph on
+f
+\emph default
+,
+\emph on
+x0
+\emph default
+)
+\family default
+ Busca un mínimo local de 
+\family typewriter
+\emph on
+f
+\family default
+\emph default
+ partiendo de una aproximación inicial 
+\family typewriter
+\emph on
+x0
+\family default
+\emph default
 .
 \end_layout
 
@@ -2143,6 +2258,40 @@ A
 \begin_layout Description
 
 \family typewriter
+[
+\emph on
+w
+\emph default
+,
+\emph on
+iw
+\emph default
+]=max(
+\emph on
+v
+\emph default
+)
+\family default
+ Obtiene 
+\begin_inset Formula $\text{\emph{\texttt{w}}}=\max\text{\emph{\texttt{v}}}_{i}$
+\end_inset
+
+ e 
+\family typewriter
+\emph on
+iw
+\family default
+\emph default
+ con 
+\begin_inset Formula $\text{\emph{\texttt{w}}}=v_{\text{\emph{\texttt{iw}}}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
 max(
 \emph on
 A
@@ -2151,6 +2300,28 @@ A
 \family default
  
 \begin_inset Formula $\max\text{\emph{\texttt{A}}}_{ij}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+max(
+\emph on
+x
+\emph default
+,
+\series bold
+\emph on
+y
+\emph default
+)
+\family default
+\series default
+ 
+\begin_inset Formula $\max\{\text{\emph{\texttt{x}}},\text{\emph{\texttt{y}}}\}$
 \end_inset
 
 .
@@ -2245,7 +2416,45 @@ y
 \begin_layout Description
 
 \family typewriter
-min(A)
+[
+\emph on
+w
+\emph default
+,
+\emph on
+iw
+\emph default
+]=min(
+\emph on
+v
+\emph default
+)
+\family default
+ Obtiene 
+\begin_inset Formula $\text{\emph{\texttt{w}}}=\min\text{\emph{\texttt{v}}}_{i}$
+\end_inset
+
+ e 
+\family typewriter
+\emph on
+iw
+\family default
+\emph default
+ con 
+\begin_inset Formula $\text{\emph{\texttt{w}}}=v_{\text{\emph{\texttt{iw}}}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+min(
+\emph on
+A
+\emph default
+)
 \family default
  
 \begin_inset Formula $\min\text{\emph{\texttt{A}}}_{ij}$
@@ -2551,6 +2760,27 @@ n
 \begin_layout Description
 
 \family typewriter
+rmpath(
+\emph on
+dir
+\emph default
+,
+\family default
+...
+\family typewriter
+)
+\family default
+ Elimina los directorios indicados de la lista de directorios donde buscar
+ 
+\emph on
+scripts
+\emph default
+ y funciones.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
 size(
 \emph on
 A
@@ -2706,6 +2936,18 @@ A
 \begin_layout Description
 
 \family typewriter
+title(
+\emph on
+str
+\emph default
+)
+\family default
+ Indica el título de la gráfica.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
 trace(
 \emph on
 A
@@ -2845,6 +3087,26 @@ A
 \begin_layout Description
 
 \family typewriter
+vander(
+\emph on
+c
+\emph default
+,
+\emph on
+n
+\emph default
+)
+\family default
+ 
+\begin_inset Formula $(\text{\emph{\texttt{c}}}_{i}^{n-j})_{ij}\in{\cal M}_{\mathtt{size(\text{\emph{\texttt{c}}})}\times n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
 warning(
 \emph on
 text
@@ -2852,6 +3114,32 @@ text
 )
 \family default
  Muestra un texto a modo de alerta.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+xlabel(
+\emph on
+str
+\emph default
+)
+\family default
+ Indica la leyenda del eje X de la gráfica.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+ylabel(
+\series bold
+\emph on
+str
+\emph default
+)
+\family default
+\series default
+ Indica la leyenda del eje Y de la gráfica.
 \end_layout
 
 \begin_layout Description
@@ -2880,6 +3168,18 @@ n
 \family default
 \emph default
  columnas.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+zlabel(
+\emph on
+str
+\emph default
+)
+\family default
+ Indica la leyenda del eje Z de la gráfica.
 \end_layout
 
 \end_body
