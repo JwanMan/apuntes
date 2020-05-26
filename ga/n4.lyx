@@ -1,0 +1,3819 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Podemos hablar de un grupo 
+\begin_inset Formula $G$
+\end_inset
+
+ con:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Notación multiplicativa
+\series default
+: Llamamos a la operación 
+\begin_inset Formula $\cdot$
+\end_inset
+
+, aunque podemos omitirla.
+ Llamamos 1 al neutro y 
+\begin_inset Formula $a^{-1}$
+\end_inset
+
+ al inverso de 
+\begin_inset Formula $a\in G$
+\end_inset
+
+.
+ Definimos 
+\begin_inset Formula $a^{0}:=1$
+\end_inset
+
+ y, para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $a^{n+1}:=aa^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $a^{-n}:=(a^{n})^{-1}=(a^{-1})^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Notación aditiva
+\series default
+: Solo para grupos abelianos.
+ Llamamos a la operación 
+\begin_inset Formula $+$
+\end_inset
+
+.
+ Llamamos 0 al neutro y 
+\begin_inset Formula $-a$
+\end_inset
+
+ al inverso de 
+\begin_inset Formula $a\in G$
+\end_inset
+
+.
+ Definimos 
+\begin_inset Formula $0a:=0$
+\end_inset
+
+ y, para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $(n+1)a=a+na$
+\end_inset
+
+ y 
+\begin_inset Formula $(-n)a=-(na)=n(-a)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+orden
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ al cardinal del conjunto.
+ Algunos grupos:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un anillo, 
+\begin_inset Formula $(A,+)$
+\end_inset
+
+ es su 
+\series bold
+grupo aditivo
+\series default
+, que es abeliano, y 
+\begin_inset Formula $(A^{*},\cdot)$
+\end_inset
+
+ es su 
+\series bold
+grupo de unidades
+\series default
+, que es abeliano cuando el anillo es conmutativo.
+ Por ejemplo, si 
+\begin_inset Formula $K$
+\end_inset
+
+ es un cuerpo, 
+\begin_inset Formula $({\cal GL}_{n}(K)={\cal M}_{n}(K)^{*},\cdot)$
+\end_inset
+
+ es un grupo.
+\end_layout
+
+\begin_layout Enumerate
+El 
+\series bold
+grupo simétrico
+\series default
+ de un conjunto 
+\begin_inset Formula $X$
+\end_inset
+
+ es el conjunto 
+\begin_inset Formula $S_{X}$
+\end_inset
+
+ de las biyecciones 
+\begin_inset Formula $X\to X$
+\end_inset
+
+ con la composición.
+\end_layout
+
+\begin_layout Enumerate
+Dada una familia 
+\begin_inset Formula $(G_{i})_{i\in I}$
+\end_inset
+
+ de grupos, 
+\begin_inset Formula $\prod_{i\in I}G_{i}$
+\end_inset
+
+ es un grupo con el producto componente a componente.
+\end_layout
+
+\begin_layout Enumerate
+Llamamos 
+\series bold
+grupo cíclico
+\series default
+ de orden 
+\begin_inset Formula $n\in\mathbb{N}^{*}$
+\end_inset
+
+ a 
+\begin_inset Formula $C_{n}:=\{1,a,a^{2},\dots,a^{n-1}\}$
+\end_inset
+
+ con la operación 
+\begin_inset Formula $a^{i}a^{j}:=a^{[i+j]_{n}}$
+\end_inset
+
+, donde 
+\begin_inset Formula $[x]_{n}$
+\end_inset
+
+ es el resto de 
+\begin_inset Formula $x$
+\end_inset
+
+ entre 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $n\in\mathbb{N}^{*}$
+\end_inset
+
+, llamamos 
+\series bold
+grupo diédrico
+\series default
+ de orden 
+\begin_inset Formula $2n$
+\end_inset
+
+ a 
+\begin_inset Formula 
+\[
+D_{n}:=\{1,a,a^{2},\dots,a^{n-1},b,ab,a^{2}b,\dots,a^{n-1}b\}
+\]
+
+\end_inset
+
+con la operación 
+\begin_inset Formula $(a^{i_{1}}b^{j_{1}})(a^{i_{2}}b^{j_{2}}):=a^{[i_{1}+(-1)^{j_{1}}i_{2}]_{n}}b^{[j_{1}+j_{2}]_{2}}$
+\end_inset
+
+.
+ Intuitivamente los elementos de 
+\begin_inset Formula $D_{n}$
+\end_inset
+
+ son los movimientos del plano que dejan fijos a un polígono regular de
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ lados, donde 
+\begin_inset Formula $a$
+\end_inset
+
+ es una rotación de ángulo 
+\begin_inset Formula $\frac{2\pi}{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $b$
+\end_inset
+
+ es una cierta simetría.
+\end_layout
+
+\begin_layout Enumerate
+El 
+\series bold
+grupo diédrico infinito
+\series default
+ es 
+\begin_inset Formula $D_{\infty}:=\{a^{n},a^{n}b\}_{n\in\mathbb{Z}}$
+\end_inset
+
+ con 
+\begin_inset Formula 
+\[
+(a^{i_{1}}b^{j_{1}})(a^{i_{2}}b^{j_{2}}):=a^{i_{1}+(-1)^{j_{1}}i_{2}}b^{[j_{1}+j_{2}]_{2}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Subgrupos
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un grupo, 
+\begin_inset Formula $S\subseteq G$
+\end_inset
+
+ es un subgrupo de 
+\begin_inset Formula $G$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $1\in S\land\forall a,b\in S,(ab,a^{-1}\in S)$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $S\neq\emptyset\land\forall a,b\in S,(ab,a^{-1}\in S)$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $1\in S\land\forall a,b\in S,ab^{-1}\in S$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $S\neq\emptyset\land\forall a,b\in S,ab^{-1}\in S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies2\implies3,4\implies5]$
+\end_inset
+
+ Obvio.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $5\implies1]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $a\in S$
+\end_inset
+
+, entonces 
+\begin_inset Formula $aa^{-1}=1\in S$
+\end_inset
+
+.
+ Entonces, dados 
+\begin_inset Formula $a,b\in S$
+\end_inset
+
+, 
+\begin_inset Formula $b^{-1}=1b^{-1}\in S$
+\end_inset
+
+, luego el opuesto es una operación interna, y 
+\begin_inset Formula $a(b^{-1})^{-1}=ab\in S$
+\end_inset
+
+, luego el producto también.
+ Por tanto 
+\begin_inset Formula $S$
+\end_inset
+
+ es un grupo con el mismo 1.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $S$
+\end_inset
+
+ es un subgrupo de 
+\begin_inset Formula $G$
+\end_inset
+
+ escribimos 
+\begin_inset Formula $S\leq G$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un grupo, 
+\begin_inset Formula $G$
+\end_inset
+
+ es el 
+\series bold
+subgrupo impropio
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+, y el resto de subgrupos son 
+\series bold
+propios
+\series default
+.
+ El 
+\series bold
+subgrupo trivial
+\series default
+ es 
+\begin_inset Formula $1:=\{1\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $(A,+)$
+\end_inset
+
+ es el grupo aditivo de un anillo y 
+\begin_inset Formula $B$
+\end_inset
+
+ es un subanillo de 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $(B,+)\leq(A,+)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Los subgrupos de 
+\begin_inset Formula $(\mathbb{Z},+)$
+\end_inset
+
+ son de la forma 
+\begin_inset Formula $n\mathbb{Z}$
+\end_inset
+
+ con 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $S$
+\end_inset
+
+ es un subgrupo de 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+, 
+\begin_inset Formula $nx\in S$
+\end_inset
+
+ para todo 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in S$
+\end_inset
+
+, luego 
+\begin_inset Formula $S$
+\end_inset
+
+ es un ideal de 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Dado un cuerpo 
+\begin_inset Formula $K$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal SL}_{n}(K):={\cal SO}_{n}(K)$
+\end_inset
+
+ es un subgrupo de 
+\begin_inset Formula $({\cal GL}_{n}(K),\cdot)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un anillo, el conjunto 
+\begin_inset Formula $\text{Aut}(A)$
+\end_inset
+
+ de los automorfismos de anillos de 
+\begin_inset Formula $A$
+\end_inset
+
+ es un subgrupo de 
+\begin_inset Formula $S_{A}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio topológico, el conjunto de los homeomorfismos 
+\begin_inset Formula $X\to X$
+\end_inset
+
+ es un subgrupo de 
+\begin_inset Formula $S_{X}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio métrico, el conjunto de las 
+\series bold
+isometrías
+\series default
+ (biyecciones que conservan distancias) 
+\begin_inset Formula $X\to X$
+\end_inset
+
+ es un subgrupo de 
+\begin_inset Formula $S_{X}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $X\subseteq G$
+\end_inset
+
+, 
+\begin_inset Formula $\langle X\rangle:=\{x_{1}^{n_{1}}\cdots x_{m}^{n_{m}}\}_{m\in\mathbb{N},n_{1},\dots,n_{m}\in\mathbb{Z}}$
+\end_inset
+
+ es el 
+\series bold
+subgrupo generado
+\series default
+ por 
+\begin_inset Formula $X$
+\end_inset
+
+, y es el menor subgrupo de 
+\begin_inset Formula $G$
+\end_inset
+
+ que contiene a 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $X=\{g\}$
+\end_inset
+
+, decimos que 
+\begin_inset Formula $\langle g\rangle:=\langle X\rangle$
+\end_inset
+
+ es el 
+\series bold
+grupo cíclico
+\series default
+ generado por 
+\begin_inset Formula $g$
+\end_inset
+
+.
+ Un grupo 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\series bold
+cíclico
+\series default
+ si existe 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ tal que 
+\begin_inset Formula $G=\langle g\rangle$
+\end_inset
+
+, en cuyo caso 
+\begin_inset Formula $g$
+\end_inset
+
+ es un 
+\series bold
+generador
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Por ejemplo, 
+\begin_inset Formula $(\mathbb{Z},+)$
+\end_inset
+
+ y 
+\begin_inset Formula $(\mathbb{Z}_{n},+)$
+\end_inset
+
+ son grupos cíclicos generados por 1, y 
+\begin_inset Formula $C_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $C_{\infty}$
+\end_inset
+
+ son cíclicos generados por 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $(G_{i})_{i\in I}$
+\end_inset
+
+ es una familia de grupos, 
+\begin_inset Formula $\bigoplus_{i\in I}G_{i}:=\{(g_{i})_{i\in I}\in\prod_{i\in I}G_{i}:\{i\in I:g_{i}\ne1\}\text{ es finito}\}$
+\end_inset
+
+ es un subgrupo de 
+\begin_inset Formula $\prod_{i\in I}G_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Dado un grupo 
+\begin_inset Formula $G$
+\end_inset
+
+, el 
+\series bold
+centralizador
+\series default
+ de 
+\begin_inset Formula $x$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ es el subgrupo 
+\begin_inset Formula $C_{G}(x):=\{g\in G:gx=xg\}$
+\end_inset
+
+, y el 
+\series bold
+centro
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ es el subgrupo abeliano 
+\begin_inset Formula $Z(G):=\{g\in G:\forall x\in G,gx=xg\}=\bigcap_{x\in X}C_{G}(x)$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es abeliano, 
+\begin_inset Formula $Z(G)=G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+, definimos la relación de equivalencia en 
+\begin_inset Formula $G$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a\equiv_{i}b\bmod H:\iff a^{-1}b\in H;
+\]
+
+\end_inset
+
+la clase de equivalencia de 
+\begin_inset Formula $a\in G$
+\end_inset
+
+, llamada 
+\series bold
+clase lateral módulo 
+\begin_inset Formula $H$
+\end_inset
+
+ por la izquierda
+\series default
+, es 
+\begin_inset Formula $aH=\{ah\}_{h\in H}$
+\end_inset
+
+, y llamamos 
+\begin_inset Formula $G/H:=G/(\equiv_{i}\bmod H)$
+\end_inset
+
+.
+ Definimos también la relación de equivalencia en 
+\begin_inset Formula $G$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a\equiv_{d}b\bmod H:\iff ab^{-1}\in H;
+\]
+
+\end_inset
+
+la clase de equivalencia de 
+\begin_inset Formula $a\in G$
+\end_inset
+
+, llamada 
+\series bold
+clase lateral módulo 
+\begin_inset Formula $H$
+\end_inset
+
+ por la derecha
+\series default
+, es 
+\begin_inset Formula $Ha=\{ah\}_{h\in H}$
+\end_inset
+
+, y llamamos 
+\begin_inset Formula $H\backslash G:=G/(\equiv_{d}\bmod H)$
+\end_inset
+
+.
+ La función 
+\begin_inset Formula $\sigma:G/H\to H\backslash G$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\sigma(aH):=Ha^{-1}$
+\end_inset
+
+ es biyectiva, luego 
+\begin_inset Formula $|G/H|=|H\backslash G|$
+\end_inset
+
+, y llamamos 
+\series bold
+índice
+\series default
+ de 
+\begin_inset Formula $H$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ a 
+\begin_inset Formula $[G:H]:=|G/H|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Lagrange:
+\series default
+ Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un grupo finito y 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+, 
+\begin_inset Formula $|G|=|H|[G:H]$
+\end_inset
+
+.
+ En particular, si 
+\begin_inset Formula $|G|$
+\end_inset
+
+ es primo, los únicos subgrupos de 
+\begin_inset Formula $G$
+\end_inset
+
+ son 1 y 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $G$
+\end_inset
+
+ es cíclico y cualquier elemento suyo distinto de 1 es generador de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Subgrupos normales
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $A,B\subseteq G$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $AB:=\{ab\}_{a\in A,b\in B}$
+\end_inset
+
+, y es fácil ver que esta operación es asociativa.
+\end_layout
+
+\begin_layout Standard
+Un subgrupo 
+\begin_inset Formula $N\leq G$
+\end_inset
+
+ es 
+\series bold
+normal
+\series default
+ si 
+\begin_inset Formula $N\backslash G=G/N$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\forall x\in G,Nx=xN$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\forall x\in G,x^{-1}Nx=N$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\forall x\in G,Nx\subseteq xN$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\forall x\in G,xN\subseteq Nx$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\forall a,b\in G,aNbN=abN$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\forall a,b\in G,NaNb=Nab$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\iff2\iff3\implies4,5]$
+\end_inset
+
+ Obvio.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $4\implies2]$
+\end_inset
+
+ Si para 
+\begin_inset Formula $x\in G$
+\end_inset
+
+ es 
+\begin_inset Formula $Nx\subseteq xN$
+\end_inset
+
+ entonces 
+\begin_inset Formula $x^{-1}Nx\subseteq N$
+\end_inset
+
+, y por tanto para 
+\begin_inset Formula $x\in G$
+\end_inset
+
+ es 
+\begin_inset Formula $xNx^{-1}\subseteq N$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $xNx^{-1}x=xN\subseteq Nx$
+\end_inset
+
+, luego 
+\begin_inset Formula $xN=Nx$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $5\implies2]$
+\end_inset
+
+ Por simetría con lo anterior.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies6]$
+\end_inset
+
+ Como 
+\begin_inset Formula $N$
+\end_inset
+
+ es un subgrupo, 
+\begin_inset Formula $NN=N$
+\end_inset
+
+, y entonces, para 
+\begin_inset Formula $a,b\in G$
+\end_inset
+
+, 
+\begin_inset Formula $aNbN=abNN=abN$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $6\implies4]$
+\end_inset
+
+ Para 
+\begin_inset Formula $x\in G$
+\end_inset
+
+, 
+\begin_inset Formula $x^{-1}Nx\subseteq x^{-1}NxN=x^{-1}xNN=N$
+\end_inset
+
+, luego 
+\begin_inset Formula $xx^{-1}Nx=Nx\subseteq xN$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies7\implies5]$
+\end_inset
+
+ Por simetría con los dos anteriores.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $N\leq G$
+\end_inset
+
+ es normal, escribimos 
+\begin_inset Formula $N\unlhd G$
+\end_inset
+
+, y si además es propio, escribimos 
+\begin_inset Formula $N\lhd G$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $N\unlhd G$
+\end_inset
+
+, 
+\begin_inset Formula $G/N$
+\end_inset
+
+ es un grupo, el 
+\series bold
+grupo cociente
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ 
+\series bold
+módulo
+\series default
+ 
+\begin_inset Formula $N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+ está contenido en 
+\begin_inset Formula $Z(G)$
+\end_inset
+
+, 
+\begin_inset Formula $H\unlhd G$
+\end_inset
+
+.
+ En particular, en un grupo abeliano, todo subgrupo es normal.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $I$
+\end_inset
+
+ es un ideal de 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $(A,+)/I$
+\end_inset
+
+ es el grupo aditivo del conjunto cociente.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+ tiene índice 2, es normal.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Como las clases por la izquierda módulo 
+\begin_inset Formula $H$
+\end_inset
+
+ forman una partición de 
+\begin_inset Formula $G$
+\end_inset
+
+, solo hay dos y una es 
+\begin_inset Formula $H$
+\end_inset
+
+, entonces 
+\begin_inset Formula $G/H=\{H,G\setminus H\}$
+\end_inset
+
+, y del mismo modo 
+\begin_inset Formula $H\backslash G=\{H,G\setminus H\}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula ${\cal SL}_{n}(\mathbb{R})\unlhd{\cal GL}_{n}(\mathbb{R})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $a,b\in{\cal GL}_{n}(\mathbb{R})$
+\end_inset
+
+, 
+\begin_inset Formula $\det(ba)=\det(ab)$
+\end_inset
+
+, luego dos elementos son de la misma clase izquierda o derecha módulo 
+\begin_inset Formula ${\cal SL}_{n}(\mathbb{R})$
+\end_inset
+
+ si y sólo si tienen igual determinante.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\series bold
+Teorema de la correspondencia:
+\series default
+ Si 
+\begin_inset Formula $N\unlhd G$
+\end_inset
+
+, 
+\begin_inset Formula $H\mapsto H/N$
+\end_inset
+
+ es una biyección entre el conjunto de los subgrupos de 
+\begin_inset Formula $G$
+\end_inset
+
+ que contienen a 
+\begin_inset Formula $N$
+\end_inset
+
+ y el de los subgrupos de 
+\begin_inset Formula $G/N$
+\end_inset
+
+ que conserva las inclusiones y la normalidad.
+ 
+\series bold
+Demostración:
+\series default
+ Basta seguir la prueba del teorema de correspondencia de anillos.
+ Para la normalidad, si 
+\begin_inset Formula $H$
+\end_inset
+
+ es normal, para 
+\begin_inset Formula $gN\in G/N$
+\end_inset
+
+ y 
+\begin_inset Formula $hN\in H/N$
+\end_inset
+
+, como 
+\begin_inset Formula $g^{-1}hg\in H$
+\end_inset
+
+, 
+\begin_inset Formula $(gN)^{-1}hNgN=g^{-1}NhNgN=g^{-1}hgN\in H/N$
+\end_inset
+
+, y 
+\begin_inset Formula $H/N\unlhd G/N$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $H/N$
+\end_inset
+
+ es normal, para 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ y 
+\begin_inset Formula $h\in H$
+\end_inset
+
+, como 
+\begin_inset Formula $g^{-1}NhNgN=g^{-1}hgN\in H/N$
+\end_inset
+
+, 
+\begin_inset Formula $g^{-1}hg\in H$
+\end_inset
+
+, y 
+\begin_inset Formula $H\unlhd G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Homomorfismos
+\end_layout
+
+\begin_layout Standard
+Una función 
+\begin_inset Formula $f:G\to H$
+\end_inset
+
+ entre dos grupos es un 
+\series bold
+homomorfismo de grupos
+\series default
+ si 
+\begin_inset Formula $\forall a,b\in G,f(ab)=f(a)f(b)$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $G=H$
+\end_inset
+
+, es un 
+\series bold
+endomorfismo
+\series default
+.
+ Si es biyectiva, es un 
+\series bold
+isomorfismo
+\series default
+, y si además 
+\begin_inset Formula $G=H$
+\end_inset
+
+, es un 
+\series bold
+automorfismo
+\series default
+.
+ Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un grupo, el conjunto 
+\begin_inset Formula $\text{Aut}(G)$
+\end_inset
+
+ de los automorfismos de anillos de 
+\begin_inset Formula $G$
+\end_inset
+
+ es un subgrupo de 
+\begin_inset Formula $S_{G}$
+\end_inset
+
+.
+ Llamamos 
+\begin_inset Formula $\ker f:=f^{-1}(1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Propiedades: Si 
+\begin_inset Formula $G\overset{f}{\to}H\overset{g}{\to}K$
+\end_inset
+
+ son homomorfismos de grupos, 
+\begin_inset Formula $G'\leq G$
+\end_inset
+
+, 
+\begin_inset Formula $H'\leq H$
+\end_inset
+
+, 
+\begin_inset Formula $a,a_{1},\dots,a_{n}\in G$
+\end_inset
+
+ y 
+\begin_inset Formula $m\in\mathbb{Z}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f(1)=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $f(1)f(1)=f(1\cdot1)=f(1)=f(1)1\implies f(1)=1$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $f(a)^{-1}=f(a^{-1})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $f(a)f(a^{-1})=f(aa^{-1})=f(1)=1$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $f(a_{1}\cdots a_{n})=f(a_{1})\cdots f(a_{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $n=0$
+\end_inset
+
+, 
+\begin_inset Formula $f(1)=1$
+\end_inset
+
+.
+ Supuesto esto probado para un cierto 
+\begin_inset Formula $n\geq0$
+\end_inset
+
+, 
+\begin_inset Formula $f(a_{1}\cdots a_{n+1})=f(a_{1}\cdots a_{n})f(a_{n+1})=f(a_{1})\cdots f(a_{n})f(a_{n+1})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $f(a^{m})=f(a)^{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $m=0$
+\end_inset
+
+, 
+\begin_inset Formula $f(a^{0})=1=f(a)^{0}$
+\end_inset
+
+.
+ Supuesto esto probado para un cierto 
+\begin_inset Formula $m\geq0$
+\end_inset
+
+, 
+\begin_inset Formula $f(a^{m+1})=f(aa^{m})=f(a)f(a^{m})=f(a)f(a)^{m}=f(a)^{m+1}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $m<0$
+\end_inset
+
+, 
+\begin_inset Formula $f(a^{m})=f((a^{-m})^{-1})=f(a^{-m})^{-1}=(f(a)^{-m})^{-1}=f(a)^{m}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es un isomorfismo, 
+\begin_inset Formula $f^{-1}:H\to G$
+\end_inset
+
+ también.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $x,y\in H$
+\end_inset
+
+ con 
+\begin_inset Formula $f(a)=x$
+\end_inset
+
+ y 
+\begin_inset Formula $f(b)=y$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f^{-1}(xy)=f^{-1}(f(a)f(b))=f^{-1}(f(ab))=ab=f^{-1}(x)f^{-1}(y)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $g\circ f:G\to K$
+\end_inset
+
+ es un homomorfismo de grupos.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $a,b\in G$
+\end_inset
+
+, 
+\begin_inset Formula $g(f(ab))=g(f(a)f(b))=g(f(a))g(f(b))$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $f^{-1}(H')\leq G$
+\end_inset
+
+.
+ Si además 
+\begin_inset Formula $H'\unlhd H$
+\end_inset
+
+, 
+\begin_inset Formula $f^{-1}(H')\unlhd G$
+\end_inset
+
+.
+ En particular, 
+\begin_inset Formula $\ker f\unlhd G$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Claramente 
+\begin_inset Formula $1\in f^{-1}(H')$
+\end_inset
+
+.
+ Además, si 
+\begin_inset Formula $a,b\in f^{-1}(H')$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+ab^{-1}=f^{-1}(f(ab^{-1}))=f^{-1}(f(a)f(b)^{-1}),
+\]
+
+\end_inset
+
+ y como 
+\begin_inset Formula $f(a),f(b)\in H'$
+\end_inset
+
+, 
+\begin_inset Formula $f(ab^{-1})$
+\end_inset
+
+ también.
+ Si 
+\begin_inset Formula $H'$
+\end_inset
+
+ es normal, sean 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ y 
+\begin_inset Formula $s\in f^{-1}(H')$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f(g^{-1}sg)=f(g)^{-1}f(s)f(g)\in H'$
+\end_inset
+
+, luego 
+\begin_inset Formula $g^{-1}sg\in f^{-1}(H')$
+\end_inset
+
+.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $f$
+\end_inset
+
+ es inyectivo si y sólo si 
+\begin_inset Formula $\ker f=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Como 
+\begin_inset Formula $f(1)=1$
+\end_inset
+
+, 
+\begin_inset Formula $1\in\ker f$
+\end_inset
+
+, y si 
+\begin_inset Formula $b\in\ker f$
+\end_inset
+
+, 
+\begin_inset Formula $f(b)=1=f(1)$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $b=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $a,b\in G$
+\end_inset
+
+ cumplen 
+\begin_inset Formula $f(a)=f(b)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f(ab^{-1})=f(a)f(b)^{-1}=1$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $ab^{-1}=1$
+\end_inset
+
+ y 
+\begin_inset Formula $a=b$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $f(G')\leq H$
+\end_inset
+
+.
+ En particular 
+\begin_inset Formula $f(G)\leq H$
+\end_inset
+
+.
+ Si además 
+\begin_inset Formula $G'\unlhd G$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ es suprayectiva, entonces 
+\begin_inset Formula $f(G')\unlhd H$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Claramente 
+\begin_inset Formula $1\in f(G')$
+\end_inset
+
+.
+ Además, si 
+\begin_inset Formula $x,y\in f(G')$
+\end_inset
+
+, sean 
+\begin_inset Formula $a,b\in G'$
+\end_inset
+
+ con 
+\begin_inset Formula $f(a)=x$
+\end_inset
+
+ y 
+\begin_inset Formula $f(b)=y$
+\end_inset
+
+, entonces 
+\begin_inset Formula $xy^{-1}=f(a)f(b)^{-1}=f(ab^{-1})\in f(G')$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $G'$
+\end_inset
+
+ es normal, sean 
+\begin_inset Formula $h\in H$
+\end_inset
+
+, 
+\begin_inset Formula $t\in f(G')$
+\end_inset
+
+, 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ con 
+\begin_inset Formula $f(g)=h$
+\end_inset
+
+ y 
+\begin_inset Formula $s\in G'$
+\end_inset
+
+ con 
+\begin_inset Formula $f(s)=t$
+\end_inset
+
+, entonces 
+\begin_inset Formula $h^{-1}th=f(g)^{-1}f(s)f(g)=f(g^{-1}sg)\in f(G')$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Algunos homomorfismos:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+, la inclusión 
+\begin_inset Formula $H\to G$
+\end_inset
+
+ es un homomorfismo inyectivo.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $N\unlhd G$
+\end_inset
+
+, la 
+\series bold
+proyección canónica
+\series default
+ 
+\begin_inset Formula $\pi:G\to G/N$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\pi(x):=xN$
+\end_inset
+
+ es un homomorfismo suprayectivo con núcleo 
+\begin_inset Formula $N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Dados dos grupos 
+\begin_inset Formula $G$
+\end_inset
+
+ y 
+\begin_inset Formula $H$
+\end_inset
+
+, 
+\begin_inset Formula $f:G\to H$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f(a):=1_{H}$
+\end_inset
+
+ es el 
+\series bold
+homomorfismo trivial
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ en 
+\begin_inset Formula $H$
+\end_inset
+
+, con núcleo 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Dado 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+, 
+\begin_inset Formula $f:\mathbb{Z}\to\mathbb{Z}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f(n):=an$
+\end_inset
+
+ es un endomorfismo de 
+\begin_inset Formula $(\mathbb{Z},+)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un grupo y 
+\begin_inset Formula $x\in G$
+\end_inset
+
+, 
+\begin_inset Formula $f:\mathbb{Z}\to G$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f(n):=x^{n}$
+\end_inset
+
+ es un homomorfismo, esto es, 
+\begin_inset Formula $x^{n+m}=x^{n}x^{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Dado 
+\begin_inset Formula $\alpha\in\mathbb{R}^{+}:=\mathbb{R}^{>0}$
+\end_inset
+
+, 
+\begin_inset Formula $f:(\mathbb{R},+)\to(\mathbb{R}^{+},\cdot)$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f(r):=\alpha^{r}$
+\end_inset
+
+ es un isomorfismo de grupos con inversa 
+\begin_inset Formula $f^{-1}(s):=\log_{\alpha}s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teoremas de isomorfía para grupos:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f:G\to H$
+\end_inset
+
+ es un homomorfismo de grupos, existe un único isomorfismo 
+\begin_inset Formula $\tilde{f}:G/\ker f\to\text{Im}f$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f=i\circ\tilde{f}\circ p$
+\end_inset
+
+, donde 
+\begin_inset Formula $i:\text{Im}f\to H$
+\end_inset
+
+ es la inclusión y 
+\begin_inset Formula $p:G\to G/\ker f$
+\end_inset
+
+ es la proyección canónica.
+ En particular, 
+\begin_inset Formula 
+\[
+\frac{G}{\ker f}\cong\text{Im}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $N,H\unlhd G$
+\end_inset
+
+ con 
+\begin_inset Formula $N\subseteq H$
+\end_inset
+
+, 
+\begin_inset Formula $H/N\unlhd G/N$
+\end_inset
+
+ y 
+\begin_inset Formula 
+\[
+\frac{G/N}{H/N}\cong G/H.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+ y 
+\begin_inset Formula $N\unlhd G$
+\end_inset
+
+, entonces 
+\begin_inset Formula $NH\leq G$
+\end_inset
+
+, 
+\begin_inset Formula $N\cap H\unlhd G$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+\frac{H}{N\cap H}\cong\frac{NH}{N}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f:G\to H$
+\end_inset
+
+ es un homomorfismo de grupos, 
+\begin_inset Formula $K\mapsto f(K)$
+\end_inset
+
+ es una biyección entre los subgrupos de 
+\begin_inset Formula $G$
+\end_inset
+
+ que contienen a 
+\begin_inset Formula $\ker f$
+\end_inset
+
+ y los subgrupos de 
+\begin_inset Formula $\text{Im}f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{C}^{*}/{\cal C}(0,1)\cong\mathbb{R}^{+}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+La norma 
+\begin_inset Formula $|\cdot|:\mathbb{C}^{*}\to\mathbb{R}^{*}$
+\end_inset
+
+ es un homomorfismo con núcleo la circunferencia unidad en 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ y con imagen 
+\begin_inset Formula $\mathbb{R}^{+}$
+\end_inset
+
+, y aplicamos el primer teorema de isomorfía.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula ${\cal GL}_{n}(\mathbb{R})/{\cal SL}_{n}(\mathbb{R})\cong\mathbb{R}^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+El determinante 
+\begin_inset Formula $\det:{\cal GL}_{n}(\mathbb{R})\to\mathbb{R}$
+\end_inset
+
+ es un homomorfismo con núcleo 
+\begin_inset Formula ${\cal SL}_{n}(\mathbb{R})$
+\end_inset
+
+ e imagen 
+\begin_inset Formula $\mathbb{R}^{*}$
+\end_inset
+
+, y aplicamos el primer teorema de isomorfía.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+En general, 
+\begin_inset Formula $H,K\leq G$
+\end_inset
+
+ no implica 
+\begin_inset Formula $HK\leq G$
+\end_inset
+
+.
+ En efecto, si 
+\begin_inset Formula $\sigma,\tau\in S_{3}$
+\end_inset
+
+ vienen dadas por 
+\begin_inset Formula $\sigma(1)=2$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma(2)=1$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma(3)=3$
+\end_inset
+
+, 
+\begin_inset Formula $\tau(1)=3$
+\end_inset
+
+, 
+\begin_inset Formula $\tau(2)=2$
+\end_inset
+
+ y 
+\begin_inset Formula $\tau(3)=1$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\langle\sigma\rangle=\{1,\sigma\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle\tau\rangle=\{1,\tau\}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\langle\sigma\rangle\langle\tau\rangle=\{1,\sigma,\tau,\sigma\tau\}$
+\end_inset
+
+, pero 
+\begin_inset Formula $|\langle\sigma\rangle\langle\tau\rangle|=4\nmid6$
+\end_inset
+
+, luego esto no es un grupo.
+\end_layout
+
+\begin_layout Section
+Orden de un elemento
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+orden
+\series default
+ de 
+\begin_inset Formula $a\in G$
+\end_inset
+
+ al orden de 
+\begin_inset Formula $\langle a\rangle$
+\end_inset
+
+, 
+\begin_inset Formula $|a|:=|\langle a\rangle|$
+\end_inset
+
+, y escribimos 
+\begin_inset Formula $\langle a\rangle_{n}$
+\end_inset
+
+ para referirnos a 
+\begin_inset Formula $\langle a\rangle$
+\end_inset
+
+ indicando que tiene orden 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ El orden de 
+\begin_inset Formula $a$
+\end_inset
+
+ divide al de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f:\mathbb{Z}\to G$
+\end_inset
+
+ el homomorfismo dado por 
+\begin_inset Formula $f(n):=a^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\ker f=n\mathbb{Z}$
+\end_inset
+
+ para algún 
+\begin_inset Formula $n\geq0$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $n=0$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ es inyectivo y 
+\begin_inset Formula $(\mathbb{Z},+)\cong\langle a\rangle$
+\end_inset
+
+, y en otro caso 
+\begin_inset Formula $\mathbb{Z}_{n}\cong\langle a\rangle$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $n=|a|$
+\end_inset
+
+ y 
+\begin_inset Formula $a^{n}=1\iff|a|\mid n$
+\end_inset
+
+.
+ De aquí, 
+\begin_inset Formula $a^{k}=a^{l}\iff k\equiv l\bmod n$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $|a|$
+\end_inset
+
+ es el menor entero positivo con 
+\begin_inset Formula $a^{n}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $a$
+\end_inset
+
+ tiene orden finito y 
+\begin_inset Formula $n>0$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+|a^{n}|=\frac{|a|}{\text{mcd}\{|a|,n\}}.
+\]
+
+\end_inset
+
+En efecto, sean 
+\begin_inset Formula $m:=|a|$
+\end_inset
+
+ y 
+\begin_inset Formula $d:=\text{mcd}\{m,n\}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\text{mcd}\{\frac{m}{d},\frac{n}{d}\}=1$
+\end_inset
+
+ y 
+\begin_inset Formula $(a^{n})^{k}=a^{nk}=1\iff m\mid nk\iff\frac{m}{d}\mid\frac{nk}{d}=\frac{n}{d}k\iff\frac{m}{d}\mid k$
+\end_inset
+
+, luego 
+\begin_inset Formula $|a^{n}|=\frac{m}{d}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $G=\langle a\rangle$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $G$
+\end_inset
+
+ tiene orden infinito, 
+\begin_inset Formula $G\cong(\mathbb{Z},+)\cong C_{\infty}$
+\end_inset
+
+ y los subgrupos de 
+\begin_inset Formula $G$
+\end_inset
+
+ son los 
+\begin_inset Formula $\langle a^{n}\rangle$
+\end_inset
+
+ con 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $|G|=n$
+\end_inset
+
+, 
+\begin_inset Formula $G\cong(\mathbb{Z}_{n},+)\cong C_{n}$
+\end_inset
+
+ y los subgrupos de 
+\begin_inset Formula $G$
+\end_inset
+
+ son exactamente uno de orden 
+\begin_inset Formula $d$
+\end_inset
+
+ por cada 
+\begin_inset Formula $d\mid n$
+\end_inset
+
+, 
+\begin_inset Formula $\langle a^{n/d}\rangle_{d}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Todos los subgrupos y grupos cociente de 
+\begin_inset Formula $G$
+\end_inset
+
+ son cíclicos.
+\end_layout
+
+\begin_layout Standard
+Así, si 
+\begin_inset Formula $p\in\mathbb{N}$
+\end_inset
+
+ es primo, todos los grupos de orden 
+\begin_inset Formula $p$
+\end_inset
+
+ son isomorfos a 
+\begin_inset Formula $(\mathbb{Z}_{p},+)$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $G=\langle g_{1},\dots,g_{n}\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $N\unlhd G$
+\end_inset
+
+, 
+\begin_inset Formula $G/N=\langle g_{1}N,\dots,g_{n}N\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema chino de los restos para grupos:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $G$
+\end_inset
+
+ y 
+\begin_inset Formula $H$
+\end_inset
+
+ son subgrupos cíclicos de órdenes respectivos 
+\begin_inset Formula $n$
+\end_inset
+
+ y 
+\begin_inset Formula $m$
+\end_inset
+
+, 
+\begin_inset Formula $G\times H$
+\end_inset
+
+ es cíclico si y sólo si 
+\begin_inset Formula $n$
+\end_inset
+
+ y 
+\begin_inset Formula $m$
+\end_inset
+
+ son coprimos.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $G\cong(\mathbb{Z}_{n},+)$
+\end_inset
+
+ y 
+\begin_inset Formula $H\cong(\mathbb{Z}_{m},+)$
+\end_inset
+
+, y por el teorema chino de los restos para anillos, 
+\begin_inset Formula $\mathbb{Z}_{n}\times\mathbb{Z}_{m}\cong\frac{\mathbb{Z}}{nm\mathbb{Z}}=\mathbb{Z}_{nm}$
+\end_inset
+
+ como anillos, luego los grupos aditivos también son isomorfos y 
+\begin_inset Formula $G\times H\cong(\mathbb{Z}_{n},+)\times(\mathbb{Z}_{m},+)\cong(\mathbb{Z}_{nm},+)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $d:=\text{mcd}\{n,m\}>1$
+\end_inset
+
+, entonces 
+\begin_inset Formula $G$
+\end_inset
+
+ tiene un subgrupo 
+\begin_inset Formula $G'$
+\end_inset
+
+ de orden 
+\begin_inset Formula $d$
+\end_inset
+
+ y 
+\begin_inset Formula $H$
+\end_inset
+
+ un subgrupo 
+\begin_inset Formula $H'$
+\end_inset
+
+ de orden 
+\begin_inset Formula $d$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $G'\times1$
+\end_inset
+
+ y 
+\begin_inset Formula $1\times H'$
+\end_inset
+
+ son subgrupos distintos de 
+\begin_inset Formula $G\times H$
+\end_inset
+
+ del mismo orden, luego 
+\begin_inset Formula $G\times H$
+\end_inset
+
+ no es cíclico.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $g,h\in G$
+\end_inset
+
+ tienen órdenes respectivos 
+\begin_inset Formula $n$
+\end_inset
+
+ y 
+\begin_inset Formula $m$
+\end_inset
+
+ coprimos y 
+\begin_inset Formula $gh=hg$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\langle g,h\rangle$
+\end_inset
+
+ es cíclico de orden 
+\begin_inset Formula $nm$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+La función 
+\begin_inset Formula $f:\mathbb{Z}_{n}\times\mathbb{Z}_{m}\to G$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f(i,j):=g^{i}h^{j}$
+\end_inset
+
+ es un homomorfismo de grupos con imagen 
+\begin_inset Formula $\langle g,h\rangle$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $f(i,j)=1$
+\end_inset
+
+, 
+\begin_inset Formula $a^{i}b^{j}=1\implies a^{-i}=b^{j}\in\langle g\rangle\cap\langle h\rangle$
+\end_inset
+
+ pero por el teorema de Lagrange, el orden de 
+\begin_inset Formula $\langle g\rangle\cap\langle h\rangle$
+\end_inset
+
+ divide a 
+\begin_inset Formula $n$
+\end_inset
+
+ y a 
+\begin_inset Formula $m$
+\end_inset
+
+ y por tanto a 1, luego 
+\begin_inset Formula $a^{-i}=b^{j}=1$
+\end_inset
+
+, 
+\begin_inset Formula $(i,j)=(0,0)$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ es inyectiva.
+ Por tanto 
+\begin_inset Formula $\mathbb{Z}_{nm}\cong\mathbb{Z}_{n}\times\mathbb{Z}_{m}\cong\text{Im}f=\langle g,h\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle g,h\rangle$
+\end_inset
+
+ es cíclico de orden 
+\begin_inset Formula $nm$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Acciones de grupos en conjuntos
+\end_layout
+
+\begin_layout Standard
+Dados un grupo 
+\begin_inset Formula $G$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in G$
+\end_inset
+
+, llamamos 
+\series bold
+conjugado
+\series default
+ de 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ por 
+\begin_inset Formula $a$
+\end_inset
+
+ a 
+\begin_inset Formula $g^{a}:=a^{-1}ga$
+\end_inset
+
+, y conjugado de 
+\begin_inset Formula $X\subseteq G$
+\end_inset
+
+ por 
+\begin_inset Formula $a$
+\end_inset
+
+ a 
+\begin_inset Formula $X^{a}:=\{x^{a}\}_{x\in X}$
+\end_inset
+
+.
+ Dos elementos 
+\begin_inset Formula $x,y\in G$
+\end_inset
+
+ o conjuntos 
+\begin_inset Formula $x,y\subseteq G$
+\end_inset
+
+ son 
+\series bold
+conjugados
+\series default
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ si existe 
+\begin_inset Formula $a\in G$
+\end_inset
+
+ con 
+\begin_inset Formula $x^{a}=y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $a\in G$
+\end_inset
+
+, llamamos 
+\series bold
+automorfismo interno
+\series default
+ definido por 
+\begin_inset Formula $a$
+\end_inset
+
+ al automorfismo 
+\begin_inset Formula $\iota_{a}:G\to G$
+\end_inset
+
+ dado por 
+\begin_inset Formula $\iota_{a}(x):=x^{a}$
+\end_inset
+
+.
+ Su inverso es 
+\begin_inset Formula $\iota_{a^{-1}}$
+\end_inset
+
+.
+ El conjugado por 
+\begin_inset Formula $a$
+\end_inset
+
+ de un subgrupo de 
+\begin_inset Formula $G$
+\end_inset
+
+ es otro subgrupo de 
+\begin_inset Formula $G$
+\end_inset
+
+ del mismo orden.
+\end_layout
+
+\begin_layout Standard
+Vemos que 
+\begin_inset Formula $\forall g,a,b\in G,g^{ab}=(g^{a})^{b}$
+\end_inset
+
+, y con esto es fácil comprobar que la relación de ser conjugados es de
+ equivalencia.
+ Las clases de equivalencia se llaman 
+\series bold
+clases de conjugación
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+, y llamamos 
+\begin_inset Formula $a^{G}:=[a]=\{a^{g}\}_{g\in G}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $X$
+\end_inset
+
+ un conjunto.
+ Una 
+\series bold
+acción por la izquierda
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+ es una función 
+\begin_inset Formula $\cdot:X\times G\to X$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall x\in X,(\forall g,h\in G,(gh)\cdot x=g\cdot(h\cdot x)\land1\cdot x=x)$
+\end_inset
+
+, y una 
+\series bold
+acción por la derecha
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+ es una función 
+\begin_inset Formula $\cdot:G\times X\to X$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall x\in X,(\forall g,h\in G,x\cdot(gh)=(x\cdot g)\cdot h\land x\cdot1=x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\cdot:G\times X\to X$
+\end_inset
+
+ es una acción por la izquierda de 
+\begin_inset Formula $G$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in X$
+\end_inset
+
+, llamamos 
+\series bold
+órbita
+\series default
+ de 
+\begin_inset Formula $x$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ a 
+\begin_inset Formula $G\cdot x:=\{g\cdot x\}_{g\in G}$
+\end_inset
+
+ y 
+\series bold
+estabilizador
+\series default
+ de 
+\begin_inset Formula $x$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{Estab}_{G}(x):=\{g\in G:g\cdot x=x\}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\cdot:X\times G\to X$
+\end_inset
+
+ es una acción por la derecha de 
+\begin_inset Formula $G$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in X$
+\end_inset
+
+, llamamos órbita de 
+\begin_inset Formula $x$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ a 
+\begin_inset Formula $x\cdot G:=\{x\cdot g\}_{g\in G}$
+\end_inset
+
+ y estabilizador de 
+\begin_inset Formula $x$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{Estab}_{G}(x):=\{g\in G:x\cdot g=x\}$
+\end_inset
+
+.
+ Las órbitas forman una partición de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+Llamamos 
+\series bold
+acción por translación a la izquierda
+\series default
+ a la acción por la izquierda de 
+\begin_inset Formula $G$
+\end_inset
+
+ en 
+\begin_inset Formula $G/H$
+\end_inset
+
+ dada por 
+\begin_inset Formula $g\cdot xH=gxH$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $G\cdot xH=G/H$
+\end_inset
+
+ y 
+\begin_inset Formula 
+\[
+\text{Estab}_{G}(xH)=\{g\in G:gxH=xH\}=\{g\in G:x^{-1}gx\in H\}=xHx^{-1}=H^{x^{-1}}.
+\]
+
+\end_inset
+
+Análogamente llamamos 
+\series bold
+acción por traslación a la derecha
+\series default
+ a la acción por la derecha de 
+\begin_inset Formula $G$
+\end_inset
+
+ en 
+\begin_inset Formula $H\backslash G$
+\end_inset
+
+ dada por 
+\begin_inset Formula $Hx\cdot g=Hxg$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Cuando 
+\begin_inset Formula $H=1$
+\end_inset
+
+, la acción de traslación es de 
+\begin_inset Formula $G$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+, con 
+\begin_inset Formula $G\cdot x=G$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{Estab}_{G}(x)=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+La 
+\series bold
+acción por conjugación
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ es la acción por la derecha 
+\begin_inset Formula $x\cdot g:=x^{g}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $x\cdot G=x^{G}$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{Estab}_{G}(x)=C_{G}(x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $S$
+\end_inset
+
+ es el conjunto de subgrupos de 
+\begin_inset Formula $G$
+\end_inset
+
+, la 
+\series bold
+acción por conjugación de 
+\begin_inset Formula $G$
+\end_inset
+
+ en sus subgrupos
+\series default
+ es la acción por la derecha de 
+\begin_inset Formula $G$
+\end_inset
+
+ en 
+\begin_inset Formula $S$
+\end_inset
+
+ 
+\begin_inset Formula $H\cdot g=H^{g}$
+\end_inset
+
+.
+ El 
+\series bold
+normalizador
+\series default
+ de un subgrupo 
+\begin_inset Formula $H$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\begin_inset Formula $N_{G}(H):=\text{Estab}_{G}(H)=\{g\in G:H^{g}=H\}$
+\end_inset
+
+, el mayor subgrupo de 
+\begin_inset Formula $G$
+\end_inset
+
+ que contiene a 
+\begin_inset Formula $H$
+\end_inset
+
+ como subgrupo normal.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ y 
+\begin_inset Formula $X$
+\end_inset
+
+ es un conjunto, 
+\begin_inset Formula $\cdot:S_{n}\times X^{n}\to X^{n}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\sigma\cdot(x_{1},\dots,x_{n}):=(x_{\sigma(1)},\dots,x_{\sigma(n)})$
+\end_inset
+
+ es una acción por la izquierda.
+\end_layout
+
+\begin_layout Enumerate
+Sean 
+\begin_inset Formula $\cdot:G\times X\to X$
+\end_inset
+
+ una acción por la izquierda, 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+ e 
+\begin_inset Formula $Y\subseteq X$
+\end_inset
+
+, si 
+\begin_inset Formula $\forall h\in H,y\in Y,h\cdot y\in Y$
+\end_inset
+
+, 
+\begin_inset Formula $\cdot|_{H\times Y}$
+\end_inset
+
+ es una acción por la izquierda de 
+\begin_inset Formula $H$
+\end_inset
+
+ en 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $G$
+\end_inset
+
+ un grupo actuando sobre un conjunto 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ y 
+\begin_inset Formula $g\in G$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{Estab}_{G}(x)\leq G$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Como 
+\begin_inset Formula $1\cdot x=x$
+\end_inset
+
+, 
+\begin_inset Formula $1\in\text{Estab}_{G}(x)$
+\end_inset
+
+.
+ Dados 
+\begin_inset Formula $a,b\in\text{Estab}_{G}(x)$
+\end_inset
+
+, 
+\begin_inset Formula $ab\cdot x=a\cdot(b\cdot x)=a\cdot x=x$
+\end_inset
+
+ y 
+\begin_inset Formula $a^{-1}\cdot x=a^{-1}\cdot(a\cdot x)=a^{-1}a\cdot x=1\cdot x=x$
+\end_inset
+
+, luego 
+\begin_inset Formula $ab,a^{-1}\in\text{Estab}_{G}(x)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $[G:\text{Estab}_{G}(x)]=|G\cdot x|$
+\end_inset
+
+.
+ En particular, si 
+\begin_inset Formula $G$
+\end_inset
+
+ es finito, 
+\begin_inset Formula $|G\cdot x|\mid|G|$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $H:=\text{Estab}_{G}(x)$
+\end_inset
+
+, 
+\begin_inset Formula $f:G/H\to G\cdot x$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f(gH):=g^{-1}\cdot x$
+\end_inset
+
+ está bien definida, pues si 
+\begin_inset Formula $gh^{-1}\in H$
+\end_inset
+
+, 
+\begin_inset Formula $f(gH)=g^{-1}\cdot x=g^{-1}\cdot(gh^{-1}\cdot x)=h^{-1}\cdot x=f(hH)$
+\end_inset
+
+, y queremos ver que es biyectiva.
+ Es claramente sobreyectiva, y es inyectiva porque si 
+\begin_inset Formula $f(gH)=f(hH)$
+\end_inset
+
+, 
+\begin_inset Formula $g^{-1}\cdot x=h^{-1}\cdot x$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $gh^{-1}\cdot x=g\cdot(h^{-1}\cdot x)=g\cdot(g^{-1}\cdot x)=x$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $gh^{-1}\in H$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si la acción es por la izquierda, 
+\begin_inset Formula $\text{Estab}_{G}(g\cdot x)=\text{Estab}_{G}(x)^{g^{-1}}$
+\end_inset
+
+, y si es por la derecha, 
+\begin_inset Formula $\text{Estab}_{G}(x\cdot g)=\text{Estab}_{G}(x)^{g}$
+\end_inset
+
+.
+ En particular, si 
+\begin_inset Formula $x,g\in G$
+\end_inset
+
+ y 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+, 
+\begin_inset Formula $C_{G}(x^{g})=C_{G}(x)^{g}$
+\end_inset
+
+ y 
+\begin_inset Formula $N_{G}(H^{g})=N_{G}(H)^{g}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si la acción es por la izquierda, 
+\begin_inset Formula $\text{Estab}_{G}(x)^{g^{-1}}=\{ghg^{-1}:h\cdot x=x\}=\{p\in G:g^{-1}pg\cdot x=x\}=\{p\in G:p\cdot(g\cdot x)=g\cdot x\}=\text{Estab}_{G}(g\cdot x)$
+\end_inset
+
+.
+ Si es por la derecha, 
+\begin_inset Formula $\text{Estab}_{G}(x)^{g}=\{g^{-1}hg:x\cdot h=x\}=\{p\in G:x\cdot gpg^{-1}=x\}=\{p\in G:(x\cdot g)\cdot p=x\cdot g\}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $R$
+\end_inset
+
+ es un conjunto irredundante de representantes de las órbitas, 
+\begin_inset Formula $|X|=\sum_{r\in R}|G\cdot r|=\sum_{r\in R}[G:\text{Estab}_{G}(r)]$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se debe a que las órbitas forman una partición de 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Así, si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un grupo y 
+\begin_inset Formula $a\in G$
+\end_inset
+
+, 
+\begin_inset Formula $|a^{G}|=[G:C_{G}(a)]$
+\end_inset
+
+, y en particular 
+\begin_inset Formula $a^{G}$
+\end_inset
+
+ es unipuntual si y sólo si 
+\begin_inset Formula $a\in Z(G)$
+\end_inset
+
+.
+ 
+\series bold
+Ecuación de clases:
+\series default
+ Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es finito y 
+\begin_inset Formula $X\subseteq G$
+\end_inset
+
+ contiene exactamente un elemento de cada clase de conjugación con al menos
+ dos elementos, entonces 
+\begin_inset Formula $|G|=|Z(G)|+\sum_{x\in X}[G:C_{G}(x)]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado un número primo 
+\begin_inset Formula $p$
+\end_inset
+
+, un 
+\series bold
+
+\begin_inset Formula $p$
+\end_inset
+
+-grupo finito
+\series default
+ es un grupo finito cuyo orden es potencia de 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un 
+\begin_inset Formula $p$
+\end_inset
+
+-grupo finito no trivial, 
+\begin_inset Formula $Z(G)\neq1$
+\end_inset
+
+.
+ En efecto, si 
+\begin_inset Formula $X\subseteq G$
+\end_inset
+
+ tiene exactamente un elemento de cada clase de conjugación con al menos
+ dos elementos, 
+\begin_inset Formula $|G|=|Z(G)|+\sum_{x\in X}[G:C_{G}(x)]=|Z(G)|+\sum_{x\in X}|x^{G}|$
+\end_inset
+
+, pero 
+\begin_inset Formula $|G|$
+\end_inset
+
+ y 
+\begin_inset Formula $|x^{G}|$
+\end_inset
+
+ son múltiplos de 
+\begin_inset Formula $p$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in X$
+\end_inset
+
+, luego 
+\begin_inset Formula $|Z(G)|$
+\end_inset
+
+ también y por tanto 
+\begin_inset Formula $Z(G)\neq1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Cauchy:
+\series default
+ Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un grupo finito con orden múltiplo de un primo 
+\begin_inset Formula $p$
+\end_inset
+
+, 
+\begin_inset Formula $G$
+\end_inset
+
+ tiene un elemento de orden 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $X:=\{(g_{1},\dots,g_{p})\in G^{p}:g_{1}\cdots g_{p}=1\}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+(g_{1},\dots,g_{p-1})\mapsto(g_{1},\cdots,g_{p-1},(g_{1}\cdots g_{p-1})^{-1}
+\]
+
+\end_inset
+
+ es una biyección de 
+\begin_inset Formula $G^{p-1}$
+\end_inset
+
+ a 
+\begin_inset Formula $X$
+\end_inset
+
+, luego 
+\begin_inset Formula $|X|=|G|^{p-1}$
+\end_inset
+
+.
+ Sean ahora 
+\begin_inset Formula $\cdot$
+\end_inset
+
+ la acción de 
+\begin_inset Formula $S_{p}$
+\end_inset
+
+ a 
+\begin_inset Formula $G^{p}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\sigma\cdot(g_{1},\dots,g_{p})=(g_{\sigma(1)},\dots,g_{\sigma(p)})$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma\in S_{p}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\sigma(i)=i+1$
+\end_inset
+
+ para 
+\begin_inset Formula $i\neq p$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma(p)=1$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $(x_{1},\dots,x_{p})\in X$
+\end_inset
+
+, 
+\begin_inset Formula $x_{p}x_{1}\cdots x_{p-1}=x_{p}(x_{1}\cdots x_{p})x_{p}^{-1}=1$
+\end_inset
+
+, luego para 
+\begin_inset Formula $x\in X$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma\cdot x\in X$
+\end_inset
+
+ y 
+\begin_inset Formula $\cdot$
+\end_inset
+
+ es una acción de 
+\begin_inset Formula $\langle\sigma\rangle$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\begin_inset Formula $|\sigma|=p$
+\end_inset
+
+, las órbitas de 
+\begin_inset Formula $\cdot|_{\langle\sigma\rangle\times X}$
+\end_inset
+
+ tienen cardinal 1 o 
+\begin_inset Formula $p$
+\end_inset
+
+, y si 
+\begin_inset Formula $n$
+\end_inset
+
+ es el número de órbitas con un elemento y 
+\begin_inset Formula $m$
+\end_inset
+
+ el de órbitas con 
+\begin_inset Formula $p$
+\end_inset
+
+ elementos, 
+\begin_inset Formula $|G|^{p-1}=|X|=n+pm$
+\end_inset
+
+, y como 
+\begin_inset Formula $p\mid|G|$
+\end_inset
+
+, 
+\begin_inset Formula $p\mid n$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $|\langle\sigma\rangle\cdot(1,\dots,1)|=1$
+\end_inset
+
+, 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+, y como 
+\begin_inset Formula $p\mid n$
+\end_inset
+
+, 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+, luego existe 
+\begin_inset Formula $x\in X\setminus\{(1,\dots,1)\}$
+\end_inset
+
+ con 
+\begin_inset Formula $|G\cdot x|=1$
+\end_inset
+
+ y 
+\begin_inset Formula $(x_{1},\dots,x_{p})=\sigma\cdot x=(x_{p},x_{1},\dots,x_{p-1})$
+\end_inset
+
+.
+ Por tanto, todos los 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ son iguales a un 
+\begin_inset Formula $g\in G\setminus1$
+\end_inset
+
+ con 
+\begin_inset Formula $g^{p}=x_{1}\cdots x_{p}=1$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $|g|=p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Teoremas de Sylow
+\end_layout
+
+\begin_layout Standard
+Dados un grupo finito 
+\begin_inset Formula $G$
+\end_inset
+
+ y un número primo 
+\begin_inset Formula $p$
+\end_inset
+
+, 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+ es un 
+\series bold
+
+\begin_inset Formula $p$
+\end_inset
+
+-subgrupo de Sylow
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ si es un 
+\begin_inset Formula $p$
+\end_inset
+
+-grupo y 
+\begin_inset Formula $[G:H]$
+\end_inset
+
+ es coprimo con 
+\begin_inset Formula $p$
+\end_inset
+
+, si y sólo si es un 
+\begin_inset Formula $p$
+\end_inset
+
+-grupo y 
+\begin_inset Formula $|H|$
+\end_inset
+
+ es la mayor potencia de 
+\begin_inset Formula $p$
+\end_inset
+
+ que divide a 
+\begin_inset Formula $|G|$
+\end_inset
+
+.
+ Llamamos 
+\begin_inset Formula $s_{p}(G)$
+\end_inset
+
+ al número de 
+\begin_inset Formula $p$
+\end_inset
+
+-subgrupos de Sylow de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teoremas de Sylow:
+\series default
+ Sean 
+\begin_inset Formula $p$
+\end_inset
+
+ un número primo y 
+\begin_inset Formula $G$
+\end_inset
+
+ un grupo finito de orden 
+\begin_inset Formula $n:=p^{k}m$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $k,m\in\mathbb{N}$
+\end_inset
+
+ con 
+\begin_inset Formula $p\nmid m$
+\end_inset
+
+.
+ Entonces:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $G$
+\end_inset
+
+ tiene al menos un 
+\begin_inset Formula $p$
+\end_inset
+
+-subgrupo de Sylow, que tendrá orden 
+\begin_inset Formula $p^{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $P$
+\end_inset
+
+ es un 
+\begin_inset Formula $p$
+\end_inset
+
+-subgrupo de Sylow de 
+\begin_inset Formula $G$
+\end_inset
+
+ y 
+\begin_inset Formula $Q$
+\end_inset
+
+ es un 
+\begin_inset Formula $p$
+\end_inset
+
+-subgrupo de 
+\begin_inset Formula $G$
+\end_inset
+
+, existe 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ tal que 
+\begin_inset Formula $Q\subseteq P^{g}$
+\end_inset
+
+.
+ En particular, todos los 
+\begin_inset Formula $p$
+\end_inset
+
+-subgrupos de Sylow de 
+\begin_inset Formula $G$
+\end_inset
+
+ son conjugados en 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $s_{p}(G)\mid m$
+\end_inset
+
+ y 
+\begin_inset Formula $s_{p}(G)\equiv1\bmod p$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
