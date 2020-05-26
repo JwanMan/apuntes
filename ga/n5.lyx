@@ -1,0 +1,2012 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Sumas directas
+\end_layout
+
+\begin_layout Standard
+Dada una familia 
+\begin_inset Formula $(B_{i})_{i\in I}$
+\end_inset
+
+ de subgrupos de un grupo abeliano, llamamos 
+\series bold
+suma
+\series default
+ de 
+\begin_inset Formula $(B_{i})_{i\in I}$
+\end_inset
+
+ a 
+\begin_inset Formula $\sum_{i\in I}B_{i}:=\{\sum_{i\in I}b_{i}:b_{i}\in B_{i},\{i\in I:b_{i}\neq0\}\text{ finito}\}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $I=\{1,\dots,n\}$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $\sum_{i\in I}B_{i}=:B_{1}+\dots+B_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La familia 
+\begin_inset Formula $(B_{i})_{i\in I}$
+\end_inset
+
+ es 
+\series bold
+independiente
+\series default
+ si el 0 se expresa de forma única como suma de elementos de los 
+\begin_inset Formula $B_{i}$
+\end_inset
+
+ (
+\begin_inset Formula $\forall i,b_{i}\in B_{i}\land\sum_{i\in I}b_{i}=0\implies\forall i,b_{i}=0$
+\end_inset
+
+), si y sólo si cada elemento de 
+\begin_inset Formula $\sum_{i\in I}B_{i}$
+\end_inset
+
+ se expresa de forma única como suma de elementos de los 
+\begin_inset Formula $B_{i}$
+\end_inset
+
+, si y sólo si para cada 
+\begin_inset Formula $j\in I$
+\end_inset
+
+, 
+\begin_inset Formula $B_{j}\cap(\sum_{i\in I\setminus\{j\}}B_{i})=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Si 
+\begin_inset Formula $\sum_{i\in I}b_{i}=\sum_{i\in I}c_{i}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\sum_{i\in I}(b_{i}-c_{i})=0$
+\end_inset
+
+, luego para cada 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $b_{i}-c_{i}=0$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{i}=c_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies1]$
+\end_inset
+
+ Obvio.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies3]$
+\end_inset
+
+ Si 
+\begin_inset Formula $x\in B_{j}\cap(\sum_{i\in I\setminus\{j\}}B_{i})$
+\end_inset
+
+, podemos escribir 
+\begin_inset Formula $x=-b_{j}=\sum_{i\in I\setminus\{j\}}b_{i}$
+\end_inset
+
+ con 
+\begin_inset Formula $b_{i}\in B_{i}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $i\in I$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $\sum_{i\in I}b_{i}=0$
+\end_inset
+
+ y por tanto cada 
+\begin_inset Formula $b_{i}=0$
+\end_inset
+
+ y 
+\begin_inset Formula $x=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies1]$
+\end_inset
+
+ Si 
+\begin_inset Formula $\sum_{i\in I}b_{i}=0$
+\end_inset
+
+, para cada 
+\begin_inset Formula $j$
+\end_inset
+
+, 
+\begin_inset Formula $b_{j}=\sum_{i\in I\setminus\{j\}}(-b_{i})\in B_{j}\cap(\sum_{i\in I\setminus\{j\}}B_{i})=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $b_{j}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Cuando 
+\begin_inset Formula $(B_{i})_{i\in I}$
+\end_inset
+
+ es independiente, su suma se llama 
+\series bold
+suma directa
+\series default
+, 
+\begin_inset Formula $\bigoplus_{i\in I}B_{i}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $I=\{1,\dots,n\}$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $\bigoplus_{i\in I}B_{i}=:B_{1}\oplus\dots\oplus B_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+En 
+\begin_inset Formula $(\mathbb{R}^{*},\cdot)$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{R}^{*}=\langle-1\rangle\oplus\mathbb{R}^{+}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ son grupos abelianos, 
+\begin_inset Formula $A\times B=(A\times0)\oplus(0\times B)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Para cada 
+\begin_inset Formula $a\in\mathbb{Z}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{Z}\times\mathbb{Z}=\langle(1,0)\rangle\oplus\langle(a,1)\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+La intersección es nula y, dado 
+\begin_inset Formula $(x,y)\in\mathbb{Z}\times\mathbb{Z}$
+\end_inset
+
+, 
+\begin_inset Formula $(x,y)=y(a,1)+(x-ya)(1,0)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+En 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ no hay dos subgrupos no triviales independientes.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ subgrupos no triviales de 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+, con lo que existen 
+\begin_inset Formula $\frac{a}{n}\in A\setminus0$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{b}{m}\in B\setminus0$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $bn\frac{a}{n}-am\frac{b}{m}$
+\end_inset
+
+ es una expresión no trivial de 0 como suma de elementos de 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ son subgrupos no triviales de 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+, también lo son de 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ y tampoco son independientes.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $\hat{B}_{i}:=0\times\dots0\times B_{i}\times0\times\dots\times0\leq B_{1}\times\dots\times B_{n}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $B_{1}\times\dots\times B_{n}=\tilde{B}_{1}\oplus\dots\oplus\tilde{B}_{n}$
+\end_inset
+
+, con 
+\begin_inset Formula $\hat{B}_{i}\cong B_{i}$
+\end_inset
+
+, y 
+\begin_inset Formula $f:B_{1}\times\dots\times B_{n}\to B_{1}\oplus\dots\oplus B_{n}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f(b_{1},\dots,b_{n}):=b_{1}+\dots+b_{n}$
+\end_inset
+
+ es un isomorfismo de grupos.
+ Por ello identificamos 
+\begin_inset Formula $B_{1}\oplus\dots\oplus B_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $B_{1}\times\dots\times B_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $(B_{i})_{i\in I}$
+\end_inset
+
+, identificamos 
+\begin_inset Formula $\bigoplus_{i\in I}B_{i}$
+\end_inset
+
+ con el subgrupo de 
+\begin_inset Formula $\prod_{i\in I}B_{i}$
+\end_inset
+
+ de los 
+\begin_inset Formula $(b_{i})_{i\in I}$
+\end_inset
+
+ con 
+\begin_inset Formula $\{i\in I:b_{i}\neq0\}$
+\end_inset
+
+ finito.
+\end_layout
+
+\begin_layout Section
+Grupos indescomponibles y 
+\begin_inset Formula $p$
+\end_inset
+
+-grupos
+\end_layout
+
+\begin_layout Standard
+Un grupo abeliano no trivial es 
+\series bold
+indescomponible
+\series default
+ si no es suma directa de dos subgrupos propios.
+ Todo grupo abeliano finito no trivial es suma directa de grupos indescomponible
+s.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ son indescomponibles.
+\end_layout
+
+\begin_layout Enumerate
+Un grupo cíclico 
+\begin_inset Formula $\langle a\rangle_{n}$
+\end_inset
+
+ es indescomponible si y sólo si tiene orden potencia de primo.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $n=p^{k}$
+\end_inset
+
+ con 
+\begin_inset Formula $p$
+\end_inset
+
+ primo, los subgrupos de 
+\begin_inset Formula $\langle a\rangle$
+\end_inset
+
+ forman una cadena 
+\begin_inset Formula $0<\langle p^{k-1}a\rangle<\dots<\langle p^{2}a\rangle<\langle pa\rangle<\langle a\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si el orden no es potencia de primo, existen 
+\begin_inset Formula $h,k>1$
+\end_inset
+
+ coprimos con 
+\begin_inset Formula $n=hk$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\langle a\rangle$
+\end_inset
+
+ tiene un subgrupo cíclico 
+\begin_inset Formula $\langle a^{k}\rangle$
+\end_inset
+
+ de orden 
+\begin_inset Formula $h$
+\end_inset
+
+ y otro 
+\begin_inset Formula $\langle a^{h}\rangle$
+\end_inset
+
+ de orden 
+\begin_inset Formula $k$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle a\rangle=\langle a^{k}\rangle\oplus\langle a^{h}\rangle$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Dado un grupo 
+\begin_inset Formula $G$
+\end_inset
+
+, llamamos 
+\series bold
+exponente
+\series default
+ o 
+\series bold
+periodo
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $\text{Exp}(G)$
+\end_inset
+
+, al menor 
+\begin_inset Formula $n\in\mathbb{N}^{*}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall g\in G,g^{n}=1$
+\end_inset
+
+, o a 
+\begin_inset Formula $\infty$
+\end_inset
+
+ si este no existe.
+ 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\series bold
+periódico
+\series default
+ o 
+\series bold
+de torsión
+\series default
+ si todo elemento de 
+\begin_inset Formula $G$
+\end_inset
+
+ tiene orden finito.
+\end_layout
+
+\begin_layout Standard
+Si un grupo es finito tiene periodo finito, y si tiene periodo finito es
+ periódico.
+ Los recíprocos no se cumplen.
+ En efecto, 
+\begin_inset Formula $\prod_{n\in\mathbb{N}}\mathbb{Z}_{2}$
+\end_inset
+
+ tiene periodo finito pero no es finito, y 
+\begin_inset Formula $\bigoplus_{n\geq1}\mathbb{Z}_{n}$
+\end_inset
+
+ es periódico pero con periodo infinito.
+ Todo 
+\begin_inset Formula $p$
+\end_inset
+
+-grupo es periódico, pero no necesariamente finito, pues 
+\begin_inset Formula $\bigoplus_{n\in\mathbb{N}}\mathbb{Z}_{p^{n}}$
+\end_inset
+
+ es un 
+\begin_inset Formula $p$
+\end_inset
+
+-grupo de orden infinito.
+\end_layout
+
+\begin_layout Standard
+Dados un grupo abeliano 
+\begin_inset Formula $A$
+\end_inset
+
+ y un primo 
+\begin_inset Formula $p$
+\end_inset
+
+, el 
+\series bold
+subgrupo de 
+\begin_inset Formula $p$
+\end_inset
+
+-torsión
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ es 
+\begin_inset Formula 
+\[
+t_{p}(A):=\{a\in A:\exists n\in\mathbb{N}:p^{n}a=0\}=\{a\in A:|a|\text{ es potencia de }p\}.
+\]
+
+\end_inset
+
+En efecto, si 
+\begin_inset Formula $p^{n}a=0$
+\end_inset
+
+, 
+\begin_inset Formula $|a|\mid p^{n}$
+\end_inset
+
+ y por tanto es potencia de 
+\begin_inset Formula $p$
+\end_inset
+
+, y el recíproco es obvio.
+ Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es finito, 
+\begin_inset Formula $t_{p}(A)$
+\end_inset
+
+ es el mayor 
+\begin_inset Formula $p$
+\end_inset
+
+-subgrupo de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $A$
+\end_inset
+
+ un grupo abeliano finito y 
+\begin_inset Formula $p_{1},\dots,p_{k}$
+\end_inset
+
+ los divisores primos de 
+\begin_inset Formula $|A|$
+\end_inset
+
+, entonces 
+\begin_inset Formula 
+\[
+A=t_{p_{1}}(A)\oplus\dots\oplus t_{p_{k}}(A)
+\]
+
+\end_inset
+
+con cada 
+\begin_inset Formula $t_{p_{i}}(A)\neq0$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, 
+\begin_inset Formula $|a|=:p_{1}^{\alpha_{1}}\cdots p_{k}^{\alpha_{k}}$
+\end_inset
+
+ y, para 
+\begin_inset Formula $i\in\{1,\dots,k\}$
+\end_inset
+
+, 
+\begin_inset Formula $q_{i}:=\prod_{j\neq i}p_{j}^{\alpha_{j}}$
+\end_inset
+
+, es claro que ningún primo divide a todos los 
+\begin_inset Formula $q_{i}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\text{mcd}\{q_{1},\dots,q_{k}\}=1$
+\end_inset
+
+ y existen 
+\begin_inset Formula $m_{1},\dots,m_{k}\in\mathbb{Z}$
+\end_inset
+
+ con 
+\begin_inset Formula $m_{1}q_{1}+\dots+m_{k}q_{k}=1$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $p_{i}^{\alpha_{i}}q_{i}a=0$
+\end_inset
+
+, 
+\begin_inset Formula $q_{i}a\in t_{p_{i}}(A)$
+\end_inset
+
+, luego 
+\begin_inset Formula $a=m_{1}q_{1}a+\dots+m_{k}q_{k}a\in t_{p_{1}}(A)+\dots+t_{p_{k}}(A)$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $A=t_{p_{1}}(A)+\dots+t_{p_{k}}(A)$
+\end_inset
+
+.
+ Veamos que la suma es directa.
+ Sean 
+\begin_inset Formula $a_{1}+\dots+a_{k}=0$
+\end_inset
+
+ con cada 
+\begin_inset Formula $a_{i}\in t_{p_{i}}(A)$
+\end_inset
+
+, para 
+\begin_inset Formula $i\in\{1,\dots,k\}$
+\end_inset
+
+ existe 
+\begin_inset Formula $\beta_{i}$
+\end_inset
+
+ con 
+\begin_inset Formula $p_{i}^{\beta_{i}}a_{i}=0$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $t_{i}:=\prod_{j\neq i}p_{j}^{\beta_{j}}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $i$
+\end_inset
+
+, para 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+, 
+\begin_inset Formula $t_{i}a_{j}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $t_{i}a_{i}=t_{i}\sum_{j\neq i}-a_{j}=0$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $|a_{i}|\mid t_{i},p_{i}^{\beta_{i}}$
+\end_inset
+
+, y como 
+\begin_inset Formula $t_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $p_{i}^{\beta_{i}}$
+\end_inset
+
+ son coprimos, 
+\begin_inset Formula $|a_{i}|=1$
+\end_inset
+
+ y 
+\begin_inset Formula $a_{i}=0$
+\end_inset
+
+.
+ Por último, tenemos 
+\begin_inset Formula $|A|=|t_{p_{1}}(A)|\cdots|t_{p_{k}}(A)|$
+\end_inset
+
+, y como el orden de cada 
+\begin_inset Formula $t_{p_{i}}(A)$
+\end_inset
+
+ es una potencia de 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ y cada 
+\begin_inset Formula $p_{i}\mid|A|$
+\end_inset
+
+, debe ser 
+\begin_inset Formula $t_{p_{i}}(A)\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $n:=p_{1}^{\alpha_{1}}\cdots p_{k}^{\alpha_{k}}$
+\end_inset
+
+ es una factorización prima, por el teorema chino de los restos, 
+\begin_inset Formula $\mathbb{Z}_{n}\cong\mathbb{Z}_{p_{1}^{\alpha_{1}}}\times\dots\times\mathbb{Z}_{p_{k}^{\alpha_{k}}}$
+\end_inset
+
+, y cada factor cumple 
+\begin_inset Formula $\mathbb{Z}_{p_{i}^{\alpha_{i}}}\cong t_{p}(\mathbb{Z}_{n})$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un grupo abeliano, 
+\begin_inset Formula $B\leq A$
+\end_inset
+
+, 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ y 
+\begin_inset Formula $na=0$
+\end_inset
+
+, en 
+\begin_inset Formula $A/B$
+\end_inset
+
+ es 
+\begin_inset Formula $n(a+B)=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $|a+B|\mid|a|$
+\end_inset
+
+.
+ En general estos órdenes no coinciden.
+\end_layout
+
+\begin_layout Standard
+Un grupo abeliano finito es indescomponible si y solo si es un 
+\begin_inset Formula $p$
+\end_inset
+
+-grupo cíclico.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $A$
+\end_inset
+
+ es un grupo abeliano finito indescomponible, que podemos suponer no trivial
+ al ser el grupo trivial cíclico.
+ Por la descomposición por grupos de torsión, debe ser 
+\begin_inset Formula $|A|=p^{n}$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $p,n\in\mathbb{N}$
+\end_inset
+
+ con 
+\begin_inset Formula $p$
+\end_inset
+
+ primo y por tanto 
+\begin_inset Formula $A$
+\end_inset
+
+ es 
+\begin_inset Formula $p$
+\end_inset
+
+-grupo.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Queda ver que 
+\begin_inset Formula $A$
+\end_inset
+
+ es cíclico.
+ Para 
+\begin_inset Formula $n=1$
+\end_inset
+
+ ya lo sabemos.
+ Sea entonces 
+\begin_inset Formula $n>1$
+\end_inset
+
+ y supongamos esto probado para 
+\begin_inset Formula $1,\dots,n-1$
+\end_inset
+
+.
+ Existe 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ tal que 
+\begin_inset Formula $|a|=\text{Exp}(A)$
+\end_inset
+
+, pues si 
+\begin_inset Formula $\max_{b\in A}|b|=p^{k}$
+\end_inset
+
+, como para todo 
+\begin_inset Formula $b\in A$
+\end_inset
+
+, 
+\begin_inset Formula $|b|$
+\end_inset
+
+ es de la forma 
+\begin_inset Formula $p^{j}$
+\end_inset
+
+ con 
+\begin_inset Formula $j\leq k$
+\end_inset
+
+, se tiene 
+\begin_inset Formula $p^{k}b=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\text{Exp}(A)=p^{k}=\max_{b\in A}|b|$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $B:=\langle a\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $C:=A/B$
+\end_inset
+
+, si 
+\begin_inset Formula $C=:C_{1}\oplus\dots\oplus C_{k}$
+\end_inset
+
+ es la descomposición de 
+\begin_inset Formula $C$
+\end_inset
+
+ por indescomponibles, por hipótesis de inducción, cada 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ es cíclico.
+\end_layout
+
+\begin_layout Standard
+Dado 
+\begin_inset Formula $x$
+\end_inset
+
+, veamos que 
+\begin_inset Formula $x+B$
+\end_inset
+
+ contiene un representante 
+\begin_inset Formula $y$
+\end_inset
+
+ con 
+\begin_inset Formula $|y|=|x+B|$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $|a|=\text{Exp}(A)=:p^{m}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $|x|=p^{s}$
+\end_inset
+
+ y 
+\begin_inset Formula $|x+B|=p^{t}$
+\end_inset
+
+, y se tiene 
+\begin_inset Formula $t\leq s\leq m$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $t=s$
+\end_inset
+
+, tomamos 
+\begin_inset Formula $y:=x$
+\end_inset
+
+.
+ De lo contrario, como 
+\begin_inset Formula $p^{t}(x+B)=0$
+\end_inset
+
+, 
+\begin_inset Formula $p^{t}x\in B=\langle a\rangle$
+\end_inset
+
+, es decir, 
+\begin_inset Formula $p^{t}x=qa$
+\end_inset
+
+ para algún 
+\begin_inset Formula $q\in\mathbb{Z}$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $r,u\in\mathbb{Z}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $q=rp^{u}$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{mcd}\{p,r\}=1$
+\end_inset
+
+, 
+\begin_inset Formula $p^{m+t-u}x=p^{m-u}p^{t}x=p^{m-u}qa=rp^{m}a=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $s\leq m+t-u$
+\end_inset
+
+.
+ Por otro lado, 
+\begin_inset Formula $p^{m+t-u-1}x=p^{m-u-1}qa=rp^{m-1}a\neq0$
+\end_inset
+
+, de donde 
+\begin_inset Formula $s=m+t-u$
+\end_inset
+
+.
+ Sea ahora 
+\begin_inset Formula $y:=x-rp^{m+t-s}a$
+\end_inset
+
+, entonces 
+\begin_inset Formula $y+B=x+B$
+\end_inset
+
+, luego 
+\begin_inset Formula $p^{t}=|x+B|=|y+B|\mid|y|$
+\end_inset
+
+, y como además 
+\begin_inset Formula $p^{t}y=p^{t}x-rp^{m+t-s}a=p^{t}x-rp^{u}a=p^{t}x-qa=0$
+\end_inset
+
+, se tiene 
+\begin_inset Formula $|y|=p^{t}=|x+B|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Con esto, para cada 
+\begin_inset Formula $i$
+\end_inset
+
+ podemos tomar un 
+\begin_inset Formula $x_{i}\in A$
+\end_inset
+
+ tal que 
+\begin_inset Formula $C_{i}=\langle x_{i}+B\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $|x_{i}|=|x_{i}+B|$
+\end_inset
+
+.
+ Dado 
+\begin_inset Formula $p\in A$
+\end_inset
+
+, podemos escribir 
+\begin_inset Formula $p+B$
+\end_inset
+
+ como 
+\begin_inset Formula $m_{1}x_{1}+\dots+m_{k}x_{k}+B$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $p$
+\end_inset
+
+ como 
+\begin_inset Formula $m_{!}x_{1}+\dots+m_{k}x_{k}+B$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $A=B+\langle x_{1}\rangle+\dots+\langle x_{k}\rangle$
+\end_inset
+
+, y queremos ver que la suma es directa.
+ Dados 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ y 
+\begin_inset Formula $m_{1},\dots,m_{k}\in\mathbb{Z}$
+\end_inset
+
+ con 
+\begin_inset Formula $b+m_{1}x_{1}+\dots+m_{k}x_{k}=0$
+\end_inset
+
+, 
+\begin_inset Formula $0=m_{1}(x_{1}+B)+\dots+m_{k}(x_{k}+B)$
+\end_inset
+
+ y por tanto para cada 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $m_{i}(x_{i}+B)=0$
+\end_inset
+
+, 
+\begin_inset Formula $|x_{i}+B|=|x_{i}|\mid|m_{i}|$
+\end_inset
+
+ y 
+\begin_inset Formula $m_{i}x_{i}=0$
+\end_inset
+
+, con lo que también 
+\begin_inset Formula $b=0$
+\end_inset
+
+.
+ Finalmente, como 
+\begin_inset Formula $A$
+\end_inset
+
+ es indescomponible y 
+\begin_inset Formula $B\neq0$
+\end_inset
+
+, deducimos que 
+\begin_inset Formula $A=B=\langle a\rangle$
+\end_inset
+
+, y 
+\begin_inset Formula $A$
+\end_inset
+
+ es cíclico.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Ya hemos visto que todo grupo cíclico de orden 
+\begin_inset Formula $p^{n}$
+\end_inset
+
+ es indescomponible.
+\end_layout
+
+\begin_layout Standard
+Esto significa que todo grupo abeliano finito es suma directa de subgrupos
+ cíclicos, cada uno con orden potencia de primo.
+\end_layout
+
+\begin_layout Section
+Descomposiciones primarias e invariantes
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+descomposición primaria
+\series default
+ o 
+\series bold
+indescomponible
+\series default
+ de un grupo abeliano finito 
+\begin_inset Formula $A$
+\end_inset
+
+ es una expresión de la forma
+\begin_inset Formula 
+\begin{align*}
+A= & \langle a_{11}\rangle_{p_{1}^{\alpha_{11}}}\oplus\dots\oplus\langle a_{1m_{1}}\rangle_{p_{1}^{\alpha_{1m_{1}}}}\oplus\\
+ & \dots\oplus\\
+ & \langle a_{k1}\rangle_{p_{k}^{\alpha_{k1}}}\oplus\dots\oplus\langle a_{km_{k}}\rangle_{p_{k}^{\alpha_{km_{k}}}},
+\end{align*}
+
+\end_inset
+
+donde 
+\begin_inset Formula $p_{1}<\dots<p_{k}$
+\end_inset
+
+ son los primos que dividen a 
+\begin_inset Formula $|A|$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha_{i1}\geq\dots\geq\alpha_{im_{i}}\geq1$
+\end_inset
+
+ para cada 
+\begin_inset Formula $i\in\{1,\dots,k\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, todo grupo abeliano tiene una descomposición primaria, que podemos obtener
+ con el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:primary-decomp"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwProg{Fn}{función}{}{fin}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwFunction{descomponer}{descomponer}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Fn{
+\backslash
+descomponer{$A$}}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$F
+\backslash
+gets
+\backslash
+{
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$p$ divisor primo de $|A|$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		$T
+\backslash
+gets t_p(A)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		Encontrar $a
+\backslash
+in A$ con $|a|=
+\backslash
+text{Exp}(T)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		Añadir $
+\backslash
+langle a
+\backslash
+rangle$ a $F$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+Para{$C$ en 
+\backslash
+descomponer{$T/
+\backslash
+langle a
+\backslash
+rangle$}}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			Dado un $
+\backslash
+gamma
+\backslash
+in C$,
+\end_layout
+
+\begin_layout Plain Layout
+
+				obtener $x
+\backslash
+in
+\backslash
+gamma=x+
+\backslash
+langle a
+\backslash
+rangle$
+\end_layout
+
+\begin_layout Plain Layout
+
+				tal que $|x|=|
+\backslash
+gamma|$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			Añadir $
+\backslash
+langle x
+\backslash
+rangle$ a $F$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Devolver $F$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:primary-decomp"
+
+\end_inset
+
+Método general para obtener descomposiciones primarias.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+descomposición invariante
+\series default
+ de un grupo abeliano finito 
+\begin_inset Formula $A$
+\end_inset
+
+ es una expresión 
+\begin_inset Formula $A=\langle a_{1}\rangle\oplus\dots\oplus\langle a_{n}\rangle$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $i\in\{2,\dots,n\}$
+\end_inset
+
+, 
+\begin_inset Formula $|a_{i}|\mid|a_{i-1}|$
+\end_inset
+
+, y los 
+\begin_inset Formula $\langle a_{i}\rangle$
+\end_inset
+
+ son no triviales.
+ Entonces, el periodo de 
+\begin_inset Formula $A$
+\end_inset
+
+ es el orden de 
+\begin_inset Formula $\langle a_{1}\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Todo grupo abeliano finito tiene una descomposición invariante.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $A$
+\end_inset
+
+ este grupo, si 
+\begin_inset Formula $m$
+\end_inset
+
+ es el máximo de sumandos en una fila de la descomposición primaria de 
+\begin_inset Formula $A$
+\end_inset
+
+, añadiendo sumandos triviales al final de cada fila con menos de 
+\begin_inset Formula $m$
+\end_inset
+
+ sumandos hasta llegar a 
+\begin_inset Formula $m$
+\end_inset
+
+, tenemos una expresión 
+\begin_inset Formula 
+\[
+A=\langle a_{11}\rangle_{p_{1}^{\alpha_{1}}}\oplus\dots\oplus\langle a_{1m_{1}}\rangle_{p_{1}^{\alpha_{1m}}}\oplus\dots\oplus\langle a_{k1}\rangle_{p_{k}^{\alpha_{k1}}}\oplus\dots\oplus\langle a_{km_{k}}\rangle_{p_{k}^{\alpha_{km}}}
+\]
+
+\end_inset
+
+ con 
+\begin_inset Formula $p_{1}<\dots<p_{k}$
+\end_inset
+
+ primos y, para 
+\begin_inset Formula $i\in\{1,\dots,k\}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{i1}\geq\dots\geq\alpha_{im}\geq0$
+\end_inset
+
+.
+ Entonces, para 
+\begin_inset Formula $j\in\{1,\dots,m\}$
+\end_inset
+
+, sean 
+\begin_inset Formula $b_{j}:=a_{1j}+\dots+a_{kj}$
+\end_inset
+
+ y 
+\begin_inset Formula $d_{j}:=p_{1}^{\alpha_{1j}}\cdots p_{k}^{\alpha_{kj}}$
+\end_inset
+
+, por el teorema chino de los restos, 
+\begin_inset Formula $\langle b_{j}\rangle_{d_{j}}=\langle a_{1j}\rangle_{p_{1}^{\alpha_{1j}}}\oplus\dots\oplus\langle a_{kj}\rangle_{p_{k}^{\alpha_{kj}}}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $A=\langle b_{1}\rangle_{d_{1}}\oplus\dots\oplus\langle b_{m}\rangle_{d_{m}}$
+\end_inset
+
+, y esta es una descomposición invariante.
+\end_layout
+
+\begin_layout Standard
+Dados dos grupos abelianos finitos 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+, una descomposición por suma directa de 
+\begin_inset Formula $A$
+\end_inset
+
+ y una de 
+\begin_inset Formula $B$
+\end_inset
+
+ son 
+\series bold
+semejantes
+\series default
+ si existe una biyección entre los subgrupos en la descomposición de 
+\begin_inset Formula $A$
+\end_inset
+
+ y la de 
+\begin_inset Formula $B$
+\end_inset
+
+ que a cada subgrupo de 
+\begin_inset Formula $A$
+\end_inset
+
+ le asocia uno de 
+\begin_inset Formula $B$
+\end_inset
+
+ isomorfo.
+ En particular, dos descomposiciones primarias son semejantes si y sólo
+ si tienen el mismo número de filas, cada fila tiene el mismo número de
+ sumandos y sumandos correspondientes tienen el mismo orden, y dos descomposicio
+nes invariantes son semejantes si tienen el mismo número de sumandos y las
+ mismas listas de órdenes.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un grupo abeliano finito:
+\end_layout
+
+\begin_layout Enumerate
+Todas las descomposiciones primarias de 
+\begin_inset Formula $A$
+\end_inset
+
+ son semejantes.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $A:=A_{11}\oplus\dots\oplus A_{1m_{1}}\oplus\dots\oplus A_{k1}\oplus\dots\oplus A_{kj}$
+\end_inset
+
+ con 
+\begin_inset Formula $|A_{ij}|=p_{i}^{\alpha_{ij}}$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $p_{1}<\dots<p_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha_{ij}$
+\end_inset
+
+ con 
+\begin_inset Formula $\alpha_{i1}\geq\dots\alpha_{im_{i}}\geq1$
+\end_inset
+
+ para cada 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Para cada 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $A_{i1}\oplus\dots\oplus A_{im_{i}}=t_{p_{i}}(A)$
+\end_inset
+
+, luego estos subgrupos están determinados por 
+\begin_inset Formula $A$
+\end_inset
+
+ y basta probar la afirmación cuando 
+\begin_inset Formula $A$
+\end_inset
+
+ es un 
+\begin_inset Formula $p$
+\end_inset
+
+-grupo finito.
+ En este caso, sean 
+\begin_inset Formula $A=A_{1}\oplus\dots\oplus A_{n}=B_{1}\oplus\dots\oplus B_{m}$
+\end_inset
+
+ dos descomposiciones primarias de 
+\begin_inset Formula $A$
+\end_inset
+
+ con 
+\begin_inset Formula $|A_{i}|=p^{\alpha_{i}}$
+\end_inset
+
+ y 
+\begin_inset Formula $|B_{i}|=p^{\beta_{i}}$
+\end_inset
+
+ donde 
+\begin_inset Formula $p$
+\end_inset
+
+ es primo, 
+\begin_inset Formula $\alpha_{1}\geq\dots\geq\alpha_{n}\geq1$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta_{1}\geq\dots\geq\beta_{m}\geq1$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $p^{\alpha_{1}}=\text{Exp}(A)=p^{\beta_{1}}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{1}=\beta_{1}$
+\end_inset
+
+.
+ Dado un cierto 
+\begin_inset Formula $i$
+\end_inset
+
+, supongamos que 
+\begin_inset Formula $\alpha_{j}=\beta_{j}$
+\end_inset
+
+ para 
+\begin_inset Formula $j\in\{1,\dots,i-1\}$
+\end_inset
+
+, y podemos suponer 
+\begin_inset Formula $\alpha_{i}\leq\beta_{i}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $C$
+\end_inset
+
+ es un grupo cíclico de orden 
+\begin_inset Formula $p^{r}$
+\end_inset
+
+ y 
+\begin_inset Formula $s\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $p^{s}C=0$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $s\geq r$
+\end_inset
+
+, mientras que si 
+\begin_inset Formula $s\leq r$
+\end_inset
+
+, 
+\begin_inset Formula $p^{s}C$
+\end_inset
+
+ es cíclico de orden 
+\begin_inset Formula $p^{r-s}$
+\end_inset
+
+.
+ Entonces, si 
+\begin_inset Formula $q:=p^{\alpha_{i}}$
+\end_inset
+
+, 
+\begin_inset Formula $qA_{i},\dots,qA_{n}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $qA\cong qA_{1}\oplus\dots\oplus qA_{i-1}\cong(qB_{1}\oplus\dots\oplus qB_{i-1})\oplus(qB_{i}\oplus qB_{m})$
+\end_inset
+
+, y como 
+\begin_inset Formula $|qA_{1}\oplus\dots\oplus qA_{i-1}|=|qB_{1}\oplus\dots\oplus qB_{i-1}|$
+\end_inset
+
+, 
+\begin_inset Formula $|qB_{i}\oplus\dots\oplus qB_{m}|=0$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $qB_{i}=p^{\alpha_{i}}B_{i}=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha_{i}\geq\beta_{i}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\alpha_{i}=\beta_{i}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Todas las descomposiciones invariantes de 
+\begin_inset Formula $A$
+\end_inset
+
+ son semejantes.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Basta usar la correspondencia entre descomposiciones primarias e invariantes
+ de la demostración de existencia de descomposiciones invariantes.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $A$
+\end_inset
+
+ un grupo abeliano finito con descomposición primaria 
+\begin_inset Formula $A=\bigoplus_{i=1}^{n}\langle a_{i}\rangle_{k_{i}}$
+\end_inset
+
+ y descomposición invariante 
+\begin_inset Formula $A=\bigoplus_{i=1}^{m}\langle a_{i}\rangle_{t_{i}}$
+\end_inset
+
+, llamamos 
+\series bold
+lista de los divisores elementales
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ a 
+\begin_inset Formula $(k_{1},\dots,k_{n})$
+\end_inset
+
+, y 
+\series bold
+lista de los factores invariantes
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ a 
+\begin_inset Formula $(t_{1},\dots,t_{m})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de estructura de grupos abelianos finitos:
+\end_layout
+
+\begin_layout Enumerate
+Todo grupo abeliano finito tiene una descomposición primaria y una invariante.
+\end_layout
+
+\begin_layout Enumerate
+Dos grupos abelianos finitos son isomorfos si y sólo si tienen descomposiciones
+ primarias semejantes, si y sólo si tienen descomposiciones invariantes
+ semejantes, si y sólo si tienen la misma lista de divisores elementales,
+ si y sólo si tienen la misma lista de factores invariantes.
+\end_layout
+
+\begin_layout Standard
+Un grupo abeliano es 
+\series bold
+finitamente generado
+\series default
+ si es suma directa de una cantidad finita de grupos cíclicos, de orden
+ finito o infinito.
+ 
+\series bold
+Teorema de estructura de grupos abelianos finitamente generados:
+\end_layout
+
+\begin_layout Enumerate
+Todo grupo abeliano finitamente generado tiene una descomposición primaria
+ y una invariante.
+\end_layout
+
+\begin_layout Enumerate
+Dos grupos finitamente generados son isomorfos si y sólo si tienen descomposicio
+nes primarias semejantes, si y sólo si tienen descomposiciones invariantes
+ semejantes.
+\end_layout
+
+\begin_layout Standard
+Así, a cada grupo abeliano finitamente generado le asociamos una lista de
+ divisores elementales 
+\begin_inset Formula $(q;p_{1}^{\alpha_{11}},\dots,p_{1}^{\alpha_{1m_{1}}},\dots,p_{k}^{\alpha_{k1}},\dots,p_{k}^{\alpha_{km_{k}}})$
+\end_inset
+
+ y una de factores invariantes 
+\begin_inset Formula $(q;d_{1},\dots,d_{n})$
+\end_inset
+
+, donde 
+\begin_inset Formula $q$
+\end_inset
+
+ es el número de sumandos cíclicos infinitos.
+\end_layout
+
+\end_body
+\end_document
