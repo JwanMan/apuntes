@@ -1,0 +1,1910 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ son conjuntos de igual cardinal, existe una biyección 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $h:S_{A}\to S_{B}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $h(\sigma):=f\circ\sigma\circ f^{-1}$
+\end_inset
+
+ es un isomorfismo.
+ Por tanto, las propiedades de 
+\begin_inset Formula $S_{A}$
+\end_inset
+
+ solo dependen del cardinal.
+\end_layout
+
+\begin_layout Standard
+Nos centraremos en los grupos de permutaciones entre conjuntos finitos,
+ 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+ Entonces representamos una 
+\begin_inset Formula $\sigma\in S_{n}$
+\end_inset
+
+ como
+\begin_inset Formula 
+\[
+\sigma=\begin{pmatrix}1 & 2 & \cdots & n\\
+\sigma(1) & \sigma(2) & \cdots & \sigma(n)
+\end{pmatrix}.
+\]
+
+\end_inset
+
+Una 
+\begin_inset Formula $\sigma\in S_{n}$
+\end_inset
+
+ 
+\series bold
+fija
+\series default
+ un 
+\begin_inset Formula $i\in\mathbb{N}_{n}$
+\end_inset
+
+ si 
+\begin_inset Formula $\sigma(i)=i$
+\end_inset
+
+, y lo 
+\series bold
+cambia
+\series default
+ o 
+\series bold
+mueve
+\series default
+ en caso contrario.
+ Llamamos 
+\begin_inset Formula $M(\sigma):=\{i\in\mathbb{N}_{n}:\sigma(i)\neq i\}$
+\end_inset
+
+, y es claro que 
+\begin_inset Formula $M(\sigma)=\emptyset\iff\sigma=1$
+\end_inset
+
+ y que 
+\begin_inset Formula $|M(\sigma)|\neq1$
+\end_inset
+
+.
+ Dos permutaciones 
+\begin_inset Formula $\sigma,\tau\in S_{n}$
+\end_inset
+
+ son 
+\series bold
+disjuntas
+\series default
+ si lo son 
+\begin_inset Formula $M(\sigma)$
+\end_inset
+
+ y 
+\begin_inset Formula $M(\tau)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ y 
+\begin_inset Formula $\tau$
+\end_inset
+
+ son permutaciones disjuntas, 
+\begin_inset Formula $\sigma\tau=\tau\sigma$
+\end_inset
+
+ y 
+\begin_inset Formula $M(\sigma\tau)=M(\sigma)\cup M(\tau)$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+, si 
+\begin_inset Formula $i\in M(\sigma)$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma(i)\in M(\sigma)$
+\end_inset
+
+, pues si fuera 
+\begin_inset Formula $\sigma(i)\notin M(\sigma)$
+\end_inset
+
+ sería 
+\begin_inset Formula $\sigma(\sigma(i))=\sigma(i)$
+\end_inset
+
+, contradiciendo que 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ sea biyectiva.
+\begin_inset Formula $\#$
+\end_inset
+
+ Entonces 
+\begin_inset Formula $i,\sigma(i)\notin M(\tau)$
+\end_inset
+
+ por ser 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ y 
+\begin_inset Formula $\tau$
+\end_inset
+
+ disjuntas, luego 
+\begin_inset Formula $\sigma(\tau(i))=\sigma(i)=\tau(\sigma(i))$
+\end_inset
+
+, y como 
+\begin_inset Formula $(\sigma\tau)(i)=\sigma(i)\neq i$
+\end_inset
+
+, 
+\begin_inset Formula $i\in M(\sigma\tau)$
+\end_inset
+
+.
+ De forma análoga, si 
+\begin_inset Formula $i\in M(\tau)$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma(\tau(i))=\tau(\sigma(i))$
+\end_inset
+
+ e 
+\begin_inset Formula $i\in M(\sigma\tau)$
+\end_inset
+
+.
+ Finalmente, si 
+\begin_inset Formula $i\notin M(\sigma),M(\tau)$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma(\tau(i))=i=\tau(\sigma(i))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Ciclos
+\end_layout
+
+\begin_layout Standard
+Un
+\series bold
+ ciclo
+\series default
+ de 
+\series bold
+longitud
+\series default
+ 
+\begin_inset Formula $s\in\{2,\dots,n\}$
+\end_inset
+
+ o 
+\series bold
+
+\begin_inset Formula $s$
+\end_inset
+
+-ciclo
+\series default
+ es una permutación 
+\begin_inset Formula $\sigma\in S_{n}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $|M(\sigma)|=s$
+\end_inset
+
+ y podemos ordenar sus elementos como 
+\begin_inset Formula $M(\sigma)=\{i_{1},\dots,i_{s}\}$
+\end_inset
+
+ de forma que 
+\begin_inset Formula $\sigma(i_{k})=i_{k+1}$
+\end_inset
+
+ para 
+\begin_inset Formula $k\in\{1,\dots,s-1\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma(i_{s})=i_{1}$
+\end_inset
+
+.
+ Denotamos este ciclo como 
+\begin_inset Formula 
+\[
+\sigma=(i_{1}\,i_{2}\,\dots\,i_{s}).
+\]
+
+\end_inset
+
+ Los 2-ciclos se llaman 
+\series bold
+transposiciones
+\series default
+ o 
+\series bold
+trasposiciones
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $\sigma:=(i_{1}\,\dots\,i_{s})\in S_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $t\in\{1,\dots,s\}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\sigma=(i_{t}\,\dots\,i_{s}\,i_{1}\,\dots\,i_{t-1})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\sigma(i_{s})=i_{1}$
+\end_inset
+
+; para 
+\begin_inset Formula $k\in\{1,\dots,s-1\}$
+\end_inset
+
+, si 
+\begin_inset Formula $k\neq t-1$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma(i_{k})=i_{k+1}$
+\end_inset
+
+, y 
+\begin_inset Formula $\sigma(i_{t-1})=\sigma(i_{t})$
+\end_inset
+
+.
+ Además se fijan los mismos puntos.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $i_{t}=\sigma^{t-1}(i_{1})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $t=1$
+\end_inset
+
+, 
+\begin_inset Formula $i_{1}=\sigma^{0}(i_{1})$
+\end_inset
+
+, y para 
+\begin_inset Formula $t>1$
+\end_inset
+
+, supuesto esto probado para 
+\begin_inset Formula $\sigma^{t-1}(i_{1})$
+\end_inset
+
+, 
+\begin_inset Formula $i_{t}=\sigma(i_{t-1})=\sigma(\sigma^{t-2}(i_{1}))=\sigma^{t-1}(i_{1})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $|\sigma|=s$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $k\in\{1,\dots,s-1\}$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma^{k}(i_{1})=i_{k+1}\neq i_{1}$
+\end_inset
+
+, y para 
+\begin_inset Formula $s$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma^{s}(i_{1})=\sigma(\sigma^{s-1}(i_{1}))=\sigma(i_{s})=i_{1}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\sigma^{s}(i_{k})=\sigma^{s+k-1}(i_{1})=\sigma^{k-1}(i_{1})=i_{k}$
+\end_inset
+
+, y 
+\begin_inset Formula $\sigma^{s}=1$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, toda permutación 
+\begin_inset Formula $\sigma\neq1$
+\end_inset
+
+ se puede expresar de forma única salvo orden como producto de ciclos disjuntos.
+ 
+\series bold
+Demostración:
+\series default
+ Razonamos por inducción en 
+\begin_inset Formula $|M(\sigma)|\geq2$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $M(\sigma)=\{i,j\}$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma=(i\,j)$
+\end_inset
+
+, y si 
+\begin_inset Formula $\sigma=\tau_{1}\cdots\tau_{k}$
+\end_inset
+
+ con 
+\begin_inset Formula $\tau_{1},\dots,\tau_{k}$
+\end_inset
+
+ ciclos disjuntos, como 
+\begin_inset Formula $M(\sigma)=\sum_{i}M(\tau_{i})$
+\end_inset
+
+, 
+\begin_inset Formula $k=1$
+\end_inset
+
+.
+ Supongamos que esto se cumple para toda permutación no identidad que mueve
+ menos elementos que 
+\begin_inset Formula $\sigma$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $i\in M(\sigma)$
+\end_inset
+
+ e 
+\begin_inset Formula $(i_{n})_{n}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $i_{0}:=i$
+\end_inset
+
+ e 
+\begin_inset Formula $i_{n}:=\sigma(i_{n-1})$
+\end_inset
+
+, como los 
+\begin_inset Formula $i_{n}$
+\end_inset
+
+ toman valores en un conjunto finito, existen 
+\begin_inset Formula $0\le j<k$
+\end_inset
+
+ con 
+\begin_inset Formula $i_{j}=i_{k}$
+\end_inset
+
+, y podemos tomar 
+\begin_inset Formula $j=0$
+\end_inset
+
+ porque, si el menor 
+\begin_inset Formula $j$
+\end_inset
+
+ que se puede tomar es positivo, 
+\begin_inset Formula $i_{j-1}=\sigma^{-1}(i_{j})=\sigma^{-1}(i_{k})=i_{k-1}\#$
+\end_inset
+
+.
+ Tomamos el menor 
+\begin_inset Formula $k$
+\end_inset
+
+ positivo con 
+\begin_inset Formula $i_{0}=i_{k}$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $\tau:=(i_{0}\,\dots\,i_{k-1})$
+\end_inset
+
+ es un 
+\begin_inset Formula $k$
+\end_inset
+
+-ciclo.
+ Sea 
+\begin_inset Formula $\rho\in S_{n}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+\rho(j):=\begin{cases}
+j, & \text{j\ensuremath{\in\{i_{0}\,\dots\,i_{k-1}\}\lor j\notin M(\sigma);}}\\
+\sigma(j), & \text{en otro caso}.
+\end{cases}
+\]
+
+\end_inset
+
+Claramente 
+\begin_inset Formula $\tau$
+\end_inset
+
+ y 
+\begin_inset Formula $\rho$
+\end_inset
+
+ son disjuntas, 
+\begin_inset Formula $|M(\rho)|=|M(\sigma)|-k<|M(\sigma)|$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma=\tau\rho$
+\end_inset
+
+, y por la hipótesis de inducción, 
+\begin_inset Formula $\rho=:\rho_{1}\cdots\rho_{l}$
+\end_inset
+
+ con 
+\begin_inset Formula $\rho_{1},\dots,\rho_{l}$
+\end_inset
+
+ disjuntos dos a dos.
+ Además, 
+\begin_inset Formula $M(\tau)\cap M(\rho_{i})\subseteq M(\tau)\cap M(\rho)=\emptyset$
+\end_inset
+
+, luego 
+\begin_inset Formula $\sigma=\tau\rho_{1}\cdots\rho_{l}$
+\end_inset
+
+ es un producto de ciclos disjuntos.
+ Para la unicidad, si 
+\begin_inset Formula $\sigma=\tau_{1}\cdots\tau_{m}$
+\end_inset
+
+ con 
+\begin_inset Formula $\tau_{1},\dots,\tau_{m}$
+\end_inset
+
+ ciclos disjuntos, 
+\begin_inset Formula $i_{0}\in M(\tau_{j})$
+\end_inset
+
+ para un único 
+\begin_inset Formula $j\in\{1,\dots,m\}$
+\end_inset
+
+, y podemos suponer 
+\begin_inset Formula $j=1$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\tau(i_{0})=\sigma(i_{0})=\tau_{1}(i_{0})$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\tau=\tau_{1}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\rho=\tau_{2}\cdots\tau_{m}$
+\end_inset
+
+, y de la unicidad de la factorización de 
+\begin_inset Formula $\rho$
+\end_inset
+
+ se deduce la unicidad de la de 
+\begin_inset Formula $\sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+tipo
+\series default
+ de una permutación 
+\begin_inset Formula $\sigma\in S_{n}\setminus1$
+\end_inset
+
+ es la lista 
+\begin_inset Formula $[s_{1},\dots,s_{k}]$
+\end_inset
+
+ de las longitudes de los ciclos en su factorización en ciclos disjuntos,
+ en orden creciente.
+ El orden de 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ es el mínimo común múltiplo de las componentes de su tipo.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $\sigma=\tau_{1}\cdots\tau_{k}$
+\end_inset
+
+ la factorización de 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ como producto de ciclos disjuntos, 
+\begin_inset Formula $s_{i}=|\tau_{i}|$
+\end_inset
+
+ y 
+\begin_inset Formula $m\in\mathbb{N}$
+\end_inset
+
+.
+ Como los 
+\begin_inset Formula $\tau_{i}$
+\end_inset
+
+ conmutan y, para cada 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $M(\tau_{i}^{m})\subseteq M(\tau_{i})$
+\end_inset
+
+, la factorización de 
+\begin_inset Formula $\sigma^{m}$
+\end_inset
+
+ por ciclos disjuntos es 
+\begin_inset Formula $\sigma^{m}=\tau_{1}^{m}\cdots\tau_{k}^{m}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\sigma^{m}=1$
+\end_inset
+
+ si y solo si cada 
+\begin_inset Formula $\tau_{i}^{m}=1$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $s_{i}\mid m$
+\end_inset
+
+ para todo 
+\begin_inset Formula $i$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\text{mcm}\{s_{1},\dots,s_{m}\}\mid m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dada una permutación 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y un ciclo 
+\begin_inset Formula $\tau:=(i_{1}\,\dots\,i_{s})$
+\end_inset
+
+, 
+\begin_inset Formula $\tau^{\alpha}=(\alpha^{-1}(i_{1})\,\dots\,\alpha^{-1}(i_{s}))$
+\end_inset
+
+, pues 
+\begin_inset Formula $\tau^{\alpha}=\alpha^{-1}(i_{1}\,\dots\,i_{s})\alpha=(\alpha^{-1}(i_{1})\,\dots\,\alpha^{-1}(i_{s}))$
+\end_inset
+
+.
+ Como 
+\series bold
+teorema
+\series default
+, dos elementos de 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ son conjugados si y sólo si tienen el mismo tipo, luego las clases de conjugaci
+ón están formadas por los elementos de igual tipo.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Es fácil ver que, si 
+\begin_inset Formula $\tau_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\tau_{2}$
+\end_inset
+
+ son ciclos disjuntos, 
+\begin_inset Formula $\alpha\tau_{1}\alpha^{-1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha\tau_{2}\alpha^{-1}$
+\end_inset
+
+ también lo son, luego si 
+\begin_inset Formula $\tau_{1},\dots,\tau_{k}$
+\end_inset
+
+ son ciclos disjuntos, 
+\begin_inset Formula $\alpha\tau_{1}\cdots\tau_{k}\alpha^{-1}=(\alpha\tau_{1}\alpha^{-1})\cdots(\alpha\tau_{k}\alpha^{-1})$
+\end_inset
+
+, y entonces es claro que dos elementos conjugados de 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ tienen el mismo tipo.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma'$
+\end_inset
+
+ tienen el mismo tipo, las descomposiciones en producto de ciclos disjuntos
+ tienen forma 
+\begin_inset Formula $\sigma=:\tau_{1}\cdots\tau_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma'=:\tau'_{1}\cdots\tau_{k}'$
+\end_inset
+
+ con cada 
+\begin_inset Formula $|\tau_{i}|=|\tau'_{i}|$
+\end_inset
+
+.
+ Por tanto existen biyecciones 
+\begin_inset Formula $\alpha_{i}:M(\tau_{i})\to M(\tau'_{i})$
+\end_inset
+
+ que conservan la estructura de los ciclos, y como 
+\begin_inset Formula $|M(\sigma)|=|M(\sigma')|$
+\end_inset
+
+, existe una biyección 
+\begin_inset Formula $\beta:\mathbb{N}_{n}\setminus M(\sigma)\to\mathbb{N}_{n}\setminus M(\sigma')$
+\end_inset
+
+.
+ Sea ahora 
+\begin_inset Formula $\alpha\in S_{n}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\alpha(x):=\alpha_{i}(x)$
+\end_inset
+
+ si 
+\begin_inset Formula $x\in M(\tau_{i})$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha(x):=\beta(x)$
+\end_inset
+
+ si 
+\begin_inset Formula $x\notin M(\sigma)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\tau_{i}=\alpha\tau_{i}\alpha^{-1}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $i$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\sigma=\alpha\sigma\alpha^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+, los siguientes conjuntos son generadores de 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+El de todos los ciclos.
+\end_layout
+
+\begin_layout Enumerate
+El de todas las trasposiciones.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $(i_{1}\,\dots\,i_{s})=(i_{1}\,i_{s})(i_{1}\,i_{s-1})\cdots(i_{1}\,i_{2})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\{(1\,2),(1\,3),\dots,(1\,n)\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $(i\,j)=(1\,i)(1\,j)(1\,i)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\{(1\,2),(2\,3),\dots,(n-1\,n)\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Dados 
+\begin_inset Formula $j\geq2$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha:=(2\,3)(3\,4)\cdots(j-1\,j)$
+\end_inset
+
+, 
+\begin_inset Formula $(1\,2)^{\alpha}=(\alpha^{-1}(1)\,\alpha^{-1}(2))=(1\,j)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\{(1\,2),(1\,2\,\dots\,n-1\,n)\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\tau:=(1\,2)$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma:=(1\,2\,\dots\,n-1\,n)$
+\end_inset
+
+, para 
+\begin_inset Formula $j\in\{1,\dots,n-1\}$
+\end_inset
+
+, como 
+\begin_inset Formula $\sigma^{j-1}(1)=j$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma^{j-1}(2)=j+1$
+\end_inset
+
+, 
+\begin_inset Formula $\tau^{\sigma^{1-j}}=(j\,j+1)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $p$
+\end_inset
+
+ es primo y 
+\begin_inset Formula $H\leq S_{p}$
+\end_inset
+
+ contiene una transposición y un 
+\begin_inset Formula $p$
+\end_inset
+
+-ciclo, 
+\begin_inset Formula $H=S_{p}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Podemos suponer que 
+\begin_inset Formula $H$
+\end_inset
+
+ contiene a 
+\begin_inset Formula $(1\,2)$
+\end_inset
+
+ y un 
+\begin_inset Formula $p$
+\end_inset
+
+-ciclo 
+\begin_inset Formula $\sigma=(a_{1}\,\dots\,a_{p})$
+\end_inset
+
+, y podemos suponer 
+\begin_inset Formula $a_{1}=1$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $a_{i}=2$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma^{i-1}=(1\,2\,b_{3}\,\dots\,b_{p})$
+\end_inset
+
+, y podemos renombrar los 
+\begin_inset Formula $b_{i}$
+\end_inset
+
+ de forma que 
+\begin_inset Formula $b_{i}=i$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+¿Cómo?
+\end_layout
+
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $(1\,2),(1\,2\,\dots\,p)\in H$
+\end_inset
+
+, luego 
+\begin_inset Formula $H=S_{p}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+El grupo alternado
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma\in S_{n}$
+\end_inset
+
+, existe un automorfismo de anillos 
+\begin_inset Formula $\hat{\sigma}$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{Z}[X_{1},\dots,X_{n}]$
+\end_inset
+
+ dado por 
+\begin_inset Formula $\hat{\sigma}(k)=k$
+\end_inset
+
+ para 
+\begin_inset Formula $k\in\mathbb{Z}$
+\end_inset
+
+ y 
+\begin_inset Formula $\hat{\sigma}(X_{i})=X_{\sigma(i)}$
+\end_inset
+
+ para 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+.
+ Sea
+\begin_inset Formula 
+\[
+P:=\prod_{1\leq i<j\leq n}(X_{j}-X_{i}).
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $i<j$
+\end_inset
+
+, puede ocurrir:
+\end_layout
+
+\begin_layout Itemize
+Que sea 
+\begin_inset Formula $\sigma(i)<\sigma(j)$
+\end_inset
+
+, y entonces el factor 
+\begin_inset Formula $X_{\sigma(j)}-X_{\sigma(i)}$
+\end_inset
+
+ aparece en 
+\begin_inset Formula $\hat{\sigma}(P)$
+\end_inset
+
+ y 
+\begin_inset Formula $P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Que sea 
+\begin_inset Formula $\sigma(i)>\sigma(j)$
+\end_inset
+
+, y entonces el factor 
+\begin_inset Formula $X_{\sigma(j)}-X_{\sigma(i)}$
+\end_inset
+
+ aparece en 
+\begin_inset Formula $\hat{\sigma}(P)$
+\end_inset
+
+ pero en 
+\begin_inset Formula $P$
+\end_inset
+
+ aparece su opuesto, y decimos que 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ 
+\series bold
+presenta una inversión
+\series default
+ para el par 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Entonces 
+\begin_inset Formula $\sigma\in S_{n}$
+\end_inset
+
+ es 
+\series bold
+par
+\series default
+ si 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ presenta un número par de inversiones, si y sólo si 
+\begin_inset Formula $\hat{\sigma}(P)=P$
+\end_inset
+
+, y es 
+\series bold
+impar
+\series default
+ si presenta un número impar de inversiones, si y sólo si 
+\begin_inset Formula $\hat{\sigma}(P)=-P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+aplicación signo
+\series default
+, 
+\begin_inset Formula $\text{sgn}:S_{n}\to\mathbb{Z}^{*}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\hat{\sigma}(P)=\text{sgn}(\sigma)P$
+\end_inset
+
+, es un homomorfismo de grupos.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $\sigma,\tau\in S_{n}$
+\end_inset
+
+, es fácil comprobar que 
+\begin_inset Formula $\overbrace{\sigma\circ\tau}=\hat{\sigma}\circ\hat{\tau}$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $\text{sgn}(\sigma\circ\tau)P=\overbrace{\sigma\circ\tau}(P)=\hat{\sigma}(\hat{\tau}(P))=\hat{\sigma}(\text{sgn}(\tau)P)=\text{sgn}(\tau)\hat{\sigma}(P)=\text{sgn}(\tau)\text{sgn}(\sigma)P$
+\end_inset
+
+, luego 
+\begin_inset Formula $\text{sgn}(\sigma\circ\tau)=\text{sgn}(\sigma)\text{sgn}(\tau)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Propiedades:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{sgn}(\sigma)=\text{sgn}(\sigma^{-1})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\text{sgn}(\sigma)\text{sgn}(\sigma^{-1})=\text{sgn}(1)=1$
+\end_inset
+
+, luego o 
+\begin_inset Formula $\text{sgn}(\sigma)=\text{sgn}(\sigma^{-1})=1$
+\end_inset
+
+ o 
+\begin_inset Formula $\text{sgn}(\sigma)=\text{sgn}(\sigma^{-1})=-1$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Toda transposición es impar.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\sigma:=(m\,n)$
+\end_inset
+
+ una transposición con 
+\begin_inset Formula $m<n$
+\end_inset
+
+ e 
+\begin_inset Formula $i<j$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ presenta una inversión en 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\sigma(i)>\sigma(j)$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $m=i<j\leq n$
+\end_inset
+
+ o 
+\begin_inset Formula $m\leq i<j=n$
+\end_inset
+
+, teniendo en cuenta que 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ tiene que mover 
+\begin_inset Formula $i$
+\end_inset
+
+ o 
+\begin_inset Formula $j$
+\end_inset
+
+ para que haya una inversión.
+ En total hay 
+\begin_inset Formula $2(m-n)-1$
+\end_inset
+
+ inversiones, un número impar.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\tau_{1},\dots,\tau_{r}$
+\end_inset
+
+ son transposiciones, 
+\begin_inset Formula $\text{sgn}(\tau_{1}\cdots\tau_{r})=(-1)^{r}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\sigma$
+\end_inset
+
+ es par si y sólo si es producto de un número par de transposiciones.
+\end_layout
+
+\begin_layout Enumerate
+Un ciclo de longitud 
+\begin_inset Formula $s$
+\end_inset
+
+ tiene signo 
+\begin_inset Formula $(-1)^{s-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+La paridad de una permutación coincide con la del número de componentes
+ pares de su tipo.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $[s_{1},\dots,s_{k}]$
+\end_inset
+
+ el tipo de una 
+\begin_inset Formula $\sigma\in S_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ es producto de ciclos de longitudes 
+\begin_inset Formula $s_{1}-1,\dots,s_{k}-1$
+\end_inset
+
+.
+ Los ciclos con 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+ impar son pares y los de longitud par son impares, de donde se deduce el
+ resultado.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Llamamos 
+\series bold
+grupo alternado
+\series default
+ en 
+\begin_inset Formula $n$
+\end_inset
+
+ elementos a 
+\begin_inset Formula $A_{n}:=\ker\text{sgn}$
+\end_inset
+
+, el subgrupo de 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ de las permutaciones pares.
+ 
+\begin_inset Formula $A_{n}$
+\end_inset
+
+ es un subgrupo normal de 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+, y para 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{S_{n}}{A_{n}}\cong\{-1,1\}\cong\mathbb{Z}_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $[S_{n}:A_{n}]=2$
+\end_inset
+
+ y 
+\begin_inset Formula $|A_{n}|=\frac{n!}{2}$
+\end_inset
+
+ y .
+ En efecto, es normal por ser el núcleo de un homomorfismo, y el resto es
+ consecuencia de que el signo es suprayectivo para 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+ y del primer teorema de isomorfía.
+\end_layout
+
+\begin_layout Standard
+Son generadores de 
+\begin_inset Formula $A_{n}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+El conjunto de todos los productos de dos transposiciones.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Toda permutación par es producto de un número par de transposiciones.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+El conjunto de todos los 3-ciclos.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $(i\,j)$
+\end_inset
+
+ y 
+\begin_inset Formula $(k\,l)$
+\end_inset
+
+ dos transposiciones.
+ Si son disjuntas, 
+\begin_inset Formula $(i\,j)(k\,l)=(j\,l\,k)(i\,k\,j)$
+\end_inset
+
+.
+ Si son iguales, el producto es 1.
+ En otro caso podemos suponer 
+\begin_inset Formula $i=k$
+\end_inset
+
+ y 
+\begin_inset Formula $j\neq l$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $(i\,j)(i\,l)=(i\,l\,j)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Teorema de Abel
+\end_layout
+
+\begin_layout Standard
+Un grupo 
+\begin_inset Formula $G$
+\end_inset
+
+ no trivial es 
+\series bold
+simple
+\series default
+ si sus únicos subgrupos normales son 1 y 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Así, un grupo abeliano es simple si y sólo si tiene orden primo.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Abel:
+\series default
+ Si 
+\begin_inset Formula $n\geq5$
+\end_inset
+
+, 
+\begin_inset Formula $A_{n}$
+\end_inset
+
+ es un grupo simple.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $H\neq1$
+\end_inset
+
+ un subgrupo normal de 
+\begin_inset Formula $A_{n}$
+\end_inset
+
+ y veamos que 
+\begin_inset Formula $H=A_{n}$
+\end_inset
+
+.
+ Supongamos primero que 
+\begin_inset Formula $H$
+\end_inset
+
+ contiene un 3-ciclo 
+\begin_inset Formula $\sigma$
+\end_inset
+
+, y veamos que cualquier otro 3-ciclo 
+\begin_inset Formula $\sigma'$
+\end_inset
+
+ está en 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Sabemos que existe 
+\begin_inset Formula $\alpha\in S_{n}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\sigma'=\sigma^{\alpha}$
+\end_inset
+
+, por tener 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma'$
+\end_inset
+
+ el mismo tipo.
+ Si 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es par, 
+\begin_inset Formula $\alpha\in A_{n}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\sigma'\in A_{n}$
+\end_inset
+
+ por la normalidad de 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ en 
+\begin_inset Formula $A_{n}$
+\end_inset
+
+.
+ En otro caso, como 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ solo cambia 3 elementos y 
+\begin_inset Formula $n\geq5$
+\end_inset
+
+, existe una transposición 
+\begin_inset Formula $\beta$
+\end_inset
+
+ disjunta con 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\sigma^{\beta}=\sigma$
+\end_inset
+
+, luego 
+\begin_inset Formula $\sigma^{\beta\alpha}=(\sigma^{\beta})^{\alpha}=\sigma^{\alpha}=\sigma'$
+\end_inset
+
+, pero 
+\begin_inset Formula $\beta'\in A_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Queda probar que 
+\begin_inset Formula $H$
+\end_inset
+
+ contiene un 
+\begin_inset Formula $3$
+\end_inset
+
+-ciclo.
+ Sea 
+\begin_inset Formula $\sigma\in H\setminus1$
+\end_inset
+
+ con 
+\begin_inset Formula $r:=|M(\sigma)|$
+\end_inset
+
+ mínimo, y queremos ver que 
+\begin_inset Formula $r=3$
+\end_inset
+
+.
+ No puede ser 
+\begin_inset Formula $r=1$
+\end_inset
+
+ y, como 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ es par, tampoco puede ser 
+\begin_inset Formula $r=2$
+\end_inset
+
+, luego 
+\begin_inset Formula $r\geq3$
+\end_inset
+
+.
+ Si suponemos 
+\begin_inset Formula $r>3$
+\end_inset
+
+, hay dos posibilidades:
+\end_layout
+
+\begin_layout Enumerate
+Que en la factorización de 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ en ciclos disjuntos haya un ciclo de longitud al menos 3.
+ Entonces 
+\begin_inset Formula $M(\sigma)\geq5$
+\end_inset
+
+, pues de lo contrario, como en la factorización hay un ciclo de longitud
+ al menos 3, 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ sería un 4-ciclo y no estaría en 
+\begin_inset Formula $A_{n}\#$
+\end_inset
+
+.
+ Podemos suponer 
+\begin_inset Formula $1,2,3,4,5\in M(\sigma)$
+\end_inset
+
+ y que algún ciclo de la descomposición es de la forma 
+\begin_inset Formula $(1\,2\,3\,\dots)$
+\end_inset
+
+ con longitud al menos 3.
+ Sea 
+\begin_inset Formula $\alpha:=(3\,4\,5)\in A_{n}$
+\end_inset
+
+, por la normalidad de 
+\begin_inset Formula $H$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma^{\alpha}\in H$
+\end_inset
+
+, luego 
+\begin_inset Formula $\beta:=\sigma^{-1}\sigma^{\alpha}\in H$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\sigma(i)=i$
+\end_inset
+
+, 
+\begin_inset Formula $i>5$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha(i)=i$
+\end_inset
+
+, luego 
+\begin_inset Formula $\beta(i)=i$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $M(\beta)\subseteq M(\sigma)$
+\end_inset
+
+, y la inclusión es estricta porque 
+\begin_inset Formula $\sigma(1)=2$
+\end_inset
+
+ pero 
+\begin_inset Formula $\beta(1)=1$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\beta\in H$
+\end_inset
+
+ cambia menos de 
+\begin_inset Formula $r$
+\end_inset
+
+ elementos, luego debe ser 
+\begin_inset Formula $\beta=1$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma^{\alpha}=\sigma$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\alpha\sigma=\sigma\alpha$
+\end_inset
+
+, pero 
+\begin_inset Formula $(\alpha\sigma)(2)=4$
+\end_inset
+
+ y 
+\begin_inset Formula $(\sigma\alpha)(2)=3\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Que 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ se un producto de 2 o más transposiciones disjuntas.
+ Podemos suponer 
+\begin_inset Formula $\sigma=(1\,2)(3\,4)\cdots$
+\end_inset
+
+ (puede haber más transposiciones o no.
+ Sean 
+\begin_inset Formula $\alpha:=(3\,4\,5)\in A_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta:=\sigma^{-1}\sigma^{\alpha}\in H$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $i\neq5$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma(i)=i$
+\end_inset
+
+, entonces 
+\begin_inset Formula $i\neq3,4,5$
+\end_inset
+
+, luego 
+\begin_inset Formula $\alpha(i)=i$
+\end_inset
+
+, 
+\begin_inset Formula $\beta(i)=i$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $M(\beta)\subseteq M(\sigma)\cup\{5\}$
+\end_inset
+
+.
+ Pero 1 y 2 son fijados por 
+\begin_inset Formula $\beta$
+\end_inset
+
+ y movidos por 
+\begin_inset Formula $\sigma$
+\end_inset
+
+, luego 
+\begin_inset Formula $\beta$
+\end_inset
+
+ cambia menos de 
+\begin_inset Formula $r$
+\end_inset
+
+ elementos y por tanto 
+\begin_inset Formula $\beta=1$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\sigma\alpha=\alpha\sigma$
+\end_inset
+
+, sin embargo 
+\begin_inset Formula $(\sigma\alpha)(3)=3$
+\end_inset
+
+ y 
+\begin_inset Formula $(\alpha\sigma)(3)=5\#$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
