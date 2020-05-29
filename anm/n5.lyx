@@ -219,29 +219,10 @@ Definimos la norma de una aplicación
 \end_inset
 
  como 
-\begin_inset Formula $\Vert L\Vert:=[...]\sup\{\Vert L(x)\Vert'\}_{x\in E,\Vert x\Vert\leq1}$
+\begin_inset Formula $\Vert L\Vert:=\text{[...]}\sup\{\Vert L(x)\Vert'\}_{x\in E,\Vert x\Vert\leq1}$
 \end_inset
 
  [...].
-\end_layout
-
-\begin_layout Standard
-[...] En 
-\begin_inset Formula $\mathbb{R}^{n}$
-\end_inset
-
-, todas las normas son equivalentes.
- [...] Un 
-\series bold
-espacio de Banach
-\series default
- es un espacio normado completo.
- [...] 
-\begin_inset Formula $\mathbb{R}^{n}$
-\end_inset
-
- es un espacio de Banach con cualquier norma.
- 
 \end_layout
 
 \begin_layout Standard
@@ -262,10 +243,10 @@ teorema del incremento finito
 \end_inset
 
  y 
-\begin_inset Formula $L:\mathbb{R}^{m}\rightarrow\mathbb{R}^{n}$
+\begin_inset Formula $M>0$
 \end_inset
 
- lineal, si 
+, si 
 \begin_inset Formula $\Vert df(x)\Vert\leq M$
 \end_inset
 
@@ -326,7 +307,7 @@ Sean
 \end_inset
 
  tal que 
-\begin_inset Formula $f(\overline{B}(x,\delta))\subseteq\overline{B}(x,r)$
+\begin_inset Formula $f(\overline{B}(x,\delta))\subseteq\Omega$
 \end_inset
 
 , y toda sucesión 
@@ -735,11 +716,19 @@ Método de Broyden
 \begin_layout Standard
 El método de Newton requiere calcular la matriz diferencial en cada iteración
  (
-\begin_inset Formula $O(n^{2})$
+\begin_inset Formula $\Theta(n^{2})$
 \end_inset
 
- si se usa derivación numérica) y resolver un sistema lineal (
-\begin_inset Formula $O(n^{3})$
+ si se usa derivación numérica y evaluar 
+\begin_inset Formula $f$
+\end_inset
+
+ en un punto es 
+\begin_inset Formula $\Theta(1)$
+\end_inset
+
+) y resolver un sistema lineal (
+\begin_inset Formula $\Theta(n^{3})$
 \end_inset
 
 ).
@@ -817,10 +806,18 @@ suponiendo que
 
 .
  Esto reduce el orden de complejidad de cada iteración a 
+\begin_inset Formula $\Theta(n^{2})$
+\end_inset
+
+ en el caso general, asumiendo que evaluar 
+\begin_inset Formula $f$
+\end_inset
+
+ en un punto es 
 \begin_inset Formula $O(n^{2})$
 \end_inset
 
- en el caso general.
+.
 \end_layout
 
 \begin_layout Section
@@ -1147,7 +1144,8 @@ noprefix "false"
  esta función.
  No es un método muy rápido, pero permite una estimación inicial más lejana
  que los métodos de Newton y Broyden, por lo que se suele usar para obtener
- una aproximación no muy fina que a su vez se usa con Newton o Broyden.
+ una aproximación no muy fina que a su vez se usa como punto de partida
+ para estos métodos.
 \end_layout
 
 \end_body

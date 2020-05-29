@@ -154,7 +154,7 @@ Sea
 \end_inset
 
  si y sólo si, para cualesquiera 
-\begin_inset Formula $c,x\in\mathbb{C}^{n}$
+\begin_inset Formula $c,y\in\mathbb{C}^{n}$
 \end_inset
 
 , la sucesión 
@@ -758,7 +758,7 @@ Se trata de encontrar un peso
 \begin_inset Formula $\omega>0$
 \end_inset
 
- para corregirlas coordenadas de 
+ para corregir las coordenadas de 
 \begin_inset Formula $x_{k}$
 \end_inset
 
@@ -1183,6 +1183,11 @@ método del descenso rápido
 \end_inset
 
 .
+ Se tiene 
+\begin_inset Formula $\nabla g(x)=2(Ax-b)$
+\end_inset
+
+.
  
 \series bold
 Demostración:
@@ -1344,11 +1349,11 @@ noprefix "false"
 
 \end_inset
 
-, calcula la base 
+, calcula los términos de las secuencias a la vez que la base 
 \begin_inset Formula $(v_{1},\dots,v_{n})$
 \end_inset
 
- a la vez que los términos de las sucesiones.
+.
 \end_layout
 
 \begin_layout Standard
@@ -1377,7 +1382,7 @@ cal M}_n$ SPD de coeficientes, vector $b$ de términos independientes y vector
 
 
 \backslash
-Salida{Solución $x$.}
+Salida{Solución $x$ de $Ax=b$.}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1540,7 +1545,7 @@ name "alg:gradient"
 
 \end_inset
 
-Algoritmo del gradiente conjugado.
+Método del gradiente conjugado.
 \end_layout
 
 \end_inset
@@ -1558,7 +1563,7 @@ Se puede usar como condición de parada que
 \begin_inset Formula $\gamma$
 \end_inset
 
- sea suficientemente pequeño, comprobando que lo sea al terminar, ya que
+ sea suficientemente pequeño, y comprobamos que lo sea al terminar ya que
  de lo contrario tenemos inestabilidad en los cálculos.
 \end_layout
 
@@ -1588,22 +1593,22 @@ precondicionamiento
 \end_inset
 
 .
- El sistema 
-\begin_inset Formula $Ax=b$
-\end_inset
-
-, llamando 
+ Llamando 
 \begin_inset Formula $\tilde{x}:=C^{t}x$
 \end_inset
 
-, es equivale al sistema 
-\begin_inset Formula $(C^{-1}A(C^{-1})^{t})\tilde{x}=C^{-1}b$
+, el sistema 
+\begin_inset Formula $Ax=b$
 \end_inset
 
-, llamado 
+ es equivale al 
 \series bold
 sistema precondicionado
 \series default
+ 
+\begin_inset Formula $(C^{-1}A(C^{-1})^{t})\tilde{x}=C^{-1}b$
+\end_inset
+
 .
 \end_layout
 

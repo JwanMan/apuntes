@@ -231,7 +231,7 @@ factorización LU
 \begin_inset Formula $U\in{\cal M}_{n}$
 \end_inset
 
- no singulares tales que 
+ tales que 
 \begin_inset Formula $A=LU$
 \end_inset
 
@@ -244,7 +244,7 @@ factorización LU
 \begin_inset Formula $(L,U)$
 \end_inset
 
- es factorización LU de 
+ es una factorización LU de 
 \begin_inset Formula $A$
 \end_inset
 
@@ -353,7 +353,9 @@ sum_{s=1}^kl_{ks}u_{sk}$}
 
 	
 \backslash
-lSSi{$p=0$}{terminar con error}
+lSSi{$p=0$}{
+\backslash
+Devolver error}
 \end_layout
 
 \begin_layout Plain Layout
@@ -482,7 +484,7 @@ noprefix "false"
 
 \end_inset
 
- permite factorizar matrices LU en tiempo 
+ calcula una factorización LU en tiempo 
 \begin_inset Formula $\Theta(n^{3})$
 \end_inset
 
@@ -540,7 +542,7 @@ Una matriz
 \end_inset
 
  no singular admite una factorización LU si y sólo si todos sus menores
- principales (submatrices cuadradas obtenidas de tomar las 
+ principales (submatrices cuadradas con las 
 \begin_inset Formula $k$
 \end_inset
 
@@ -662,7 +664,7 @@ factorización LDU
 \begin_inset Formula $L\in{\cal M}_{n}$
 \end_inset
 
-, una diagonal no singular 
+, una diagonal 
 \begin_inset Formula $D\in{\cal M}_{n}$
 \end_inset
 
@@ -771,7 +773,11 @@ A partir de la factorización de Dootlittle
 \begin_inset Formula $A=LU$
 \end_inset
 
-, la factorización LDU de 
+, si 
+\begin_inset Formula $U$
+\end_inset
+
+ es no singular, la factorización LDU de 
 \begin_inset Formula $A$
 \end_inset
 
@@ -796,8 +802,11 @@ A partir de la factorización de Dootlittle
 \begin_inset Formula $\det A\neq0$
 \end_inset
 
- y admite una factorización LU, existe una única factorización de la forma
- 
+ y admite una factorización LU con 
+\begin_inset Formula $U$
+\end_inset
+
+ no singular, existe una única factorización de la forma 
 \begin_inset Formula $LDL^{t}$
 \end_inset
 
@@ -995,7 +1004,7 @@ Si ahora llamamos
 \begin_inset Formula $M_{3},\dots,M_{n-1}$
 \end_inset
 
- por inducción, y entonces 
+ de forma similar, y entonces 
 \begin_inset Formula $A^{(n)}=M_{n-1}\cdots M_{1}A$
 \end_inset
 
@@ -1027,11 +1036,11 @@ es de filas si y sólo si ninguno de sus menores principales hasta
 \begin_inset Formula $n-1$
 \end_inset
 
- es singular, lo que si 
+ es singular, lo que para 
 \begin_inset Formula $A$
 \end_inset
 
- es singular equivale a que sea factorizable LU.
+ no singular equivale a que sea factorizable LU.
 \end_layout
 
 \begin_layout Standard
@@ -1062,7 +1071,7 @@ En tal caso, sean
  es una factorización de Dootlittle.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Método de Gauss
 \end_layout
 
@@ -1450,7 +1459,7 @@ PD
 positive definite
 \emph default
 ) si 
-\begin_inset Formula $\forall x\in\mathbb{R}^{n}\setminus\{0\},x^{t}Ax>0.$
+\begin_inset Formula $\forall x\in\mathbb{R}^{n}\setminus0,x^{t}Ax>0.$
 \end_inset
 
  En tal caso:
@@ -1466,7 +1475,7 @@ positive definite
 \begin_deeper
 \begin_layout Standard
 Si lo fuera, las columnas serían linealmente dependientes y existiría 
-\begin_inset Formula $x\in\mathbb{R}^{n}\setminus\{0\}$
+\begin_inset Formula $x\in\mathbb{R}^{n}\setminus0$
 \end_inset
 
  con 
@@ -1882,12 +1891,39 @@ Sea
 
 \end_layout
 
+\begin_layout Standard
+Cuando existe 
+\begin_inset Formula $L$
+\end_inset
+
+ triangular inferior con diagonal positiva tal que 
+\begin_inset Formula $A=LL^{t}$
+\end_inset
+
+, llamamos a 
+\begin_inset Formula $L$
+\end_inset
+
+ el 
+\series bold
+factor 
+\begin_inset Formula $L$
+\end_inset
+
+ de Choleski
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsection
 Matrices tridiagonales
 \end_layout
 
 \begin_layout Standard
-Una matriz 
 \begin_inset Formula $A\in{\cal M}_{n}$
 \end_inset
 
@@ -1954,7 +1990,7 @@ a_{2} & b_{2} & c_{2}\\
 
 \end_inset
 
-llamando 
+si 
 \begin_inset Formula $\delta_{0},\delta_{1}:=1$
 \end_inset
 
@@ -2286,11 +2322,11 @@ factorización QR
 \begin_inset Formula $Q\in{\cal M}_{m}$
 \end_inset
 
- es ortogonal y 
+ ortogonal y 
 \begin_inset Formula $R\in{\cal M}_{m\times n}$
 \end_inset
 
- es triangular superior.
+ triangular superior.
  El 
 \series bold
 método de Householder
@@ -2391,7 +2427,7 @@ gets H_{(0,
 \backslash
 dots,0,v_1,
 \backslash
-dots,v_m-k+1)}=
+dots,v_{m-k+1})}=
 \backslash
 left(
 \backslash
@@ -2411,7 +2447,7 @@ hline
 
 \begin_layout Plain Layout
 
-		0       & H'
+		0       & H_v
 \end_layout
 
 \begin_layout Plain Layout
@@ -2520,7 +2556,7 @@ Si
 \end_inset
 
 , entonces 
-\begin_inset Formula $\text{span}(A_{1},\dots,A_{k})=\text{span}(Q_{1},\dots,Q_{k})$
+\begin_inset Formula $\text{span}\{A_{1},\dots,A_{k}\}=\text{span}\{Q_{1},\dots,Q_{k}\}$
 \end_inset
 
  para 
@@ -2528,7 +2564,7 @@ Si
 \end_inset
 
 , y 
-\begin_inset Formula $\text{span}(A_{1},\dots,A_{n})^{\bot}=\text{span}(Q_{n+1},\dots,Q_{m})$
+\begin_inset Formula $\text{span}\{A_{1},\dots,A_{n}\}^{\bot}=\text{span}\{Q_{n+1},\dots,Q_{m}\}$
 \end_inset
 
 .
@@ -2765,20 +2801,16 @@ espacio de Hilbert
  con la norma dada por
 \begin_inset Formula 
 \[
-\langle f,g\rangle:=\int_{a}^{b}f(x)g(x)w(x)dx,
+\langle f,g\rangle:=\int_{a}^{b}f(x)g(x)\omega(x)dx,
 \]
 
 \end_inset
 
 donde 
-\begin_inset Formula $w\in{\cal C}([a,b])$
+\begin_inset Formula $\omega:[a,b]\to(0,+\infty)$
 \end_inset
 
- tiene rango 
-\begin_inset Formula $(0,+\infty)$
-\end_inset
-
-.
+ es continua.
 \end_layout
 
 \begin_layout Standard
@@ -2791,7 +2823,7 @@ Dado un espacio vectorial
 ángulo
 \series default
  entre 
-\begin_inset Formula $f,g\in E\setminus\{0\}$
+\begin_inset Formula $f,g\in E\setminus0$
 \end_inset
 
  al 
@@ -3139,7 +3171,7 @@ Si
 \begin_inset Formula $\{g_{1},\dots,g_{m}\}$
 \end_inset
 
- es un conjunto de vectores que genera 
+ es un conjunto generador de 
 \begin_inset Formula $G$
 \end_inset
 

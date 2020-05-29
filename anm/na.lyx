@@ -325,10 +325,8 @@ valor
 \family typewriter
 \emph on
 A
-\family default
 \emph default
  = 
-\family typewriter
 \emph on
 expr
 \family default
@@ -567,9 +565,118 @@ Si una operación
 \begin_inset Formula $1\times1$
 \end_inset
 
- y se juntan todos estos elementos.
+ que se sitúa en la posición correspondiente de la matriz de salida.
  Si una de las dos es de un elemento, se extiende a una de igual tamaño
  que la otra con todos los elementos iguales al original.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\emph on
+A
+\emph default
+(
+\emph on
+x
+\emph default
+, 
+\emph on
+y
+\emph default
+)
+\family default
+ es la submatriz de 
+\family typewriter
+\emph on
+A
+\family default
+\emph default
+ formada por las columnas con índice en el vector 
+\family typewriter
+\emph on
+x
+\family default
+\emph default
+ y las filas con índice en el vector 
+\family typewriter
+\emph on
+y
+\family default
+\emph default
+, y 
+\family typewriter
+\emph on
+A
+\emph default
+(
+\emph on
+x
+\emph default
+)
+\family default
+ convierte la matriz en un vector concatenando las traspuestas de sus columnas
+ y toma los elementos del vector con índice en 
+\family typewriter
+\emph on
+x
+\family default
+\emph default
+.
+ Los vectores de índice se pueden sustituir por 
+\family typewriter
+:
+\family default
+ para tomar todas las filas o columnas.
+ Los índices empiezan por 1.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\emph on
+A
+\emph default
+(
+\emph on
+x
+\emph default
+, 
+\emph on
+y
+\emph default
+) = 
+\emph on
+expr
+\family default
+\emph default
+ o 
+\family typewriter
+\emph on
+A
+\emph default
+(
+\emph on
+x
+\emph default
+) = 
+\emph on
+expr
+\family default
+\emph default
+ asigna los elementos de la submatriz a la izquierda del 
+\family typewriter
+=
+\family default
+ a los de la devuelta por la expresión, que debe ser del mismo tamaño.
+ Si la variable no existe, se crea, y si la submatriz indicada supone que
+ 
+\family typewriter
+\emph on
+A
+\family default
+\emph default
+ es más grande de lo que es, esta se amplía y se rellena con ceros.
 \end_layout
 
 \begin_layout Subsection
@@ -688,115 +795,6 @@ B
  
 \end_layout
 
-\begin_layout Standard
-
-\family typewriter
-\emph on
-A
-\emph default
-(
-\emph on
-x
-\emph default
-, 
-\emph on
-y
-\emph default
-)
-\family default
- es la submatriz de 
-\family typewriter
-\emph on
-A
-\family default
-\emph default
- formada por las columnas con índice en el vector 
-\family typewriter
-\emph on
-x
-\family default
-\emph default
- y las filas con índice en el vector 
-\family typewriter
-\emph on
-y
-\family default
-\emph default
-, y 
-\family typewriter
-\emph on
-A
-\emph default
-(
-\emph on
-x
-\emph default
-)
-\family default
- convierte la matriz en un vector concatenando las traspuestas de sus columnas
- y toma los elementos del vector con índice en 
-\family typewriter
-\emph on
-x
-\family default
-\emph default
-.
- Ambos vectores se pueden sustituir por 
-\family typewriter
-:
-\family default
- para tomar todas las filas o columnas, y los índices empiezan por 1.
- 
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-\emph on
-A
-\emph default
-(
-\emph on
-x
-\emph default
-, 
-\emph on
-y
-\emph default
-) = 
-\emph on
-expr
-\family default
-\emph default
- o 
-\family typewriter
-\emph on
-A
-\emph default
-(
-\emph on
-x
-\emph default
-) = 
-\emph on
-expr
-\family default
-\emph default
- asigna los elementos de la submatriz a la izquierda del 
-\family typewriter
-=
-\family default
- a los de la devuelta por la expresión, que debe ser del mismo tamaño.
- Si la variable no existe, se crea, y si la submatriz indicada supone que
- 
-\family typewriter
-\emph on
-A
-\family default
-\emph default
- es más grande, esta se amplía y se rellena con ceros.
-\end_layout
-
 \begin_layout Subsection
 Booleanos
 \end_layout
@@ -857,7 +855,7 @@ Listas
 \end_layout
 
 \begin_layout Standard
-Las listas empiezan por 1 y pueden contener elementos de distintos tipos.
+Las listas pueden contener elementos de distintos tipos.
  No se asigna a una lista, sino a sus elementos, a los que se hace referencia
  por 
 \family typewriter
@@ -871,8 +869,9 @@ lista
 }
 \family default
 .
- Los elementos con índice menor que el indicado se rellenan con matrices
- numéricas vacías 
+ Los índices empiezan por 1.
+ Si se asigna a un índice mayor que el tamaño de la lista, esta se amplía
+ y se rellena con matrices numéricas 
 \begin_inset Formula $0\times0$
 \end_inset
 
@@ -900,7 +899,7 @@ expr
 \family default
 \emph default
 , puede asignarse y puede usarse como una función normal.
- Solo pueden devolver un elemento.
+ Solo puede devolver un elemento.
 \end_layout
 
 \begin_layout Standard
@@ -1486,20 +1485,7 @@ Biblioteca estándar
 
 \begin_layout Standard
 La mayoría de funciones que reciben un número y devuelven otro también funcionan
- punto a punto sobre matrices.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO addpath, rmpath, vander con 2 parámetros
-\end_layout
-
-\end_inset
-
-
+ elemento a elemento con matrices.
 \end_layout
 
 \begin_layout Description
@@ -1590,19 +1576,19 @@ shell
 \begin_layout Description
 
 \family typewriter
-clf
-\family default
- Limpia la ventana de gráficas.
-\end_layout
-
-\begin_layout Description
-
-\family typewriter
 \series bold
 clear
 \family default
 \series default
  Borra todas las variables.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+clf
+\family default
+ Vacía la ventana de gráficas, creándola si no existía ya.
 \end_layout
 
 \begin_layout Description
@@ -1690,13 +1676,13 @@ style
 \emph default
 )
 \family default
- Si para cada elemento de 
+ Si a cada par formado por un elemento de 
 \family typewriter
 \emph on
 x
 \family default
 \emph default
- con el correspondiente elemento de 
+ y el correspondiente de 
 \family typewriter
 \emph on
 y
@@ -1708,8 +1694,7 @@ y
 v
 \family default
 \emph default
-, dibuja la curva de nivel (aproximada) de la gráfica correspondiente a
- la altura 
+, dibuja la curva de nivel (aproximada) de la gráfica a la altura 
 \family typewriter
 \emph on
 h
@@ -1783,13 +1768,39 @@ A
 \family default
 \emph default
  es vector, devuelve una matriz diagonal con elementos del vector en la
- diagonal, y de lo contrario devuelve un vector con los elementos de la
- diagonal de 
+ diagonal 
+\begin_inset Formula $\{(i,j):i+k=j\}$
+\end_inset
+
+, y de lo contrario devuelve un vector con los elementos de dicha diagonal
+ de 
 \family typewriter
 \emph on
 A
 \family default
 \emph default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+diag(
+\emph on
+A
+\series bold
+\emph default
+)
+\family default
+\series default
+ 
+\family typewriter
+diag(
+\emph on
+A
+\emph default
+,0)
+\family default
 .
 \end_layout
 
@@ -2013,6 +2024,39 @@ x0
 \begin_layout Description
 
 \family typewriter
+format
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+opción
+\family default
+\emph default
+ Cambia el formato en que se imprimen los números por defecto.
+ Posibles valores son 
+\family typewriter
+short
+\family default
+ o 
+\family typewriter
+long
+\family default
+ para la cantidad de decimales (pocos o muchos), seguido opcionalmente por
+ 
+\family typewriter
+e
+\family default
+ para notación científica o 
+\family typewriter
+g
+\family default
+ para elegir en cada caso si es mejor usar notación científica o normal.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
 fprintf(
 \emph on
 fmt
@@ -2036,39 +2080,6 @@ fmt
 )
 \family default
 .
-\end_layout
-
-\begin_layout Description
-
-\family typewriter
-format
-\begin_inset space ~
-\end_inset
-
-
-\emph on
-opción
-\family default
-\emph default
- Cambia el formato en que se imprimen los números por defecto.
- Posibles valores son 
-\family typewriter
-short
-\family default
- o 
-\family typewriter
-long
-\family default
- para la cantidad de decimales (pocos o muchos), seguidos opcionalmente
- por 
-\family typewriter
-e
-\family default
- para notación científica o 
-\family typewriter
-g
-\family default
- para elegir en cada caso si es mejor usar notación científica o normal.
 \end_layout
 
 \begin_layout Description
@@ -2258,6 +2269,28 @@ A
 \begin_layout Description
 
 \family typewriter
+max(
+\emph on
+x
+\emph default
+,
+\series bold
+\emph on
+y
+\emph default
+)
+\family default
+\series default
+ 
+\begin_inset Formula $\max\{\text{\emph{\texttt{x}}},\text{\emph{\texttt{y}}}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
 [
 \emph on
 w
@@ -2300,28 +2333,6 @@ A
 \family default
  
 \begin_inset Formula $\max\text{\emph{\texttt{A}}}_{ij}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Description
-
-\family typewriter
-max(
-\emph on
-x
-\emph default
-,
-\series bold
-\emph on
-y
-\emph default
-)
-\family default
-\series default
- 
-\begin_inset Formula $\max\{\text{\emph{\texttt{x}}},\text{\emph{\texttt{y}}}\}$
 \end_inset
 
 .
@@ -2416,6 +2427,28 @@ y
 \begin_layout Description
 
 \family typewriter
+min(
+\emph on
+x
+\emph default
+,
+\series bold
+\emph on
+y
+\emph default
+)
+\family default
+\series default
+ 
+\begin_inset Formula $\min\{\text{\emph{\texttt{x}}},\text{\emph{\texttt{y}}}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
 [
 \emph on
 w
@@ -2461,89 +2494,6 @@ A
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Description
-
-\family typewriter
-min(
-\emph on
-x
-\emph default
-,
-\series bold
-\emph on
-y
-\emph default
-)
-\family default
-\series default
- 
-\begin_inset Formula $\min\{\text{\emph{\texttt{x}}},\text{\emph{\texttt{y}}}\}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Description
-
-\family typewriter
-norm(
-\emph on
-A
-\emph default
-)
-\family default
- 
-\family typewriter
-norm(
-\emph on
-A
-\emph default
-,2)
-\family default
-.
-\end_layout
-
-\begin_layout Description
-
-\family typewriter
-norm(
-\emph on
-A
-\series medium
-\emph default
-,
-\emph on
-p
-\emph default
-)
-\family default
- Norma 
-\family typewriter
-\series default
-\emph on
-p
-\family default
-\emph default
- de 
-\family typewriter
-\emph on
-A
-\family default
-\emph default
-, matricial o vectorial según corresponda, donde 
-\family typewriter
-\emph on
-p
-\family default
-\emph default
- es un entero positivo o 
-\family typewriter
-Inf
-\family default
-.
- 
 \end_layout
 
 \begin_layout Description
@@ -2597,7 +2547,13 @@ cols
 
 
 \family default
-, vector fila con la norma de cada vector columna en 
+, vector fila con la norma 
+\family typewriter
+\emph on
+p
+\family default
+\emph default
+ de cada vector columna en 
 \family typewriter
 \emph on
 A
@@ -2616,12 +2572,78 @@ rows
 
 
 \family default
-, vector columna con la norma de cada vector fila en 
+, vector columna con la norma 
+\family typewriter
+\emph on
+p
+\family default
+\emph default
+ de cada vector fila en 
 \family typewriter
 \emph on
 A
 \family default
 \emph default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+norm(
+\emph on
+A
+\series medium
+\emph default
+,
+\emph on
+p
+\emph default
+)
+\family default
+ Norma 
+\family typewriter
+\series default
+\emph on
+p
+\family default
+\emph default
+ de 
+\family typewriter
+\emph on
+A
+\family default
+\emph default
+, matricial o vectorial según corresponda, donde 
+\family typewriter
+\emph on
+p
+\family default
+\emph default
+ es un entero positivo o 
+\family typewriter
+Inf
+\family default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+norm(
+\emph on
+A
+\emph default
+)
+\family default
+ 
+\family typewriter
+norm(
+\emph on
+A
+\emph default
+,2)
+\family default
 .
 \end_layout
 
@@ -2695,13 +2717,13 @@ fmt
 fmt
 \family default
 \emph default
-, una cadena con caracteres normales que se representan a sí mismos pero
- con secuencias de escape que empiezan por 
+, una cadena con caracteres normales que se representan a sí mismos y secuencias
+ de escape que empiezan por 
 \family typewriter
 %
 \family default
 .
- Así, 
+ Por ejemplo, 
 \family typewriter
 %f
 \family default
@@ -2803,16 +2825,16 @@ A
 \family typewriter
 sign(
 \emph on
-x
+z
 \emph default
 )
 \family default
  Si 
-\begin_inset Formula $\text{\emph{\texttt{x}}}=0$
+\begin_inset Formula $\text{\emph{\texttt{z}}}=0$
 \end_inset
 
 , 0, de lo contrario 
-\begin_inset Formula $\frac{x}{|x|}$
+\begin_inset Formula $\frac{\text{\emph{\texttt{z}}}}{|\text{\emph{\texttt{z}}}|}$
 \end_inset
 
 .
@@ -2874,6 +2896,22 @@ z
 \begin_layout Description
 
 \family typewriter
+sum(
+\emph on
+A
+\emph default
+)
+\family default
+ 
+\begin_inset Formula $\sum\text{\emph{\texttt{A}}}_{ij}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
 [
 \emph on
 U
@@ -2920,29 +2958,13 @@ S
 \begin_layout Description
 
 \family typewriter
-sum(
-\emph on
-A
-\emph default
-)
-\family default
- 
-\begin_inset Formula $\sum\text{\emph{\texttt{A}}}_{ij}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Description
-
-\family typewriter
 title(
 \emph on
 str
 \emph default
 )
 \family default
- Indica el título de la gráfica.
+ Da un título a la gráfica.
 \end_layout
 
 \begin_layout Description
