@@ -253,7 +253,7 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-Un elemento 
+Un 
 \begin_inset Formula $a\in A$
 \end_inset
 
@@ -1218,11 +1218,7 @@ múltiplo
 \end_inset
 
 .
- Propiedades: 
-\begin_inset Formula $\forall a\in A$
-\end_inset
-
-:
+ Propiedades:
 \end_layout
 
 \begin_layout Enumerate
@@ -2075,7 +2071,7 @@ máximo común divisor
 \end_inset
 
 , 
-\begin_inset Formula $a=\text{mcm}S$
+\begin_inset Formula $a=\text{mcd}S$
 \end_inset
 
 , si divide a cada elemento de 
@@ -2095,7 +2091,7 @@ mínimo común múltiplo
 \end_inset
 
 , 
-\begin_inset Formula $a=\text{mcd}S$
+\begin_inset Formula $a=\text{mcm}S$
 \end_inset
 
 , si es múltiplo de cada elemento de 
@@ -2533,7 +2529,7 @@ factorización en producto de irreducibles
 \end_inset
 
 , 
-\begin_inset Formula $a=up_{1}\cdots p_{n}$
+\begin_inset Formula $a=up_{1}\cdots p_{m}$
 \end_inset
 
  y 
@@ -2608,10 +2604,6 @@ DFU
 UFD
 \series default
 ) si, además, todas las factorizaciones de un mismo elemento son equivalentes.
-\end_layout
-
-\begin_layout Standard
-Ejemplos:
 \end_layout
 
 \begin_layout Enumerate
@@ -2886,7 +2878,7 @@ Un dominio
 \end_inset
 
  puede expresarse como producto de una unidad por irreducibles.
- Ahora bien, sea 
+ Sea entonces 
 \begin_inset Formula $p\in D$
 \end_inset
 
@@ -2996,7 +2988,7 @@ Un dominio
 \begin_inset Formula $p\in D$
 \end_inset
 
- irreducible y sean 
+ irreducible, 
 \begin_inset Formula $u\in D^{*}$
 \end_inset
 
@@ -3095,7 +3087,7 @@ Un dominio
 \begin_inset Formula $q_{i}$
 \end_inset
 
- es irreducible por ser primo, existe 
+ es irreducible, existe 
 \begin_inset Formula $w\in D^{*}$
 \end_inset
 
@@ -3230,7 +3222,7 @@ PID
 \begin_inset Formula $D$
 \end_inset
 
-, pero en un DIP estos son precisamente todos los ideales no nulos de 
+, pero en un DIP estos son todos los ideales no nulos de 
 \begin_inset Formula $D$
 \end_inset
 
@@ -3273,15 +3265,11 @@ Todo DIP es un DFU.
 Demostración:
 \series default
  Supongamos que existe 
-\begin_inset Formula $a_{0}\in D\setminus\{0\}$
-\end_inset
-
- que no admite factorización en irreducibles.
- Si 
 \begin_inset Formula $a\in D\setminus\{0\}$
 \end_inset
 
- no admite factorización, como 
+ que no admite factorización en irreducibles.
+ Entonces, como 
 \begin_inset Formula $a$
 \end_inset
 
@@ -3318,7 +3306,7 @@ Demostración:
 \begin_inset Formula $D$
 \end_inset
 
- con 
+ de elementos que no admiten factorización con 
 \begin_inset Formula $(a_{0})\subsetneq(a_{1})\subsetneq\dots$
 \end_inset
 
@@ -3408,7 +3396,6 @@ Un
 dominio euclídeo
 \series default
  es uno que admite una función euclídea.
- Ejemplos:
 \end_layout
 
 \begin_layout Enumerate
@@ -3828,8 +3815,12 @@ Sean
 \end_inset
 
 .
- Esta relación es de equivalencia; en efecto, las propiedades reflexiva
- y transitiva son claras, y si 
+ Esta relación es de equivalencia
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+; en efecto, las propiedades reflexiva y transitiva son claras, y si 
 \begin_inset Formula $a_{1}s_{2}=a_{2}s_{1}$
 \end_inset
 
@@ -3857,6 +3848,11 @@ Sean
 \begin_inset Formula $a_{1}s_{3}=s_{1}a_{3}$
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
 .
 \end_layout
 
@@ -3865,7 +3861,7 @@ Llamamos
 \begin_inset Formula $a/s:=\frac{a}{s}:=[(a,s)]\in Q(D):=X/\sim$
 \end_inset
 
-, y se tiene que las operaciones
+, y las operaciones
 \begin_inset Formula 
 \begin{align*}
 \frac{a_{1}}{s_{1}}+\frac{a_{2}}{s_{2}} & :=\frac{a_{1}s_{2}+a_{2}s_{1}}{s_{1}s_{2}}, & \frac{a_{1}}{s_{1}}\cdot\frac{a_{2}}{s_{2}} & :=\frac{a_{1}a_{2}}{s_{1}s_{2}},
@@ -3925,8 +3921,12 @@ Demostración:
 \end_layout
 
 \begin_layout Standard
-Propiedades: 
-\begin_inset Formula $\forall a,b\in D;s,t\in D\setminus\{0\}$
+Para 
+\begin_inset Formula $a,b\in D$
+\end_inset
+
+ y 
+\begin_inset Formula $s,t\in D\setminus\{0\}$
 \end_inset
 
 :
@@ -4136,7 +4136,6 @@ Demostración:
 \end_layout
 
 \begin_layout Standard
-Así, 
 \begin_inset Formula $\mathbb{Q}$
 \end_inset
 
@@ -4145,7 +4144,7 @@ Así,
 \end_inset
 
 .
- Es fácil ver que función 
+ Es fácil ver que la función 
 \begin_inset Formula $u:D\to Q(D)$
 \end_inset
 
@@ -4173,7 +4172,11 @@ Así,
 \end_layout
 
 \begin_layout Standard
-Así, dados un dominio 
+
+\series bold
+Propiedad universal del cuerpo de fracciones:
+\series default
+ Dados un dominio 
 \begin_inset Formula $D$
 \end_inset
 
@@ -4189,11 +4192,7 @@ Así, dados un dominio
 \end_layout
 
 \begin_layout Enumerate
-
-\series bold
-Propiedad universal del cuerpo de fracciones:
-\series default
- Sean 
+Sean 
 \begin_inset Formula $K$
 \end_inset
 

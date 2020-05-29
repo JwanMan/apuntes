@@ -245,7 +245,7 @@ Si
 \begin_inset Formula $P,Q\in A[X]\setminus\{0\}$
 \end_inset
 
- tienen coeficientes principales 
+ tienen coeficientes principales respectivos 
 \begin_inset Formula $p$
 \end_inset
 
@@ -253,7 +253,7 @@ Si
 \begin_inset Formula $q$
 \end_inset
 
- respectivamente:
+:
 \end_layout
 
 \begin_layout Enumerate
@@ -544,18 +544,22 @@ Propiedad universal
 \end_layout
 
 \begin_layout Standard
-Sean 
-\begin_inset Formula $A$
-\end_inset
+\begin_inset ERT
+status open
 
- un anillo y 
-\begin_inset Formula $u:A\to A[X]$
-\end_inset
+\begin_layout Plain Layout
 
- el homomorfismo inclusión:
+
+\backslash
+begin{samepage}
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 
 \series bold
 Propiedad universal del anillo de polinomios
@@ -568,7 +572,19 @@ PUAP
 \series bold
 :
 \series default
- Para cada homomorfismo de anillos conmutativos 
+ Sean 
+\begin_inset Formula $A$
+\end_inset
+
+ un anillo y 
+\begin_inset Formula $u:A\to A[X]$
+\end_inset
+
+ el homomorfismo inclusión:
+\end_layout
+
+\begin_layout Enumerate
+Para cada homomorfismo de anillos conmutativos 
 \begin_inset Formula $f:A\to B$
 \end_inset
 
@@ -758,6 +774,22 @@ Tomando
 \end_inset
 
  es el isomorfismo buscado.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
 \end_layout
 
 \end_inset
@@ -1037,7 +1069,7 @@ homomorfismo de reducción de coeficientes módulo
 \end_inset
 
 Su núcleo es 
-\begin_inset Formula $I[X]:=\{a_{0}+a_{1}X+\dots+a_{n}X^{n}:a_{0},\dots,a_{n}\in I\}$
+\begin_inset Formula $I[X]$
 \end_inset
 
 , por lo que 
@@ -1126,6 +1158,8 @@ noprefix "false"
 \end_inset
 
 .
+ En particular, el grado es una función euclídea.
+ 
 \begin_inset Note Comment
 status open
 
@@ -1470,7 +1504,7 @@ teorema de Ruffini
 \begin_inset Formula $f(a)=0$
 \end_inset
 
-, en cuyo caso decimos que 
+, en cuyo caso 
 \begin_inset Formula $a$
 \end_inset
 
@@ -1720,7 +1754,7 @@ Si
 \begin_inset Formula $f$
 \end_inset
 
-, y el número de raíces, son no superiores a 
+, y el número de raíces, no son superiores a 
 \begin_inset Formula $\text{gr}(f)$
 \end_inset
 
@@ -1882,11 +1916,11 @@ Sean
 \begin_inset Formula $D$
 \end_inset
 
- es infinito si y sólo si dos polinomios distintos cualesquiera en 
+ es infinito si y sólo si cualquier par de polinomios distintos en 
 \begin_inset Formula $D[X]$
 \end_inset
 
- definen funciones polinómicas distintas en 
+ define dos funciones polinómicas distintas en 
 \begin_inset Formula $D$
 \end_inset
 
@@ -2739,7 +2773,7 @@ Sea
 \end_inset
 
 , contando repetidos, y para 
-\begin_inset Formula $a,b\in D\setminus0$
+\begin_inset Formula $a,b\in D\setminus\{0\}$
 \end_inset
 
 , 
@@ -2758,11 +2792,11 @@ Si
 \begin_inset Formula $D$
 \end_inset
 
- es un DFU y 
+ es un DFU, 
 \begin_inset Formula $K$
 \end_inset
 
- es su cuerpo de fracciones, 
+ es su cuerpo de fracciones y 
 \begin_inset Formula $f\in D[X]$
 \end_inset
 
@@ -2809,7 +2843,7 @@ Demostración:
 \end_inset
 
  obtenemos un 
-\begin_inset Formula $c\in D\setminus0$
+\begin_inset Formula $c\in D\setminus\{0\}$
 \end_inset
 
  con 
@@ -2851,7 +2885,7 @@ Demostración:
 \end_inset
 
 , podemos tomar 
-\begin_inset Formula $g':=a^{-1}g$
+\begin_inset Formula $g':=(bc)^{-1}g$
 \end_inset
 
  y 
@@ -2933,13 +2967,6 @@ Demostración:
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -3285,7 +3312,11 @@ Si
 \begin_inset Formula $K$
 \end_inset
 
- es su cuerpo de fracciones, definimos la relación de equivalencia 
+ es su cuerpo de fracciones, definimos la relación de equivalencia en 
+\begin_inset Formula $K$
+\end_inset
+
+ 
 \begin_inset Formula $x\sim y:\iff\exists u\in D^{*}:y=ux$
 \end_inset
 
@@ -3406,7 +3437,7 @@ status open
 \begin_inset Formula $c(p)=aD^{*}$
 \end_inset
 
-, decimos que 
+, 
 \begin_inset Formula $a$
 \end_inset
 
@@ -3426,8 +3457,12 @@ contenido
 \end_layout
 
 \begin_layout Standard
-Propiedades: 
-\begin_inset Formula $\forall a\in K,p\in K[X]$
+Para 
+\begin_inset Formula $a\in K$
+\end_inset
+
+ y 
+\begin_inset Formula $p\in K[X]$
 \end_inset
 
 :
@@ -3812,6 +3847,22 @@ Demostración:
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Dado 
 \begin_inset Formula $f\in D[X]\setminus D$
 \end_inset
@@ -3846,11 +3897,27 @@ Dado
  Visto.
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Description
 \begin_inset Formula $3\implies4]$
 \end_inset
 
- Visto.
+ Obvio.
 \end_layout
 
 \begin_layout Description
@@ -4372,11 +4439,11 @@ En particular, si
 \begin_inset Formula $f:=\sum_{k}a_{k}X^{k}\in\mathbb{Z}[X]$
 \end_inset
 
- es primitivo y 
+ es primitivo, 
 \begin_inset Formula $n:=\text{gr}(f)$
 \end_inset
 
-, si 
+, 
 \begin_inset Formula $p\nmid a_{n}$
 \end_inset
 
@@ -4970,7 +5037,15 @@ p=\sum_{i\in\mathbb{N}^{n}}p_{i}X_{1}^{i_{1}}\cdots X_{n}^{i_{n}}=\sum_{i\in\mat
 \end_layout
 
 \begin_layout Standard
-Sean 
+
+\series bold
+PUAP en 
+\begin_inset Formula $n$
+\end_inset
+
+ indeterminadas:
+\series default
+ Sean 
 \begin_inset Formula $A$
 \end_inset
 
@@ -4982,19 +5057,21 @@ Sean
 \begin_inset Formula $u:A\to A[X_{1},\dots,X_{n}]$
 \end_inset
 
- la inclusión, por inducción:
+ la inclusión
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+, por inducción
+\end_layout
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Enumerate
-
-\series bold
-PUAP en 
-\begin_inset Formula $n$
-\end_inset
-
- indeterminadas:
-\series default
- Dados un homomorfismo de anillos 
+Dados un homomorfismo de anillos 
 \begin_inset Formula $f:A\to B$
 \end_inset
 
