@@ -1,0 +1,1190 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Entorno
+\end_layout
+
+\begin_layout Standard
+El entorno de la base de datos está formado por:
+\end_layout
+
+\begin_layout Itemize
+Hardware.
+\end_layout
+
+\begin_layout Itemize
+Software: SGBD, aplicaciones, sistema operativo y software de red.
+\end_layout
+
+\begin_layout Itemize
+Datos, y metadatos en el catálogo del sistema.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Procedimientos
+\series default
+: Instrucciones y reglas para el diseño y uso de la base de datos y las
+ aplicaciones.
+\end_layout
+
+\begin_layout Itemize
+Personas o 
+\series bold
+actores
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Entre los actores tenemos:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Administrador de la base de datos
+\series default
+ (
+\series bold
+ABD
+\series default
+), responsable de administrar los recursos del SBD: base de datos, SGBD
+ y programas de acceso.
+ Adquiere el software y hardware necesario; implementa la estructura de
+ la base de datos y las restricciones de integridad; crea y modifica las
+ estructuras de almacenamiento y métodos de acceso; concede o deniega permisos
+ de acceso; define planes de copias de seguridad de los datos; garantiza
+ el funcionamiento correcto del sistema, y proporciona servicio técnico.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Diseñadores de bases de datos
+\series default
+: Interactúan con los futuros usuarios del sistema; recogen y comprenden
+ sus requisitos; hacen el diseño conceptual, y eligen estructuras para represent
+ar y almacenar los datos.
+ Para ello crean vistas que satisfacen los requisitos de cada grupo de usuarios
+ (subconjuntos de la información en la base de datos) y crean un diseño
+ final resultado de integrar las vistas.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Desarrolladores de software
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Analistas de sistemas
+\series default
+: Determinan las necesidades de procesamiento de los usuarios y especifican
+ conjuntos de operaciones que las satisfacen.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Desarrolladores de aplicaciones
+\series default
+: Implementan las especificaciones en programas, que prueban, depuran, documenta
+n y mantienen.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Usuarios finales
+\series default
+ o 
+\series bold
+clientes
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Inexpertos
+\series default
+: Acceden de forma frecuente y repetitiva mediante aplicaciones que facilitan
+ sus operaciones, y no son necesariamente conscientes de la existencia del
+ SGBD.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Avanzados
+\series default
+ o 
+\series bold
+sofisticados
+\series default
+: Familiarizados con la estructura de la base de datos y las funcionalidades
+ del SGBD.
+ Acceden de forma esporádica y distinta cada vez usando, por ejemplo SQL.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Recuperar los datos de forma eficiente implica usar estructuras de datos
+ complejas para representar la información, que se ocultan mediante niveles
+ de abstracción.
+ La 
+\series bold
+arquitectura en 3 niveles ANSI/SPARC
+\series default
+ consta de:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Nivel interno
+\series default
+: Descrito en un 
+\series bold
+esquema interno
+\series default
+ con un modelo de datos físico.
+ Define los tipos de registros, su secuencia física y las estructuras de
+ almacenamiento y acceso.
+ Es muy cercano al nivel físico, pero no trata con registros físicos como
+ bloques o páginas ni con cilindros o pistas.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Nivel conceptual
+\series default
+ o 
+\series bold
+lógico
+\series default
+: Descrito en un 
+\series bold
+esquema conceptual
+\series default
+ o 
+\series bold
+lógico
+\series default
+ con un modelo conceptual o lógico.
+ Define la estructura de toda la base de datos.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Nivel externo
+\series default
+ o 
+\series bold
+de vistas
+\series default
+: Descrito en uno o varios 
+\series bold
+esquemas externos
+\series default
+ o 
+\series bold
+vistas
+\series default
+ con un modelo conceptual o lógico.
+ Cada uno define la porción de la base de datos que interesa a un grupo
+ de usuarios.
+ Varias vistas pueden solaparse entre sí.
+\end_layout
+
+\begin_layout Standard
+Los SGBD no distinguen del todo los 3 niveles, pues suelen incluir detalles
+ físicos en el esquema y usar el mismo modelo de datos para especificar
+ las vistas y el esquema conceptual.
+\end_layout
+
+\begin_layout Standard
+El ABD especifica la correspondencia entre los esquemas en el diccionario
+ de datos del catálogo del sistema, dando a la base de datos una naturaleza
+ autodescriptiva que permite al SGBD acceder a datos de cualquier aplicación.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+independencia de datos
+\series default
+ es la capacidad de modificar el esquema de un nivel sin tener que cambiar
+ el esquema del nivel superior.
+ Distinguimos:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Independencia lógica de datos
+\series default
+ en la 
+\series bold
+correspondencia externo/conceptual
+\series default
+: capacidad de modificar el esquema lógico sin alterar esquemas externos
+ y programas, difícil.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Independencia física de datos
+\series default
+ en la 
+\series bold
+correspondencia conceptual/interno
+\series default
+: Capacidad de modificar el esquema interno sin alterar el esquema lógico
+ y los programas, más fácil.
+\end_layout
+
+\begin_layout Standard
+Con el modelo ANSI/SPARC, la modificación del esquema de un nivel provoca
+ cambios en la correspondencia, no en el nivel superior, pero este aumenta
+ el gasto en la compilación y ejecución de programas, reduce la eficiencia
+ y supone actualizar constantemente las correspondencias.
+\end_layout
+
+\begin_layout Standard
+Con el modelo actual, la mayoría de cambios en la estructura u organización
+ de datos no implica cambios en los programas, al contrario que con el procesami
+ento de ficheros.
+\end_layout
+
+\begin_layout Section
+Funciones
+\end_layout
+
+\begin_layout Standard
+Una SGBD proporciona un catálogo accesible para el usuario, servicios para
+ la independencia de datos y servicios de integridad, entre otros.
+\end_layout
+
+\begin_layout Standard
+También oculta los detalles de implementación física y proporciona un procesamie
+nto de consultas eficiente mediante búferes, cachés de datos, técnicas de
+ búsqueda y optimización y estructuras auxiliares como índices, con estructura
+ de árbol o tabla 
+\emph on
+hash
+\emph default
+.
+ La elección de qué índices crear y mantener es responsabilidad del ABD.
+\end_layout
+
+\begin_layout Standard
+Otra función es garantizar que las transacciones cumplen las propiedades
+ 
+\series bold
+ACID
+\series default
+:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\emph on
+Atomicity
+\series default
+\emph default
+ (
+\series bold
+atomicidad
+\series default
+): Se hacen todas las operaciones o ninguna.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\emph on
+Consistency
+\series default
+\emph default
+ (
+\series bold
+consistencia
+\series default
+): Llevan la base de datos de un estado consistente a otro.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\emph on
+Isolation
+\series default
+\emph default
+ (
+\series bold
+aislamiento
+\series default
+): Su ejecución es independiente del resto de transacciones, con lo que
+ los cambios no son visibles para otras transacciones hasta que finaliza.
+ Puede que no se imponga estrictamente, sino que haya niveles de aislamiento.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\emph on
+Durability
+\series default
+\emph default
+ (
+\series bold
+durabilidad
+\series default
+): Si finaliza con éxito y es confirmada, sus cambios perduran aunque el
+ sistema falle después.
+\end_layout
+
+\begin_layout Standard
+Los 
+\series bold
+sistemas de procesamiento de transacciones
+\series default
+ son sistemas con grandes bases de datos y muchos usuarios ejecutando transaccio
+nes.
+ Requieren alta disponibilidad y respuesta rápida, por lo que varias transaccion
+es pueden ejecutarse concurrentemente y acceder y actualizar los mismos
+ datos.
+\end_layout
+
+\begin_layout Standard
+Cada transacción tiene un 
+\series bold
+área de trabajo privada
+\series default
+, un área en almacenamiento primario (memoria principal) y secundario (disco
+ magnético, cinta magnética, disco óptico, etc.) donde guarda los datos que
+ lee o escribe.
+ 
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+búfer de base de datos
+\series default
+ es un conjunto de bloques de caché que contienen temporalmente los bloques
+ de la base de datos requeridos por las transacciones.
+ El SGBD carga los bloques que necesita leer en el búfer, escribe al búfer
+ y decide cuándo volcar qué bloques modificados del búfer a disco.
+\end_layout
+
+\begin_layout Standard
+Los SGBDs también suelen tener 
+\series bold
+servicios de autorización
+\series default
+ y 
+\series bold
+seguridad
+\series default
+ mediante 
+\series bold
+control de acceso selectivo
+\series default
+.
+ Se da acceso solo a usuarios autorizados con cuentas protegidas con contraseña,
+ y solo a ciertas partes de la base de datos para ciertas operaciones mediante
+ restricciones de seguridad para cada cuenta, ejecutadas por el SGBD.
+\end_layout
+
+\begin_layout Standard
+En general, los SGBDs también se integran con software de comunicaciones
+ para que los usuarios puedan acceder a la base de datos de forma remota,
+ y tienen utilidades adicionales para ayudar al ABD a administrar la base
+ de datos:
+\end_layout
+
+\begin_layout Enumerate
+De importación y exportación de datos, para cargar datos a partir de ficheros
+ poco estructurados, descargarlos en ficheros de varios tipos e intercambiar
+ información entre distintos SGBDs.
+\end_layout
+
+\begin_layout Enumerate
+De monitorización o supervisión del uso, operación y rendimiento del sistema.
+\end_layout
+
+\begin_layout Enumerate
+De análisis estadístico, para examinar las estadísticas de uso y rendimiento.
+\end_layout
+
+\begin_layout Enumerate
+De reorganización de ficheros o índices.
+\end_layout
+
+\begin_layout Enumerate
+De copia de seguridad.
+\end_layout
+
+\begin_layout Enumerate
+De ordenamiento, compactación o compresión de ficheros.
+\end_layout
+
+\begin_layout Section
+Servicios de recuperación de fallos
+\end_layout
+
+\begin_layout Standard
+Tipos de fallos en una SGBD:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Fallo local previsto
+\series default
+ por la aplicación, cancelación programada.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Fallo local no previsto
+\series default
+: Error de programación.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Fallo por concurrencia
+\series default
+: La 
+\series bold
+serializabilidad
+\series default
+ de las transacciones es la equivalencia entre el orden de procesamiento
+ de estas y algún orden secuencial.
+ El método de control de concurrencia puede abortar una transacción porque
+ incumple la serializabilidad o para romper un interbloqueo, y esta debe
+ ser reiniciada más tarde.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Fallo del sistema
+\series default
+ o 
+\series bold
+caída suave
+\series default
+: Mal funcionamiento del hardware, software o la red que no daña el disco.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Fallo del disco
+\series default
+ o 
+\series bold
+caída dura
+\series default
+: Aterrizaje del cabezal de disco, soporte no legible, etc.
+ Partes del disco pueden perder sus datos.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Fallos físicos
+\series default
+ y 
+\series bold
+catástrofe
+\series default
+s: Desastre natural como inundación, terremoto, incendio o apagón; robo,
+ sabotaje, destrucción o corrupción de datos, de hardware, de software o
+ de las instalaciones, intencionado o negligente.
+\end_layout
+
+\begin_layout Standard
+Los 3 primeros tipos de fallos son 
+\series bold
+locales
+\series default
+, pues solo afectan a una transacción, y los otros 3 son 
+\series bold
+globales
+\series default
+, pues afectan a todas las transacciones en ejecución.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+recuperación
+\series default
+ tras un fallo que deja la base de datos en un estado inconsistente o sospechoso
+ de serlo consiste en restaurar un estado previo al fallo, consistente y
+ cercano al fallo.
+\end_layout
+
+\begin_layout Standard
+Con un 
+\series bold
+fichero de bitácora
+\series default
+, 
+\series bold
+diario
+\series default
+, 
+\series bold
+\emph on
+log
+\series default
+\emph default
+, 
+\series bold
+\emph on
+journal
+\series default
+\emph default
+ o 
+\series bold
+registro histórico
+\series default
+ podemos seguir la pista de la ejecución de cada transacción, y usar una
+ 
+\series bold
+técnica de recuperación
+\series default
+ para restablecer la base de datos a un estado consistente.
+\end_layout
+
+\begin_layout Standard
+Al fichero de bitácora solo le afectan los fallos de tipo 5 y 6, y está
+ formado por registros de los siguientes tipos:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+<INICIAR, 
+\emph on
+T
+\emph default
+>
+\family default
+: Inicio de la transacción 
+\family typewriter
+\emph on
+T
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+<LEER, 
+\emph on
+T
+\emph default
+, 
+\emph on
+x
+\emph default
+>
+\family default
+: 
+\family typewriter
+\emph on
+T
+\family default
+\emph default
+ ha leído el valor del elemento 
+\family typewriter
+\emph on
+x
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+<ESCRIBIR, 
+\emph on
+T
+\emph default
+, 
+\emph on
+x
+\emph default
+, 
+\emph on
+anterior
+\emph default
+, 
+\emph on
+nuevo
+\emph default
+>
+\family default
+: 
+\family typewriter
+\emph on
+T
+\family default
+\emph default
+ ha cambiado el valor del elemento 
+\family typewriter
+\emph on
+x
+\family default
+\emph default
+ del 
+\family typewriter
+\emph on
+anterior
+\family default
+\emph default
+ al 
+\family typewriter
+\emph on
+nuevo
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+<COMMIT, 
+\emph on
+T
+\emph default
+>
+\family default
+: 
+\family typewriter
+\emph on
+T
+\family default
+\emph default
+ ha finalizado con éxito y sus cambios están listos para confirmarse en
+ disco.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+<ROLLBACK, 
+\emph on
+T
+\emph default
+>
+\family default
+: 
+\family typewriter
+\emph on
+T
+\family default
+\emph default
+ ha sido anulada y sus cambios están listos para ser revertidos.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+<REGISTRO DE COMPROBACIÓN, 
+\family default
+...
+\family typewriter
+>
+\family default
+: Indica qué datos han sido ya escritos en cierto instante.
+\end_layout
+
+\begin_layout Standard
+Cuando una transacción termina de ejecutar 
+\family typewriter
+COMMIT
+\family default
+ o 
+\family typewriter
+ROLLBACK
+\family default
+, esto se debe haber anotado en la bitácora, los bloqueos deben haberse
+ liberado y los cursores haberse cerrado.
+ Una transacción llega a su 
+\series bold
+punto de confirmación
+\series default
+ cuando termina de ejecutar 
+\family typewriter
+COMMIT
+\family default
+ con éxito, y se dice entonces que la transacción está 
+\series bold
+confirmada
+\series default
+.
+ En la recuperación, las operaciones de transacciones no confirmadas se
+ deshacen en orden inverso de aparición, y a continuación, las operaciones
+ de transacciones confirmadas se rehacen en orden de aparición.
+\end_layout
+
+\begin_layout Standard
+Insertar una entrada en la bitácora supone leer su último bloque, actualizarlo
+ y escribirlo de nuevo al disco, y para evitarlo se mantiene un 
+\series bold
+búfer de bitácora
+\series default
+ con este bloque en que se escriben las entradas hasta que se llena.
+ Se usa 
+\series bold
+escritura anticipada en bitácora
+\series default
+ o 
+\series bold
+bitácora adelantada
+\series default
+, en la que no se escriben a disco los cambios hasta que se escriban a disco
+ los correspondientes registros de bitácora, pues si se escribieran, podría
+ caerse el sistema antes de registrar en bitácora los cambios hechos a la
+ base de datos y por tanto estos no se podrían deshacer.
+ Además, un 
+\family typewriter
+COMMIT
+\family default
+ no se completa hasta que todas las entradas de bitácora de la transacción
+ se hayan escrito a disco.
+\end_layout
+
+\begin_layout Standard
+Con esto, habría que leer la bitácora completa en la recuperación.
+ Para evitarlo, cada varios segundos o transacciones completadas, el SGBD
+ marca un 
+\series bold
+punto de comprobación
+\series default
+ o 
+\series bold
+\emph on
+checkpoint
+\series default
+\emph default
+, en el que:
+\end_layout
+
+\begin_layout Enumerate
+Suspende la ejecución de las transacciones.
+\end_layout
+
+\begin_layout Enumerate
+Fuerza la escritura en disco del búfer de bitácora y de todo bloque modificado
+ del búfer de base de datos.
+\end_layout
+
+\begin_layout Enumerate
+Añade a la bitácora un 
+\family typewriter
+<REGISTRO DE COMPROBACIÓN>
+\family default
+, que indica, para cada transacción activa, su identificador y sus entradas
+ primera y última.
+\end_layout
+
+\begin_layout Enumerate
+Escribe en un 
+\series bold
+fichero especial de arranque
+\series default
+ la dirección del registro de comprobación en la bitácora.
+\end_layout
+
+\begin_layout Enumerate
+Reanuda la ejecución de las transacciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+uSSi{hay registro de comprobación $(T_i,S_i,E_i)_{i=1}^n$, donde $T_i$ es
+ un ID de transacción, $S_i$ es su primera entrada y $E_i$ es su última}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$s
+\backslash
+gets$dirección del registro
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$a
+\backslash
+gets$conjunto de transacciones activas según el registro
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\backslash
+EnOtroCaso{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$s
+\backslash
+gets0$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$a
+\backslash
+gets
+\backslash
+emptyset$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+$C
+\backslash
+gets
+\backslash
+emptyset$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$e$ entrada en la bitácora desde $s$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$e=${
+\backslash
+tt <INICIAR,T>}}{Añadir {
+\backslash
+tt T} a $A$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lEnOtroCasoSi{$e=${
+\backslash
+tt <COMMIT,T>}}{Mover {
+\backslash
+tt T} de $A$ a $C$}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$e$ entrada desde la última hasta $
+\backslash
+min(
+\backslash
+{S_i
+\backslash
+}_i
+\backslash
+cap A)$ o 0}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$e=${
+\backslash
+tt <ESCRIBIR,$T$,{
+\backslash
+rm ...}>} con $T
+\backslash
+in A$}{deshacer $e$}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$e$ entrada desde $
+\backslash
+min(
+\backslash
+{E_i
+\backslash
+}_i
+\backslash
+cap C)$ hasta la última}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$e=${
+\backslash
+tt <ESCRIBIR,$T$,{
+\backslash
+rm ...}>} con $T
+\backslash
+in C$}{rehacer $e$}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:recover"
+
+\end_inset
+
+Algoritmo de recuperación por bitácora.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con esto, la recuperación se hace con el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:recover"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Además, se puede ahorrar mucho espacio eliminando las entradas de la bitácora
+ anteriores a la primera de las transacciones activas.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Estructura general
+\end_layout
+
+\begin_layout Standard
+Además del gestor de base de datos (GBD), el SGBD tiene:
+\end_layout
+
+\begin_layout Itemize
+Un procesador de consultas, que recibe consultas de usuarios y las envía
+ al GBD.
+\end_layout
+
+\begin_layout Itemize
+Un preprocesador de comandos LMD, que se comunica con el procesador de consultas
+ para compilar los comandos y que el programa los envíe al GBD.
+\end_layout
+
+\begin_layout Itemize
+Un compilador de comando LDD, que compila las órdenes del ABD y las envía
+ al gestor del catálogo, que se modifica el catálogo a través del gestor
+ de ficheros en coordinación con el GBD.
+\end_layout
+
+\begin_layout Standard
+Cuando el GBD recibe un comando, comprueba la autorización y lo pasa al
+ procesador de comandos, que lo pasa por el comprobador de integridad y
+ el optimizador de consultas y envía una versión de este de bajo nivel al
+ gestor de transacciones, que la pasa al planificador y este al gestor de
+ datos.
+ El gestor de datos consta de gestor de recuperación seguido de gestor del
+ búfer, y este entonces se comunica con el gestor de ficheros del sistema
+ operativo para manipular la base de datos a través de los métodos de acceso
+ y búferes del sistema.
+\end_layout
+
+\begin_layout Standard
+La base de datos consta de ficheros de datos, estructuras de acceso como
+ índices y un catálogo el sistema, que contiene metadatos sobre estructura
+ y organización, restricciones de integridad, autorización, estadísticas
+ sobre los datos para optimización de consultas, etc.
+\end_layout
+
+\end_body
+\end_document

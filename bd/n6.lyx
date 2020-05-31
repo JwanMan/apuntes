@@ -476,7 +476,6 @@ status open
 
 \begin_layout Plain Layout
 
-\family typewriter
 {}
 \end_layout
 
@@ -502,7 +501,7 @@ status open
 
 \begin_layout Plain Layout
 
-tcl-stmt = 
+tcl-stmt = (
 \begin_inset Quotes cld
 \end_inset
 
@@ -518,7 +517,15 @@ ROLLBACK
 \begin_inset Quotes crd
 \end_inset
 
+) [
+\begin_inset Quotes cld
+\end_inset
 
+WORK
+\begin_inset Quotes crd
+\end_inset
+
+]
 \end_layout
 
 \end_inset
@@ -5374,27 +5381,6 @@ DESC
 ]
 \end_layout
 
-\begin_layout Plain Layout
-
-drop-index-stmt = 
-\begin_inset Quotes cld
-\end_inset
-
-DROP
-\begin_inset Quotes crd
-\end_inset
-
- 
-\begin_inset Quotes cld
-\end_inset
-
-INDEX
-\begin_inset Quotes crd
-\end_inset
-
- sid
-\end_layout
-
 \end_inset
 
 
@@ -5409,11 +5395,8 @@ index-def
 \family typewriter
 ORDER BY
 \family default
-, y un 
-\family typewriter
-drop-index-stmt
-\family default
- lo elimina.
+.
+ 
 \begin_inset Foot
 status open
 
@@ -5443,6 +5426,45 @@ UNIQUE
  con las columnas de la clave.
 \end_layout
 
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+drop-index-stmt = 
+\begin_inset Quotes cld
+\end_inset
+
+DROP
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+INDEX
+\begin_inset Quotes crd
+\end_inset
+
+ sid
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Elimina un índice.
+ Esto puede hacerse porque ya no se espera realizar consultas basadas en
+ el campo de indexación, o porque este no acelera las consultas al ser la
+ tabla muy pequeña o contener muchas filas pero con pocas entradas en el
+ índice.
+\end_layout
+
 \begin_layout Section
 SQL del software privativo Oracle Database
 \begin_inset Foot
@@ -5468,8 +5490,24 @@ Cada comando del LDD realiza un
 \family typewriter
 COMMIT
 \family default
- implícito antes y después de su ejecución.
- Los índices se implementan con el estándar de facto.
+ implícito antes y después de su ejecución, y también se hace un 
+\family typewriter
+COMMIT
+\family default
+ implícito al salir correctamente de una herramienta como el 
+\lang english
+software
+\lang spanish
+ privativo Oracle SQL Developer o el software privativo Oracle SQL*Plus.
+ Cuando la terminación es anormal o con error, se hace un 
+\family typewriter
+ROLLBACK
+\family default
+ implícito.
+\end_layout
+
+\begin_layout Standard
+Los índices se implementan con el estándar de facto.
 \end_layout
 
 \begin_layout Subsection
