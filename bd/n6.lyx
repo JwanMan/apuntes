@@ -1,0 +1,7148 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\listings_params "basicstyle={\ttfamily},breaklines=true,breakatwhitespace=true"
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\series bold
+SQL
+\series default
+ (
+\emph on
+\lang english
+Structured Query Language
+\emph default
+\lang spanish
+, lenguaje estructurado de consulta) es un el primer lenguaje de bases de
+ datos relacionales de alto nivel.
+ Fue diseñado e implementado en los años 70 en el 
+\emph on
+\lang english
+IBM Research Laboratory
+\emph default
+\lang spanish
+ en San José, California, para el SGBD relacional System R.
+\end_layout
+
+\begin_layout Standard
+Es un estándar 
+\series bold
+ANSI
+\series default
+ (
+\emph on
+\lang english
+American National Standards Institute
+\emph default
+\lang spanish
+) e 
+\series bold
+ISO
+\series default
+ (
+\lang english
+International Standardization Organization
+\lang spanish
+).
+ La primera versión del estándar fue SQL1 o ANSI 1986, del que hubo una
+ revisión en 1989 llamada SQL-89.
+ Después se creó SQL2 o SQL-92.
+ SQL:1999 incluye extensiones de orientación a objetos, disparadores (también
+ llamados 
+\emph on
+triggers
+\emph default
+ o reglas activas), etc., y SQL:2003 incluye conceptos como XML.
+\end_layout
+
+\begin_layout Standard
+Nos centramos en SQL-92.
+ Hay 3 niveles de compatibilidad con el estándar: 
+\emph on
+Entry SQL
+\emph default
+, 
+\emph on
+Intermediate SQL
+\emph default
+ y 
+\emph on
+Full SQL
+\emph default
+, y los proveedores suelen incluir características no estandarizadas como
+ índices.
+ El código SQL se puede incorporar dentro de código en un lenguaje de programaci
+ón de propósito general.
+\end_layout
+
+\begin_layout Standard
+Los comandos se organizan en:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Lenguaje de definición de datos
+\series default
+ (
+\series bold
+LDD
+\series default
+): Para crear, modificar o eliminar estructuras de datos como tablas o vistas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Lenguaje de manipulación de datos
+\series default
+ (
+\series bold
+LMD
+\series default
+): Para introducir, actualizar, eliminar y consultar datos.
+\end_layout
+
+\begin_layout Standard
+En SQL, las tablas no contienen un conjunto de filas sino un 
+\series bold
+multiconjunto
+\series default
+ o 
+\series bold
+saco
+\series default
+ (
+\emph on
+bag
+\emph default
+), en el que puede haber varias filas idénticas.
+ Las columnas están ordenadas por orden de creación, y una clave ajena puede
+ referenciar a una clave alternativa.
+\end_layout
+
+\begin_layout Standard
+Se describe un subconjunto de la gramática de SQL, en ABNF y omitiendo los
+ espacios en blanco por simplicidad
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+En concreto, si 
+\family typewriter
+\size normal
+W = (WSP / CR / LF)
+\family default
+ y 
+\family typewriter
+ALNUM = (ALPHA / DIGIT / 
+\begin_inset Quotes qld
+\end_inset
+
+_
+\begin_inset Quotes qrd
+\end_inset
+
+)
+\family default
+, entonces hay 
+\family typewriter
+*W
+\family default
+ entre dos términos que, en el código, se separaran por espacio, o 
+\family typewriter
+1*W
+\family default
+ si, además, alguno de los términos está en 
+\family typewriter
+1*ALNUM
+\family default
+.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sql-statement = (ddl-stmt / dml-stmt / tcl-stmt) 
+\begin_inset Quotes cld
+\end_inset
+
+;
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+id = ALPHA*(ALPHA|DIGIT|
+\begin_inset Quotes cld
+\end_inset
+
+_
+\begin_inset Quotes crd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+sid = [id 
+\begin_inset Quotes cld
+\end_inset
+
+.
+\begin_inset Quotes crd
+\end_inset
+
+] id
+\end_layout
+
+\begin_layout Plain Layout
+
+uint = 1*DIGIT
+\end_layout
+
+\begin_layout Plain Layout
+
+expr = number-expr / string-expr
+\end_layout
+
+\begin_layout Plain Layout
+
+number-expr = term *((
+\begin_inset Quotes cld
+\end_inset
+
++
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+-
+\begin_inset Quotes crd
+\end_inset
+
+) term)
+\end_layout
+
+\begin_layout Plain Layout
+
+term = primary-expr *((
+\begin_inset Quotes cld
+\end_inset
+
+*
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+/
+\begin_inset Quotes crd
+\end_inset
+
+) primary-expr)
+\end_layout
+
+\begin_layout Plain Layout
+
+string-expr = primary-expr 1*(
+\begin_inset Quotes cld
+\end_inset
+
+||
+\begin_inset Quotes crd
+\end_inset
+
+ primary-expr)
+\end_layout
+
+\begin_layout Plain Layout
+
+primary-expr = literal / [sid 
+\begin_inset Quotes cld
+\end_inset
+
+.
+\begin_inset Quotes crd
+\end_inset
+
+] id / set-function / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ query 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ expr 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+literal = number-literal / string-literal
+\end_layout
+
+\begin_layout Plain Layout
+
+number-literal = [
+\begin_inset Quotes cld
+\end_inset
+
++
+\begin_inset Quotes crd
+\end_inset
+
+/
+\begin_inset Quotes crd
+\end_inset
+
+-
+\begin_inset Quotes crd
+\end_inset
+
+]uint[
+\begin_inset Quotes cld
+\end_inset
+
+.
+\begin_inset Quotes crd
+\end_inset
+
+uint]
+\end_layout
+
+\begin_layout Plain Layout
+
+string-literal = 
+\begin_inset Quotes cld
+\end_inset
+
+'
+\begin_inset Quotes crd
+\end_inset
+
+*(nonquote-character/
+\begin_inset Quotes cld
+\end_inset
+
+''
+\begin_inset Quotes crd
+\end_inset
+
+)
+\begin_inset Quotes cld
+\end_inset
+
+'
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+||
+\family default
+ es la concatenación de cadenas, y la secuencia 
+\family typewriter
+'
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+{}
+\end_layout
+
+\end_inset
+
+'
+\family default
+ en una cadena indica una 
+\family typewriter
+'
+\family default
+.
+\end_layout
+
+\begin_layout Section
+Transacciones
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+tcl-stmt = 
+\begin_inset Quotes cld
+\end_inset
+
+COMMIT
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+ROLLBACK
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+transacción
+\series default
+ es la unidad lógica de procesamiento, una secuencia de operaciones realizadas
+ sobre una base de datos de forma que, si una falla, la base de datos vuelve
+ a su estado anterior al comienzo de la transacción.
+ En SQL, toda operación se hace dentro de una transacción.
+ 
+\family typewriter
+COMMIT
+\family default
+ confirma los cambios de la transacción actual, pasando a una nueva transacción,
+ y 
+\family typewriter
+ROLLBACK
+\family default
+ deshace todos los cambios de la transacción actual.
+\end_layout
+
+\begin_layout Section
+Lenguaje de definición de datos
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ddl-stmt = schema-def / drop-schema-stmt / table-def / alter-table-stmt
+ / drop-table-stmt / view-def / drop-view-stmt / assertion-def / drop-assertion-
+stmt / set-constraints-stmt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Esquemas
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+esquema
+\series default
+ agrupa tablas, vistas, dominios, permisos o privilegios, asertos, etc.,
+ como los del mismo usuario o aplicación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+schema-def = 
+\begin_inset Quotes cld
+\end_inset
+
+CREATE
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+SCHEMA
+\begin_inset Quotes crd
+\end_inset
+
+ id 
+\begin_inset Quotes cld
+\end_inset
+
+AUTHORIZATION
+\begin_inset Quotes crd
+\end_inset
+
+ id
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El segundo 
+\family typewriter
+id
+\family default
+ indica el usuario o cuenta propietario del esquema.
+ En 
+\family typewriter
+sid
+\family default
+, se puede indicar un esquema 
+\series bold
+explícito
+\series default
+ indicando 
+\family typewriter
+\emph on
+esquema
+\emph default
+.
+\emph on
+elemento
+\family default
+\emph default
+ o un esquema 
+\series bold
+implícito
+\series default
+ como 
+\family typewriter
+\emph on
+elemento
+\family default
+\emph default
+, donde se supone el esquema activo en la cuenta del usuario actual.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+drop-schema-stmt = 
+\begin_inset Quotes cld
+\end_inset
+
+DROP
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+SCHEMA
+\begin_inset Quotes crd
+\end_inset
+
+ id [drop-behavior]
+\end_layout
+
+\begin_layout Plain Layout
+
+drop-behavior = 
+\begin_inset Quotes cld
+\end_inset
+
+CASCADE
+\begin_inset Quotes crd
+\end_inset
+
+ | 
+\begin_inset Quotes cld
+\end_inset
+
+RESTRICT
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Elimina un esquema.
+ 
+\family typewriter
+RESTRICT
+\family default
+, el 
+\family typewriter
+drop-behavior
+\family default
+ por defecto, destruye el esquema solo si no contiene ningún elemento, y
+ 
+\family typewriter
+CASCADE
+\family default
+ destruye también todos los elementos del esquema.
+\end_layout
+
+\begin_layout Standard
+Desde SQL-92, los esquemas se organizan en 
+\series bold
+catálogos
+\series default
+, conjuntos de todos los esquemas de base de datos en el mismo entorno,
+ con un esquema especial, 
+\family typewriter
+INFORMATION_SCHEMA
+\family default
+, que almacena la definición de todos los elementos de todos los esquemas
+ del catálogo, de modo que se pueden compartir elementos entre esquemas
+ del mismo catálogo pero solo pueden definirse restricciones de integridad
+ referencial entre tablas de un mismo catálogo.
+\end_layout
+
+\begin_layout Subsection
+Crear una tabla
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+table-def = 
+\begin_inset Quotes cld
+\end_inset
+
+CREATE
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+TABLE
+\begin_inset Quotes crd
+\end_inset
+
+ sid 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ table-elements 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+table-elements = table-element / table-element 
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ table-elements
+\end_layout
+
+\begin_layout Plain Layout
+
+table-element = column-def / table-constraint
+\end_layout
+
+\begin_layout Plain Layout
+
+column-def = id type [default-clause] *column-constraint
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\family typewriter
+create-table-stmt
+\family default
+ crea una tabla con una serie de columnas, cada una con el tipo indicado,
+ que quedan en orden de aparición.
+ Las filas no están ordenadas salvo que la tabla sea 
+\family typewriter
+HEAP
+\family default
+, en cuyo caso quedan en orden de inserción.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+type = number-type / string-type / time-type
+\end_layout
+
+\begin_layout Plain Layout
+
+number-type = 
+\begin_inset Quotes cld
+\end_inset
+
+INTEGER
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+INT
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+SMALLINT
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+REAL
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+DOUBLE PRECISION
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+FLOAT
+\begin_inset Quotes crd
+\end_inset
+
+ [
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ uint 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+] / (
+\begin_inset Quotes cld
+\end_inset
+
+NUMERIC
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+DECIMAL
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+DEC
+\begin_inset Quotes crd
+\end_inset
+
+) 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ uint 
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ uint 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+string-type = (
+\begin_inset Quotes cld
+\end_inset
+
+CHAR
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+BIT
+\begin_inset Quotes crd
+\end_inset
+
+) [
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ uint 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+] / (
+\begin_inset Quotes cld
+\end_inset
+
+VARCHAR
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+BIT VARYING
+\begin_inset Quotes crd
+\end_inset
+
+) 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ uint 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+NCHAR
+\begin_inset Quotes crd
+\end_inset
+
+ [ 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ uint 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ ]
+\end_layout
+
+\begin_layout Plain Layout
+
+time-type = 
+\begin_inset Quotes cld
+\end_inset
+
+DATE
+\begin_inset Quotes crd
+\end_inset
+
+ / (
+\begin_inset Quotes cld
+\end_inset
+
+TIME
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+TIMESTAMP
+\begin_inset Quotes crd
+\end_inset
+
+) [
+\begin_inset Quotes cld
+\end_inset
+
+WITH
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+TIME
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+ZONE
+\begin_inset Quotes crd
+\end_inset
+
+] / 
+\begin_inset Quotes cld
+\end_inset
+
+INTERVAL
+\begin_inset Quotes crd
+\end_inset
+
+ (
+\begin_inset Quotes cld
+\end_inset
+
+YEAR
+\begin_inset Quotes crd
+\end_inset
+
+ [
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ uint 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+] 
+\begin_inset Quotes cld
+\end_inset
+
+TO
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+MONTH
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+DAY
+\begin_inset Quotes crd
+\end_inset
+
+ [
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ uint 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+] 
+\begin_inset Quotes cld
+\end_inset
+
+TO
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+SECOND
+\begin_inset Quotes crd
+\end_inset
+
+ [
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ uint 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+])
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+INTEGER
+\family default
+ o 
+\family typewriter
+INT
+\family default
+ y 
+\family typewriter
+SMALL INT
+\family default
+ son tipos enteros.
+ 
+\family typewriter
+REAL
+\family default
+ indica punto flotante de precisión simple, 
+\family typewriter
+DOUBLE PRECISION
+\family default
+ de doble precisión, y 
+\family typewriter
+FLOAT(
+\emph on
+p
+\emph default
+)
+\family default
+ de precisión 
+\family typewriter
+\emph on
+p
+\family default
+\emph default
+.
+ 
+\family typewriter
+NUMERIC
+\family default
+, 
+\family typewriter
+DECIMAL
+\family default
+ o 
+\family typewriter
+DEC
+\family default
+ recibe como parámetros el número de dígitos a almacenar y, opcionalmente,
+ un factor de escala.
+ 
+\family typewriter
+CHAR
+\family default
+ y 
+\family typewriter
+BIT
+\family default
+ indican una cadena de caracteres o bits de una cierta longitud fija, por
+ defecto 1.
+ 
+\family typewriter
+VARCHAR
+\family default
+ y 
+\family typewriter
+BIT VARYING
+\family default
+ son similares, pero pueden contener elementos de menor longitud.
+ 
+\family typewriter
+DATE
+\family default
+ indica una fecha en formato 
+\family typewriter
+YYYY-MM-DD
+\family default
+; 
+\family typewriter
+TIME
+\family default
+ una hora en formato 
+\family typewriter
+hh:mm:ss
+\family default
+; 
+\family typewriter
+TIMESTAMP
+\family default
+ una marca de tiempo con fecha, hora, fracción de segundo y, si se incluye
+ 
+\family typewriter
+WITH TIME ZONE
+\family default
+, una zona horaria.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+INTERVAL
+\family default
+ indica un periodo de tiempo.
+ Los intervalos 
+\family typewriter
+YEAR TO MONTH
+\family default
+ contienen los parámetros año y mes, con el tamaño opcionalmente indicado
+ para el año, y los 
+\family typewriter
+DAY TO SECOND
+\family default
+ contienen día, hora, minuto y segundo, con el tamaño opcionalmente indicado
+ para el día y la fracción de segundo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+column-constraint = (
+\begin_inset Quotes cld
+\end_inset
+
+NULL
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+NOT
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+NULL
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+PRIMARY
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+KEY
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+CHECK
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ bool-expr 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / fk-clause) [constraint-attribute]
+\end_layout
+
+\begin_layout Plain Layout
+
+default-clause = 
+\begin_inset Quotes cld
+\end_inset
+
+DEFAULT
+\begin_inset Quotes crd
+\end_inset
+
+ (literal / 
+\begin_inset Quotes cld
+\end_inset
+
+NULL
+\begin_inset Quotes crd
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En las restricciones de columna, 
+\family typewriter
+NULL
+\family default
+ indica que la columna puede contener 
+\family typewriter
+NULL
+\family default
+, y 
+\family typewriter
+NOT NULL
+\family default
+ que no.
+ Por defecto se asume 
+\family typewriter
+NULL
+\family default
+ salvo para las componentes de una clave primaria, para las que se asume
+ 
+\family typewriter
+NOT NULL
+\family default
+.
+ El resto de restricciones equivalen a las restricciones de tabla correspondient
+es, sin nombre y con lista de columnas solo con la columna actual.
+\end_layout
+
+\begin_layout Standard
+Cuando se crea una fila en la tabla sin indicar el valor de una columna,
+ se usa el valor indicado en la 
+\family typewriter
+default-clause
+\family default
+ o, si esta no aparece, 
+\family typewriter
+NULL
+\family default
+, dando error si la columna era 
+\family typewriter
+NOT NULL
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+table-constraint = [
+\begin_inset Quotes cld
+\end_inset
+
+CONSTRAINT
+\begin_inset Quotes crd
+\end_inset
+
+ sid] ((
+\begin_inset Quotes cld
+\end_inset
+
+PRIMARY
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+KEY
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+UNIQUE
+\begin_inset Quotes crd
+\end_inset
+
+) column-list / 
+\begin_inset Quotes cld
+\end_inset
+
+CHECK
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ bool-expr 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+FOREIGN
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+KEY
+\begin_inset Quotes crd
+\end_inset
+
+ column-list fk-clause) [constraint-attribute]
+\end_layout
+
+\begin_layout Plain Layout
+
+column-list = 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ id *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ id) 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con 
+\family typewriter
+CONSTRAINT
+\family default
+, se puede dar un nombre a una restricción, que se guarda en el espacio
+ de nombres global del esquema junto con los nombres de tablas y vistas
+ para poder manejar la restricción en el futuro.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+restricción de clave candidata
+\series default
+ 
+\family typewriter
+PRIMARY KEY
+\family default
+ y 
+\family typewriter
+UNIQUE
+\family default
+ indican que las columnas en la lista forman una clave primaria o alternativa,
+ respectivamente.
+ Una 
+\series bold
+de comprobación
+\series default
+ 
+\family typewriter
+CHECK
+\family default
+ indica que, para cada fila de la tabla, la expresión, en la que cada identifica
+dor de columna se refiere al correspondiente valor en la fila, evalúa a
+ verdadero.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+fk-clause = 
+\begin_inset Quotes cld
+\end_inset
+
+REFERECES
+\begin_inset Quotes crd
+\end_inset
+
+ sid column-list *(
+\begin_inset Quotes cld
+\end_inset
+
+ON
+\begin_inset Quotes crd
+\end_inset
+
+ (
+\begin_inset Quotes cld
+\end_inset
+
+DELETE
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+UPDATE
+\begin_inset Quotes crd
+\end_inset
+
+) (
+\begin_inset Quotes cld
+\end_inset
+
+SET
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+NULL
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+SET
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+DEFAULT
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+CASCADE
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+NO
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+ACTION
+\begin_inset Quotes crd
+\end_inset
+
+))
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+restricción de clave ajena
+\series default
+ o 
+\series bold
+externa
+\series default
+ 
+\family typewriter
+FOREIGN KEY
+\family default
+ indica que las columnas en la primera lista forman una clave ajena hacia
+ la tabla indicada justo tras 
+\family typewriter
+REFERENCES
+\family default
+, concretamente a las columnas de la tabla en la segunda lista de columnas,
+ de igual tamaño y en el mismo orden, que deben formar una clave primaria
+ o alternativa.
+\end_layout
+
+\begin_layout Standard
+Las cláusulas 
+\family typewriter
+ON DELETE
+\family default
+ y 
+\family typewriter
+ON UPDATE
+\family default
+ indican qué hacer si se borra la fila a la que hace referencia la clave
+ ajena o si se modifica el valor de la clave primaria o alternativa.
+ 
+\family typewriter
+SET NULL
+\family default
+ establece el valor de la clave ajena a 
+\family typewriter
+NULL
+\family default
+, 
+\family typewriter
+SET DEFAULT
+\family default
+ lo establece a su valor por defecto, 
+\family typewriter
+CASCADE
+\family default
+ hace el mismo cambio en la fila con la clave ajena (borrándola o cambiando
+ el valor de la clave ajena), y 
+\family typewriter
+NO ACTION
+\family default
+ produce un fallo.
+\end_layout
+
+\begin_layout Subsection
+Modificar una tabla
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+alter-table-stmt = 
+\begin_inset Quotes fld
+\end_inset
+
+ALTER
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset Quotes fld
+\end_inset
+
+TABLE
+\begin_inset Quotes frd
+\end_inset
+
+ sid alter-table-clause
+\end_layout
+
+\begin_layout Plain Layout
+
+alter-table-clause = 
+\begin_inset Quotes fld
+\end_inset
+
+ADD
+\begin_inset Quotes frd
+\end_inset
+
+ column-def / 
+\begin_inset Quotes fld
+\end_inset
+
+ALTER
+\begin_inset Quotes frd
+\end_inset
+
+ id (
+\begin_inset Quotes cld
+\end_inset
+
+SET
+\begin_inset Quotes crd
+\end_inset
+
+ default-clause / 
+\begin_inset Quotes cld
+\end_inset
+
+DROP
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+DEFAULT
+\begin_inset Quotes crd
+\end_inset
+
+) / 
+\begin_inset Quotes fld
+\end_inset
+
+DROP
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset Quotes fld
+\end_inset
+
+COLUMN
+\begin_inset Quotes frd
+\end_inset
+
+ id drop-behavior / 
+\begin_inset Quotes fld
+\end_inset
+
+ADD
+\begin_inset Quotes frd
+\end_inset
+
+ table-constraint / 
+\begin_inset Quotes cld
+\end_inset
+
+DROP
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+CONSTRAINT
+\begin_inset Quotes crd
+\end_inset
+
+ sid drop-behavior
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Permite añadir columnas, modificar su valor por defecto o eliminarlas, y
+ añadir o eliminar restricciones.
+ Una columna no se puede eliminar si una restricción hace referencia a ella,
+ pero si se indica 
+\family typewriter
+CASCADE
+\family default
+, se eliminan también estas restricciones.
+\end_layout
+
+\begin_layout Subsection
+Eliminar una tabla
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+drop-table-stmt = 
+\begin_inset Quotes fld
+\end_inset
+
+DROP
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset Quotes fld
+\end_inset
+
+TABLE
+\begin_inset Quotes frd
+\end_inset
+
+ sid [drop-behavior]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Elimina las filas y la definición.
+ Sin 
+\family typewriter
+CASCADE
+\family default
+, solo se elimina la tabla si ninguna restricción de integridad externa
+ le hace referencia.
+\end_layout
+
+\begin_layout Subsection
+Asertos
+\end_layout
+
+\begin_layout Standard
+La información almacenada debe cumplir en todo momento las reglas existentes.
+ Una regla de integridad se compone de:
+\end_layout
+
+\begin_layout Enumerate
+Un nombre, un que aparece en los mensajes de error por intentar incumplir
+ la regla.
+\end_layout
+
+\begin_layout Enumerate
+Una expresión booleana que indica cuándo se satisface la regla.
+\end_layout
+
+\begin_layout Enumerate
+Una respuesta a un intento de incumplimiento.
+ Por defecto es fallar con un mensaje de error, pero podría ser un procedimiento
+ de complejidad arbitraria.
+\end_layout
+
+\begin_layout Standard
+Las reglas de identidad son parte de los metadatos, y el 
+\series bold
+subsistema de integridad
+\series default
+ controla que estas no se incumplan.
+ Una base de datos está en un 
+\series bold
+estado de integridad
+\series default
+ o es 
+\series bold
+correcta
+\series default
+ si no incumple ninguna regla de identidad.
+ Hay 3 tipos de reglas:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+De dominio
+\series default
+: Define el dominio de una columna.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+De tabla
+\series default
+: Incluida en la definición de una tabla.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Generales
+\series default
+ (
+\series bold
+asertos
+\series default
+): Al mismo nivel que una tabla o vista, no incluidas en la definición de
+ ninguna tabla.
+\end_layout
+
+\begin_layout Standard
+Ya hemos visto las de dominio y las de tabla.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+assertion-def = 
+\begin_inset Quotes cld
+\end_inset
+
+CREATE
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+ASSERTION
+\begin_inset Quotes crd
+\end_inset
+
+ sid 
+\begin_inset Quotes cld
+\end_inset
+
+CHECK
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ bool-expr 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ [constraint-attribute]
+\end_layout
+
+\begin_layout Plain Layout
+
+drop-assertion-stmt = 
+\begin_inset Quotes cld
+\end_inset
+
+DROP
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+ASSERTION
+\begin_inset Quotes crd
+\end_inset
+
+ sid
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la condición de un aserto, se suele usar que 
+\begin_inset Formula $\forall x,P(x)\equiv\nexists x:\neg P(x)$
+\end_inset
+
+.
+ No se puede crear una regla de identidad si el estado actual de una base
+ de datos no la cumple.
+\end_layout
+
+\begin_layout Standard
+La mayoría de SGBDs no soportan asertos, y en su lugar se usan formas no
+ declarativas de expresar estas restricciones como procedimientos o funciones
+ almacenados y 
+\emph on
+triggers
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection
+Vistas
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+view-def = 
+\begin_inset Quotes cld
+\end_inset
+
+CREATE
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+VIEW
+\begin_inset Quotes crd
+\end_inset
+
+ sid [column-list] 
+\begin_inset Quotes cld
+\end_inset
+
+AS
+\begin_inset Quotes crd
+\end_inset
+
+ query [
+\begin_inset Quotes cld
+\end_inset
+
+WITH
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+CHECK
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+OPTION
+\begin_inset Quotes crd
+\end_inset
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+vista
+\series default
+ es una presentación de datos de una o más 
+\series bold
+tablas base
+\series default
+ (otras tablas o vistas) como si fuera una tabla.
+ No contiene información, sino que refleja el estado de las tablas base.
+ Las vistas permiten almacenar consultas complejas, simplificar las sentencias,
+ presentar los datos con otra perspectiva distinta a la de las tablas base,
+ proporcionar seguridad (restringiendo el acceso a las tablas base forzando
+ a acceder a ellas a través de vistas con información limitada), ocultar
+ la complejidad y aislar a las aplicaciones de los cambios en la definición
+ de las tablas base.
+\end_layout
+
+\begin_layout Standard
+La 
+\family typewriter
+column-list
+\family default
+ permite dar nuevos nombres a las columnas de la vista, siendo esto obligatorio
+ cuando alguna columna de la consulta no se expresa como nombre de columna
+ de una tabla base.
+ Si una vista se define con 
+\family typewriter
+SELECT *
+\family default
+ y se añaden columnas a las tablas base, estas no se añaden a la vista.
+\end_layout
+
+\begin_layout Standard
+Una vista puede aparecer en una consulta (
+\family typewriter
+dql-stmt
+\family default
+) como una tabla.
+ Es 
+\series bold
+actualizable
+\series default
+ si la 
+\family typewriter
+query
+\family default
+ es un 
+\family typewriter
+select-stmt
+\family default
+ sin agrupación que referencia una sola tabla base en la 
+\family typewriter
+from-clause
+\family default
+ y contiene una clave candidata de dicha tabla en las 
+\family typewriter
+derived-column
+\family default
+.
+ Solo se puede usar un 
+\family typewriter
+dml-stmt
+\family default
+ distinto de 
+\family typewriter
+dql-stmt
+\family default
+ en una vista si esta es actualizable, en cuyo caso la sentencia se traduce
+ a una equivalente sobre la tabla base.
+\end_layout
+
+\begin_layout Standard
+Al insertar o actualizar filas de la tabla base desde una vista, puede que
+ estas no aparezcan en la vista por no cumplirse la 
+\series bold
+condición de definición
+\series default
+, la condición de la 
+\family typewriter
+query
+\family default
+ que indica si una fila de la tabla base aparece o no en la vista.
+ 
+\family typewriter
+WITH CHECK OPTION
+\family default
+ hace que un 
+\family typewriter
+insert-stmt
+\family default
+ o 
+\family typewriter
+update-stmt
+\family default
+ sobre la vista falle si esto ocurre.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+drop-view-stmt = 
+\begin_inset Quotes cld
+\end_inset
+
+DROP
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+VIEW
+\begin_inset Quotes crd
+\end_inset
+
+ sid [drop-behavior]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Elimina una vista.
+ Sin 
+\family typewriter
+CASCADE
+\family default
+, solo la elimina si ninguna regla de integridad le hace referencia.
+\end_layout
+
+\begin_layout Subsection
+Modos de comprobación de restricciones
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+constraint-attribute = [
+\begin_inset Quotes cld
+\end_inset
+
+INITIALLY
+\begin_inset Quotes crd
+\end_inset
+
+ (
+\begin_inset Quotes cld
+\end_inset
+
+DEFERRED
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+IMMEDIATE
+\begin_inset Quotes crd
+\end_inset
+
+)] [[
+\begin_inset Quotes cld
+\end_inset
+
+NOT
+\begin_inset Quotes crd
+\end_inset
+
+] 
+\begin_inset Quotes cld
+\end_inset
+
+DEFERRABLE
+\begin_inset Quotes crd
+\end_inset
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una restricción puede estar en modo 
+\family typewriter
+IMMEDIATE
+\family default
+, comprobándose inmediatamente después de cada sentencia, o 
+\family typewriter
+DEFERRED
+\family default
+ (
+\series bold
+diferida
+\series default
+), comprobándose al final de la transacción.
+ 
+\family typewriter
+INITIALLY
+\family default
+ indica el modo de la restricción al comienzo de cada transacción, que por
+ defecto es 
+\family typewriter
+IMMEDIATE
+\family default
+, y 
+\family typewriter
+DEFERRABLE
+\family default
+ indica si la restricción es 
+\series bold
+diferible
+\series default
+, esto es, si puede pasar a modo 
+\family typewriter
+DEFERRED
+\family default
+.
+ Si el modo inicial es 
+\family typewriter
+IMMEDIATE
+\family default
+, por defecto la restricción es 
+\family typewriter
+NOT DEFERRABLE
+\family default
+, y si es 
+\family typewriter
+DEFERRED
+\family default
+, por defecto es 
+\family typewriter
+DEFERRABLE
+\family default
+ y no se puede indicar 
+\family typewriter
+NOT DEFERRABLE
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+set-constraints-stmt = 
+\begin_inset Quotes cld
+\end_inset
+
+SET
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+CONSTRAINTS
+\begin_inset Quotes crd
+\end_inset
+
+ (sid (
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ sid) / 
+\begin_inset Quotes cld
+\end_inset
+
+ALL
+\begin_inset Quotes crd
+\end_inset
+
+) (
+\begin_inset Quotes cld
+\end_inset
+
+DEFERRED
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+IMMEDIATE
+\begin_inset Quotes crd
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cambia el modo de una o varias restricciones, siendo 
+\family typewriter
+ALL
+\family default
+ todas las restricciones diferibles.
+ Pasar una restricción de 
+\family typewriter
+DEFERRED
+\family default
+ a 
+\family typewriter
+IMMEDIATE
+\family default
+ falla si la restricción no se cumple.
+ Al comienzo de un 
+\family typewriter
+COMMIT
+\family default
+ se ejecuta implícitamente 
+\family typewriter
+SET CONSTRAINTS ALL IMMEDIATE
+\family default
+.
+\end_layout
+
+\begin_layout Section
+Lenguaje de manipulación de datos
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+dml-stmt = insert-stmt / delete-stmt / update-stmt / dql-stmt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Inserción de filas
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+insert-stmt = 
+\begin_inset Quotes cld
+\end_inset
+
+INSERT
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+INTO
+\begin_inset Quotes crd
+\end_inset
+
+ sid [column-list] query
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Inserta las filas resultado de la 
+\family typewriter
+query
+\family default
+ en la tabla 
+\family typewriter
+sid
+\family default
+, equiparando cada columna del resultado, en orden, con la correspondiente
+ de la 
+\family typewriter
+column-list
+\family default
+ o, de omitirse, de la lista ordenada de columnas de la tabla.
+ Normalmente la 
+\family typewriter
+query
+\family default
+ es de la forma 
+\family typewriter
+VALUES (
+\emph on
+expr
+\emph default
+, 
+\family default
+...
+\family typewriter
+)
+\family default
+ para insertar una fila.
+ Cada columna no indicada toma el valor en la 
+\family typewriter
+default-clause
+\family default
+ de su definición o, en su defecto, 
+\family typewriter
+NULL
+\family default
+, fallando si esto no es posible.
+\end_layout
+
+\begin_layout Subsection
+Eliminación
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+delete-stmt = 
+\begin_inset Quotes cld
+\end_inset
+
+DELETE
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+FROM
+\begin_inset Quotes crd
+\end_inset
+
+ sid [
+\begin_inset Quotes cld
+\end_inset
+
+WHERE
+\begin_inset Quotes crd
+\end_inset
+
+ bool-expr]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Borra las filas de la tabla que satisfacen la condición, o todas si no se
+ especifica condición.
+\end_layout
+
+\begin_layout Subsection
+Actualización
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+update-stmt = 
+\begin_inset Quotes cld
+\end_inset
+
+UPDATE
+\begin_inset Quotes crd
+\end_inset
+
+ sid 
+\begin_inset Quotes cld
+\end_inset
+
+SET
+\begin_inset Quotes crd
+\end_inset
+
+ set-clause *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ set-clause) [
+\begin_inset Quotes cld
+\end_inset
+
+WHERE
+\begin_inset Quotes crd
+\end_inset
+
+ bool-expr]
+\end_layout
+
+\begin_layout Plain Layout
+
+set-clause = id 
+\begin_inset Quotes cld
+\end_inset
+
+=
+\begin_inset Quotes crd
+\end_inset
+
+ (expr / 
+\begin_inset Quotes cld
+\end_inset
+
+NULL
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+DEFAULT
+\begin_inset Quotes crd
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En cada fila de la tabla que cumple la condición, o en su defecto, en todas,
+ cada columna 
+\family typewriter
+id
+\family default
+ se establece, bien al valor de la expresión en la 
+\family typewriter
+set-clause
+\family default
+, en la que se puede referenciar a las columnas de la fila, bien a 
+\family typewriter
+NULL
+\family default
+, bien al valor por defecto.
+\end_layout
+
+\begin_layout Section
+Consulta
+\end_layout
+
+\begin_layout Standard
+El lenguaje de consulta forma parte del lenguaje de manipulación de datos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+dql-stmt = query [order-by-clause]
+\end_layout
+
+\begin_layout Plain Layout
+
+query = query-term *((
+\begin_inset Quotes cld
+\end_inset
+
+UNION
+\begin_inset Quotes crd
+\end_inset
+
+ [
+\begin_inset Quotes cld
+\end_inset
+
+ALL
+\begin_inset Quotes crd
+\end_inset
+
+] / 
+\begin_inset Quotes cld
+\end_inset
+
+EXCEPT
+\begin_inset Quotes crd
+\end_inset
+
+) query-term)
+\end_layout
+
+\begin_layout Plain Layout
+
+query-term = primary-query *(
+\begin_inset Quotes cld
+\end_inset
+
+INTERSECT
+\begin_inset Quotes crd
+\end_inset
+
+ primary-query
+\end_layout
+
+\begin_layout Plain Layout
+
+primary-query = select-stmt / table-value / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ query 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+table-value = 
+\begin_inset Quotes cld
+\end_inset
+
+VALUES
+\begin_inset Quotes crd
+\end_inset
+
+ row-value *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ row-value)
+\end_layout
+
+\begin_layout Plain Layout
+
+row-value = expr-or-null / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ expr-or-null *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ expr-or-null) 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ query 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+expr-or-null = expr / 
+\begin_inset Quotes cld
+\end_inset
+
+NULL
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una consulta construye y devuelve una tabla.
+ 
+\family typewriter
+UNION
+\family default
+, 
+\family typewriter
+EXCEPT
+\family default
+ e 
+\family typewriter
+INTERSECT
+\family default
+ tratan las tablas devueltas por los operandos como conjuntos de filas y
+ devuelven, respectivamente, su unión, diferencia e intersección.
+ 
+\family typewriter
+UNION ALL
+\family default
+ hace la unión de multiconjuntos, que incluye repeticiones.
+\end_layout
+
+\begin_layout Subsection
+Cláusulas 
+\family typewriter
+SELECT
+\family default
+ y 
+\family typewriter
+FROM
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select-stmt = 
+\begin_inset Quotes cld
+\end_inset
+
+SELECT
+\begin_inset Quotes crd
+\end_inset
+
+ [
+\begin_inset Quotes cld
+\end_inset
+
+DISTINCT
+\begin_inset Quotes crd
+\end_inset
+
+] (
+\begin_inset Quotes cld
+\end_inset
+
+*
+\begin_inset Quotes crd
+\end_inset
+
+ / derived-column (
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ derived-column)) from-clause [where-clause] [group-by-clause [having-clause]]
+\end_layout
+
+\begin_layout Plain Layout
+
+derived-column = expr [[
+\begin_inset Quotes cld
+\end_inset
+
+AS
+\begin_inset Quotes crd
+\end_inset
+
+] id]
+\end_layout
+
+\begin_layout Plain Layout
+
+from-clause = table-ref *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ table-ref)
+\end_layout
+
+\begin_layout Plain Layout
+
+table-ref = sid [id] / query id / joined-table
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+SELECT ...
+ FROM 
+\emph on
+tabla
+\family default
+\emph default
+ devuelve una tabla con una columna para cada 
+\family typewriter
+\emph on
+derived-column
+\family default
+\emph default
+ con nombre 
+\family typewriter
+\emph on
+id
+\family default
+\emph default
+ o, en su defecto, 
+\family typewriter
+\emph on
+expr
+\family default
+\emph default
+, y que para cada fila de la 
+\family typewriter
+\emph on
+tabla
+\family default
+\emph default
+ contiene una fila con el resultado de evaluar cada expresión 
+\family typewriter
+\emph on
+derived-column
+\family default
+\emph default
+ con el nombre de cada 
+\family typewriter
+\emph on
+columna
+\family default
+\emph default
+ y 
+\family typewriter
+\emph on
+tabla
+\emph default
+.
+\emph on
+columna
+\family default
+\emph default
+ establecido a su valor en la fila.
+ 
+\family typewriter
+*
+\family default
+ equivale a listas todas las columnas de la 
+\family typewriter
+\emph on
+tabla
+\family default
+\emph default
+, en orden.
+ 
+\family typewriter
+SELECT DISTINCT
+\family default
+ elimina los duplicados.
+\end_layout
+
+\begin_layout Standard
+Si se indican varias 
+\family typewriter
+\emph on
+table-ref
+\family default
+\emph default
+, se usa su producto cartesiano, que contiene, para cada fila de la primera
+ tabla y cada fila de la segunda (si hay más de dos tablas, se usa la asociativi
+dad), una fila que contiene los valores de las columnas de la primera tabla
+ y los de la segunda.
+\end_layout
+
+\begin_layout Standard
+Si hay columnas de igual nombre en dos de las tablas indicadas, se deben
+ referenciar como 
+\family typewriter
+\emph on
+tabla
+\emph default
+.
+\emph on
+columna
+\family default
+\emph default
+.
+ También se puede indicar un alias para la tabla con 
+\family typewriter
+\emph on
+tabla alias
+\family default
+\emph default
+ o 
+\family typewriter
+\emph on
+tabla
+\emph default
+ AS 
+\emph on
+alias
+\family default
+\emph default
+, y entonces no se establece 
+\family typewriter
+\emph on
+tabla
+\emph default
+.
+\emph on
+columna
+\family default
+\emph default
+ sino 
+\family typewriter
+\emph on
+alias
+\emph default
+.
+\emph on
+columna
+\family default
+\emph default
+, permitiendo usar el producto cartesiano de una tabla consigo misma indicando
+ la misma tabla con distintos alias.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+joined-table = qualified-join / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ joined-table 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+qualified-join = table-ref [join-type] 
+\begin_inset Quotes cld
+\end_inset
+
+JOIN
+\begin_inset Quotes crd
+\end_inset
+
+ table-ref [
+\begin_inset Quotes cld
+\end_inset
+
+ON
+\begin_inset Quotes crd
+\end_inset
+
+ bool-expr]
+\end_layout
+
+\begin_layout Plain Layout
+
+join-type = 
+\begin_inset Quotes cld
+\end_inset
+
+INNER
+\begin_inset Quotes crd
+\end_inset
+
+ / (
+\begin_inset Quotes cld
+\end_inset
+
+LEFT
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+RIGHT
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+FULL
+\begin_inset Quotes crd
+\end_inset
+
+) [
+\begin_inset Quotes cld
+\end_inset
+
+OUTER
+\begin_inset Quotes crd
+\end_inset
+
+] / 
+\begin_inset Quotes cld
+\end_inset
+
+NATURAL
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+reunión
+\series default
+ o 
+\emph on
+join
+\emph default
+ es el uso de varias tablas en 
+\family typewriter
+FROM
+\family default
+ para obtener el producto cartesiano, y se puede hacer separando las tablas
+ por comas o con 
+\family typewriter
+joined-table
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\family typewriter
+join-type
+\family default
+ por defecto es 
+\family typewriter
+INNER JOIN
+\family default
+, que toma las filas del producto cartesiano que satisfacen 
+\family typewriter
+bool-expr
+\family default
+, la 
+\series bold
+condición de reunión
+\series default
+, o todas si esta se omite.
+ 
+\family typewriter
+OUTER JOIN
+\family default
+ es similar, pero cuando para una fila de la tabla a la izquierda (
+\family typewriter
+LEFT
+\family default
+), a la derecha (
+\family typewriter
+RIGHT
+\family default
+) o cualquiera de las dos (
+\family typewriter
+FULL
+\family default
+) no tiene una fila al otro lado con la que la condición de reunión se cumpla,
+ se añade una fila en el resultado que en ese otro lado tiene todos los
+ campos a 
+\family typewriter
+NULL
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+NATURAL JOIN
+\family default
+ no incluye cláusula 
+\family typewriter
+ON
+\family default
+, asume como condición de reunión que las columnas de igual nombre en ambas
+ tablas coincidan y solo incluye una de las dos columnas de igual nombre
+ en el resultado.
+ Tras esto, no se puede calificar una columna de reunión con el nombre de
+ la tabla original.
+\end_layout
+
+\begin_layout Subsection
+Cláusula 
+\family typewriter
+WHERE
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+where-clause = 
+\begin_inset Quotes cld
+\end_inset
+
+WHERE
+\begin_inset Quotes crd
+\end_inset
+
+ bool-expr
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Indica que, de la tabla indicada en 
+\family typewriter
+FROM
+\family default
+, solo aparezcan en el resultado las filas que cumplen la condición.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+bool-expr = bool-term *(
+\begin_inset Quotes cld
+\end_inset
+
+OR
+\begin_inset Quotes crd
+\end_inset
+
+ bool-term)
+\end_layout
+
+\begin_layout Plain Layout
+
+bool-term = bool-factor *(
+\begin_inset Quotes cld
+\end_inset
+
+AND
+\begin_inset Quotes crd
+\end_inset
+
+ bool-factor)
+\end_layout
+
+\begin_layout Plain Layout
+
+bool-factor = 
+\begin_inset Quotes cld
+\end_inset
+
+NOT
+\begin_inset Quotes crd
+\end_inset
+
+ (predicate / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ bool-expr 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+predicate = compare-pred / null-pred / like-pred / in-pred / quantified-compare-
+pred / exists-pred
+\end_layout
+
+\begin_layout Plain Layout
+
+compare-pred = row-value comp-op row-value
+\end_layout
+
+\begin_layout Plain Layout
+
+comp-op = 
+\begin_inset Quotes cld
+\end_inset
+
+=
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+<>
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+<
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+<=
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+>
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+>=
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+null-pred = row-value 
+\begin_inset Quotes cld
+\end_inset
+
+IS
+\begin_inset Quotes crd
+\end_inset
+
+ [
+\begin_inset Quotes cld
+\end_inset
+
+NOT
+\begin_inset Quotes crd
+\end_inset
+
+] 
+\begin_inset Quotes cld
+\end_inset
+
+NULL
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+like-pred = string-expr [
+\begin_inset Quotes cld
+\end_inset
+
+NOT
+\begin_inset Quotes crd
+\end_inset
+
+] 
+\begin_inset Quotes cld
+\end_inset
+
+LIKE
+\begin_inset Quotes crd
+\end_inset
+
+ string-expr
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las operaciones sobre tuplas (
+\family typewriter
+row-value
+\family default
+) consideran una sola expresión como una tupla de un elemento.
+ 
+\family typewriter
+NULL
+\family default
+ indica desconocimiento de información, por lo que comparar con 
+\family typewriter
+NULL
+\family default
+ en un 
+\family typewriter
+compare-pred
+\family default
+ siempre devuelve 
+\family typewriter
+FALSE
+\family default
+ o 
+\family typewriter
+UNKNOWN
+\family default
+, y en su lugar se usa un 
+\family typewriter
+null-pred
+\family default
+.
+ Un 
+\family typewriter
+like-pred
+\family default
+ compara una cadena de caracteres con otra, donde la de la derecha puede
+ tener caracteres reservados o 
+\series bold
+comodines
+\series default
+, como 
+\family typewriter
+%
+\family default
+ que representa una cantidad cualquiera de caracteres o 
+\family typewriter
+_
+\family default
+ que representa un caracter.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+in-pred = row-value [
+\begin_inset Quotes cld
+\end_inset
+
+NOT
+\begin_inset Quotes crd
+\end_inset
+
+] 
+\begin_inset Quotes cld
+\end_inset
+
+IN
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ (expr *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ expr)) / query 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+quantified-compare-pred = row-value comp-op [
+\begin_inset Quotes cld
+\end_inset
+
+SOME
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+ANY
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+ALL
+\begin_inset Quotes crd
+\end_inset
+
+] 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ query 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+exists-pred = 
+\begin_inset Quotes cld
+\end_inset
+
+EXISTS
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ query 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una subconsulta o 
+\series bold
+consulta anidada
+\series default
+ es una consulta en la 
+\family typewriter
+where-clause
+\family default
+ de otra consulta.
+ Es 
+\series bold
+correlacionada
+\series default
+ si referencia a valores que dependen de la fila de la consulta en la que
+ se encuentra, lo que debe evitarse porque en general supone ejecutar una
+ consulta por cada fila considerada en la consulta externa.
+\end_layout
+
+\begin_layout Standard
+Un 
+\family typewriter
+in-pred
+\family default
+ comprueba si un valor o tupla está en cierta lista de valores o tuplas,
+ que puede ser el resultado de una consulta anidada.
+\end_layout
+
+\begin_layout Standard
+Un 
+\family typewriter
+quantified-compare-pred
+\family default
+ devuelve 
+\family typewriter
+TRUE
+\family default
+ si en el resultado de la subconsulta alguna fila 
+\family typewriter
+\emph on
+r
+\family default
+\emph default
+ cumple 
+\family typewriter
+\emph on
+row-value comp-op r
+\family default
+\emph default
+ (con 
+\family typewriter
+SOME
+\family default
+ o 
+\family typewriter
+ANY
+\family default
+) o todas lo cumplen (con 
+\family typewriter
+ALL
+\family default
+), aunque la mayoría de SGBDs permiten usar una lista 
+\family typewriter
+expr *(
+\begin_inset Quotes qld
+\end_inset
+
+,
+\begin_inset Quotes qrd
+\end_inset
+
+ expr)
+\family default
+ en vez de una subconsulta.
+\end_layout
+
+\begin_layout Standard
+Un 
+\family typewriter
+exists-pred
+\family default
+ comprueba si la subconsulta ha devuelto alguna fila.
+\end_layout
+
+\begin_layout Subsection
+Cláusulas 
+\family typewriter
+GROUP BY
+\family default
+ y 
+\family typewriter
+HAVING
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+group-by-clause = 
+\begin_inset Quotes cld
+\end_inset
+
+GROUP
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+BY
+\begin_inset Quotes crd
+\end_inset
+
+ [sid 
+\begin_inset Quotes cld
+\end_inset
+
+.
+\begin_inset Quotes crd
+\end_inset
+
+] id *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ [sid 
+\begin_inset Quotes cld
+\end_inset
+
+.
+\begin_inset Quotes crd
+\end_inset
+
+] id)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Agrupa las filas en las que los valores de las columnas indicadas coinciden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+set-function = 
+\begin_inset Quotes cld
+\end_inset
+
+COUNT
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+*
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / set-function-type 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ [
+\begin_inset Quotes cld
+\end_inset
+
+DISTINCT
+\begin_inset Quotes crd
+\end_inset
+
+] expr 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+set-function-type = 
+\begin_inset Quotes cld
+\end_inset
+
+AVG
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+MAX
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+MIN
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+SUM
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+COUNT
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+COUNT(*)
+\family default
+ devuelve el número de filas del grupo, y 
+\family typewriter
+COUNT(
+\emph on
+expr
+\emph default
+)
+\family default
+ devuelve el número de filas para las que 
+\family typewriter
+\emph on
+expr
+\family default
+\emph default
+ no es 
+\family typewriter
+NULL
+\family default
+.
+ 
+\family typewriter
+SUM
+\family default
+ calcula la suma de los valores de 
+\family typewriter
+\emph on
+expr
+\family default
+\emph default
+ para cada fila para la que 
+\family typewriter
+\emph on
+expr
+\family default
+\emph default
+ no es 
+\family typewriter
+NULL
+\family default
+, y 
+\family typewriter
+MAX
+\family default
+ y 
+\family typewriter
+MIN
+\family default
+ hacen lo propio para el máximo y el mínimo.
+ Si aparece 
+\family typewriter
+DISTINCT
+\family default
+, se consideran las filas tras eliminar duplicados.
+\end_layout
+
+\begin_layout Standard
+Las 
+\family typewriter
+set-function
+\family default
+ o 
+\series bold
+funciones de agregados
+\series default
+ pueden aparecer en 
+\family typewriter
+derived-column
+\family default
+ y en 
+\family typewriter
+having-clause
+\family default
+.
+ Si aparece en una 
+\family typewriter
+derived-column
+\family default
+ de un 
+\family typewriter
+select-stmt
+\family default
+ sin 
+\family typewriter
+group-by-clause
+\family default
+, se agrupan todas las filas resultado en un mismo grupo.
+\end_layout
+
+\begin_layout Standard
+Si las filas resultado están agrupadas, las 
+\family typewriter
+derived-column
+\family default
+ y, de haberla, la 
+\family typewriter
+having-clause
+\family default
+, solo pueden referenciar columnas que no aparecen en la 
+\family typewriter
+group-by-clause
+\family default
+ (o columnas en general si no hay 
+\family typewriter
+group-by-clause
+\family default
+) dentro de funciones de agregados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+having-clause = 
+\begin_inset Quotes cld
+\end_inset
+
+HAVING
+\begin_inset Quotes crd
+\end_inset
+
+ bool-expr
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Indica que, de los grupos de filas, solo aparezcan en el resultado los que
+ cumplan la condición.
+\end_layout
+
+\begin_layout Subsection
+Cláusula 
+\family typewriter
+ORDER BY
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+order-by-clause = 
+\begin_inset Quotes cld
+\end_inset
+
+ORDER
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+BY
+\begin_inset Quotes crd
+\end_inset
+
+ sort-spec *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ sort-spec)
+\end_layout
+
+\begin_layout Plain Layout
+
+sort-spec = [sid 
+\begin_inset Quotes cld
+\end_inset
+
+.
+\begin_inset Quotes crd
+\end_inset
+
+] id [
+\begin_inset Quotes cld
+\end_inset
+
+ASC
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+DESC
+\begin_inset Quotes crd
+\end_inset
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\family typewriter
+order-by-clause
+\family default
+ indica el orden de las columnas.
+ Se usa la primera 
+\family typewriter
+sort-spec
+\family default
+, en caso de empate la segunda, etc., ordenando las filas según la columna
+ de la tabla resultado indicada en orden ascendente (
+\family typewriter
+ASC
+\family default
+, por defecto) o descendente (
+\family typewriter
+DESC
+\family default
+).
+ La mayoría de SGBDs interpretan la 
+\family typewriter
+orden-by-clause
+\family default
+ como un parámetro de 
+\family typewriter
+select-stmt
+\family default
+ y no de 
+\family typewriter
+dql-stmt
+\family default
+.
+\end_layout
+
+\begin_layout Subsection
+Consideraciones de eficiencia
+\end_layout
+
+\begin_layout Standard
+Se han de evitar anidamiento correlacionado y el ordenamiento por su coste.
+ Para operar sobre relaciones, de mayor a menor elegancia
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Según el criterio subjetivo de los profesores de la asignatura.
+\end_layout
+
+\end_inset
+
+ tenemos 
+\family typewriter
+IN
+\family default
+, 
+\family typewriter
+EXISTS
+\family default
+ y 
+\family typewriter
+JOIN
+\family default
+, y de mayor a menor eficiencia
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Esto es muy dependiente de las optimizaciones del gestor de bases de datos.
+\end_layout
+
+\end_inset
+
+ tenemos 
+\family typewriter
+IN
+\family default
+ sin correlación, 
+\family typewriter
+JOIN
+\family default
+ y 
+\family typewriter
+EXISTS
+\family default
+.
+\end_layout
+
+\begin_layout Section
+Álgebra relacional
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+álgebra relacional
+\series default
+ es un lenguaje definido por Ted Codd en 1972 para expresar operaciones
+ sobre relaciones.
+ 
+\end_layout
+
+\begin_layout Standard
+Podemos expresar una relación como una tupla 
+\begin_inset Formula $(R,T,N)$
+\end_inset
+
+ donde 
+\begin_inset Formula $T=:(T_{1},\dots,T_{n})$
+\end_inset
+
+ es una tupla de conjuntos o 
+\series bold
+dominios
+\series default
+, 
+\begin_inset Formula $N=:(N_{1},\dots,N_{n})$
+\end_inset
+
+ es una tupla de 
+\series bold
+nombres
+\series default
+ distintos dos a dos y 
+\begin_inset Formula $R\subseteq(T_{1}\dot{\cup}\{\mathtt{NULL}\})\times\dots\times(T_{n}\dot{\cup}\{\mathtt{NULL}\})$
+\end_inset
+
+ es el 
+\series bold
+estado
+\series default
+.
+ Decimos que las relaciones son 
+\series bold
+homogéneas
+\series default
+ porque todos los elementos del estado son del mismo tipo.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+grado
+\series default
+ de una relación 
+\begin_inset Formula $(R,T,N)$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{gr}R:=|T|$
+\end_inset
+
+ y 
+\series bold
+dominio
+\series default
+ del atributo 
+\begin_inset Formula $N_{i}$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{dom}R_{i}:=T_{i}$
+\end_inset
+
+.
+ Las relaciones 
+\begin_inset Formula $R$
+\end_inset
+
+ y 
+\begin_inset Formula $S$
+\end_inset
+
+ son 
+\series bold
+compatibles en tipo
+\series default
+ si 
+\begin_inset Formula $\text{gr}R=\text{gr}S$
+\end_inset
+
+ y para 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+, 
+\begin_inset Formula $\text{dom}R_{i}=\text{dom}S_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Las relaciones se expresan por un nombre o como resultado de una operación.
+ Si 
+\begin_inset Formula $(R,T,N)$
+\end_inset
+
+ y 
+\begin_inset Formula $(S,U,M)$
+\end_inset
+
+ son relaciones con grados respectivos 
+\begin_inset Formula $n$
+\end_inset
+
+ y 
+\begin_inset Formula $m$
+\end_inset
+
+ y 
+\begin_inset Formula 
+\[
+(a_{1},\dots,a_{n})*(b_{1},\dots,b_{m}):=(a_{1},\dots,a_{n},b_{1},\dots,b_{m}),
+\]
+
+\end_inset
+
+ los operadores son:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Unión
+\series default
+: Si 
+\begin_inset Formula $T=U$
+\end_inset
+
+, 
+\begin_inset Formula $R\cup S:=(R\cup S,T,N)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Intersección
+\series default
+: Si 
+\begin_inset Formula $T=U$
+\end_inset
+
+, 
+\begin_inset Formula $R\cap S:=(R\cap S,T,N)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Diferencia
+\series default
+: Si 
+\begin_inset Formula $T=U$
+\end_inset
+
+, 
+\begin_inset Formula $R-S:=(R\setminus S,T,N)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Producto cartesiano ampliado
+\series default
+: Si 
+\begin_inset Formula $N$
+\end_inset
+
+ y 
+\begin_inset Formula $M$
+\end_inset
+
+ son disjuntos,
+\begin_inset Formula 
+\[
+R\times S:=(\{r*s\}_{r\in R,s\in S},T*U,N*M).
+\]
+
+\end_inset
+
+Cuando 
+\begin_inset Formula $N$
+\end_inset
+
+ y 
+\begin_inset Formula $M$
+\end_inset
+
+ no son disjuntos, sean 
+\begin_inset Formula $L:N\to N\amalg M$
+\end_inset
+
+ y 
+\begin_inset Formula $R:M\to N\amalg M$
+\end_inset
+
+ inclusiones, entonces 
+\begin_inset Formula $R\times S:=(R,T,L(N))\times(S,U,R(M))$
+\end_inset
+
+.
+ Una forma de hacer esto es prefijar los nombres de atributos con el nombre
+ de su tabla.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Restricción
+\series default
+: Una 
+\series bold
+condición
+\series default
+ sobre 
+\begin_inset Formula $R$
+\end_inset
+
+ se define por la gramática 
+\begin_inset Formula $S\to(S)\mid S\text{ AND }S\mid S\text{ OR }S\mid\text{NOT }S\mid TOC\mid TOT$
+\end_inset
+
+, 
+\begin_inset Formula $O\to=\mid<\mid\leq\mid>\mid\geq\mid<>$
+\end_inset
+
+, 
+\begin_inset Formula $T\to N_{1}\mid\dots\mid N_{n}$
+\end_inset
+
+.
+ Entonces, si 
+\begin_inset Formula $C$
+\end_inset
+
+ es una condición, 
+\begin_inset Formula $\sigma_{C}(R):=(\{r\in R:C(r)\},T,N)$
+\end_inset
+
+, donde 
+\begin_inset Formula $C(r)$
+\end_inset
+
+ se define con su significado habitual, teniendo en cuenta que 
+\begin_inset Formula $\mathtt{NULL}\neq\mathtt{NULL}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+La restricción es conmutativa: 
+\begin_inset Formula $\sigma_{C}(\sigma_{D}(R))=\sigma_{D}(\sigma_{C}(R))=\sigma_{C\text{ AND }D}(R)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Proyección
+\series default
+: Sea 
+\begin_inset Formula $\iota:\{N_{i}\}_{i}\to\{1,\dots,n\}$
+\end_inset
+
+ la inversa de 
+\begin_inset Formula $N$
+\end_inset
+
+, si 
+\begin_inset Formula $M$
+\end_inset
+
+ es una tupla de 
+\begin_inset Formula $m$
+\end_inset
+
+ nombres distintos dos a dos con 
+\begin_inset Formula $\{M_{i}\}_{i}\subseteq\{N_{i}\}_{i}$
+\end_inset
+
+, entonces 
+\begin_inset Formula 
+\[
+\pi_{M}(R):=(\{(r_{\iota(M_{1})},\dots,r_{\iota(M_{n})})\}_{r\in R},(T_{\iota(M_{1})},\dots,T_{\iota(M_{n})}),M).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Reunión
+\series default
+: Una 
+\series bold
+condición de reunión
+\series default
+ sobre 
+\begin_inset Formula $R$
+\end_inset
+
+ y 
+\begin_inset Formula $S$
+\end_inset
+
+ se define por la gramática 
+\begin_inset Formula $S\to T\mid T\text{ AND }S$
+\end_inset
+
+, 
+\begin_inset Formula $T\to AOB$
+\end_inset
+
+, 
+\begin_inset Formula $O\to=\mid<\mid\leq\mid>\mid\geq\mid<>$
+\end_inset
+
+, 
+\begin_inset Formula $A\to N_{1}\mid\dots\mid N_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $B\to M_{1}\mid\dots\mid M_{m}$
+\end_inset
+
+, salvo que si contiene 
+\begin_inset Formula $N_{i}\theta M_{j}$
+\end_inset
+
+ con 
+\begin_inset Formula $O\to\theta$
+\end_inset
+
+, debe ser 
+\begin_inset Formula $\text{dom}R_{i}=\text{dom}S_{j}$
+\end_inset
+
+.
+ Entonces, si 
+\begin_inset Formula $C$
+\end_inset
+
+ es una condición de reunión, 
+\begin_inset Formula $R\bowtie_{C}S:=\sigma_{C}(R\times S)$
+\end_inset
+
+.
+ Si todos los operadores de 
+\begin_inset Formula $C$
+\end_inset
+
+ son la igualdad, hablamos de una 
+\series bold
+equi-reunión
+\series default
+.
+ Definimos también 
+\begin_inset Formula $R\bowtie S:=R\times S$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+El producto cartesiano ampliado y la reunión son asociativas, y son conmutativas
+ salvo orden de los atributos.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Reunión natural
+\series default
+: Sea 
+\begin_inset Formula $\{j_{1},\dots,j_{p}\}:=\{j:M_{j}\notin\{N_{i}\}\}$
+\end_inset
+
+, si para 
+\begin_inset Formula $i,j\in\{1,\dots,n\}\times\{1,\dots,m\}$
+\end_inset
+
+ con 
+\begin_inset Formula $N_{i}=M_{j}$
+\end_inset
+
+ es 
+\begin_inset Formula $T_{i}=U_{j}$
+\end_inset
+
+, entonces 
+\begin_inset Formula 
+\[
+R\hexstar S:=(\{r*s:r\in R,s\in S,\forall i,j,(N_{i}=M_{j}\implies r_{i}=s_{j})\},T*U,N*M).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Reunión externa
+\series default
+: Sean 
+\begin_inset Formula $N_{k}:=\{\mathtt{NULL}\}^{k}$
+\end_inset
+
+, 
+\begin_inset Formula $n:=\text{gr}R$
+\end_inset
+
+ y 
+\begin_inset Formula $m:=\text{gr}S$
+\end_inset
+
+.
+ Definimos la 
+\series bold
+reunión externa izquierda
+\series default
+ de 
+\begin_inset Formula $R$
+\end_inset
+
+ y 
+\begin_inset Formula $S$
+\end_inset
+
+ como 
+\begin_inset Formula $R]\bowtie_{C}S:=R\bowtie_{C}S\cup(\{r\in R:\nexists s\in S:C(r,s)\}\times N_{m})$
+\end_inset
+
+, la 
+\series bold
+reunión externa derecha
+\series default
+ como 
+\begin_inset Formula $R\bowtie[_{C}S:=R\bowtie_{C}S\cup(N_{n}\times\{s\in S:\nexists r\in R:C(r,s)\})$
+\end_inset
+
+ y la 
+\series bold
+reunión externa completa
+\series default
+ como 
+\begin_inset Formula $R]\bowtie[_{C}S:=(R]\bowtie_{C}S)\cup(R\bowtie[_{C}S)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+División
+\series default
+: Si 
+\begin_inset Formula $N:=(N_{1},\dots,N_{n},M_{1},\dots,M_{m})$
+\end_inset
+
+, entonces 
+\begin_inset Formula 
+\[
+R\div S:=(\{r:\forall s\in S,r*s\in R\},(T_{1},\dots,T_{n}),(N_{1},\dots,N_{n})).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Funciones de agregados
+\series default
+: Son SUMA, PRODUCTO, MÁXIMO, MÍNIMO y CUENTA, correspondientes a 
+\begin_inset Formula $\sum$
+\end_inset
+
+, 
+\begin_inset Formula $\prod$
+\end_inset
+
+, 
+\begin_inset Formula $\max$
+\end_inset
+
+, 
+\begin_inset Formula $\min$
+\end_inset
+
+ y 
+\begin_inset Formula $|\cdot|$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $O$
+\end_inset
+
+ es el nombre de una de estas funciones, definimos la función de agregados
+ 
+\begin_inset Formula $O_{N_{i}}(R):=O(\{r_{i}\}_{r\in R}\setminus\{\mathtt{NULL}\})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Dada una tupla 
+\begin_inset Formula $(F_{1},\dots,F_{m})$
+\end_inset
+
+ de funciones de agregados, 
+\begin_inset Formula $_{N_{i_{1}},\dots,N_{i_{n}}}\mathbf{F}_{F_{1},\dots,F_{m}}(R)$
+\end_inset
+
+ es una relación que contiene, para cada clase de equivalencia 
+\begin_inset Formula $[r]$
+\end_inset
+
+ de 
+\begin_inset Formula $R$
+\end_inset
+
+ respecto de la relación 
+\begin_inset Formula $r\equiv s:\iff(r_{i_{1}},\dots,r_{i_{n}})=(s_{i_{1}},\dots,s_{i_{s}})$
+\end_inset
+
+, una fila 
+\begin_inset Formula $(r_{i_{1}},\dots,r_{i_{n}},F_{1}[r],\dots,F_{m}[r])$
+\end_inset
+
+.
+ El tipo es 
+\begin_inset Formula $(T_{i_{1}},\dots,T_{i_{n}},X_{1},\dots,X_{m})$
+\end_inset
+
+, donde 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ es el rango de 
+\begin_inset Formula $F_{i}$
+\end_inset
+
+, y los nombres de los atributos son 
+\begin_inset Formula $(N_{i_{1}},\dots,N_{i_{n}},F_{1},\dots,F_{n})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Además, si la expresión 
+\emph on
+expr
+\emph default
+ toma el valor 
+\begin_inset Formula $(S,T,M)$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{gr}S=n$
+\end_inset
+
+, la expresión 
+\begin_inset Formula $R(N_{1},\dots,N_{n})\gets\emph{{expr}}$
+\end_inset
+
+ establece 
+\begin_inset Formula $R$
+\end_inset
+
+ a 
+\begin_inset Formula $(S,T,\{N_{1},\dots,N_{n}\})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Cálculo relacional
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+cálculo relacional
+\series default
+ es un lenguaje formal basado en la lógica predicados de primer orden que
+ describe la información que se desea obtener de forma declarativa.
+ Existen el 
+\series bold
+cálculo relacional de tuplas
+\series default
+ (CRT), el que veremos, creado por Codd en 1972, y el 
+\series bold
+de dominios
+\series default
+, creado por Lacroix y Pirotte en 1977.
+\end_layout
+
+\begin_layout Standard
+Las expresiones tienen forma 
+\begin_inset Formula 
+\[
+\{t_{1}.a_{11},\dots,t_{1}.a_{1m_{1}},\dots,t_{n}.a_{n1},\dots,t_{n}.a_{nm_{n}}\mid\text{COND}(t_{1},\dots,t_{n})\},
+\]
+
+\end_inset
+
+donde cada 
+\begin_inset Formula $t_{i}$
+\end_inset
+
+ es una 
+\series bold
+variable de tupla
+\series default
+ y recorre una cierta relación y cada 
+\begin_inset Formula $a_{ij}$
+\end_inset
+
+ es un nombre de atributo de dicha relación.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+átomo
+\series default
+ es una expresión de la forma 
+\begin_inset Formula $R(t_{i})$
+\end_inset
+
+, 
+\begin_inset Formula $t_{i}.a\,op\,t_{j}.b$
+\end_inset
+
+, 
+\begin_inset Formula $t_{i}.a\,op\,c$
+\end_inset
+
+ o 
+\begin_inset Formula $c\,op\,t_{j}.b$
+\end_inset
+
+, donde 
+\begin_inset Formula $R$
+\end_inset
+
+ es una relación, 
+\begin_inset Formula $t_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $t_{j}$
+\end_inset
+
+ son variables de tupla, 
+\begin_inset Formula $a$
+\end_inset
+
+ es un atributo de la relación recorrida por 
+\begin_inset Formula $t_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $b$
+\end_inset
+
+ uno de la recorrida por 
+\begin_inset Formula $t_{j}$
+\end_inset
+
+ y 
+\begin_inset Formula $c$
+\end_inset
+
+ es una constante.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+fórmula bien formada
+\series default
+ (f.b.f) es un átomo o, si 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta$
+\end_inset
+
+ son f.b.f.
+ y 
+\begin_inset Formula $x$
+\end_inset
+
+ es una variable, 
+\begin_inset Formula $(\alpha\text{ and }\beta)$
+\end_inset
+
+, 
+\begin_inset Formula $(\alpha\text{ or }\beta)$
+\end_inset
+
+, 
+\begin_inset Formula $\text{not}(\alpha)$
+\end_inset
+
+, 
+\begin_inset Formula $(\alpha\to\beta)$
+\end_inset
+
+, 
+\begin_inset Formula $(\forall x)\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $(\exists x)\alpha$
+\end_inset
+
+.
+ Una ocurrencia de una variable 
+\begin_inset Formula $x$
+\end_inset
+
+ es 
+\series bold
+ligada
+\series default
+ si está en una fórmula de la forma 
+\begin_inset Formula $(\forall x)\alpha$
+\end_inset
+
+ o 
+\begin_inset Formula $(\exists x)\alpha$
+\end_inset
+
+, y es 
+\series bold
+libre
+\series default
+ en caso contrario.
+\end_layout
+
+\begin_layout Standard
+El valor de verdad de una fórmula puede ser TRUE (verdadero) o FALSE (falso).
+ El de 
+\begin_inset Formula $R(t_{i})$
+\end_inset
+
+ es TRUE si y sólo si 
+\begin_inset Formula $t_{i}\in R$
+\end_inset
+
+.
+ Una fórmula bien formada es 
+\series bold
+cerrada
+\series default
+ si toda variable es ligada, en cuyo caso su valor de verdad puede ser TRUE
+ o FALSE, y es 
+\series bold
+abierta
+\series default
+ en caso contrario, en cuyo caso representa una consulta.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{COND}(t_{1},\dots,t_{n})$
+\end_inset
+
+ es una f.b.f.
+ con variables libres 
+\begin_inset Formula $t_{1},\dots,t_{n}$
+\end_inset
+
+, y se cumple para las tuplas que, al ligar a las variables 
+\begin_inset Formula $t_{1},\dots,t_{n}$
+\end_inset
+
+, la fórmula evalúa a TRUE.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+dominio
+\series default
+ de una expresión a la unión de los dominios de las relaciones que aparecen
+ nombradas en la condición y las constantes que aparecen en la condición.
+ Una expresión es 
+\series bold
+segura
+\series default
+ si toda tupla para la que la condición se cumple tiene sus elementos en
+ el dominio de la expresión.
+ Entonces la expresión segura 
+\begin_inset Formula $\{T\mid\text{COND}(t_{1},\dots,t_{n})\}$
+\end_inset
+
+ con dominio 
+\begin_inset Formula $D$
+\end_inset
+
+ se refiere al conjunto 
+\begin_inset Formula $\{T:t_{1},\dots,t_{n}\in\bigcup_{n\in\mathbb{N}}D^{n}\land\text{COND}(t_{1},\dots,t_{n})\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El cálculo relacional con expresiones seguras tiene la misma potencia que
+ el álgebra relacional.
+\end_layout
+
+\begin_layout Section
+Índices
+\end_layout
+
+\begin_layout Standard
+Buscar las filas de una tabla que satisfacen una condición es la operación
+ más común en consultas SQL.
+ La 
+\series bold
+búsqueda secuencial
+\series default
+ implica un gran número de lecturas de 
+\series bold
+bloques
+\series default
+ o 
+\series bold
+páginas
+\series default
+, las unidades a nivel físico en las que el SGBD almacena las filas de tablas.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+índice
+\series default
+ es una estructura de datos auxiliar para acelerar el acceso a las filas
+ de una tabla según el valor de un 
+\series bold
+campo de indexación
+\series default
+, generalmente una o más columnas.
+ Contiene una serie de 
+\series bold
+entradas
+\series default
+ o 
+\series bold
+registros
+\series default
+ con cada valor de los existentes en el campo de indexación y un puntero
+ al bloque del fichero de datos que contiene la fila con dicho valor.
+ Las entradas están ordenadas según el valor de este campo
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Normalmente se usan variantes de árboles B.
+\end_layout
+
+\end_inset
+
+, permitiendo hacer búsqueda binaria.
+\end_layout
+
+\begin_layout Standard
+Se recomienda crear un índice cuando un campo se usa frecuentemente en condicion
+es de selección (
+\family typewriter
+where-clause
+\family default
+) o de reunión, así como en todas las claves primarias y alternativas.
+\end_layout
+
+\begin_layout Standard
+Los índices no forman parte del estándar SQL, pero existe un estándar de
+ facto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ddl-stmt =/ index-def / drop-index-stmt
+\end_layout
+
+\begin_layout Plain Layout
+
+index-def = 
+\begin_inset Quotes cld
+\end_inset
+
+CREATE
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+INDEX
+\begin_inset Quotes crd
+\end_inset
+
+ sid 
+\begin_inset Quotes cld
+\end_inset
+
+ON
+\begin_inset Quotes crd
+\end_inset
+
+ sid 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ index-part *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ index-part 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+index-part = (id / expr) [
+\begin_inset Quotes cld
+\end_inset
+
+ASC
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+DESC
+\begin_inset Quotes crd
+\end_inset
+
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+drop-index-stmt = 
+\begin_inset Quotes cld
+\end_inset
+
+DROP
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+INDEX
+\begin_inset Quotes crd
+\end_inset
+
+ sid
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\family typewriter
+index-def
+\family default
+ crea un índice en una tabla, con ordenación similar a 
+\family typewriter
+ORDER BY
+\family default
+, y un 
+\family typewriter
+drop-index-stmt
+\family default
+ lo elimina.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Algunas bases de datos permiten también índices parciales, en los que se
+ añade una 
+\family typewriter
+where-clause
+\family default
+ al final de la 
+\family typewriter
+index-def
+\family default
+ y solo se indexan las filas que cumplen la condición.
+\end_layout
+
+\end_inset
+
+ Además, se crea un índice por cada restricción 
+\family typewriter
+PRIMARY KEY
+\family default
+ o 
+\family typewriter
+UNIQUE
+\family default
+ con las columnas de la clave.
+\end_layout
+
+\begin_layout Section
+SQL del software privativo Oracle Database
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Si bien este es el SGBD que vemos en clase, lo cierto es que, según lo visto
+ en clase, es bastante limitado (por ejemplo, en el tratamiento de claves
+ ajenas y en conformidad con el estándar), y es difícil de instalar.
+ Para un SGBD fácil de instalar y usar, véase SQLite.
+ Para uno más acorde al estándar pero con muchas características adicionales,
+ véase PostgreSQL.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cada comando del LDD realiza un 
+\family typewriter
+COMMIT
+\family default
+ implícito antes y después de su ejecución.
+ Los índices se implementan con el estándar de facto.
+\end_layout
+
+\begin_layout Subsection
+Esquemas
+\end_layout
+
+\begin_layout Standard
+El software privativo Oracle Database solo soporta un esquema por cuenta
+ de usuario, que solo se puede borrar borrando la cuenta (no soporta 
+\family typewriter
+drop-schema-stmt
+\family default
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+schema-def = 
+\begin_inset Quotes cld
+\end_inset
+
+CREATE
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+SCHEMA
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+AUTHORIZATION
+\begin_inset Quotes crd
+\end_inset
+
+ id
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No hace nada.
+ Además, en vez de 
+\family typewriter
+INFORMATION_SCHEMA
+\family default
+ hay un 
+\emph on
+Data Dictionary
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection
+Tipos
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+type =/ raw-type / large-type / rowid-type
+\end_layout
+
+\begin_layout Plain Layout
+
+number-type =/ 
+\begin_inset Quotes cld
+\end_inset
+
+NUMBER
+\begin_inset Quotes crd
+\end_inset
+
+ [
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ uint [
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ uint] 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+] / 
+\begin_inset Quotes cld
+\end_inset
+
+BINARY_FLOAT
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+BINARY_DOUBLE
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+string-type =/ 
+\begin_inset Quotes cld
+\end_inset
+
+CHAR
+\begin_inset Quotes crd
+\end_inset
+
+ [
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ uint [
+\begin_inset Quotes cld
+\end_inset
+
+BYTE
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+CHAR
+\begin_inset Quotes crd
+\end_inset
+
+ ] 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+] / 
+\begin_inset Quotes cld
+\end_inset
+
+VARCHAR2
+\begin_inset Quotes crd
+\end_inset
+
+ [
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ uint [
+\begin_inset Quotes cld
+\end_inset
+
+BYTE
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+CHAR
+\begin_inset Quotes crd
+\end_inset
+
+ ] 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+] / 
+\begin_inset Quotes cld
+\end_inset
+
+NVARCHAR2
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ uint 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+LONG
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+time-type =/ 
+\begin_inset Quotes cld
+\end_inset
+
+TIMESTAMP
+\begin_inset Quotes crd
+\end_inset
+
+ [
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ uint 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+] 
+\begin_inset Quotes cld
+\end_inset
+
+WITH
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+LOCAL
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+TIME
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+ZONE
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+raw-type = 
+\begin_inset Quotes cld
+\end_inset
+
+RAW
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ uint 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+LONG
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+RAW
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+large-type = 
+\begin_inset Quotes cld
+\end_inset
+
+BLOB
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+CLOB
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+NCLOB
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+BFILE
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+rowid-type = 
+\begin_inset Quotes cld
+\end_inset
+
+ROWID
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+UROWID
+\begin_inset Quotes crd
+\end_inset
+
+ [
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ uint 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+NUMBER
+\family default
+ equivale a 
+\family typewriter
+NUMERIC
+\family default
+, pero con parámetros por defecto 38 y 0.
+ 
+\family typewriter
+INTEGER
+\family default
+ equivale a 
+\family typewriter
+NUMBER(38,0)
+\family default
+, 
+\family typewriter
+BINARY_FLOAT
+\family default
+ a 
+\family typewriter
+REAL
+\family default
+ y 
+\family typewriter
+BINARY_DOUBLE
+\family default
+ a 
+\family typewriter
+DOUBLE PRECISION
+\family default
+.
+ 
+\family typewriter
+CHAR(
+\emph on
+n
+\emph default
+ CHAR)
+\family default
+ equivale a 
+\family typewriter
+CHAR(
+\emph on
+n
+\emph default
+)
+\family default
+ y 
+\family typewriter
+CHAR(
+\emph on
+n
+\emph default
+ BYTE)
+\family default
+ a 
+\family typewriter
+BIT(
+\emph on
+8n
+\emph default
+)
+\family default
+.
+ 
+\family typewriter
+VARCHAR2
+\family default
+ equivale a 
+\family typewriter
+VARCHAR
+\family default
+ o a 
+\family typewriter
+BIT VARYING
+\family default
+, con las mismas consideraciones.
+\end_layout
+
+\begin_layout Standard
+Los 
+\family typewriter
+raw-type
+\family default
+ y 
+\family typewriter
+BLOB
+\family default
+ contienen secuencias de bits, siendo 
+\family typewriter
+BLOB
+\family default
+ preferible a 
+\family typewriter
+LONG RAW
+\family default
+.
+ Los 
+\family typewriter
+large-type
+\family default
+ contienen objetos grandes (
+\emph on
+Large OBjects
+\emph default
+), y 
+\family typewriter
+BFILE
+\family default
+ referencia un objeto almacenado fuera de la base de datos.
+\end_layout
+
+\begin_layout Subsection
+Tablas
+\end_layout
+
+\begin_layout Standard
+Se puede crear una tabla inicializada a los resultados de una consulta:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+table-def =/ 
+\begin_inset Quotes cld
+\end_inset
+
+CREATE
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+TABLE
+\begin_inset Quotes crd
+\end_inset
+
+ sid 
+\begin_inset Quotes cld
+\end_inset
+
+AS
+\begin_inset Quotes crd
+\end_inset
+
+ query
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hay más posibilidades en 
+\family typewriter
+ALTER TABLE
+\family default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ddl-stmt =/ rename-stmt
+\end_layout
+
+\begin_layout Plain Layout
+
+rename-stmt = 
+\begin_inset Quotes fld
+\end_inset
+
+RENAME
+\begin_inset Quotes frd
+\end_inset
+
+ id 
+\begin_inset Quotes fld
+\end_inset
+
+TO
+\begin_inset Quotes frd
+\end_inset
+
+ id
+\end_layout
+
+\begin_layout Plain Layout
+
+alter-table-clause = 
+\begin_inset Quotes fld
+\end_inset
+
+ADD
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset Quotes fld
+\end_inset
+
+(
+\begin_inset Quotes fld
+\end_inset
+
+ column-def *(
+\begin_inset Quotes fld
+\end_inset
+
+,
+\begin_inset Quotes frd
+\end_inset
+
+ column-def) 
+\begin_inset Quotes fld
+\end_inset
+
+)
+\begin_inset Quotes frd
+\end_inset
+
+ / 
+\begin_inset Quotes fld
+\end_inset
+
+RENAME
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset Quotes fld
+\end_inset
+
+COLUMN
+\begin_inset Quotes frd
+\end_inset
+
+ id 
+\begin_inset Quotes fld
+\end_inset
+
+TO
+\begin_inset Quotes frd
+\end_inset
+
+ id / 
+\begin_inset Quotes fld
+\end_inset
+
+RENAME
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset Quotes fld
+\end_inset
+
+TO
+\begin_inset Quotes frd
+\end_inset
+
+ id / 
+\begin_inset Quotes fld
+\end_inset
+
+DROP
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset Quotes fld
+\end_inset
+
+COLUMN
+\begin_inset Quotes frd
+\end_inset
+
+ id / 
+\begin_inset Quotes fld
+\end_inset
+
+DROP
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset Quotes fld
+\end_inset
+
+(
+\begin_inset Quotes fld
+\end_inset
+
+ id *(
+\begin_inset Quotes fld
+\end_inset
+
+,
+\begin_inset Quotes frd
+\end_inset
+
+ id) 
+\begin_inset Quotes fld
+\end_inset
+
+)
+\begin_inset Quotes frd
+\end_inset
+
+ [
+\begin_inset Quotes fld
+\end_inset
+
+CASCADE
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset Quotes fld
+\end_inset
+
+CONSTRAINTS
+\begin_inset Quotes frd
+\end_inset
+
+] / 
+\begin_inset Quotes fld
+\end_inset
+
+MODIFY
+\begin_inset Quotes frd
+\end_inset
+
+ id (type / column-constraint) *column-constraint / alter-constraint-clause
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+RENAME 
+\emph on
+name
+\emph default
+ TO 
+\emph on
+newName
+\family default
+\emph default
+ equivale a 
+\family typewriter
+ALTER TABLE 
+\emph on
+name
+\emph default
+ RENAME TO 
+\emph on
+newName
+\family default
+\emph default
+, y cambia el nombre de una tabla.
+ 
+\family typewriter
+ADD
+\family default
+ tiene otra sintaxis y permite añadir varias columnas a la vez.
+ 
+\family typewriter
+DROP COLUMN
+\family default
+ tiene una sintaxis alternativa para eliminar más de una columna a la vez,
+ y 
+\family typewriter
+CASCADE CONSTRAINTS
+\family default
+ es como 
+\family typewriter
+CASCADE
+\family default
+ en SQL.
+ 
+\family typewriter
+MODIFY
+\family default
+ cambia la definición de una columna.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+alter-constraint-clause = 
+\begin_inset Quotes cld
+\end_inset
+
+ADD
+\begin_inset Quotes crd
+\end_inset
+
+ 1*table-constraint / 
+\begin_inset Quotes cld
+\end_inset
+
+MODIFY
+\begin_inset Quotes crd
+\end_inset
+
+ (
+\begin_inset Quotes cld
+\end_inset
+
+CONSTRAINT
+\begin_inset Quotes crd
+\end_inset
+
+ id / 
+\begin_inset Quotes cld
+\end_inset
+
+PRIMARY
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+KEY
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+UNIQUE
+\begin_inset Quotes crd
+\end_inset
+
+ column-list) constraint-state [
+\begin_inset Quotes cld
+\end_inset
+
+CASCADE
+\begin_inset Quotes crd
+\end_inset
+
+] / 
+\begin_inset Quotes cld
+\end_inset
+
+RENAME
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+CONSTRAINT
+\begin_inset Quotes crd
+\end_inset
+
+ id 
+\begin_inset Quotes cld
+\end_inset
+
+TO
+\begin_inset Quotes crd
+\end_inset
+
+ id / 1*drop-constraint-clause / enable-or-disable-clause
+\end_layout
+
+\begin_layout Plain Layout
+
+constraint-state = 1*([
+\begin_inset Quotes cld
+\end_inset
+
+NOT
+\begin_inset Quotes crd
+\end_inset
+
+] 
+\begin_inset Quotes cld
+\end_inset
+
+DEFERRABLE
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+INITIALLY
+\begin_inset Quotes crd
+\end_inset
+
+ (
+\begin_inset Quotes cld
+\end_inset
+
+IMMEDIATE
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+DEFERRED
+\begin_inset Quotes crd
+\end_inset
+
+) / 
+\begin_inset Quotes cld
+\end_inset
+
+RELY
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+NORELY
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+ENABLE
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+DISABLE
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+VALIDATE
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+NOVALIDATE
+\begin_inset Quotes crd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+drop-constraint-clause = 
+\begin_inset Quotes cld
+\end_inset
+
+DROP
+\begin_inset Quotes crd
+\end_inset
+
+ ((
+\begin_inset Quotes cld
+\end_inset
+
+PRIMARY
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+KEY
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+UNIQUE
+\begin_inset Quotes crd
+\end_inset
+
+ column-list) [
+\begin_inset Quotes cld
+\end_inset
+
+CASCADE
+\begin_inset Quotes crd
+\end_inset
+
+] [(
+\begin_inset Quotes cld
+\end_inset
+
+KEEP
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+DROP
+\begin_inset Quotes crd
+\end_inset
+
+) 
+\begin_inset Quotes cld
+\end_inset
+
+INDEX
+\begin_inset Quotes crd
+\end_inset
+
+] / 
+\begin_inset Quotes cld
+\end_inset
+
+CONSTRAINT
+\begin_inset Quotes crd
+\end_inset
+
+ id [
+\begin_inset Quotes cld
+\end_inset
+
+CASCADE
+\begin_inset Quotes crd
+\end_inset
+
+])
+\end_layout
+
+\begin_layout Plain Layout
+
+enable-or-disable-clause = (
+\begin_inset Quotes cld
+\end_inset
+
+ENABLE
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+DISABLE
+\begin_inset Quotes crd
+\end_inset
+
+) [
+\begin_inset Quotes cld
+\end_inset
+
+VALIDATE
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+NOVALIDATE
+\begin_inset Quotes crd
+\end_inset
+
+] (
+\begin_inset Quotes cld
+\end_inset
+
+UNIQUE
+\begin_inset Quotes crd
+\end_inset
+
+ column-list / 
+\begin_inset Quotes cld
+\end_inset
+
+PRIMARY
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+KEY
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+CONSTRAINT
+\begin_inset Quotes crd
+\end_inset
+
+ id) [
+\begin_inset Quotes cld
+\end_inset
+
+CASCADE
+\begin_inset Quotes crd
+\end_inset
+
+] [(
+\begin_inset Quotes cld
+\end_inset
+
+KEEP
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+DROP
+\begin_inset Quotes crd
+\end_inset
+
+) 
+\begin_inset Quotes cld
+\end_inset
+
+INDEX
+\begin_inset Quotes crd
+\end_inset
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+ENABLE
+\family default
+ o 
+\family typewriter
+DISABLE
+\family default
+ permiten activar o desactivar una restricción.
+ Una clave primaria o alternativa referenciada por claves ajenas no se puede
+ desactivar salvo que se indique 
+\family typewriter
+CASCADE
+\family default
+, en cuyo caso se desactivan también las claves ajenas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+drop-table-stmt = 
+\begin_inset Quotes cld
+\end_inset
+
+DROP
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+TABLE
+\begin_inset Quotes crd
+\end_inset
+
+ [id 
+\begin_inset Quotes cld
+\end_inset
+
+.
+\begin_inset Quotes crd
+\end_inset
+
+] id [
+\begin_inset Quotes cld
+\end_inset
+
+CASCADE
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+CONSTRAINTS
+\begin_inset Quotes crd
+\end_inset
+
+] [
+\begin_inset Quotes cld
+\end_inset
+
+PURGE
+\begin_inset Quotes crd
+\end_inset
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+CASCADE CONSTRAINTS
+\family default
+ es como 
+\family typewriter
+CASCADE
+\family default
+, y 
+\family typewriter
+PURGE
+\family default
+ libera el espacio ocupado por la tabla inmediatamente, sin situar la tabla
+ y sus objetos dependientes en la papelera de reciclaje.
+\end_layout
+
+\begin_layout Subsection
+Reglas de integridad
+\end_layout
+
+\begin_layout Standard
+La expresión en una restricción 
+\family typewriter
+CHECK
+\family default
+ debe ser booleana y no puede:
+\end_layout
+
+\begin_layout Itemize
+Contener subconsultas.
+\end_layout
+
+\begin_layout Itemize
+Llamar a 
+\family typewriter
+SYSDATE
+\family default
+, 
+\family typewriter
+SYSTIMESTAMP
+\family default
+, 
+\family typewriter
+CURRENT_DATE
+\family default
+, 
+\family typewriter
+CURRENT_TIMESTAMP
+\family default
+, 
+\family typewriter
+DBTIMEZONE
+\family default
+, 
+\family typewriter
+LOCALTIMESTAMP
+\family default
+, 
+\family typewriter
+SESSIONTIMEZONE
+\family default
+, 
+\family typewriter
+UID
+\family default
+, 
+\family typewriter
+USER
+\family default
+, 
+\family typewriter
+USERENV
+\family default
+ o funciones definidas por el usuario.
+\end_layout
+
+\begin_layout Itemize
+Referenciar columnas de otras tablas.
+\end_layout
+
+\begin_layout Itemize
+Contener constantes de tipo fecha no totalmente especificadas.
+\end_layout
+
+\begin_layout Itemize
+Contener las pseudocolumnas 
+\family typewriter
+LEVEL
+\family default
+, 
+\family typewriter
+ROWNUM
+\family default
+, 
+\family typewriter
+NEXTVAL
+\family default
+ y 
+\family typewriter
+CURRVAL
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+La cláusula 
+\family typewriter
+ON UPDATE
+\family default
+ para claves ajenas no está soportada, con lo que siempre se asume 
+\family typewriter
+NO ACTION
+\family default
+, y 
+\family typewriter
+ON DELETE
+\family default
+ solo puede ser 
+\family typewriter
+CASCADE
+\family default
+ o 
+\family typewriter
+SET NULL
+\family default
+, y si no aparece se asume 
+\family typewriter
+NO ACTION
+\family default
+.
+\end_layout
+
+\begin_layout Subsection
+Vistas
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+view-def = 
+\begin_inset Quotes cld
+\end_inset
+
+CREATE
+\begin_inset Quotes crd
+\end_inset
+
+ [
+\begin_inset Quotes cld
+\end_inset
+
+OR
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+REPLACE
+\begin_inset Quotes crd
+\end_inset
+
+] [[
+\begin_inset Quotes cld
+\end_inset
+
+NO
+\begin_inset Quotes crd
+\end_inset
+
+] 
+\begin_inset Quotes cld
+\end_inset
+
+FORCE
+\begin_inset Quotes crd
+\end_inset
+
+] 
+\begin_inset Quotes cld
+\end_inset
+
+VIEW
+\begin_inset Quotes crd
+\end_inset
+
+ sid [column-list] 
+\begin_inset Quotes cld
+\end_inset
+
+AS
+\begin_inset Quotes crd
+\end_inset
+
+ query [
+\begin_inset Quotes cld
+\end_inset
+
+WITH
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+CHECK
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+OPTION
+\begin_inset Quotes crd
+\end_inset
+
+ [
+\begin_inset Quotes cld
+\end_inset
+
+CONSTRAINT
+\begin_inset Quotes crd
+\end_inset
+
+ sid] / 
+\begin_inset Quotes cld
+\end_inset
+
+READ
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+ONLY
+\begin_inset Quotes crd
+\end_inset
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+OR REPLACE
+\family default
+ permite cambiar la definición de la vista.
+ 
+\family typewriter
+FORCE
+\family default
+ crea la vista aunque no existan las tablas base o el propietario de la
+ vista no tenga permisos sobre ellas.
+ 
+\family typewriter
+WITH READ ONLY
+\family default
+ hace que la vista no sea actualizable.
+ 
+\family typewriter
+CONSTRAINT 
+\emph on
+sid
+\family default
+\emph default
+ da un nombre a como restricción a la condición 
+\family typewriter
+WITH CHECK OPTION
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+drop-view-stmt = 
+\begin_inset Quotes cld
+\end_inset
+
+DROP
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+VIEW
+\begin_inset Quotes crd
+\end_inset
+
+ sid [
+\begin_inset Quotes cld
+\end_inset
+
+CASCADE
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+CONSTRAINTS
+\begin_inset Quotes crd
+\end_inset
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+CASCADE CONSTRAINTS
+\family default
+ es como 
+\family typewriter
+CASCADE
+\family default
+.
+\end_layout
+
+\begin_layout Subsection
+Consultas
+\end_layout
+
+\begin_layout Standard
+El operador 
+\family typewriter
+EXCEPT
+\family default
+ se llama 
+\family typewriter
+MINUS
+\family default
+.
+ 
+\family typewriter
+SELECT UNIQUE
+\family default
+ es sinónimo de 
+\family typewriter
+SELECT DISTINCT
+\family default
+.
+ Aunque esta característica es estándar, en el software privativo Oracle
+ Database, la inclusión de una subconsulta en la cláusula 
+\family typewriter
+FROM
+\family default
+ se llama Oracle Online View.
+\end_layout
+
+\end_body
+\end_document
