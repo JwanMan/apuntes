@@ -1,0 +1,987 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\series bold
+SSL
+\series default
+ es un protocolo sobre TCP para añadir cifrado, integridad y autenticación
+ a la conexión creado por Netscape.
+ Está formado por el 
+\series bold
+\emph on
+SSL Record Protocol
+\series default
+\emph default
+ (
+\series bold
+RP
+\series default
+), para dividir la conexión en segmentos que se encriptan y por separado,
+ y protocolos de control que funcionan por encima de este.
+\end_layout
+
+\begin_layout Standard
+El formato de los segmentos es:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tipo de contenido
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Número de versión mayor
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Número de versión menor
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Longitud del texto comprimido
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Texto plano, opcionalmente comprimido
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MAC de lo anterior
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Encriptado
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Al menos 1 byte de contenido aleatorio
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La firma MAC se hace como
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+hash(shared_key || pad2 ||
+\end_layout
+
+\begin_layout Plain Layout
+
+     hash(shared_key || pad1 || seq_num || compression_type ||
+\end_layout
+
+\begin_layout Plain Layout
+
+          compressed_length || compressed_text))
+\end_layout
+
+\end_inset
+
+donde 
+\family typewriter
+||
+\family default
+ es la concatenación, 
+\family typewriter
+shared_key
+\family default
+ es la clave compartida, 
+\family typewriter
+seq_num
+\family default
+ es un número de secuencia, 
+\family typewriter
+compression_type
+\family default
+ es el mecanismo de compresión, 
+\family typewriter
+compressed_length
+\family default
+ es la longitud del texto comprimido, 
+\family typewriter
+compressed_text
+\family default
+ es el texto plano comprimido y 
+\family typewriter
+pad1
+\family default
+ y 
+\family typewriter
+pad2
+\family default
+ son respectivamente 
+\family typewriter
+0x36
+\family default
+ y 
+\family typewriter
+0x5C
+\family default
+ repetidos un número de veces, 48 cuando el 
+\family typewriter
+hash
+\family default
+ es MD5 y 40 cuando es SHA-1.
+\end_layout
+
+\begin_layout Standard
+Los algoritmos de cifrado de bloque son DES (tamaño de clave 40 o 56), AES
+ (128 o 256), RC2 (40), IDEA (128), 3DES (168) y Fortezza (80), y para cifrado
+ de flujo se usa RC4.
+\end_layout
+
+\begin_layout Section
+CCSP
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+\emph on
+Change Cipher Spec Protocol
+\series default
+\emph default
+ está compuesto de un único mensaje con un bit 1, y lo inicia cualquiera
+ de los participantes para actualizar los parámetros criptográficos.
+\end_layout
+
+\begin_layout Section
+HP
+\end_layout
+
+\begin_layout Standard
+El 
+\emph on
+Handshake Protocol
+\emph default
+ se usa al principio de una conexión para el intercambio de claves.
+ Se intercambian los parámetros para rellenar una 
+\series bold
+tabla de sesión
+\series default
+ y una 
+\series bold
+tabla de conexión
+\series default
+ en 4 fases:
+\end_layout
+
+\begin_layout Enumerate
+El cliente envía un 
+\family typewriter
+client_hello
+\family default
+ al servidor con sus parámetros, y el servidor responde con un 
+\family typewriter
+server_hello
+\family default
+ con sus parámetros.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Estos son un ID de sesión (
+\family typewriter
+session_identifier
+\family default
+), algoritmos de cifrado (
+\family typewriter
+cipher_spec
+\family default
+), si la sesión se puede restaurar (
+\family typewriter
+is_resumable
+\family default
+) y un 
+\emph on
+nonce
+\emph default
+ aleatorio (
+\family typewriter
+client_random
+\family default
+ en el 
+\family typewriter
+client_hello
+\family default
+ y 
+\family typewriter
+server_random
+\family default
+ en el 
+\family typewriter
+server_hello
+\family default
+, que se concatenan en un 
+\family typewriter
+client_server_random
+\family default
+).
+ Los 3 primeros parámetros van a la tabla de sesión y el último a la de
+ conexión.
+\end_layout
+
+\begin_layout Standard
+La 
+\family typewriter
+cipher_spec
+\family default
+ tiene formato 
+\family typewriter
+\emph on
+PROT
+\emph default
+_
+\emph on
+AUTH
+\emph default
+_
+\emph on
+SYM
+\emph default
+_
+\emph on
+SIZE
+\emph default
+_
+\emph on
+BLK
+\emph default
+_
+\emph on
+HASH
+\family default
+\emph default
+, donde 
+\family typewriter
+\emph on
+PROT
+\family default
+\emph default
+ es el protocolo (
+\family typewriter
+SSL
+\family default
+, 
+\family typewriter
+TLS
+\family default
+, ...), 
+\family typewriter
+\emph on
+AUTH
+\family default
+\emph default
+ es el algoritmo de clave pública para autenticación (
+\family typewriter
+RSA
+\family default
+, 
+\family typewriter
+DSS
+\family default
+, ...), 
+\family typewriter
+\emph on
+SYM
+\family default
+\emph default
+ es el algoritmo de clave simétrica para cifrado (
+\family typewriter
+AES
+\family default
+, 
+\family typewriter
+DES
+\family default
+, ...), 
+\family typewriter
+\emph on
+SIZE
+\family default
+\emph default
+ es el tamaño de bloque (
+\family typewriter
+64
+\family default
+, 
+\family typewriter
+128
+\family default
+, 
+\family typewriter
+256
+\family default
+, ...), 
+\family typewriter
+\emph on
+BLK
+\family default
+\emph default
+ es el modo de cifrado de bloque (
+\family typewriter
+CBC
+\family default
+, 
+\family typewriter
+OCF
+\family default
+, ...) y 
+\family typewriter
+\emph on
+HASH
+\family default
+\emph default
+ es la función 
+\emph on
+hash
+\emph default
+ (
+\family typewriter
+MD5
+\family default
+, 
+\family typewriter
+SHA_1
+\family default
+, ...).
+ Si se establece el secreto compartido por 
+\emph on
+Elliptic Curve Diffie-Hellman
+\emph default
+, se añade 
+\family typewriter
+ECDHE
+\family default
+ antes de 
+\family typewriter
+\emph on
+AUTH
+\family default
+\emph default
+ como método de intercambio de claves.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+El servidor envía un 
+\family typewriter
+certificate
+\family default
+ al cliente con su certificado (
+\family typewriter
+peer_certificate
+\family default
+), solicita opcionalmente un certificado del cliente con un 
+\family typewriter
+certificate_request
+\family default
+, envía un mensaje 
+\family typewriter
+server_key_exchange
+\family default
+ si el intercambio se hace por un método Diffie-Hellman y envía un 
+\family typewriter
+server_hello_done
+\family default
+.
+ El cliente verifica la confianza en el certificado, crea una clave 
+\emph on
+pre-master-secret
+\emph default
+ y de esta deriva una 
+\emph on
+master-secret
+\emph default
+, usada como valor pseudo aleatorio.
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+master_secret :=
+\end_layout
+
+\begin_layout Plain Layout
+
+    MD5(pre_master || 
+\end_layout
+
+\begin_layout Plain Layout
+
+        SHA('A' || pre_master || client_server_random)) ||
+\end_layout
+
+\begin_layout Plain Layout
+
+    MD5(pre_master || 
+\end_layout
+
+\begin_layout Plain Layout
+
+        SHA('BB' || pre_master || client_server_random)) ||
+\end_layout
+
+\begin_layout Plain Layout
+
+    MD5(pre_master || 
+\end_layout
+
+\begin_layout Plain Layout
+
+        SHA('CCC' || pre_master || client_server_random))
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+El cliente envía un 
+\family typewriter
+client_key_exchange
+\family default
+ con la 
+\emph on
+pre-master-secret
+\emph default
+, de la que el servidor deriva la 
+\emph on
+master-secret
+\emph default
+.
+ El 
+\family typewriter
+peer_certificate
+\family default
+ y la 
+\family typewriter
+master_secret
+\family default
+ van a la tabla de sesión.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si se usa autenticación de cliente, este envía también un mensaje 
+\family typewriter
+certificate
+\family default
+ y un 
+\family typewriter
+client_verify
+\family default
+ para demostrar que posee la clave privada asociada a su certificado, que
+ contiene
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+hash(master_secret || pad2 ||
+\end_layout
+
+\begin_layout Plain Layout
+
+     hash(handshake_messages || master_secret || pad1))
+\end_layout
+
+\end_inset
+
+Si se usa Diffie-Hellman, en vez de usar una 
+\emph on
+pre-master-secret
+\emph default
+, la 
+\emph on
+master-secret
+\emph default
+ se establece con los mensajes 
+\family typewriter
+server_key_exchange
+\family default
+ y 
+\family typewriter
+client_key_exchange
+\family default
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+De la 
+\emph on
+master-secret
+\emph default
+ se derivan las subclaves 
+\family typewriter
+server_write_MAC_secret
+\family default
+, 
+\family typewriter
+client_write_MAC_secret
+\family default
+, 
+\family typewriter
+server_write_key
+\family default
+ y 
+\family typewriter
+client_write_key
+\family default
+, y vectores de inicialización del cifrado de bloques en ambas direcciones
+ (
+\family typewriter
+initialization_vector
+\family default
+), que guardan en la 
+\series bold
+tabla de conexión
+\series default
+ junto a 
+\family typewriter
+sequence_numbers
+\family default
+.
+ El cliente envía un mensaje CCSP para pasar a conexión cifrada y un 
+\family typewriter
+finish
+\family default
+, que ya va cifrado.
+ El servidor hace lo mismo.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El 
+\family typewriter
+client_verify
+\family default
+ se calcula como
+\end_layout
+
+\begin_layout Standard
+El 
+\family typewriter
+finish
+\family default
+ verifica que el proceso de intercambio concluyó con éxito, y contiene
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+MD5(master_secret || pad2 || 
+\end_layout
+
+\begin_layout Plain Layout
+
+    MD5(handshake_messages || sender || master_secret || pad1)) ||
+\end_layout
+
+\begin_layout Plain Layout
+
+SHA(master_secret || pad2 ||
+\end_layout
+
+\begin_layout Plain Layout
+
+    SHA(handshake_messages || sender || master_secret || pad1))
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+AP
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+\emph on
+Alert Protocol
+\series default
+\emph default
+ permite notificar avisos y errores con encriptación.
+ Los mensajes tienen un byte de nivel, que vale 1 para notificar avisos
+ (
+\emph on
+warning
+\emph default
+) o 2 para errores irrecuperables que requieren abortar la conexión (
+\emph on
+fatal
+\emph default
+), y un byte de código de alerta.
+ Algunos de los códigos son:
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Close_notify
+\family default
+ El emisor no enviará más mensajes.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Unexpected_message
+\family default
+ Se ha recibido un mensaje inapropiado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Bad_record_mac
+\family default
+ Se ha recibido un segmento con MAC incorrecta.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Decompression_failure
+\family default
+ El texto no cumple el formato de compresión establecido.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Handshake_failure
+\family default
+ El emisor es incapaz de negociar parámetros de seguridad aceptables.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+No_certificate
+\family default
+ No hay un certificado disponible.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Bad_certificate
+\family default
+ El certificado tiene una firma no verificada o ha sido dañado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Unsupported_certificate
+\family default
+ Tipo de certificado no soportado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Certificate_revoked
+\family default
+ El certificado está revocado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Certificate_expired
+\family default
+ El certificado ha expirado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Certificate_unknown
+\family default
+ Otra propiedad del certificado lo hace no aceptable.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Illegal_parameter
+\family default
+ Un campo está fuera de rango o es inconsistente con otros campos.
+\end_layout
+
+\begin_layout Section
+TLS
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\emph on
+Transport Layer Security
+\series default
+\emph default
+ es el sucesor de SSL.
+ La versión 1.0 es el RFC 2246 y añade algunos cambios a SSL 3.0.
+ Su número de versión en el RP es 3.1; el algoritmo de firma se basa en HMAC
+ estándar (RFC 2104); se añaden una función pseudoaleatoria, más secretos
+ compartidos para mayor seguridad, nuevos códigos de alerta, 
+\emph on
+padding
+\emph default
+ variable múltiplo de la longitud del bloque de cifrado y más tipos de certifica
+dos de cliente; se eliminan los cifrados nulo y Fortezza y cambia el cálculo
+ del 
+\emph on
+hash
+\emph default
+ en 
+\family typewriter
+certificate_verify
+\family default
+ y 
+\family typewriter
+finished
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+La versión 1.1, de 2006, añade protección contra ataques a CBC.
+ La 1.2, de 2008, reemplaza MD5 y SHA-1 por SHA-2 en los distintos mensajes,
+ mejora la especificación de algoritmos soportados y añade algoritmos de
+ cifrado autenticado y AES.
+\end_layout
+
+\begin_layout Standard
+La versión 1.3, de 2018, está propuesta como 
+\emph on
+Internet Standard
+\emph default
+.
+ Mejora el rendimiento reduciendo el establecimiento de conexión en el caso
+ general a 1 RTT, separa los algoritmos de intercambio de claves y autenticación
+, añade un modo 0-RTT, cifra todos los mensajes después del 
+\family typewriter
+server_hello
+\family default
+, rediseña las funciones de derivación de clave (
+\series bold
+HDKF
+\series default
+), y añade algoritmos basados en curvas elípticas y un resumen de sesión
+ basado en PSK.
+\end_layout
+
+\end_body
+\end_document
