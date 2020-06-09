@@ -1,0 +1,277 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Es un protocolo sencillo cliente-servidor para asegurar comunicaciones que
+ funciona sobre el puerto TCP 22.
+ SSH 1 se centraba en hacer seguro el acceso remoto por Telnet, y SSH 2
+ resuelve problemas de seguridad en SSH 1.
+ 
+\end_layout
+
+\begin_layout Section
+
+\emph on
+Transport Layer Protocol
+\end_layout
+
+\begin_layout Standard
+Proporciona autenticación, confidencialidad, integridad y compresión opcional
+ a los protocolos superiores.
+ Para la autenticación, el cliente tiene una base de datos local con las
+ claves públicas de los servidores en que confía, que suele estar en 
+\family typewriter
+~/.ssh/known_hosts
+\family default
+, y certificados CA para verificar los certificados de servidor.
+\end_layout
+
+\begin_layout Standard
+Establecimiento de conexión segura o 
+\series bold
+túnel
+\series default
+:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\emph on
+Identification string exchange
+\series default
+\emph default
+: El cliente envía su versión del protocolo (1.0 y 2.0 son incompatibles)
+ y del software al servidor, y este responde con lo mismo.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\emph on
+Algorithm negotiation
+\series default
+\emph default
+: El cliente envía un 
+\family typewriter
+SSH_MSG_KEXINIT
+\family default
+ al servidor y este le responde con otro.
+ Se negocian los algoritmos de intercambio de claves, cifrado simétrico,
+ MAC y compresión.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\emph on
+Key exchange
+\series default
+\emph default
+: Diffie-Hellman autenticado con firma digital.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\emph on
+End of key exchange
+\series default
+\emph default
+: El cliente envía un 
+\family typewriter
+SSH_MSG_NEWKEYS
+\family default
+ al servidor y este le responde con otro.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\emph on
+Service Request
+\series default
+\emph default
+: El cliente solicita el comienzo de la autenticación de usuario o el establecim
+iento de una conexión.
+\end_layout
+
+\begin_layout Section
+
+\emph on
+User Authentication Protocol
+\end_layout
+
+\begin_layout Standard
+Para la autenticación de cliente, este envía un 
+\family typewriter
+SSH_MSG_USERAUTH_REQUEST
+\family default
+ con las credenciales y un método de autenticación, y el servidor responde
+ con 
+\family typewriter
+SSH_MSG_USERAUTH_FAILURE
+\family default
+, en cuyo caso el cliente puede volver a intentarlo, o 
+\family typewriter
+SSH_MSG_USERAUTH_SUCCESS
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Normalmente el cliente va probando métodos de autenticación, empezando por
+ 
+\family typewriter
+none
+\family default
+ (sin autenticación, solo se indica el nombre de usuario).
+\end_layout
+
+\begin_layout Section
+
+\emph on
+Connection Protocol
+\end_layout
+
+\begin_layout Standard
+Funciona sobre el 
+\emph on
+Transport Layer Protocol
+\emph default
+ y multiplexa el túnel en 
+\series bold
+canales
+\series default
+.
+ El cliente y el servidor pueden iniciar el establecimiento de un canal,
+ al que se asigna un identificador y se realiza control de flujo.
+\end_layout
+
+\begin_layout Standard
+Para abrir un canal, el iniciador envía un mensaje 
+\family typewriter
+SSH_MSG_CHANNEL_OPEN
+\family default
+ a la otra parte, que responde con un 
+\family typewriter
+SSH_MSG_CHANNEL_OPEN_CONFIRMATION
+\family default
+.
+ La transferencia de datos ocurre en mensajes 
+\family typewriter
+SSH_MSG_CHANNEL_DATA
+\family default
+, y el canal se cierra con un  
+\family typewriter
+SSH_MSG_CHANNEL_CLOSE
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Algunos tipos de canales son 
+\emph on
+interactive session
+\emph default
+ (sesión interactiva de 
+\emph on
+shell
+\emph default
+), 
+\emph on
+X11 redirect
+\emph default
+ (redirección de una conexión X11 para usar aplicaciones gráficas de forma
+ remota), 
+\emph on
+forwarded-tcpip
+\emph default
+ y 
+\emph on
+direct-tcpip
+\emph default
+.
+\end_layout
+
+\end_body
+\end_document
