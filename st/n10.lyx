@@ -150,11 +150,8 @@ SAs
 Security Associations
 \emph default
 ), relaciones unidireccionales entre emisor y receptor que dotan de seguridad
- a un flujo de tráfico, formado por:
-\end_layout
-
-\begin_layout Itemize
-Un 
+ a un flujo de tráfico.
+ Un SA está formado por un 
 \series bold
 SPI
 \series default
@@ -162,38 +159,17 @@ SPI
 \emph on
 Security Parameters Index
 \emph default
-), un número de 32 bits seleccionado por el receptor que identifica la SA.
-\end_layout
-
-\begin_layout Itemize
-Una dirección IP de destino.
-\end_layout
-
-\begin_layout Itemize
-Un identificador del protocolo de seguridad (AH o ESP), algoritmos de cifrado
- y autenticación, vectores de inicialización, claves de autenticación y
- cifrado, tiempo de vida de las claves, etc.
-\end_layout
-
-\begin_layout Itemize
-Un tiempo de vida: intervalo de tiempo o número de bytes tras lo cual hay
- que renovar la SA.
-\end_layout
-
-\begin_layout Itemize
-Modo túnel o transporte.
-\end_layout
-
-\begin_layout Itemize
-
+), número de 32 bits seleccionado por el receptor que identifica la SA,
+ una dirección IP de destino, un identificador del protocolo de seguridad
+ (AH o ESP), algoritmos de cifrado y autenticación, vectores de inicialización,
+ claves de autenticación y cifrado, tiempo de vida de las claves, tiempo
+ de vida (intervalo de tiempo o número de bytes) tras el cual hay que renovar
+ la SA, modo túnel o transporte, 
 \emph on
-Path MTU
+path MTU
 \emph default
- descubierto.
-\end_layout
-
-\begin_layout Itemize
-Contador de número de secuencia, número de secuencia máximo, ventana, etc.
+ descubierto, contador de número de secuencia, número de secuencia máximo,
+ ventana, etc.
 \end_layout
 
 \begin_layout Standard
@@ -677,8 +653,7 @@ eoffsets
 \end_layout
 
 \begin_layout Standard
-El SPI indica los parámetros de seguridad usados en la SA, y el ICV, si
- aparece, proporciona la integridad de los datos encriptados.
+El ICV, si aparece, proporciona la integridad de los datos encriptados.
 \end_layout
 
 \begin_layout Section
