@@ -1,0 +1,3092 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Dos funciones 
+\begin_inset Formula $f,g:X\to Y$
+\end_inset
+
+ son 
+\series bold
+homotópicas
+\series default
+, 
+\begin_inset Formula $f\simeq g$
+\end_inset
+
+, si existe 
+\begin_inset Formula $F:X\times[0,1]\to Y$
+\end_inset
+
+ continua tal que 
+\begin_inset Formula $\forall x\in X,(F(x,0)=f(x)\land F(x,1)=g(x))$
+\end_inset
+
+, en cuyo caso 
+\begin_inset Formula $F$
+\end_inset
+
+ es una 
+\series bold
+homotopía
+\series default
+.
+ De la continuidad de 
+\begin_inset Formula $F$
+\end_inset
+
+ se obtiene la de 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+, y si 
+\begin_inset Formula ${\cal C}(X,Y)$
+\end_inset
+
+ es el espacio de las funciones continuas 
+\begin_inset Formula $X\to Y$
+\end_inset
+
+, 
+\begin_inset Formula $F$
+\end_inset
+
+ es un camino en 
+\begin_inset Formula ${\cal C}(X,Y)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Lema del pegamiento:
+\series default
+ Sean 
+\begin_inset Formula $X:=A\cup B$
+\end_inset
+
+ con 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ cerrados en 
+\begin_inset Formula $X$
+\end_inset
+
+ y 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+, si 
+\begin_inset Formula $f|_{A}$
+\end_inset
+
+ y 
+\begin_inset Formula $f|_{B}$
+\end_inset
+
+ son continuas con la topología de subespacio, 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Dado un cerrado 
+\begin_inset Formula $C\subseteq Y$
+\end_inset
+
+, 
+\begin_inset Formula $f^{-1}(C)\cap X$
+\end_inset
+
+ y 
+\begin_inset Formula $f^{-1}(C)\cap Y$
+\end_inset
+
+ son continuas respectivamente en 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ por hipótesis, luego también lo son en 
+\begin_inset Formula $X$
+\end_inset
+
+ por ser 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ cerrados, y su unión, 
+\begin_inset Formula $f^{-1}(C)$
+\end_inset
+
+, es cerrada.
+ Por tanto, dado un abierto 
+\begin_inset Formula $U\subseteq Y$
+\end_inset
+
+, 
+\begin_inset Formula $f^{-1}(U)=X\setminus(X\setminus f^{-1}(U))=X\setminus f^{-1}(X\setminus U)$
+\end_inset
+
+, que es abierto.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La relación ser funciones homotópicas es de equivalencia, y llamamos 
+\begin_inset Formula $[X,Y]:={\cal C}(X,Y)\slash\simeq$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $f,g,h:X\to Y$
+\end_inset
+
+ continuas.
+ 
+\begin_inset Formula $F(x,t):=f(x)$
+\end_inset
+
+ es una homotopía de 
+\begin_inset Formula $f$
+\end_inset
+
+ a 
+\begin_inset Formula $f$
+\end_inset
+
+, luego 
+\begin_inset Formula $\simeq$
+\end_inset
+
+ es reflexiva.
+ Si 
+\begin_inset Formula $F$
+\end_inset
+
+ es una homotopía de 
+\begin_inset Formula $f$
+\end_inset
+
+ a 
+\begin_inset Formula $g$
+\end_inset
+
+, 
+\begin_inset Formula $G(x,t):=F(x,1-t)$
+\end_inset
+
+ lo es de 
+\begin_inset Formula $g$
+\end_inset
+
+ a 
+\begin_inset Formula $f$
+\end_inset
+
+, luego 
+\begin_inset Formula $\simeq$
+\end_inset
+
+ es simétrica.
+ Si 
+\begin_inset Formula $F$
+\end_inset
+
+ y 
+\begin_inset Formula $G$
+\end_inset
+
+ son homotopías respectivas de 
+\begin_inset Formula $f$
+\end_inset
+
+ a 
+\begin_inset Formula $g$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+H(x,t):=\begin{cases}
+F(x,2t), & 0\leq t\leq\frac{1}{2};\\
+G(x,2t-1), & \frac{1}{2}\leq t\leq1;
+\end{cases}
+\]
+
+\end_inset
+
+es una homotopía de 
+\begin_inset Formula $f$
+\end_inset
+
+ a 
+\begin_inset Formula $h$
+\end_inset
+
+, pues 
+\begin_inset Formula $H|_{X\times[0,\frac{1}{2}]}$
+\end_inset
+
+ y 
+\begin_inset Formula $H|_{X\times[\frac{1}{2},1]}$
+\end_inset
+
+ son continuas y, por el lema del pegamento, 
+\begin_inset Formula $H$
+\end_inset
+
+ también, y que 
+\begin_inset Formula $H(x,0)=f(x)$
+\end_inset
+
+ y 
+\begin_inset Formula $H(x,1)=h(x)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x$
+\end_inset
+
+ es obvio.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $X$
+\end_inset
+
+ un espacio topológico e 
+\begin_inset Formula $Y\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ un subespacio convexo, todas las funciones continuas 
+\begin_inset Formula $X\to Y$
+\end_inset
+
+ son homotópicas
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+, pues si 
+\begin_inset Formula $f,g:X\to Y$
+\end_inset
+
+ son continuas, basta tomar la homotopía 
+\begin_inset Formula $F:X\times[0,1]\to Y$
+\end_inset
+
+ dada por 
+\begin_inset Formula $F(x,t):=(1-t)f(x)+tg(x)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ En particular 
+\begin_inset Formula $[X,Y]$
+\end_inset
+
+ es unipuntual.
+ 
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $f,g:X\to Y$
+\end_inset
+
+ y 
+\begin_inset Formula $h,j:Y\to Z$
+\end_inset
+
+ funciones continuas, 
+\begin_inset Formula $F:X\times[0,1]\to Y$
+\end_inset
+
+ una homotopía entre 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ y 
+\begin_inset Formula $H$
+\end_inset
+
+ una homotopía de 
+\begin_inset Formula $h$
+\end_inset
+
+ a 
+\begin_inset Formula $j$
+\end_inset
+
+, entonces 
+\begin_inset Formula $(x,t)\mapsto H(F(x,t),t)$
+\end_inset
+
+ es una homotopía de 
+\begin_inset Formula $h\circ f$
+\end_inset
+
+ a 
+\begin_inset Formula $j\circ g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Equivalencia homotópica
+\end_layout
+
+\begin_layout Standard
+Un subespacio 
+\begin_inset Formula $Y\subseteq X$
+\end_inset
+
+ es un 
+\series bold
+retracto
+\series default
+ de 
+\begin_inset Formula $X$
+\end_inset
+
+ si existe 
+\begin_inset Formula $r:X\to Y$
+\end_inset
+
+ continua tal que 
+\begin_inset Formula $r|_{Y}=1_{Y}$
+\end_inset
+
+, en cuyo caso 
+\begin_inset Formula $r$
+\end_inset
+
+ es una 
+\series bold
+retracción
+\series default
+.
+ 
+\begin_inset Formula $Y$
+\end_inset
+
+ es un 
+\series bold
+retracto de deformación
+\series default
+ de 
+\begin_inset Formula $X$
+\end_inset
+
+ si existe una retracción 
+\begin_inset Formula $r:X\to Y$
+\end_inset
+
+ tal que 
+\begin_inset Formula $i\circ r\simeq1_{X}$
+\end_inset
+
+, donde 
+\begin_inset Formula $i:Y\to X$
+\end_inset
+
+ es la inclusión, y es un 
+\series bold
+retracto fuerte de deformación
+\series default
+ si podemos tomar 
+\begin_inset Formula $r$
+\end_inset
+
+ para el que exista una homotopía 
+\begin_inset Formula $F$
+\end_inset
+
+ de 
+\begin_inset Formula $i\circ r$
+\end_inset
+
+ a 
+\begin_inset Formula $1_{X}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall(y,t)\in Y\times[0,1],F(y,t)=y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dos espacios 
+\begin_inset Formula $X$
+\end_inset
+
+ es 
+\begin_inset Formula $Y$
+\end_inset
+
+ son 
+\series bold
+homotópicamente equivalentes
+\series default
+, 
+\begin_inset Formula $X\simeq Y$
+\end_inset
+
+, si existen 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ y 
+\begin_inset Formula $g:Y\to X$
+\end_inset
+
+ continuas con 
+\begin_inset Formula $g\circ f\simeq1_{X}$
+\end_inset
+
+ y 
+\begin_inset Formula $f\circ g\simeq1_{Y}$
+\end_inset
+
+, en cuyo caso llamamos 
+\series bold
+equivalencias homotópicas
+\series default
+ a 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado otro espacio 
+\begin_inset Formula $Z$
+\end_inset
+
+, 
+\begin_inset Formula $\Phi:[X,Z]\to[Y,Z]$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\Phi([h]):=[h\circ g]$
+\end_inset
+
+ es biyectiva con inversa 
+\begin_inset Formula $\Phi^{-1}([j])=[j\circ f]$
+\end_inset
+
+, y 
+\begin_inset Formula $\Psi:[Z,X]\to[Z,Y]$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\Psi([h]):=[f\circ h]$
+\end_inset
+
+ es biyectiva con inversa 
+\begin_inset Formula $\Psi^{-1}([j])=[g\circ j]$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $h\simeq j$
+\end_inset
+
+, 
+\begin_inset Formula $h\circ g\simeq j\circ g$
+\end_inset
+
+, luego 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ está bien definida y, análogamente, 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ está bien definida.
+ Sean 
+\begin_inset Formula $\Phi'([j]):=[j\circ f]$
+\end_inset
+
+ y 
+\begin_inset Formula $\Psi'([j])=[g\circ j]$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $\Phi(\Phi'([h]))=\Phi([h\circ g])=[h\circ g\circ f]=[h\circ1_{X}]=[h]$
+\end_inset
+
+ y 
+\begin_inset Formula $\Phi'(\Phi([j]))=\Phi'([j\circ f])=[j\circ f\circ g]=[j\circ1_{Y}]=[j]$
+\end_inset
+
+, 
+\begin_inset Formula $\Phi'=\Phi^{-1}$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $\Psi(\Psi'([h]))=\Psi([g\circ h])=[f\circ g\circ h]=[h]$
+\end_inset
+
+ y 
+\begin_inset Formula $\Psi'(\Psi([h]))=\Psi'([f\circ h])=[g\circ f\circ h]=[h]$
+\end_inset
+
+, 
+\begin_inset Formula $\Psi'=\Psi^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+ son homeomorfismos, 
+\begin_inset Formula $X\simeq Y$
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+, pues si 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ es el homeomorfismo y 
+\begin_inset Formula $g:=f^{-1}:Y\to X$
+\end_inset
+
+, entonces 
+\begin_inset Formula $g\circ f=1_{X}$
+\end_inset
+
+ y 
+\begin_inset Formula $f\circ g=1_{Y}$
+\end_inset
+
+, luego 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ son equivalencias homotópicas
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El recíproco no se cumple:
+\end_layout
+
+\begin_layout Enumerate
+La corona circular 
+\begin_inset Formula $\{(x,y)\in\mathbb{R}^{2}:x^{2}+y^{2}\in[0,1]\}$
+\end_inset
+
+ es homotópicamente equivalente, pero no homeomorfa, a 
+\begin_inset Formula $\mathbb{S}^{1}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sea 
+\begin_inset Formula $A$
+\end_inset
+
+ la corona.
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ no es homeomorfa a 
+\begin_inset Formula $\mathbb{S}^{1}$
+\end_inset
+
+ porque, al quitar un punto a cada una, 
+\begin_inset Formula $\mathbb{S}^{1}$
+\end_inset
+
+ queda disconexa pero 
+\begin_inset Formula $A$
+\end_inset
+
+ no.
+ Para la homotopía tomamos las funciones 
+\begin_inset Formula $A\overset{f}{\to}\mathbb{S}^{1}\overset{g}{\to}A$
+\end_inset
+
+ dadas por 
+\begin_inset Formula $f(x):=\frac{x}{\Vert x\Vert}$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ es la inclusión.
+ Entonces 
+\begin_inset Formula $F(x,t):=(1-t)f(x)+tx$
+\end_inset
+
+ es una homotopía de 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ a 
+\begin_inset Formula $1_{A}$
+\end_inset
+
+ y 
+\begin_inset Formula $f\circ g=1_{\mathbb{S}^{1}}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{R}^{n+1}\setminus\{0\}$
+\end_inset
+
+ es homotópicamente equivalente, pero no homeomorfo, a 
+\begin_inset Formula $\mathbb{S}^{n}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+No son homeomorfos porque 
+\begin_inset Formula $\mathbb{S}^{n}$
+\end_inset
+
+ es compacto pero 
+\begin_inset Formula $\mathbb{R}^{n+1}\setminus\{0\}$
+\end_inset
+
+ no.
+ Para la homotopía tomamos 
+\begin_inset Formula $\mathbb{R}^{n+1}\setminus\{0\}\overset{f}{\to}\mathbb{S}^{1}\overset{g}{\to}\mathbb{R}^{n+1}\setminus\{0\}$
+\end_inset
+
+ dadas por 
+\begin_inset Formula $f(x):=\frac{x}{\Vert x\Vert}$
+\end_inset
+
+ y 
+\begin_inset Formula $g(x):=x$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $F(x,t):=(1-t)f(x)+tx$
+\end_inset
+
+ es una homotopía de 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ a 
+\begin_inset Formula $1_{\mathbb{R}^{n+1}\setminus\{0\}}$
+\end_inset
+
+ y 
+\begin_inset Formula $f\circ g=1_{\mathbb{S}^{1}}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $X$
+\end_inset
+
+ es 
+\series bold
+contráctil
+\series default
+ si es homotópicamente equivalente a un espacio unipuntual, y es fácil ver
+ que todo 
+\begin_inset Formula $X\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ convexo es contráctil.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+ espacios topológicos con 
+\begin_inset Formula $Y$
+\end_inset
+
+ contráctil, todas las funciones continuas 
+\begin_inset Formula $X\to Y$
+\end_inset
+
+ son homotópicas.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Basta ver que todas son homotópicas a una misma función constante.
+ Sean 
+\begin_inset Formula $\{p\}$
+\end_inset
+
+ el espacio unipuntual homotópicamente equivalente a 
+\begin_inset Formula $Y$
+\end_inset
+
+; 
+\begin_inset Formula $h:Y\to\{p\}$
+\end_inset
+
+ y 
+\begin_inset Formula $j:\{p\}\to Y$
+\end_inset
+
+ las equivalencias homotópicas, e 
+\begin_inset Formula $y_{0}:=k(p)\in Y$
+\end_inset
+
+, para 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+, 
+\begin_inset Formula $f=1_{Y}\circ f\simeq j\circ h\circ f=(x\mapsto y_{0})$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Todo espacio contráctil es conexo por caminos.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $X$
+\end_inset
+
+ homotópicamente equivalente a 
+\begin_inset Formula $\{p\}$
+\end_inset
+
+, 
+\begin_inset Formula $X\overset{f}{\to}\{p\}\overset{g}{\to}X$
+\end_inset
+
+ las equivalencias homotópicas, 
+\begin_inset Formula $x_{0}:=g(p)=g(f(X))$
+\end_inset
+
+ y 
+\begin_inset Formula $F:X\times[0,1]\to X$
+\end_inset
+
+ la homotopía de 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ a 
+\begin_inset Formula $1_{X}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $x\in X$
+\end_inset
+
+, definimos el camino 
+\begin_inset Formula $\gamma_{x}(t):=F(x,t)$
+\end_inset
+
+ que une 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ a 
+\begin_inset Formula $x$
+\end_inset
+
+, y entonces, para 
+\begin_inset Formula $x,y\in X$
+\end_inset
+
+, 
+\begin_inset Formula $(\dot{-}\gamma_{x}(t))\dot{+}\gamma_{y}(t)$
+\end_inset
+
+ es un camino de 
+\begin_inset Formula $x$
+\end_inset
+
+ a 
+\begin_inset Formula $y$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+invariante homotópico
+\series default
+ es una propiedad que se conserva por equivalencias homotópicas.
+ Son invariantes homotópicos:
+\end_layout
+
+\begin_layout Enumerate
+La conexión.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Si 
+\begin_inset Formula $X\simeq Y$
+\end_inset
+
+ con 
+\begin_inset Formula $X$
+\end_inset
+
+ conexo e 
+\begin_inset Formula $Y$
+\end_inset
+
+ disconexo, sean 
+\begin_inset Formula $\{U,V\}$
+\end_inset
+
+ una separación por abiertos de 
+\begin_inset Formula $Y$
+\end_inset
+
+ y 
+\begin_inset Formula $X\overset{f}{\to}Y\overset{g}{\to}X$
+\end_inset
+
+ equivalencias homotópicas, como 
+\begin_inset Formula $f(X)$
+\end_inset
+
+ es conexo, 
+\begin_inset Formula $f(X)\subseteq U$
+\end_inset
+
+ o 
+\begin_inset Formula $f(X)\subseteq V$
+\end_inset
+
+.
+ Si, por ejemplo, 
+\begin_inset Formula $f(X)\subseteq U$
+\end_inset
+
+, dado 
+\begin_inset Formula $y\in V$
+\end_inset
+
+, 
+\begin_inset Formula $f(g(y))=U$
+\end_inset
+
+, y como 
+\begin_inset Formula $f\circ g\simeq1_{X}$
+\end_inset
+
+, existe una homotopía 
+\begin_inset Formula $F:Y\times[0,1]\to Y$
+\end_inset
+
+ de 
+\begin_inset Formula $f\circ g$
+\end_inset
+
+ a 
+\begin_inset Formula $1_{Y}$
+\end_inset
+
+ y por tanto un camino 
+\begin_inset Formula $\gamma(t):=F(y,t)$
+\end_inset
+
+ de 
+\begin_inset Formula $f(g(y))\in U$
+\end_inset
+
+ a 
+\begin_inset Formula $y\in V\#$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+La conexión por caminos.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Si 
+\begin_inset Formula $X\simeq Y$
+\end_inset
+
+ con 
+\begin_inset Formula $X$
+\end_inset
+
+ conexo por caminos, sean 
+\begin_inset Formula $X\overset{f}{\to}Y\overset{g}{\to}X$
+\end_inset
+
+ las equivalencias homotópicas, 
+\begin_inset Formula $x,y\in Y$
+\end_inset
+
+, 
+\begin_inset Formula $\gamma:[0,1]\to X$
+\end_inset
+
+ un camino que une 
+\begin_inset Formula $g(x)$
+\end_inset
+
+ con 
+\begin_inset Formula $g(y)$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $f\circ\gamma$
+\end_inset
+
+ une 
+\begin_inset Formula $f(g(x))$
+\end_inset
+
+ con 
+\begin_inset Formula $f(g(y))$
+\end_inset
+
+, 
+\begin_inset Formula $F:Y\times[0,1]\to Y$
+\end_inset
+
+ la homotopía de 
+\begin_inset Formula $f\circ g$
+\end_inset
+
+ a 
+\begin_inset Formula $1_{Y}$
+\end_inset
+
+ y, para cada 
+\begin_inset Formula $p$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma_{p}(t):=F(p,t)$
+\end_inset
+
+ un camino que une 
+\begin_inset Formula $f(g(p))$
+\end_inset
+
+ con 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $(\dot{-}\sigma_{x})\dot{+}(f\circ\gamma)\dot{+}\sigma_{y}$
+\end_inset
+
+ une 
+\begin_inset Formula $x$
+\end_inset
+
+ con 
+\begin_inset Formula $y$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La compacidad no es un invariante topológico
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+, pues 
+\begin_inset Formula $[0,1]\simeq(0,1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ Tampoco lo es la propiedad Hausdorff.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración:
+\series default
+ Dados 
+\begin_inset Formula $X:=\{0\}$
+\end_inset
+
+ e 
+\begin_inset Formula $Y:=\{0,1\}$
+\end_inset
+
+ con sus topologías indiscretas y 
+\begin_inset Formula $X\overset{f}{\to}Y\overset{g}{\to}X$
+\end_inset
+
+ dadas por 
+\begin_inset Formula $f(0)=0$
+\end_inset
+
+ y 
+\begin_inset Formula $g(x)=0$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+F(y,t):=\begin{cases}
+0, & t\leq\frac{1}{2};\\
+y, & t>\frac{1}{2};
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $F$
+\end_inset
+
+ es una homotopía de 
+\begin_inset Formula $(g\circ f)(x)=0$
+\end_inset
+
+ a 
+\begin_inset Formula $1_{Y}$
+\end_inset
+
+ y 
+\begin_inset Formula $f\circ g=1_{X}$
+\end_inset
+
+, luego 
+\begin_inset Formula $X\simeq Y$
+\end_inset
+
+ pero 
+\begin_inset Formula $X$
+\end_inset
+
+ es Hausdorff e 
+\begin_inset Formula $Y$
+\end_inset
+
+ no.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Circunferencia
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+aplicación exponencial
+\series default
+ a 
+\begin_inset Formula $e:\mathbb{R}\to\mathbb{S}^{1}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $e(\theta):=(\cos(2\pi\theta),\sin(2\pi\theta))$
+\end_inset
+
+.
+ Sean un camino 
+\begin_inset Formula $\alpha:[0,1]\to\mathbb{S}^{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\theta_{0}\in\mathbb{R}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $e(\theta_{0})=\alpha_{0}$
+\end_inset
+
+, existe un único camino 
+\begin_inset Formula $\tilde{\alpha}:[0,1]\to\mathbb{R}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $e(\tilde{\alpha}(s))=\alpha(s)$
+\end_inset
+
+ y 
+\begin_inset Formula $\tilde{\alpha}(0)=\theta_{0}$
+\end_inset
+
+, llamado 
+\series bold
+levantamiento
+\series default
+ de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ a través de 
+\begin_inset Formula $e$
+\end_inset
+
+ determinado por la condición inicial 
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Claramente $e$ es continua y sobreyectiva.
+ Sea un abierto $U
+\backslash
+subsetneq
+\backslash
+mathbb{S}^1$, existe $V
+\backslash
+subseteq
+\backslash
+mathbb R$ tal que $e|_V:V
+\backslash
+to U$ es un homeomorfismo, y como esto es periódico, $e^{-1}(U)=
+\backslash
+bigcup_{n
+\backslash
+in
+\backslash
+mathbb Z}V_n$ con $e|_{V_n}:V_n
+\backslash
+to U$ homeomorfismo.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Como $
+\backslash
+alpha$ es continua, para $
+\backslash
+theta
+\backslash
+in[0,1]$ existe un intervalo $I_
+\backslash
+theta$ con $
+\backslash
+alpha(I_
+\backslash
+theta)
+\backslash
+subseteq U_
+\backslash
+theta$ para un cierto $U_
+\backslash
+theta
+\backslash
+ni
+\backslash
+alpha(
+\backslash
+theta)$ que queramos (por ejemplo, $B(
+\backslash
+alpha(
+\backslash
+theta),
+\backslash
+varepsilon)$.
+ Como $
+\backslash
+alpha([0,1])$ es compacto, existe un subrecubrimiento finito $
+\backslash
+{I_{
+\backslash
+theta_1},
+\backslash
+dots,I_{
+\backslash
+theta_n}
+\backslash
+}$ (podemos suponer $
+\backslash
+theta_1<
+\backslash
+dots<
+\backslash
+theta_n$).
+ En cada $I_k$, $e$ es biyectiva definida salvo suma de un entero, luego
+ vamos <<enganchando>> y sale.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+lazo
+\series default
+ es un camino en el que el punto inicial y el final coinciden.
+ Si 
+\begin_inset Formula $f:\mathbb{S}^{1}\to\mathbb{S}^{1}$
+\end_inset
+
+ es continua, 
+\begin_inset Formula $\alpha_{f}:=f\circ e:[0,1]\to\mathbb{S}^{1}$
+\end_inset
+
+ es un lazo, y dado 
+\begin_inset Formula $\theta_{0}\in e^{-1}\{f(1,0)\}$
+\end_inset
+
+, sea 
+\begin_inset Formula $\tilde{\alpha}_{f}$
+\end_inset
+
+ el levantamiento de 
+\begin_inset Formula $\alpha_{f}$
+\end_inset
+
+ a través de 
+\begin_inset Formula $e$
+\end_inset
+
+ determinado por 
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\theta_{1}:=\tilde{\alpha}_{f}(1)=:\theta_{0}+n$
+\end_inset
+
+ para algún 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ que no depende de 
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+grado
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ a 
+\begin_inset Formula $\deg f:=n=\tilde{\alpha}_{f}(1)-\tilde{\alpha}_{f}(0)$
+\end_inset
+
+.
+ Así:
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+begin{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item $
+\backslash
+alpha_f(s)=f(e(s))=z_0$, $e({
+\backslash
+tilde
+\backslash
+alpha}_f(s))=
+\backslash
+alpha_f(s)=z_0$, luego ${
+\backslash
+tilde
+\backslash
+alpha}_f(s)$ es constante y el grado es 0.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item %TODO
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item $
+\backslash
+alpha_f(s)=f(e(s))=e(s)$, $e({
+\backslash
+tilde
+\backslash
+alpha}_f(s))=
+\backslash
+alpha_f(s)=e(s)$, tomamos ${
+\backslash
+tilde
+\backslash
+alpha}_f(s):=s$, $
+\backslash
+deg(f)={
+\backslash
+tilde
+\backslash
+alpha}_f(1)-{
+\backslash
+tilde
+\backslash
+alpha}_f(0)=1-0=1$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item $
+\backslash
+alpha_f(s)=f(e(s))=-e(s)$, $e({
+\backslash
+tilde
+\backslash
+alpha}_f(s))=
+\backslash
+alpha_f(s)=-e(s)=e(s+
+\backslash
+frac12)$, tomamos ${
+\backslash
+tilde
+\backslash
+alpha}_f(s):=s+
+\backslash
+frac12$, $
+\backslash
+deg(f)=(1+
+\backslash
+frac12)-(0+
+\backslash
+frac12)=1$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item $
+\backslash
+alpha_f(s)=f(e(s))=(
+\backslash
+cos^2(2
+\backslash
+pi s)-
+\backslash
+sin^2(2
+\backslash
+pi s),2
+\backslash
+cos(2
+\backslash
+pi s)
+\backslash
+sin(2
+\backslash
+pi s))=(
+\backslash
+cos(4
+\backslash
+pi s),
+\backslash
+sin(4
+\backslash
+pi s))=e(2s)$, $e({
+\backslash
+tilde
+\backslash
+alpha}_f(s)=e(2s)$, tomamos ${
+\backslash
+tilde
+\backslash
+alpha}_f(s):=2s$, $
+\backslash
+deg(f)=2
+\backslash
+cdot1-2
+\backslash
+cdot0=2$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item $
+\backslash
+alpha_f(s)=f(e(s))=f(e^{2
+\backslash
+pi is})=e^{2
+\backslash
+pi ins}=e(ns)$, $e({
+\backslash
+tilde
+\backslash
+alpha}_f(s))=
+\backslash
+alpha_f(s)=e(ns)$, tomamos ${
+\backslash
+tilde
+\backslash
+alpha}_f(s):=ns$, $
+\backslash
+deg f={
+\backslash
+tilde
+\backslash
+alpha}_f(1)-{
+\backslash
+tilde
+\backslash
+alpha}_f(0)=n1-n0=n$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item $
+\backslash
+alpha_f(s)=f(e(s))=(
+\backslash
+cos(2
+\backslash
+pi s),-
+\backslash
+sin(2
+\backslash
+pi s))=(
+\backslash
+cos(-2
+\backslash
+pi s),
+\backslash
+sin(-2
+\backslash
+pi s))=e(-s)$, tomamos ${
+\backslash
+tilde
+\backslash
+alpha}_f(s):=-s$, $
+\backslash
+deg(f)={
+\backslash
+tilde
+\backslash
+alpha}_f(1)-{
+\backslash
+tilde
+\backslash
+alpha}_f(0)=-1-(-0)=-1$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item $
+\backslash
+alpha_f(s)=f(e(s))=(-
+\backslash
+cos(2
+\backslash
+pi s),
+\backslash
+sin(2
+\backslash
+pi s))=-(
+\backslash
+cos(2
+\backslash
+pi s),-
+\backslash
+sin(2
+\backslash
+pi s))=(
+\backslash
+cos(2
+\backslash
+pi s-
+\backslash
+pi),-
+\backslash
+sin(2
+\backslash
+pi s-
+\backslash
+pi))=(
+\backslash
+cos(
+\backslash
+pi-2
+\backslash
+pi s),
+\backslash
+sin(
+\backslash
+pi-2
+\backslash
+pi s))=e(
+\backslash
+frac12-s)$, tomamos ${
+\backslash
+tilde
+\backslash
+alpha}_f(s):=
+\backslash
+frac12-s$, $
+\backslash
+deg(f)={
+\backslash
+tilde
+\backslash
+alpha}_f(1)-{
+\backslash
+tilde
+\backslash
+alpha}_f(0)=
+\backslash
+frac12-1-
+\backslash
+frac12+0=-1$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ no es sobreyectiva (por ejemplo, si es constante), 
+\begin_inset Formula $\deg f=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\deg1_{\mathbb{S}^{1}}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es la 
+\series bold
+función antípoda
+\series default
+, 
+\begin_inset Formula $f(x):=-x$
+\end_inset
+
+, 
+\begin_inset Formula $\deg f=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f(x,y):=(x^{2}-y^{2},2xy)$
+\end_inset
+
+, 
+\begin_inset Formula $\deg f=2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Dado 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+, si 
+\begin_inset Formula $f(z):=z^{n}$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+, 
+\begin_inset Formula $\deg f=n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f(x,y)=(x,-y)$
+\end_inset
+
+ o 
+\begin_inset Formula $f(x,y)=(-x,y)$
+\end_inset
+
+, 
+\begin_inset Formula $\deg f=-1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $F:[0,1]\times[0,1]\to\mathbb{S}^{1}$
+\end_inset
+
+ es continua y 
+\begin_inset Formula $\theta_{0}\in\mathbb{R}$
+\end_inset
+
+ cumple 
+\begin_inset Formula $e(\theta_{0})=F(0,0)$
+\end_inset
+
+, existe una única 
+\begin_inset Formula $\tilde{F}:[0,1]\times[0,1]\to\mathbb{R}$
+\end_inset
+
+ continua con 
+\begin_inset Formula $e(\tilde{F}(s,t))=F(s,t)$
+\end_inset
+
+ y 
+\begin_inset Formula $\tilde{F}(0,0)=\theta_{0}$
+\end_inset
+
+.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Existe una partición $
+\backslash
+{I_a
+\backslash
+}
+\backslash
+subseteq[0,1]$ y una $
+\backslash
+{J_b
+\backslash
+}
+\backslash
+subseteq[0,1]$ tal que $F(I_a
+\backslash
+times I_b)
+\backslash
+subseteq:V_{ab}
+\backslash
+subsetneq
+\backslash
+mathbb{S}^1$.
+ Para $I_0
+\backslash
+times J_0$, con lo que $e^{-1}(V_{ab})=:
+\backslash
+bigcup_iU_{abi}$.
+ Entonces, para $I_1
+\backslash
+times J_1$ podemos hacer esto y, una vez hecho esto, lo extendemos por continuid
+ad <<a la derecha>>, y luego hacemos lo mismo <<hacia arriba>>.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbb{S}^{1}$
+\end_inset
+
+ no es contráctil.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+De serlo, habría $f:
+\backslash
+mathbb{S}^1
+\backslash
+to
+\backslash
+{z_0
+\backslash
+}$ y $g:
+\backslash
+{z_0
+\backslash
+}
+\backslash
+to
+\backslash
+mathbb{S}^1$ con $g
+\backslash
+circ f
+\backslash
+simeq 1_{
+\backslash
+mathbb{S}^1}$, pero $g
+\backslash
+circ f$ es constante y tiene pues grado 0 y $1_{
+\backslash
+mathbb{S}^1}$ tiene grado 1.$#$
+\end_layout
+
+\end_inset
+
+ Como 
+\series bold
+teorema
+\series default
+, 
+\begin_inset Formula $f,g:\mathbb{S}^{1}\to\mathbb{S}^{1}$
+\end_inset
+
+ son homotópicas si y sólo si 
+\begin_inset Formula $\deg f=\deg g$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $z\mapsto z^{n}\simeq z\mapsto z^{m}\iff n=m$
+\end_inset
+
+: $f_n
+\backslash
+simeq f_m
+\backslash
+iff n=
+\backslash
+deg f_n=
+\backslash
+deg f_m=m$
+\end_layout
+
+\begin_layout Plain Layout
+Ahora el teorema:
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item{$
+\backslash
+implies]$} Sea $I:=[0,1]$, existe una homotopía $H:
+\backslash
+mathbb{S}^1
+\backslash
+times I
+\backslash
+to
+\backslash
+mathbb{S}^1$ y podemos tomar $F:I
+\backslash
+times I
+\backslash
+to
+\backslash
+mathbb{S}^1$ como $F(s,t):=H(e(s),t)$.
+ Sea $
+\backslash
+alpha_f:I
+\backslash
+to
+\backslash
+mathbb{S}^1$ dado por $
+\backslash
+alpha_f(s):=f(e(s))$, $
+\backslash
+deg f=
+\backslash
+tilde
+\backslash
+alpha_f(1)-
+\backslash
+tilde
+\backslash
+alpha_f(0)$.
+ Queremos ver que $
+\backslash
+tilde
+\backslash
+alpha_f(1)-
+\backslash
+tilde
+\backslash
+alpha_f(0)=
+\backslash
+tilde
+\backslash
+alpha_g(1)-
+\backslash
+tilde
+\backslash
+alpha_g(0)$.
+ Sea $
+\backslash
+tilde F:I
+\backslash
+times I
+\backslash
+to
+\backslash
+mathbb R$ el levantamento de $F$.
+ Entonces $F(s,0)=H(e(s),0)=f(e(s))=
+\backslash
+alpha_f(s)$, y análogamente $F(s,1)=
+\backslash
+alpha_g(s)$, luego $F$ es una homotopía entre $
+\backslash
+alpha_f$ y $
+\backslash
+alpha_g$.
+ Entonces $e(
+\backslash
+tilde F(s,0))=F(s,0)=
+\backslash
+alpha_f(s)$ y $e(
+\backslash
+tilde F(s,1))=
+\backslash
+alpha_g(s)$.
+ Ahora bien, sea $
+\backslash
+tilde D(t):=
+\backslash
+tilde F(1,t)-
+\backslash
+tilde F(0,t)$, basta ver que $
+\backslash
+tilde D$ es constante, pues entonces $
+\backslash
+deg f=
+\backslash
+tilde D(0)$ y $
+\backslash
+deg g=
+\backslash
+tilde D(1)$.
+ Para ello vemos que $
+\backslash
+tilde D(t)$ es entero, pues $e(
+\backslash
+tilde F(1,1))=F(1,t)=H(e(1),t)=H(e(0),t)=F(0,t)=e(
+\backslash
+tilde F(1,1))$, y al ser la exponencial la misma, la diferencia es entera.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item[$
+\backslash
+impliedby]$] Si $f(1,0)=g(1,0)$, como $
+\backslash
+alpha_f(0)=
+\backslash
+alpha_g(0)=f(1,0)=:z_0
+\backslash
+in
+\backslash
+mathbb{S}^1$, sea $
+\backslash
+theta_0$ con $e(
+\backslash
+theta_0)=z_0$, tomando levantamientos con $
+\backslash
+tilde
+\backslash
+alpha_f(0)=
+\backslash
+tilde
+\backslash
+alpha_g(0)=
+\backslash
+theta_0$, como los grados coinciden, $
+\backslash
+tilde
+\backslash
+alpha_f(1)=
+\backslash
+tilde
+\backslash
+alpha_g(1)$.
+ Sea $
+\backslash
+tilde F(s,t):=(1-t)
+\backslash
+tilde
+\backslash
+alpha_f(s)+t
+\backslash
+tilde
+\backslash
+alpha_g(s)$ la homotopía canónica entre $
+\backslash
+tilde
+\backslash
+alpha_f$ y $
+\backslash
+tilde
+\backslash
+alpha_g$.
+ Defino $F(s,t):=e(
+\backslash
+tilde F(s,t))$, que claramente es continua con $F(s,0)=e(
+\backslash
+tilde F(s,0))=e(
+\backslash
+tilde
+\backslash
+alpha_f(s))=
+\backslash
+alpha_f(s)$ y análogamente $F(s,1)=
+\backslash
+alpha_g(s)$, luego es una homotopía.
+ Sea $
+\backslash
+tilde H(e(s),t):=
+\backslash
+tilde F(s,t)$, que está bien definida porque $
+\backslash
+tilde F(0,t)=
+\backslash
+tilde F(1,t)$, y definimos $H:=e
+\backslash
+circ
+\backslash
+tilde H$, y $H$ es una homotopía entre $f$ y $g$.
+\end_layout
+
+\begin_layout Plain Layout
+Sea ahora $f(1,0)
+\backslash
+neq g(1,0)$.
+ Sea $g':=R_{
+\backslash
+theta_0}
+\backslash
+circ g$, donde $R_
+\backslash
+theta$ es la rotación de ángulo $
+\backslash
+theta$ y $
+\backslash
+theta_0$ es tal que $R_{
+\backslash
+theta_0}(g(1,0))=f(1,0)$.
+ Las funciones $f$ y $g'$ son homotópicas, y entre $g$ y $g'$ hay una homotopía
+ $g$ y $g'$ dada por $G(z,t):=R_{
+\backslash
+theta_0t}(g(z))$.
+ Esto completa la prueba.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{itemize}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así, 
+\begin_inset Formula $[\mathbb{S}^{1},\mathbb{S}^{1}]$
+\end_inset
+
+ es biyectivo con 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+, pues la clase de homotopía de una función continua 
+\begin_inset Formula $\mathbb{S}^{1}\to\mathbb{S}^{1}$
+\end_inset
+
+ es la de todas las funciones continuas de igual grado
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Teorema del punto fijo de Brower
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f:\mathbb{S}^{1}\to\mathbb{S}^{1}$
+\end_inset
+
+ es continua, 
+\begin_inset Formula $\deg f=0$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $f$
+\end_inset
+
+ admite una extensión continua a 
+\begin_inset Formula $\mathbb{D}^{2}:=B(0,1)\subseteq\mathbb{R}^{2}$
+\end_inset
+
+, es decir, una función continua 
+\begin_inset Formula $\hat{f}:\mathbb{D}^{2}\to\mathbb{S}^{1}$
+\end_inset
+
+ con 
+\begin_inset Formula $\hat{f}(x)=f(x)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in\mathbb{S}^{1}$
+\end_inset
+
+.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item[$
+\backslash
+implies]$] Sea $F:
+\backslash
+mathbb{S}^1
+\backslash
+times[0,1]
+\backslash
+to
+\backslash
+mathbb{S}^1$ la homotopía de una cierta función constante $c(z):=z_0$ a
+ $f$ y definimos $
+\backslash
+hat f:
+\backslash
+mathbb{D}^2
+\backslash
+to
+\backslash
+mathbb{S}^1$ como $
+\backslash
+hat f(0):=z_0$ y $
+\backslash
+hat f(z):=F(
+\backslash
+frac z{
+\backslash
+Vert z
+\backslash
+Vert},
+\backslash
+Vert z
+\backslash
+Vert)$ para $z
+\backslash
+neq0$.
+ Para ver que $
+\backslash
+hat f$ es continua también en $z_0$, $
+\backslash
+lim_{z
+\backslash
+to0}
+\backslash
+hat f(z)=
+\backslash
+lim_{z
+\backslash
+to0}F({z
+\backslash
+over
+\backslash
+Vert z
+\backslash
+Vert},
+\backslash
+Vert z
+\backslash
+Vert)=z_0$.
+ Para $z
+\backslash
+in
+\backslash
+mathbb{S}^1$, $
+\backslash
+hat f(z)=F(z,1)=f(z)$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+item[$
+\backslash
+impliedby]$] Definimos $F(z,t):=
+\backslash
+tilde f(tz)$.
+ Entonces $F(z,1)=
+\backslash
+hat f(z)=f(z)$ y $F(z,0)=
+\backslash
+hat f(0)$ que es constante, y como $F$ es continua, define una homotopía
+ entre $f$ y una constante.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{itemize}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así, no existe una retracción de 
+\begin_inset Formula $\mathbb{D}^{2}$
+\end_inset
+
+ a 
+\begin_inset Formula $\mathbb{S}^{1}$
+\end_inset
+
+, y por conexión tampoco existe una de 
+\begin_inset Formula $\mathbb{D}^{1}$
+\end_inset
+
+ a 
+\begin_inset Formula $\mathbb{S}^{0}$
+\end_inset
+
+.
+ 
+\series bold
+Teorema del punto fijo de Brower:
+\end_layout
+
+\begin_layout Enumerate
+Toda 
+\begin_inset Formula $f:\mathbb{D}^{1}\to\mathbb{D}^{1}$
+\end_inset
+
+ continua tiene algún punto fijo.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Si $f(-1)=-1$ o $f(1)=1$ hemos terminado.
+ De lo contrario $f(-1)>-1$ y $f(1)<1$, y definiendo $g(x):=f(x)-x$, $g(-1)>0$
+ y $g(1)<0$, y basta aplicar el teorema de Bolzano.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Toda 
+\begin_inset Formula $f:\mathbb{D}^{2}\to\mathbb{D}^{2}$
+\end_inset
+
+ tiene un punto fijo.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Basta suponer que no lo tiene y construir $g:
+\backslash
+mathbb{D}^2
+\backslash
+to
+\backslash
+mathbb{S}^1$ continua tal que $g|_{
+\backslash
+mathbb{S}^1}=1_{
+\backslash
+mathbb{S}^1}$.
+ Si no lo tiene, definimos $g$ como la función que a cada $z$ le asigna
+ el punto de corte del segmento $[z,f(z)]$ con la circunferencia más próximo
+ a $z$.
+ Este punto está en la imagen de $
+\backslash
+gamma(t):=z+t(f(z)-z)$, para algún $t<0$.
+ Entonces $
+\backslash
+gamma(t)
+\backslash
+in
+\backslash
+mathbb{S}^1
+\backslash
+iff
+\backslash
+Vert
+\backslash
+gamma(t)
+\backslash
+Vert^2=1$, pero 
+\end_layout
+
+\begin_layout Plain Layout
+$$
+\backslash
+Vert
+\backslash
+gamma(t)
+\backslash
+Vert^2=
+\backslash
+langle
+\backslash
+gamma(t),
+\backslash
+gamma(t)
+\backslash
+rangle=
+\backslash
+Vert z
+\backslash
+Vert^2+2t
+\backslash
+langle z,f(z)-z
+\backslash
+rangle+t^2
+\backslash
+Vert f(z)-z
+\backslash
+Vert^2.$$ Llamando $a(z):=
+\backslash
+Vert f(z)-z
+\backslash
+Vert^2$, $b(z):=
+\backslash
+langle z,f(z)-z
+\backslash
+rangle$ y $c(z):=
+\backslash
+Vert z
+\backslash
+Vert^2-1$, todas continuas, $t$ cumple $a(z)t^2+2b(z)t+c(z)=0$, luego
+\end_layout
+
+\begin_layout Plain Layout
+$$t(z)={-2b(z)-
+\backslash
+sqrt{4b(z)^2-4a(z)c(z)}
+\backslash
+over2a(z)}={-b(z)-
+\backslash
+sqrt{b(z)^2-a(z)c(z)}
+\backslash
+over a(z)}.$$
+\end_layout
+
+\begin_layout Plain Layout
+Esto es correcto porque $a$ no se anula al no haber puntos fijos y porque,
+ como $a(z)c(z)<0$, $
+\backslash
+sqrt{4b(z)^2-4a(z)b(z)}>2b(z)$ y el resultado para $t<0$ es único.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Teorema de la bola peluda
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+campo de vectores
+\series default
+ sobre 
+\begin_inset Formula $X\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ es una función continua 
+\begin_inset Formula $v:X\to\mathbb{R}^{n}$
+\end_inset
+
+, y es 
+\series bold
+tangente
+\series default
+ a 
+\begin_inset Formula $x$
+\end_inset
+
+ si para todo 
+\begin_inset Formula $x\in X$
+\end_inset
+
+, existen un camino 
+\begin_inset Formula $\gamma:[a,b]\to X$
+\end_inset
+
+ y 
+\begin_inset Formula $t_{0}\in[0,1]$
+\end_inset
+
+ tales que 
+\begin_inset Formula $\gamma(t_{0})=x$
+\end_inset
+
+ y 
+\begin_inset Formula $\gamma'(t_{0})=v(x)$
+\end_inset
+
+.
+ Un 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ es un 
+\series bold
+punto estacionario
+\series default
+ de 
+\begin_inset Formula $v$
+\end_inset
+
+ si 
+\begin_inset Formula $v(x)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, todo campo de vectores 
+\begin_inset Formula $v:\mathbb{D}^{2}\to\mathbb{R}^{2}$
+\end_inset
+
+, bien tiene un punto estacionario, bien existen 
+\begin_inset Formula $p,q\in\mathbb{S}^{1}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $v(p)$
+\end_inset
+
+ apunta directamente hacia fuera de 
+\begin_inset Formula $\mathbb{D}^{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $q$
+\end_inset
+
+ apunta directamente hacia dentro.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Supongamos que $v$ no tiene un punto estacionario, y sean $f(z):={v(z)
+\backslash
+over
+\backslash
+Vert v(z)
+\backslash
+Vert}$ y $g(z):=-f(z)$.
+ Entonces $f,g:
+\backslash
+mathbb{S}^1
+\backslash
+to
+\backslash
+mathbb{S}^1$ son continuas.
+ Como $f$ admite una extensión continua a $
+\backslash
+mathbb{D}^2$ dada por $F(z,t):={v(tz)
+\backslash
+over
+\backslash
+Vert v(tz)
+\backslash
+Vert$, tiene grado 0.
+ Si no hubiera $p_0
+\backslash
+in
+\backslash
+mathbb{S}^1$ que apunte directamente hacia dentro, podríamos definir 
+\end_layout
+
+\begin_layout Plain Layout
+$
+\backslash
+tilde F(z,t):={tz+(1-t)v(z)
+\backslash
+over
+\backslash
+Vert tz+(1-t)v(z)
+\backslash
+Vert$ en $
+\backslash
+mathbb{S}^1
+\backslash
+times[0,1]$, y esta función es continua y cumple $F(z,0)=f(z)$ y $F(z,1)=z$,
+ luego la identidad es homotópica a $f$ y $f$ tiene grado 1.$#$.
+ Análogamente y tomando $G(z,t):={tz-(1-t)v(z)
+\backslash
+over
+\backslash
+Vert tz-(1-t)v(z)
+\backslash
+Vert$ se obtiene el otro resultado.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un campo de vectores tangente a 
+\begin_inset Formula $\mathbb{S}^{2}$
+\end_inset
+
+ es una función continua 
+\begin_inset Formula $v:\mathbb{S}^{2}\to\mathbb{R}^{3}$
+\end_inset
+
+ con 
+\begin_inset Formula $v(p)\in T_{p}\mathbb{S}^{2}:=\text{span}\{p\}^{\bot}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $p\in\mathbb{S}^{2}$
+\end_inset
+
+.
+ 
+\series bold
+Teorema de la bola peluda:
+\series default
+ Todo campo de vectores tangente a 
+\begin_inset Formula $\mathbb{S}^{2}$
+\end_inset
+
+ tiene un punto estacionario.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Prueba basada en E.
+ Curtim "Another proof of hairy ball theorem", AMS Monthly 125 (2018), 462--463.
+\end_layout
+
+\begin_layout Plain Layout
+Supongamos que podemos tener un campo de vectores tangencial de vectores
+ unitarios.
+ Describimos la esfera como la imagen de $p:[0,1]
+\backslash
+times[-1,1]
+\backslash
+to
+\backslash
+mathbb{S}^2$ dada por $p(
+\backslash
+theta,t):=(
+\backslash
+sqrt{1-t^2}
+\backslash
+cos(2
+\backslash
+pi
+\backslash
+theta),
+\backslash
+sqrt{1-t^2}
+\backslash
+sin(2
+\backslash
+pi
+\backslash
+theta),t)$.
+ Sean $e(
+\backslash
+theta,t):=(-
+\backslash
+sin(2
+\backslash
+pi
+\backslash
+theta),
+\backslash
+cos(2
+\backslash
+pi
+\backslash
+theta),0)$ y $n(
+\backslash
+theta,t):=(-t(
+\backslash
+cos(2
+\backslash
+pi
+\backslash
+theta),-t
+\backslash
+sin(2
+\backslash
+pi
+\backslash
+theta),
+\backslash
+sqrt{1-t^2})$, $e$ y $n$ son campos tangenciales a $
+\backslash
+mathbb{S}^2$ en $p(
+\backslash
+theta,t)$ y forman una base ortonormal del plano tangente a $p(
+\backslash
+theta,t)$.
+ Entonces $H:[0,1]
+\backslash
+times[-1,1]
+\backslash
+to
+\backslash
+mathbb{S}^1$ dada por $H(
+\backslash
+theta,t)=(
+\backslash
+langle v,e
+\backslash
+rangle,
+\backslash
+langle v,n
+\backslash
+rangle)(
+\backslash
+theta,t)$ se puede entender como una homotopía entre ciertos $H(
+\backslash
+theta,-1)=:
+\backslash
+alpha(
+\backslash
+theta)$ y $H(
+\backslash
+theta,1)=:
+\backslash
+beta(
+\backslash
+theta)$.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Sea $v(p(
+\backslash
+theta,t))=(a(
+\backslash
+theta,t),b(
+\backslash
+theta,t),c(
+\backslash
+theta,t))
+\backslash
+in
+\backslash
+mathbb{R}^3$.
+ Para $
+\backslash
+alpha(
+\backslash
+theta)$, $
+\backslash
+langle v,e
+\backslash
+rangle(
+\backslash
+theta,-1)=-a(
+\backslash
+theta,-1)
+\backslash
+sin(2
+\backslash
+pi
+\backslash
+theta)+b(
+\backslash
+theta,-1)
+\backslash
+cos(2
+\backslash
+pi
+\backslash
+theta)=:-a_s
+\backslash
+sin(2
+\backslash
+pi
+\backslash
+theta)+b_s
+\backslash
+cos(2
+\backslash
+pi
+\backslash
+theta)=:-
+\backslash
+cos(2
+\backslash
+pi
+\backslash
+omega_s)
+\backslash
+sin(2
+\backslash
+pi
+\backslash
+theta)+
+\backslash
+sin(2
+\backslash
+pi
+\backslash
+omega_s)
+\backslash
+sin(2
+\backslash
+pi
+\backslash
+theta)=
+\backslash
+sin(2
+\backslash
+pi(-
+\backslash
+theta+
+\backslash
+omega_s))$, h análogamente, $
+\backslash
+langle v,n
+\backslash
+rangle(
+\backslash
+theta,-1)=
+\backslash
+cos(2
+\backslash
+pi(-
+\backslash
+theta+
+\backslash
+omega_s))$.
+ Para $
+\backslash
+beta(
+\backslash
+theta)$, $
+\backslash
+langle v,e
+\backslash
+rangle(
+\backslash
+theta,1)=:
+\backslash
+sin(2
+\backslash
+pi(-
+\backslash
+theta+
+\backslash
+omega_r))$ y $
+\backslash
+langle v,n
+\backslash
+rangle(
+\backslash
+theta,1)=
+\backslash
+cos(2
+\backslash
+pi(-
+\backslash
+theta+
+\backslash
+omega_r))$.
+ El primer seno de las 4 últimas fómulas se puede poner como $
+\backslash
+cos(2
+\backslash
+pi(
+\backslash
+theta+
+\backslash
+frac14-
+\backslash
+omega_s))$ y el primer coseno como $
+\backslash
+sin(2
+\backslash
+pi(
+\backslash
+theta+
+\backslash
+frac14-
+\backslash
+omega_s))$.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Nos queda que $
+\backslash
+alpha(
+\backslash
+theta)$ es la curva imagen asociada a la rotación $f$ de ángulo $2
+\backslash
+pi(
+\backslash
+frac14-
+\backslash
+omega_s)$.
+ Al ser una rotación, $
+\backslash
+deg(f)=1$.
+ La aplicación $g(e^{i2
+\backslash
+pi
+\backslash
+theta}):=e^{-i2
+\backslash
+pi
+\backslash
+theta}$ es una simetría de $
+\backslash
+mathbb{S}^1$ de grado $-1$, luego $g
+\backslash
+circ f$ es fácil ver que tiene grado $-1$.
+ Entonces $H$ era una homotopía entre $
+\backslash
+alpha$ y $
+\backslash
+beta$, cuyos levantamientos deberían ser homotópicos, pero eso no puede
+ ser porque cada uno representa una función con un grado diferente ($f$
+ y $g
+\backslash
+circ f$, respectivamente).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
