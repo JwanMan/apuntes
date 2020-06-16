@@ -551,7 +551,7 @@ Dos espacios
 \begin_inset Formula $X$
 \end_inset
 
- es 
+ e 
 \begin_inset Formula $Y$
 \end_inset
 
@@ -700,7 +700,7 @@ Si
 \begin_inset Formula $Y$
 \end_inset
 
- son homeomorfismos, 
+ son homeomorfos, 
 \begin_inset Formula $X\simeq Y$
 \end_inset
 
@@ -1326,20 +1326,31 @@ Circunferencia
 \end_layout
 
 \begin_layout Standard
-Llamamos 
+Una 
 \series bold
-aplicación exponencial
+aplicación recubridora
 \series default
- a 
-\begin_inset Formula $e:\mathbb{R}\to\mathbb{S}^{1}$
+ es una función 
+\begin_inset Formula $r:X\to Y$
 \end_inset
 
- dada por 
-\begin_inset Formula $e(\theta):=(\cos(2\pi\theta),\sin(2\pi\theta))$
+ sobreyectiva tal que para todo 
+\begin_inset Formula $x\in X$
 \end_inset
 
-.
- Sean un camino 
+ existe 
+\begin_inset Formula $U\in{\cal E}(x)$
+\end_inset
+
+ con 
+\begin_inset Formula $r:U\to r(U)$
+\end_inset
+
+ homeomorfismo.
+\end_layout
+
+\begin_layout Standard
+Sean un camino 
 \begin_inset Formula $\alpha:[0,1]\to\mathbb{S}^{1}$
 \end_inset
 
@@ -1380,91 +1391,207 @@ levantamiento
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $r:X\to Y$
+\end_inset
+
+ una aplicación recubridora, 
+\begin_inset Formula $\alpha:[0,1]\to Y$
+\end_inset
+
+ un camino, 
+\begin_inset Formula $x_{0}\in X$
+\end_inset
+
+ e 
+\begin_inset Formula $y_{0}:=r(x_{0})$
+\end_inset
+
+, existe un único camino 
+\begin_inset Formula $\tilde{\alpha}:[0,1]\to X$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\alpha=r\circ\tilde{\alpha}$
+\end_inset
+
+ y 
+\begin_inset Formula $\tilde{\alpha}(0)=r_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-Claramente $e$ es continua y sobreyectiva.
- Sea un abierto $U
-\backslash
-subsetneq
-\backslash
-mathbb{S}^1$, existe $V
-\backslash
-subseteq
-\backslash
-mathbb R$ tal que $e|_V:V
-\backslash
-to U$ es un homeomorfismo, y como esto es periódico, $e^{-1}(U)=
-\backslash
-bigcup_{n
-\backslash
-in
-\backslash
-mathbb Z}V_n$ con $e|_{V_n}:V_n
-\backslash
-to U$ homeomorfismo.
- 
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $V$
+\end_inset
+
+ un abierto de 
+\begin_inset Formula $Y$
+\end_inset
+
+, para cada 
+\begin_inset Formula $x\in r^{-1}(V)$
+\end_inset
+
+ existe 
+\begin_inset Formula $U_{x}\in{\cal E}(x)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $r|_{U_{x}}$
+\end_inset
+
+ es un homeomorfismo, luego 
+\begin_inset Formula $V_{x}:=V\cap f(U_{X})$
+\end_inset
+
+ es abierto, con lo que 
+\begin_inset Formula $f^{-1}(V_{x})$
+\end_inset
+
+ es abierto con 
+\begin_inset Formula $x\in f^{-1}(V_{x})\subseteq f^{-1}(V)$
+\end_inset
+
+ y 
+\begin_inset Formula $r^{-1}(V)=\bigcup_{x\in r^{-1}(V)}V_{x}$
+\end_inset
+
+, que es abierto.
 \end_layout
 
 \begin_layout Plain Layout
-Como $
-\backslash
-alpha$ es continua, para $
-\backslash
-theta
-\backslash
-in[0,1]$ existe un intervalo $I_
-\backslash
-theta$ con $
-\backslash
-alpha(I_
-\backslash
-theta)
-\backslash
-subseteq U_
-\backslash
-theta$ para un cierto $U_
-\backslash
-theta
-\backslash
-ni
-\backslash
-alpha(
-\backslash
-theta)$ que queramos (por ejemplo, $B(
-\backslash
-alpha(
-\backslash
-theta),
-\backslash
-varepsilon)$.
- Como $
-\backslash
-alpha([0,1])$ es compacto, existe un subrecubrimiento finito $
-\backslash
-{I_{
-\backslash
-theta_1},
-\backslash
-dots,I_{
-\backslash
-theta_n}
-\backslash
-}$ (podemos suponer $
-\backslash
-theta_1<
-\backslash
-dots<
-\backslash
-theta_n$).
- En cada $I_k$, $e$ es biyectiva definida salvo suma de un entero, luego
- vamos <<enganchando>> y sale.
+Para 
+\begin_inset Formula $t\in[0,1]$
+\end_inset
+
+ existe 
+\begin_inset Formula $U_{t}\in{\cal E}(t)$
+\end_inset
+
+ con 
+\begin_inset Formula $r|_{U_{t}}$
+\end_inset
+
+ homeomorfismo, y como 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es continua, existe 
+\begin_inset Formula $I_{t}\subseteq[0,1]$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\alpha(I_{t})\subseteq r(U_{t})$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $\alpha([0,1])$
+\end_inset
+
+ es compacto, existe un subrecubrimiento finito 
+\begin_inset Formula $\{I_{t_{1}},\dots,I_{t_{n}}\}$
+\end_inset
+
+ del recubrimiento 
+\begin_inset Formula $\{I_{t}\}_{t\in[0,1]}$
+\end_inset
+
+ de 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+, y podemos suponer 
+\begin_inset Formula $t_{1}<\dots<t_{n}$
+\end_inset
+
+.
+ En cada 
+\begin_inset Formula $I_{t_{k}}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha(I_{t_{k}})\subseteq r(U_{k})$
+\end_inset
+
+, pero 
+\begin_inset Formula $\alpha(I_{t_{k}})$
+\end_inset
+
+ estará en una componente conexa de 
+\begin_inset Formula $r(U_{k})$
+\end_inset
+
+ y, por el homeomorfismo, si 
+\begin_inset Formula $s\in I_{t_{k-1}}\cap I_{t_{k}}$
+\end_inset
+
+, existe una componente conexa de 
+\begin_inset Formula $r^{-1}(r(U_{k}))$
+\end_inset
+
+ que contiene a la componente conexa de 
+\begin_inset Formula $r^{-1}(\alpha(I_{t_{k}}))$
+\end_inset
+
+ donde se encuentra el elemento de 
+\begin_inset Formula $r^{-1}(\alpha(s))$
+\end_inset
+
+ elegido al establecer un levantamiento de 
+\begin_inset Formula $\alpha|_{I_{t_{k-1}}}$
+\end_inset
+
+ (si 
+\begin_inset Formula $k=1$
+\end_inset
+
+, tomamos una componente arbitraria), luego en esta componente conexa definimos
+ un levantamiento de 
+\begin_inset Formula $\alpha|_{I_{t_{k}}}$
+\end_inset
+
+ que concatenamos a la anterior, y concatenando sucesivamente obtenemos
+ un levantamiento de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+aplicación exponencial
+\series default
+ es la aplicación recubridora 
+\begin_inset Formula $e:\mathbb{R}\to\mathbb{S}^{1}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $e(\theta):=(\cos(2\pi\theta),\sin(2\pi\theta))$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
