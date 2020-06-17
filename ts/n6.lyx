@@ -1,0 +1,2075 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Complejos simpliciales
+\end_layout
+
+\begin_layout Standard
+Los puntos 
+\begin_inset Formula $\{v_{0},\dots,v_{k}\}\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ son 
+\series bold
+afínmente independientes
+\series default
+ o están en 
+\series bold
+posición general
+\series default
+ si no están contenidos en ningún subespacio afín de 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ de dimensión menor que 
+\begin_inset Formula $k$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\{v_{1}-v_{0},v_{2}-v_{1},\dots,v_{k}-v_{k-1}\}$
+\end_inset
+
+ son linealmente independientes, si y sólo si 
+\begin_inset Formula $\{v_{1}-v_{0},v_{2}-v_{0},\dots,v_{k}-v_{0}\}$
+\end_inset
+
+ son linealmente independientes.
+\begin_inset Note Comment
+status open
+
+\begin_layout Description
+\begin_inset Formula $1\implies3]$
+\end_inset
+
+ Si existieran 
+\begin_inset Formula $\alpha_{1},\dots,\alpha_{k}\in\mathbb{R}$
+\end_inset
+
+ no todos nulos con 
+\begin_inset Formula $\alpha_{1}(v_{1}-v_{0})+\dots+\alpha_{k}(v_{k}-v_{0})=0$
+\end_inset
+
+, si, por ejemplo, 
+\begin_inset Formula $\alpha_{1}\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $v_{1}-v_{0}=\frac{1}{\alpha_{1}}(\alpha_{2}(v_{2}-v_{0})+\dots+\alpha_{k}(v_{k}-v_{0}))$
+\end_inset
+
+, luego 
+\begin_inset Formula $v_{1}-v_{0}\in\langle v_{2}-v_{0},\dots,v_{k}-v_{0}\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $v_{0},\dots,v_{k}\in v_{0}+\langle v_{2}-v_{0},\dots,v_{k}-v_{0}\rangle\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies2]$
+\end_inset
+
+ Podemos expresar una combinación lineal de 
+\begin_inset Formula $\{v_{1}-v_{0},\dots,v_{k}-v_{k-1}\}$
+\end_inset
+
+ para el 0 como 
+\begin_inset Formula $(\alpha_{1}+\dots+\alpha_{k})(v_{1}-v_{0})+(\alpha_{2}+\dots+\alpha_{k})(v_{2}-v_{1})+\dots+\alpha_{k}(v_{k}-v_{k-1})=0$
+\end_inset
+
+ con 
+\begin_inset Formula $\alpha_{1},\dots,\alpha_{k}\in\mathbb{R}$
+\end_inset
+
+, que será la combinación nula si y sólo si 
+\begin_inset Formula $\alpha_{1},\dots,\alpha_{k}=0$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $v_{i}-v_{0}=(v_{i}-v_{i-1})+\dots+(v_{1}-v_{0})$
+\end_inset
+
+, esto equivale a que 
+\begin_inset Formula $\alpha_{1}(v_{1}-v_{0})+\dots+\alpha_{k}(v_{k}-v_{0})=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\alpha_{1},\dots,\alpha_{k}=0$
+\end_inset
+
+ y los vectores 
+\begin_inset Formula $v_{1}-v_{0},\dots,v_{k}-v_{k-1}$
+\end_inset
+
+ son linealmente independientes.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies1]$
+\end_inset
+
+ Si 
+\begin_inset Formula $v_{0},\dots,v_{k}$
+\end_inset
+
+ estuvieran contenidos en un espacio afín 
+\begin_inset Formula $x+W$
+\end_inset
+
+ con 
+\begin_inset Formula $\dim W<k$
+\end_inset
+
+, cada diferencia de puntos 
+\begin_inset Formula $v_{i}-v_{j}$
+\end_inset
+
+ estaría en el espacio vectorial 
+\begin_inset Formula $W$
+\end_inset
+
+, luego 
+\begin_inset Formula $\dim\langle v_{1}-v_{0},\dots,v_{k}-v_{k-1}\rangle<k$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $v_{1}-v_{0},\dots,v_{k}-v_{k-1}$
+\end_inset
+
+ no serían linealmente independientes.
+\begin_inset Formula $\#$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+envoltura convexa
+\series default
+ de un conjunto 
+\begin_inset Formula $W\subseteq\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\text{conv}W$
+\end_inset
+
+, es el menor conjunto convexo que contiene a 
+\begin_inset Formula $W$
+\end_inset
+
+, la intersección de todos ellos.
+ Si 
+\begin_inset Formula $W=:\{v_{1},\dots,v_{k}\}$
+\end_inset
+
+ con 
+\begin_inset Formula $k>0$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\text{conv}W=\left\{ t_{1}v_{1}+\dots+t_{k}v_{k}:\sum_{i=1}^{k}t_{i}=1,t_{i}\in[0,1]\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\subseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ El conjunto dado es un convexo que contiene a 
+\begin_inset Formula $W$
+\end_inset
+
+, luego contiene a 
+\begin_inset Formula $\text{conv}W$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\supseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $C$
+\end_inset
+
+ un convexo que contiene a 
+\begin_inset Formula $\{v_{0},\dots,v_{k}\}$
+\end_inset
+
+, queremos ver que 
+\begin_inset Formula $[v_{1},\dots,v_{k}]\subseteq C$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $v:=t_{1}v_{1}+\dots+t_{k}v_{k}\in[v_{1},\dots,v_{k}]$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $k=1$
+\end_inset
+
+, esto es obvio.
+ Sea 
+\begin_inset Formula $k>1$
+\end_inset
+
+ y supongamos probada la propiedad para 
+\begin_inset Formula $k-1$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $t_{k}=1$
+\end_inset
+
+, 
+\begin_inset Formula $v=v_{k}\in C$
+\end_inset
+
+.
+ En otro caso, 
+\begin_inset Formula $w:=\frac{t_{1}}{1-t_{k}}v_{1}+\dots+\frac{t_{k-1}}{1-t_{k}}v_{k-1}\in\text{conv}\{v_{1},\dots,v_{k-1}\}\subseteq\text{conv}\{v_{1},\dots,v_{k}\}\subseteq C$
+\end_inset
+
+, luego 
+\begin_inset Formula $v=(1-t_{k})w+t_{k}v_{k}\in C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+
+\begin_inset Formula $k$
+\end_inset
+
+-símplice
+\series default
+ o 
+\series bold
+símplice 
+\begin_inset Formula $k$
+\end_inset
+
+-dimensional
+\series default
+ es la envoltura conexa de un conjunto de 
+\begin_inset Formula $k+1$
+\end_inset
+
+ puntos 
+\begin_inset Formula $v_{0},\dots,v_{k}$
+\end_inset
+
+, llamados 
+\series bold
+vértices
+\series default
+, en posición general, 
+\begin_inset Formula $[v_{0},\dots,v_{k}]:=\text{conv}\{v_{0},\dots,v_{k}\}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $v:=t_{0}v_{0}+\dots+t_{k}v_{k}\in[v_{0},\dots,v_{k}]$
+\end_inset
+
+ con cada 
+\begin_inset Formula $t_{i}\in[0,1]$
+\end_inset
+
+ y 
+\begin_inset Formula $\sum_{i}t_{i}=1$
+\end_inset
+
+, llamamos 
+\series bold
+coordinadas baricéntricas
+\series default
+ de 
+\begin_inset Formula $v$
+\end_inset
+
+ a los 
+\begin_inset Formula $(t_{0},\dots,t_{k})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $W:=\{v_{0},\dots,v_{k}\}$
+\end_inset
+
+ determina un 
+\begin_inset Formula $k$
+\end_inset
+
+-símplice 
+\begin_inset Formula $[v_{0},\dots,v_{k}]$
+\end_inset
+
+, todo subconjunto 
+\begin_inset Formula $A\subseteq W$
+\end_inset
+
+ determina un símplice, y decimos que 
+\begin_inset Formula $\text{conv}A$
+\end_inset
+
+ es un 
+\series bold
+subsímplice
+\series default
+ de 
+\begin_inset Formula $\text{conv}W$
+\end_inset
+
+.
+ Un subsímplice es una 
+\series bold
+cara
+\series default
+ si solo omite un vértice, y la unión de las caras es la 
+\series bold
+frontera
+\series default
+ del símplice.
+ Si 
+\begin_inset Formula $k>0$
+\end_inset
+
+, el 
+\series bold
+interior
+\series default
+ de un 
+\begin_inset Formula $k$
+\end_inset
+
+-símplice es el complementario de la frontera, y si 
+\begin_inset Formula $k=0$
+\end_inset
+
+, su 
+\series bold
+interior
+\series default
+ es él mismo.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+complejo simplicial
+\series default
+ es un 
+\series bold
+poliedro
+\series default
+ 
+\begin_inset Formula $K\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ junto a una lista de símplices 
+\begin_inset Formula $L$
+\end_inset
+
+ tal que 
+\begin_inset Formula $K=\bigcup_{i}L_{i}$
+\end_inset
+
+, cada 
+\begin_inset Formula $x\in K$
+\end_inset
+
+ está en el interior de un único símplice y cada cara de cada 
+\begin_inset Formula $L_{i}$
+\end_inset
+
+ también está en la lista.
+ La 
+\series bold
+dimensión
+\series default
+ de 
+\begin_inset Formula $K$
+\end_inset
+
+ es la máxima dimensión de sus símplices.
+\end_layout
+
+\begin_layout Standard
+Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+Una 
+\series bold
+circunferencia simplicial
+\series default
+ es un complejo formado por 3 0-símplices y 3 1-símplices, el borde de un
+ triángulo.
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\series bold
+cuadrado simplicial
+\series default
+ es un complejo formado por 4 0-símplices, 5 1-símplices y 2 2-símplices,
+ un cuadrilátero.
+\end_layout
+
+\begin_layout Enumerate
+Una 
+\series bold
+corona simplicial
+\series default
+ es un complejo formado por 6 0-símplices, 12 1-símplices y 6 2-símplices,
+ una corona de triángulo.
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\series bold
+toro simplicial
+\series default
+ es un complejo formado por 9 0-símplices, 27 1-símplices y 18 2-símplices,
+ una corona tridimensional de un triángulo donde cada sección de cada lado
+ de la corona es un triángulo.
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\series bold
+tetraedro
+\series default
+ es un complejo formado por 4 0-símplices, 6 1-símplices y 4 2-símplices.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Añadir dibujos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Número de Euler
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $T$
+\end_inset
+
+ es un complejo simplicial 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional con 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ 
+\begin_inset Formula $k$
+\end_inset
+
+-símplices para cada 
+\begin_inset Formula $k\in\{0,\dots,n\}$
+\end_inset
+
+, el 
+\series bold
+número
+\series default
+ o 
+\series bold
+característica de Euler
+\series default
+ de 
+\begin_inset Formula $T$
+\end_inset
+
+ es 
+\begin_inset Formula $\chi(T):=i_{0}-i_{1}+\dots+(-1)^{n}i_{n}$
+\end_inset
+
+.
+ Así, la circunferencia, la corona y el toro tienen índice 0, y el cuadrado
+ tiene índice 1.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+triangulación
+\series default
+ de un espacio topológico 
+\begin_inset Formula $X$
+\end_inset
+
+ es un complejo simplicial 
+\begin_inset Formula $K\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ junto a un homomorfismo 
+\begin_inset Formula $H:K\to X$
+\end_inset
+
+, y si existe, 
+\begin_inset Formula $X$
+\end_inset
+
+ es 
+\series bold
+triangulable
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Así, 
+\begin_inset Formula $\mathbb{S}^{1}$
+\end_inset
+
+ es triangulable al complejo formado por los puntos 
+\begin_inset Formula $(0,2)$
+\end_inset
+
+, 
+\begin_inset Formula $(\sqrt{3},-1)$
+\end_inset
+
+ y 
+\begin_inset Formula $(-\sqrt{3},-1)$
+\end_inset
+
+ y los 3 1-símplices entre ellos, al complejo formado por los 4 puntos 
+\begin_inset Formula $(\pm2,\pm2)$
+\end_inset
+
+ y los 4 1-símplices entre ellos, con el homomorfismo 
+\begin_inset Formula $(x,y)\mapsto\frac{(x,y)}{\sqrt{x^{2}+y^{2}}}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\mathbb{S}^{2}$
+\end_inset
+
+ es triangulable a un tetraedro.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $K$
+\end_inset
+
+ y 
+\begin_inset Formula $K'$
+\end_inset
+
+ son triangulaciones de 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $\chi(K)=\chi(K')$
+\end_inset
+
+.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Demostración.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con esto, el 
+\series bold
+número de Euler
+\series default
+ de un espacio triangulable 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $\chi(X)$
+\end_inset
+
+, es el de cualquier complejo simplicial cuyo poliedro es homeomorfo a 
+\begin_inset Formula $X$
+\end_inset
+
+, y es un invariante topológico.
+\end_layout
+
+\begin_layout Section
+Presentaciones poligonales
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $S:=\overline{B_{d_{1}}}(0;1)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\mathbb{S}^{2}$
+\end_inset
+
+ es homeomorfa a 
+\begin_inset Formula $\mathbb{D}^{2}/\sim$
+\end_inset
+
+ con 
+\begin_inset Formula 
+\[
+x\sim y:\iff x=y\lor(x,y\in\mathbb{S}^{1}\land y=\overline{x}),
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $\overline{x}$
+\end_inset
+
+ es el conjugado complejo de 
+\begin_inset Formula $x$
+\end_inset
+
+, y también lo es a 
+\begin_inset Formula $S/\sim$
+\end_inset
+
+ con
+\begin_inset Formula 
+\[
+x\sim y:\iff x=y\lor(x,y\in\partial S\land y=\overline{x}).
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\mathbb{P}^{2}$
+\end_inset
+
+ es homeomorfo a 
+\begin_inset Formula $\mathbb{D}^{2}/\sim$
+\end_inset
+
+ con
+\begin_inset Formula 
+\[
+x\sim y:\iff x=y\lor(x,y\in\mathbb{S}^{1}\land x=-y),
+\]
+
+\end_inset
+
+y también lo es a 
+\begin_inset Formula $S/\sim$
+\end_inset
+
+ con
+\begin_inset Formula 
+\[
+x\sim y:\iff x=y\lor(x,y\in\partial S\land x=-y).
+\]
+
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Demostración.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+presentación poligonal
+\series default
+ es una expresión de la forma 
+\begin_inset Formula ${\cal P}:=\langle S\mid W_{1},\dots,W_{k}\rangle$
+\end_inset
+
+, donde 
+\begin_inset Formula $S$
+\end_inset
+
+ un conjunto finito de letras 
+\begin_inset Formula $\{a_{1,}\dots,a_{n}\}$
+\end_inset
+
+ llamadas 
+\series bold
+aristas
+\series default
+ y 
+\begin_inset Formula $W_{1},\dots,W_{k}$
+\end_inset
+
+ con 
+\begin_inset Formula $k\geq1$
+\end_inset
+
+ son palabras en 
+\begin_inset Formula $\{a_{1},\dots,a_{n},a_{1}^{-1},\dots,a_{n}^{-1}\}^{*}$
+\end_inset
+
+ con longitud mínima 2 llamadas 
+\series bold
+caras
+\series default
+.
+ Una presentación poligonal 
+\begin_inset Formula ${\cal P}$
+\end_inset
+
+ determina un espacio topológico 
+\begin_inset Formula $|{\cal P}|$
+\end_inset
+
+ salvo isomorfismo, la 
+\series bold
+realización geométrica
+\series default
+ de 
+\begin_inset Formula ${\cal P}$
+\end_inset
+
+, de la siguiente forma:
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Lo siguiente es especulativo: en los apuntes de clase hay una explicación
+ mucho más informal.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Para cada palabra 
+\begin_inset Formula $W_{i}$
+\end_inset
+
+, sea 
+\begin_inset Formula $n_{i}:=|W_{i}|$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $n_{i}\geq3$
+\end_inset
+
+, tomamos 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ vértices 
+\begin_inset Formula $v_{i1},\dots,v_{in_{i}}\in\mathbb{R}^{2}$
+\end_inset
+
+ no alineados de forma que todo 
+\begin_inset Formula $v_{ij}\in\partial\text{conv}\{v_{ij}\}_{j=1}^{n_{i}}$
+\end_inset
+
+; los 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ caminos 
+\begin_inset Formula $a_{i1},\dots,a_{in_{i}}$
+\end_inset
+
+ dados por 
+\begin_inset Formula $a_{ij}:=[v_{ij},v_{i(j+1)}]$
+\end_inset
+
+ entendiendo 
+\begin_inset Formula $v_{i(n_{i}+1)}=v_{i1}$
+\end_inset
+
+, y el polígono 
+\begin_inset Formula $P_{i}:=\text{conv}\{v_{i1},\dots,v_{in_{i}}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $n_{i}=2$
+\end_inset
+
+, tomamos dos vértices 
+\begin_inset Formula $v_{i1},v_{i2}\in\mathbb{R}^{2}$
+\end_inset
+
+ distintos; caminos 
+\begin_inset Formula $a_{i1}$
+\end_inset
+
+ de 
+\begin_inset Formula $v_{i1}$
+\end_inset
+
+ a 
+\begin_inset Formula $v_{i2}$
+\end_inset
+
+ y 
+\begin_inset Formula $a_{i2}$
+\end_inset
+
+ de 
+\begin_inset Formula $v_{i2}$
+\end_inset
+
+ a 
+\begin_inset Formula $v_{i1}$
+\end_inset
+
+ disjuntos (salvo en los puntos inicial y final), y 
+\begin_inset Formula $P_{i}:=\text{conv}\{a_{ij}(s)\}_{s\in[0,1]}^{j\in\{1,2\}}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Sea 
+\begin_inset Formula $W_{i}=e_{i1}\cdots e_{in_{i}}$
+\end_inset
+
+.
+ Tomamos el espacio topológico 
+\begin_inset Formula $X:=(P_{1}\amalg\dots\amalg P_{k})/\sim$
+\end_inset
+
+, donde 
+\begin_inset Formula $x\sim y$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $x=y$
+\end_inset
+
+ o, para ciertos 
+\begin_inset Formula $i,j,i',j',t$
+\end_inset
+
+, bien 
+\begin_inset Formula $e_{ij}=e_{i'j'}$
+\end_inset
+
+, 
+\begin_inset Formula $x=a_{ij}(t)$
+\end_inset
+
+ e 
+\begin_inset Formula $y=a_{i'j'}(t)$
+\end_inset
+
+, bien 
+\begin_inset Formula $e_{ij}=e_{i'j'}^{-1}$
+\end_inset
+
+ (o al revés), 
+\begin_inset Formula $x=a_{ij}(t)$
+\end_inset
+
+ e 
+\begin_inset Formula $y=a_{i'j'}(1-t)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $|{\cal P}|$
+\end_inset
+
+ es cualquier espacio homeomorfo al subespacio de 
+\begin_inset Formula $X$
+\end_inset
+
+ de los puntos que no tienen un entorno en 
+\begin_inset Formula $X$
+\end_inset
+
+ homeomorfo a un intervalo de 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $Y=|{\cal P}|$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal P}$
+\end_inset
+
+ es una 
+\series bold
+presentación
+\series default
+ (
+\series bold
+poligonal
+\series default
+) de 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula ${\cal P}$
+\end_inset
+
+ tiene una sola cara, 
+\begin_inset Formula $X$
+\end_inset
+
+ es conexo.
+ Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{S}^{2}=|\langle a\mid aa^{-1}\rangle|=|\langle a,b\mid abb^{-1}a^{-1}\rangle|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{RP}^{2}=|\langle a\mid aa\rangle|=|\langle a,b\mid abab\rangle|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{T}^{2}=|\langle a,b\mid aba^{-1}b^{-1}\rangle|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+La botella de Klein 
+\begin_inset Formula $K=|\langle a,b\mid abab^{-1}\rangle|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+región poligonal
+\series default
+ es un subespacio compacto de 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+ cuya frontera es una concatenación de segmentos, llamados 
+\series bold
+aristas
+\series default
+.
+ Si 
+\begin_inset Formula $P_{1},\dots,P_{k}$
+\end_inset
+
+ son regiones poligonales, 
+\begin_inset Formula $P:=P_{1}\amalg\dots\amalg P_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sim$
+\end_inset
+
+ es una relación de equivalencia en 
+\begin_inset Formula $P$
+\end_inset
+
+ que identifica cada arista de cada 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+ con exactamente una arista de algún 
+\begin_inset Formula $P_{j}$
+\end_inset
+
+ (que puede ser la misma), entonces 
+\begin_inset Formula $P/\sim$
+\end_inset
+
+ es una superficie compacta.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Demostración.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Orientación
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ un camino 
+\begin_inset Formula ${\cal C}^{1}$
+\end_inset
+
+ cerrado sobre una superficie 
+\begin_inset Formula $S\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $e_{1},e_{2}:[0,1]\to\mathbb{R}^{n}$
+\end_inset
+
+ campos de vectores unitarios tangentes a 
+\begin_inset Formula $S$
+\end_inset
+
+ tales que 
+\begin_inset Formula $e_{1}(s)$
+\end_inset
+
+ es tangente a 
+\begin_inset Formula $\alpha(s)$
+\end_inset
+
+ y 
+\begin_inset Formula $e_{2}(s)$
+\end_inset
+
+ es perpendicular a 
+\begin_inset Formula $e_{1}(s)$
+\end_inset
+
+.
+ Entonces
+\series bold
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ preserva la orientación
+\series default
+ si la orientación de 
+\begin_inset Formula $e_{1}(1)$
+\end_inset
+
+ y 
+\begin_inset Formula $e_{2}(1)$
+\end_inset
+
+ es la misma que la de 
+\begin_inset Formula $e_{1}(0)$
+\end_inset
+
+ y 
+\begin_inset Formula $e_{2}(0)$
+\end_inset
+
+, e 
+\series bold
+invierte la orientación
+\series default
+ en caso contrario.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+¿Qué es la orientación?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una superficie es 
+\series bold
+orientable
+\series default
+ si todo camino 
+\begin_inset Formula ${\cal C}^{1}$
+\end_inset
+
+ cerrado sobre ella preserva la orientación, y es 
+\series bold
+no orientable
+\series default
+ en caso contrario.
+ Para una superficie 
+\begin_inset Formula $S\subseteq\mathbb{R}^{3}$
+\end_inset
+
+, 
+\begin_inset Formula $S$
+\end_inset
+
+ es orientable si y sólo si existe un campo unitario normal a 
+\begin_inset Formula $S$
+\end_inset
+
+ definido en todo 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Demostración.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por ejemplo, son orientables 
+\begin_inset Formula $\mathbb{S}^{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{S}^{1}\times(0,1)$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbb{T}^{2}$
+\end_inset
+
+, pero no lo son la banda de Möbius, la botella de Klein y 
+\begin_inset Formula $\mathbb{RP}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Suma conexa
+\end_layout
+
+\begin_layout Standard
+Dadas dos superficies 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+ con subespacios respectivos 
+\begin_inset Formula $X_{0}$
+\end_inset
+
+ e 
+\begin_inset Formula $Y_{0}$
+\end_inset
+
+ y homeomorfos a un disco en 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+, dado un homeomorfismo 
+\begin_inset Formula $h:\partial X_{0}\cong\mathbb{S}^{1}\to\partial Y_{0}\cong\mathbb{S}^{1}$
+\end_inset
+
+, llamamos 
+\series bold
+suma conexa
+\series default
+ de 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+, 
+\begin_inset Formula $X\sharp Y$
+\end_inset
+
+, a 
+\begin_inset Formula $((X\setminus\text{\ensuremath{\mathring{X}_{0}}})\amalg(Y\setminus\mathring{Y}_{0}))/\sim$
+\end_inset
+
+, donde 
+\begin_inset Formula $x\sim y$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $x=y$
+\end_inset
+
+, o bien 
+\begin_inset Formula $x\in X_{0}$
+\end_inset
+
+ e 
+\begin_inset Formula $y\in Y_{0}$
+\end_inset
+
+ con 
+\begin_inset Formula $y=h(x)$
+\end_inset
+
+, o bien al revés.
+ Como 
+\series bold
+teorema
+\series default
+, el grupo fundamental del 
+\series bold
+doble toro
+\series default
+, 
+\begin_inset Formula $\mathbb{T}\sharp\mathbb{T}$
+\end_inset
+
+, no es abeliano.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Demostración.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dadas dos superficies 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X\sharp Y$
+\end_inset
+
+ es una superficie.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Demostración.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X\sharp Y$
+\end_inset
+
+ es independiente de 
+\begin_inset Formula $X_{0}$
+\end_inset
+
+ e 
+\begin_inset Formula $Y_{0}$
+\end_inset
+
+ salvo por homeomorfismo.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Demostración.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X\sharp Y$
+\end_inset
+
+ es orientable si y sólo si lo son 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Demostración.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+ son triangulables, 
+\begin_inset Formula $X\sharp Y$
+\end_inset
+
+ también lo es y 
+\begin_inset Formula $\chi(X\sharp Y)=\chi(X)+\chi(Y)-2$
+\end_inset
+
+.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sea $K_1$ una triangulación de $S_1$ y $K_2$ una de $S_2$, y suponemos que
+ el disco que quitamos es homeomorfo a una cara, por lo que quitamos una
+ cara.
+ Entonces al unir, quitamos un 2-simplicial, 3 1-simpliciales y 3 0-simpliciales
+, por lo que el n.
+ de Euler total disminuye en 2.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\chi(\mathbb{S}^{2})=2$
+\end_inset
+
+.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Demostración.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\chi(\mathbb{T}^{2})=0$
+\end_inset
+
+.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Demostración.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\chi(\mathbb{RP}^{2})=1$
+\end_inset
+
+.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Demostración.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $T_{1},\dots,T_{n}$
+\end_inset
+
+ son toros, 
+\begin_inset Formula $\chi(T_{1}\sharp\dots\sharp T_{n})=2-2n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $P_{1},\dots,P_{n}$
+\end_inset
+
+ son planos proyectivos, 
+\begin_inset Formula $\chi(P_{1}\sharp\dots\sharp P_{n})=2-n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Clasificación de superficies
+\end_layout
+
+\begin_layout Standard
+Dos presentaciones 
+\begin_inset Formula ${\cal P}_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal P}_{2}$
+\end_inset
+
+ son 
+\series bold
+topológicamente equivalentes
+\series default
+ si 
+\begin_inset Formula $|{\cal P}_{1}|\cong|{\cal P}_{2}|$
+\end_inset
+
+.
+ Cada una de las siguientes transformaciones sobre una presentación, llamadas
+ 
+\series bold
+transformaciones elementales
+\series default
+, produce otra presentación topológicamente equivalente:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Reetiquetado
+\series default
+: Cambiar el nombre de una arista (el nuevo nombre no puede ser el de otra
+ arista).
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Subdivisión
+\series default
+: Cambiar una arista 
+\begin_inset Formula $a$
+\end_inset
+
+ por aristas 
+\begin_inset Formula $a_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $a_{2}$
+\end_inset
+
+, y cambiar cada aparición de 
+\begin_inset Formula $a$
+\end_inset
+
+ por 
+\begin_inset Formula $a_{1}a_{2}$
+\end_inset
+
+ y cada una de 
+\begin_inset Formula $a^{-1}$
+\end_inset
+
+ por 
+\begin_inset Formula $a_{2}^{-1}a_{1}^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Consolidación
+\series default
+: Si 
+\begin_inset Formula $a_{1}$
+\end_inset
+
+ aparece siempre seguida de 
+\begin_inset Formula $a_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $a_{2}^{-1}$
+\end_inset
+
+ de 
+\begin_inset Formula $a_{1}^{-1}$
+\end_inset
+
+, contando que la última letra de una palabra va seguida de la primera,
+ cambiar las aristas 
+\begin_inset Formula $a_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $a_{2}$
+\end_inset
+
+ por 
+\begin_inset Formula $a$
+\end_inset
+
+, cada aparición de 
+\begin_inset Formula $a_{1}a_{2}$
+\end_inset
+
+ por 
+\begin_inset Formula $a$
+\end_inset
+
+ y cada una de 
+\begin_inset Formula $a_{2}^{-1}a_{1}^{-1}$
+\end_inset
+
+ por 
+\begin_inset Formula $a^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Reflejo
+\series default
+ o 
+\series bold
+simetría
+\series default
+: 
+\begin_inset Formula $\langle S\mid a_{1}\cdots a_{m},\dots\rangle\Rightarrow\langle S\mid a_{m}^{-1}\cdots a_{1}^{-1},\dots\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Rotación
+\series default
+: 
+\begin_inset Formula $\langle S\mid a_{1}\cdots a_{m},\dots\rangle\Rightarrow\langle S\mid a_{2}\cdots a_{m}a_{1},\dots\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Corte
+\series default
+: 
+\begin_inset Formula $\langle S\mid W_{1}W_{2},\dots\rangle\Rightarrow\langle S,e\mid W_{1}e,e^{-1}W_{2},\dots\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Pegado
+\series default
+: 
+\begin_inset Formula $\langle S,e\mid W_{1}e,e^{-1}W_{2},\dots\rangle\Rightarrow\langle S\mid W_{1}W_{2},\dots\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Doblado
+\series default
+: 
+\begin_inset Formula $\langle S,e\mid Wee^{-1},\dots\rangle\Rightarrow\langle S\mid W,\dots\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Desdoblado
+\series default
+: 
+\begin_inset Formula $\langle S\mid W,\dots\rangle\Rightarrow\langle S,e\mid Wee^{-1},\dots\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dadas superficies 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ con presentaciones poligonales respectivas 
+\begin_inset Formula $\langle S_{1}\mid W_{1}\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle S_{2}\mid W_{2}\rangle$
+\end_inset
+
+ de una sola cara con 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ disjuntos, entonces 
+\begin_inset Formula $\langle S_{1},S_{2}\mid W_{1}W_{2}\rangle$
+\end_inset
+
+ es una presentación de 
+\begin_inset Formula $M_{1}\sharp M_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, toda superficie compacta admite una presentación poligonal.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de clasificación:
+\series default
+ Toda superficie compacta y conexa es homeomorfa a una esfera, una suma
+ conexa de toros o una suma conexa de planos proyectivos.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Demostración
+\end_layout
+
+\end_inset
+
+La demostración usa como lema que 
+\begin_inset Formula $\mathbb{K}\cong\mathbb{P}^{2}\sharp\mathbb{P}^{2}$
+\end_inset
+
+ (
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+ es la botella de Klein) y 
+\begin_inset Formula $\mathbb{T}^{2}\sharp\mathbb{P}^{2}\cong\mathbb{P}^{2}\sharp\mathbb{P}^{2}\sharp\mathbb{P}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con esto, dos superficies compactas son homeomorfas si y sólo si tiene el
+ mismo número de Euler y la misma orientabilidad.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+género
+\series default
+ de una superficie compacta 
+\begin_inset Formula $M$
+\end_inset
+
+, o el número de 
+\series bold
+agujeros
+\series default
+, es
+\begin_inset Formula 
+\[
+g(M):=\begin{cases}
+\frac{1}{2}(2-\chi(M)), & M\text{ orientable};\\
+2-\chi(M), & M\text{ no orientable}.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tenemos 
+\begin_inset Formula $g(\mathbb{S}^{2})=0$
+\end_inset
+
+, 
+\begin_inset Formula $g(\mathbb{T}^{2})=1$
+\end_inset
+
+ y 
+\begin_inset Formula $g(\mathbb{RP}^{2})=1$
+\end_inset
+
+, luego si 
+\begin_inset Formula $T_{1},\dots,T_{n}$
+\end_inset
+
+ son toros, 
+\begin_inset Formula $g(T_{1}\sharp\dots\sharp T_{n})=n$
+\end_inset
+
+, y si 
+\begin_inset Formula $P_{1},\dots,P_{n}$
+\end_inset
+
+ son planos proyectivos, 
+\begin_inset Formula $g(P_{1}\sharp\dots\sharp P_{n})=n$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
