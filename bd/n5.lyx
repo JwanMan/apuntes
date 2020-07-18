@@ -1,0 +1,626 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+El 
+\series bold
+diseño lógico
+\series default
+ es la transformación del esquema conceptual en un 
+\series bold
+esquema lógico
+\series default
+, eliminando redundancias, evitando cargas suplementarias y maximizando
+ la simplicidad para conseguir una estructura lógica adecuada y un equilibrio
+ entre los requisitos de usuario y la eficiencia.
+ Para conseguir la máxima portabilidad, se introduce el SGBD específico
+ de forma tardía, lo que permite implementar el esquema lógico en distintos
+ SGBD y migrar entre SGBDs.
+\end_layout
+
+\begin_layout Enumerate
+Se empieza con un 
+\series bold
+diseño lógico estándar
+\series default
+ (
+\series bold
+DLS
+\series default
+), eligiendo el 
+\series bold
+modelo lógico de datos estándar
+\series default
+ (
+\series bold
+MLS
+\series default
+), como puede ser el modelo relacional, de red, jerárquico, orientado a
+ objetos, etc., independiente del SGBD, y se describe en este un 
+\series bold
+esquema lógico estándar
+\series default
+ (
+\series bold
+ELS
+\series default
+), que en el modelo relacional se puede hacer con pseudolenguaje o SQL.
+\end_layout
+
+\begin_layout Enumerate
+Se elige el SGBD y se hace el 
+\series bold
+diseño lógico específico
+\series default
+ (
+\series bold
+DLE
+\series default
+), en que se adapta el ELS a un 
+\series bold
+esquema lógico específico
+\series default
+ (
+\series bold
+ELE
+\series default
+), que se describe en el lenguaje del SGBD específico (para bases de datos
+ relacionales, MySQL, PostgreSQL, etc.) y usa su modelo de datos concreto.
+\end_layout
+
+\begin_layout Standard
+El primer paso del diseño lógico relacional es obtener las tablas, que en
+ pseudolenguaje se definen como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+\emph on
+NOMBRE_TABLA
+\series default
+\emph default
+ (
+\series bold
+\emph on
+atributo
+\series default
+\emph default
+, ...)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+Admiten NULL
+\series default
+: 
+\emph on
+atributo
+\emph default
+, ...
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+Clave Primaria
+\series default
+: 
+\emph on
+atributo
+\emph default
+, ...
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+Claves Alternativas
+\series default
+ (UNIQUE): 
+\emph on
+(lista numerada de atributos o tuplas de atributos)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+Claves Ajenas
+\series default
+ (FOREIGN KEY):
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+(lista numerada de 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\emph on
+atributo
+\emph default
+, ...) Referencia_a 
+\emph on
+NOMBRE_TABLA
+\emph default
+(
+\emph on
+atributo_clave
+\emph default
+, ...)
+\begin_inset Quotes crd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+Derivado
+\series default
+:
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+(lista numerada de 
+\begin_inset Quotes cld
+\end_inset
+
+
+\emph on
+atributo
+\emph default
+ = 
+\emph on
+fórmula
+\emph default
+
+\begin_inset Quotes crd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+\series bold
+Comprobar
+\series default
+:
+\end_layout
+
+\begin_layout Plain Layout
+
+\family sans
+(lista numerada de restricciones)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para cada tipo de entidad, se crea una tabla de nombre igual o muy similar,
+ con una columna por cada atributo simple monovaluado, sea del tipo de entidad
+ o, recursivamente, de un atributo compuesto monovaluado de este.
+ Las columnas correspondientes a atributos admiten nulo si y sólo si los
+ atributos correspondientes o los atributos compuestos a los que pertenecen,
+ recursivamente, lo admiten.
+\end_layout
+
+\begin_layout Standard
+Un atributo multivalorado se trata como una entidad débil asociada al tipo
+ de entidad o atributo padre al que pertenece, o si se puede, como una entidad
+ fuerte relacionada con este.
+ El atributo tendría cardinalidad 
+\begin_inset Formula $(1,1)$
+\end_inset
+
+ en esta relación, y el padre, la cardinalidad del atributo.
+\end_layout
+
+\begin_layout Standard
+La clave primaria corresponde al identificador principal y las alternativas
+ al resto.
+ Si el tipo de entidad es débil, la clave primaria contendrá al identificador
+ principal parcial, pero tanto a esta como a las alternativas se les añadirán
+ claves ajenas al modelar las relaciones.
+\end_layout
+
+\begin_layout Standard
+Para cada relación:
+\end_layout
+
+\begin_layout Enumerate
+Si no hay elementos de cardinalidad 
+\begin_inset Formula $(1,1)$
+\end_inset
+
+ o 
+\begin_inset Formula $(0,1)$
+\end_inset
+
+, o si la relación es recursiva con cardinalidad 
+\begin_inset Formula $(0,1)$
+\end_inset
+
+ a ambos lados, se crea una tabla para la relación con los atributos simples
+ monovaluados de la relación y una clave ajena por cada elemento relacionado.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+La clave primaria es el conjunto de claves ajenas o, si es posible, un subconjun
+to de este.
+ Si el conjunto de claves ajenas no es clave de la nueva relación, se ha
+ cometido un error en el diseño conceptual que normalmente se puede subsanar
+ añadiendo algún atributo a la clave.
+ Las cardinalidades de elementos distintas a 
+\begin_inset Formula $(0,n)$
+\end_inset
+
+ se traducen como 
+\series bold
+restricciones de integridad generales
+\series default
+ o 
+\series bold
+asertos
+\series default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Los elementos de tipos distintos con cardinalidad 
+\begin_inset Formula $(1,1)$
+\end_inset
+
+ se combinan en una tabla cuyas columnas son los atributos simples monovaluados
+ de los tipos de entidad y la relación.
+ La clave primaria se elige de entre las primarias de cada tipo de entidad
+ fuerte.
+\end_layout
+
+\begin_layout Enumerate
+Si tras esto hay un elemento con cardinalidad 
+\begin_inset Formula $(1,1)$
+\end_inset
+
+, se añaden a este las claves ajenas que no admiten nulo al resto de elementos
+ que quedan en la relación, si los hay.
+ En tal caso se llama 
+\series bold
+entidad hijo
+\series default
+ al elemento de cardinalidad 
+\begin_inset Formula $(1,1)$
+\end_inset
+
+ y 
+\series bold
+entidades padre
+\series default
+ al resto.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si la entidad hijo era débil y la relación formaba parte de su identificación,
+ las claves ajenas se añaden a la clave primaria.
+ Si las entidades padre no tienen cardinalidad 
+\begin_inset Formula $(0,n)$
+\end_inset
+
+, esta se modela con un aserto.
+ Si una entidad padre tiene cardinalidad 
+\begin_inset Formula $(0,1)$
+\end_inset
+
+, la clave ajena correspondiente en el hijo es clave alternativa.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si no hay elementos con cardinalidad 
+\begin_inset Formula $(1,1)$
+\end_inset
+
+ pero sí 
+\begin_inset Formula $(0,1)$
+\end_inset
+
+, se elige uno de cardinalidad 
+\begin_inset Formula $(0,1)$
+\end_inset
+
+ como entidad hijo y se opera como en el caso anterior, salvo que las claves
+ ajenas y atributos de relación admiten nulo.
+\end_layout
+
+\begin_layout Enumerate
+Las relaciones recursivas con cardinalidad 
+\begin_inset Formula $(0,1)$
+\end_inset
+
+ a un lado y 
+\begin_inset Formula $(1,1)$
+\end_inset
+
+ al otro se pueden modelar como entidades padre e hijo o creando una nueva
+ tabla.
+\end_layout
+
+\begin_layout Standard
+Para indicar que cada entidad de un cierto tipo solo puede participar en
+ uno de entre varios roles de tipos de relación, si la entidad se ha modelado
+ como hijo en todas estas relaciones, se añade una 
+\series bold
+restricción de comprobación
+\series default
+ en la tabla correspondiente al tipo de entidad, y de lo contrario se añade
+ un aserto.
+\end_layout
+
+\begin_layout Standard
+Finalmente, se traducen las restricciones del diccionario de datos no representa
+das en el diagrama conceptual.
+\end_layout
+
+\begin_layout Standard
+Los siguientes pasos del diseño lógico son:
+\end_layout
+
+\begin_layout Enumerate
+Garantizar que las tablas tienen un conjunto mínimo de atributos pero suficiente
+ para soportar los requisitos de datos y con redundancia mínima, usando
+ 
+\series bold
+técnicas de normalización
+\series default
+.
+ Se usan las 
+\series bold
+reglas de las formas normales
+\series default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+1FN.
+\end_layout
+
+\end_inset
+
+Todo atributo (relacional) representa un valor atómico, no uno multivalorado
+ o compuesto.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+2FN.
+\end_layout
+
+\end_inset
+
+Cada atributo no clave depende totalmente de una clave, no solo de parte
+ de esta.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+3FN.
+\end_layout
+
+\end_inset
+
+No existen dependencias funcionales transitivas entre los atributos, es
+ decir, ningún atributo depende del valor de otro que no sea clave.
+\end_layout
+
+\begin_layout Standard
+Se recomienda que cada relación sea al menos 3FN.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Validar las relacines contra las transacciones de usuario, intentando 
+\begin_inset Quotes cld
+\end_inset
+
+ejecutar manualmente
+\begin_inset Quotes crd
+\end_inset
+
+ las transacciones.
+ Si alguna no se puede resolver, se ha cometido algún error en el diseño
+ lógico.
+\end_layout
+
+\begin_layout Enumerate
+Comprobar y documentar las restricciones que evitan que la base de datos
+ quede incompleta, imprecisa o incoherente, evitando la pérdida de semántica
+ en el proceso de traducción.
+ Comprobar:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Que las columnas traducidas de atributos admiten nulo si y sólo si el atributo
+ original lo admite.
+\end_layout
+
+\begin_layout Enumerate
+Que los atributos solo pueden tener valores legales, especialmente cuando
+ el dominio no se corresponde exactamente con un tipo de datos nativo de
+ la base de datos.
+\end_layout
+
+\begin_layout Enumerate
+Que ninguna clave primaria puede contener nulo.
+\end_layout
+
+\begin_layout Enumerate
+Que las claves ajenas tienen tantas columnas como la clave primaria a la
+ que referencias, que son de tipo correcto, que está bien indicado si admiten
+ nulo o no y que las acciones de mantenimiento de la integridad referencial
+ son las adecuadas según su semántica.
+\end_layout
+
+\begin_layout Enumerate
+Que las reglas de integridad generales están ya representadas como comprobacione
+s o asertos.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Revisar con los usuarios el esquema lógico y el diccionario de datos, que
+ deben estar completos y documentados.
+\end_layout
+
+\begin_layout Enumerate
+Considerar el crecimiento futuro.
+ Es importante que el esquema lógico pueda evolucionar con efecto mínimo
+ para los usuarios, aunque esto puede ser muy difícil de conseguir si no
+ se sabe qué cambios se desea realizar en un futuro y solo considerarlo
+ puede resultar muy caro en tiempo y dinero.
+ En general, los cambios considerados consisten en ampliar cardinalidades.
+\end_layout
+
+\begin_layout Standard
+Finalmente, para el diseño lógico específico, se estudia la correspondencia
+ entre los conceptos del diseño lógico estándar y los del del SGBD.
+ Si este soporta el modelo estándar sin restricciones (
+\series bold
+soporte total
+\series default
+), la transformación es casi directa, mientras que si no soporta algunos
+ conceptos o lo hace pero con limitaciones (
+\series bold
+soporte parcial
+\series default
+), se deben usar conceptos alternativos o programación complementaria.
+\end_layout
+
+\end_body
+\end_document
