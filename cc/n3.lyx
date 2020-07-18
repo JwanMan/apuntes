@@ -1,0 +1,5364 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{tikz}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+analizador sintáctico
+\series default
+ toma una cadena de componentes léxicos y, si esta verifica la gramática
+ libre de contexto del lenguaje fuente, genera un árbol sintáctico, y de
+ lo contrario genera un informe con la lista de errores detectados.
+ También puede hacer tareas de análisis semántico como completar la tabla
+ de símbolos, verificar los tipos y generar código intermedio.
+\end_layout
+
+\begin_layout Section
+Recuperación de errores
+\end_layout
+
+\begin_layout Standard
+El informe de errores debe ser claro y preciso, la recuperación debe ser
+ rápida para poder continuar con el procesamiento y el mecanismo de detección
+ no debe ralentizar programas correctos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Recuperación en modo pánico
+\series default
+: Cuando se recibe un 
+\emph on
+token
+\emph default
+ que no concuerda con la especificación sintáctica del lenguaje, se empiezan
+ a desechar 
+\emph on
+tokens
+\emph default
+ hasta que se encuentra uno de un 
+\series bold
+conjunto de sincronización
+\series default
+, normalmente con terminadores de estructuras sintácticas.
+ Esto desecha muchos 
+\emph on
+tokens
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Recuperación a nivel de frase
+\series default
+: Cuando se descubre un error, se inserta una cadena que permita continuar
+ con el análisis.
+ Da problemas si el error se produjo antes del punto de detección.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Producciones de error
+\series default
+: Si se sabe en qué puntos están los errores más frecuentes, ampliar la
+ gramática con reglas de producción que simulen la producción de errores.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Corrección global
+\series default
+: Se calcula la distancia mínima de la cadena incorrecta a una correcta
+ y se sustituye.
+ Es muy costoso, y se usa para la evaluación de otras técnicas o de forma
+ local para encontrar cadenas de sustitución óptimas en una recuperación
+ a nivel de frase.
+\end_layout
+
+\begin_layout Section
+Fundamentos teóricos
+\end_layout
+
+\begin_layout Standard
+Dada una gramática libre de contexto (GLC) 
+\begin_inset Formula $G:=(V_{N},V_{T},P,S)$
+\end_inset
+
+, una derivación directa 
+\begin_inset Formula $\alpha A\mu\Rightarrow\alpha\gamma\mu$
+\end_inset
+
+ con 
+\begin_inset Formula $A\to\gamma\in P$
+\end_inset
+
+ es 
+\series bold
+más a la izquierda
+\series default
+, 
+\begin_inset Formula $\alpha\Rightarrow_{\text{mi}}\beta$
+\end_inset
+
+, si 
+\begin_inset Formula $\alpha\in V_{T}^{*}$
+\end_inset
+
+, y es 
+\series bold
+más a la derecha
+\series default
+, 
+\begin_inset Formula $\alpha\Rightarrow_{\text{md}}\beta$
+\end_inset
+
+, si 
+\begin_inset Formula $\mu\in V_{T}^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+derivación más a la izquierda
+\series default
+ de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es una de la forma 
+\begin_inset Formula $S\Rightarrow_{\text{mi}}^{*}\alpha$
+\end_inset
+
+, y una 
+\series bold
+derivación más a la derecha
+\series default
+ es una de la forma 
+\begin_inset Formula $S\Rightarrow_{\text{md}}^{*}\alpha$
+\end_inset
+
+.
+ A una derivación más a la derecha 
+\begin_inset Formula 
+\[
+S\Rightarrow_{\text{md}}\gamma_{1}\Rightarrow_{\text{md}}\dots\Rightarrow_{\text{md}}\gamma_{n}
+\]
+
+\end_inset
+
+ con 
+\begin_inset Formula $n\geq0$
+\end_inset
+
+ le corresponde una 
+\series bold
+reducción por la izquierda
+\series default
+ 
+\begin_inset Formula $\gamma_{n}\Rightarrow_{\text{mi}}^{R}\dots\Rightarrow_{\text{mi}}^{R}\gamma_{1}\Rightarrow_{\text{mi}}^{R}S$
+\end_inset
+
+, donde escribimos 
+\begin_inset Formula $\alpha\Rightarrow^{R}\beta$
+\end_inset
+
+ si 
+\begin_inset Formula $\alpha\Rightarrow\beta$
+\end_inset
+
+ en la gramática con reglas de producción 
+\begin_inset Formula $\{\gamma\to\delta\}_{\delta\to\gamma\in P}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\gamma A\mu\Rightarrow\alpha:=\gamma\beta\mu$
+\end_inset
+
+, 
+\begin_inset Formula $\beta$
+\end_inset
+
+ es una 
+\series bold
+frase simple
+\series default
+ de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ respecto a 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+forma sentencial derecha
+\series default
+ o 
+\series bold
+más a la derecha
+\series default
+ al resultado de una derivación más a la derecha, y llamamos 
+\series bold
+pivote
+\series default
+ de una forma sentencial derecha 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ a la frase simple asociada a la última derivación directa en una derivación
+ más a la derecha de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+árbol de derivación
+\series default
+ para la GLC 
+\begin_inset Formula $G$
+\end_inset
+
+ es un árbol ordenado y etiquetado con raíz 
+\begin_inset Formula $S$
+\end_inset
+
+ tal que, para todo nodo con etiqueta 
+\begin_inset Formula $X$
+\end_inset
+
+, bien 
+\begin_inset Formula $X\in V_{T}$
+\end_inset
+
+ y el nodo es hoja, o bien 
+\begin_inset Formula $X\in V_{N}$
+\end_inset
+
+ y los hijos del nodo tienen etiquetas 
+\begin_inset Formula $X_{1},\dots,X_{k}$
+\end_inset
+
+ con 
+\begin_inset Formula $X\to X_{1}\cdots X_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una sentencia de 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\series bold
+ambigua
+\series default
+ si existen dos árboles de derivación en 
+\begin_inset Formula $G$
+\end_inset
+
+ distintos tales que la sentencia es la concatenación ordenada de las etiquetas
+ de todos los nodos hoja, si y sólo si admite dos derivaciones más a la
+ izquierda distintas, si y sólo si admite dos derivaciones más a la derecha
+ distintas.
+ Una gramática es ambigua si tiene alguna sentencia ambigua.
+\end_layout
+
+\begin_layout Standard
+La ambigüedad de una gramática es indecidible.
+ Un lenguaje de tipo 2 es 
+\series bold
+inherentemente ambiguo
+\series default
+ si toda gramática que lo genere es ambigua.
+\end_layout
+
+\begin_layout Standard
+Algunos casos de ambigüedad:
+\end_layout
+
+\begin_layout Itemize
+La debida a la precedencia y asociatividad de los operadores.
+ Una gramática ambigua como 
+\begin_inset Formula $E\to E+E\mid E*E\mid id$
+\end_inset
+
+ es equivalente a una no ambigua 
+\begin_inset Formula $E\to E+T\mid T;T\to T*F\mid F;F\to id$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+La debida a las sentencias 
+\family typewriter
+if-then-else
+\family default
+.
+ Una gramática como 
+\begin_inset Formula $S\to iEtS\mid iEtSeS\mid s$
+\end_inset
+
+, donde 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $t$
+\end_inset
+
+ y 
+\begin_inset Formula $e$
+\end_inset
+
+ son los 
+\emph on
+tokens
+\emph default
+ respectivos 
+\family typewriter
+if
+\family default
+, 
+\family typewriter
+then
+\family default
+ y 
+\family typewriter
+else
+\family default
+, es ambigua porque 
+\begin_inset Formula $iEtiEtSeS$
+\end_inset
+
+ tiene dos árboles de derivación.
+ Esto se puede solucionar haciendo que las sentencias 
+\family typewriter
+if-then
+\family default
+ e 
+\family typewriter
+if-then-else
+\family default
+ terminen con un 
+\emph on
+token
+\emph default
+ 
+\family typewriter
+endif
+\family default
+ o usando la gramática equivalente 
+\begin_inset Formula 
+\[
+S\to S_{e}\mid S_{ne};S_{e}\to iEtS_{e}eS_{e}\mid s;S_{ne}\to iEtS\mid iEtS_{e}eS_{ne},
+\]
+
+\end_inset
+
+aunque esto no se suele hacer porque es más lento, y en su lugar se incluye
+ en el analizador sintáctico un caso especial.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+autómata de pila
+\series default
+ es una tupla 
+\begin_inset Formula $M:=(Q,V,\Sigma,\delta,q_{0},z_{0},F)$
+\end_inset
+
+ donde 
+\begin_inset Formula $Q$
+\end_inset
+
+ es un conjunto finito de 
+\series bold
+estados
+\series default
+, 
+\begin_inset Formula $V$
+\end_inset
+
+ es el 
+\series bold
+alfabeto de entrada
+\series default
+, 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ es el 
+\series bold
+alfabeto de la pila
+\series default
+, 
+\begin_inset Formula $q_{0}\in Q$
+\end_inset
+
+ es el 
+\series bold
+estado inicial
+\series default
+, 
+\begin_inset Formula $z_{0}\in\Sigma$
+\end_inset
+
+ es el 
+\series bold
+símbolo inicial
+\series default
+ de la pila, 
+\begin_inset Formula $F\subseteq Q$
+\end_inset
+
+ es el conjunto de 
+\series bold
+estados finales
+\series default
+ y 
+\begin_inset Formula $\delta:Q\times(V\cup\{\lambda\})\times\Sigma\to{\cal P}(Q\times\Sigma^{*})$
+\end_inset
+
+ es la 
+\series bold
+función de transición
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+configuración
+\series default
+ de un autómata con pila es una tupla 
+\begin_inset Formula $(q,w,\alpha)\in Q\times V^{*}\times\Sigma^{*}$
+\end_inset
+
+.
+ Un 
+\series bold
+movimiento
+\series default
+ es una transición de una configuración a otra de la forma 
+\begin_inset Formula $(q,a\omega,z\alpha)\Rightarrow(q',\omega,\beta\alpha)$
+\end_inset
+
+ con 
+\begin_inset Formula $(q',\beta)\in\delta(q,a,z)$
+\end_inset
+
+ o de la forma 
+\begin_inset Formula $(q,\omega,z\alpha)\Rightarrow(q',\omega,\beta\alpha)$
+\end_inset
+
+ con 
+\begin_inset Formula $(q',\beta)\in\delta(q,a,z)$
+\end_inset
+
+.
+ En general los autómatas de pila son 
+\series bold
+no deterministas
+\series default
+, es decir, existen varios movimientos con la misma configuración inicial
+ (a la izquierda).
+\end_layout
+
+\begin_layout Standard
+Una cadena 
+\begin_inset Formula $\omega\in V^{*}$
+\end_inset
+
+ es 
+\series bold
+reconocida
+\series default
+ por un autómata 
+\series bold
+por estado final
+\series default
+ si 
+\begin_inset Formula $(q_{0},\omega,z_{0})\Rightarrow^{*}(q_{f},\lambda,\gamma)$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $q_{f}\in F$
+\end_inset
+
+ y 
+\begin_inset Formula $\gamma\in\Sigma^{*}$
+\end_inset
+
+ o 
+\series bold
+por vaciado de pila
+\series default
+ si 
+\begin_inset Formula $F=\emptyset$
+\end_inset
+
+ y 
+\begin_inset Formula $(q_{0},w,z_{0})\Rightarrow^{*}(q,\lambda,\lambda)$
+\end_inset
+
+ para cierto 
+\begin_inset Formula $q\in Q$
+\end_inset
+
+.
+ El 
+\series bold
+lenguaje reconocido
+\series default
+ por un autómata de pila es el conjunto de cadenas en 
+\begin_inset Formula $\Sigma^{*}$
+\end_inset
+
+ que reconoce.
+ Un lenguaje es reconocido por algún autómata de pila si y sólo si es de
+ tipo 2.
+\end_layout
+
+\begin_layout Standard
+Algunas características de los lenguajes de programación son no libres de
+ contexto:
+\end_layout
+
+\begin_layout Itemize
+Declaración de identificadores.
+ 
+\begin_inset Formula $L_{1}:=\{wcw\mid w\in\{a,b\}^{*}\}$
+\end_inset
+
+, donde en 
+\begin_inset Formula $wcw$
+\end_inset
+
+, la primera 
+\begin_inset Formula $w$
+\end_inset
+
+ representa una declaración de identificador, la 
+\begin_inset Formula $c$
+\end_inset
+
+ un fragmento de programa cualquiera y la segunda 
+\begin_inset Formula $w$
+\end_inset
+
+ un uso del identificador, 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ no es de tipo 2.
+\end_layout
+
+\begin_layout Itemize
+Número de parámetros de las funciones.
+ Si 
+\begin_inset Formula $L_{2}:=\{a^{n}b^{m}c^{n}d^{m}\mid n,m\geq1\}$
+\end_inset
+
+, donde una 
+\begin_inset Formula $a$
+\end_inset
+
+ es un parámetro de una primera función, una 
+\begin_inset Formula $b$
+\end_inset
+
+ es un parámetro de una segunda función, una 
+\begin_inset Formula $c$
+\end_inset
+
+ es el paso de un argumento a la primera y una 
+\begin_inset Formula $d$
+\end_inset
+
+ es el paso de un argumento a la segunda, entonces 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ no es de tipo 2.
+\end_layout
+
+\begin_layout Standard
+Para estas, se asigna el mismo 
+\emph on
+token
+\emph default
+ a todos los identificadores y se permite en la gramática enviar un número
+ arbitrario de argumentos a las funciones, y en el análisis semántico se
+ comprueba que los identificadores han sido declarados y el número de argumentos
+ es el correcto.
+\end_layout
+
+\begin_layout Section
+Métodos de análisis semántico
+\end_layout
+
+\begin_layout Standard
+Pueden ser:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Descendentes
+\series default
+: Se construye el árbol de derivación de la raíz a las hojas usando derivaciones
+ izquierdas.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ascendentes
+\series default
+: Se construye el árbol de las hojas a la raíz usando reducciones izquierdas.
+\end_layout
+
+\begin_layout Standard
+Los métodos 
+\series bold
+generales
+\series default
+ pueden analizar cualquier GLC, pero son bastante ineficientes, por lo que
+ vemos métodos eficientes que admiten subconjuntos de las gramáticas libres
+ de contexto suficientemente expresivos.
+\end_layout
+
+\begin_layout Standard
+Dadas una GLC 
+\begin_inset Formula $(V_{N},V_{T},P,S)$
+\end_inset
+
+, definimos 
+\begin_inset Formula $\mathsf{PRIMERO}:(V_{N}\cup V_{T})^{*}\to{\cal P}(V_{T}\sqcup\{\lambda\})$
+\end_inset
+
+ como 
+\begin_inset Formula 
+\[
+\mathsf{PRIMERO}(\alpha):=\{a\in V_{T}:\exists\beta:\alpha\Rightarrow^{*}a\beta\}\cup\{\lambda:\alpha\Rightarrow^{*}\lambda\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Gramática $(V_N,V_T,P,S)$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Mapeo $
+\backslash
+sigma:=
+\backslash
+mathsf{PRIMERO}|_{V_N
+\backslash
+cup V_T}$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$X
+\backslash
+in V_T$}{$
+\backslash
+sigma(X)
+\backslash
+gets
+\backslash
+{X
+\backslash
+}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$X
+\backslash
+in V_N$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$X
+\backslash
+Rightarrow^*
+\backslash
+lambda$}{$
+\backslash
+sigma(X)
+\backslash
+gets
+\backslash
+{
+\backslash
+lambda
+\backslash
+}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lEnOtroCaso{$
+\backslash
+sigma(X)
+\backslash
+gets
+\backslash
+emptyset$}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Repetir{no se hayan añadido más elementos a los conjuntos}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$X
+\backslash
+to Y_1
+\backslash
+cdots Y_k
+\backslash
+in P$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+Para{$i
+\backslash
+in{1,
+\backslash
+dots,k}:Y_1
+\backslash
+cdots Y_{i-1}
+\backslash
+Rightarrow^*
+\backslash
+lambda$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			Añadir todo $
+\backslash
+sigma(Y_i)
+\backslash
+setminus
+\backslash
+{
+\backslash
+lambda
+\backslash
+}$ a $
+\backslash
+sigma(X)$
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lSSi{$Y_1
+\backslash
+cdots Y_k
+\backslash
+Rightarrow^*
+\backslash
+lambda$}{Añadir $
+\backslash
+lambda$ a $
+\backslash
+sigma(X)$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:primero"
+
+\end_inset
+
+Cálculo de 
+\family sans
+PRIMERO
+\family default
+ para símbolos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para calcularlo, usamos el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:primero"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ para obtener 
+\begin_inset Formula $\sigma:V_{N}\cup V_{T}\to V_{T}^{*}$
+\end_inset
+
+ y calculamos
+\begin_inset Formula 
+\begin{multline*}
+\mathsf{PRIMERO}(X_{1}\cdots X_{n})=\\
+=\bigcup_{i=1}^{\min(\{i:X_{1}\cdots X_{i}\nRightarrow^{*}\lambda\}\cup\{n\})}(\sigma(X_{i})\setminus\{\lambda\})\cup\{\lambda:X_{1}\cdots X_{n}\Rightarrow^{*}\lambda\}.
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Gramática $(V_N,V_T,P,S)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Mapeo $
+\backslash
+sigma:=
+\backslash
+mathsf{SIGUIENTE}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+$
+\backslash
+textsf{SIGUIENTE}(S)
+\backslash
+gets
+\backslash
+{
+\backslash
+$
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lPara{$A
+\backslash
+in V_N
+\backslash
+setminus
+\backslash
+{S
+\backslash
+}$}{$
+\backslash
+textsf{SIGUIENTE}(A)
+\backslash
+gets
+\backslash
+emptyset$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$A
+\backslash
+to X_1
+\backslash
+cdots X_k
+\backslash
+in P$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$i
+\backslash
+gets 1$ 
+\backslash
+KwA $k-1$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+SSi{$X_i
+\backslash
+in V_n$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			Añadir todo $
+\backslash
+mathsf{PRIMERO}(X_{i+1}
+\backslash
+cdots X_k)
+\backslash
+setminus
+\backslash
+{
+\backslash
+lambda
+\backslash
+}$ a $
+\backslash
+textsf{SIGUIENTE}(X_k)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Repetir{no se hayan añadido más elementos a los conjuntos}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$A
+\backslash
+to X_1
+\backslash
+cdots X_k:k
+\backslash
+geq1$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+Para{$i
+\backslash
+gets0$ 
+\backslash
+KwA $k$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+SSi{$X_i
+\backslash
+in V_N
+\backslash
+land
+\backslash
+lambda
+\backslash
+in
+\backslash
+mathsf{PRIMERO}(X_{i+1}
+\backslash
+cdots X_k)$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+				Añadir todo $
+\backslash
+mathsf{SIGUIENTE}(A)$ a $
+\backslash
+mathsf{SIGUIENTE}(X_i)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:siguiente"
+
+\end_inset
+
+Cálculo de 
+\family sans
+SIGUIENTE
+\family default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Definimos 
+\begin_inset Formula $\mathsf{SIGUIENTE}:V_{N}\to{\cal P}(V_{T}\sqcup\{\$\})$
+\end_inset
+
+ como
+\begin_inset Formula 
+\[
+\mathsf{SIGUIENTE}(A):=\{a\in V_{T}:\exists\alpha,\beta:S\Rightarrow^{+}\alpha Aa\beta\}\cup\{\$:\exists\alpha:S\Rightarrow^{*}\alpha A\},
+\]
+
+\end_inset
+
+lo que podemos calcular con el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:siguiente"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Análisis ascendente
+\end_layout
+
+\begin_layout Standard
+Una GLC es 
+\begin_inset Formula $LR(k)$
+\end_inset
+
+ para un 
+\begin_inset Formula $k\geq0$
+\end_inset
+
+ si existe un algoritmo que, leyendo 
+\emph on
+tokens
+\emph default
+ de izquierda a derecha (
+\emph on
+Left to right
+\emph default
+), construya una derivación más a la derecha (
+\emph on
+Rightmost derivation
+\emph default
+) de la entrada, en el caso de que esta esté en la gramática, sin necesidad
+ de examinar más de 
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\emph on
+tokens
+\emph default
+ de anticipación.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+analizador LR
+\series default
+ es una estructura formada por:
+\end_layout
+
+\begin_layout Enumerate
+Un alfabeto de 
+\series bold
+símbolos terminales
+\series default
+ 
+\begin_inset Formula $V_{T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Un alfabeto de 
+\series bold
+símbolos no terminales
+\series default
+ 
+\begin_inset Formula $V_{N}$
+\end_inset
+
+ disjunto de 
+\begin_inset Formula $V_{T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Un conjunto finito de 
+\series bold
+estados
+\series default
+ 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\series bold
+estado inicial
+\series default
+ 
+\begin_inset Formula $s_{0}\in S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Una tabla 
+\begin_inset Formula $\mathsf{Acción}:S\times(V_{T}\sqcup\{\$\})\to X$
+\end_inset
+
+, donde 
+\begin_inset Formula $X$
+\end_inset
+
+ puede ser 
+\emph on
+Desplazar 
+\begin_inset Formula $s$
+\end_inset
+
+
+\emph default
+ con 
+\begin_inset Formula $s\in S$
+\end_inset
+
+, 
+\emph on
+Reducir 
+\begin_inset Formula $A\to\beta$
+\end_inset
+
+
+\emph default
+ con 
+\begin_inset Formula $A\in V_{N}$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta\in(V_{N}\cup V_{T})^{*}$
+\end_inset
+
+, 
+\emph on
+Aceptar
+\emph default
+ o 
+\emph on
+Error
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+Una tabla 
+\begin_inset Formula $\mathsf{IrA}:S\times V_{N}\to S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Un analizador LR y una entrada de 
+\backslash
+emph{tokens} que termina con el s
+\backslash
+'imbolo 
+\backslash
+$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Un árbol sintáctico.}
+\end_layout
+
+\begin_layout Plain Layout
+
+Establecer la pila a $(s_0)$.
+ En esta versi
+\backslash
+'on del algoritmo, la pila no contiene s
+\backslash
+'imbolos de $V_T$ o $V_N$ sino 
+\backslash
+'arboles completos.
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{haya entrada}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	Llamar $s$ al estado en la cima de la pila
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	Leer un 
+\backslash
+emph{token} $a$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Seleccionar{$
+\backslash
+mathsf{Acci
+\backslash
+acute on}(s,a)$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+uCaso{
+\backslash
+emph{Desplazar $s'$}}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			Apilar $a$ y $s'$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+uCaso{
+\backslash
+emph{Reducir $A
+\backslash
+to
+\backslash
+beta$}}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			$k:=|
+\backslash
+beta|$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			Desapilar $2k$ entradas, guardando los 
+\backslash
+'arboles como $T_1,
+\backslash
+dots,T_k$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			Llamar $s'$ al estado en la cima de la pila
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			Apilar el árbol $A(T_1,
+\backslash
+dots,T_k)$
+\end_layout
+
+\begin_layout Plain Layout
+
+y el estado $
+\backslash
+mathsf{IrA}(s',A)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			Devolver $a$ a la entrada
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+uCaso{
+\backslash
+emph{Aceptar}}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+Devolver{el último árbol apilado}
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+uCaso{
+\backslash
+emph{Error}}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			Informar del error e intentar continuar
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:lr-analysis"
+
+\end_inset
+
+Análisis sintáctico LR.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+configuración
+\series default
+ del analizador es un par 
+\begin_inset Formula $(s_{0}\,X_{1}\,s_{1}\,\dots\,X_{m}\,s_{m},a_{i}a_{i+1}\cdots a_{n}\$)$
+\end_inset
+
+, donde 
+\begin_inset Formula $s_{0},\dots,s_{m}\in S$
+\end_inset
+
+ y 
+\begin_inset Formula $X_{1},\dots,X_{m}\in V_{N}\cup V_{T}$
+\end_inset
+
+, 
+\begin_inset Formula $a_{i},\dots,a_{n}\in V_{T}$
+\end_inset
+
+.
+ El primer elemento del par es el 
+\series bold
+contenido de la pila
+\series default
+ y el segundo elemento es la cadena de símbolos de entrada que queda por
+ reconocer.
+ Ejecutar el analizador sobre una entrada es aplicar el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:lr-analysis"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, que recibe una entrada y devuelve un árbol de derivación de esta si cumple
+ una cierta gramática 
+\begin_inset Formula $LR(1)$
+\end_inset
+
+, o bien encuentra un error.
+ Un analizador LR se puede convertir en un autómata de pila.
+\end_layout
+
+\begin_layout Subsection
+Método SLR
+\end_layout
+
+\begin_layout Standard
+Dadas una gramática 
+\begin_inset Formula $G:=(V_{N},V_{T},P,S)$
+\end_inset
+
+ y 
+\begin_inset Formula $\gamma\in(V_{N}\cup V_{T})^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ es un 
+\series bold
+prefijo viable
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ si existen 
+\begin_inset Formula $\alpha,\beta,\omega\in(V_{N}\cup V_{T})^{*}$
+\end_inset
+
+ y 
+\begin_inset Formula $A\in V_{N}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $S\Rightarrow_{\text{md}}^{*}\alpha A\omega\Rightarrow_{\text{md}}\alpha\beta\omega$
+\end_inset
+
+ y 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ es prefijo de 
+\begin_inset Formula $\alpha\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+ítem
+\series default
+ (
+\begin_inset Formula $LR(0)$
+\end_inset
+
+) de una gramática a una regla de producción de esta a la que se añade un
+ punto en alguna posición de la cadena a la derecha, que indica la porción
+ de la regla que ha sido reconocida en la entrada, de modo que cuando el
+ punto está a la derecha podemos aplicar una reducción.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{GLC $(V_N,V_T,P,S)$ y conjunto de ítems $I$ de esta.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Clausura $J$ de $I$}
+\end_layout
+
+\begin_layout Plain Layout
+
+$J
+\backslash
+gets I$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Repetir{no se añadan más elementos}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$A
+\backslash
+to
+\backslash
+alpha
+\backslash
+cdot B
+\backslash
+beta
+\backslash
+in J$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lPara{$B
+\backslash
+to
+\backslash
+gamma
+\backslash
+in P$}{Añadir $B
+\backslash
+to
+\backslash
+cdot
+\backslash
+gamma$ a $J$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:clausura"
+
+\end_inset
+
+Cálculo de la clausura de un conjunto de ítems 
+\begin_inset Formula $LR(0)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{GLC $(V_N,V_T,P,S)$ extendida con un cierto $S'$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Colección $LR(0)$ $C$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+$C
+\backslash
+gets
+\backslash
+{
+\backslash
+mathsf{Clausura}(
+\backslash
+{S'
+\backslash
+to
+\backslash
+cdot S
+\backslash
+})
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Repetir{no se añadan más elementos}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$I
+\backslash
+in C$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+Para{$X
+\backslash
+in V_N
+\backslash
+cup V_T
+\backslash
+cup
+\backslash
+{S'
+\backslash
+}$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+lSSi{$
+\backslash
+mathsf{Goto}(I,X)
+\backslash
+neq
+\backslash
+emptyset$}{Añadir $
+\backslash
+mathsf{Goto}(I,X)$ a $C$}
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:lr0-collection"
+
+\end_inset
+
+Cálculo de la colección 
+\begin_inset Formula $LR(0)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+gramática aumentada
+\series default
+ o 
+\series bold
+extendida
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ a 
+\begin_inset Formula $(V_{N}\cup\{S'\},V_{T},P\cup\{S'\to S\},S')$
+\end_inset
+
+, donde 
+\begin_inset Formula $S'\notin V_{N}\cup V_{T}$
+\end_inset
+
+.
+ Definimos la 
+\series bold
+clausura
+\series default
+ de un conjunto 
+\begin_inset Formula $I$
+\end_inset
+
+ de ítems, 
+\begin_inset Formula $\mathsf{Clausura}(I)$
+\end_inset
+
+, según el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:clausura"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, y dados un conjunto de ítems 
+\begin_inset Formula $I$
+\end_inset
+
+ y 
+\begin_inset Formula $X\in V_{N}\cup V_{T}$
+\end_inset
+
+, definimos 
+\family sans
+
+\begin_inset Formula $\mathsf{Goto}(I,X):=\mathsf{Clausura}(\{A\to\alpha X\cdot\beta\}_{A\to\alpha\cdot X\beta\in I})$
+\end_inset
+
+.
+ 
+\family default
+Con esto definimos la 
+\series bold
+colección 
+\begin_inset Formula $LR(0)$
+\end_inset
+
+
+\series default
+ según el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:lr0-collection"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un ítem 
+\begin_inset Formula $LR(0)$
+\end_inset
+
+ 
+\begin_inset Formula $A\to\beta\cdot\gamma$
+\end_inset
+
+ es 
+\series bold
+válido
+\series default
+ para un prefijo viable 
+\begin_inset Formula $\alpha\beta_{1}$
+\end_inset
+
+ si existe una derivación 
+\begin_inset Formula $S'\Rightarrow_{\text{md}}^{*}\alpha A\omega\Rightarrow_{\text{md}}\alpha\beta_{1}\beta_{2}\omega$
+\end_inset
+
+ con 
+\begin_inset Formula $\omega\in V_{T}^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{GLC aumentada con $S'$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Tablas {
+\backslash
+sf Acci
+\backslash
+'on} e {
+\backslash
+sf IrA} del analizador, conjunto de estados $C$ y estado inicial $s$, o
+ conflicto.}
+\end_layout
+
+\begin_layout Plain Layout
+
+Construir la colección $LR(0)$ $C$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$I
+\backslash
+in C$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lPara{$a
+\backslash
+in V_T$}{$
+\backslash
+mathsf{Acci
+\backslash
+acute on}(I,a)
+\backslash
+gets
+\backslash
+emph{Error}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$A
+\backslash
+to
+\backslash
+alpha
+\backslash
+cdot
+\backslash
+beta
+\backslash
+in I$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+uSSi{$|
+\backslash
+beta|
+\backslash
+geq1$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			$a
+\backslash
+gets
+\backslash
+beta_0$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			$N
+\backslash
+gets
+\backslash
+emph{Desplazar }
+\backslash
+mathsf{Goto}(I,a)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+lSSi{$
+\backslash
+mathsf{Acci
+\backslash
+acute on}(I,a)
+\backslash
+neq
+\backslash
+emph{Error},N$}{Conflicto}
+\end_layout
+
+\begin_layout Plain Layout
+
+			$
+\backslash
+mathsf{Acci
+\backslash
+acute on}(I,a)
+\backslash
+gets N$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+uEnOtroCasoSi{$A
+\backslash
+neq S'$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			$N
+\backslash
+gets
+\backslash
+emph{Reducir }A
+\backslash
+to
+\backslash
+alpha$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+Para{$a
+\backslash
+in
+\backslash
+mathsf{SIGUIENTE}(A)$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\backslash
+lSSi{$
+\backslash
+mathsf{Acci
+\backslash
+acute on}(I,a)
+\backslash
+neq
+\backslash
+emph{Error},N$}{Conflicto}
+\end_layout
+
+\begin_layout Plain Layout
+
+				$
+\backslash
+mathsf{Acci
+\backslash
+acute on}(I,a)
+\backslash
+gets N$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+EnOtroCaso{
+\end_layout
+
+\begin_layout Plain Layout
+
+			$
+\backslash
+mathsf{Acci
+\backslash
+acute on}(I,
+\backslash
+$)
+\backslash
+gets
+\backslash
+emph{Aceptar}$
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\backslash
+tcp*{{
+\backslash
+rm Caso $S'
+\backslash
+to S$}}
+\end_layout
+
+\begin_layout Plain Layout
+
+			$s
+\backslash
+gets I$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lPara{$I
+\backslash
+in C,A
+\backslash
+in V_N$}{$
+\backslash
+mathsf{IrA}(I,A)
+\backslash
+gets
+\backslash
+mathsf{Goto}(I,A)$}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:slr"
+
+\end_inset
+
+Método SLR.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El método SLR para generar un analizador ascendente es el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:slr"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Una gramática es 
+\begin_inset Formula $SLR(1)$
+\end_inset
+
+ si el método no genera conflictos.
+ Toda gramática ambigua genera conflictos, pero no toda gramática que genera
+ conflictos es ambigua.
+ Los conflictos pueden ser:
+\end_layout
+
+\begin_layout Itemize
+Desplaza-reduce (
+\emph on
+shift-reduce
+\emph default
+): Se podría tanto desplazar el siguiente símbolo a la pila como reducir.
+\end_layout
+
+\begin_layout Itemize
+Reduce-reduce (
+\emph on
+reduce-reduce
+\emph default
+): Hay al menos dos reglas de producción aplicables.
+\end_layout
+
+\begin_layout Standard
+En estos casos se puede especificar manualmente la acción a tomar o usar
+ un método más potente.
+\end_layout
+
+\begin_layout Subsection
+Método LR-canónico
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+ítem 
+\begin_inset Formula $LR(1)$
+\end_inset
+
+
+\series default
+ de una gramática aumentada es un par 
+\begin_inset Formula $[A\to\beta\cdot\gamma,a]$
+\end_inset
+
+ formado por un ítem 
+\begin_inset Formula $LR(0)$
+\end_inset
+
+ y un símbolo 
+\begin_inset Formula $a\in V_{T}\sqcup\{\$\}$
+\end_inset
+
+.
+ Este ítem es 
+\series bold
+válido
+\series default
+ para el prefijo viable 
+\begin_inset Formula $\alpha\beta$
+\end_inset
+
+ si existe 
+\begin_inset Formula $\omega\in V_{T}^{*}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $S'\Rightarrow_{\text{md}}^{*}\alpha A\omega\Rightarrow_{\text{md}}\alpha\beta\gamma\omega$
+\end_inset
+
+ y, bien 
+\begin_inset Formula $\omega\neq\lambda$
+\end_inset
+
+ y 
+\begin_inset Formula $a=\omega_{0}$
+\end_inset
+
+, bien 
+\begin_inset Formula $\omega=\lambda$
+\end_inset
+
+ y 
+\begin_inset Formula $a=\$$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{GLC $(V_N,V_T,P,S)$ y conjunto $I$ de ítems $LR(1)$ de esta.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Clausura $J$ de $I$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+$J
+\backslash
+gets I$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Repetir{no se hayan añadido elementos}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$[A
+\backslash
+to
+\backslash
+alpha
+\backslash
+cdot B
+\backslash
+beta,a]
+\backslash
+in J$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+Para{$B
+\backslash
+to
+\backslash
+gamma
+\backslash
+in P$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+Para{$b
+\backslash
+in
+\backslash
+mathsf{PRIMERO}(
+\backslash
+beta a)$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+				Añadir $[B
+\backslash
+to
+\backslash
+cdot
+\backslash
+gamma,b]$ a $J$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:clausura-lr1"
+
+\end_inset
+
+Cálculo de la clausura de un conjunto de ítems 
+\begin_inset Formula $LR(1)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Definimos la clausura de un conjunto de ítems 
+\begin_inset Formula $LR(1)$
+\end_inset
+
+ según el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:clausura-lr1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, y para un conjunto de ítems 
+\begin_inset Formula $I$
+\end_inset
+
+ y un 
+\begin_inset Formula $X\in V_{N}\cup V_{T}$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $\mathsf{Goto}(I,X):=\mathsf{Clausura}(\{[A\to\alpha X\cdot\beta,a]\}_{[A\to\alpha\cdot X\beta,a]\in I})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+El algoritmo para obtener la colección 
+\begin_inset Formula $LR(1)$
+\end_inset
+
+ de una GLC es el mismo que para obtener la colección 
+\begin_inset Formula $LR(0)$
+\end_inset
+
+, pero inicializando el conjunto a 
+\begin_inset Formula $\{\mathsf{Clausura}(\{[S'\to\cdot S,\$]\})\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{GLC aumentada con $S'$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Conjunto de estados $C$, estado inicial $s$ y tablas {
+\backslash
+sf Acción} e {
+\backslash
+sf IrA}, o conflicto.}
+\end_layout
+
+\begin_layout Plain Layout
+
+Obtener la colección $LR(1)$ $C$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$I
+\backslash
+in C$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lPara{$a
+\backslash
+in V_T$}{$
+\backslash
+mathsf{Acci
+\backslash
+acute on}(I,a)
+\backslash
+gets
+\backslash
+emph{Error}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$[A
+\backslash
+to
+\backslash
+alpha
+\backslash
+cdot
+\backslash
+beta,b]
+\backslash
+in I$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+uSSi{$|
+\backslash
+beta|
+\backslash
+geq1$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			$a
+\backslash
+gets
+\backslash
+beta_0$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+SSi{$a
+\backslash
+in V_T$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+				$N
+\backslash
+gets
+\backslash
+emph{Desplazar }
+\backslash
+mathsf{Goto}(I,a)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\backslash
+lSSi{$
+\backslash
+mathsf{Acci
+\backslash
+acute on}(I,a)
+\backslash
+neq
+\backslash
+emph{Error},N$}{Conflicto}
+\end_layout
+
+\begin_layout Plain Layout
+
+				$
+\backslash
+mathsf{Acci
+\backslash
+acute on}(I,a)
+\backslash
+gets N$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+uEnOtroCasoSi{$A
+\backslash
+neq S'$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			$N
+\backslash
+gets
+\backslash
+emph{Reducir }A
+\backslash
+to
+\backslash
+alpha$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+lSSi{$
+\backslash
+mathsf{Acci
+\backslash
+acute on}(I,b)
+\backslash
+neq
+\backslash
+emph{Error},N$}{Conflicto}
+\end_layout
+
+\begin_layout Plain Layout
+
+			$
+\backslash
+mathsf{Acci
+\backslash
+acute on}(I,b)
+\backslash
+gets N$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+EnOtroCaso{
+\end_layout
+
+\begin_layout Plain Layout
+
+			$
+\backslash
+mathsf{Acci
+\backslash
+acute on}(I,
+\backslash
+$)
+\backslash
+gets
+\backslash
+emph{Aceptar}$
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\backslash
+tcp*{{
+\backslash
+rm Caso $[S'
+\backslash
+to S
+\backslash
+cdot,
+\backslash
+$]$}}
+\end_layout
+
+\begin_layout Plain Layout
+
+			$s
+\backslash
+gets I$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lPara{$I
+\backslash
+in C;A
+\backslash
+in V_N$}{$
+\backslash
+mathsf{IrA}(I,A)
+\backslash
+gets
+\backslash
+mathsf{Goto}(I,A)$}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:lrc"
+
+\end_inset
+
+Método LR canónico.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El método LR-canónico es el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:lrc"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ y funciona para toda gramática 
+\begin_inset Formula $LR(1)$
+\end_inset
+
+, pero genera muchos estados.
+\end_layout
+
+\begin_layout Subsection
+Método LALR
+\end_layout
+
+\begin_layout Standard
+Tiene una potencia intermedia entre el método LR-canónico y el SLR, y consigue
+ una tabla de análisis de igual tamaño que con SLR.
+ 
+\end_layout
+
+\begin_layout Standard
+Pasos:
+\end_layout
+
+\begin_layout Enumerate
+Construir la colección 
+\begin_inset Formula $LR(1)$
+\end_inset
+
+ 
+\begin_inset Formula $C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si, para 
+\begin_inset Formula $I\in C$
+\end_inset
+
+, 
+\begin_inset Formula $\rho(I):=\{R:\exists a\in V_{T}:[R,a]\in I\}$
+\end_inset
+
+, para 
+\begin_inset Formula $I,J\in C$
+\end_inset
+
+ tales que 
+\begin_inset Formula $\rho(I)=\rho(J)$
+\end_inset
+
+, sustituimos 
+\begin_inset Formula $I$
+\end_inset
+
+ y 
+\begin_inset Formula $J$
+\end_inset
+
+ en 
+\begin_inset Formula $C$
+\end_inset
+
+ por su unión.
+\end_layout
+
+\begin_layout Enumerate
+Aplicamos el método LR-canónico a la colección resultante.
+\end_layout
+
+\begin_layout Standard
+Una gramática es 
+\begin_inset Formula $LALR(1)$
+\end_inset
+
+ si en este último paso no se producen conflictos.
+ Si se aplica el método LALR a una gramática 
+\begin_inset Formula $LR(1)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Pueden surgir conflictos 
+\emph on
+reduce-reduce
+\emph default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+La gramática 
+\begin_inset Formula $S\to XY;X\to Aa\mid Bb;Y\to Ac\mid Ba;A\to a;B\to a$
+\end_inset
+
+ es 
+\begin_inset Formula $LR(1)$
+\end_inset
+
+, pero al fusionar los conjuntos 
+\begin_inset Formula $\{[A\to a\cdot,a],[B\to a\cdot,b]\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\{[A\to a\cdot,c],[B\to a\cdot,a]\}$
+\end_inset
+
+ de su colección 
+\begin_inset Formula $LR(1)$
+\end_inset
+
+ en un conjunto 
+\begin_inset Formula $K$
+\end_inset
+
+, obtenemos que 
+\begin_inset Formula $\mathsf{Acción}[I,a]$
+\end_inset
+
+ puede ser 
+\emph on
+Reduce 
+\begin_inset Formula $A\to a$
+\end_inset
+
+
+\emph default
+ o 
+\emph on
+Reduce 
+\begin_inset Formula $B\to a$
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+No pueden surgir conflictos 
+\emph on
+shift-reduce
+\emph default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si lo hubiera, habría 
+\begin_inset Formula $\alpha,\beta,\gamma\in(V_{N}\cup V_{T})^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $a,x\in V_{T}$
+\end_inset
+
+ y 
+\begin_inset Formula $A,B\in V_{N}$
+\end_inset
+
+ tales que existe un 
+\begin_inset Formula $J$
+\end_inset
+
+ en la colección de conjuntos LALR de la gramática con 
+\begin_inset Formula $[A\to\alpha\cdot a\gamma,x],[B\to\beta\cdot,a]\in J$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $J=I_{1}\cup\dots\cup I_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $I_{1},\dots,I_{n}$
+\end_inset
+
+ conjuntos de la colección 
+\begin_inset Formula $LR(1)$
+\end_inset
+
+, existe 
+\begin_inset Formula $k$
+\end_inset
+
+ con 
+\begin_inset Formula $[B\to\beta\cdot,a]\in I_{k}$
+\end_inset
+
+ y existe 
+\begin_inset Formula $y\in V_{T}$
+\end_inset
+
+ con 
+\begin_inset Formula $[A\to\alpha\cdot a\gamma,y]\in I_{k}$
+\end_inset
+
+, luego el conflicto ya existiría en el método LR-canónico.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Conflictos 
+\family typewriter
+if-then-else
+\end_layout
+
+\begin_layout Standard
+La gramática no ambigua que vimos para 
+\family typewriter
+if-then-else
+\family default
+ es 
+\begin_inset Formula $LR(1)$
+\end_inset
+
+, pero genera muchos estados.
+ En la gramática
+\begin_inset Formula 
+\[
+S\to iSeS\mid iS\mid s,
+\]
+
+\end_inset
+
+una versión simplificada de la gramática ambigua, ocurre un conflicto 
+\emph on
+shift-reduce
+\emph default
+, pero podemos hacer que el 
+\family typewriter
+else
+\family default
+ colgante se asocie al 
+\family typewriter
+if
+\family default
+ más cercano en SLR priorizando el desplazamiento en el conflicto.
+ En efecto, la colección 
+\begin_inset Formula $LR(0)$
+\end_inset
+
+ es
+\begin_inset Formula 
+\begin{multline*}
+\{\{S'\to\cdot S,S\to\cdot iSeS,S\to\cdot iS,S\to\cdot s\},\{S'\to S{}\cdot\},\\
+\{S\to i\cdot SeS,S\to i\cdot S,S\to\cdot iSeS,S\to\cdot iS,S\to\cdot s\},\\
+\{S\to iS\cdot eS,S\to iS{}\cdot\},\\
+\{S\to iSe\cdot S,S\to\cdot iSeS,S\to\cdot iS,S\to\cdot s\},\{S\to s{}\cdot\}\},
+\end{multline*}
+
+\end_inset
+
+y el único conflicto sucede en 
+\begin_inset Formula $\{S\to iS\cdot eS,S\to iS{}\cdot\}$
+\end_inset
+
+, luego si queremos que el 
+\family typewriter
+else
+\family default
+ que viene a continuación se asocie al 
+\family typewriter
+if
+\family default
+ más cercano debemos hacer un desplazamiento.
+\end_layout
+
+\begin_layout Subsection
+Recuperación de errores
+\end_layout
+
+\begin_layout Standard
+Un acceso a 
+\family sans
+IrA
+\family default
+ no produce errores, pues cuando se aplica una producción, sabemos que el
+ nuevo conjunto de símbolos de la pila forma un prefijo viable.
+ El método LR-canónico detecta los errores de la entrada inmediatamente,
+ mientras que los métodos LALR y SLR pueden hacer varias reducciones antes
+ de detectar el error, pero ninguno desplaza un símbolo de entrada erróneo
+ en la pila.
+\end_layout
+
+\begin_layout Standard
+Recuperación:
+\end_layout
+
+\begin_layout Itemize
+Tratamiento a nivel de frase: Para cada entrada en blanco de 
+\family sans
+Acción
+\family default
+, se introduce una rutina de manejo que inserte o elimine símbolos de la
+ pila o de la entrada, o que altere o transponga símbolos de la entrada.
+ Debe evitarse extraer de la pila un símbolo no terminal, pues indica que
+ la estructura se había reconocido con éxito.
+\end_layout
+
+\begin_layout Itemize
+Modo pánico: Se extraen pares de elementos de la pila hasta encontrar un
+ estado 
+\begin_inset Formula $s$
+\end_inset
+
+ para el que exista 
+\begin_inset Formula $A$
+\end_inset
+
+ con 
+\begin_inset Formula $s':=\mathsf{IrA}(s,A)$
+\end_inset
+
+ definido, se introducen 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $s'$
+\end_inset
+
+ en la pila para simular una reducción y se descartan elementos de la entrada
+ hasta encontrar un símbolo de 
+\begin_inset Formula $\mathsf{Siguiente}(A)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Transformación de gramáticas
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{GLC $(V_N,V_T,P,S)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{GLC $
+\backslash
+lambda$-libre equivalente $(V'_N,V_T,P',S')$}
+\end_layout
+
+\begin_layout Plain Layout
+
+$N
+\backslash
+gets
+\backslash
+{A
+\backslash
+}_{A
+\backslash
+to
+\backslash
+lambda
+\backslash
+in P}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$(V'_N,P',S')
+\backslash
+gets(V_N,P,S)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Repetir{no se hayan añadido elementos}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lPara{$A
+\backslash
+to X_1
+\backslash
+cdots X_k
+\backslash
+in P:X_1,
+\backslash
+dots,X_k
+\backslash
+in N$}{Añadir $A$ a $N$}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$A
+\backslash
+to X_1
+\backslash
+cdots X_k$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$t
+\backslash
+gets|
+\backslash
+{i:X_i
+\backslash
+in N
+\backslash
+}|$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	Definir $
+\backslash
+sigma:
+\backslash
+{1,
+\backslash
+dots,t
+\backslash
+}
+\backslash
+to
+\backslash
+{1,
+\backslash
+dots,k
+\backslash
+}$ inyectiva con
+\end_layout
+
+\begin_layout Plain Layout
+
+    $X_{
+\backslash
+sigma(i)}
+\backslash
+in N$ para todo $i$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$j_1,
+\backslash
+dots,j_t
+\backslash
+gets0$ 
+\backslash
+KwA 1}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		$
+\backslash
+alpha
+\backslash
+gets
+\backslash
+lambda$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+Para{$i=1$ 
+\backslash
+KwA $k$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+lSSi{$X_i
+\backslash
+notin N
+\backslash
+lor j_{
+\backslash
+sigma^{-1}(i)}=1$}{$
+\backslash
+alpha
+\backslash
+gets
+\backslash
+alpha X_i$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		Añadir $A
+\backslash
+to
+\backslash
+alpha$ a $P'$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+$P'
+\backslash
+gets
+\backslash
+{A
+\backslash
+to
+\backslash
+alpha
+\backslash
+in P':
+\backslash
+alpha
+\backslash
+neq
+\backslash
+lambda
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SSi{$S
+\backslash
+in N$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+uSSi{$S$ no aparece a la derecha de una regla}{Añadir $S
+\backslash
+to
+\backslash
+lambda$ a $P'$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EnOtroCaso{
+\end_layout
+
+\begin_layout Plain Layout
+
+		Añadir un símbolo $S'$ a $V'_N$ que no esté en $V_N
+\backslash
+cup V_T$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		Añadir $S'
+\backslash
+to S$ y $S'
+\backslash
+to
+\backslash
+lambda$ a $P'$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:rm-lambda"
+
+\end_inset
+
+Eliminación de 
+\begin_inset Formula $\lambda$
+\end_inset
+
+-reglas.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una GLC 
+\begin_inset Formula $(V_{N},V_{T},P,S)$
+\end_inset
+
+ es 
+\series bold
+
+\begin_inset Formula $\lambda$
+\end_inset
+
+-libre
+\series default
+ si no contiene producciones de la forma 
+\begin_inset Formula $A\to\lambda$
+\end_inset
+
+, salvo quizá 
+\begin_inset Formula $S\to\lambda$
+\end_inset
+
+, en cuyo caso 
+\begin_inset Formula $S$
+\end_inset
+
+ no aparece a la derecha de ninguna regla de producción.
+ Toda GLC es equivalente a una 
+\begin_inset Formula $\lambda$
+\end_inset
+
+-libre por el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:rm-lambda"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{GLC $(V_N,V_T,P,S)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{GLC $(V_N,V_T,P',S)$ equivalente sin reglas unitarias.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lPara{$A
+\backslash
+in V_N$}{$U(A):=
+\backslash
+{B
+\backslash
+in V_N
+\backslash
+setminus
+\backslash
+{A
+\backslash
+}:A
+\backslash
+Rightarrow^*B
+\backslash
+}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+$P'
+\backslash
+gets
+\backslash
+{A
+\backslash
+to
+\backslash
+alpha
+\backslash
+in P:
+\backslash
+nexists B
+\backslash
+in V_N:
+\backslash
+alpha=B
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$A
+\backslash
+in V_N$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$B
+\backslash
+in U(A)$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lPara{$B
+\backslash
+to
+\backslash
+beta
+\backslash
+in P'$}{Añadir $A
+\backslash
+to
+\backslash
+beta$ a $P'$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:rm-unitary"
+
+\end_inset
+
+Eliminación de reglas unitarias.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+producción unitaria
+\series default
+ es una regla de la forma 
+\begin_inset Formula $A\to B$
+\end_inset
+
+ con 
+\begin_inset Formula $A,B\in V_{N}$
+\end_inset
+
+.
+ Toda GLC es equivalente a una que no contiene producciones unitarias por
+ el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:rm-unitary"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $X\in V_{N}\cup V_{T}$
+\end_inset
+
+ es una 
+\series bold
+variable improductiva
+\series default
+ si no existe 
+\begin_inset Formula $\omega\in V_{T}^{*}$
+\end_inset
+
+ con 
+\begin_inset Formula $X\Rightarrow^{*}\omega$
+\end_inset
+
+, es un 
+\series bold
+símbolo inaccesible
+\series default
+ si no aparece en ninguna forma sentencial, es 
+\series bold
+inútil
+\series default
+ si es inaccesible o una variable improductiva y es 
+\series bold
+útil
+\series default
+ en caso contrario.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{GLC $(V_N,V_T,P,S)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{GLC $(V'_N,V_T,P',S)$ equivalente sin variables improductivas.}
+\end_layout
+
+\begin_layout Plain Layout
+
+$V'_N
+\backslash
+gets
+\backslash
+{A
+\backslash
+in V_N:
+\backslash
+exists
+\backslash
+omega
+\backslash
+in V_T^*:A
+\backslash
+to
+\backslash
+omega
+\backslash
+in P
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Repetir{no se hayan añadido más elementos}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$A
+\backslash
+to X_1
+\backslash
+cdots X_k
+\backslash
+in P$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lSSi{$X_1,
+\backslash
+dots,X_k
+\backslash
+in M$}{Añadir $A$ a $V'_N$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+$P'
+\backslash
+gets
+\backslash
+{A
+\backslash
+to X_1
+\backslash
+cdots X_k
+\backslash
+in P:X_1,
+\backslash
+dots,X_k
+\backslash
+in V'_N
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:rm-improductive"
+
+\end_inset
+
+Eliminación de variables improductivas.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{GLC $(V_N,V_T,P,S)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{GLC $(V'_N,V'_T,P',S)$ equivalente sin símbolos inaccesibles.}
+\end_layout
+
+\begin_layout Plain Layout
+
+$R
+\backslash
+gets
+\backslash
+{S
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Repetir{no se hayan añadido más elementos}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lPara{$A
+\backslash
+to X_1,
+\backslash
+dots,X_k
+\backslash
+in P:A
+\backslash
+in R$}{Añadir $X_1,
+\backslash
+dots,X_k$ a $R$}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+$(V'_N,V'_T)
+\backslash
+gets(V_N
+\backslash
+cap R,V_T
+\backslash
+cap R)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$P'
+\backslash
+gets
+\backslash
+{A
+\backslash
+to X_1,
+\backslash
+dots,X_k
+\backslash
+in P:A
+\backslash
+in R
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:rm-inaccessible"
+
+\end_inset
+
+Eliminación de símbolos inaccesibles.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Toda GLC admite una GLC equivalente sin símbolos inútiles, aplicando sucesivamen
+te los algoritmos 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:rm-improductive"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:rm-inaccessible"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ En efecto, el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:rm-inaccessible"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ no resulta en variables improductivas si no las había de antes, pero el
+ algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:rm-improductive"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ sí que puede hacer a algunos símbolos inaccesibles.
+\end_layout
+
+\begin_layout Standard
+Una GLC es 
+\series bold
+propia
+\series default
+ si es 
+\begin_inset Formula $\lambda$
+\end_inset
+
+-libre y no tiene símbolos inútiles ni ciclos.
+ Toda GLC admite una GLC equivalente propia, que se puede obtener aplicando
+ sucesivamente y en orden los algoritmos 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:rm-lambda"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:rm-inaccessible"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A\in V_{N}$
+\end_inset
+
+ es 
+\series bold
+recursiva por la izquierda
+\series default
+ si 
+\begin_inset Formula $\exists\alpha:A\Rightarrow^{+}A\alpha$
+\end_inset
+
+, 
+\series bold
+recursiva por la derecha
+\series default
+ si 
+\begin_inset Formula $\exists\alpha:A\Rightarrow^{+}\alpha A$
+\end_inset
+
+ y 
+\series bold
+recursiva
+\series default
+ si 
+\begin_inset Formula $\exists\alpha,\beta:A\Rightarrow^{+}\alpha A\beta$
+\end_inset
+
+.
+ Una gramática es recursiva por la izquierda, por la derecha o recursiva
+ (a secas) si tiene alguna variable que lo sea.
+ Una regla de producción es recursiva por la izquierda si es de la forma
+ 
+\begin_inset Formula $A\to A\alpha$
+\end_inset
+
+, por la derecha si es de la forma 
+\begin_inset Formula $A\to\alpha A$
+\end_inset
+
+ y recursiva si es de la forma 
+\begin_inset Formula $A\to\alpha A\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{GLC $(V_N,V_T,P,S)$ propia.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{GLC equivalente $(V'_N,V_T,P',S)$ sin recursividad por la izquierda.}
+\end_layout
+
+\begin_layout Plain Layout
+
+Llamar $
+\backslash
+{A_1,
+\backslash
+dots,A_n
+\backslash
+}:=V_N$ con $A_1=S$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$(V'_N,P')
+\backslash
+gets(V_N,P)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$i
+\backslash
+gets1$ 
+\backslash
+KwA $n$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+SSi{$A_i$ tiene producciones recursivas por la izquierda}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		Llamar a las producciones de $A_i$ como $A_i
+\backslash
+to A_i
+\backslash
+alpha_1
+\backslash
+mid
+\backslash
+dots
+\backslash
+mid A_i
+\backslash
+alpha_m
+\backslash
+mid
+\backslash
+beta_1
+\backslash
+mid
+\backslash
+dots
+\backslash
+mid
+\backslash
+beta_n$, donde $
+\backslash
+beta_{j0}
+\backslash
+neq A_i$ para ningún $i$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		Dado un $A'
+\backslash
+notin V'_N
+\backslash
+cup V_T$, $V'_N
+\backslash
+gets V_N
+\backslash
+cup
+\backslash
+{A'
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		Sustituir las producciones de $A_i$ en $P'$ por
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		$
+\backslash
+{A_i
+\backslash
+to
+\backslash
+beta_1
+\backslash
+mid
+\backslash
+dots
+\backslash
+mid
+\backslash
+beta_n
+\backslash
+mid
+\backslash
+beta_1A'
+\backslash
+mid
+\backslash
+dots
+\backslash
+mid
+\backslash
+beta_nA',$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		$
+\backslash
+hphantom{
+\backslash
+{}A'
+\backslash
+to
+\backslash
+alpha_1
+\backslash
+mid
+\backslash
+dots
+\backslash
+mid
+\backslash
+alpha_m
+\backslash
+mid
+\backslash
+alpha_1A'
+\backslash
+mid
+\backslash
+dots
+\backslash
+mid
+\backslash
+alpha_mA'
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$j
+\backslash
+gets 1$ 
+\backslash
+KwA $i-1$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+Para{$R:=(A_{i+1}
+\backslash
+to A_j
+\backslash
+alpha)
+\backslash
+in P'$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			Si las producciones de $A_j$ son $A_j
+\backslash
+to
+\backslash
+gamma_1
+\backslash
+mid
+\backslash
+dots
+\backslash
+mid
+\backslash
+gamma_p$, sustituir $R$ por $A_{i+1}
+\backslash
+to
+\backslash
+gamma_1
+\backslash
+alpha
+\backslash
+mid
+\backslash
+dots
+\backslash
+mid
+\backslash
+gamma_p
+\backslash
+alpha$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:rm-left-recur"
+
+\end_inset
+
+Eliminación de la recursividad por la izquierda.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Toda GLC recursiva por la izquierda admite otra equivalente que no es recursiva
+ por la izquierda, por el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:rm-left-recur"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{GLC $(V_N,V_T,P,S)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{GLC equivalente $(V'_N,V_T,P',S)$ sin factores comunes por la izquierda.}
+\end_layout
+
+\begin_layout Plain Layout
+
+$(V'_N,P')
+\backslash
+gets(V_N,P)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$A
+\backslash
+in V_N$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Repetir{$
+\backslash
+alpha=
+\backslash
+lambda$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		Encontrar el prefijo $
+\backslash
+alpha$ más largo común a dos producciones de $A$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+SSi{$
+\backslash
+alpha
+\backslash
+neq
+\backslash
+lambda$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			Llamar a estas producciones $A
+\backslash
+to
+\backslash
+alpha
+\backslash
+beta_1
+\backslash
+mid
+\backslash
+dots
+\backslash
+mid
+\backslash
+alpha
+\backslash
+beta_n
+\backslash
+mid
+\backslash
+gamma_1
+\backslash
+mid
+\backslash
+dots
+\backslash
+mid
+\backslash
+gamma_k$, donde ningún $
+\backslash
+gamma_i$ tiene prefijo $
+\backslash
+alpha$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			Dado $A'
+\backslash
+notin V'_N
+\backslash
+cup V_T$, añadir $A'$ a $V'_N$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			Sustituir las producciones de $A$ por $A
+\backslash
+to
+\backslash
+alpha A'
+\backslash
+mid
+\backslash
+gamma_1
+\backslash
+mid
+\backslash
+dots
+\backslash
+mid
+\backslash
+gamma_k$ y $A'
+\backslash
+to
+\backslash
+beta_1
+\backslash
+mid
+\backslash
+dots
+\backslash
+mid
+\backslash
+beta_n$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:factor"
+
+\end_inset
+
+Factorización por la izquierda.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si existen reglas 
+\begin_inset Formula $A\to\alpha\beta,A\to\alpha\gamma\in P$
+\end_inset
+
+ con 
+\begin_inset Formula $|\alpha|>0$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es un 
+\series bold
+factor común por la izquierda
+\series default
+.
+ Toda GLC admite una equivalente sin factores comunes.
+\end_layout
+
+\begin_layout Section
+Análisis descendente
+\end_layout
+
+\begin_layout Standard
+Una GLC es 
+\begin_inset Formula $LL(k)$
+\end_inset
+
+ si, leyendo una entrada de izquierda a derecha (
+\emph on
+Left-to-right
+\emph default
+), se puede construir la derivación más a la izquierda correspondiente (
+\emph on
+Leftmost derivation
+\emph default
+) sin más de 
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\emph on
+tokens
+\emph default
+ de anticipación.
+ Toda gramática 
+\begin_inset Formula $LL(k)$
+\end_inset
+
+ es 
+\begin_inset Formula $LR(k)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Saber si un lenguaje es o no 
+\begin_inset Formula $LL(1)$
+\end_inset
+
+ es indecidible, pero a veces podemos transformar una gramática para obtener
+ otra equivalente 
+\begin_inset Formula $LL(1)$
+\end_inset
+
+, por ejemplo, eliminando ambigüedad y recursividad por la izquierda o factoriza
+ndo por la izquierda.
+\end_layout
+
+\begin_layout Standard
+Dada una GLC 
+\begin_inset Formula $(V_{N},V_{T},P,S)$
+\end_inset
+
+, definimos 
+\begin_inset Formula $\mathsf{Predict}:P\to{\cal P}(V_{T}\sqcup\{\$\})$
+\end_inset
+
+ como
+\begin_inset Formula 
+\[
+\mathsf{Predict}(A\to\alpha):=\begin{cases}
+(\mathsf{PRIMERO}(\alpha)\setminus\{\lambda\})\cup\mathsf{SIGUIENTE}(A), & \lambda\in\mathsf{PRIMERO}(\alpha);\\
+\mathsf{PRIMERO}(\alpha), & \text{en otro caso}.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+tabla de análisis
+\series default
+ de un analizador descendente predictivo no recursivo es una función 
+\begin_inset Formula $M:V_{N}\times(V_{T}\cup\{\$\})\to{\cal P}(P)$
+\end_inset
+
+ dada por 
+\begin_inset Formula $M(A,a):=\{A\to\alpha\in P:a\in\mathsf{Predict}(A\to\alpha)\}$
+\end_inset
+
+, que a cada no terminal a derivar y terminal siguiente en la entrada le
+ asocia un conjunto de reglas que pueden aplicarse para realizar la siguiente
+ derivación.
+ 
+\end_layout
+
+\begin_layout Standard
+Con esto, una GLC es 
+\begin_inset Formula $LL(1)$
+\end_inset
+
+ si ningún 
+\begin_inset Formula $M(A,a)$
+\end_inset
+
+ tiene más de un elemento, si y sólo si para cualquier par de producciones
+ de un mismo no terminal 
+\begin_inset Formula $A\to\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $A\to\beta$
+\end_inset
+
+, 
+\begin_inset Formula $\mathsf{Predict}(A\to\alpha)$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathsf{Predict}(A\to\beta)$
+\end_inset
+
+ son disjuntos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{La tabla de análisis $M$ para una gramática $(V_N,V_T,P,S)$ $LL(1)$
+ y un flujo de 
+\backslash
+emph{tokens} acabado en la marca de fin $
+\backslash
+$$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Derivación más a la izquierda de la entrada, o error.}
+\end_layout
+
+\begin_layout Plain Layout
+
+Inicializar la pila $P$ con $
+\backslash
+$$ y $S$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Repetir{$X=
+\backslash
+$$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	Sacar un símbolo $X$ de la pila
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	Leer un 
+\backslash
+emph{token} $a$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+SSi{$X
+\backslash
+neq a$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+uSSi{$X
+\backslash
+in V_T
+\backslash
+lor M[X,a]=
+\backslash
+emptyset$}{Error.}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+EnOtroCasoSi{$M[X,a]=
+\backslash
+{X
+\backslash
+to Y_1
+\backslash
+cdots Y_k
+\backslash
+}$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			Introducir $Y_k,
+\backslash
+dots,Y_1$ en orden en $P$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			Emitir la derivación por la izquierda dada por $X
+\backslash
+to Y_1
+\backslash
+cdots Y_k$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:descent-nr"
+
+\end_inset
+
+Ejecución de un analizador descendente no recursivo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La ejecución de un analizador descendente predictivo no recursivo se hace
+ con el algoritmo 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+, en el que, si 
+\begin_inset Formula $\omega$
+\end_inset
+
+ es la porción de entrada reconocida hasta ahora, la pila contiene una 
+\begin_inset Formula $\alpha\in(V_{N}\cup V_{T})^{*}$
+\end_inset
+
+ seguida de 
+\begin_inset Formula $\$$
+\end_inset
+
+ (al fondo) de forma que 
+\begin_inset Formula $S\Rightarrow_{\text{mi}}^{*}\omega\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La gramática no ambigua que vimos para 
+\family typewriter
+if-then-else
+\family default
+ no es 
+\begin_inset Formula $LL(1)$
+\end_inset
+
+, pues 
+\begin_inset Formula $\mathsf{Predict}(S\to S_{e})=\{i,s\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathsf{Predict}(S\to S_{ne})=\{i\}$
+\end_inset
+
+, pero una solución común es partir de la gramática inicial ambigua, factorizarl
+a si se puede y construir la tabla de análisis seleccionando la regla que
+ resuelve cada conflicto.
+\end_layout
+
+\begin_layout Standard
+En este caso, factorizando la gramática 
+\begin_inset Formula $S\to iEtS\mid iEtSeS\mid s;E\to x$
+\end_inset
+
+ obtenemos 
+\begin_inset Formula $S\to iEtSS'\mid s;S'\to eS\mid\lambda;E\to x$
+\end_inset
+
+, que también es ambigua, y tenemos
+\begin_inset Formula 
+\begin{align*}
+\mathsf{Predict}(S\to iEtSS') & =\{i\}, & \mathsf{Predict}(S\to s) & =\{s\},\\
+\mathsf{Predict}(S'\to eS) & =\{e\}, & \mathsf{Predict}(S'\to\lambda) & =\{e,\$\}, & \mathsf{Predict}(E\to x) & =\{x\}.
+\end{align*}
+
+\end_inset
+
+El único conflicto se da entre 
+\begin_inset Formula $S'\to eS$
+\end_inset
+
+ y 
+\begin_inset Formula $S'\to\lambda$
+\end_inset
+
+, que tienen en común el símbolo 
+\begin_inset Formula $e$
+\end_inset
+
+, y para asociar el 
+\family typewriter
+else
+\family default
+ con el 
+\family typewriter
+if
+\family default
+ más próximo, se debe elegir 
+\begin_inset Formula $S'\to eS$
+\end_inset
+
+ en la entrada 
+\begin_inset Formula $(S',e)$
+\end_inset
+
+ de la tabla de análisis.
+\end_layout
+
+\end_body
+\end_document

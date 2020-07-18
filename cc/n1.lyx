@@ -744,12 +744,204 @@ cargador
 Jerarquía de lenguajes de Chomsky
 \end_layout
 
+\begin_layout Standard
+Una 
+\series bold
+gramática
+\series default
+ es una tupla 
+\begin_inset Formula $G:=(V_{N},V_{T},P,S)$
+\end_inset
+
+ donde 
+\begin_inset Formula $V_{N}$
+\end_inset
+
+ es un alfabeto de símbolos 
+\series bold
+no terminales
+\series default
+, 
+\begin_inset Formula $V_{T}$
+\end_inset
+
+ es un alfabeto de 
+\series bold
+símbolos terminales
+\series default
+ disjunto de 
+\begin_inset Formula $V_{N}$
+\end_inset
+
+, 
+\begin_inset Formula $P$
+\end_inset
+
+ es un conjunto finito de 
+\series bold
+reglas de producción
+\series default
+ de la forma 
+\begin_inset Formula $\alpha\to\beta$
+\end_inset
+
+ con 
+\begin_inset Formula $\alpha,\beta\in(V_{N}\cup V_{T})^{*}$
+\end_inset
+
+ y 
+\begin_inset Formula $S\in V_{N}$
+\end_inset
+
+ es el 
+\series bold
+símbolo inicial
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $\alpha,\beta\in(V_{N}\cup V_{T})^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ 
+\series bold
+deriva directamente
+\series default
+ en 
+\begin_inset Formula $\beta$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha\Rightarrow\beta$
+\end_inset
+
+, si existen 
+\begin_inset Formula $\delta,\gamma,\mu,\sigma\in(V_{N}\cup V_{T})^{*}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $\alpha=\delta\gamma\mu$
+\end_inset
+
+, 
+\begin_inset Formula $\beta=\delta\sigma\mu$
+\end_inset
+
+ y 
+\begin_inset Formula $\gamma\to\sigma\in P$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\alpha=:\gamma_{0}\Rightarrow\dots\Rightarrow\gamma_{n}:=\beta$
+\end_inset
+
+, 
+\begin_inset Formula $(\gamma_{0},\dots,\gamma_{n})$
+\end_inset
+
+ es una 
+\series bold
+derivación
+\series default
+ de 
+\series bold
+longitud
+\series default
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ a 
+\begin_inset Formula $\beta$
+\end_inset
+
+, y en particular 
+\begin_inset Formula $(\alpha)$
+\end_inset
+
+ es una derivación de longitud 0 de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ a 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ Decimos que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ deriva en 
+\begin_inset Formula $\beta$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha\Rightarrow^{*}\beta$
+\end_inset
+
+, si existe una derivación de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ a 
+\begin_inset Formula $\beta$
+\end_inset
+
+, y que 
+\begin_inset Formula $\alpha\Rightarrow^{+}\beta$
+\end_inset
+
+ si dicha derivación se puede tomar de longitud positiva.
+ 
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+forma sentencial
+\series default
+ es un elemento de 
+\begin_inset Formula $D(G):=\{\alpha\in(V_{N}\cup V_{T})^{*}:S\Rightarrow^{*}\alpha\}$
+\end_inset
+
+, y una 
+\series bold
+sentencia
+\series default
+ es un elemento de 
+\begin_inset Formula ${\cal L}(G):=D(G)\cap V_{T}^{*}$
+\end_inset
+
+, el 
+\series bold
+lenguaje definido
+\series default
+ por la gramática.
+\end_layout
+
+\begin_layout Standard
+Tipos de lenguajes:
+\end_layout
+
 \begin_layout Itemize
 
 \series bold
 Tipo 0
 \series default
-, gramáticas 
+, definidos por gramáticas 
 \series bold
 sin restricciones
 \series default
@@ -774,7 +966,7 @@ con estructura de frase
 \series bold
 Tipo 1
 \series default
-, gramáticas 
+, definidos por gramáticas 
 \series bold
 dependientes del contexto
 \series default
@@ -795,7 +987,7 @@ dependientes del contexto
 \series bold
 Tipo 2
 \series default
-, gramáticas 
+, definidos por gramáticas 
 \series bold
 libres de contexto
 \series default
@@ -816,7 +1008,7 @@ libres de contexto
 \series bold
 Tipo 3
 \series default
-, gramáticas 
+, definidos por gramáticas 
 \series bold
 regulares
 \series default
@@ -849,11 +1041,11 @@ regulares
 \end_layout
 
 \begin_layout Standard
-Los lenguajes de un tipo también son de todos los tipos anteriores, aunque
- muchos lenguajes no son de tipo 0.
+Los lenguajes de un tipo también son de todos los anteriores, aunque muchos
+ lenguajes no son de tipo 0.
  La mayoría de lenguajes de programación son de tipo 1, aunque muchas de
  sus reglas gramaticales pueden reducirse al tipo 2 y, para los símbolos
- básicos del lenguaje, al tipo 3.
+ básicos, al tipo 3.
 \end_layout
 
 \begin_layout Section
