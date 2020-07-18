@@ -2180,6 +2180,58 @@ por el teorema de Van Kampen especial, versión 2
 \end_inset
 
 .
+ Como 
+\series bold
+teorema
+\series default
+, el grupo fundamental de la figura ocho no es abeliano.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+En efecto, sabemos que 
+\begin_inset Formula $\pi_{1}(E)\cong\mathbb{Z}*\mathbb{Z}$
+\end_inset
+
+, y si para 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ llamamos 
+\begin_inset Formula $n$
+\end_inset
+
+ al elemento 
+\begin_inset Formula $n$
+\end_inset
+
+ del primer 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ y 
+\begin_inset Formula $n'$
+\end_inset
+
+ al del segundo 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+, tenemos 
+\begin_inset Formula $(2\cdot3')\cdot2=2\cdot3'\cdot2$
+\end_inset
+
+ pero 
+\begin_inset Formula $2\cdot(2\cdot3')=4\cdot3'$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2264,16 +2316,70 @@ teorema
 status open
 
 \begin_layout Plain Layout
-\begin_inset Note Note
-status open
 
-\begin_layout Plain Layout
-Demostración
-\end_layout
-
+\series bold
+Demostración:
+\series default
+ Queremos ver que 
+\begin_inset Formula $j_{*}:\pi_{1}(A,x_{0})\to\pi_{1}(X,x_{0})$
 \end_inset
 
+ dada por 
+\begin_inset Formula $j_{*}([\alpha]):=[j\circ\alpha]=[\alpha]$
+\end_inset
 
+ es biyectiva.
+ Es claro que es inyectiva.
+ Para ver que es suprayectiva, sean 
+\begin_inset Formula $r:X\to A$
+\end_inset
+
+ un retracto fuerte de deformación, 
+\begin_inset Formula $R:X\times[0,1]\to X$
+\end_inset
+
+ una homotopía de 
+\begin_inset Formula $j\circ r$
+\end_inset
+
+ a 
+\begin_inset Formula $1_{X}$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha\in{\cal L}(X,x_{0})$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\beta\in{\cal L}(A,x_{0})$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\beta(s):=r(\alpha(s))=j(r(\alpha(s)))$
+\end_inset
+
+ es homotópica a 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ por la homotopía de caminos 
+\begin_inset Formula $H(s,t):=R(\alpha(s),t)$
+\end_inset
+
+ de 
+\begin_inset Formula $\beta$
+\end_inset
+
+ a 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, luego 
+\begin_inset Formula $j_{*}([\beta])=[\beta]=[\alpha]$
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -2295,23 +2401,243 @@ La figura ocho
 \end_inset
 
 .
- 
 \begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-\begin_inset Note Note
-status open
+Sin pérdida de generalidad, podemos suponer que 
+\begin_inset Formula $p=(-1,0)$
+\end_inset
+
+ y 
+\begin_inset Formula $q=(1,0)$
+\end_inset
+
+, y que la figura ocho es 
+\begin_inset Formula $E:={\cal C}(p;1)\cup{\cal C}(q;1)$
+\end_inset
+
+.
+ Definimos el siguiente retracto de deformación 
+\begin_inset Formula $r:\mathbb{R}^{2}\setminus\{p,q\}\to E$
+\end_inset
+
+:
+\end_layout
 
 \begin_layout Plain Layout
-Demostración
+\begin_inset Formula 
+\[
+r(x,y):=\begin{cases}
+(-1,0)+\frac{(x+1,y)}{|(x+1,y)|}, & x\leq-1\lor(x,y)\in\overline{B}(p,1);\\
+(1,0)+\frac{(x-1,y)}{|(x-1,y)|}, & x\geq1\lor(x,y)\in\overline{B}(q,1);\\
+\left(x,\tfrac{y}{|y|}\sqrt{1-(1-|x|)^{2}}\right), & x\in[-1,1]\land(x,y)\notin\overline{B}(p,1)\cup\overline{B}(q,1).
+\end{cases}
+\]
+
+\end_inset
+
+Veamos primero que el rango de la función es 
+\begin_inset Formula $E$
+\end_inset
+
+.
+ Para el primer trozo, 
+\begin_inset Formula $\frac{(x+1,y)}{|(x+1,y)|}$
+\end_inset
+
+ tiene norma 1, luego 
+\begin_inset Formula $(-1,0)+\frac{(x+1,y)}{|(x+1,y)|}\in{\cal C}(p;1)$
+\end_inset
+
+.
+ Análogamente, para el segundo trozo, 
+\begin_inset Formula $(1,0)+\frac{(x-1,y)}{|(x-1,y)|}\in{\cal C}(q;1)$
+\end_inset
+
+.
+ Para el tercer trozo, si 
+\begin_inset Formula $x\geq0$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\left|\left(x,\frac{y}{|y|}\sqrt{1-(1-x)^{2}}\right)-(1,0)\right|=(x-1)^{2}+1-(1-x)^{2}=1,
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $(x,\frac{y}{|y|}\sqrt{1-(1-x)^{2}})\in{\cal C}(q;1)$
+\end_inset
+
+, y análogamente, si 
+\begin_inset Formula $x\leq0$
+\end_inset
+
+, 
+\begin_inset Formula $(x,\frac{y}{|y|}\sqrt{1-(1-x)^{2}})\in{\cal C}(p;1)$
+\end_inset
+
+.
 \end_layout
+
+\begin_layout Plain Layout
+Veamos que 
+\begin_inset Formula $r|_{E}=1_{E}$
+\end_inset
+
+.
+ Restringiendo la definición de 
+\begin_inset Formula $r$
+\end_inset
+
+ a 
+\begin_inset Formula $E$
+\end_inset
+
+, el primer trozo aplicaría a 
+\begin_inset Formula ${\cal C}(p;1)$
+\end_inset
+
+, y entonces, como 
+\begin_inset Formula $|(x+1,y)|=|(x,y)-p|=1$
+\end_inset
+
+, 
+\begin_inset Formula $r(x,y)=(-1,0)+(x+1,y)=(x,y)$
+\end_inset
+
+.
+ El segundo trozo aplicaría a 
+\begin_inset Formula ${\cal C}(q;1)$
+\end_inset
+
+, y análogamente, 
+\begin_inset Formula $r(x,y)=(1,0)+(x-1,y)=(x,y)$
+\end_inset
+
+.
+ El tercer trozo no aplica a 
+\begin_inset Formula $E$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Ahora queda ver que la función es continua en las fronteras de los trozos.
+\end_layout
+
+\begin_layout Enumerate
+La intersección del primer trozo y el tercero es 
+\begin_inset Formula $I_{1}:=\{-1\}\times(\mathbb{R}\setminus[-1,1])$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $(x,y)\in I_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $(-1,0)+\frac{(x+1,y)}{|(x+1,y)|}=(-1,0)+\frac{(0,y)}{|(0,y)|}=(-1,\frac{y}{|y|})$
+\end_inset
+
+, mientras que 
+\begin_inset Formula $(x,\frac{y}{|y|}\sqrt{1-(1-|x|^{2})})=(-1,\frac{y}{|y|})$
+\end_inset
+
+.
+ Las fronteras también intersecan en 
+\begin_inset Formula $I_{2}:={\cal C}(p;1)\cap([-1,0]\times\mathbb{R})$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $(x_{0},y_{0})\in I_{2}$
+\end_inset
+
+, como 
+\begin_inset Formula $(x_{0},y_{0})\in E$
+\end_inset
+
+, 
+\begin_inset Formula $(-1,0)+\frac{(x_{0}+1,y_{0})}{|(x_{0}+1,y_{0})|}=(x_{0},y_{0})$
+\end_inset
+
+, mientras que 
+\begin_inset Formula 
+\begin{multline*}
+\lim_{(x,y)\to(x_{0},y_{0})}\left(x,\frac{y}{|y|}\sqrt{1-(1-|x|)^{2}}\right)=\lim_{(x,y)\to(x_{0},y_{0})}\left(x,\frac{y}{|y|}\sqrt{1-(1+x)^{2}}\right)\overset{(1+x)^{2}+y^{2}\to1}{=}\\
+=\lim_{(x,y)\to(x_{0},y_{0})}\left(x,\frac{y}{|y|}\sqrt{y^{2}}\right)=\lim_{(x,y)\to(x_{0},y_{0})}\left(x,\frac{y}{|y|}|y|\right)=(x_{0},y_{0}).
+\end{multline*}
 
 \end_inset
 
 
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+La intersección del segundo trozo y el tercero se comprueba de forma análoga.
+\end_layout
+
+\begin_layout Enumerate
+La intersección entre el primer trozo y el segundo es 
+\begin_inset Formula $\{(0,0)\}$
+\end_inset
+
+, y como 
+\begin_inset Formula $(0,0)$
+\end_inset
+
+ está en 
+\begin_inset Formula $E$
+\end_inset
+
+, cumple 
+\begin_inset Formula $(-1,0)+\frac{(x+1,y)}{|(x+1,y)|}=(1,0)+\frac{(x-1,y)}{|(x-1,y)|}=(x,y)=(0,0)$
+\end_inset
+
+.
+ La intersección de las fronteras no contiene más puntos.
+\end_layout
+
+\begin_layout Plain Layout
+Con esto, usando límites y el lema del pegamiento, hemos probado que 
+\begin_inset Formula $r$
+\end_inset
+
+ es continua.
+ Entonces podemos definir una homotopía de 
+\begin_inset Formula $i\circ r$
+\end_inset
+
+, donde 
+\begin_inset Formula $i:E\to\mathbb{R}^{2}$
+\end_inset
+
+ es la inclusión, a 
+\begin_inset Formula $1_{\mathbb{R}^{2}}$
+\end_inset
+
+, como 
+\begin_inset Formula $F:\mathbb{R}^{2}\times[0,1]\to\mathbb{R}^{2}$
+\end_inset
+
+ dada por 
+\begin_inset Formula 
+\[
+F(x,t):=(1-t)r(x)+tx.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \end_inset
 
 
@@ -2574,34 +2900,6 @@ Demostración
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Como 
-\series bold
-teorema
-\series default
-, el grupo fundamental de la figura ocho no es abeliano.
- 
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Demostración.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard

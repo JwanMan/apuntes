@@ -683,6 +683,50 @@ Así,
 \end_inset
 
  es triangulable a un tetraedro.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+En efecto, sean 
+\begin_inset Formula $a:=(0,0,1)$
+\end_inset
+
+, 
+\begin_inset Formula $b:=(0,1,-1)$
+\end_inset
+
+, 
+\begin_inset Formula $c:=(-1,-1,-1)$
+\end_inset
+
+ y 
+\begin_inset Formula $d:=(1,-1,-1)$
+\end_inset
+
+, entonces el complejo simplicial dado por 
+\begin_inset Formula 
+\begin{multline*}
+\{\{a,b,c\},\{a,b,d\},\{a,c,d\},\{b,c,d\},\{a,b\},\{a,c\},\\
+\{a,d\},\{b,c\},\{b,d\},\{c,d\},\{a\},\{b\},\{c\},\{d\}\}
+\end{multline*}
+
+\end_inset
+
+junto con el homeomorfismo 
+\begin_inset Formula $h(x,y,z):=\frac{(x,y,z)}{|(x,y,z)|}$
+\end_inset
+
+ forman una triangulación de 
+\begin_inset Formula $\mathbb{S}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1610,7 +1654,7 @@ Sea $K_1$ una triangulación de $S_1$ y $K_2$ una de $S_2$, y suponemos que
 \end_layout
 
 \begin_layout Standard
-Así:
+Entonces:
 \end_layout
 
 \begin_layout Enumerate
@@ -1618,21 +1662,11 @@ Así:
 \end_inset
 
 .
- 
 \begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Demostración.
-\end_layout
-
-\end_inset
-
-
+Por triangulación con un tetraedro.
 \end_layout
 
 \end_inset
@@ -1645,21 +1679,106 @@ Demostración.
 \end_inset
 
 .
- 
 \begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-\begin_inset Note Note
-status open
+Sean 
+\begin_inset Formula $a_{0}:=(0,1,0)$
+\end_inset
 
-\begin_layout Plain Layout
-Demostración.
-\end_layout
+, 
+\begin_inset Formula $a_{1}:=(0,3,1)$
+\end_inset
+
+, 
+\begin_inset Formula $a_{2}:=(0,3,-1)$
+\end_inset
+
+, 
+\begin_inset Formula $b_{0}:=(-1,-1,0)$
+\end_inset
+
+, 
+\begin_inset Formula $b_{1}:=(-3,-3,1)$
+\end_inset
+
+, 
+\begin_inset Formula $b_{2}:=(-3,-3,-1)$
+\end_inset
+
+, 
+\begin_inset Formula $c_{0}:=(1,-1,0)$
+\end_inset
+
+, 
+\begin_inset Formula $c_{1}:=(3,-3,1)$
+\end_inset
+
+ y 
+\begin_inset Formula $c_{2}:=(3,-3,-1)$
+\end_inset
+
+.
+ Usamos el complejo simplicial cuyas caras son
+\begin_inset Formula 
+\begin{multline*}
+\{\{a_{0},b_{0},a_{1}\},\{a_{1},b_{0},b_{1}\},\{a_{1},b_{1},a_{2}\},\{a_{2},b_{1},b_{2}\},\{a_{2},b_{2},a_{0}\},\{a_{0},b_{2},b_{0}\},\\
+\{c_{0},b_{0},c_{1}\},\{c_{1},b_{0},b_{1}\},\{c_{1},b_{1},c_{2}\},\{c_{2},b_{1},b_{2}\},\{c_{2},b_{2},c_{0}\},\{c_{0},b_{2},b_{0}\},\\
+\{a_{0},c_{0},a_{1}\},\{a_{1},c_{0},c_{1}\},\{a_{1},c_{1},a_{2}\},\{a_{2},c_{1},c_{2}\},\{a_{2},c_{2},a_{0}\},\{a_{0},c_{2},c_{0}\}\},
+\end{multline*}
 
 \end_inset
 
+y cuyas aristas y vértices son los subsímplices de estas caras.
+ Entonces, si 
+\begin_inset Formula $r:=\frac{29}{20}$
+\end_inset
 
+, la circunferencia 
+\begin_inset Formula $r\mathbb{S}^{1}\times\{0\}$
+\end_inset
+
+ está contenida en el interior del complejo, pues este contiene a 
+\begin_inset Formula $([(0,3),(-3,-3),(3,-3)]\setminus[(0,1),(-1,-1),(1,-1)])$
+\end_inset
+
+, pero el punto más alejado del origen del triángulo interior (uno de ellos)
+ es 
+\begin_inset Formula $(-1,1)$
+\end_inset
+
+ con norma 
+\begin_inset Formula $\sqrt{2}<r$
+\end_inset
+
+ y el más cercano al origen del triángulo exterior (uno de ellos) es 
+\begin_inset Formula $\frac{(0,3)+(-3,-3)}{2}=(-\frac{3}{2},0)$
+\end_inset
+
+ con norma 
+\begin_inset Formula $\frac{3}{2}>r$
+\end_inset
+
+.
+ Entonces, si 
+\begin_inset Formula $p(x,y):=r(\frac{x}{\sqrt{x^{2}+y^{2}}},\frac{y}{\sqrt{x^{2}+y^{2}}},0)$
+\end_inset
+
+, la función 
+\begin_inset Formula $h(x,y,z):=r(x,y)+\frac{(x,y,z)-r(x,y)}{|(x,y,z)-r(x,y)|}$
+\end_inset
+
+ es un homeomorfismo del complejo al toro con circunferencia interior 
+\begin_inset Formula $r\mathbb{S}^{1}\times\{0\}$
+\end_inset
+
+ y exterior de radio 1.
+ El complejo tiene 18 caras, 27 aristas y 9 vértices, por lo que 
+\begin_inset Formula $\chi(\mathbb{T}^{2})=9-27+18=0$
+\end_inset
+
+.
 \end_layout
 
 \end_inset
