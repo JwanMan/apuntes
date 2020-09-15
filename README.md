@@ -52,7 +52,7 @@ En progreso:
 * `st`: Servicios Telemáticos.
 * `ts`: Topología de Superficies.
 
-## Venta benéfica por Médicos sin Fronteras
+## Venta benéfic
 Si está en Murcia, puede comprar versiones impresas de los apuntes (ver imagen)
 por un mínimo de 5 euros la asignatura o 19 euros por 6 asignaturas, y **el 100% 
 de los beneficios** se destina a
