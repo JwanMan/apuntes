@@ -1,80 +1,117 @@
 # Apuntes
 
-Este repositorio contiene apuntes para las asignaturas del PCEO en Matemáticas e
-Ingeniería Informática de la Universidad de Murcia. Estos apuntes no son
-oficiales ni están afiliados de algún modo a la Universidad de Murcia.
-Cualquiera es libre de enviar correcciones, modificaciones ante cambios en los
-contenidos académicos u otras mejoras.
+Apuntes para las asignaturas del PCEO en Matemáticas e Ingeniería Informática de
+la Universidad de Murcia.
+
+El propósito de estos apuntes es servir de repaso a la hora de estudiar la
+teoría para un examen o de referencia al hacer ejercicios. Por supuesto, no son
+un sustituto de ir entendiendo los contenidos y practicar con ejercicios. Estos
+apuntes no están afiliados de ningún modo a la Universidad de Murcia.
 
 Por el momento, las asignaturas de matemáticas de las que se incluyen apuntes
 son las siguientes:
 
-* `algl`: Álgebra Lineal.
-* `cyn`: Conjuntos y Números.
-* `fuvr1`: Funciones de Una Variable Real I.
-* `fuvr2`: Funciones de Una Variable Real II.
-* `gae`: Geometría Afín y Euclídea.
-* `tem`: Topología de Espacios Métricos.
-* `aalg`: Ampliación de Álgebra y Geometría.
-* `fvv1`: Funciones de Varias Variables I.
-* `fvv2`: Funciones de Varias Variables II.
-* `fvv3`: Funciones de Varias Variables III (sólo PDF).
-* `edo`: Ecuaciones Diferenciales Ordinarias (sólo PDF).
-* `epe`: Elementos de Probabilidad y Estadística (sólo PDF).
-* `cn`: Cálculo Numérico (sólo PDF).
-* `ol`: Optimización Lineal (sólo PDF).
-* `fvc`: Funciones de Variable Compleja (falta la primera parte).
-
-Las asignaturas de ingeniería informática que se incluyen son las siguientes:
-
-* `fc`: Fundamentos de Computadores.
-* `ip`: Introducción a la Programación.
-* `logic`: Fundamentos Lógicos de la Informática.
-* `etc`: Estructura y Tecnología de Computadores.
-* `ffi`: Fundamentos Físicos de la Informática.
-* `tp`: Tecnología de la Programación.
-* `iso`: Introducción a los Sistemas Operativos.
-* `poo`: Programación Orientada a Objetos.
-* `aed1`: Algoritmos y Estructuras de Datos I.
-* `aed2`: Algoritmos y Estructuras de Datos II (sólo PDF).
-* `pcd`: Programación Concurrente y Distribuida (sólo PDF).
-* `rc`: Redes de Comunicaciones (sólo PDF).
-* `aec`: Ampliación y Estructura de Computadores (sólo PDF).
-* `ar`: Ampliación de Redes (sólo PDF).
-
-Las siguientes asignaturas están en progreso:
-
-* `anm`: Análisis Numérico Matricial.
+Se incluyen las siguientes asignaturas:
+* De matemáticas:
+  * `algl`: Álgebra Lineal.
+  * `cyn`: Conjuntos y Números.
+  * `fuvr1`: Funciones de Una Variable Real I.
+  * `fuvr2`: Funciones de Una Variable Real II.
+  * `gae`: Geometría Afín y Euclídea.
+  * `tem`: Topología de Espacios Métricos.
+  * `epe`: Elementos de Probabilidad y Estadística (sólo PDF).
+  * `aalg`: Ampliación de Álgebra y Geometría.
+  * `fvv1`: Funciones de Varias Variables I.
+  * `fvv2`: Funciones de Varias Variables II.
+  * `fvv3`: Funciones de Varias Variables III (sólo PDF).
+  * `edo`: Ecuaciones Diferenciales Ordinarias (sólo PDF).
+  * `anm`: Análisis Numérico Matricial.
+  * `cn`: Cálculo Numérico (sólo PDF).
+  * `ol`: Optimización Lineal (sólo PDF).
+  * `ga`: Grupos y Anillos.
+  * `fvc`: Funciones de Variable Compleja (falta la primera parte).
+* De informática:
+  * `fc`: Fundamentos de Computadores.
+  * `ip`: Introducción a la Programación.
+  * `logic`: Fundamentos Lógicos de la Informática.
+  * `etc`: Estructura y Tecnología de Computadores.
+  * `ffi`: Fundamentos Físicos de la Informática.
+  * `tp`: Tecnología de la Programación.
+  * `iso`: Introducción a los Sistemas Operativos.
+  * `poo`: Programación Orientada a Objetos.
+  * `aed1`: Algoritmos y Estructuras de Datos I.
+  * `aed2`: Algoritmos y Estructuras de Datos II (sólo PDF).
+  * `pcd`: Programación Concurrente y Distribuida (sólo PDF).
+  * `rc`: Redes de Comunicaciones (sólo PDF).
+  * `aec`: Ampliación y Estructura de Computadores (sólo PDF).
+  * `ar`: Ampliación de Redes (sólo PDF).
+  
+En progreso:
 * `bd`: Bases de Datos.
 * `cc`: Compiladores.
-* `ga`: Grupos y Anillos.
 * `st`: Servicios Telemáticos.
 * `ts`: Topología de Superficies.
 
-Los apuntes están escritos con [LyX](https://www.lyx.org/). En cada directorio,
-el fichero `n.lyx` es el fichero principal con los apuntes de la asignatura.
-En distribuciones basadas en Debian, LyX y todo lo necesario de
-[TeX Live](https://www.tug.org/texlive/) se pueden instalar mediante
-`sudo apt install lyx texlive-full`, si bien realmente muchos de los paquetes
-que se instalan con esta orden no son necesarios.
-
-Para compilar los apuntes, `lyx -e pdf2 n.lyx` convierte a PDF y
-`lyx -e html n.lyx` convierte a HTML, aunque también se puede usar la interfaz
-gráfica de LyX. Si encuentra problemas de accesibilidad, no dude en enviar una
-"Issue" al respecto.
-
-Algunos apuntes solo están disponibles en PDF debido a que se perdió la fuente y
-solo se muestra la versión para venta o versión preliminar a venta, lo que es
-desafortunado porque el formato es difícilmente editable y plantea problemas de
-accesibilidad, por lo que toda aportación de apuntes para estas asignaturas es
-bien recibida, así como para las asignaturas en las que faltan apuntes.
-
-No obstante, se anima a todo interesado que esté en Murcia a comprar los
-ejemplares que necesite, pues los beneficios se destinan a
+## Venta benéfica por Médicos sin Fronteras
+Si está en Murcia, puede comprar versiones impresas de los apuntes (ver imagen)
+por un mínimo de 5 euros la asignatura o 19 euros por 6 asignaturas, y **el 100% 
+de los beneficios** se destina a
 [Project Elea](https://projectelea.org/about-us/), un grupo de voluntarios que
 trabajan con los residentes del campo de refugiados de Eleonas, Grecia, para
 mejorar los estándares de vida y el bienestar comunitario de estas personas que
-han perdido todo a causa de la guerra. El precio mínimo es de tan solo 3 euros
-para una asignatura o 10 euros para 6 asignaturas, y solo se vende de las
-asignaturas que están completas. Para asignaturas sólo en versión preliminar en
-PDF, se eliminará la marca de agua.
+han perdido todo a causa de la guerra.
+
+## Descargar
+Necesitaremos instalar [LyX](https://www.lyx.org/) para ver los documentos,
+[Git](https://git-scm.com) para descargarlos o contribuir a ellos (aunque esto 
+también se puede hacer con la interfaz gráfica de GitHub) y puede que también
+[TeXLive](https://tug.org/texlive/), si al compilar nos da error.
+
+En distribuciones Linux basadas en [Debian](https://www.debian.org), como
+[Trisquel](https://trisquel.info), [PureOS](https://www.pureos.net),
+[Ubuntu](https://ubuntu.com) o [Linux Mint](https://linuxmint.com), podemos
+descargar todo el software necesario con la orden
+`sudo apt install git lyx texlive-full` en la línea de comandos.
+
+Para descargar los apuntes con Git, usamos el comando
+```sh
+git clone https://github.com/JwanMan/apuntes
+```
+
+Descargar solo algunos apuntes es algo más complicado. Para descargar,
+por ejemplo, solo `fuvr1` y `cyn`, haríamos lo siguiente:
+
+```sh
+git init apuntes
+cd apuntes
+git remote add -f origin https://github.com/JwanMan/apuntes
+git config core.sparseCheckout true
+echo fuvr1 >> .git/info/sparse-checkout
+echo cyn >> .git/info/sparse-checkout
+git pull origin master
+```
+
+## Compilar
+
+En cada directorio, el fichero `n.lyx` es el fichero principal con los apuntes
+de la asignatura. Podemos compilarlos con la interfaz gráfica
+(`Archivo > Exportar`) o mediante la orden `lyx -e <formato> n.lyx`, donde
+`<formato>` es `pdf2` para exportar a PDF o `html` para convertir a HTML.
+
+## Contribuciones
+
+Quien quiera puede contribuir mediante _Issues_ y _Pull Requests_. Por ejemplo,
+interesan especialmente las contribuciones en los siguientes aspectos:
+
+* Las asignaturas de Autómatas y Lenguajes Formales (`alf`), Ampliación de
+  Sistemas Operativos (`aso`) y Funciones de Variable Compleja (`fvc`), de las
+  que no hay apuntes aquí o están incompletos.
+* Los tres últimos capítulos de Optimización Lineal (`ol`), de los que cada uno
+  está peor expresado que el anterior.
+* Los problemas de accesibilidad planteados por las asignaturas que están sólo
+  en PDF, especialmente las que son versiones escaneadas (no conservo los
+  ficheros fuente), pues estos son problemáticos para quienes dependan de
+  lectores de pantalla. Por supuesto, si alguien sabe de otros problemas de
+  accesibilidad que se den en estos apuntes, agradecería que me informara.
+* Fallos y erratas. Las contribuciones en este aspecto son sencillas y siempre
+  son bienvenidas.
