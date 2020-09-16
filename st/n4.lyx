@@ -130,7 +130,8 @@ CNAME
 \family typewriter
 NS
 \family default
- El nombre es el de un dominio y el valor es la IP del servidor DNS responsable.
+ El nombre es el de un dominio y el valor es el servidor DNS responsable
+ (nombre de dominio o IP).
 \end_layout
 
 \begin_layout Description
@@ -138,8 +139,8 @@ NS
 \family typewriter
 MX
 \family default
- El valor es el servidor de correo asociado con el nombre, ambos nombres
- de dominio.
+ El valor es un número de prioridad (cuanto mayor, más prioridad) y un servidor
+ de correo asociado con el nombre, un nombre de dominio.
 \end_layout
 
 \begin_layout Standard
@@ -277,7 +278,7 @@ default name server
 \end_layout
 
 \begin_layout Standard
-Una consulta es 
+Una consulta hecha por un servidor es 
 \series bold
 iterativa
 \series default
@@ -287,8 +288,8 @@ iterativa
 recursiva
 \series default
  si es este el que contacta.
- La recursiva mejora la caché del servidor intermedio, pero sobrecarga los
- niveles altos de la jerarquía.
+ La recursiva mejora la caché del servidor contactado, pero sobrecarga los
+ niveles altos de la jerarquía si la consulta se reenvía a esta.
 \end_layout
 
 \begin_layout Standard
@@ -551,13 +552,13 @@ reply
 \end_layout
 
 \begin_layout Standard
-Para registrar un nombre en un dominio, a través de un 
+Para registrar un nombre en un dominio, se guardan en un 
 \series bold
 \emph on
 DNS registrar
 \series default
 \emph default
-, se guardan en este un registro NS con el nombre de dominio 
+ un registro NS con el nombre de dominio 
 \emph on
 authoritative
 \emph default

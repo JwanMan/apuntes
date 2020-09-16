@@ -83,7 +83,7 @@
 SSL
 \series default
  es un protocolo sobre TCP para añadir cifrado, integridad y autenticación
- a la conexión creado por Netscape.
+ a una conexión creado por Netscape.
  Está formado por el 
 \series bold
 \emph on
@@ -223,7 +223,7 @@ Al menos 1 byte de contenido aleatorio
 \end_layout
 
 \begin_layout Standard
-La firma MAC se hace como
+La MAC se calcula como
 \end_layout
 
 \begin_layout Standard
@@ -322,8 +322,10 @@ HP
 
 \begin_layout Standard
 El 
+\series bold
 \emph on
 Handshake Protocol
+\series default
 \emph default
  se usa al principio de una conexión para el intercambio de claves.
  Se intercambian los parámetros para rellenar una 
@@ -736,41 +738,9 @@ sequence_numbers
 \family typewriter
 finish
 \family default
-, que ya va cifrado.
- El servidor hace lo mismo.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{sloppypar}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-El 
-\family typewriter
-client_verify
-\family default
- se calcula como
-\end_layout
-
-\begin_layout Standard
-El 
-\family typewriter
-finish
-\family default
- verifica que el proceso de intercambio concluyó con éxito, y contiene
-\end_layout
-
-\begin_layout Standard
+, que verifica que el proceso concluyó con éxito, va ya cifrado y contiene
 \begin_inset listings
+lstparams "basicstyle={\small\ttfamily}"
 inline false
 status open
 
@@ -792,6 +762,19 @@ SHA(master_secret || pad2 ||
 \begin_layout Plain Layout
 
     SHA(handshake_messages || sender || master_secret || pad1))
+\end_layout
+
+\end_inset
+
+ El servidor hace lo mismo.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
 \end_layout
 
 \end_inset
