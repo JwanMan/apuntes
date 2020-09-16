@@ -49,8 +49,16 @@ Se incluyen las siguientes asignaturas:
   * `cc`: Compiladores.
   * `ar`: Ampliación de Redes (sólo PDF).
   * `st`: Servicios Telemáticos.
-  
-## Venta benéfia
+
+Próximamente:
+  * `aoc`: Arquitectura y Organización de Computadores.
+  * `gcs`: Geometría de Curvas y Superficies.
+  * `graf`: Grafos y Optimización Discreta.
+  * `mne`: Métodos Numéricos de las Ecuaciones Diferenciales.
+  * `si`: Sistemas Inteligentes.
+  * `tds`: Tecnologías de Desarrollo de Software.
+
+## Venta benéfica
 Si está en Murcia, puede comprar versiones impresas de los apuntes (ver imagen)
 por un mínimo de 5 euros la asignatura o 19 euros por 6 asignaturas, y **el 100% 
 de los beneficios** se destina a
