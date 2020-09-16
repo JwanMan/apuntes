@@ -44,12 +44,12 @@ Se incluyen las siguientes asignaturas:
   * `pcd`: Programación Concurrente y Distribuida (sólo PDF).
   * `rc`: Redes de Comunicaciones (sólo PDF).
   * `aec`: Ampliación y Estructura de Computadores (sólo PDF).
+  * `bd`: Bases de Datos.
   * `ar`: Ampliación de Redes (sólo PDF).
+  * `st`: Servicios Telemáticos.
   
 En progreso:
-* `bd`: Bases de Datos.
 * `cc`: Compiladores.
-* `st`: Servicios Telemáticos.
 * `ts`: Topología de Superficies.
 
 ## Venta benéfic

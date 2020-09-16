@@ -90,7 +90,7 @@ esquema lógico
  la simplicidad para conseguir una estructura lógica adecuada y un equilibrio
  entre los requisitos de usuario y la eficiencia.
  Para conseguir la máxima portabilidad, se introduce el SGBD específico
- de forma tardía, lo que permite implementar el esquema lógico en distintos
+ de forma tardía, permitiendo implementar el esquema lógico en distintos
  SGBD y migrar entre SGBDs.
 \end_layout
 
@@ -111,8 +111,7 @@ modelo lógico de datos estándar
 \series bold
 MLS
 \series default
-), como puede ser el modelo relacional, de red, jerárquico, orientado a
- objetos, etc., independiente del SGBD, y se describe en este un 
+), independiente del SGBD, y se describe en este un 
 \series bold
 esquema lógico estándar
 \series default
@@ -396,7 +395,7 @@ Si tras esto hay un elemento con cardinalidad
 \begin_inset Formula $(1,1)$
 \end_inset
 
-, se añaden a este las claves ajenas que no admiten nulo al resto de elementos
+, se añaden a este claves ajenas que no admiten nulo al resto de elementos
  que quedan en la relación, si los hay.
  En tal caso se llama 
 \series bold
@@ -544,7 +543,7 @@ Se recomienda que cada relación sea al menos 3FN.
 
 \end_deeper
 \begin_layout Enumerate
-Validar las relacines contra las transacciones de usuario, intentando 
+Validar las relaciones contra las transacciones de usuario, intentando 
 \begin_inset Quotes cld
 \end_inset
 
@@ -572,8 +571,8 @@ Que las columnas traducidas de atributos admiten nulo si y sólo si el atributo
 
 \begin_layout Enumerate
 Que los atributos solo pueden tener valores legales, especialmente cuando
- el dominio no se corresponde exactamente con un tipo de datos nativo de
- la base de datos.
+ el dominio no se corresponde exactamente con un tipo de datos de la base
+ de datos.
 \end_layout
 
 \begin_layout Enumerate
@@ -582,14 +581,14 @@ Que ninguna clave primaria puede contener nulo.
 
 \begin_layout Enumerate
 Que las claves ajenas tienen tantas columnas como la clave primaria a la
- que referencias, que son de tipo correcto, que está bien indicado si admiten
+ que referencian, que son de tipo correcto, que está bien indicado si admiten
  nulo o no y que las acciones de mantenimiento de la integridad referencial
  son las adecuadas según su semántica.
 \end_layout
 
 \begin_layout Enumerate
-Que las reglas de integridad generales están ya representadas como comprobacione
-s o asertos.
+Que las reglas de integridad generales están representadas como comprobaciones
+ o asertos.
 \end_layout
 
 \end_deeper

@@ -105,7 +105,7 @@ entidad
 entity
 \emph default
 ) es aquello del mundo real con existencia propia distinguible del resto,
- sea esta física o real, y abstracta o conceptual.
+ sea esta física o real, o abstracta o conceptual.
  Un 
 \series bold
 atributo
@@ -231,8 +231,7 @@ nulo
 null value
 \emph default
 ), que indica que el valor existe pero no se conoce, no se sabe si existe
- o no o la entidad concreta no tiene ningún valor aplicable para el atributo.
- 
+ o la entidad no tiene un valor aplicable para este.
 \end_layout
 
 \begin_layout Standard
@@ -399,7 +398,7 @@ ternaria
 \series bold
 cuaternaria
 \series default
- si es de grado 4, etc., y 
+ si es de grado 4 y 
 \series bold
 reflexiva
 \series default
@@ -416,13 +415,13 @@ La
 cardinalidad
 \series default
  de una posición en un tipo de relación es el número de relaciones que puede
- haber del tipo en que la posición de la tupla tiene un mismo elemento.
+ haber del tipo en que dicha posición tiene un mismo elemento.
  Se representa igual que la cardinalidad de atributos, en la línea que une
  el tipo de relación con el tipo de entidad, y es obligatorio indicarla.
 \end_layout
 
 \begin_layout Standard
-Una puede tener atributos, pero no claves, y estos se representan poniendo
+Una relación puede tener atributos pero no claves, y se representan poniendo
  el tipo de relación como 
 \begin_inset Quotes cld
 \end_inset
@@ -448,7 +447,7 @@ dad
 \begin_inset Formula $(1,1)$
 \end_inset
 
- con tipos de entidad fuerte y, si es necesario, incluir una 
+ con otros tipos de entidad y, si es necesario, incluir una 
 \series bold
 clave parcial
 \series default
@@ -467,15 +466,15 @@ Las claves parciales pueden ser compuestas, puede haber varias y se representan
  como los identificadores pero haciendo el subrayado punteado.
  Para indicar que un tipo de entidad es débil, se rodea de un doble rectángulo
  y se hacen dobles tanto las líneas que las unen con tipos de relación con
- entidades fuertes que participan de la identificación como los rombos que
- representan estos tipos de relación.
+ entidades que participan de la identificación como los rombos que representan
+ estos tipos de relación.
 \end_layout
 
 \begin_layout Standard
-A veces una herramienta de diseño solo permite relaciones entre dos entidades,
- en cuyo caso podemos representar un tipo de relación entre más entidades
- como un tipo de entidad débil con una relación binaria identificadora por
- cada posición de las relaciones.
+A veces una herramienta de diseño solo permite relaciones binarias, en cuyo
+ caso podemos representar un tipo de relación entre más entidades como un
+ tipo de entidad débil con una relación binaria identificadora por cada
+ posición de las relaciones.
 \end_layout
 
 \begin_layout Section
@@ -488,8 +487,8 @@ Dos o más tipos de relación son
 exclusivos
 \series default
  respecto a una posición de cada uno con un mismo tipo de entidad si cada
- instancia de dicho tipo solo puede participar en uno de los tipos en dicha
- posición.
+ entidad de dicho tipo solo puede participar en uno de los tipos de relación
+ en dicha posición.
  Esto se representa con una curva que corta con todas las uniones entre
  el tipo de entidad y los tipos de relación para dichas posiciones.
 \end_layout
@@ -503,7 +502,7 @@ subtipo
 \series bold
 jerarquía
 \series default
- entre tipos de entidad que se puede formar 
+ entre tipos de entidad que se puede formar por 
 \series bold
 especialización
 \series default
@@ -527,8 +526,8 @@ discriminante
 \series default
  de las entidades del supertipo.
  Este se representa mediante un círculo sin nombre, que puede tener atributos
- y que se une con una línea al supertipo y con una línea cortada por una
- curva a cada subtipo.
+ y que se une con una línea al supertipo y con una línea a cada subtipo
+ cortada por una línea curvada con los extremos hacia el discriminante.
  Un subtipo puede tener atributos propios específicos y participar en relaciones
 , y 
 \series bold

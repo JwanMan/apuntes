@@ -118,7 +118,7 @@ actores
 \end_layout
 
 \begin_layout Standard
-Entre los actores tenemos:
+En empresas tenemos los siguientes actores:
 \end_layout
 
 \begin_layout Enumerate
@@ -214,7 +214,7 @@ sofisticados
 \series default
 : Familiarizados con la estructura de la base de datos y las funcionalidades
  del SGBD.
- Acceden de forma esporádica y distinta cada vez usando, por ejemplo SQL.
+ Acceden de forma esporádica y distinta cada vez usando por ejemplo SQL.
 \end_layout
 
 \end_deeper
@@ -561,7 +561,7 @@ serializabilidad
 \series default
  de las transacciones es la equivalencia entre el orden de procesamiento
  de estas y algún orden secuencial.
- El método de control de concurrencia puede abortar una transacción porque
+ El servicio de control de concurrencia puede abortar una transacción porque
  incumple la serializabilidad o para romper un interbloqueo, y esta debe
  ser reiniciada más tarde.
 \end_layout
@@ -941,7 +941,11 @@ gets$dirección del registro
 
 	$a
 \backslash
-gets$conjunto de transacciones activas según el registro
+gets
+\backslash
+{T_i
+\backslash
+}_i$
 \backslash
 ;
 \end_layout
@@ -1002,7 +1006,7 @@ Para{$e$ entrada en la bitácora desde $s$}{
 \backslash
 lSSi{$e=${
 \backslash
-tt <INICIAR,T>}}{Añadir {
+tt <INICIAR, T>}}{añadir {
 \backslash
 tt T} a $A$}
 \end_layout
@@ -1013,7 +1017,7 @@ tt T} a $A$}
 \backslash
 lEnOtroCasoSi{$e=${
 \backslash
-tt <COMMIT,T>}}{Mover {
+tt <COMMIT, T>}}{mover {
 \backslash
 tt T} de $A$ a $C$}
 \end_layout
@@ -1039,7 +1043,7 @@ min(
 \backslash
 }_i
 \backslash
-cap A)$ o 0}{
+cap A)$ o $0$}{
 \end_layout
 
 \begin_layout Plain Layout
@@ -1048,7 +1052,7 @@ cap A)$ o 0}{
 \backslash
 lSSi{$e=${
 \backslash
-tt <ESCRIBIR,$T$,{
+tt <ESCRIBIR, $T$, {
 \backslash
 rm ...}>} con $T
 \backslash
@@ -1064,15 +1068,7 @@ in A$}{deshacer $e$}
 
 
 \backslash
-Para{$e$ entrada desde $
-\backslash
-min(
-\backslash
-{E_i
-\backslash
-}_i
-\backslash
-cap C)$ hasta la última}{
+Para{$e$ entrada desde $s$ hasta la última}{
 \end_layout
 
 \begin_layout Plain Layout
@@ -1081,7 +1077,7 @@ cap C)$ hasta la última}{
 \backslash
 lSSi{$e=${
 \backslash
-tt <ESCRIBIR,$T$,{
+tt <ESCRIBIR, $T$, {
 \backslash
 rm ...}>} con $T
 \backslash
@@ -1148,7 +1144,15 @@ Estructura general
 \end_layout
 
 \begin_layout Standard
-Además del gestor de base de datos (GBD), el SGBD tiene:
+Además del 
+\series bold
+gestor de base de datos
+\series default
+ (
+\series bold
+GBD
+\series default
+), el SGBD tiene:
 \end_layout
 
 \begin_layout Itemize
@@ -1163,8 +1167,8 @@ Un preprocesador de comandos LMD, que se comunica con el procesador de consultas
 
 \begin_layout Itemize
 Un compilador de comando LDD, que compila las órdenes del ABD y las envía
- al gestor del catálogo, que se modifica el catálogo a través del gestor
- de ficheros en coordinación con el GBD.
+ al gestor del catálogo, que modifica el catálogo a través del gestor de
+ ficheros en coordinación con el GBD.
 \end_layout
 
 \begin_layout Standard
@@ -1173,10 +1177,10 @@ Cuando el GBD recibe un comando, comprueba la autorización y lo pasa al
  el optimizador de consultas y envía una versión de este de bajo nivel al
  gestor de transacciones, que la pasa al planificador y este al gestor de
  datos.
- El gestor de datos consta de gestor de recuperación seguido de gestor del
- búfer, y este entonces se comunica con el gestor de ficheros del sistema
- operativo para manipular la base de datos a través de los métodos de acceso
- y búferes del sistema.
+ El gestor de datos consta del gestor de recuperación seguido del gestor
+ del búfer, que se comunica con el gestor de ficheros del sistema operativo
+ para manipular la base de datos a través de los métodos de acceso y búferes
+ del sistema.
 \end_layout
 
 \begin_layout Standard

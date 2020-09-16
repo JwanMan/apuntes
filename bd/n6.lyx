@@ -116,8 +116,10 @@ American National Standards Institute
 ISO
 \series default
  (
+\emph on
 \lang english
 International Standardization Organization
+\emph default
 \lang spanish
 ).
  La primera versión del estándar fue SQL1 o ANSI 1986, del que hubo una
@@ -145,8 +147,7 @@ Intermediate SQL
 \emph on
 Full SQL
 \emph default
-, y los proveedores suelen incluir características no estandarizadas como
- índices.
+, y los proveedores suelen incluir características no estandarizadas.
  El código SQL se puede incorporar dentro de código en un lenguaje de programaci
 ón de propósito general.
 \end_layout
@@ -194,7 +195,7 @@ bag
 \emph default
 ), en el que puede haber varias filas idénticas.
  Las columnas están ordenadas por orden de creación, y una clave ajena puede
- referenciar a una clave alternativa.
+ referenciar a una alternativa.
 \end_layout
 
 \begin_layout Standard
@@ -798,7 +799,7 @@ TABLE
 
 \begin_layout Plain Layout
 
-table-elements = table-element / table-element 
+table-elements = table-element *(
 \begin_inset Quotes cld
 \end_inset
 
@@ -806,7 +807,7 @@ table-elements = table-element / table-element
 \begin_inset Quotes crd
 \end_inset
 
- table-elements
+ table-element)
 \end_layout
 
 \begin_layout Plain Layout
@@ -886,7 +887,15 @@ REAL
 \begin_inset Quotes cld
 \end_inset
 
-DOUBLE PRECISION
+DOUBLE
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+PRECISION
 \begin_inset Quotes crd
 \end_inset
 
@@ -938,7 +947,7 @@ DEC
 \begin_inset Quotes crd
 \end_inset
 
-) 
+) [
 \begin_inset Quotes cld
 \end_inset
 
@@ -946,7 +955,7 @@ DEC
 \begin_inset Quotes cld
 \end_inset
 
- uint 
+ uint [
 \begin_inset Quotes cld
 \end_inset
 
@@ -954,7 +963,7 @@ DEC
 \begin_inset Quotes crd
 \end_inset
 
- uint 
+ uint] 
 \begin_inset Quotes cld
 \end_inset
 
@@ -962,7 +971,7 @@ DEC
 \begin_inset Quotes crd
 \end_inset
 
-
+]
 \end_layout
 
 \begin_layout Plain Layout
@@ -1039,7 +1048,7 @@ NCHAR
 \begin_inset Quotes crd
 \end_inset
 
- [ 
+ [
 \begin_inset Quotes cld
 \end_inset
 
@@ -1055,7 +1064,7 @@ NCHAR
 \begin_inset Quotes crd
 \end_inset
 
- ]
+]
 \end_layout
 
 \begin_layout Plain Layout
@@ -1269,8 +1278,8 @@ DECIMAL
 \family typewriter
 DEC
 \family default
- recibe como parámetros el número de dígitos a almacenar y, opcionalmente,
- un factor de escala.
+ recibe como parámetros opcionales el número de dígitos a almacenar y, opcionalm
+ente, un factor de escala.
  
 \family typewriter
 CHAR
@@ -1344,15 +1353,7 @@ status open
 
 \begin_layout Plain Layout
 
-column-constraint = (
-\begin_inset Quotes cld
-\end_inset
-
-NULL
-\begin_inset Quotes crd
-\end_inset
-
- / 
+column-constraint = ([
 \begin_inset Quotes cld
 \end_inset
 
@@ -1360,7 +1361,7 @@ NOT
 \begin_inset Quotes crd
 \end_inset
 
- 
+] 
 \begin_inset Quotes cld
 \end_inset
 
@@ -1467,11 +1468,11 @@ es, sin nombre y con lista de columnas solo con la columna actual.
 
 \begin_layout Standard
 Cuando se crea una fila en la tabla sin indicar el valor de una columna,
- se usa el valor indicado en la 
+ se usa el valor por defecto, indicado en la 
 \family typewriter
 default-clause
 \family default
- o, si esta no aparece, 
+, o si esta no aparece, 
 \family typewriter
 NULL
 \family default
@@ -1618,11 +1619,11 @@ restricción de clave candidata
 \family typewriter
 PRIMARY KEY
 \family default
- y 
+ o 
 \family typewriter
 UNIQUE
 \family default
- indican que las columnas en la lista forman una clave primaria o alternativa,
+ indica que las columnas en la lista forman una clave primaria o alternativa,
  respectivamente.
  Una 
 \series bold
@@ -1825,12 +1826,12 @@ TABLE
 \begin_inset Quotes frd
 \end_inset
 
- sid alter-table-clause
+ sid [alter-column / alter-constraint]
 \end_layout
 
 \begin_layout Plain Layout
 
-alter-table-clause = 
+alter-column = 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1886,7 +1887,12 @@ COLUMN
 \begin_inset Quotes frd
 \end_inset
 
- id drop-behavior / 
+ id drop-behavior
+\end_layout
+
+\begin_layout Plain Layout
+
+alter-constraint = 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1984,8 +1990,8 @@ La información almacenada debe cumplir en todo momento las reglas existentes.
 \end_layout
 
 \begin_layout Enumerate
-Un nombre, un que aparece en los mensajes de error por intentar incumplir
- la regla.
+Un nombre, que aparece en los mensajes de error por intentar incumplir la
+ regla.
 \end_layout
 
 \begin_layout Enumerate
@@ -2492,7 +2498,7 @@ CONSTRAINTS
 \begin_inset Quotes crd
 \end_inset
 
- (sid (
+ (sid *(
 \begin_inset Quotes cld
 \end_inset
 
@@ -2857,7 +2863,7 @@ INTERSECT
 \begin_inset Quotes crd
 \end_inset
 
- primary-query
+ primary-query)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3068,7 +3074,23 @@ from-clause = table-ref *(
 
 \begin_layout Plain Layout
 
-table-ref = sid [id] / query id / joined-table
+table-ref = sid [id] / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ query 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ id / joined-table
 \end_layout
 
 \end_inset
@@ -3136,7 +3158,7 @@ columna
 \family typewriter
 *
 \family default
- equivale a listas todas las columnas de la 
+ equivale a listar todas las columnas de la 
 \family typewriter
 \emph on
 tabla
@@ -3159,8 +3181,8 @@ table-ref
 \emph default
 , se usa su producto cartesiano, que contiene, para cada fila de la primera
  tabla y cada fila de la segunda (si hay más de dos tablas, se usa la asociativi
-dad), una fila que contiene los valores de las columnas de la primera tabla
- y los de la segunda.
+dad), una fila que contiene los valores de las columnas de la primera y
+ los de la segunda.
 \end_layout
 
 \begin_layout Standard
@@ -3180,16 +3202,6 @@ columna
 \family typewriter
 \emph on
 tabla alias
-\family default
-\emph default
- o 
-\family typewriter
-\emph on
-tabla
-\emph default
- AS 
-\emph on
-alias
 \family default
 \emph default
 , y entonces no se establece 
@@ -4303,7 +4315,7 @@ DESC
 ).
  La mayoría de SGBDs interpretan la 
 \family typewriter
-orden-by-clause
+order-by-clause
 \family default
  como un parámetro de 
 \family typewriter
@@ -4384,7 +4396,7 @@ El
 \end_layout
 
 \begin_layout Standard
-Podemos expresar una relación como una tupla 
+Podemos ver una relación como una tupla 
 \begin_inset Formula $(R,T,N)$
 \end_inset
 
@@ -4793,7 +4805,7 @@ Reunión natural
 , entonces 
 \begin_inset Formula 
 \[
-R\hexstar S:=(\{r*s:r\in R,s\in S,\forall i,j,(N_{i}=M_{j}\implies r_{i}=s_{j})\},T*U,N*M).
+R\hexstar S:=(\{r*(s_{j_{1}},\dots,s_{j_{p}}):r\in R,s\in S,\forall i,j,(N_{i}=M_{j}\implies r_{i}=s_{j})\},T*U,N*M).
 \]
 
 \end_inset
@@ -4806,16 +4818,8 @@ R\hexstar S:=(\{r*s:r\in R,s\in S,\forall i,j,(N_{i}=M_{j}\implies r_{i}=s_{j})\
 \series bold
 Reunión externa
 \series default
-: Sean 
+: Sea 
 \begin_inset Formula $N_{k}:=\{\mathtt{NULL}\}^{k}$
-\end_inset
-
-, 
-\begin_inset Formula $n:=\text{gr}R$
-\end_inset
-
- y 
-\begin_inset Formula $m:=\text{gr}S$
 \end_inset
 
 .
@@ -4906,7 +4910,7 @@ Funciones de agregados
 
  es el nombre de una de estas funciones, definimos la función de agregados
  
-\begin_inset Formula $O_{N_{i}}(R):=O(\{r_{i}\}_{r\in R}\setminus\{\mathtt{NULL}\})$
+\begin_inset Formula $O_{N_{i}}(R):=O_{r\in R,r_{i}\neq\mathtt{NULL}}r_{i}$
 \end_inset
 
 .
@@ -4935,7 +4939,7 @@ Dada una tupla
 \end_inset
 
 , una fila 
-\begin_inset Formula $(r_{i_{1}},\dots,r_{i_{n}},F_{1}[r],\dots,F_{m}[r])$
+\begin_inset Formula $(r_{i_{1}},\dots,r_{i_{n}},F_{1}([r]),\dots,F_{m}([r]))$
 \end_inset
 
 .
@@ -5220,10 +5224,7 @@ segura
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-El cálculo relacional con expresiones seguras tiene la misma potencia que
+ El cálculo relacional con expresiones seguras tiene la misma potencia que
  el álgebra relacional.
 \end_layout
 
@@ -5234,11 +5235,7 @@ El cálculo relacional con expresiones seguras tiene la misma potencia que
 \begin_layout Standard
 Buscar las filas de una tabla que satisfacen una condición es la operación
  más común en consultas SQL.
- La 
-\series bold
-búsqueda secuencial
-\series default
- implica un gran número de lecturas de 
+ La búsqueda secuencial implica un gran número de lecturas de 
 \series bold
 bloques
 \series default
@@ -5396,7 +5393,6 @@ index-def
 ORDER BY
 \family default
 .
- 
 \begin_inset Foot
 status open
 
@@ -5424,6 +5420,13 @@ PRIMARY KEY
 UNIQUE
 \family default
  con las columnas de la clave.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5461,8 +5464,7 @@ INDEX
 Elimina un índice.
  Esto puede hacerse porque ya no se espera realizar consultas basadas en
  el campo de indexación, o porque este no acelera las consultas al ser la
- tabla muy pequeña o contener muchas filas pero con pocas entradas en el
- índice.
+ tabla muy pequeña o contener muchas filas pero pocas entradas en el índice.
 \end_layout
 
 \begin_layout Section
@@ -5676,7 +5678,7 @@ CHAR
 \begin_inset Quotes crd
 \end_inset
 
- ] 
+] 
 \begin_inset Quotes cld
 \end_inset
 
@@ -5945,6 +5947,18 @@ UROWID
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
 
 \family typewriter
 NUMBER
@@ -5953,7 +5967,7 @@ NUMBER
 \family typewriter
 NUMERIC
 \family default
-, pero con parámetros por defecto 38 y 0.
+, con parámetros por defecto 38 y 0.
  
 \family typewriter
 INTEGER
@@ -6025,6 +6039,19 @@ VARCHAR
 BIT VARYING
 \family default
 , con las mismas consideraciones.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -6303,22 +6330,22 @@ MODIFY
 \begin_layout Standard
 
 \family typewriter
-RENAME 
+ALTER TABLE 
 \emph on
 name
 \emph default
- TO 
+ RENAME TO 
 \emph on
 newName
 \family default
 \emph default
  equivale a 
 \family typewriter
-ALTER TABLE 
+RENAME 
 \emph on
 name
 \emph default
- RENAME TO 
+ TO 
 \emph on
 newName
 \family default
@@ -6357,7 +6384,7 @@ status open
 
 \begin_layout Plain Layout
 
-alter-constraint-clause = 
+alter-constraint = 
 \begin_inset Quotes cld
 \end_inset
 
@@ -7085,7 +7112,7 @@ CONSTRAINT
 sid
 \family default
 \emph default
- da un nombre a como restricción a la condición 
+ da un nombre como restricción a la condición 
 \family typewriter
 WITH CHECK OPTION
 \family default
@@ -7175,9 +7202,9 @@ SELECT DISTINCT
 \family default
 .
  Aunque esta característica es estándar, en el software privativo Oracle
- Database, la inclusión de una subconsulta en la cláusula 
+ Database, la inclusión de una subconsulta en una 
 \family typewriter
-FROM
+from-clause
 \family default
  se llama Oracle Online View.
 \end_layout
