@@ -29,6 +29,7 @@ Se incluyen las siguientes asignaturas:
   * `cn`: Cálculo Numérico (sólo PDF).
   * `ol`: Optimización Lineal (sólo PDF).
   * `ga`: Grupos y Anillos.
+  * `ts`: Topología de Superficies.
   * `fvc`: Funciones de Variable Compleja (falta la primera parte).
 * De informática:
   * `fc`: Fundamentos de Computadores.
@@ -45,14 +46,11 @@ Se incluyen las siguientes asignaturas:
   * `rc`: Redes de Comunicaciones (sólo PDF).
   * `aec`: Ampliación y Estructura de Computadores (sólo PDF).
   * `bd`: Bases de Datos.
+  * `cc`: Compiladores.
   * `ar`: Ampliación de Redes (sólo PDF).
   * `st`: Servicios Telemáticos.
   
-En progreso:
-* `cc`: Compiladores.
-* `ts`: Topología de Superficies.
-
-## Venta benéfic
+## Venta benéfia
 Si está en Murcia, puede comprar versiones impresas de los apuntes (ver imagen)
 por un mínimo de 5 euros la asignatura o 19 euros por 6 asignaturas, y **el 100% 
 de los beneficios** se destina a

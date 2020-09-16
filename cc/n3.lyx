@@ -330,7 +330,7 @@ Un
 \begin_inset Formula $X\in V_{T}$
 \end_inset
 
- y el nodo es hoja, o bien 
+ y el nodo es hoja, bien 
 \begin_inset Formula $X\in V_{N}$
 \end_inset
 
@@ -359,9 +359,9 @@ ambigua
 \end_inset
 
  distintos tales que la sentencia es la concatenación ordenada de las etiquetas
- de todos los nodos hoja, si y sólo si admite dos derivaciones más a la
- izquierda distintas, si y sólo si admite dos derivaciones más a la derecha
- distintas.
+ de todos los nodos hoja, si y sólo si esta admite dos derivaciones más
+ a la izquierda distintas, si y sólo si admite dos derivaciones más a la
+ derecha distintas.
  Una gramática es ambigua si tiene alguna sentencia ambigua.
 \end_layout
 
@@ -458,8 +458,8 @@ S\to S_{e}\mid S_{ne};S_{e}\to iEtS_{e}eS_{e}\mid s;S_{ne}\to iEtS\mid iEtS_{e}e
 
 \end_inset
 
-aunque esto no se suele hacer porque es más lento, y en su lugar se incluye
- en el analizador sintáctico un caso especial.
+aunque esto no se suele hacer porque es menos eficiente, y en su lugar se
+ incluye en el analizador un caso especial.
 \end_layout
 
 \begin_layout Standard
@@ -626,7 +626,7 @@ lenguaje reconocido
 \end_layout
 
 \begin_layout Standard
-Algunas características de los lenguajes de programación son no libres de
+Algunas características de los lenguajes de programación no son libres de
  contexto:
 \end_layout
 
@@ -652,11 +652,7 @@ Declaración de identificadores.
 \begin_inset Formula $w$
 \end_inset
 
- un uso del identificador, 
-\begin_inset Formula $L_{1}$
-\end_inset
-
- no es de tipo 2.
+ un uso del identificador, no es de tipo 2.
 \end_layout
 
 \begin_layout Itemize
@@ -704,7 +700,7 @@ Métodos de análisis semántico
 \end_layout
 
 \begin_layout Standard
-Pueden ser:
+Suelen ser de estos tipos:
 \end_layout
 
 \begin_layout Enumerate
@@ -735,7 +731,7 @@ generales
 \end_layout
 
 \begin_layout Standard
-Dadas una GLC 
+Dada una GLC 
 \begin_inset Formula $(V_{N},V_{T},P,S)$
 \end_inset
 
@@ -788,7 +784,7 @@ cup V_T}$.}
 
 
 \backslash
-Para{$X
+lPara{$X
 \backslash
 in V_T$}{$
 \backslash
@@ -875,9 +871,13 @@ in P$}{
 \backslash
 Para{$i
 \backslash
-in{1,
+in
 \backslash
-dots,k}:Y_1
+{1,
+\backslash
+dots,k
+\backslash
+}:Y_1
 \backslash
 cdots Y_{i-1}
 \backslash
@@ -1109,7 +1109,7 @@ lambda
 \backslash
 }$ a $
 \backslash
-textsf{SIGUIENTE}(X_k)$
+textsf{SIGUIENTE}(X_i)$
 \backslash
 ;
 \end_layout
@@ -1411,14 +1411,106 @@ Aceptar
 Error
 \emph default
 .
+ A veces se abrevia 
+\emph on
+Desplazar 
+\begin_inset Formula $s$
+\end_inset
+
+
+\emph default
+ como d
+\begin_inset Formula $s$
+\end_inset
+
+, 
+\emph on
+Reducir 
+\begin_inset Formula $A\to\beta$
+\end_inset
+
+
+\emph default
+, siendo 
+\begin_inset Formula $A\to\beta$
+\end_inset
+
+ la regla 
+\begin_inset Formula $i$
+\end_inset
+
+-ésima, como r
+\begin_inset Formula $i$
+\end_inset
+
+, y 
+\emph on
+Aceptar
+\emph default
+ como 
+\emph on
+Acc
+\emph default
+, y se omite 
+\emph on
+Error
+\emph default
+ al representar la tabla.
 \end_layout
 
 \begin_layout Enumerate
 Una tabla 
-\begin_inset Formula $\mathsf{IrA}:S\times V_{N}\to S$
+\begin_inset Formula $\mathsf{IrA}:S\times V_{N}\to S\sqcup\{\emptyset\}$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+configuración
+\series default
+ del analizador es un par 
+\begin_inset Formula $(s_{0}\,X_{1}\,s_{1}\,\dots\,X_{m}\,s_{m},a_{i}a_{i+1}\cdots a_{n}\$)$
+\end_inset
+
+, donde 
+\begin_inset Formula $s_{0},\dots,s_{m}\in S$
+\end_inset
+
+ y 
+\begin_inset Formula $X_{1},\dots,X_{m}\in V_{N}\cup V_{T}$
+\end_inset
+
+, 
+\begin_inset Formula $a_{i},\dots,a_{n}\in V_{T}$
+\end_inset
+
+.
+ El primer elemento del par es el 
+\series bold
+contenido de la pila
+\series default
+ y el segundo elemento es la cadena de símbolos de entrada que queda por
+ reconocer.
+ Ejecutar el analizador sobre una entrada es aplicar el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:lr-analysis"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, que recibe una entrada y devuelve un árbol de derivación de esta si cumple
+ una cierta gramática 
+\begin_inset Formula $LR(1)$
+\end_inset
+
+, o bien encuentra un error.
+ Un analizador LR se puede convertir en un autómata de pila.
 \end_layout
 
 \begin_layout Standard
@@ -1460,7 +1552,7 @@ Establecer la pila a $(s_0)$.
 \backslash
 'imbolos de $V_T$ o $V_N$ sino 
 \backslash
-'arboles completos.
+'arboles completos
 \backslash
 ;
 \end_layout
@@ -1670,53 +1762,6 @@ Análisis sintáctico LR.
 
 \end_layout
 
-\begin_layout Standard
-Una 
-\series bold
-configuración
-\series default
- del analizador es un par 
-\begin_inset Formula $(s_{0}\,X_{1}\,s_{1}\,\dots\,X_{m}\,s_{m},a_{i}a_{i+1}\cdots a_{n}\$)$
-\end_inset
-
-, donde 
-\begin_inset Formula $s_{0},\dots,s_{m}\in S$
-\end_inset
-
- y 
-\begin_inset Formula $X_{1},\dots,X_{m}\in V_{N}\cup V_{T}$
-\end_inset
-
-, 
-\begin_inset Formula $a_{i},\dots,a_{n}\in V_{T}$
-\end_inset
-
-.
- El primer elemento del par es el 
-\series bold
-contenido de la pila
-\series default
- y el segundo elemento es la cadena de símbolos de entrada que queda por
- reconocer.
- Ejecutar el analizador sobre una entrada es aplicar el algoritmo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:lr-analysis"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, que recibe una entrada y devuelve un árbol de derivación de esta si cumple
- una cierta gramática 
-\begin_inset Formula $LR(1)$
-\end_inset
-
-, o bien encuentra un error.
- Un analizador LR se puede convertir en un autómata de pila.
-\end_layout
-
 \begin_layout Subsection
 Método SLR
 \end_layout
@@ -1778,6 +1823,91 @@ Llamamos
  punto en alguna posición de la cadena a la derecha, que indica la porción
  de la regla que ha sido reconocida en la entrada, de modo que cuando el
  punto está a la derecha podemos aplicar una reducción.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+gramática aumentada
+\series default
+ o 
+\series bold
+extendida
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ a 
+\begin_inset Formula $(V_{N}\cup\{S'\},V_{T},P\cup\{S'\to S\},S')$
+\end_inset
+
+, donde 
+\begin_inset Formula $S'\notin V_{N}\cup V_{T}$
+\end_inset
+
+.
+ Definimos la 
+\series bold
+clausura
+\series default
+ de un conjunto 
+\begin_inset Formula $I$
+\end_inset
+
+ de ítems, 
+\begin_inset Formula $\mathsf{Clausura}(I)$
+\end_inset
+
+, según el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:clausura"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, y dados un conjunto de ítems 
+\begin_inset Formula $I$
+\end_inset
+
+ y 
+\begin_inset Formula $X\in V_{N}\cup V_{T}$
+\end_inset
+
+, definimos 
+\family sans
+
+\begin_inset Formula 
+\[
+\mathsf{Goto}(I,X):=\mathsf{Clausura}(\{A\to\alpha X\cdot\beta\}_{A\to\alpha\cdot X\beta\in I}).
+\]
+
+\end_inset
+
+ 
+\family default
+Con esto definimos la 
+\series bold
+colección 
+\begin_inset Formula $LR(0)$
+\end_inset
+
+
+\series default
+ según el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:lr0-collection"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1881,7 +2011,7 @@ name "alg:clausura"
 
 \end_inset
 
-Cálculo de la clausura de un conjunto de ítems 
+Clausura de un conjunto de ítems 
 \begin_inset Formula $LR(0)$
 \end_inset
 
@@ -1991,8 +2121,6 @@ neq
 emptyset$}{Añadir $
 \backslash
 mathsf{Goto}(I,X)$ a $C$}
-\backslash
-;
 \end_layout
 
 \begin_layout Plain Layout
@@ -2025,7 +2153,7 @@ name "alg:lr0-collection"
 
 \end_inset
 
-Cálculo de la colección 
+Colección 
 \begin_inset Formula $LR(0)$
 \end_inset
 
@@ -2040,88 +2168,6 @@ Cálculo de la colección
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Llamamos 
-\series bold
-gramática aumentada
-\series default
- o 
-\series bold
-extendida
-\series default
- de 
-\begin_inset Formula $G$
-\end_inset
-
- a 
-\begin_inset Formula $(V_{N}\cup\{S'\},V_{T},P\cup\{S'\to S\},S')$
-\end_inset
-
-, donde 
-\begin_inset Formula $S'\notin V_{N}\cup V_{T}$
-\end_inset
-
-.
- Definimos la 
-\series bold
-clausura
-\series default
- de un conjunto 
-\begin_inset Formula $I$
-\end_inset
-
- de ítems, 
-\begin_inset Formula $\mathsf{Clausura}(I)$
-\end_inset
-
-, según el algoritmo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:clausura"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, y dados un conjunto de ítems 
-\begin_inset Formula $I$
-\end_inset
-
- y 
-\begin_inset Formula $X\in V_{N}\cup V_{T}$
-\end_inset
-
-, definimos 
-\family sans
-
-\begin_inset Formula $\mathsf{Goto}(I,X):=\mathsf{Clausura}(\{A\to\alpha X\cdot\beta\}_{A\to\alpha\cdot X\beta\in I})$
-\end_inset
-
-.
- 
-\family default
-Con esto definimos la 
-\series bold
-colección 
-\begin_inset Formula $LR(0)$
-\end_inset
-
-
-\series default
- según el algoritmo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:lr0-collection"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
@@ -2138,11 +2184,11 @@ Un ítem
 válido
 \series default
  para un prefijo viable 
-\begin_inset Formula $\alpha\beta_{1}$
+\begin_inset Formula $\alpha\beta$
 \end_inset
 
  si existe una derivación 
-\begin_inset Formula $S'\Rightarrow_{\text{md}}^{*}\alpha A\omega\Rightarrow_{\text{md}}\alpha\beta_{1}\beta_{2}\omega$
+\begin_inset Formula $S'\Rightarrow_{\text{md}}^{*}\alpha A\omega\Rightarrow_{\text{md}}\alpha\beta\gamma\omega$
 \end_inset
 
  con 
@@ -2231,6 +2277,27 @@ cdot
 beta
 \backslash
 in I$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lSSi{$A
+\backslash
+to
+\backslash
+alpha
+\backslash
+cdot
+\backslash
+beta=S'
+\backslash
+to
+\backslash
+cdot S$}{$s
+\backslash
+gets I$}
 \end_layout
 
 \begin_layout Plain Layout
@@ -2409,15 +2476,6 @@ to S$}}
 
 \begin_layout Plain Layout
 
-			$s
-\backslash
-gets I$
-\backslash
-;
-\end_layout
-
-\begin_layout Plain Layout
-
 		}
 \end_layout
 
@@ -2495,7 +2553,26 @@ noprefix "false"
  si el método no genera conflictos.
  Toda gramática ambigua genera conflictos, pero no toda gramática que genera
  conflictos es ambigua.
- Los conflictos pueden ser:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los conflictos pueden ser:
 \end_layout
 
 \begin_layout Itemize
@@ -2517,6 +2594,22 @@ reduce-reduce
 \begin_layout Standard
 En estos casos se puede especificar manualmente la acción a tomar o usar
  un método más potente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -2545,7 +2638,7 @@ Un
 \end_inset
 
 .
- Este ítem es 
+ Es 
 \series bold
 válido
 \series default
@@ -2578,6 +2671,37 @@ válido
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+Definimos la clausura de un conjunto de ítems 
+\begin_inset Formula $LR(1)$
+\end_inset
+
+ según el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:clausura-lr1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, y para un conjunto de ítems 
+\begin_inset Formula $I$
+\end_inset
+
+ y un 
+\begin_inset Formula $X\in V_{N}\cup V_{T}$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $\mathsf{Goto}(I,X):=\mathsf{Clausura}(\{[A\to\alpha X\cdot\beta,a]\}_{[A\to\alpha\cdot X\beta,a]\in I})$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2641,19 +2765,6 @@ in J$}{
 
 		
 \backslash
-Para{$B
-\backslash
-to
-\backslash
-gamma
-\backslash
-in P$}{
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
 Para{$b
 \backslash
 in
@@ -2661,6 +2772,19 @@ in
 mathsf{PRIMERO}(
 \backslash
 beta a)$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+Para{$B
+\backslash
+to
+\backslash
+gamma
+\backslash
+in P$}{
 \end_layout
 
 \begin_layout Plain Layout
@@ -2711,7 +2835,7 @@ name "alg:clausura-lr1"
 
 \end_inset
 
-Cálculo de la clausura de un conjunto de ítems 
+Clausura de un conjunto de ítems 
 \begin_inset Formula $LR(1)$
 \end_inset
 
@@ -2726,37 +2850,6 @@ Cálculo de la clausura de un conjunto de ítems
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Definimos la clausura de un conjunto de ítems 
-\begin_inset Formula $LR(1)$
-\end_inset
-
- según el algoritmo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:clausura-lr1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, y para un conjunto de ítems 
-\begin_inset Formula $I$
-\end_inset
-
- y un 
-\begin_inset Formula $X\in V_{N}\cup V_{T}$
-\end_inset
-
-, llamamos 
-\begin_inset Formula $\mathsf{Goto}(I,X):=\mathsf{Clausura}(\{[A\to\alpha X\cdot\beta,a]\}_{[A\to\alpha\cdot X\beta,a]\in I})$
-\end_inset
-
-.
- 
 \end_layout
 
 \begin_layout Standard
@@ -2789,7 +2882,7 @@ status open
 
 
 \backslash
-Entrada{GLC aumentada con $S'$.}
+Entrada{GLC $(V_T,V_N,P,S)$ aumentada con $S'$.}
 \end_layout
 
 \begin_layout Plain Layout
@@ -2833,7 +2926,9 @@ acute on}(I,a)
 \backslash
 gets
 \backslash
-emph{Error}$}
+emph{Error
+\backslash
+/}$}
 \end_layout
 
 \begin_layout Plain Layout
@@ -2851,6 +2946,27 @@ cdot
 beta,b]
 \backslash
 in I$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lSSi{$A
+\backslash
+to
+\backslash
+alpha
+\backslash
+cdot
+\backslash
+beta=S'
+\backslash
+to
+\backslash
+cdot S$}{$s
+\backslash
+gets I$}
 \end_layout
 
 \begin_layout Plain Layout
@@ -3031,15 +3147,6 @@ $]$}}
 
 \begin_layout Plain Layout
 
-			$s
-\backslash
-gets I$
-\backslash
-;
-\end_layout
-
-\begin_layout Plain Layout
-
 		}
 \end_layout
 
@@ -3123,11 +3230,7 @@ Método LALR
 \begin_layout Standard
 Tiene una potencia intermedia entre el método LR-canónico y el SLR, y consigue
  una tabla de análisis de igual tamaño que con SLR.
- 
-\end_layout
-
-\begin_layout Standard
-Pasos:
+ Pasos:
 \end_layout
 
 \begin_layout Enumerate
@@ -3159,7 +3262,7 @@ Si, para
 \begin_inset Formula $\rho(I)=\rho(J)$
 \end_inset
 
-, sustituimos 
+, sustituir 
 \begin_inset Formula $I$
 \end_inset
 
@@ -3175,7 +3278,14 @@ Si, para
 \end_layout
 
 \begin_layout Enumerate
-Aplicamos el método LR-canónico a la colección resultante.
+Aplicar el método LR-canónico a la colección resultante.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3259,7 +3369,7 @@ shift-reduce
 
 \begin_deeper
 \begin_layout Standard
-Si lo hubiera, habría 
+Si hubiera uno, habría 
 \begin_inset Formula $\alpha,\beta,\gamma\in(V_{N}\cup V_{T})^{*}$
 \end_inset
 
@@ -3425,7 +3535,7 @@ Modo pánico: Se extraen pares de elementos de la pila hasta encontrar un
 \begin_inset Formula $s':=\mathsf{IrA}(s,A)$
 \end_inset
 
- definido, se introducen 
+ definido, que no se llega a extraer; se introducen 
 \begin_inset Formula $A$
 \end_inset
 
@@ -3433,12 +3543,12 @@ Modo pánico: Se extraen pares de elementos de la pila hasta encontrar un
 \begin_inset Formula $s'$
 \end_inset
 
- en la pila para simular una reducción y se descartan elementos de la entrada
+ en la pila para simular una reducción, y se descartan elementos de la entrada
  hasta encontrar un símbolo de 
 \begin_inset Formula $\mathsf{Siguiente}(A)$
 \end_inset
 
-.
+, que tampoco se descarta.
 \end_layout
 
 \begin_layout Section
@@ -4478,6 +4588,13 @@ gets(V_N,P)$
 
 
 \backslash
+Repetir{no se cambie $P$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
 Para{$i
 \backslash
 gets1$ 
@@ -4487,14 +4604,14 @@ KwA $n$}{
 
 \begin_layout Plain Layout
 
-	
+		
 \backslash
 SSi{$A_i$ tiene producciones recursivas por la izquierda}{
 \end_layout
 
 \begin_layout Plain Layout
 
-		Llamar a las producciones de $A_i$ como $A_i
+			Llamar a las producciones de $A_i$ como $A_i
 \backslash
 to A_i
 \backslash
@@ -4529,7 +4646,7 @@ neq A_i$ para ningún $i$
 
 \begin_layout Plain Layout
 
-		Dado un $A'
+			Dado un $A'
 \backslash
 notin V'_N
 \backslash
@@ -4548,7 +4665,7 @@ cup
 
 \begin_layout Plain Layout
 
-		Sustituir las producciones de $A_i$ en $P'$ por
+			Sustituir las producciones de $A_i$ en $P'$ por
 \backslash
 
 \backslash
@@ -4629,12 +4746,12 @@ alpha_mA'
 
 \begin_layout Plain Layout
 
-	}
+		}
 \end_layout
 
 \begin_layout Plain Layout
 
-	
+		
 \backslash
 Para{$j
 \backslash
@@ -4645,9 +4762,9 @@ KwA $i-1$}{
 
 \begin_layout Plain Layout
 
-		
+			
 \backslash
-Para{$R:=(A_{i+1}
+Para{$R:=(A_i
 \backslash
 to A_j
 \backslash
@@ -4658,7 +4775,7 @@ in P'$}{
 
 \begin_layout Plain Layout
 
-			Si las producciones de $A_j$ son $A_j
+				Si las producciones de $A_j$ son $A_j
 \backslash
 to
 \backslash
@@ -4670,7 +4787,7 @@ dots
 \backslash
 mid
 \backslash
-gamma_p$, sustituir $R$ por $A_{i+1}
+gamma_p$, sustituir $R$ por $A_i
 \backslash
 to
 \backslash
@@ -4689,6 +4806,11 @@ gamma_p
 alpha$
 \backslash
 ;
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
 \end_layout
 
 \begin_layout Plain Layout
@@ -5206,6 +5328,13 @@ dots,Y_1$ en orden en $P$
 
 \begin_layout Plain Layout
 
+			Devolver $a$ a la entrada
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
 			Emitir la derivación por la izquierda dada por $X
 \backslash
 to Y_1
@@ -5261,12 +5390,12 @@ Ejecución de un analizador descendente no recursivo.
 \begin_layout Standard
 La ejecución de un analizador descendente predictivo no recursivo se hace
  con el algoritmo 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:descent-nr"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
@@ -5287,6 +5416,12 @@ status open
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Subsection
+Conflictos 
+\family typewriter
+if-then-else
 \end_layout
 
 \begin_layout Standard
@@ -5317,10 +5452,14 @@ En este caso, factorizando la gramática
 \end_inset
 
  obtenemos 
-\begin_inset Formula $S\to iEtSS'\mid s;S'\to eS\mid\lambda;E\to x$
+\begin_inset Formula 
+\[
+S\to iEtSS'\mid s;S'\to eS\mid\lambda;E\to x,
+\]
+
 \end_inset
 
-, que también es ambigua, y tenemos
+ que también es ambigua, y tenemos
 \begin_inset Formula 
 \begin{align*}
 \mathsf{Predict}(S\to iEtSS') & =\{i\}, & \mathsf{Predict}(S\to s) & =\{s\},\\
@@ -5358,6 +5497,75 @@ if
 \end_inset
 
  de la tabla de análisis.
+\end_layout
+
+\begin_layout Subsection
+Recuperación de errores
+\end_layout
+
+\begin_layout Standard
+Los errores que pueden surgir son que el terminal en la cima de la pila
+ no coincida con el de la entrada y que no haya una producción en la tabla
+ para la variable y el 
+\emph on
+token
+\emph default
+ de entrada.
+\end_layout
+
+\begin_layout Standard
+Recuperación:
+\end_layout
+
+\begin_layout Itemize
+A nivel de frase: En cada casilla en blanco de la tabla, que se amplía al
+ dominio 
+\begin_inset Formula $(V_{N}\cup V_{T})\times(V_{T}\cup\{\$\})$
+\end_inset
+
+, se añade una rutina de manejo del error, que hace operaciones como cambiar,
+ eliminar o añadir caracteres y emite un mensaje de error.
+ Esto es complicado, pues requiere considerar todos los casos de error posibles.
+\end_layout
+
+\begin_layout Itemize
+En modo pánico: Si el terminal en la cima de la pila no coincide con el
+ de la entrada, se extrae el de la cima de la pila pero no el de la entrada,
+ lo que simula la inserción de este en la entrada.
+ Si la tabla no tiene una producción para la variable 
+\begin_inset Formula $A$
+\end_inset
+
+ de la pila y el 
+\emph on
+token
+\emph default
+ de entrada, se descartan 
+\emph on
+tokens
+\emph default
+ de la entrada hasta encontrar uno en 
+\begin_inset Formula $\mathsf{PRIMERO}(A)$
+\end_inset
+
+, en cuyo caso se continúa con el análisis, o en 
+\begin_inset Formula $\mathsf{SIGUIENTE}(A)$
+\end_inset
+
+, en cuyo caso se saca 
+\begin_inset Formula $A$
+\end_inset
+
+ de la pila simulando así que se ha reconocido una cadena derivable de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ No se descarta el 
+\emph on
+token
+\emph default
+ de entrada que cumple la condición.
 \end_layout
 
 \end_body

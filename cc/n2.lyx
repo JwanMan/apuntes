@@ -127,7 +127,7 @@ Un
 analizador léxico
 \series default
  es un programa que separa una secuencia de caracteres de entrada en lexemas
- y genera una lista ordenada de 
+ y genera una lista de 
 \emph on
 tokens
 \emph default
@@ -230,7 +230,7 @@ Toda expresión regular
 \begin_inset Formula $\alpha$
 \end_inset
 
- lleva asociado un lenguaje 
+ lleva asociada un lenguaje 
 \begin_inset Formula $L(\alpha)$
 \end_inset
 
@@ -271,11 +271,7 @@ Toda expresión regular
 \end_inset
 
 .
- Un lenguaje es 
-\series bold
-regular
-\series default
- si es el lenguaje asociado alguna expresión regular.
+ Un lenguaje es regular si es el asociado a alguna expresión regular.
  Dos expresiones regulares son 
 \series bold
 equivalentes
@@ -300,42 +296,42 @@ AFD
 \begin_inset Formula $(Q,V,\delta,q_{0},F)$
 \end_inset
 
- donde 
-\begin_inset Formula $Q$
-\end_inset
-
- es un conjunto finito de 
+ formada por un conjunto finito de 
 \series bold
 estados
 \series default
-, 
+ 
+\begin_inset Formula $Q$
+\end_inset
+
+, un alfabeto 
 \begin_inset Formula $V$
 \end_inset
 
- es un alfabeto, 
-\begin_inset Formula $q_{0}\in Q$
-\end_inset
-
- es el 
+, un 
 \series bold
 estado inicial
 \series default
-, 
-\begin_inset Formula $F\subseteq Q$
+ 
+\begin_inset Formula $q_{0}\in Q$
 \end_inset
 
- es el conjunto de 
+, un conjunto de 
 \series bold
 estados finales
 \series default
- y 
-\begin_inset Formula $\delta:D\subseteq(Q\times V)\to Q$
+ 
+\begin_inset Formula $F\subseteq Q$
 \end_inset
 
- es la 
+ y una 
 \series bold
 función de transición
 \series default
+ 
+\begin_inset Formula $\delta:D\subseteq(Q\times V)\to Q$
+\end_inset
+
 .
 \end_layout
 
@@ -542,13 +538,13 @@ FICHERO
 \family typewriter
 fl
 \family default
-, por ejemplo mediante la opción 
-\family typewriter
--lfl
-\family default
- de 
+, lo que en 
 \family typewriter
 gcc
+\family default
+ se hace con la opción 
+\family typewriter
+-lfl
 \family default
 .
 \begin_inset ERT
@@ -591,14 +587,15 @@ Las
 \series bold
 palabras clave
 \series default
-, que pueden estar 
+.
+ Están 
 \series bold
 reservadas
 \series default
-, en cuyo caso el usuario no puede modificar su significado y el analizador
- léxico puede reconocerlas directamente, o no estarlo, en cuyo caso el analizado
-r léxico debe reconocerlas como identificadores para que una fase posterior
- las distinga.
+ si usuario no puede modificar su significado, en cuyo caso el analizador
+ léxico puede reconocerlas directamente.
+ Si no lo están, el analizador léxico debe reconocerlas como identificadores
+ para que una fase posterior las distinga.
 \end_layout
 
 \begin_layout Itemize
@@ -606,12 +603,13 @@ Los operadores y signos de puntuación.
 \end_layout
 
 \begin_layout Itemize
-Las constantes simples, como reales, enteros, caracteres o cadenas de caracteres.
+Las constantes simples, como reales o enteros sin el signo, caracteres o
+ cadenas de caracteres.
 \end_layout
 
 \begin_layout Itemize
-Los espacios en blanco y comentarios, aunque en general en analizador léxico
- los ignora y no los devuelve.
+Los espacios en blanco y comentarios, aunque en general el analizador léxico
+ los ignora, no los devuelve.
 \end_layout
 
 \begin_layout Standard
@@ -636,7 +634,7 @@ Flex
 \family typewriter
 +
 \family default
-, respectivamente, de 0–1, 0 o más y 1 o más repeticiones de lo anterior.
+: respectivamente, de 0–1, 0 o más y 1 o más repeticiones de lo anterior.
  
 \end_layout
 
@@ -726,8 +724,7 @@ También se puede agrupar con paréntesis
 \family typewriter
 ]
 \family default
- indica disyunción entre los caracteres del conjunto indicado.
- 
+ indica disyunción entre los caracteres del conjunto indicado: 
 \family typewriter
 \emph on
 a
@@ -759,7 +756,7 @@ b
 \backslash
 
 \family default
- indica caracteres de escape; 
+ permite indicar caracteres de escape; 
 \family typewriter
 [:
 \family default
@@ -828,7 +825,7 @@ $
 \family typewriter
 /
 \family default
-, y cuando un lexema de una expresión regular puede ser prefijo de uno de
+..., y cuando un lexema de una expresión regular puede ser prefijo de uno de
  otra.
  
 \emph on
@@ -934,12 +931,16 @@ yylineno
 \family typewriter
 yymore()
 \family default
- Indica que, la próxima vez que se lea un lexema, este se debería concatenar
- al de 
+ Indica a 
+\emph on
+Flex
+\emph default
+ que, la próxima vez que se lea un lexema, este se debería concatenar al
+ actual (
 \family typewriter
 yytext
 \family default
- en vez de reemplazarlo.
+) en vez de reemplazarlo.
 \end_layout
 
 \begin_layout Description
