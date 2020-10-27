@@ -1,0 +1,338 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+No tenemos un método general determinista para resolver problemas, pero
+ sí sistemas o métodos de resolución aplicables a muchos problemas para
+ abordar problemas nuevos de forma sistemática.
+ 
+\end_layout
+
+\begin_layout Standard
+Los métodos de búsqueda tienen una representación del dominio del problema,
+ la situación inicial y el objetivo; operadores para transformar la situación
+ del problema o dividirla en subproblemas de solución más sencilla, y una
+ estrategia de control para seleccionar el operador a aplicar en cada paso.
+ Una 
+\series bold
+trayectoria
+\series default
+ es una secuencia de operadores a aplicar en orden desde una situación,
+ y una 
+\series bold
+solución
+\series default
+ del problema es una trayectoria desde una situación inicial a una final.
+\end_layout
+
+\begin_layout Standard
+La representación puede ser:
+\end_layout
+
+\begin_layout Itemize
+Un 
+\series bold
+espacio de estados
+\series default
+, un conjunto de situaciones posibles en el que distinguimos un subconjunto
+ de estados iniciales y uno de estados finales.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se puede tratar como un grafo (o multigrafo) dirigido donde los nodos son
+ los estados y los arcos son posibles aplicaciones de un operador, la etiqueta
+ del arco, para ir de un estado a otro.
+ También se puede tratar como un árbol con raíz en cierto nodo en que los
+ hijos de un nodo son los estados a los que se puede llegar desde este,
+ o desde los que se puede llegar a este, aplicando un operador.
+ En este caso puede haber varios nodos que se refieran al mismo estado,
+ y sus subárboles correspondientes serían esencialmente iguales.
+\end_layout
+
+\begin_layout Standard
+Buscar en un grafo en vez de en un árbol reduce el esfuerzo de buscar en
+ el mismo subárbol varias veces, pero requiere comprobar para cada nodo
+ si ha aparecido anteriormente.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Por 
+\series bold
+reducción
+\series default
+, descomposición del problema en subproblemas que a su vez se resuelven,
+ hasta llegar a problemas de solución inmediata.
+ La situación inicial es la formulación del problema, y cada problema puede
+ ser:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Primitivo
+\series default
+ o 
+\series bold
+terminal
+\series default
+, de resolución inmediata.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Y
+\series default
+, con un solo operador que lo divide en un conjunto de 
+\series bold
+subproblemas secundarios
+\series default
+ de los que hay que resolver todos para resolver el problema.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+O
+\series default
+, con varios operadores que lo llevan cada uno a un 
+\series bold
+subproblema alternativo
+\series default
+, y resolviendo uno se resuelve un problema.
+\end_layout
+
+\begin_layout Standard
+Podemos tratar la representación como un 
+\series bold
+grafo Y-O
+\series default
+, un grafo dirigido en que cada nodo es de uno de los 3 tipos, los primitivos
+ no son el inicial de ningún arco y los Y son el inicial de algún arco.
+ Dibujamos los nodos primitivos con un doble círculo y los nodos Y con un
+ arco, cóncavo hacia el propio nodo, que cruza las flechas que lo unen con
+ los sucesores, generalmente sin pasarse de las flechas de los extremos.
+ Del mismo modo podemos usar un 
+\series bold
+árbol Y-O
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Un nodo es 
+\series bold
+resoluble
+\series default
+ si es primitivo; es Y y todos sus sucesores son resolubles, o es O y al
+ menos uno de sus sucesores es resoluble, entendiéndose una recursión bien
+ fundada.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+El método a elegir depende de características como:
+\end_layout
+
+\begin_layout Itemize
+Si es 
+\series bold
+descomponible
+\series default
+ en subproblemas.
+\end_layout
+
+\begin_layout Itemize
+Si es 
+\series bold
+recuperable
+\series default
+, esto es, se pueden deshacer las operaciones una vez ejecutadas, o es 
+\series bold
+irrecuperable
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+Si es obvio si una cierta solución es suficientemente buena para ser aceptada
+ o hay que compararla con el resto de soluciones para elegir la mejor.
+\end_layout
+
+\begin_layout Itemize
+Si el conocimiento base es consistente; si es necesario tener mucho o solo
+ ayuda a restringir la búsqueda.
+\end_layout
+
+\begin_layout Standard
+Una búsqueda es 
+\series bold
+hacia delante
+\series default
+, 
+\series bold
+dirigida por datos
+\series default
+, 
+\emph on
+forward
+\emph default
+ o 
+\emph on
+bottom-up
+\emph default
+ si parte de la situación inicial y aplica los operadores hasta llegar al
+ objetivo, y es 
+\series bold
+hacia atrás
+\series default
+, 
+\series bold
+dirigida por objetivos
+\series default
+, 
+\emph on
+backward
+\emph default
+ o 
+\emph on
+top-down
+\emph default
+ si parte de la situación final y aplica operadores al revés hasta llegar
+ a la situación inicial.
+ También existen estrategias de búsqueda bidireccionales.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+emparejamiento
+\series default
+ consiste en determinar los operadores aplicables a una cierta situación,
+ comprobando sus precondiciones.
+ A veces esto puede acarrear otra búsqueda si las precondiciones contienen
+ variables.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+heurística
+\series default
+ es una estrategia para hacer más sencilla la resolución de problemas.
+ El 
+\series bold
+conocimiento heurístico
+\series default
+ es el usado por humanos para resolver problemas complejos.
+ Una 
+\series bold
+técnica heurística
+\series default
+ es una serie de pasos para identificar una buena solución con pocos recursos,
+ aunque no podamos garantizar encontrar la solución.
+ Un caso es una 
+\series bold
+función heurística
+\series default
+, que estima lo próximo que se encuentra un estado o subproblema a un estado
+ final o problema primitivo y se usa para decidir el operador a tomar.
+\end_layout
+
+\begin_layout Standard
+En general no podemos obtener una solución satisfactoria a la primera y
+ tenemos que usar 
+\series bold
+exploración
+\series default
+, haciendo algún tipo de 
+\emph on
+backtracking
+\emph default
+ sobre el grafo o el árbol de representación.
+ En general esto es lento, pero es un método universal y se puede combinar
+ con técnicas heurísticas.
+\end_layout
+
+\end_body
+\end_document
