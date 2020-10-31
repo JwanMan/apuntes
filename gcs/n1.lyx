@@ -1,0 +1,2841 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una 
+\series bold
+curva parametrizada diferenciable
+\series default
+ es una función 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{n}$
+\end_inset
+
+ 
+\begin_inset Formula ${\cal C}^{\infty}$
+\end_inset
+
+, donde 
+\begin_inset Formula $I\subseteq\mathbb{R}$
+\end_inset
+
+ es un intervalo abierto.
+ Llamamos 
+\series bold
+traza
+\series default
+ de la curva a 
+\begin_inset Formula $\alpha(I)\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ y 
+\series bold
+vector velocidad
+\series default
+ o 
+\series bold
+vector tangente
+\series default
+ a 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ a 
+\begin_inset Formula $\alpha':=(\alpha_{1}',\dots,\alpha_{n}'):I\to\mathbb{R}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una curva es 
+\series bold
+plana
+\series default
+ si su traza está contenida en un plano o 
+\series bold
+alabeada
+\series default
+ en otro caso.
+ Así, la 
+\series bold
+hélice cilíndrica
+\series default
+, 
+\begin_inset Formula $\alpha(t):=(a\cos t,a\sin t,bt)$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $a,b>0$
+\end_inset
+
+, es una curva alabeada.
+ Una 
+\series bold
+auto-intersección
+\series default
+ de una curva 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{n}$
+\end_inset
+
+ es un punto 
+\begin_inset Formula $p\in\mathbb{R}^{n}$
+\end_inset
+
+ para el que existen 
+\begin_inset Formula $s,t\in I$
+\end_inset
+
+, 
+\begin_inset Formula $s\neq t$
+\end_inset
+
+, con 
+\begin_inset Formula $\alpha(s)=\alpha(t)=p$
+\end_inset
+
+, y un 
+\series bold
+punto de retroceso
+\series default
+ es un punto singular, esto es, un 
+\begin_inset Formula $t\in I$
+\end_inset
+
+ con 
+\begin_inset Formula $\alpha'(t)=0$
+\end_inset
+
+.
+ Una curva es 
+\series bold
+simple
+\series default
+ si no tiene autointersecciones, y es 
+\series bold
+regular
+\series default
+ si no tiene puntos singulares.
+ Nos centraremos en las curvas parametrizadas diferenciables regulares.
+\end_layout
+
+\begin_layout Section
+Reparametrización
+\end_layout
+
+\begin_layout Standard
+Dados dos intervalos abiertos 
+\begin_inset Formula $I,J\subseteq\mathbb{R}^{n}$
+\end_inset
+
+, un 
+\series bold
+cambio de parámetro
+\series default
+ es un difeomorfismo 
+\begin_inset Formula $h:J\to I$
+\end_inset
+
+, y si tenemos una curva 
+\begin_inset Formula $\alpha:=I\to\mathbb{R}^{n}$
+\end_inset
+
+, llamamos 
+\series bold
+reparametrización
+\series default
+ de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ por 
+\begin_inset Formula $h$
+\end_inset
+
+ a la curva 
+\begin_inset Formula $\beta:=\alpha\circ h:J\to\mathbb{R}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En tal caso, si 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es regular, 
+\begin_inset Formula $\beta$
+\end_inset
+
+ también, pues 
+\begin_inset Formula $h'(t)\neq0$
+\end_inset
+
+ siempre.
+ Además, o bien 
+\begin_inset Formula $h'(t)>0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $t\in J$
+\end_inset
+
+, en cuyo caso 
+\begin_inset Formula $h$
+\end_inset
+
+ 
+\series bold
+conserva la orientación
+\series default
+, o 
+\begin_inset Formula $h'(t)<0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $t\in J$
+\end_inset
+
+, en cuyo caso 
+\begin_inset Formula $h$
+\end_inset
+
+ 
+\series bold
+invierte la orientación
+\series default
+.
+\end_layout
+
+\begin_layout Subsection
+Longitud de una curva
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{n}$
+\end_inset
+
+ una curva parametrizada, 
+\begin_inset Formula $[a,b]\subseteq I$
+\end_inset
+
+, y una partición 
+\begin_inset Formula $P:=\{a=t_{0}<\dots<t_{m}=b\}$
+\end_inset
+
+, llamamos 
+\series bold
+longitud
+\series default
+ de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ asociada a 
+\begin_inset Formula $P$
+\end_inset
+
+ a 
+\begin_inset Formula $L(\alpha,P):=\sum_{k=1}^{m}|\alpha(t_{k})-\alpha(t_{k-1})|$
+\end_inset
+
+, y longitud de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ entre 
+\begin_inset Formula $a$
+\end_inset
+
+ y 
+\begin_inset Formula $b$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+L_{a}^{b}(\alpha):=\lim_{\begin{subarray}{c}
+|P|\to0\\
+P\in{\cal P}[a,b]
+\end{subarray}}L(\alpha,P),
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula ${\cal P}[a,b]$
+\end_inset
+
+ es el conjunto de particiones de 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dada una curva 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $[a,b]\subseteq I$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+L_{a}^{b}(\alpha)=\int_{a}^{b}|\alpha'(t)|dt.
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $P:=\{a=t_{0}<\dots<t_{m}=b\}\in{\cal P}[a,b]$
+\end_inset
+
+, por el teorema de los valores intermedios, en cada 
+\begin_inset Formula $[t_{i-1},t_{i}]$
+\end_inset
+
+ existen 
+\begin_inset Formula $\eta_{i1},\dots,\eta_{in}\in(t_{i-1},t_{i})$
+\end_inset
+
+ tales que 
+\begin_inset Formula $\alpha_{j}(t_{i})-\alpha_{j}(t_{i-1})=\alpha'_{j}(\eta_{ij})(t_{i}-t_{i-1})$
+\end_inset
+
+, luego si 
+\begin_inset Formula $f(s_{1},\dots,s_{n}):=|(\alpha'_{1}(s_{1}),\dots,\alpha'_{n}(s_{n}))|$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+L(\alpha,P)=\sum_{i=1}^{m}|\alpha(t_{k})-\alpha(t_{k-1})|=\sum_{i=1}^{m}f(\eta_{i1},\dots,\eta_{in})(t_{i}-t_{i-1}).
+\]
+
+\end_inset
+
+Por otro lado, por el teorema del valor medio integral,
+\begin_inset Formula 
+\[
+\int_{a}^{b}|\alpha'(t)|dt=\sum_{i=1}^{m}\int_{t_{i-1}}^{t_{i}}|\alpha'(t)|dt=\sum_{i=1}^{m}|\alpha'(\nu_{i})|(t_{i}-t_{i-1})=\sum_{i=1}^{m}f(\nu_{i},\dots,\nu_{i})(t_{i}-t_{i-1})
+\]
+
+\end_inset
+
+para ciertos 
+\begin_inset Formula $\nu_{i}\in(t_{i-1},t_{i})$
+\end_inset
+
+, por lo que
+\begin_inset Formula 
+\[
+\left|L(\alpha,P)-\int_{a}^{b}|\alpha'(t)|dt\right|\leq\sum_{i=1}^{m}\left|f(\eta_{i1},\dots,\eta_{in})-f(\nu_{i},\dots,\nu_{i})\right|(t_{i}-t_{i-1}).
+\]
+
+\end_inset
+
+Además, 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua en el compacto 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y por tanto uniformemente continua, luego fijado un 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que, si 
+\begin_inset Formula $|s_{j}-t_{j}|<\delta$
+\end_inset
+
+ para todo 
+\begin_inset Formula $j\in\{1,\dots,n\}$
+\end_inset
+
+, 
+\begin_inset Formula $|f(s_{1},\dots,s_{n})-f(t_{1},\dots,t_{n})|<\varepsilon$
+\end_inset
+
+.
+ Eligiendo 
+\begin_inset Formula $P\in{\cal P}[a,b]$
+\end_inset
+
+ con 
+\begin_inset Formula $|P|<\delta$
+\end_inset
+
+, 
+\begin_inset Formula $|\eta_{ij}-\nu_{i}|<\delta$
+\end_inset
+
+ para todo 
+\begin_inset Formula $j$
+\end_inset
+
+ y
+\begin_inset Formula 
+\begin{multline*}
+\left|L(\alpha,P)-\int_{a}^{b}|\alpha'(t)|dt\right|\leq\sum_{i=1}^{m}|f(\eta_{i1},\dots,\eta_{in})-f(\nu_{i},\dots,\nu_{i})|(t_{i}-t_{i-1})\leq\\
+\leq\sum_{i=1}^{m}\varepsilon(t_{i}-t_{i-1})=\varepsilon(b-a).
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con esto, la longitud de una curva es independiente de su parametrización,
+ pues si 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{n}$
+\end_inset
+
+ es una curva, 
+\begin_inset Formula $h:J\to I$
+\end_inset
+
+ es un cambio de parámetro que conserva la orientación y 
+\begin_inset Formula $\beta:=\alpha\circ h$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha(t)=\beta(h^{-1}(t))$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+L_{h^{-1}(a)}^{h^{-1}(b)}(\beta)=\int_{h^{-1}(a)}^{h^{-1}(b)}|\beta'(t)|dt=\int_{h^{-1}(a)}^{h^{-1}(b)}|\alpha'(h(t))|h'(t)dt=\int_{a}^{b}|\alpha'(s)|ds,
+\]
+
+\end_inset
+
+y si 
+\begin_inset Formula $h$
+\end_inset
+
+ invierte la orientación ocurre algo análogo con 
+\begin_inset Formula $L_{h^{-1}(b)}^{h^{-1}(a)}(\beta)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Parametrización por arco
+\end_layout
+
+\begin_layout Standard
+Una curva 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{n}$
+\end_inset
+
+ está 
+\series bold
+parametrizada por arco
+\series default
+ o es 
+\series bold
+p.p.a.
+
+\series default
+ si 
+\begin_inset Formula $|\alpha'(t)|=1$
+\end_inset
+
+ para todo 
+\begin_inset Formula $t\in I$
+\end_inset
+
+, en cuyo caso 
+\begin_inset Formula $L_{0}^{t}(\alpha)=t$
+\end_inset
+
+, y entonces generalmente usaremos 
+\begin_inset Formula $s$
+\end_inset
+
+ como parámetro.
+ En tal caso, si 
+\begin_inset Formula $h:J\to I$
+\end_inset
+
+ es un cambio de parámetro tal que 
+\begin_inset Formula $\beta:=\alpha\circ h$
+\end_inset
+
+ es p.p.a, 
+\begin_inset Formula $h$
+\end_inset
+
+ es de la forma 
+\begin_inset Formula $s\mapsto\pm s+a$
+\end_inset
+
+ para algún 
+\begin_inset Formula $a\in\mathbb{R}$
+\end_inset
+
+, pues 
+\begin_inset Formula $|h'(t)|=|\alpha'(h(t))||h'(t)|=|\beta'(t)|=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+aceleración
+\series default
+ de una curva es su doble derivada, y se puede descomponer una 
+\series bold
+componente tangencial
+\series default
+, en la recta generada por la velocidad, y una 
+\series bold
+componente normal
+\series default
+, en el plano perpendicular a esta.
+ La aceleración de una curva p.p.a.
+ no tiene componente tangencial, pues esta vale 
+\begin_inset Formula $\langle\alpha'(s),\alpha''(s)\rangle=\frac{1}{2}\frac{d}{ds}|\alpha'(s)|^{2}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO Recordatorio del teorema de la función inversa para la siguiente demostraci
+ón.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, toda curva parametrizada regular admite una reparametrización por longitud
+ de arco con un cambio de parámetro que conserva la orientación.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{n}$
+\end_inset
+
+ una curva de este tipo, 
+\begin_inset Formula $t_{0}\in I$
+\end_inset
+
+ y 
+\begin_inset Formula $g:I\to\mathbb{R}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+g(t):=\int_{t_{0}}^{t}|\alpha'(u)|du=L_{t_{0}}^{t}(\alpha),
+\]
+
+\end_inset
+
+
+\begin_inset Formula $g$
+\end_inset
+
+ es diferenciable y, como 
+\begin_inset Formula $\alpha'(t)\neq0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $t\in I$
+\end_inset
+
+, 
+\begin_inset Formula $g'(t)=|\alpha'(t)|>0$
+\end_inset
+
+, luego por el teorema de la función inversa, 
+\begin_inset Formula $J:=g(I)$
+\end_inset
+
+ es abierto y 
+\begin_inset Formula $g:I\to J$
+\end_inset
+
+ es un difeomorfismo.
+ Llamando 
+\begin_inset Formula $h:=g^{-1}$
+\end_inset
+
+, como 
+\begin_inset Formula $h'(g(t))g'(t)=1$
+\end_inset
+
+, 
+\begin_inset Formula $h'(g(t))=\frac{1}{g'(t)}>0$
+\end_inset
+
+, luego 
+\begin_inset Formula $h$
+\end_inset
+
+ conserva la orientación.
+ Además, 
+\begin_inset Formula $|(\alpha\circ h)'(s)|=|\alpha'(h(s))||h'(s)|=|\alpha'(h(s))|\frac{1}{|\alpha'(h(s))|}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+La 
+\series bold
+catenaria
+\series default
+ es la curva que adopta una cadena ideal perfectamente flexible con masa
+ distribuida uniformemente, suspendida por sus extremos y sometida a un
+ campo gravitatorio uniforme.
+ Se expresa como 
+\begin_inset Formula $\alpha(t):=(t,\cosh t)$
+\end_inset
+
+, y admite una reparametrización por longitud de arco 
+\begin_inset Formula $\beta(s):=(\arg\sinh s,\sqrt{1+s^{2}})$
+\end_inset
+
+ de igual orientación.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula 
+\[
+g(t):=\int_{0}^{t}|\alpha'(u)|du=\int_{0}^{t}|(1,\sinh u)|du=\int_{0}^{t}\cosh u\,du=\sinh t,
+\]
+
+\end_inset
+
+entonces 
+\begin_inset Formula $h(s):=g^{-1}(s)=\arg\sinh s$
+\end_inset
+
+, luego la reparametrización es 
+\begin_inset Formula $\alpha(h(s))=(\arg\sinh s,\cosh(\arg\sinh s))=(\arg\sinh s,\sqrt{1+s^{2}})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Dada la circunferencia 
+\begin_inset Formula $\alpha(t):=p+(r\cos t,r\sin t)$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $p\in\mathbb{R}^{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $r>0$
+\end_inset
+
+, la reparametrización por longitud de arco es 
+\begin_inset Formula $\beta(s):=p+(r\cos\frac{s}{r},r\sin\frac{s}{r})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+g(t):=\int_{0}^{t}|\alpha'(u)|du=\int_{0}^{t}r\,du=rt,
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $h(s):=g^{-1}(s)=\frac{s}{r}$
+\end_inset
+
+ y la reparametrización es 
+\begin_inset Formula $\alpha(h(s))=p+(r\cos\frac{s}{r},r\sin\frac{s}{r})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Curvas en el plano
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+estructura compleja
+\series default
+ en 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+ a la rotación positiva de ángulo 
+\begin_inset Formula $\frac{\pi}{2}$
+\end_inset
+
+, que se expresa como la matriz
+\begin_inset Formula 
+\[
+J:=\begin{pmatrix}0 & -1\\
+1 & 0
+\end{pmatrix}.
+\]
+
+\end_inset
+
+Entonces, dada una curva 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{2}$
+\end_inset
+
+ p.p.a., si 
+\begin_inset Formula $\mathbf{t}(s):=\alpha'(s)$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbf{n}(s):=J\mathbf{t}(s)$
+\end_inset
+
+ es su 
+\series bold
+vector normal
+\series default
+, 
+\begin_inset Formula $(\mathbf{t}(s),\mathbf{n}(s))$
+\end_inset
+
+ es el 
+\series bold
+diedro de Frenet
+\series default
+ de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, que en cada 
+\begin_inset Formula $s$
+\end_inset
+
+ es una base ortonormal positivamente orientada.
+ Propiedades:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbf{t}'(s)=\langle\mathbf{t}'(s),\mathbf{n}(s)\rangle\mathbf{n}(s)$
+\end_inset
+
+,
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\mathbf{t}'(s)=\langle\mathbf{t}'(s),\mathbf{t}(s)\rangle\mathbf{t}(s)+\langle\mathbf{t}'(s),\mathbf{n}(s)\rangle\mathbf{n}(s)$
+\end_inset
+
+, pero el primer término se anula al ser 
+\begin_inset Formula 
+\[
+\langle\mathbf{t}'(s),\mathbf{t}(s)\rangle=\frac{1}{2}\frac{d}{ds}|\mathbf{t}(s)|^{2}=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\mathbf{n}'(s)=\langle\mathbf{n}'(s),\mathbf{t}(s)\rangle\mathbf{t}(s)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Análogo.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\langle\mathbf{t}'(s),\mathbf{n}(s)\rangle=-\langle\mathbf{t}(s),\mathbf{n}'(s)\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\langle\mathbf{t}'(s),\mathbf{n}(s)\rangle+\langle\mathbf{t}(s),\mathbf{n}'(s)\rangle=\langle\mathbf{t}(s),\mathbf{n}(s)\rangle'=0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Curvatura
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+curvatura
+\series default
+ de una curva regular 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{2}$
+\end_inset
+
+ p.p.a.
+ a 
+\begin_inset Formula $\kappa:I\to\mathbb{R}$
+\end_inset
+
+ es 
+\begin_inset Formula 
+\[
+\kappa_{\alpha}(s):=\langle\mathbf{t}'(s),\mathbf{n}(s)\rangle=\det(\alpha'(s),\alpha''(s)),
+\]
+
+\end_inset
+
+pues 
+\begin_inset Formula 
+\[
+\langle\mathbf{t}(s),\mathbf{n}(s)\rangle=\langle\alpha''(s),J\alpha'(s)\rangle=\langle(\alpha_{1}''(s),\alpha_{2}''(s)),(-\alpha_{2}'(s),\alpha_{1}'(s))\rangle=\alpha_{1}'(s)\alpha_{2}''(s)-\alpha_{2}'(s)\alpha_{1}''(s).
+\]
+
+\end_inset
+
+ Las 
+\series bold
+fórmulas de Frenet
+\series default
+ son
+\begin_inset Formula 
+\[
+\left\{ \begin{aligned}\mathbf{t}'(s) & =\kappa(s)\mathbf{n}(s),\\
+\mathbf{n}'(s) & =-\kappa(s)\mathbf{t}(s).
+\end{aligned}
+\right.
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $\kappa(s)\neq0$
+\end_inset
+
+, llamamos 
+\series bold
+radio de curvatura
+\series default
+ a 
+\begin_inset Formula $\rho(s):=\frac{1}{|\kappa(s)|}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+El radio de curvatura de una circunferencia de radio 
+\begin_inset Formula $r$
+\end_inset
+
+ es 
+\begin_inset Formula $r$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $\alpha(s):=p+r(\cos\frac{s}{r},\sin\frac{s}{r})$
+\end_inset
+
+ con 
+\begin_inset Formula $p\in\mathbb{R}^{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $r\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha'(s)=(-\sin\frac{s}{r},\cos\frac{s}{r})$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha''(s)=\frac{1}{r}(-\cos\frac{s}{r},-\sin\frac{s}{r})$
+\end_inset
+
+, luego 
+\begin_inset Formula $\kappa(s)=\frac{1}{r}$
+\end_inset
+
+ y 
+\begin_inset Formula $\rho(s)=|r|$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+La curvatura de una recta es 0.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $\alpha(s):=p+sv$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $p,v\in\mathbb{R}^{2}$
+\end_inset
+
+ con 
+\begin_inset Formula $v$
+\end_inset
+
+ unitario, 
+\begin_inset Formula $\alpha'(s)=v$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha''(s)=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\kappa(s)=0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+La catenaria 
+\begin_inset Formula $\alpha(s):=(\arg\sinh s,\sqrt{1+s^{2}})$
+\end_inset
+
+ tiene radio de curvatura 
+\begin_inset Formula $\rho(s)=1+s^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se tiene 
+\begin_inset Formula $\arg\sinh's=\frac{1}{\cosh(\arg\sinh s)}=\frac{1}{\sqrt{1+s^{2}}}$
+\end_inset
+
+, luego
+\begin_inset Formula 
+\begin{align*}
+\alpha'(s) & =\left(\frac{1}{\sqrt{1+s^{2}}},\frac{s}{\sqrt{1+s^{2}}}\right), & \alpha''(s) & =\left(-\frac{s}{(1+s^{2})^{3/2}},\frac{1}{(1+s^{2})^{3/2}}\right),
+\end{align*}
+
+\end_inset
+
+con lo que 
+\begin_inset Formula $\kappa(s)=\frac{1+s^{2}}{(1+s^{2})^{2}}=\frac{1}{1+s^{2}}$
+\end_inset
+
+ y 
+\begin_inset Formula $\rho(s)=1+s^{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Como interpretación geométrica, si 
+\begin_inset Formula $\alpha=:(x,y)$
+\end_inset
+
+, 
+\begin_inset Formula $x'(s)^{2}+y'(s)^{2}=1$
+\end_inset
+
+, luego existe 
+\begin_inset Formula $\varphi\in{\cal C}^{\infty}(I)$
+\end_inset
+
+ con 
+\begin_inset Formula $x'(s)=\cos\varphi(s)$
+\end_inset
+
+ e 
+\begin_inset Formula $y'(s)=\sin\varphi(s)$
+\end_inset
+
+, pero 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ es el ángulo que forma 
+\begin_inset Formula $\mathbf{t}(s)$
+\end_inset
+
+ con el eje 
+\begin_inset Formula $x$
+\end_inset
+
+ y, por tanto, 
+\begin_inset Formula $\kappa(s)=\langle\mathbf{t}'(s),\mathbf{n}(s)\rangle=\langle\varphi'(s)(-\sin\varphi(s),\cos\varphi(s)),(-\sin\varphi(s),\cos\varphi(s))\rangle=\varphi'(s)$
+\end_inset
+
+ es la variación de este ángulo respecto al arco.
+ Además, dados un 
+\begin_inset Formula $s_{0}\in I$
+\end_inset
+
+ y un incremento 
+\begin_inset Formula $h$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa(s_{0})=\lim_{h\to0}\frac{\varphi(s_{0}+h)-\varphi(s_{0})}{h}$
+\end_inset
+
+, pero 
+\begin_inset Formula $\varphi(s_{0}+h)-\varphi(s_{0})$
+\end_inset
+
+ es la longitud de arco entre 
+\begin_inset Formula $\mathbf{t}(s_{0})$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbf{t}(s_{0}+h)$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{S}^{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $h$
+\end_inset
+
+ es la longitud entre 
+\begin_inset Formula $\alpha(s_{0})$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha(s_{0}+h)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La curvatura es aceleración normal necesaria para recorrer la curva a velocidad
+ 1.
+ La 
+\series bold
+circunferencia osculatriz
+\series default
+ es la circunferencia que mejor se ajusta a la curva 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ en un punto 
+\begin_inset Formula $s$
+\end_inset
+
+ con 
+\begin_inset Formula $\kappa(s)\neq0$
+\end_inset
+
+.
+ Pasa por 
+\begin_inset Formula $s$
+\end_inset
+
+ y su radio es 
+\begin_inset Formula $\rho(s)$
+\end_inset
+
+, y su centro está a la izquierda en el sentido del recorrido cuando la
+ curvatura es positiva y a la derecha cuando es negativa, por lo que su
+ centro es 
+\begin_inset Formula $s+\frac{\mathbf{n}(s)}{\kappa(s)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Teorema fundamental
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+movimiento rígido
+\series default
+ es una función 
+\begin_inset Formula $M:\mathbb{R}^{m}\to\mathbb{R}^{m}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $M(x):=Ax+b$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $A\in{\cal SO}(m)$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in\mathbb{R}^{m}$
+\end_inset
+
+.
+ 
+\series bold
+Teorema fundamental de curvas planas:
+\end_layout
+
+\begin_layout Enumerate
+Dados un intervalo abierto 
+\begin_inset Formula $I\subseteq\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $\kappa:I\to\mathbb{R}$
+\end_inset
+
+ diferenciable, existe una curva regular 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{2}$
+\end_inset
+
+ p.p.a.
+ con curvatura 
+\begin_inset Formula $\kappa$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $s_{0}\in I$
+\end_inset
+
+ cualquiera, 
+\begin_inset Formula $\varphi:I\to\mathbb{R}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\varphi(s):=\int_{s_{0}}^{s}\kappa$
+\end_inset
+
+ y 
+\begin_inset Formula 
+\[
+\alpha(s):=\left(\int_{s_{0}}^{s}\cos\varphi(u)du,\int_{s_{0}}^{s}\sin\varphi(u)du\right).
+\]
+
+\end_inset
+
+Como 
+\begin_inset Formula $\alpha'(s)=(\cos\varphi(s),\sin\varphi(s))$
+\end_inset
+
+, 
+\begin_inset Formula $|\alpha'(s)|=1$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es una curva regular p.p.a.
+ Además
+\begin_inset Formula 
+\[
+\kappa_{\alpha}(s)=\begin{vmatrix}\cos\varphi(s) & \sin\varphi(s)\\
+-\varphi'(s)\sin\varphi(s) & \varphi'(s)\cos\varphi(s)
+\end{vmatrix}=\varphi'(s)(\cos^{2}\varphi(s)+\sin^{2}\varphi(s))=\kappa(s).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Dadas dos curvas regulares 
+\begin_inset Formula $\alpha,\beta:I\to\mathbb{R}^{2}$
+\end_inset
+
+ con igual curvatura, existe un movimiento rígido 
+\begin_inset Formula $M$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\beta=M\circ\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\kappa$
+\end_inset
+
+ la curvatura, 
+\begin_inset Formula $s_{0}\in I$
+\end_inset
+
+ y 
+\begin_inset Formula $(\mathbf{t}_{\alpha},\mathbf{n}_{\alpha})$
+\end_inset
+
+ y 
+\begin_inset Formula $(\mathbf{t}_{\beta},\mathbf{n}_{\beta})$
+\end_inset
+
+ los diedros de Frenet respectivos de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta$
+\end_inset
+
+, existe un único 
+\begin_inset Formula $A\in{\cal SO}(2)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $A\mathbf{t}_{\alpha}(s_{0})=\mathbf{t}_{\beta}(s_{0})$
+\end_inset
+
+, y como 
+\begin_inset Formula $A$
+\end_inset
+
+ es una rotación, 
+\begin_inset Formula $A\mathbf{n}_{\alpha}(s_{0})=\mathbf{n}_{\beta}(s_{0})$
+\end_inset
+
+.
+ Sean entonces 
+\begin_inset Formula $b:=\beta(s_{0})-A\alpha(s_{0})$
+\end_inset
+
+, 
+\begin_inset Formula $Mx:=Ax+b$
+\end_inset
+
+ un movimiento rígido y 
+\begin_inset Formula $\gamma:=M\circ\alpha$
+\end_inset
+
+, y queremos ver que 
+\begin_inset Formula $\gamma=\beta$
+\end_inset
+
+.
+ Tenemos 
+\begin_inset Formula $\gamma(s_{0})=A\alpha(s_{0})+b=\beta(s_{0})$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbf{t}'_{\gamma}(s_{0})=(A\alpha+b)'(s_{0})=A\alpha'(s_{0})=A\mathbf{t}_{\alpha}(s_{0})=\mathbf{t}_{\beta}(s_{0})$
+\end_inset
+
+, luego si 
+\begin_inset Formula $f(s):=\frac{1}{2}|t_{\beta}(s)-t_{\gamma}(s)|^{2}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f(s_{0})=0$
+\end_inset
+
+.
+ Además, como 
+\begin_inset Formula $\kappa_{\gamma}=\langle\gamma'',J\gamma'\rangle=\langle A\alpha'',JA\alpha'\rangle=\langle A\alpha'',AJ\alpha'\rangle=\langle\alpha'',J\alpha'\rangle=\kappa$
+\end_inset
+
+, 
+\begin_inset Formula $f'(s)=\langle\mathbf{t}_{\beta}'-\mathbf{t}_{\gamma}',\mathbf{t}_{\beta}-\mathbf{t}_{\gamma}\rangle=\langle\kappa\mathbf{n}_{\beta}-\kappa\mathbf{n}_{\gamma},\mathbf{t}_{\beta}-\mathbf{t}_{\gamma}\rangle=\kappa(-\langle\mathbf{n}_{\beta},\mathbf{t}_{\gamma}\rangle-\langle\mathbf{n}_{\gamma},\mathbf{t}_{\beta}\rangle)=0$
+\end_inset
+
+, pues 
+\begin_inset Formula $\langle\mathbf{n}_{\beta},\mathbf{t}_{\gamma}\rangle=\langle J\mathbf{t}_{\beta},\mathbf{t}_{\gamma}\rangle=-\langle\mathbf{t}_{\beta},J\mathbf{t}_{\gamma}\rangle=-\langle\mathbf{t}_{\beta},\mathbf{n}_{\gamma}\rangle$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $f\equiv0$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbf{t}_{\beta}(s)=\mathbf{t}_{\gamma}(s)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $s\in I$
+\end_inset
+
+, luego 
+\begin_inset Formula $(\beta-\gamma)'(s)\equiv0$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta$
+\end_inset
+
+ y 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ se diferencian por una constante, que debe ser 0 porque 
+\begin_inset Formula $\beta(s_{0})=\gamma(s_{0})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Curvatura de una curva arbitraria
+\end_layout
+
+\begin_layout Standard
+Dados una curva regular 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{2}$
+\end_inset
+
+ y un cambio de parámetro 
+\begin_inset Formula $h:J\to I$
+\end_inset
+
+ que preserva la orientación tal que 
+\begin_inset Formula $\beta:=\alpha\circ h$
+\end_inset
+
+ es p.p.a., llamamos 
+\series bold
+curvatura
+\series default
+ de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ en 
+\begin_inset Formula $t\in I$
+\end_inset
+
+ a la curvatura de 
+\begin_inset Formula $\beta$
+\end_inset
+
+ en 
+\begin_inset Formula $h^{-1}(t)$
+\end_inset
+
+.
+ Esta es
+\begin_inset Formula 
+\[
+\kappa_{\alpha}(t)=\frac{\langle\alpha''(t),J\alpha'(t)\rangle}{|\alpha'(t)|^{3}}.
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Se tiene 
+\begin_inset Formula $\mathbf{t}_{\beta}(s)=\beta'(s)=\alpha'(h(s))h'(s)$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{n}_{\beta}(s)=J\mathbf{t}_{\beta}(s)=h'(s)J\alpha'(h(s))$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbf{t}_{\beta}'(s)=\alpha''(h(s))h'(s)^{2}+h''(s)\alpha'(h(s))$
+\end_inset
+
+, luego para 
+\begin_inset Formula $s:=h^{-1}(t)$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\kappa_{\alpha}(t)=\kappa_{\beta}(s)=\langle\alpha''(h(s))h'(s)^{2},h'(s)J\alpha'(h(s))\rangle=h'(s)^{3}\langle\alpha''(t),J\alpha'(t)\rangle=\frac{\langle\alpha''(t),J\alpha'(t)\rangle}{|\alpha'(h(s))|^{3}},
+\]
+
+\end_inset
+
+pues 
+\begin_inset Formula $h'(s)|\alpha'(h(s))|=|h'(s)\alpha'(h(s))|=|\beta'(s)|=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Comparación de curvas en un punto
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{2}$
+\end_inset
+
+ una curva regular p.p.a.
+ con diedro de Frenet 
+\begin_inset Formula $(\mathbf{t},\mathbf{n})$
+\end_inset
+
+, 
+\begin_inset Formula $s_{0}\in I$
+\end_inset
+
+, 
+\begin_inset Formula $p_{0}:=\alpha(s_{0})$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{t}_{0}:=\mathbf{t}(s_{0})$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{n}_{0}:=\mathbf{n}(s_{0})$
+\end_inset
+
+, 
+\begin_inset Formula $\ell:=p_{0}+\langle\mathbf{t}_{0}\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $p\in\mathbb{R}^{2}$
+\end_inset
+
+, llamamos 
+\series bold
+distancia orientada
+\series default
+ de 
+\begin_inset Formula $p$
+\end_inset
+
+ a 
+\begin_inset Formula $\ell$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{dist}(p,\ell):=\langle p-p_{0},\mathbf{n}_{0}\rangle$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\ell$
+\end_inset
+
+ divide 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+ en dos semiplanos 
+\begin_inset Formula $H^{+}:=\{p:\text{dist}(p,\ell)\geq0\}$
+\end_inset
+
+ y 
+\begin_inset Formula $H^{-}:=\{p:\text{dist}(p,\ell)\leq0\}$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $\ell=H^{+}\cap H^{-}$
+\end_inset
+
+.
+ Entonces:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\kappa(s_{0})>0$
+\end_inset
+
+, existe un entorno 
+\begin_inset Formula $J\subseteq I$
+\end_inset
+
+ de 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ con 
+\begin_inset Formula $\alpha(J)\subseteq H^{+}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f(s):=\text{dist}(\alpha(s),\ell)=\langle\alpha(s)-p_{0},\mathbf{n}_{0}\rangle$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f(s_{0})=0$
+\end_inset
+
+, 
+\begin_inset Formula $f'(s)=\langle\alpha'(s),\mathbf{n}_{0}\rangle$
+\end_inset
+
+, 
+\begin_inset Formula $f'(s_{0})=\langle\mathbf{t}_{0},\mathbf{n}_{0}\rangle=0$
+\end_inset
+
+, 
+\begin_inset Formula $f''(s)=\langle\mathbf{t}'(s),\mathbf{n}_{0}\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $f''(s_{0})=\kappa(s_{0})$
+\end_inset
+
+, luego si 
+\begin_inset Formula $\kappa(s_{0})>0$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene un mínimo relativo en 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ y existe un 
+\begin_inset Formula $J\in{\cal E}(s_{0})$
+\end_inset
+
+ con 
+\begin_inset Formula $f(s)\geq f(s_{0})=0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $s\in J$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\alpha(J)\in H^{+}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\kappa(s_{0})<0$
+\end_inset
+
+, existe un entorno 
+\begin_inset Formula $J\subseteq I$
+\end_inset
+
+ de 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ con 
+\begin_inset Formula $\alpha(J)\subseteq H^{-}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Análogo.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si existe un entorno 
+\begin_inset Formula $J\subseteq I$
+\end_inset
+
+ de 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ con 
+\begin_inset Formula $\alpha(J)\subseteq H^{+}$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa(s_{0})\geq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Entonces 
+\begin_inset Formula $\text{dist}(\alpha(s),\ell)\geq0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $s\in J$
+\end_inset
+
+, luego 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene un mínimo relativo en 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $f''(s_{0})=\kappa(s_{0})\geq0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si existe un entorno 
+\begin_inset Formula $J\subseteq I$
+\end_inset
+
+ de 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ con 
+\begin_inset Formula $\alpha(J)\subseteq H^{-}$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa(s_{0})\leq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Análogo.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\alpha,\beta:I\to\mathbb{R}^{2}$
+\end_inset
+
+ curvas regulares p.p.a., 
+\begin_inset Formula $s_{0}\in I$
+\end_inset
+
+ con 
+\begin_inset Formula $\alpha(s_{0})=\beta(s_{0})=:p_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha'(s_{0})=\beta'(s_{0})=:\mathbf{t}_{0}$
+\end_inset
+
+, y 
+\begin_inset Formula $\ell$
+\end_inset
+
+ la recta tangente a 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta$
+\end_inset
+
+ en 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ está 
+\series bold
+por encima
+\series default
+ de 
+\begin_inset Formula $\beta$
+\end_inset
+
+ en 
+\begin_inset Formula $p_{0}$
+\end_inset
+
+ si existe un entorno 
+\begin_inset Formula $J$
+\end_inset
+
+ de 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{dist}(\alpha(s),\ell)\geq\text{dist}(\beta(s),\ell)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $s\in J$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\kappa_{\alpha}(s_{0})>\kappa_{\beta}(s_{0})$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ está por encima de 
+\begin_inset Formula $\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\mathbf{n}_{0}=J\mathbf{t}_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $f(s):=\text{dist}(\alpha(s),\ell)-\text{dist}(\beta(s),\ell)=\langle\alpha(s)-p_{0},\mathbf{n}_{0}\rangle-\langle\beta(s)-p_{0},\mathbf{n}_{0}\rangle=\langle\alpha(s)-\beta(s),\mathbf{n}_{0}\rangle$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f(s_{0})=0$
+\end_inset
+
+, 
+\begin_inset Formula $f'(s)=\langle\alpha'(s)-\beta'(s),\mathbf{n}_{0}\rangle$
+\end_inset
+
+, 
+\begin_inset Formula $f'(s_{0})=0$
+\end_inset
+
+, 
+\begin_inset Formula $f''(s)=\langle\alpha''(s)-\beta''(s),\mathbf{n}_{0}\rangle=\langle\alpha''(s),\mathbf{n}_{0}\rangle-\langle\beta''(s),\mathbf{n}_{0}\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $f''(s_{0})=\kappa_{\alpha}(s_{0})-\kappa_{\beta}(s_{0})$
+\end_inset
+
+.
+ Entonces, si 
+\begin_inset Formula $\kappa_{\alpha}(s_{0})>\kappa_{\beta}(s_{0})$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene un mínimo relativo en 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ y por tanto existe un 
+\begin_inset Formula $J\in{\cal E}(s_{0})$
+\end_inset
+
+ con 
+\begin_inset Formula $f(s)=\text{dist}(\alpha(s),\ell)-\text{dist}(\beta(s),\ell)\geq f(s_{0})=0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $s\in J$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ está por encima de 
+\begin_inset Formula $\beta$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa_{\alpha}(s_{0})\geq\kappa_{\beta}(s_{0})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $J$
+\end_inset
+
+ un entorno de 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ en que 
+\begin_inset Formula $\text{dist}(\alpha(s),\ell)\geq\text{dist}(\beta(s),\ell)$
+\end_inset
+
+, en este entorno es 
+\begin_inset Formula $f(s)\geq0$
+\end_inset
+
+, luego como 
+\begin_inset Formula $f(s_{0})=0$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene un mínimo relativo en 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $\kappa_{\alpha}(s_{0})\geq\kappa_{\beta}(s_{0})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Curvas en el espacio
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{3}$
+\end_inset
+
+ una curva regular p.p.a., si 
+\begin_inset Formula $\mathbf{t}(s)$
+\end_inset
+
+ es su vector tangente, 
+\begin_inset Formula $\mathbf{t}(s)\bot\mathbf{t}'(s)$
+\end_inset
+
+, y llamamos 
+\series bold
+curvatura
+\series default
+ de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ en 
+\begin_inset Formula $s\in I$
+\end_inset
+
+ a 
+\begin_inset Formula $\kappa(s):=|\mathbf{t}'(s)|$
+\end_inset
+
+.
+ Una curva p.p.a.
+ 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{3}$
+\end_inset
+
+ es una recta si y sólo si su curvatura es nula.
+ 
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+vector normal
+\series default
+ a una curva regular p.p.a.
+ 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{3}$
+\end_inset
+
+ en un 
+\begin_inset Formula $s\in I$
+\end_inset
+
+ con 
+\begin_inset Formula $\kappa(s)\neq0$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\mathbf{n}(s):=\frac{\mathbf{t}'(s)}{\kappa(s)}=\frac{\alpha''(s)}{|\alpha''(s)|},
+\]
+
+\end_inset
+
+el 
+\series bold
+plano osculador
+\series default
+ es 
+\begin_inset Formula $\text{span}\{\mathbf{t}(s),\mathbf{n}(s)\}$
+\end_inset
+
+, el 
+\series bold
+vector binormal
+\series default
+ es 
+\begin_inset Formula $\mathbf{b}(s)=\mathbf{t}(s)\land\mathbf{n}(s)$
+\end_inset
+
+ y el 
+\series bold
+triedro de Frenet
+\series default
+ es la base ortonormal de 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+ positivamente orientada 
+\begin_inset Formula $(t(s),n(s),b(s))$
+\end_inset
+
+.
+ La 
+\series bold
+torsión
+\series default
+ de una curva regular p.p.a.
+ 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{3}$
+\end_inset
+
+ cuya curvatura nunca se anula es la función 
+\begin_inset Formula $\tau:I\to\mathbb{R}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\tau(s):=\langle\mathbf{t}(s)\land\mathbf{n}'(s),\mathbf{n}(s)\rangle=\langle\mathbf{b}'(s),\mathbf{n}(s)\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Propiedades de la curvatura y la torsión
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Fórmulas de Frenet:
+\series default
+ Para 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{3}$
+\end_inset
+
+ una curva regular p.p.a.
+ cuya curvatura nunca se anula y 
+\begin_inset Formula $s\in I$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\begin{pmatrix}\mathbf{t}\\
+\mathbf{n}\\
+\mathbf{b}
+\end{pmatrix}^{\prime}=\begin{pmatrix}\kappa\mathbf{n}\\
+-\kappa\mathbf{t}-\tau\mathbf{b}\\
+\tau\mathbf{n}
+\end{pmatrix}=\begin{pmatrix} & \kappa\\
+-\kappa &  & -\tau\\
+ & \tau
+\end{pmatrix}\begin{pmatrix}\mathbf{t}\\
+\mathbf{n}\\
+\mathbf{b}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Claramente 
+\begin_inset Formula $\mathbf{t}'(s)=\kappa(s)\mathbf{n}(s)$
+\end_inset
+
+.
+ Derivando la definición de 
+\begin_inset Formula $\mathbf{b}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{b}'(s)=\mathbf{t}'(s)\land\mathbf{n}(s)+\mathbf{t}(s)\land\mathbf{n}'(s)=\mathbf{t}(s)\land\mathbf{n}'(s)\bot\mathbf{t}(s)$
+\end_inset
+
+, y al ser 
+\begin_inset Formula $\mathbf{b}$
+\end_inset
+
+ unitario, 
+\begin_inset Formula $\mathbf{b}'(s)\bot\mathbf{b}(s)$
+\end_inset
+
+, luego 
+\begin_inset Formula $\mathbf{b}'(s)$
+\end_inset
+
+ debe ser proporcional a 
+\begin_inset Formula $\mathbf{n}(s)$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{b}'(s0=\langle\mathbf{b}'(s),\mathbf{n}(s)\rangle\mathbf{n}(s)=\langle\mathbf{t}(s)\land\mathbf{n}'(s),\mathbf{n}(s)\rangle\mathbf{n}(s)=\tau(s)\mathbf{n}(s)$
+\end_inset
+
+.
+ Finalmente, 
+\begin_inset Formula $\mathbf{n}'(s)=\langle\mathbf{n}'(s),\mathbf{t}(s)\rangle\mathbf{t}(s)+\langle\mathbf{n}'(s),\mathbf{n}(s)\rangle\mathbf{n}(s)+\langle\mathbf{n}'(s),\mathbf{b}(s)\rangle\mathbf{b}(s)$
+\end_inset
+
+, pero al ser 
+\begin_inset Formula $\langle\mathbf{n}(s),\mathbf{t}(s)\rangle=0$
+\end_inset
+
+, 
+\begin_inset Formula $\langle\mathbf{n}'(s),\mathbf{t}(s)\rangle=-\langle\mathbf{n}(s),\mathbf{t}'(s)\rangle=-|\mathbf{n}(s)||\mathbf{t}'(s)|=-\kappa(s)$
+\end_inset
+
+; 
+\begin_inset Formula $\langle\mathbf{n}'(s),\mathbf{n}(s)\rangle=0$
+\end_inset
+
+, y al ser 
+\begin_inset Formula $\langle\mathbf{n}(s),\mathbf{b}(s)\rangle=0$
+\end_inset
+
+, 
+\begin_inset Formula $\langle\mathbf{n}'(s),\mathbf{b}(s)\rangle=-\langle\mathbf{n}(s),\mathbf{b}'(s)\rangle=-\tau(s)$
+\end_inset
+
+, luego finalmente 
+\begin_inset Formula $\mathbf{n}'(s)=-\kappa(s)\mathbf{t}(s)-\tau(s)\mathbf{b}(s)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Tenemos
+\begin_inset Formula 
+\[
+\tau(s)=-\frac{\det(\alpha'(s),\alpha''(s),\alpha'''(s))}{|\alpha''(s)|^{2}},
+\]
+
+\end_inset
+
+pues
+\begin_inset Formula 
+\begin{align*}
+\tau(s) & =\langle\mathbf{t}(s)\land\mathbf{n}'(s),\mathbf{n}(s)\rangle=\det(\mathbf{t}(s),\mathbf{n}'(s),\mathbf{n}(s))\\
+ & =\det\left(\alpha'(s),\frac{\alpha'''(s)|\alpha''(s)|-\alpha''(s)|\alpha''(s)|'}{|\alpha''(s)|^{2}},\frac{\alpha''(s)}{|\alpha''(s)|}\right)\\
+ & =\frac{1}{|\alpha''(s)|^{2}}\det(\alpha'(s),\alpha'''(s),\alpha''(s))=-\frac{\det(\alpha'(s),\alpha''(s),\alpha'''(s))}{|\alpha''(s)|^{2}}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{3}$
+\end_inset
+
+ una curva regular p.p.a.
+ con curvatura 
+\begin_inset Formula $\kappa$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\kappa=0$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es una recta.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $\alpha(s):=p+sv$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{t}(s)=v$
+\end_inset
+
+, y 
+\begin_inset Formula $\kappa(s)=|\mathbf{t}'(s)|=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Entonces 
+\begin_inset Formula $\alpha''(s)=0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $s\in I$
+\end_inset
+
+, luego integrando, 
+\begin_inset Formula $\alpha'(s)$
+\end_inset
+
+ es constante en algún 
+\begin_inset Formula $v$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha(s)$
+\end_inset
+
+ es de la forma 
+\begin_inset Formula $p+sv$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\kappa$
+\end_inset
+
+ no se anula, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es plana si y sólo si su torsión 
+\begin_inset Formula $\tau=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $p\in\mathbb{R}^{3}$
+\end_inset
+
+ y 
+\begin_inset Formula $\pi\subseteq\mathbb{R}^{3}$
+\end_inset
+
+ un plano vectorial tales que 
+\begin_inset Formula $\alpha(I)\subseteq\pi$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\mathbf{t}(s),\mathbf{n}(s)\in\pi$
+\end_inset
+
+ para todo 
+\begin_inset Formula $s\in I$
+\end_inset
+
+, luego 
+\begin_inset Formula $\mathbf{b}(s)$
+\end_inset
+
+ siempre está en la misma recta y, por continuidad, es constante, con lo
+ que 
+\begin_inset Formula $\mathbf{b}'=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\tau=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $\tau=0$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{b}'=\tau\mathbf{n}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\mathbf{b}$
+\end_inset
+
+ es constante en algún 
+\begin_inset Formula $b$
+\end_inset
+
+ y, si 
+\begin_inset Formula $f(s):=\langle\alpha(s),\mathbf{b}(s)\rangle$
+\end_inset
+
+, 
+\begin_inset Formula $f'(s)=\langle\mathbf{t}(s),b\rangle=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $f$
+\end_inset
+
+ es constante en algún 
+\begin_inset Formula $c$
+\end_inset
+
+ y, para todo 
+\begin_inset Formula $s\in I$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{1}(s)b_{1}+\alpha_{2}(s)b_{3}+\alpha_{3}(s)b_{3}=c$
+\end_inset
+
+, la ecuación de un plano.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Curvatura y torsión de curvas arbitrarias
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{3}$
+\end_inset
+
+ una curva regular y 
+\begin_inset Formula $h:J\to I$
+\end_inset
+
+ un cambio de parámetro que conserva la orientación y tal que 
+\begin_inset Formula $\beta:=\alpha\circ h$
+\end_inset
+
+ es p.p.a., definimos la curvatura de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ como 
+\begin_inset Formula $\kappa_{\alpha}(t):=\kappa_{\beta}(h^{-1}(t))$
+\end_inset
+
+ y, si esta no se anula, la torsión como 
+\begin_inset Formula $\tau_{\alpha}(t):=\tau_{\beta}(h^{-1}(t))$
+\end_inset
+
+.
+ Entonces
+\begin_inset Formula 
+\begin{align*}
+\kappa_{\alpha}(t) & :=\frac{|\alpha'(t)\land\alpha''(t)|}{|\alpha'(t)|^{3}}, & \tau_{\alpha}(t) & =-\frac{\det(\alpha'(t),\alpha''(t),\alpha'''(t))}{|\alpha'(t)\land\alpha''(t)|^{2}}.
+\end{align*}
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $s:=h^{-1}(t)$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+\beta'(s) & =\alpha'(h(s))h'(s),\\
+\beta''(s) & =\alpha''(h(s))h'(s)^{2}+\alpha'(h(s))h''(s),\\
+\beta'''(s) & =\alpha'''(h(s))h'(s)^{3}+3\alpha''(h(s))h'(s)h''(s)+\alpha'(h(s))h'''(s),
+\end{align*}
+
+\end_inset
+
+y como 
+\begin_inset Formula $\beta'$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta''$
+\end_inset
+
+ son ortogonales, 
+\begin_inset Formula $|\beta''(s)|=|\beta'(s)\land\beta''(s)|$
+\end_inset
+
+, luego sustituyendo, y eliminando los productos vectoriales entre vectores
+ proporcionales,
+\begin_inset Formula 
+\begin{align*}
+\kappa_{\beta}(s) & =|\beta''(s)|=|\beta'(s)\land\beta''(s)|=|\alpha'(h(s))h'(s)\land\alpha''(h(s))h'(s)^{2}|\\
+ & =h'(s)^{3}|\alpha'(h(s))\land\alpha''(h(s))|=\frac{|\alpha'(t)\land\alpha''(t)|}{|\alpha'(t)|^{3}},
+\end{align*}
+
+\end_inset
+
+pues 
+\begin_inset Formula $|\alpha'(t)|h'(s)=|\alpha'(h(s))h'(s)|=|\beta'(s)|=1$
+\end_inset
+
+.
+ Por otro lado, haciendo lo mismo y eliminando productos escalares entre
+ vectores ortogonales,
+\begin_inset Formula 
+\begin{align*}
+\tau_{\beta}(s) & =-\frac{\det(\beta'(s),\beta''(s),\beta'''(s))}{|\beta''(s)|^{2}}=-\frac{\langle\beta'(s)\land\beta''(s),\beta'''(s)\rangle}{|\beta'(s)\land\beta''(s)|^{2}}\\
+ & =-\frac{\langle\alpha'(h(s))h'(s)\land\alpha''(h(s))h'(s)^{2},\alpha'''(h(s))h'(s)^{3}\rangle}{h'(s)^{6}|\alpha'(h(s))\land\alpha''(h(s))|^{2}}\\
+ & =-\frac{\langle\alpha'(t)\land\alpha''(t),\alpha'''(t)\rangle}{|\alpha'(t)\land\alpha''(t)|^{2}}=-\frac{\det(\alpha'(t),\alpha''(t),\alpha'''(t))}{|\alpha'(t)\land\alpha''(t)|^{2}}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Teorema fundamental
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO Recordatorio del teorema de existencia y unicidad de soluciones de
+ sistemas de ecuaciones diferenciales.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema fundamental de curvas en 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Dadas 
+\begin_inset Formula $\kappa,\tau:I\to\mathbb{R}$
+\end_inset
+
+ diferenciables con 
+\begin_inset Formula $\kappa(s)>0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $s\in I$
+\end_inset
+
+, existe una curva regular p.p.a.
+ con curvatura 
+\begin_inset Formula $\kappa$
+\end_inset
+
+ y torsión 
+\begin_inset Formula $\tau$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Podemos ver las fórmulas de Frenet como como un sistema de ecuaciones diferencia
+les lineales con incógnitas 
+\begin_inset Formula $(t_{1},t_{2},t_{3},n_{1},n_{2},n_{3},b_{1},b_{2},b_{3})$
+\end_inset
+
+, y tomando como condiciones iniciales un 
+\begin_inset Formula $s_{0}\in I$
+\end_inset
+
+ y una base ortonormal positivamente orientada 
+\begin_inset Formula $(\mathbf{t}_{0},\mathbf{n}_{0},\mathbf{b}_{0})$
+\end_inset
+
+, por el teorema de existencia y unicidad de soluciones de sistemas de ecuacione
+s diferenciales, existe una única 
+\begin_inset Formula $f:I\to\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $f(s)=:(\mathbf{t}(s),\mathbf{n}(s),\mathbf{b}(s))$
+\end_inset
+
+, que cumple las fórmulas de Frenet y tal que 
+\begin_inset Formula $f(s_{0})=(\mathbf{t}_{0},\mathbf{n}_{0},\mathbf{b}_{0})$
+\end_inset
+
+.
+ El dominio de definición es 
+\begin_inset Formula $I$
+\end_inset
+
+ por ser 
+\begin_inset Formula $f$
+\end_inset
+
+ un sistema lineal.
+\end_layout
+
+\begin_layout Standard
+Usando las fórmulas de Frenet,
+\begin_inset Formula 
+\begin{align*}
+\langle\mathbf{t},\mathbf{n}\rangle' & =\langle\mathbf{t}',\mathbf{n}\rangle+\langle\mathbf{t},\mathbf{n}'\rangle=\kappa\langle\mathbf{n},\mathbf{n}\rangle-\kappa\langle\mathbf{t},\mathbf{t}\rangle-\tau\langle\mathbf{t},\mathbf{b}\rangle,\\
+\langle\mathbf{t},\mathbf{b}\rangle' & =\langle\mathbf{t}',\mathbf{b}\rangle+\langle\mathbf{t},\mathbf{b}'\rangle=\kappa\langle\mathbf{n},\mathbf{b}\rangle+\tau\langle\mathbf{t},\mathbf{n}\rangle,\\
+\langle\mathbf{n},\mathbf{b}\rangle' & =\langle\mathbf{n}',\mathbf{b}\rangle+\langle\mathbf{n},\mathbf{b}'\rangle=-\kappa\langle\mathbf{t},\mathbf{b}\rangle-\tau\langle\mathbf{b},\mathbf{b}\rangle+\tau\langle\mathbf{n},\mathbf{n}\rangle,\\
+\langle\mathbf{t},\mathbf{t}\rangle' & =2\langle\mathbf{t},\mathbf{t}'\rangle=2\kappa\langle\mathbf{t},\mathbf{n}\rangle,\\
+\langle\mathbf{n},\mathbf{n}\rangle' & =2\langle\mathbf{n},\mathbf{n}'\rangle=-2\kappa\langle\mathbf{t},\mathbf{n}\rangle-2\tau\langle\mathbf{n},\mathbf{b}\rangle,\\
+\langle\mathbf{b},\mathbf{b}\rangle' & =2\langle\mathbf{b},\mathbf{b}'\rangle=2\tau(s)\langle\mathbf{n},\mathbf{b}\rangle,
+\end{align*}
+
+\end_inset
+
+y tenemos un sistema de ecuaciones diferenciales en el que, si establecemos
+ como condiciones iniciales 
+\begin_inset Formula $\langle\mathbf{t},\mathbf{n}\rangle=\langle\mathbf{t},\mathbf{b}\rangle=\langle\mathbf{n},\mathbf{b}\rangle=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle\mathbf{t},\mathbf{t}\rangle=\langle\mathbf{n},\mathbf{n}\rangle=\langle\mathbf{b},\mathbf{b}\rangle=1$
+\end_inset
+
+ en 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+, las correspondientes funciones constantes forman una solución del sistema,
+ y por tanto la única para estas condiciones, luego 
+\begin_inset Formula $(\mathbf{t}(s),\mathbf{n}(s),\mathbf{b}(s))$
+\end_inset
+
+ es siempre una base ortonormal.
+\end_layout
+
+\begin_layout Standard
+Sea entonces 
+\begin_inset Formula $\alpha:I\to\mathbb{R}^{3}$
+\end_inset
+
+ la curva dada por 
+\begin_inset Formula $\alpha(s):=\int_{s_{0}}^{s}\mathbf{t}(u)du$
+\end_inset
+
+, para todo 
+\begin_inset Formula $s\in I$
+\end_inset
+
+ la diferencial 
+\begin_inset Formula $\alpha'(s)=\mathbf{t}(s)$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha''(s)=\mathbf{t}'(s)=\kappa(s)\mathbf{n}(s)$
+\end_inset
+
+ por las fórmulas de Frenet, con lo que 
+\begin_inset Formula $\kappa$
+\end_inset
+
+ es la curvatura de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ Además, 
+\begin_inset Formula $\alpha'''(s)=\kappa'(s)\mathbf{n}(s)-\kappa(s)^{2}\mathbf{t}(s)-\kappa(s)\tau(s)\mathbf{b}(s)$
+\end_inset
+
+, y la torsión de la curva es
+\begin_inset Formula 
+\begin{multline*}
+-\frac{\det(\alpha'(s),\alpha''(s),\alpha'''(s))}{|\alpha''(s)|^{2}}=-\frac{\langle\alpha'(s)\land\alpha''(s),\alpha'''(s)\rangle}{\kappa(s)^{2}}=\\
+=-\frac{\langle\mathbf{t}(s)\land\kappa(s)\mathbf{n}(s),\kappa'(s)\mathbf{n}(s)-\kappa(s)^{2}\mathbf{t}(s)-\kappa(s)\tau(s)\mathbf{b}(s)\rangle}{\kappa(s)^{2}}=\\
+=-\frac{\langle\mathbf{t}(s)\land\kappa(s)\mathbf{n}(s),-\kappa(s)\tau(s)\mathbf{b}(s)\rangle}{\kappa(s)^{2}}=\tau(s)\langle\mathbf{t}(s)\land\mathbf{n}(s),\mathbf{b}(s)\rangle=\tau(s)\langle\mathbf{b}(s),\mathbf{b}(s)\rangle=\tau(s).
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Dadas dos curvas regulares p.p.a.
+ 
+\begin_inset Formula $\alpha,\beta:I\to\mathbb{R}^{3}$
+\end_inset
+
+ con igual curvatura y torsión, existe un movimiento rígido 
+\begin_inset Formula $M$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\beta=M\circ\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\kappa$
+\end_inset
+
+ la curvatura, 
+\begin_inset Formula $\tau$
+\end_inset
+
+ la torsión y 
+\begin_inset Formula $s_{0}\in I$
+\end_inset
+
+, existe una única 
+\begin_inset Formula $A\in{\cal SO}(3)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $A\mathbf{t}_{\alpha}(s_{0})=\mathbf{t}_{\beta}(s_{0})$
+\end_inset
+
+, 
+\begin_inset Formula $A\mathbf{n}_{\alpha}(s_{0})=\mathbf{n}_{\beta}(s_{0})$
+\end_inset
+
+ y 
+\begin_inset Formula $A\mathbf{b}_{\alpha}(s_{0})=\mathbf{b}_{\beta}(s_{0})$
+\end_inset
+
+.
+ Sean entonces 
+\begin_inset Formula $b:=\beta(s_{0})-A\alpha(s_{0})$
+\end_inset
+
+, 
+\begin_inset Formula $M(x):=Ax+b$
+\end_inset
+
+ un movimiento rígido y 
+\begin_inset Formula $\gamma:=M\circ\alpha$
+\end_inset
+
+, y queremos ver que 
+\begin_inset Formula $\gamma=\beta$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Se tiene
+\begin_inset Formula 
+\begin{align*}
+\gamma(s_{0}) & =A\alpha(s_{0})+b=\beta(s_{0}),\\
+\mathbf{t}_{\gamma}(s_{0}) & =(A\alpha+b)'(s_{0})=A\alpha'(s_{0})=A\mathbf{t}_{\alpha}(s_{0})=\mathbf{t}_{\beta}(s_{0}),\\
+\kappa_{\gamma}(s) & |\gamma''(s)|=|A\alpha''(s)|=|\alpha''(s)|=\kappa(s),\\
+\tau_{\gamma}(s) & =-\frac{\det(\beta'(s),\beta''(s),\beta'''(s))}{|\beta''(s)|^{2}}=-\frac{\det(A\alpha'(s),A\alpha''(s),A\alpha'''(s))}{|\alpha''(s)|^{2}}\\
+ & =-\det A\frac{\det(\alpha'(s),\alpha''(s),\alpha'''(s))}{|\alpha''(s)|^{2}}=\det A\tau(s)=\tau(s),\\
+\mathbf{n}_{\gamma}(s_{0}) & =\frac{\gamma''(s_{0})}{\kappa_{\gamma}(s_{0})}=\frac{A\alpha''(s_{0})}{\kappa(s_{0})}=A\mathbf{n}_{\alpha}(s_{0})=\mathbf{n}_{\beta}(s_{0}),\\
+\mathbf{b}_{\gamma}(s_{0}) & =\mathbf{t}_{\gamma}(s_{0})\land\mathbf{n}_{\gamma}(s_{0})=\mathbf{b}_{\beta}(s_{0}).
+\end{align*}
+
+\end_inset
+
+Sea ahora 
+\begin_inset Formula $f(s):=\frac{1}{2}(|\mathbf{t}_{\beta}(s)-\mathbf{t}_{\gamma}(s)|^{2}+|\mathbf{n}_{\beta}(s)-\mathbf{n}_{\gamma}(s)|^{2}+|\mathbf{b}_{\beta}(s)-\mathbf{b}_{\gamma}(s)|^{2})$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f(s_{0})=0$
+\end_inset
+
+ y
+\begin_inset Formula 
+\begin{align*}
+f'= & \langle\mathbf{t}_{\beta}'-\mathbf{t}_{\gamma}',\mathbf{t}_{\beta}-\mathbf{t}_{\gamma}\rangle+\langle\mathbf{n}'_{\beta}-\mathbf{n}'_{\gamma},\mathbf{n}_{\beta}-\mathbf{n}_{\gamma}\rangle+\langle\mathbf{b}_{\beta}'-\mathbf{b}_{\gamma}',\mathbf{b}_{\beta}-\mathbf{b}_{\gamma}\rangle\\
+= & \langle\kappa\mathbf{n}_{\beta}-\kappa\mathbf{n}_{\gamma},\mathbf{t}_{\beta}-\mathbf{t}_{\gamma}\rangle+\langle-\kappa\mathbf{t}_{\beta}-\tau\mathbf{b}_{\beta}+\kappa\mathbf{t}_{\gamma}+\tau\mathbf{b}_{\gamma},\mathbf{n}_{\beta}-\mathbf{n}_{\gamma}\rangle+\langle\tau\mathbf{n}_{\beta}-\tau\mathbf{n}_{\gamma},\mathbf{b}_{\beta}-\mathbf{b}_{\gamma}\rangle\\
+= & -\kappa(\langle\mathbf{n}_{\beta},\mathbf{t}_{\gamma}\rangle+\langle\mathbf{n}_{\gamma},\mathbf{t}_{\beta}\rangle)+\kappa(\langle\mathbf{t}_{\beta},\mathbf{n}_{\gamma}\rangle+\langle\mathbf{t}_{\gamma},\mathbf{n}_{\beta}\rangle)\\
+ & +\tau(\langle\mathbf{b}_{\beta},\mathbf{n}_{\gamma}\rangle+\langle\mathbf{b}_{\gamma},\mathbf{n}_{\beta}\rangle)-\tau(\langle\mathbf{n}_{\beta},\mathbf{b}_{\gamma}\rangle+\langle\mathbf{n}_{\gamma},\mathbf{b}_{\beta}\rangle)=0.
+\end{align*}
+
+\end_inset
+
+Por tanto 
+\begin_inset Formula $f$
+\end_inset
+
+ es constante en 0, luego 
+\begin_inset Formula $\mathbf{t}_{\beta}=\mathbf{t}_{\gamma}$
+\end_inset
+
+, 
+\begin_inset Formula $(\beta-\gamma)'(s)=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta-\gamma$
+\end_inset
+
+ es constante, pero 
+\begin_inset Formula $\beta(s_{0})=\gamma(s_{0})$
+\end_inset
+
+, luego 
+\begin_inset Formula $\beta=\gamma$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_body
+\end_document
