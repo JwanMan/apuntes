@@ -1034,12 +1034,61 @@ Sea
 
 .
  Sabemos que la suma de los grados de los nodos es par.
- Por otro lado,
+ Por otro lado, la suma de los grados de los vértices 
+\begin_inset Formula $\{1,\dots,k\}$
+\end_inset
+
+ es el doble del número de ejes en el subgrafo generado por 
+\begin_inset Formula $\{1,\dots,k\}$
+\end_inset
+
+ más el número de vértices que conectan 
+\begin_inset Formula $\{1,\dots,k\}$
+\end_inset
+
+ con 
+\begin_inset Formula $\{k+1,\dots,n\}$
+\end_inset
+
+, pero a lo sumo hay 
+\begin_inset Formula $\binom{k}{2}$
+\end_inset
+
+ ejes en el subgrafo generado y el número de ejes de 
+\begin_inset Formula $\{1,\dots,k\}$
+\end_inset
+
+ que conectan con un 
+\begin_inset Formula $i>h$
+\end_inset
+
+ no puede ser mayor a 
+\begin_inset Formula $k$
+\end_inset
+
+ ni a 
+\begin_inset Formula $d_{i}$
+\end_inset
+
+, luego  
+\begin_inset Formula $\sum_{i=1}^{k}o(i)\leq2\binom{k}{2}+\sum_{i=k+1}^{n}\min\{k,d_{i}\}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 \begin_inset Formula 
 \begin{align*}
 \sum_{i=1}^{k}o(i) & =\sum_{i=1}^{k}|\{j\in N(i):j\leq k\}|+\sum_{i=1}^{k}|\{j\in N(i):j>k\}|\\
  & =\sum_{i=1}^{k}o_{G_{\{1,\dots,k\}}}|N(i)|+\sum_{j=k+1}^{n}|\{i\in N(j):i\leq k\}|\leq2\binom{k}{2}+\sum_{j=k+1}^{n}\min\{k,d_{j}\}.
 \end{align*}
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -1729,7 +1778,7 @@ algoritmo de Havel-Hakimi
 \series default
  (algoritmo 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "alg:havel-hakimi"
 plural "false"
 caps "false"
@@ -1895,5 +1944,140 @@ Al tener longitud impar es no trivial y por tanto contiene un camino entre
 \end_layout
 
 \end_deeper
+\begin_layout Section
+Representaciones matriciales
+\end_layout
+
+\begin_layout Standard
+Dado un grafo no dirigido 
+\begin_inset Formula $G:=(\{1,\dots,n\},E)$
+\end_inset
+
+, la 
+\series bold
+matriz de adyacencia
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ es la matriz 
+\begin_inset Formula $A:=(a_{ij})_{ij}\in{\cal M}_{n}(\mathbb{Z})$
+\end_inset
+
+ dada por 
+\begin_inset Formula $a_{ij}:=\chi_{E}(i,j)$
+\end_inset
+
+.Como 
+\series bold
+teorema
+\series default
+, para todo natural 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $(A^{k})_{ij}$
+\end_inset
+
+ es el número de paseos de longitud 
+\begin_inset Formula $k$
+\end_inset
+
+ entre los vértices 
+\begin_inset Formula $i$
+\end_inset
+
+ y 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $k=0$
+\end_inset
+
+, y para 
+\begin_inset Formula $k=1$
+\end_inset
+
+, esto es obvio.
+ Sea 
+\begin_inset Formula $k>1$
+\end_inset
+
+ y supongamos esto probado para 
+\begin_inset Formula $k-1$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $(A^{k})_{ij}=(AA^{k-1})_{ij}=\sum_{h=1}^{n}A_{ih}(A^{k-1})_{hj}$
+\end_inset
+
+, que es la suma para 
+\begin_inset Formula $h$
+\end_inset
+
+ incidente a 
+\begin_inset Formula $i$
+\end_inset
+
+ del número de paseos de longitud 
+\begin_inset Formula $k-1$
+\end_inset
+
+ de 
+\begin_inset Formula $h$
+\end_inset
+
+ a 
+\begin_inset Formula $j$
+\end_inset
+
+, o lo que es lo mismo, el número de pasos de longitud 
+\begin_inset Formula $k$
+\end_inset
+
+ de 
+\begin_inset Formula $i$
+\end_inset
+
+ a 
+\begin_inset Formula $j$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $E=:\{e_{1},\dots,e_{m}\}$
+\end_inset
+
+, la 
+\series bold
+matriz de incidencia
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\begin_inset Formula $(b_{ij})_{ij}\in{\cal M}_{n\times m}(\mathbb{Z})$
+\end_inset
+
+ dada por 
+\begin_inset Formula $b_{ij}:=\chi_{\{(i,j):i\in e_{j}\}}(i,j)$
+\end_inset
+
+.
+\end_layout
+
 \end_body
 \end_document
