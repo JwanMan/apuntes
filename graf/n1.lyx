@@ -204,32 +204,56 @@ finito
 \end_layout
 
 \begin_layout Standard
-Dado un grafo 
+Dados un grafo 
 \begin_inset Formula $G=(V,E)$
 \end_inset
 
-, si 
-\begin_inset Formula $v\in V$
+ y 
+\begin_inset Formula $e:=(i,j)\in E$
 \end_inset
 
-, llamamos 
-\begin_inset Formula $G-v$
+, 
+\begin_inset Formula $i$
 \end_inset
 
+ y 
+\begin_inset Formula $j$
+\end_inset
+
+ son 
+\series bold
+vértices extremos
+\series default
+ de 
+\begin_inset Formula $e$
+\end_inset
+
+, 
+\begin_inset Formula $e$
+\end_inset
+
+ es 
+\series bold
+incidente
+\series default
  a 
-\begin_inset Formula $(V\setminus\{v\},\{e\in E:v\notin e\})$
+\begin_inset Formula $i$
 \end_inset
 
-, y si 
-\begin_inset Formula $e\in E$
+ y 
+\begin_inset Formula $j$
 \end_inset
 
-, llamamos 
-\begin_inset Formula $G-e$
+ e 
+\begin_inset Formula $i$
 \end_inset
 
+ es 
+\series bold
+adyacente
+\series default
  a 
-\begin_inset Formula $(V,E\setminus\{e\})$
+\begin_inset Formula $j$
 \end_inset
 
 .
@@ -241,7 +265,7 @@ Grafos y subgrafos
 
 \begin_layout Standard
 Un grafo 
-\begin_inset Formula $G:=(V,E)$
+\begin_inset Formula $G=(V,E)$
 \end_inset
 
  es 
@@ -359,7 +383,11 @@ subgrafo generador
 \end_inset
 
 .
- Llamamos 
+ 
+\end_layout
+
+\begin_layout Standard
+Llamamos 
 \series bold
 subgrafo
 \series default
@@ -396,7 +424,61 @@ independiente
 \end_inset
 
 .
- Un 
+ Dado un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+, si 
+\begin_inset Formula $V'\subseteq V$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $G-V'$
+\end_inset
+
+ al subgrafo de 
+\begin_inset Formula $G$
+\end_inset
+
+ inducido por 
+\begin_inset Formula $V\setminus V'$
+\end_inset
+
+, y si 
+\begin_inset Formula $E'\subseteq E$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $G-E'$
+\end_inset
+
+ a 
+\begin_inset Formula $(V,E\setminus E')$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, 
+\begin_inset Formula $G-v:=G-\{v\}$
+\end_inset
+
+, y si 
+\begin_inset Formula $e\in E$
+\end_inset
+
+, 
+\begin_inset Formula $G-e:=G-\{e\}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Un 
 \series bold
 cliqué
 \series default
@@ -417,6 +499,7 @@ maximal
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Standard
@@ -448,62 +531,6 @@ isomorfos
 \series bold
 isomorfismo de grafos
 \series default
-.
-\end_layout
-
-\begin_layout Standard
-Dados un grafo 
-\begin_inset Formula $G=(V,E)$
-\end_inset
-
- y 
-\begin_inset Formula $e:=(i,j)\in E$
-\end_inset
-
-, 
-\begin_inset Formula $i$
-\end_inset
-
- y 
-\begin_inset Formula $j$
-\end_inset
-
- son 
-\series bold
-vértices extremos
-\series default
- de 
-\begin_inset Formula $e$
-\end_inset
-
-, 
-\begin_inset Formula $e$
-\end_inset
-
- es 
-\series bold
-incidente
-\series default
- a 
-\begin_inset Formula $i$
-\end_inset
-
- y 
-\begin_inset Formula $j$
-\end_inset
-
- e 
-\begin_inset Formula $i$
-\end_inset
-
- es 
-\series bold
-adyacente
-\series default
- a 
-\begin_inset Formula $j$
-\end_inset
-
 .
 \end_layout
 
@@ -1070,7 +1097,7 @@ Sea
 \begin_inset Formula $d_{i}$
 \end_inset
 
-, luego  
+, luego 
 \begin_inset Formula $\sum_{i=1}^{k}o(i)\leq2\binom{k}{2}+\sum_{i=k+1}^{n}\min\{k,d_{i}\}$
 \end_inset
 
