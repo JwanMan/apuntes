@@ -1,0 +1,1899 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+grafo dirigido
+\series default
+ es un par 
+\begin_inset Formula $(V,A)$
+\end_inset
+
+ formado por un conjunto de 
+\series bold
+vértices
+\series default
+ o 
+\series bold
+nodos
+\series default
+ 
+\begin_inset Formula $V$
+\end_inset
+
+ y un subconjunto 
+\begin_inset Formula $A\subseteq V\times V$
+\end_inset
+
+ de 
+\series bold
+arcos
+\series default
+.
+ Un 
+\series bold
+grafo no dirigido
+\series default
+ es un par 
+\begin_inset Formula $(V,E)$
+\end_inset
+
+ definido de forma similar, pero 
+\begin_inset Formula $E\subseteq\{S\in{\cal P}(V):|S|\in\{1,2\}\}$
+\end_inset
+
+ es un conjunto de 
+\series bold
+aristas
+\series default
+ o 
+\series bold
+ejes
+\series default
+, que representamos como pares de elementos no ordenados.
+ Podemos equiparar un grafo no dirigido 
+\begin_inset Formula $(V,E)$
+\end_inset
+
+ a uno dirigido 
+\begin_inset Formula $(V,\{(i,j)\in V\times V:i,j\in E\})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+, ordenado o no, llamamos 
+\series bold
+orden
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ a 
+\begin_inset Formula $|V|$
+\end_inset
+
+ y 
+\series bold
+tamaño
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ a 
+\begin_inset Formula $|E|$
+\end_inset
+
+.
+ Un 
+\series bold
+bucle
+\series default
+ es un par en 
+\begin_inset Formula $E$
+\end_inset
+
+ de la forma 
+\begin_inset Formula $(i,i)$
+\end_inset
+
+.
+ Un 
+\series bold
+multigrafo
+\series default
+ es un grafo en que el segundo elemento no es un conjunto sino un multiconjunto,
+ en que puede aparecer el mismo elemento repetido un número finito de veces.
+ Un grafo es 
+\series bold
+simple
+\series default
+ si no tiene bucles, y es 
+\series bold
+finito
+\series default
+ si tiene un número finito de nodos y aristas.
+ Consideramos grafos no dirigidos finitos y simples.
+\end_layout
+
+\begin_layout Standard
+Dado un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+, si 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $G-v$
+\end_inset
+
+ a 
+\begin_inset Formula $(V\setminus\{v\},\{e\in E:v\notin e\})$
+\end_inset
+
+, y si 
+\begin_inset Formula $e\in E$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $G-e$
+\end_inset
+
+ a 
+\begin_inset Formula $(V,E\setminus\{e\})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Grafos y subgrafos
+\end_layout
+
+\begin_layout Standard
+Un grafo 
+\begin_inset Formula $G:=(V,E)$
+\end_inset
+
+ es 
+\series bold
+completo
+\series default
+ si 
+\begin_inset Formula $\forall i,j\in V,(i\neq j\implies(i,j)\in E)$
+\end_inset
+
+, y es 
+\series bold
+bipartito
+\series default
+ si existe una partición 
+\begin_inset Formula $\{V_{1},V_{2}\}$
+\end_inset
+
+ de 
+\begin_inset Formula $V$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall e\in E,\exists a\in V_{1},b\in V_{2}:e=(a,b)$
+\end_inset
+
+.
+ Llamamos 
+\begin_inset Formula $K_{n}$
+\end_inset
+
+ al grafo completo de orden 
+\begin_inset Formula $n$
+\end_inset
+
+, que tiene tamaño 
+\begin_inset Formula $\binom{n}{2}$
+\end_inset
+
+, y 
+\begin_inset Formula $K_{n,m}$
+\end_inset
+
+ al mayor grafo bipartito con partición 
+\begin_inset Formula $\{V_{1},V_{2}\}$
+\end_inset
+
+ del conjunto de nodos tal que 
+\begin_inset Formula $|V_{1}|=n$
+\end_inset
+
+ y 
+\begin_inset Formula $|V_{2}|=m$
+\end_inset
+
+, que tiene tamaño 
+\begin_inset Formula $nm$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+grafo complementario
+\series default
+ a 
+\begin_inset Formula $G$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+G^{\complement}:=(V,E^{\complement}):=(V,\{S\in{\cal P}(V):|S|=2,S\notin E\}).
+\]
+
+\end_inset
+
+Un grafo 
+\begin_inset Formula $G':=(V',E')$
+\end_inset
+
+ es un 
+\series bold
+subgrafo
+\series default
+ de 
+\begin_inset Formula $G:=(V,E)$
+\end_inset
+
+ si 
+\begin_inset Formula $V'\subseteq V$
+\end_inset
+
+ y 
+\begin_inset Formula $E'\subseteq E$
+\end_inset
+
+.
+ Si además 
+\begin_inset Formula $V'=V$
+\end_inset
+
+, 
+\begin_inset Formula $G'$
+\end_inset
+
+ es un 
+\series bold
+subgrafo generador
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+subgrafo
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ 
+\series bold
+inducido
+\series default
+ por 
+\begin_inset Formula $V'\subseteq V$
+\end_inset
+
+ a 
+\begin_inset Formula $G_{V'}:=(V',E_{V'})$
+\end_inset
+
+, donde 
+\begin_inset Formula $E_{V'}:=\{S\in E:S\subseteq V'\}$
+\end_inset
+
+, y 
+\begin_inset Formula $V$
+\end_inset
+
+ es 
+\series bold
+independiente
+\series default
+ si 
+\begin_inset Formula $E_{V'}=\emptyset$
+\end_inset
+
+.
+ Un 
+\series bold
+cliqué
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ es un subgrafo completo de 
+\begin_inset Formula $G$
+\end_inset
+
+, y es 
+\series bold
+maximal
+\series default
+ si no está contenido en otro cliqué de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dos grafos 
+\begin_inset Formula $G:=(V,E)$
+\end_inset
+
+ y 
+\begin_inset Formula $G':=(V',E')$
+\end_inset
+
+ son 
+\series bold
+isomorfos
+\series default
+ si existe una biyección 
+\begin_inset Formula $\sigma:V\to V'$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall u,v\in V,((u,v)\in E\iff(\varphi(u),\varphi(v))\in E')$
+\end_inset
+
+, en cuyo caso 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ es un 
+\series bold
+isomorfismo de grafos
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Dados un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ y 
+\begin_inset Formula $e:=(i,j)\in E$
+\end_inset
+
+, 
+\begin_inset Formula $i$
+\end_inset
+
+ y 
+\begin_inset Formula $j$
+\end_inset
+
+ son 
+\series bold
+vértices extremos
+\series default
+ de 
+\begin_inset Formula $e$
+\end_inset
+
+, 
+\begin_inset Formula $e$
+\end_inset
+
+ es 
+\series bold
+incidente
+\series default
+ a 
+\begin_inset Formula $i$
+\end_inset
+
+ y 
+\begin_inset Formula $j$
+\end_inset
+
+ e 
+\begin_inset Formula $i$
+\end_inset
+
+ es 
+\series bold
+adyacente
+\series default
+ a 
+\begin_inset Formula $j$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Grado de un nodo
+\end_layout
+
+\begin_layout Standard
+Dado un grafo 
+\begin_inset Formula $G:=(V,E)$
+\end_inset
+
+, llamamos 
+\series bold
+entorno
+\series default
+ de 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, 
+\begin_inset Formula $N(v)$
+\end_inset
+
+, al conjunto de nodos adyacentes a 
+\begin_inset Formula $v$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+grado
+\series default
+ de 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, 
+\begin_inset Formula $o(v)$
+\end_inset
+
+, al número de ejes incidentes a 
+\begin_inset Formula $v$
+\end_inset
+
+, más el número de bucles en 
+\begin_inset Formula $v$
+\end_inset
+
+ en grafos o multigrafos no simples para que los bucles 
+\begin_inset Quotes cld
+\end_inset
+
+sumen 2 al grado
+\begin_inset Quotes crd
+\end_inset
+
+.
+ Así, en un grafo simple, 
+\begin_inset Formula $o(v)=|N(v)|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un nodo 
+\begin_inset Formula $v$
+\end_inset
+
+ es 
+\series bold
+aislado
+\series default
+ si 
+\begin_inset Formula $o(v)=0$
+\end_inset
+
+, y es 
+\series bold
+hoja
+\series default
+ si 
+\begin_inset Formula $o(v)=1$
+\end_inset
+
+, en cuyo caso el único eje incidente a 
+\begin_inset Formula $v$
+\end_inset
+
+ es un 
+\series bold
+eje colgante
+\series default
+.
+ Llamamos 
+\begin_inset Formula $\delta_{G}:=\min_{v\in V}o(v)$
+\end_inset
+
+ y 
+\begin_inset Formula $\Delta_{G}:=\max_{v\in V}o(v)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\series bold
+regular
+\series default
+ si todos sus vértices tienen el mismo grado, y 
+\series bold
+
+\begin_inset Formula $k$
+\end_inset
+
+-regular
+\series default
+ si este grado es 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+secuencia de grados
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ es la secuencia formada por los grados de los vértices de 
+\begin_inset Formula $G$
+\end_inset
+
+ puestos en orden decreciente.
+ Como 
+\series bold
+teorema
+\series default
+, la suma de los grados de los vértices es el doble del tamaño del grafo,
+ pues
+\begin_inset Formula 
+\[
+\sum_{v\in V}o(v)=\sum_{v\in V}|\{S\in E:v\in S\}|=\sum_{S\in E}|S|=2|E|.
+\]
+
+\end_inset
+
+Si el grafo no es simple, es fácil ver que esto también se cumple.
+ Así, todo grafo tiene un número par de nodos de grado impar, pues la suma
+ de los grados es par.
+\end_layout
+
+\begin_layout Section
+Secuencias gráficas
+\end_layout
+
+\begin_layout Standard
+Dada una secuencia de naturales 
+\begin_inset Formula $S$
+\end_inset
+
+, una 
+\series bold
+subrealización
+\series default
+ de 
+\begin_inset Formula $S$
+\end_inset
+
+ es un grafo 
+\begin_inset Formula $(\{1,\dots,n\},E)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $o(i)\leq d_{i}$
+\end_inset
+
+ para 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+, y el 
+\series bold
+índice crítico
+\series default
+ de la subrealización es el mayor 
+\begin_inset Formula $h\in\{1,\dots,n+1\}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall i<h,o(i)=d_{i}$
+\end_inset
+
+.
+ Una 
+\series bold
+secuencia gráfica
+\series default
+ es una secuencia de enteros que es la secuencia de grados de algún grafo.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Erdös y Gallai
+\series default
+ (1961)
+\series bold
+:
+\series default
+ Una secuencia 
+\begin_inset Formula $S:=(d_{1},\dots,d_{n})$
+\end_inset
+
+ monótona decreciente de naturales es una secuencia gráfica si y sólo si
+ 
+\begin_inset Formula $\sum_{i=1}^{n}d_{i}$
+\end_inset
+
+ es par y para 
+\begin_inset Formula $k\in\{1,\dots,n-1\}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\sum_{i=1}^{k}d_{i}\leq k(k-1)+\sum_{i=k+1}^{n}\min\{k,d_{i}\}.
+\]
+
+\end_inset
+
+En tal caso, el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:erdos-gallai"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ permite obtener un grafo con secuencia gráfica 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Secuencia gráfica $S=(d_1,
+\backslash
+dots,d_n)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Grafo $G=(
+\backslash
+{1,
+\backslash
+dots,n
+\backslash
+},E)$ con $o(i)=d_i$ para cada $i$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+$E
+\backslash
+gets
+\backslash
+emptyset$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$h
+\backslash
+gets 1$ 
+\backslash
+KwA $n$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Mientras{$o(h)<d_h$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+uSSi{existe $i>h$ con $o(i)<d_i$ y $(h,i)
+\backslash
+notin E$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			Añadir $(h,i)$ a $E$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 
+\backslash
+uEnOtroCasoSi{existe $i<h$ con $(h,i)
+\backslash
+notin E$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			Encontrar $u
+\backslash
+in N(i)
+\backslash
+setminus N(h)$ distinto de $h$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			Añadir $(i,h),(h,u)$ a $E$ y quitar $(i,u)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+SSi{$d_h<o(h)$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+				Encontrar $k>h$ con $o(k)
+\backslash
+leq d_k$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+				Quitar $(h,k)$ de $E$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 
+\backslash
+uEnOtroCasoSi{existe $k>h$ con $o(k)<h,d_k$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			Encontrar $i<h$ con $i
+\backslash
+notin N(k)$ y
+\end_layout
+
+\begin_layout Plain Layout
+
+				$u
+\backslash
+in N(i)
+\backslash
+setminus N(h)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			Añadir $(h,u),(i,k)$ a $E$ y quitar $(u,i)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 
+\backslash
+EnOtroCaso{
+\end_layout
+
+\begin_layout Plain Layout
+
+			Encontrar $i,j<h$ distintos no adyacentes
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			Encontrar $u
+\backslash
+in N(i)
+\backslash
+setminus N(h)$ y
+\end_layout
+
+\begin_layout Plain Layout
+
+					  $w
+\backslash
+in N(j)
+\backslash
+setminus N(h)$ mayores que $h$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			Añadir $(i,j),(h,u)$ a $E$ y quitar $(i,u),(j,w)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:erdos-gallai"
+
+\end_inset
+
+Obtención de un grafo con una secuencia de grados determinada.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $G=\{(1,\dots,n),E\}$
+\end_inset
+
+ un grafo tal que 
+\begin_inset Formula $o(i)=d_{i}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Sabemos que la suma de los grados de los nodos es par.
+ Por otro lado,
+\begin_inset Formula 
+\begin{align*}
+\sum_{i=1}^{k}o(i) & =\sum_{i=1}^{k}|\{j\in N(i):j\leq k\}|+\sum_{i=1}^{k}|\{j\in N(i):j>k\}|\\
+ & =\sum_{i=1}^{k}o_{G_{\{1,\dots,k\}}}|N(i)|+\sum_{j=k+1}^{n}|\{i\in N(j):i\leq k\}|\leq2\binom{k}{2}+\sum_{j=k+1}^{n}\min\{k,d_{j}\}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Queremos ver que el algoritmo funciona en estas condiciones.
+ La idea es que, en cada iteración del bucle interno, 
+\begin_inset Formula $o(h)$
+\end_inset
+
+ aumenta al menos en 1, y que este tiene como invariante que para 
+\begin_inset Formula $i<h$
+\end_inset
+
+ es 
+\begin_inset Formula $o(i)=d_{i}$
+\end_inset
+
+ y que 
+\begin_inset Formula $\{h+1,\dots,n\}$
+\end_inset
+
+ es un conjunto de nodos independiente, con lo que el algoritmo va aumentando
+ 
+\begin_inset Formula $o(h)$
+\end_inset
+
+ hasta que llega a 
+\begin_inset Formula $d_{h}$
+\end_inset
+
+, sin pasarse, y entonces pasa al siguiente 
+\begin_inset Formula $h$
+\end_inset
+
+.
+ Veamos los casos:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:eg-igth"
+
+\end_inset
+
+Si existe 
+\begin_inset Formula $i>h$
+\end_inset
+
+ con 
+\begin_inset Formula $o(i)<d_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $(h,i)\notin E$
+\end_inset
+
+, basta añadir 
+\begin_inset Formula $(h,i)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:eg-ilth"
+
+\end_inset
+
+Si existe 
+\begin_inset Formula $i<h$
+\end_inset
+
+ con 
+\begin_inset Formula $(h,i)\notin E$
+\end_inset
+
+, como 
+\begin_inset Formula $o(i)=d_{i}\geq d_{h}>o(h)$
+\end_inset
+
+, existe 
+\begin_inset Formula $u\in N(i)\setminus N(h)$
+\end_inset
+
+ (
+\begin_inset Formula $u\neq h,i$
+\end_inset
+
+), y añadir 
+\begin_inset Formula $(i,h)$
+\end_inset
+
+ y 
+\begin_inset Formula $(h,u)$
+\end_inset
+
+ y quitar 
+\begin_inset Formula $(i,u)$
+\end_inset
+
+ conserva los invariantes salvo que, al añadir 2 a 
+\begin_inset Formula $o(h)$
+\end_inset
+
+, podría ser 
+\begin_inset Formula $o(h)=d_{h}+1$
+\end_inset
+
+.
+ En tal caso, como 
+\begin_inset Formula $\sum_{i=1}^{n}d_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sum_{i=1}^{n}o(i)$
+\end_inset
+
+ son pares, 
+\begin_inset Formula $\sum_{i=1}^{n}(d_{i}-o(i))$
+\end_inset
+
+ es par, y como 
+\begin_inset Formula $d_{h}-o(h)=-1$
+\end_inset
+
+, existe un 
+\begin_inset Formula $k\neq h$
+\end_inset
+
+ con 
+\begin_inset Formula $o(k)\neq d_{k}$
+\end_inset
+
+, y será 
+\begin_inset Formula $o(k)<d_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $k>h$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $(h,k)\notin E$
+\end_inset
+
+ estaríamos en el caso 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "enu:eg-igth"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (no lo hemos quitado después), luego 
+\begin_inset Formula $(h,k)\in E$
+\end_inset
+
+ y basta quitar 
+\begin_inset Formula $(h,k)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:eg-ksmall"
+
+\end_inset
+
+Si existe 
+\begin_inset Formula $k>h$
+\end_inset
+
+ con 
+\begin_inset Formula $o(k)<h,d_{k}$
+\end_inset
+
+, por ser 
+\begin_inset Formula $o(k)<h$
+\end_inset
+
+ existe 
+\begin_inset Formula $i\in\{1,\dots,h\}$
+\end_inset
+
+ con 
+\begin_inset Formula $(i,k)\notin E$
+\end_inset
+
+.
+ Si fuera 
+\begin_inset Formula $h=i$
+\end_inset
+
+, como 
+\begin_inset Formula $o(k)<d_{k}$
+\end_inset
+
+, estaríamos en el caso 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "enu:eg-igth"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, luego 
+\begin_inset Formula $i<h$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $o(i)=d_{i}\geq d_{h}>o(h)$
+\end_inset
+
+, existe 
+\begin_inset Formula $u\in N(i)\setminus N(h)$
+\end_inset
+
+, 
+\begin_inset Formula $u\neq h$
+\end_inset
+
+ (
+\begin_inset Formula $u\neq i,k$
+\end_inset
+
+), y basta añadir 
+\begin_inset Formula $(h,u)$
+\end_inset
+
+ e 
+\begin_inset Formula $(i,k)$
+\end_inset
+
+ y quitar 
+\begin_inset Formula $(u,i)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+En otro caso, al no darse 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "enu:eg-ksmall"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, para 
+\begin_inset Formula $k>h$
+\end_inset
+
+, como 
+\begin_inset Formula $o(k)\leq h$
+\end_inset
+
+ por ser 
+\begin_inset Formula $\{h+1,\dots,n\}$
+\end_inset
+
+ independiente y 
+\begin_inset Formula $o(k)\leq d_{k}$
+\end_inset
+
+ por ser 
+\begin_inset Formula $G$
+\end_inset
+
+ una subrealización de 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $o(k)=\min\{h,d_{k}\}$
+\end_inset
+
+, y al no darse 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "enu:eg-ilth"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ se tiene 
+\begin_inset Formula $1,\dots,h-1\in N(h)$
+\end_inset
+
+.
+ Afirmo que existen 
+\begin_inset Formula $i,j<h$
+\end_inset
+
+ distintos y adyacentes.
+ En efecto, si no existieran, el subgrafo generado por 
+\begin_inset Formula $\{1,\dots,h\}$
+\end_inset
+
+ sería completo, luego los ejes adyacentes a los 
+\begin_inset Formula $i\in\{1,\dots,h\}$
+\end_inset
+
+ serían los de 
+\begin_inset Formula $K_{h}$
+\end_inset
+
+ más lo que conectan con los 
+\begin_inset Formula $j\in\{h+1,\dots,n\}$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+\sum_{i=1}^{h}o(i)=h(h-1)+\sum_{i=h+1}^{n}o(i)=h(h-1)+\sum_{i=h+1}^{n}\min\{h,d_{i}\}\geq\sum_{i=1}^{h}d_{i},
+\]
+
+\end_inset
+
+de modo que 
+\begin_inset Formula $d_{h}=o(h)$
+\end_inset
+
+ y no se estaría ejecutando el interior del bucle.
+ Entonces, como 
+\begin_inset Formula $o(i)=d_{i}\geq d_{h}>o(h)$
+\end_inset
+
+, existe 
+\begin_inset Formula $u\in N(i)\setminus N(h)$
+\end_inset
+
+, 
+\begin_inset Formula $u\neq h$
+\end_inset
+
+, y análogamente existe 
+\begin_inset Formula $w\in N(j)\setminus N(h)$
+\end_inset
+
+, 
+\begin_inset Formula $w\neq h$
+\end_inset
+
+, y necesariamente 
+\begin_inset Formula $u,w>h$
+\end_inset
+
+ al no conectar con 
+\begin_inset Formula $h$
+\end_inset
+
+.
+ Entonces, independientemente de si 
+\begin_inset Formula $u=w$
+\end_inset
+
+ o no, añadir 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+ y 
+\begin_inset Formula $(h,u)$
+\end_inset
+
+ y eliminar 
+\begin_inset Formula $(i,u)$
+\end_inset
+
+ y 
+\begin_inset Formula $(j,w)$
+\end_inset
+
+ mantiene los invariantes.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\series bold
+Teorema de Havel
+\series default
+ (1955) 
+\series bold
+y Hakimi
+\series default
+ (1962)
+\series bold
+:
+\series default
+ Una secuencia 
+\begin_inset Formula $S=(d_{1},\dots,d_{n})$
+\end_inset
+
+ decreciente de naturales con 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+ y 
+\begin_inset Formula $d_{1}\geq1$
+\end_inset
+
+ es una secuencia gráfica si y sólo si lo es el resultado de ordenar de
+ forma decreciente la secuencia
+\begin_inset Formula 
+\[
+S':=(d_{2}-1,d_{3}-1,\dots,d_{d_{1}+1}-1,d_{d_{1}+2},\dots,d_{n}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un grafo con secuencia de grados 
+\begin_inset Formula $S'$
+\end_inset
+
+, añadiendo a 
+\begin_inset Formula $G$
+\end_inset
+
+ un nodo y conectándolo a 
+\begin_inset Formula $d_{1}$
+\end_inset
+
+ vértices con grados 
+\begin_inset Formula $d_{2}-1,\dots,d_{d_{1}+1}-1$
+\end_inset
+
+, se obtiene un grafo con secuencia de grados 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $G:=(\{1,\dots,n\},E)$
+\end_inset
+
+ un grafo con 
+\begin_inset Formula $o(i)=d_{i}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $i$
+\end_inset
+
+ y tal que 
+\begin_inset Formula $\sum_{i\in N(1)}d_{i}$
+\end_inset
+
+ es máximo entre los nodos que cumplen la propiedad.
+ Entonces 1 es adyacente a nodos de grados 
+\begin_inset Formula $d_{2},\dots,d_{d_{1}+1}$
+\end_inset
+
+.
+ En efecto, si esto no fuera cierto, existirían 
+\begin_inset Formula $i,j>1$
+\end_inset
+
+ tales que 
+\begin_inset Formula $1\in N(j)\setminus N(i)$
+\end_inset
+
+ y 
+\begin_inset Formula $d_{i}>d_{j}$
+\end_inset
+
+, pero como 
+\begin_inset Formula $o(i)>o(j)$
+\end_inset
+
+, existe un 
+\begin_inset Formula $k\in N(i)\setminus N(j)$
+\end_inset
+
+, 
+\begin_inset Formula $k\neq j$
+\end_inset
+
+, y 
+\begin_inset Formula $(V,(E\cup\{(1,i),(k,j)\})\setminus\{(1,j),(k,i)\})$
+\end_inset
+
+ es un grafo que cumple la propiedad y tiene mayor 
+\begin_inset Formula $\sum_{i\in N(1)}d_{i}\#$
+\end_inset
+
+.
+ Por tanto la secuencia de grados de 
+\begin_inset Formula $G-1$
+\end_inset
+
+ es la que resulta de ordenar 
+\begin_inset Formula $S'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Secuencia $S=(d_1,
+\backslash
+dots,d_n)$ decreciente de naturales.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Si $S$ es o no una secuencia gráfica.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lSSi{$n=0$}{
+\backslash
+Devolver{sí}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{$
+\backslash
+sum_{i=1}^nd_i$ es par y $d_1
+\backslash
+in[1,n-1]$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$S
+\backslash
+gets(d_2-1,
+\backslash
+dots,d_{d_1+1}-1,d_{d_1+2},
+\backslash
+dots,d_n)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	Ordenar $S$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$n
+\backslash
+gets n-1$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Devolver{$d_1=0$}
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:havel-hakimi"
+
+\end_inset
+
+Algoritmo de Havel-Hakimi.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+algoritmo de Havel-Hakimi
+\series default
+ (algoritmo 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "alg:havel-hakimi"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) permite determinar si una secuencia decreciente de naturales es gráfica.
+\end_layout
+
+\begin_layout Section
+Caminos y ciclos
+\end_layout
+
+\begin_layout Standard
+Dado un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+, una secuencia de la forma
+\begin_inset Formula 
+\[
+v_{0}e_{1}v_{1}e_{2}\cdots v_{k-1}e_{k}v_{k}
+\]
+
+\end_inset
+
+con cada 
+\begin_inset Formula $v_{i}\in V$
+\end_inset
+
+ y 
+\begin_inset Formula $e_{i}=(v_{i-1},v_{i})$
+\end_inset
+
+ es un 
+\series bold
+paseo
+\series default
+ de 
+\begin_inset Formula $v_{0}$
+\end_inset
+
+ a 
+\begin_inset Formula $v_{k}$
+\end_inset
+
+, y normalmente lo representaremos como 
+\begin_inset Formula $v_{0}v_{1}\cdots v_{k}$
+\end_inset
+
+ o como 
+\begin_inset Formula $e_{1}e_{2}\cdots e_{k}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $k$
+\end_inset
+
+ es la 
+\series bold
+longitud
+\series default
+ del paseo.
+ Un paseo es 
+\series bold
+simple
+\series default
+ si todos sus ejes son distintos y 
+\series bold
+cerrado
+\series default
+ si 
+\begin_inset Formula $v_{0}=v_{k}$
+\end_inset
+
+.
+ Un 
+\series bold
+circuito
+\series default
+ es un paseo cerrado, un 
+\series bold
+camino
+\series default
+ es un paseo en que 
+\begin_inset Formula $\forall i,j\in\{0,\dots,k\},(i\neq j\land\{i,j\}\neq\{0,k\}\implies v_{i}\neq v_{j})$
+\end_inset
+
+, y un 
+\series bold
+ciclo
+\series default
+ es un camino cerrado.
+\end_layout
+
+\begin_layout Standard
+Propiedades:
+\end_layout
+
+\begin_layout Enumerate
+Todo paseo no trivial (de longitud no nula) entre dos vértices contiene
+ un camino no trivial entre ellos.
+ Por tanto todo paseo entre dos vértices contiene un camino entre ellos.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $v_{0}e_{1}v_{1}\cdots e_{k}v_{k}$
+\end_inset
+
+ un paseo no trivial.
+ Sea 
+\begin_inset Formula $p\in\{1,\dots,k\}$
+\end_inset
+
+ mínimo con 
+\begin_inset Formula $v_{p}=v_{k}$
+\end_inset
+
+, nos quedamos con 
+\begin_inset Formula $v_{0}e_{1}v_{1}\cdots e_{p}v_{p}$
+\end_inset
+
+.
+ Entonces, si existen 
+\begin_inset Formula $i,j\in\{0,\dots,p-1\}$
+\end_inset
+
+ con 
+\begin_inset Formula $i<j$
+\end_inset
+
+ y 
+\begin_inset Formula $v_{i}=v_{j}$
+\end_inset
+
+, eliminamos 
+\begin_inset Formula $e_{i+1}v_{i+1}\cdots e_{j}v_{j}$
+\end_inset
+
+ y repetimos hasta que esto no suceda.
+ El resultado es claramente un camino, y es no trivial porque contiene al
+ menos a 
+\begin_inset Formula $e_{p}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Todo paseo cerrado de longitud impar contiene un ciclo no trivial.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Al tener longitud impar es no trivial y por tanto contiene un camino entre
+ los vértices inicial y final, que son el mismo y por tanto el camino es
+ un ciclo.
+\end_layout
+
+\end_deeper
+\end_body
+\end_document
