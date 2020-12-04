@@ -1,0 +1,365 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Llamamos 
+\series bold
+arquitectura
+\series default
+ de un computador a:
+\end_layout
+
+\begin_layout Enumerate
+La 
+\series bold
+ISA
+\series default
+ (
+\emph on
+\lang english
+Instruction Set Architecture
+\emph default
+\lang spanish
+), el conjunto de instrucciones del procesador.
+ Normalmente hay una ISA base, como x86, ARM o RISC-V, con extensiones.
+\end_layout
+
+\begin_layout Enumerate
+La 
+\series bold
+microarquitectura
+\series default
+, la implementación de cada instrucción de la ISA.
+\end_layout
+
+\begin_layout Enumerate
+El diseño del 
+\emph on
+\lang english
+hardware
+\emph default
+\lang spanish
+.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+tamaño característico
+\series default
+ (
+\emph on
+\lang english
+feature size
+\emph default
+\lang spanish
+) al tamaño mínimo de un transistor en un chip.
+ Fue reduciéndose de 
+\begin_inset Formula $\unit[10]{\mu m}$
+\end_inset
+
+ en 1971 a 
+\begin_inset Formula $\unit[10]{nm}$
+\end_inset
+
+ en 2019.
+ Así, la 
+\series bold
+ley de Moore
+\series default
+ afirma que se podrá construir un chip con el doble de transistores cada
+ 18–24 meses, y la 
+\series bold
+ley de Dennard
+\series default
+ (
+\emph on
+\lang english
+Dennard scaling
+\emph default
+\lang spanish
+ o 
+\emph on
+\lang english
+MOSFET scaling
+\emph default
+\lang spanish
+) afirma que a medida que disminuye el tamaño de los transistores, la densidad
+ de potencia consumida permanece constante.
+\end_layout
+
+\begin_layout Standard
+Al disminuir el tamaño característico, la frecuencia de reloj puede aumentar
+ de forma más o menos proporcional porque los transistores cambian de estado
+ más rápido; la 
+\series bold
+densidad de integración
+\series default
+, o densidad de transistores, aumenta cuadráticamente, y en general se podía
+ aumentar proporcionalmente el tamaño del chip.
+ Estos transistores se usan para aumentar los recursos del chip mediante
+ paralelismo y cachés, por lo que los programas limitados por CPU aumentaban
+ su velocidad de forma cuadrática sin cambios.
+ No obstante, actualmente esto plantea varios problemas.
+\end_layout
+
+\begin_layout Section
+Potencia consumida
+\end_layout
+
+\begin_layout Standard
+La energía debe ser traída al chip mediante pines, distribuida entre las
+ distintas capas y disipada para evitar el sobrecalentamiento.
+ La 
+\series bold
+potencia de diseño térmico
+\series default
+ (
+\series bold
+TDP
+\series default
+, 
+\emph on
+\lang english
+Thermal Design Power
+\emph default
+\lang spanish
+) es la usada como objetivo para la fuente de alimentación y el sistema
+ de refrigeración.
+ Se divide en 
+\series bold
+potencia estática
+\series default
+, producto del voltaje, la intensidad de potencia de fuga por transistor
+ y el número de transistores, y 
+\series bold
+potencia dinámica
+\series default
+, proporcional al nivel de uso, el cuadrado del voltaje y la frecuencia
+ de reloj.
+\end_layout
+
+\begin_layout Standard
+Inicialmente la potencia estática era casi despreciable.
+ Actualmente, al no poder bajar el voltaje por debajo de unos 
+\begin_inset Formula $\unit[0.5]{V}$
+\end_inset
+
+, la potencia dinámica sigue aumentando al seguir aumentando la frecuencia
+ y la potencia estática aumenta aun más rápido porque se sigue aumentando
+ el número de transistores, por lo que la potencia estática está en torno
+ al 
+\begin_inset Formula $\unit[\text{25--50}]{\%}$
+\end_inset
+
+ de la potencia total.
+ Además, deja de cumplirse la ley de Dennard y surge el 
+\series bold
+\emph on
+\lang english
+dark silicon
+\series default
+\emph default
+\lang spanish
+, un límite en el área total de un chip que se puede encender a la vez sin
+ superar el 
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+densidad de potencia
+\series default
+ es la potencia disipada por unidad de superficie, y ha ido aumentando,
+ pero el 
+\series bold
+rendimiento por vatio
+\series default
+ también ha aumentado mucho.
+ Las soluciones de enfriamiento para alta densidad de potencia son caras
+ o poco prácticas, por lo que se busca reducir la potencia con técnicas
+ como:
+\end_layout
+
+\begin_layout Enumerate
+Reducir la frecuencia de reloj dinámicamente.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+DVFS
+\series default
+ (
+\emph on
+\lang english
+Dynamic Voltage Frequency Scaling
+\emph default
+\lang spanish
+): Reducir el voltaje o la frecuencia de zonas que no se estén usando.
+\end_layout
+
+\begin_layout Enumerate
+Apagar selectivamente núcleos del procesador.
+\end_layout
+
+\begin_layout Enumerate
+Estados de bajo consumo en RAM, discos duros, etc.
+\end_layout
+
+\begin_layout Section
+Problemas
+\end_layout
+
+\begin_layout Standard
+Disminuir el CPI requiere aumentar el bus de datos.
+ Se suele hacer con segmentación, pero a partir de 10 etapas aparecen muchos
+ conflictos, por lo que se replica el cauce usando ejecución superescalar
+ (varias instrucciones empezando y terminando a la vez) fuera de orden y
+ especulativa.
+ Esto requiere mucho 
+\emph on
+\lang english
+hardware
+\emph default
+\lang spanish
+, por lo que consume mucha energía.
+\end_layout
+
+\begin_layout Section
+Acceso a memoria
+\end_layout
+
+\begin_layout Standard
+La mejora en los procesadores es más rápida que en la memoria, y el bus
+ entre ambas tiene muy alta latencia.
+ La ejecución fuera de orden solo puede mitigar este problema parcialmente.
+ 
+\end_layout
+
+\begin_layout Section
+Fiabilidad
+\end_layout
+
+\begin_layout Standard
+Al reducir el tamaño de los componentes, estos son más sensibles a partículas
+ cargadas en el ambiente, por lo que los bits pueden cambiar de valor.
+ Por ello se crean memorias y cachés con códigos de corrección (
+\series bold
+ECC
+\series default
+, 
+\emph on
+\lang english
+Error Correction Codes
+\emph default
+\lang spanish
+).
+ También surgen problemas de impedancia y capacitancia que dan lugar a 
+\series bold
+\emph on
+\lang english
+dark silicon
+\series default
+\emph default
+\lang spanish
+, parte del área del chip que no se puede usar por estos problemas.
+ Finalmente, al ser los diseños de procesadores más grandes, es más difícil
+ comprobar su corrección, y como los transistores reciben y alteran la señal
+ de reloj, al aumentar su número puede haber modificaciones perceptibles
+ en dicha señal, lo que llamamos 
+\series bold
+sesgo de reloj
+\series default
+ o 
+\series bold
+\emph on
+\lang english
+clock skew
+\series default
+\emph default
+\lang spanish
+.
+\end_layout
+
+\end_body
+\end_document
