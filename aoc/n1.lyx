@@ -183,7 +183,11 @@ densidad de integración
 \end_layout
 
 \begin_layout Section
-Potencia consumida
+Problemas
+\end_layout
+
+\begin_layout Subsection
+Potencia
 \end_layout
 
 \begin_layout Standard
@@ -286,26 +290,36 @@ Apagar selectivamente núcleos del procesador.
 Estados de bajo consumo en RAM, discos duros, etc.
 \end_layout
 
-\begin_layout Section
-Problemas
+\begin_layout Subsection
+Paralelismo
 \end_layout
 
 \begin_layout Standard
-Disminuir el CPI requiere aumentar el bus de datos.
- Se suele hacer con segmentación, pero a partir de 10 etapas aparecen muchos
- conflictos, por lo que se replica el cauce usando ejecución superescalar
- (varias instrucciones empezando y terminando a la vez) fuera de orden y
- especulativa.
- Esto requiere mucho 
+Disminuir el CPI requiere aumentar el bus de datos y usar segmentación,
+ pero a partir de 10 etapas aparecen muchos conflictos, por lo que se replica
+ el cauce usando ejecución superescalar (varias instrucciones empezando
+ y terminando a la vez) fuera de orden y especulativa.
+ Estas técnicas permiten conseguir 
+\series bold
+ILP
+\series default
+ (
+\emph on
+\lang english
+Instruction-Level Parallelism
+\emph default
+\lang spanish
+), en que varias instrucciones se ejecutan a la vez consiguiendo superar
+ la instrucción por ciclo, pero requiere mucho 
 \emph on
 \lang english
 hardware
 \emph default
 \lang spanish
-, por lo que consume mucha energía.
+ y por tanto consume mucha energía.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Acceso a memoria
 \end_layout
 
@@ -313,17 +327,18 @@ Acceso a memoria
 La mejora en los procesadores es más rápida que en la memoria, y el bus
  entre ambas tiene muy alta latencia.
  La ejecución fuera de orden solo puede mitigar este problema parcialmente.
- 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Fiabilidad
 \end_layout
 
 \begin_layout Standard
-Al reducir el tamaño de los componentes, estos son más sensibles a partículas
- cargadas en el ambiente, por lo que los bits pueden cambiar de valor.
- Por ello se crean memorias y cachés con códigos de corrección (
+También hay problemas problemas de fiabilidad, pues conforme los diseños
+ de procesadores se hacen más grandes es más difícil comprobar su corrección.
+ Además, al reducir el tamaño de los componentes, estos son más sensibles
+ a partículas cargadas en el ambiente capaces de cambiar el valor de los
+ bits, por lo que se crean memorias y cachés con códigos de corrección (
 \series bold
 ECC
 \series default
@@ -334,19 +349,9 @@ Error Correction Codes
 \emph default
 \lang spanish
 ).
- También surgen problemas de impedancia y capacitancia que dan lugar a 
-\series bold
-\emph on
-\lang english
-dark silicon
-\series default
-\emph default
-\lang spanish
-, parte del área del chip que no se puede usar por estos problemas.
- Finalmente, al ser los diseños de procesadores más grandes, es más difícil
- comprobar su corrección, y como los transistores reciben y alteran la señal
- de reloj, al aumentar su número puede haber modificaciones perceptibles
- en dicha señal, lo que llamamos 
+ Surgen problemas de impedancia y capacitancia, y como los transistores
+ reciben y alteran la señal de reloj, al aumentar su número puede haber
+ modificaciones perceptibles en dicha señal, lo que llamamos 
 \series bold
 sesgo de reloj
 \series default
@@ -359,6 +364,396 @@ clock skew
 \emph default
 \lang spanish
 .
+\end_layout
+
+\begin_layout Standard
+Podemos medir la fiabilidad en 
+\series bold
+tiempo medio hasta un fallo
+\series default
+ (
+\series bold
+MTTF
+\series default
+, 
+\emph on
+\lang english
+Mean Time To Failure
+\emph default
+\lang spanish
+), 
+\series bold
+tiempo medio para reparaciones
+\series default
+ (
+\series bold
+MTTR
+\series default
+, 
+\emph on
+\lang english
+Mean Time To Recover
+\emph default
+\lang spanish
+), 
+\series bold
+tiempo medio entre fallos
+\series default
+ (
+\series bold
+MTBF
+\series default
+, 
+\emph on
+\lang english
+Mean Time Between Failures
+\emph default
+\lang spanish
+, la suma de los dos anteriores) y 
+\series bold
+disponibilidad
+\series default
+ (el MTTF entre el MTBF).
+\end_layout
+
+\begin_layout Section
+Paralelismo
+\end_layout
+
+\begin_layout Standard
+Michael J.
+ Flynn clasifica las arquitecturas en:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+SISD
+\series default
+ (
+\emph on
+\lang english
+Single Instruction Single Data
+\emph default
+\lang spanish
+): Procesador secuencial sin paralelismo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+MISD
+\series default
+ (
+\emph on
+\lang english
+Multiple Instruction Single Data
+\emph default
+\lang spanish
+): Operaciones secuenciales pero redundantes, útil para sistemas de emergencia.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+SIMD
+\series default
+ (
+\emph on
+\lang english
+Single Instruction Multiple Data
+\emph default
+\lang spanish
+): Operaciones 
+\series bold
+vectorizadas
+\series default
+, en que una sola instrucción ejecuta la misma operación sobre varios datos.
+ Es la usada en GPUs, aunque las CPUs modernas suelen tener instrucciones
+ SIMD.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+MIMD
+\series default
+ (
+\emph on
+\lang english
+Multiple Instruction Multiple Data
+\emph default
+\lang spanish
+): Varios procesadores o 
+\series bold
+núcleos
+\series default
+ realizando operaciones distintas en datos distintos.
+\end_layout
+
+\begin_layout Subsection
+Multiprocesadores
+\end_layout
+
+\begin_layout Standard
+Son procesadores con 
+\series bold
+arquitecturas multinúcleo
+\series default
+ (MISD o MIMD).
+ Un 
+\series bold
+CMP
+\series default
+ (
+\series bold
+\emph on
+\lang english
+Chip Multiprocessor
+\series default
+\emph default
+\lang spanish
+) es un multiprocesador en un solo chip.
+ 
+\end_layout
+
+\begin_layout Standard
+Usar varios núcleos pequeños en vez de uno grande hace más fácil verificar
+ el diseño y permite reducir el voltaje y la frecuencia con el mismo rendimiento
+, con lo que la cantidad de transistores útiles es mayor.
+ Además, se mitigan los problemas eléctricos y, como cada núcleo tiene su
+ propio reloj, desaparece el sesgo de reloj.
+\end_layout
+
+\begin_layout Standard
+Así, la frecuencia de reloj de los procesadores no sigue aumentando, de
+ hecho disminuye, pero la ley de Moore se reinterpreta como que el número
+ de núcleos por chip se puede duplicar cada 2 años.
+\end_layout
+
+\begin_layout Subsection
+Acceso a memoria
+\end_layout
+
+\begin_layout Standard
+En un procesador MIMD, la memoria puede ser:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Compartida
+\series default
+: Un único espacio de direcciones al que tienen acceso todos los procesadores,
+ y que puede usarse para la comunicación entre estos.
+ El acceso a memoria puede hacerse con un bus compartido o con una red más
+ directa como una malla.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Distribuida
+\series default
+: Cada procesador tiene su propia memoria local, y la comunicación se hace
+ por instrucciones de paso de mensajes.
+\end_layout
+
+\begin_layout Standard
+Los clústeres y centros de datos usan memoria distribuida entre los ordenadores,
+ aunque cada ordenador suele tener varios núcleos con memoria compartida
+ y vectorización SIMD.
+\end_layout
+
+\begin_layout Section
+Medidas de rendimiento
+\end_layout
+
+\begin_layout Standard
+Podemos medir el rendimiento de un procesador por el tiempo de ejecución
+ de algún programa o su productividad o 
+\emph on
+\lang english
+throughput
+\emph default
+\lang spanish
+ (operaciones de algún tipo por unidad de tiempo).
+ Se puede usar el tiempo de ejecución real, que incluye la sobrecarga de
+ todo el sistema, o el tiempo de CPU usado para el cálculo.
+ La 
+\begin_inset Quotes cld
+\end_inset
+
+
+\series bold
+aceleración
+\series default
+
+\begin_inset Quotes crd
+\end_inset
+
+ de un procesador o un programa respecto a otro (funcionalmente equivalente)
+ es el tiempo de ejecución del segundo entre el del primero.
+ El 
+\series bold
+ancho de banda
+\series default
+ es el trabajo total realizado en un tiempo determinado, y la 
+\series bold
+latencia
+\series default
+ o 
+\series bold
+tiempo de respuesta
+\series default
+ es el tiempo entre el inicio y el final de una operación.
+\end_layout
+
+\begin_layout Standard
+Los 
+\series bold
+\emph on
+\lang english
+benchmarks
+\series default
+\emph default
+\lang spanish
+ son programas usados para comparar el rendimiento.
+ Hay de varios tipos: 
+\emph on
+\lang english
+kernels
+\emph default
+\lang spanish
+ (como multiplicación de matrices), programas de juguete (como ordenación
+ de elementos), 
+\emph on
+\lang english
+benchmarks
+\emph default
+\lang spanish
+ sintéticos (como Dhrystone) o suites de 
+\emph on
+\lang english
+benchmarks
+\emph default
+\lang spanish
+ como SPEC06fp o TPC-C.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+intensidad aritmética
+\series default
+ es el número de operaciones en coma flotante por byte u operando leído
+ de memoria para un cierto algoritmo.
+ El 
+\series bold
+modelo de rendimiento 
+\emph on
+Roofline
+\series default
+\emph default
+ consiste en medir el rendimiento de coma flotante en 
+\series bold
+FLOPS
+\series default
+ (operaciones de punto flotante por segundo) en función de la intensidad
+ aritmética, midiendo así tanto el ancho de banda de memoria como el rendimiento
+ de punto flotante.
+\end_layout
+
+\begin_layout Standard
+Algunos aspectos relevantes son la frecuencia de reloj, el número de transistore
+s, el tamaño de la caché de cada nivel, la cantidad de memoria direccionable,
+ el ancho de banda del bus de memoria, el número de núcleos por chip, el
+ tamaño de la litografía y el tamaño de los operandos.
+\end_layout
+
+\begin_layout Section
+Límites del paralelismo
+\end_layout
+
+\begin_layout Standard
+Todos los programas paralelos tienen secciones secuenciales, debido a la
+ duplicación de trabajo entre varios procesadores o a la espera del resto
+ de procesadores a que uno acabe.
+ La 
+\series bold
+ley de Amdahl
+\series default
+ afirma que, si en un proceso una parte que ocupa una porción 
+\begin_inset Formula $p$
+\end_inset
+
+ del tiempo total se hace 
+\begin_inset Formula $S$
+\end_inset
+
+ veces más rápido, el proceso en total se hace
+\begin_inset Formula 
+\[
+\frac{1}{(1-p)+\frac{p}{S}}
+\]
+
+\end_inset
+
+veces más rápido.
+ En particular, como las partes paralelas se hacen tantas veces más rápido
+ como el total de procesadores, las partes secuenciales limitan la efectividad
+ del paralelismo con una cota superior inversa a la fracción de código secuencia
+l.
+\end_layout
+
+\begin_layout Standard
+En la práctica nunca se llega al rendimiento obtenido por la ley de Amdahl
+ porque los procesadores tienen que comunicarse.
+ La 
+\series bold
+ley de Gustafson
+\series default
+ afirma que, si un programa se ejecuta en 
+\begin_inset Formula $N$
+\end_inset
+
+ procesadores iguales con un tiempo secuencial 
+\begin_inset Formula $s$
+\end_inset
+
+ y un tiempo paralelo en cada uno 
+\begin_inset Formula $p$
+\end_inset
+
+, la aceleración por haberlo paralelizado es
+\begin_inset Formula 
+\[
+\frac{s+Np}{s+p},
+\]
+
+\end_inset
+
+con lo que un problema con parte paralela lo suficientemente grande puede
+ ser paralelizado eficientemente.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Realmente esto es lo mismo que la ley de Amdahl y la misma conclusión se
+ puede obtener directamente de la ley de Amdahl, pero a los ingenieros les
+ gusta pensar que es otra cosa así que así sea.
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Esto cambia los objetivos hacia la formulación de problemas para poder soluciona
+r casos mayores en la misma cantidad de tiempo, de modo que a veces es preferibl
+e aumentar la cantidad total de cálculos a cambio de disminuir la parte
+ secuencial.
 \end_layout
 
 \end_body
