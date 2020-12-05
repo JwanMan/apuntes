@@ -1,0 +1,911 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Modelos UML
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+modelo
+\series default
+ es una representación de un aspecto de la realidad obtenida mediante abstracció
+n para ayudar a comprender y razonar sobre este.
+ Los modelos se expresan en un lenguaje, y a mediados de los 90 había muchos
+ lenguajes de modelos de software orientado a objetos.
+ 
+\end_layout
+
+\begin_layout Standard
+En 1994, Grady Booch, James Rumbaugh e Ivar Jacobson crean el 
+\series bold
+UML
+\series default
+ (
+\series bold
+\emph on
+\lang english
+Unified Modeling Language
+\series default
+\emph default
+\lang spanish
+), un lenguaje para visualizar, especificar construir y documentar modelos
+ de un sistema de software desde una perspectiva orientado a objetos que
+ busca eliminar confusión y reunir los puntos fuertes de cada método, y
+ este es estandarizado por el 
+\series bold
+OMG
+\series default
+, un grupo que propone, elabora y mantiene especificaciones para aplicaciones
+ empresariales como Corba, OCL o MDA.
+\end_layout
+
+\begin_layout Standard
+UML se aplica en el análisis y el diseño de aplicaciones, para documentar
+ modelos y para generar código.
+ Es útil para razonar sobre alternativas, creando diagramas y evaluándolos
+ en base a los casos de uso, y aunque se puede usar como lenguaje de programació
+n, no fue diseñado para esto, por lo que se usa poco a lo largo del desarrollo.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+modelo UML
+\series default
+ es una especificación de un aspecto del sistema de interés para ciertos
+ usuarios o desarrolladores, y un 
+\series bold
+diagrama UML
+\series default
+ representa parte de la información de un modelo de forma gráfica o textual.
+ Así:
+\end_layout
+
+\begin_layout Itemize
+Los 
+\series bold
+modelos estructurales
+\series default
+ describen la estructura del sistema.
+ Son representados por 
+\series bold
+diagramas de clases
+\series default
+, que describen los tipos de objetos de un sistema y las relaciones entre
+ ellos, y 
+\series bold
+diagramas de objetos
+\series default
+, que muestran ejemplos concretos de objetos.
+\end_layout
+
+\begin_layout Itemize
+Los 
+\series bold
+modelos de comportamiento
+\series default
+ describen las acciones que ejecutan partes del sistema.
+ Son representados por:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Diagramas de interacción
+\series default
+, que describen cómo los objetos colaboran para realizar una actividad.
+ Distinguimos los 
+\series bold
+diagramas de secuencia
+\series default
+, que muestran la secuencia de mensajes, y 
+\series bold
+diagramas de colaboración
+\series default
+ o 
+\series bold
+comunicación
+\series default
+, que muestran los canales de comunicación.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Máquinas de estado
+\series default
+, que describen los estados en los que se puede encontrar una parte del
+ sistema y las transiciones entre ellos.
+ Distinguimos 
+\series bold
+diagramas de estado
+\series default
+ y 
+\series bold
+diagramas de actividades
+\series default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Diagramas de clases
+\end_layout
+
+\begin_layout Standard
+Describen los tipos de objetos de un sistema y las relaciones entre ellos,
+ a nivel conceptual o de clases de diseño o implementación.
+ Solo aparece la información que se considera relevante para el propósito.
+\end_layout
+
+\begin_layout Standard
+Una clase se representa con un recuadro dividido en 3 partes: de arriba
+ a abajo, nombre de la clase, atributos y métodos.
+ Encima del nombre de la clase puede haber un 
+\family sans
+
+\begin_inset Quotes cld
+\end_inset
+
+
+\emph on
+estereotipo
+\emph default
+
+\begin_inset Quotes crd
+\end_inset
+
+
+\family default
+, que indica el tipo de clase.
+\end_layout
+
+\begin_layout Standard
+Los atributos se expresan cada uno en una línea como [
+\family sans
+\emph on
+visibilidad
+\family default
+\emph default
+] 
+\family sans
+\emph on
+nombre
+\family default
+\emph default
+ [
+\family sans
+: 
+\emph on
+tipo
+\family default
+\emph default
+] [
+\family sans
+[
+\emph on
+multiplicidad
+\emph default
+]
+\family default
+], donde 
+\family sans
+\emph on
+visibilidad
+\family default
+\emph default
+ es 
+\family sans
++
+\family default
+ para un atributo público, 
+\family sans
+#
+\family default
+ para uno protegido, 
+\family sans
+–
+\family default
+ para uno privado o 
+\family sans
+~
+\family default
+ para visibilidad a nivel de paquete, y la multiplicidad tiene forma 
+\family sans
+\emph on
+inicio
+\family default
+..
+\family sans
+fin
+\family default
+\emph default
+, 
+\family sans
+\emph on
+cantidad
+\family default
+\emph default
+ o similares.
+ Se pueden añadir otras características como un valor por defecto (
+\family sans
+= 
+\emph on
+valor
+\family default
+\emph default
+) o 
+\family sans
+{
+\lang english
+readOnly
+\lang spanish
+}
+\family default
+.
+ Los métodos se representan de forma similar, pero al nombre le sigue [
+\family sans
+(
+\emph on
+parámetro
+\family default
+\emph default
+ [
+\family sans
+: 
+\emph on
+tipo
+\family default
+\emph default
+]
+\family sans
+, 
+\family default
+...
+\family sans
+)
+\family default
+].
+ Los atributos y métodos estáticos o de clase aparecen subrayados, y las
+ clases y métodos abstractos están en cursiva.
+\end_layout
+
+\begin_layout Standard
+Las interfaces se suelen representar como una clase con estereotipo 
+\family sans
+
+\begin_inset Quotes cld
+\end_inset
+
+
+\lang english
+interface
+\lang spanish
+
+\begin_inset Quotes crd
+\end_inset
+
+
+\family default
+ o con un círculo pequeño vacío con el nombre de la interfaz debajo.
+\end_layout
+
+\begin_layout Standard
+Las relaciones pueden ser:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Dependencia
+\series default
+: Una clase usa los métodos de otra.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset External
+	template RasterImage
+	filename n1.1.png
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Generalización
+\series default
+: Una clase hereda de otra.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset External
+	template RasterImage
+	filename n1.2.png
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Asociación
+\series default
+: Los objetos de dos clases están conectados.
+ Se puede indicar el atributo de una clase que referencia a los elementos
+ de la otra, y/o su multiplicidad, en la relación, en el extremo de la otra.
+ Dicho atributo no se debe indicar en la lista de atributos de la clase.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset External
+	template RasterImage
+	filename n1.3.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si desde un objeto de una clase se puede acceder a elementos de la otra
+ por la relación pero no al revés, esto se puede indicar con una punta de
+ flecha (hacia la otra).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Agregación
+\series default
+: Asociación en que un objeto contiene a otros.
+ Se puede indicar lo mismo que en la asociación, pero en la referencia de
+ la parte al todo se asume multiplicidad 1.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset External
+	template RasterImage
+	filename n1.4.png
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Composición
+\series default
+: Agregación en que cada parte pertenece a un único agregado y si se elimina
+ un agregado se eliminan todas sus partes.
+ Así, la multiplicidad de la parte al agregado es siempre 1.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset External
+	template RasterImage
+	filename n1.5.png
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Realización
+\series default
+: Una clase implementa una interfaz.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset External
+	template RasterImage
+	filename n1.6.png
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Diagramas de objetos
+\end_layout
+
+\begin_layout Standard
+Un objeto se muestra como un recuadro dividido una parte superior con formato
+ [
+\family sans
+\emph on
+nombre
+\family default
+\emph default
+]
+\family sans
+:
+\emph on
+tipo
+\family default
+\emph default
+ y una parte inferior con los atributos relevantes uno por línea, con formato
+ 
+\family sans
+\emph on
+nombre
+\emph default
+ = 
+\emph on
+valor
+\family default
+\emph default
+.
+ Un 
+\series bold
+enlace
+\series default
+ es una instancia de una asociación entre objetos, y se muestra igual que
+ en los diagramas de clase pero sin indicar multiplicidades.
+\end_layout
+
+\begin_layout Subsection
+Diagramas de colaboración
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+mensaje
+\series default
+ es una comunicación entre dos objetos que transmite información para desencaden
+ar una actividad.
+ Tipos de mensaje:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Simple
+\series default
+: 
+\family sans
+\emph on
+método
+\emph default
+(
+\family default
+[
+\family sans
+\emph on
+argumento
+\emph default
+, 
+\family default
+...]
+\family sans
+)
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De asignación
+\series default
+: 
+\family sans
+\emph on
+variable
+\emph default
+ := 
+\emph on
+método
+\emph default
+(
+\family default
+[
+\family sans
+\emph on
+argumento
+\emph default
+, 
+\family default
+...]
+\family sans
+)
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De creación
+\series default
+: 
+\family sans
+
+\begin_inset Quotes cld
+\end_inset
+
+create
+\begin_inset Quotes crd
+\end_inset
+
+
+\family default
+.
+ Un objeto que reciba este mensaje no puede haber recibido ningún otro antes.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De destrucción
+\series default
+: 
+\family sans
+
+\begin_inset Quotes cld
+\end_inset
+
+destroy
+\begin_inset Quotes crd
+\end_inset
+
+
+\family default
+.
+ Un objeto que reciba este mensaje no puede recibir ningún otro después.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De condición
+\series default
+: 
+\family sans
+[
+\emph on
+condición
+\emph default
+] 
+\emph on
+mensaje
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De iteración
+\series default
+: 
+\family sans
+*
+\emph on
+mensaje
+\family default
+\emph default
+, 
+\family sans
+[
+\emph on
+multiplicidad
+\emph default
+]
+\emph on
+mensaje
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+interacción
+\series default
+ es un comportamiento dado por un conjunto de mensajes intercambiados entre
+ un conjunto de objetos para lograr un propósito.
+ La representamos añadiendo sobre un diagrama de objetos los mensajes intercambi
+ados.
+ Los mensajes se numeran del 1 en adelante y se indican como 
+\family sans
+\emph on
+número
+\emph default
+: 
+\emph on
+mensaje
+\family default
+\emph default
+ al lado del enlace sobre el que se envían, acompañados de una flecha paralela
+ al enlace que va del emisor al receptor.
+ Se puede usar la misma flecha para más de un mensaje, y se pueden añadir
+ enlaces de un objeto a sí mismo si es necesario.
+\end_layout
+
+\begin_layout Standard
+A veces se usa 
+\series bold
+numeración jerárquica
+\series default
+: si el envío de un mensaje 
+\begin_inset Formula $n$
+\end_inset
+
+ resulta en el envío de más mensajes directamente (porque estén en el cuerpo
+ del método en 
+\begin_inset Formula $n$
+\end_inset
+
+), estos se numeran como 
+\begin_inset Formula $n$
+\end_inset
+
+.1, 
+\begin_inset Formula $n$
+\end_inset
+
+.2, etc., de forma recursiva.
+\end_layout
+
+\begin_layout Subsection
+Diagramas de secuencia
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+línea de vida
+\series default
+ es un objeto (sin los enlaces) junto a una línea de tiempo vertical hacia
+ abajo que marca su existencia.
+ Representamos un mensaje entre líneas de vida como una flecha horizontal
+ del emisor al receptor etiquetada con el mensaje en forma [
+\family sans
+\emph on
+número
+\emph default
+:
+\family default
+] 
+\family sans
+\emph on
+mensaje
+\family default
+\emph default
+, y la numeración, como en los diagramas de comunicación, puede ser secuencial
+ o jerárquica.
+\end_layout
+
+\begin_layout Standard
+Para una llamada a un método de la misma clase, la flecha sale del objeto
+ y vuelve por debajo al mismo objeto.
+ Se puede indicar el regreso de una llamada a un método con una línea discontinu
+a del receptor al emisor.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+foco de control
+\series default
+ es un rectángulo muy vertical que representa el tiempo durante el que un
+ objeto está ejecutando un método suyo, y sustituye a la línea de vida o,
+ si la ejecución está contenida en un foco de control del mismo objeto,
+ a una de las verticales de dicho foco, sin pegarse a su inicio o fin.
+\end_layout
+
+\begin_layout Standard
+Los mensajes de creación señalan al objeto creado; los de destrucción, a
+ una 
+\begin_inset Quotes cld
+\end_inset
+
+X
+\begin_inset Quotes crd
+\end_inset
+
+ en la línea de vida del objeto destruido, y los que llaman a otro método,
+ al principio del foco de control (el borde superior).
+ La flecha de regreso de una llamada parte del final del foco de control.
+\end_layout
+
+\begin_layout Standard
+Aunque no se recomiendan, existen operadores de control, indicados como
+ un recuadro alrededor de un conjunto de mensajes con su nombre arriba a
+ la izquierda en el recuadro.
+ Son:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ejecución opcional
+\series default
+ (
+\family sans
+opt
+\family default
+): El cuerpo se ejecuta si se cumple una condición, indicada en la parte
+ de arriba del recuadro entre corchetes en la línea encargada de comprobar
+ la condición.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Condicional
+\series default
+ (
+\family sans
+alt
+\family default
+): El cuerpo se divide en regiones mediante líneas discontinuas horizontales.
+ Cada parte tiene una condición asociada y se ejecuta el cuerpo de la región
+ cuya condición se satisface.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Paralela
+\series default
+ (
+\family sans
+par
+\family default
+): El cuerpo se divide en regiones que se ejecutan en paralelo.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Iterativa
+\series default
+ (
+\family sans
+loop 
+\family default
+[
+\family sans
+(
+\emph on
+inicio
+\emph default
+, 
+\emph on
+fin
+\emph default
+)
+\family default
+]): El cuerpo se ejecuta un número de veces y/o mientras se cumpla una condición.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Referencia
+\series default
+ (
+\family sans
+ref
+\family default
+): El cuerpo (el interior del recuadro salvo el nombre) se sustituye por
+ el nombre de otra interacción, que es la que se ejecuta.
+\end_layout
+
+\end_body
+\end_document
