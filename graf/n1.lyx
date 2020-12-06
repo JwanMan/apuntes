@@ -1892,6 +1892,10 @@ circuito
 \series bold
 camino
 \series default
+ o 
+\series bold
+cadena
+\series default
  es un paseo en que 
 \begin_inset Formula $\forall i,j\in\{0,\dots,k\},(i\neq j\land\{i,j\}\neq\{0,k\}\implies v_{i}\neq v_{j})$
 \end_inset
@@ -1900,7 +1904,7 @@ camino
 \series bold
 ciclo
 \series default
- es un camino cerrado.
+ es un camino cerrado de longitud al menos 3.
 \end_layout
 
 \begin_layout Standard
@@ -1960,14 +1964,55 @@ Sea
 
 \end_deeper
 \begin_layout Enumerate
-Todo paseo cerrado de longitud impar contiene un ciclo no trivial.
+Todo paseo cerrado de longitud impar contiene un ciclo.
 \end_layout
 
 \begin_deeper
 \begin_layout Standard
-Al tener longitud impar es no trivial y por tanto contiene un camino entre
- los vértices inicial y final, que son el mismo y por tanto el camino es
- un ciclo.
+Al tener longitud impar es no trivial, y como no tiene longitud 1 por ser
+ cerrado, su longitud es al menos 3.
+ Sea 
+\begin_inset Formula $v_{0}v_{1}\cdots v_{k-1}v_{0}$
+\end_inset
+
+ su lista de vértices, si fuera 
+\begin_inset Formula $\{v_{0},\dots,v_{k-1}\}=\{v_{0},v_{1}\}$
+\end_inset
+
+ el ciclo sería de la forma 
+\begin_inset Formula $v_{0}v_{1}\cdots v_{1}v_{0}$
+\end_inset
+
+ y su longitud sería par, luego existe 
+\begin_inset Formula $i\geq2$
+\end_inset
+
+ con 
+\begin_inset Formula $v_{i}\neq v_{0},v_{1}$
+\end_inset
+
+, que podemos tomar mínimo.
+ Entonces los paseos 
+\begin_inset Formula $v_{1}\cdots v_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $v_{i}\cdots v_{k-1}v_{0}$
+\end_inset
+
+ contienen caminos no triviales respectivos 
+\begin_inset Formula $P$
+\end_inset
+
+ y 
+\begin_inset Formula $Q$
+\end_inset
+
+ entre los mismos nodos, de modo que 
+\begin_inset Formula $(v_{0},v_{1})PQ$
+\end_inset
+
+ es un ciclo.
 \end_layout
 
 \end_deeper
