@@ -1,0 +1,2668 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Dado un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+, 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+ están 
+\series bold
+conectados
+\series default
+ si existe un camino de 
+\begin_inset Formula $u$
+\end_inset
+
+ a 
+\begin_inset Formula $v$
+\end_inset
+
+.
+ 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\series bold
+conexo
+\series default
+ si todo par de vértices de 
+\begin_inset Formula $V$
+\end_inset
+
+ está conectado, y es 
+\series bold
+disconexo
+\series default
+ en otro caso.
+ Un subconjunto 
+\begin_inset Formula $V'\subseteq V$
+\end_inset
+
+ es una 
+\series bold
+componente conexa
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ si es maximal con 
+\begin_inset Formula $G_{V'}$
+\end_inset
+
+ conexo.
+\end_layout
+
+\begin_layout Standard
+La pertenencia a una misma componente conexa es una relación de equivalencia,
+ por lo que las componentes conexas particionan 
+\begin_inset Formula $V$
+\end_inset
+
+ y un grafo es conexo si y sólo si tiene una sola componente conexa.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ un grafo conexo de orden 
+\begin_inset Formula $n$
+\end_inset
+
+ y 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+, una 
+\series bold
+geodésica
+\series default
+ entre 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ es un paseo entre 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ de longitud mínima, llamada 
+\series bold
+distancia
+\series default
+ entre 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+, 
+\begin_inset Formula $d(u,v)$
+\end_inset
+
+.
+ Este paseo será un camino, pues si no lo fuera contendría un camino de
+ longitud estrictamente menor.
+ El 
+\series bold
+diámetro
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $\text{diám}G$
+\end_inset
+
+, es la máxima distancia entre dos vértices de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un grafo conexo de orden 
+\begin_inset Formula $n$
+\end_inset
+
+ y tamaño 
+\begin_inset Formula $m$
+\end_inset
+
+, 
+\begin_inset Formula $m\geq n-1$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $G=:(\{v_{1},\dots,v_{n}\},E)$
+\end_inset
+
+, para 
+\begin_inset Formula $i\in\{1,\dots,n-1\}$
+\end_inset
+
+ existe una geodésica 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+ de 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ a 
+\begin_inset Formula $v_{n}$
+\end_inset
+
+ no trivial que tendrá pues un primer eje 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+, y basta ver que los 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+ son todos distintos.
+ Pero para 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+, si 
+\begin_inset Formula $P_{i}=e_{i}a_{1}\cdots a_{t}$
+\end_inset
+
+ y 
+\begin_inset Formula $P_{j}=e_{i}b_{1}\cdots b_{s}$
+\end_inset
+
+, 
+\begin_inset Formula $a_{1}\cdots a_{t}$
+\end_inset
+
+ es un camino de 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ a 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $t\geq s+1$
+\end_inset
+
+ (por ser 
+\begin_inset Formula $P_{j}$
+\end_inset
+
+ una geodésica) y 
+\begin_inset Formula $t>s$
+\end_inset
+
+, y análogamente 
+\begin_inset Formula $s>t\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, un grafo 
+\begin_inset Formula $G$
+\end_inset
+
+ de orden al menos 3 es conexo si y sólo si contiene dos nodos 
+\begin_inset Formula $u\neq v$
+\end_inset
+
+ tales que 
+\begin_inset Formula $G-u$
+\end_inset
+
+ y 
+\begin_inset Formula $G-v$
+\end_inset
+
+ son conexos.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+ con 
+\begin_inset Formula $d(u,v)=\text{diám}G$
+\end_inset
+
+, y queremos ver que 
+\begin_inset Formula $G-u$
+\end_inset
+
+ y 
+\begin_inset Formula $G-v$
+\end_inset
+
+ son conexos.
+ Sea 
+\begin_inset Formula $P$
+\end_inset
+
+ una geodésica en 
+\begin_inset Formula $G$
+\end_inset
+
+ entre 
+\begin_inset Formula $i$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+, si 
+\begin_inset Formula $P$
+\end_inset
+
+ pasara por 
+\begin_inset Formula $u$
+\end_inset
+
+ sería 
+\begin_inset Formula $d(i,v)=d(i,u)+d(u,v)>d(u,v)=\text{diám}G\#$
+\end_inset
+
+, luego 
+\begin_inset Formula $P$
+\end_inset
+
+ está en 
+\begin_inset Formula $G-u$
+\end_inset
+
+, 
+\begin_inset Formula $G-u$
+\end_inset
+
+ es conexo y 
+\begin_inset Formula $G-v$
+\end_inset
+
+ también lo es por simetría.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $i,j\in V$
+\end_inset
+
+ con 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+, si 
+\begin_inset Formula $\{i,j\}\neq\{u,v\}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $i,j\neq u$
+\end_inset
+
+ o 
+\begin_inset Formula $i,j\neq v$
+\end_inset
+
+.
+ Si, por ejemplo, 
+\begin_inset Formula $i,j\neq u$
+\end_inset
+
+, 
+\begin_inset Formula $i$
+\end_inset
+
+ conecta con 
+\begin_inset Formula $j$
+\end_inset
+
+ en 
+\begin_inset Formula $G-u$
+\end_inset
+
+ y por tanto en 
+\begin_inset Formula $G$
+\end_inset
+
+, y si 
+\begin_inset Formula $i,j\neq v$
+\end_inset
+
+ es análogo.
+ Si 
+\begin_inset Formula $\{i,j\}=\{u,v\}$
+\end_inset
+
+, sea 
+\begin_inset Formula $k\in V\setminus\{u,v\}$
+\end_inset
+
+, 
+\begin_inset Formula $i$
+\end_inset
+
+ conecta con 
+\begin_inset Formula $k$
+\end_inset
+
+ y 
+\begin_inset Formula $k$
+\end_inset
+
+ con 
+\begin_inset Formula $j$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $i$
+\end_inset
+
+ conecta con 
+\begin_inset Formula $j$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Recorrido de componentes conexas
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $G:=(V,E)$
+\end_inset
+
+ un grafo de orden 
+\begin_inset Formula $n$
+\end_inset
+
+ con matriz de adyacencia 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{A}=\sum_{k=0}^{n-1}A^{k}$
+\end_inset
+
+, 
+\begin_inset Formula $i,j\in V$
+\end_inset
+
+ están en la misma componente conexa si y sólo si 
+\begin_inset Formula $\overline{a}_{ij}>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Como existe un camino de 
+\begin_inset Formula $i$
+\end_inset
+
+ a 
+\begin_inset Formula $j$
+\end_inset
+
+, existe 
+\begin_inset Formula $p\in\mathbb{N}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $(A^{p})_{ij}>0$
+\end_inset
+
+, y podemos tomar 
+\begin_inset Formula $p\leq n-1$
+\end_inset
+
+ porque la distancia máxima entre dos nodos es 
+\begin_inset Formula $n-1$
+\end_inset
+
+, dado que un camino mayor repetiría nodos.
+ Entonces, como 
+\begin_inset Formula $(A^{k})_{ij}\geq0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $\overline{a}_{ij}>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $\overline{a}_{ij}>0$
+\end_inset
+
+, como 
+\begin_inset Formula $(A^{k})_{ij}\geq0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+, existe 
+\begin_inset Formula $p\in\mathbb{N}$
+\end_inset
+
+ con 
+\begin_inset Formula $(A^{p})_{ij}>0$
+\end_inset
+
+ y por tanto un camino de 
+\begin_inset Formula $i$
+\end_inset
+
+ a 
+\begin_inset Formula $j$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+búsqueda en anchura
+\series default
+ (
+\series bold
+BFS
+\series default
+, 
+\series bold
+\emph on
+\lang english
+breadth-first search
+\series default
+\emph default
+\lang spanish
+), ideada 1945 por Konrad Zuse, consistente en visitar un nodo inicial,
+ a continuación los nodos adyacentes a él, después todos los adyacentes
+ a estos que no hayan sido ya explorados, etc.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+búsqueda en profundidad
+\series default
+ (
+\series bold
+DFS
+\series default
+, 
+\series bold
+\emph on
+\lang english
+depth-first-search
+\series default
+\emph default
+\lang spanish
+) es otro algoritmo para explorar una componente conexa.
+ En este, explorar un nodo consiste en visitarlo y explorar todos los nodos
+ adyacentes a este que no hayan sido visitados previamente, de forma recursiva,
+ y el algoritmo consiste en explorar el nodo inicial.
+\end_layout
+
+\begin_layout Section
+Conjuntos separadores
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ un grafo conexo.
+ 
+\begin_inset Formula $V'\subseteq V$
+\end_inset
+
+ es un 
+\series bold
+conjunto separador de vértices
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ si 
+\begin_inset Formula $G-V'$
+\end_inset
+
+ es disconexo, y un 
+\series bold
+conjunto 
+\begin_inset Formula $k$
+\end_inset
+
+-separador
+\series default
+ si además 
+\begin_inset Formula $|V'|=k$
+\end_inset
+
+.
+ Un 
+\series bold
+vértice de corte
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ es un 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\{v\}$
+\end_inset
+
+ es un conjunto separador de vértices de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Como 
+\series bold
+teorema
+\series default
+, 
+\begin_inset Formula $u\in V$
+\end_inset
+
+ es un vértice de corte de 
+\begin_inset Formula $G$
+\end_inset
+
+ si y sólo si existen 
+\begin_inset Formula $v,w\in V\setminus\{u\}$
+\end_inset
+
+ tales que cualquier camino de 
+\begin_inset Formula $v$
+\end_inset
+
+ a 
+\begin_inset Formula $w$
+\end_inset
+
+ pasa por 
+\begin_inset Formula $u$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si para todo 
+\begin_inset Formula $v,w\in V\setminus\{u\}$
+\end_inset
+
+ existiera un camino de 
+\begin_inset Formula $v$
+\end_inset
+
+ a 
+\begin_inset Formula $w$
+\end_inset
+
+ que no pasa por 
+\begin_inset Formula $u$
+\end_inset
+
+, 
+\begin_inset Formula $v$
+\end_inset
+
+ y 
+\begin_inset Formula $w$
+\end_inset
+
+ estarían conectados en 
+\begin_inset Formula $G-u$
+\end_inset
+
+ y 
+\begin_inset Formula $u$
+\end_inset
+
+ no sería vértice de corte.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+En 
+\begin_inset Formula $G-u$
+\end_inset
+
+ no hay ningún camino de 
+\begin_inset Formula $v$
+\end_inset
+
+ a 
+\begin_inset Formula $w$
+\end_inset
+
+, luego 
+\begin_inset Formula $G-u$
+\end_inset
+
+ es disconexo y 
+\begin_inset Formula $u$
+\end_inset
+
+ es un vértice de corte.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $|V|\geq2$
+\end_inset
+
+, 
+\begin_inset Formula $V$
+\end_inset
+
+ contiene al menos dos vértices que no son de corte.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $|V|=2$
+\end_inset
+
+ esto es claro, y si 
+\begin_inset Formula $|V|\geq3$
+\end_inset
+
+, existen 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+, 
+\begin_inset Formula $u\neq v$
+\end_inset
+
+, tales que 
+\begin_inset Formula $G-u$
+\end_inset
+
+ y 
+\begin_inset Formula $G-v$
+\end_inset
+
+ son conexos.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ un grafo conexo, si 
+\begin_inset Formula $V'\subsetneq V$
+\end_inset
+
+ es no vacío, llamamos 
+\begin_inset Formula $[V',V\setminus V']$
+\end_inset
+
+ al conjunto de ejes de 
+\begin_inset Formula $E$
+\end_inset
+
+ incidentes a un vértice de 
+\begin_inset Formula $V'$
+\end_inset
+
+ y a otro de 
+\begin_inset Formula $V\setminus V'$
+\end_inset
+
+.
+ Un conjunto de ejes de esta forma es un 
+\series bold
+corte
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+, y un corte de cardinal 
+\begin_inset Formula $k$
+\end_inset
+
+ es un 
+\series bold
+
+\begin_inset Formula $k$
+\end_inset
+
+-corte
+\series default
+.
+ Un 
+\series bold
+eje de corte
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ es un 
+\begin_inset Formula $e\in E$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\{e\}$
+\end_inset
+
+ es un corte de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E'\subseteq E$
+\end_inset
+
+ es un 
+\series bold
+conjunto separador de ejes
+\series default
+ si 
+\begin_inset Formula $G-E'$
+\end_inset
+
+ es disconexo, y 
+\begin_inset Formula $e\in E$
+\end_inset
+
+ es un 
+\series bold
+puente
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ si 
+\begin_inset Formula $\{e\}$
+\end_inset
+
+ es un conjunto separador de vértices de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Propiedades:
+\end_layout
+
+\begin_layout Enumerate
+Todo corte es un conjunto separador de ejes.
+ El recíproco no es cierto.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $E'=[V_{1},V_{2}]$
+\end_inset
+
+, todo camino de un 
+\begin_inset Formula $u\in V_{1}$
+\end_inset
+
+ a un 
+\begin_inset Formula $v\in V_{2}$
+\end_inset
+
+ contiene un eje que pasa de 
+\begin_inset Formula $V_{1}$
+\end_inset
+
+ a 
+\begin_inset Formula $V_{2}$
+\end_inset
+
+, que estará en 
+\begin_inset Formula $E'$
+\end_inset
+
+, luego 
+\begin_inset Formula $G-E'$
+\end_inset
+
+ es disconexo.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Todo conjunto separador de ejes contiene un corte.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $E'$
+\end_inset
+
+ un conjunto separador de ejes y 
+\begin_inset Formula $V'\subsetneq V$
+\end_inset
+
+ una componente conexa de 
+\begin_inset Formula $G-E'$
+\end_inset
+
+, ningún 
+\begin_inset Formula $(u,v)\in E\setminus E'$
+\end_inset
+
+ está en 
+\begin_inset Formula $[V',V\setminus V']$
+\end_inset
+
+ porque de estarlo, si por ejemplo 
+\begin_inset Formula $u\in V'$
+\end_inset
+
+ y 
+\begin_inset Formula $v\notin V'$
+\end_inset
+
+, 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ estarían en la misma componente conexa y 
+\begin_inset Formula $V'$
+\end_inset
+
+ no sería maximal, luego 
+\begin_inset Formula $E\setminus E'\subseteq E\setminus[V',V\setminus V']$
+\end_inset
+
+ y 
+\begin_inset Formula $[V',V\setminus V']\subseteq E'$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Un eje es un puente si y sólo si es un eje de corte.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ un grafo conexo.
+ Un corte 
+\begin_inset Formula $X$
+\end_inset
+
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\series bold
+minimal
+\series default
+ si no existe un corte 
+\begin_inset Formula $Y\subsetneq X$
+\end_inset
+
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Un 
+\series bold
+corte mínimo
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ es un corte de cardinal mínimo entre los cortes de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un corte minimal de 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $G-X$
+\end_inset
+
+ tiene exactamente dos componentes conexas.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $X=:[V',V\setminus V']$
+\end_inset
+
+ y 
+\begin_inset Formula $G-X$
+\end_inset
+
+ tiene 
+\begin_inset Formula $h\geq3$
+\end_inset
+
+ componentes conexas 
+\begin_inset Formula $V_{1},\dots,V_{h}$
+\end_inset
+
+, al menos 
+\begin_inset Formula $G_{V'}$
+\end_inset
+
+ o 
+\begin_inset Formula $G_{V\setminus V'}$
+\end_inset
+
+ tiene más de una componente conexa.
+ Si, por ejemplo, 
+\begin_inset Formula $V'=V_{1}\cup\dots\cup V_{t}$
+\end_inset
+
+ con 
+\begin_inset Formula $t\in\{2,\dots,h-1\}$
+\end_inset
+
+, 
+\begin_inset Formula $Y:=[V_{1},V\setminus V_{1}]$
+\end_inset
+
+ es un corte contenido estrictamente en 
+\begin_inset Formula $X$
+\end_inset
+
+, pues todo eje de 
+\begin_inset Formula $Y$
+\end_inset
+
+ irá de 
+\begin_inset Formula $V_{1}\subseteq V'$
+\end_inset
+
+ a 
+\begin_inset Formula $V\setminus V'$
+\end_inset
+
+ y, sin embargo, existen 
+\begin_inset Formula $u\in V_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $v\in V\setminus V'$
+\end_inset
+
+ con 
+\begin_inset Formula $(u,v)\in E$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $(u,v)\in X\setminus Y$
+\end_inset
+
+, pues de lo contrario, como 
+\begin_inset Formula $V_{2}$
+\end_inset
+
+ no conecta con 
+\begin_inset Formula $V_{1},V_{3},V_{4},\dots,V_{t}$
+\end_inset
+
+ ni con 
+\begin_inset Formula $V'$
+\end_inset
+
+, sería una componente conexa de 
+\begin_inset Formula $G$
+\end_inset
+
+, pero 
+\begin_inset Formula $G$
+\end_inset
+
+ es conexo.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ un grafo conexo, 
+\begin_inset Formula $e\in E$
+\end_inset
+
+ es un puente de 
+\begin_inset Formula $G$
+\end_inset
+
+ si y sólo si existen 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+ tales que todo camino de 
+\begin_inset Formula $u$
+\end_inset
+
+ a 
+\begin_inset Formula $v$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ pasa por 
+\begin_inset Formula $e$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $e$
+\end_inset
+
+ no pertenece a ningún ciclo de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ En particular, en un grafo conexo sin ciclos, cada eje es un puente.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Sean 
+\begin_inset Formula $[V_{1},V_{2}]:=\{e\}$
+\end_inset
+
+, 
+\begin_inset Formula $u\in V_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $v\in V_{2}$
+\end_inset
+
+, todo camino de 
+\begin_inset Formula $u$
+\end_inset
+
+ a 
+\begin_inset Formula $v$
+\end_inset
+
+ debe pasar por un eje que conecte 
+\begin_inset Formula $V_{1}$
+\end_inset
+
+ a 
+\begin_inset Formula $V_{2}$
+\end_inset
+
+, que será 
+\begin_inset Formula $e$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies3]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $e=:(u,v)$
+\end_inset
+
+, si hubiera un ciclo que contiene a 
+\begin_inset Formula $e$
+\end_inset
+
+, que podemos suponer de la forma 
+\begin_inset Formula $e_{1}\cdots e_{s}e$
+\end_inset
+
+ siendo 
+\begin_inset Formula $e_{1}\cdots e_{s}$
+\end_inset
+
+ un camino de 
+\begin_inset Formula $u$
+\end_inset
+
+ a 
+\begin_inset Formula $v$
+\end_inset
+
+, 
+\begin_inset Formula $e_{1},\dots,e_{s}\neq e$
+\end_inset
+
+, pero entonces todo par de vértices se podría conectar por un paseo que
+ no pase por 
+\begin_inset Formula $e$
+\end_inset
+
+ tomando un paseo arbitrario que los una y cambiando 
+\begin_inset Formula $e$
+\end_inset
+
+ por 
+\begin_inset Formula $e_{1}\cdots e_{s}$
+\end_inset
+
+ o por 
+\begin_inset Formula $e_{s}\cdots e_{1}\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies1]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $e=:(u,v)$
+\end_inset
+
+, si 
+\begin_inset Formula $G-e$
+\end_inset
+
+ fuera conexo, existiría un camino 
+\begin_inset Formula $P$
+\end_inset
+
+ de 
+\begin_inset Formula $u$
+\end_inset
+
+ a 
+\begin_inset Formula $v$
+\end_inset
+
+ en 
+\begin_inset Formula $G-e$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $Pe$
+\end_inset
+
+ sería un ciclo que contiene a 
+\begin_inset Formula $e$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Conectividad en grafos
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $G$
+\end_inset
+
+ un grafo no vacío, la 
+\series bold
+conectividad
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa(G)$
+\end_inset
+
+, es el mínimo número de nodos que hay que quitar de 
+\begin_inset Formula $G$
+\end_inset
+
+ para que sea disconexo o trivial (de orden 1).
+ Así, si 
+\begin_inset Formula $G$
+\end_inset
+
+ es disconexo o trivial, 
+\begin_inset Formula $\kappa(G)=0$
+\end_inset
+
+, y si es completo de orden 
+\begin_inset Formula $n$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa(G)=n-1$
+\end_inset
+
+.
+ 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\series bold
+
+\begin_inset Formula $k$
+\end_inset
+
+-conexo
+\series default
+ si 
+\begin_inset Formula $\kappa(G)\geq k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+conectividad por ejes
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda(G)$
+\end_inset
+
+, es el menor número de ejes que hay que eliminar de 
+\begin_inset Formula $G$
+\end_inset
+
+ para que sea disconexo o trivial, de modo que 
+\begin_inset Formula $G$
+\end_inset
+
+ si es disconexo o trivial es 
+\begin_inset Formula $\lambda(G)=0$
+\end_inset
+
+ y si es conexo y tiene un puente es 
+\begin_inset Formula $\lambda(G)=1$
+\end_inset
+
+.
+ 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\series bold
+
+\begin_inset Formula $k$
+\end_inset
+
+-conexo por ejes
+\series default
+ si 
+\begin_inset Formula $\lambda(G)\geq k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un grafo no vacío, 
+\begin_inset Formula $\kappa(G)\leq\lambda(G)\leq\delta(G)$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $v$
+\end_inset
+
+ es un nodo con 
+\begin_inset Formula $o(v)=\delta(G)$
+\end_inset
+
+, quitando los 
+\begin_inset Formula $o(v)$
+\end_inset
+
+ ejes adyacentes a 
+\begin_inset Formula $v$
+\end_inset
+
+, 
+\begin_inset Formula $G$
+\end_inset
+
+ queda disconexo, luego 
+\begin_inset Formula $\lambda(G)\leq\delta(G)$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es disconexo o trivial, 
+\begin_inset Formula $\kappa(G)=\lambda(G)=0$
+\end_inset
+
+.
+ En otro caso, sean 
+\begin_inset Formula $n$
+\end_inset
+
+ el orden de 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $X$
+\end_inset
+
+ un corte mínimo de 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $V_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $V_{2}$
+\end_inset
+
+ las dos componentes conexas de 
+\begin_inset Formula $G-X$
+\end_inset
+
+ y 
+\begin_inset Formula $q:=|V_{1}|$
+\end_inset
+
+.
+ Si en 
+\begin_inset Formula $G$
+\end_inset
+
+ todo vértice de 
+\begin_inset Formula $V_{1}$
+\end_inset
+
+ es adyacente a todo vértice de 
+\begin_inset Formula $V_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $|X|=q(n-q)$
+\end_inset
+
+, luego 
+\begin_inset Formula 
+\[
+|X|-(n-1)=qn-q^{2}-n+1=n(q-1)-(q+1)(q-1)=(q-1)(n-q-1)\geq0,
+\]
+
+\end_inset
+
+pues 
+\begin_inset Formula $1\leq q\leq n-1$
+\end_inset
+
+, luego 
+\begin_inset Formula $|X|\geq n-1$
+\end_inset
+
+ y, como 
+\begin_inset Formula $|X|$
+\end_inset
+
+ es mínimo, 
+\begin_inset Formula $\lambda(G)\geq n-1$
+\end_inset
+
+, pero quitando 
+\begin_inset Formula $n-1$
+\end_inset
+
+ vértices queda un grafo trivial y por tanto 
+\begin_inset Formula $\kappa(G)\leq n-1$
+\end_inset
+
+, luego 
+\begin_inset Formula $\kappa(G)\leq\lambda(G)$
+\end_inset
+
+.
+ De lo contrario existen 
+\begin_inset Formula $u\in V_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $v\in V_{2}$
+\end_inset
+
+ no adyacentes, y llamando 
+\begin_inset Formula $V'$
+\end_inset
+
+ a un conjunto de nodos resultante de elegir para cada 
+\begin_inset Formula $e\in X$
+\end_inset
+
+ uno de los nodos adyacentes a 
+\begin_inset Formula $e$
+\end_inset
+
+ distinto de 
+\begin_inset Formula $u$
+\end_inset
+
+ y de 
+\begin_inset Formula $v$
+\end_inset
+
+, 
+\begin_inset Formula $|V'|\leq|X|=\lambda(G)$
+\end_inset
+
+ y, en 
+\begin_inset Formula $G-V'$
+\end_inset
+
+, 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ no están conectados, pues todo camino de 
+\begin_inset Formula $u$
+\end_inset
+
+ a 
+\begin_inset Formula $v$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ hay un eje que va de 
+\begin_inset Formula $V_{1}$
+\end_inset
+
+ a 
+\begin_inset Formula $V_{2}$
+\end_inset
+
+, el cual hemos quitado al eliminar uno de los nodos adyacentes, por lo
+ que 
+\begin_inset Formula $\kappa(G)\leq|V'|\leq\lambda(G)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Teorema de Menger
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ un grafo conexo y 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+, 
+\begin_inset Formula $S\subseteq V$
+\end_inset
+
+ 
+\series bold
+separa
+\series default
+ a 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ si 
+\begin_inset Formula $G-S$
+\end_inset
+
+ es disconexo y 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ pertenecen a distintas componentes conexas.
+ Los caminos 
+\begin_inset Formula $P_{1},\dots,P_{h}$
+\end_inset
+
+ de 
+\begin_inset Formula $u$
+\end_inset
+
+ a 
+\begin_inset Formula $v$
+\end_inset
+
+ son 
+\series bold
+internamente disjuntos
+\series default
+ si, para 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+, 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $P_{h}$
+\end_inset
+
+ tienen a 
+\begin_inset Formula $u$
+\end_inset
+
+ y a 
+\begin_inset Formula $v$
+\end_inset
+
+ como únicos vértices en común.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Menger:
+\series default
+ si 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ no son adyacentes, el cardinal de un conjunto de menor tamaño que separa
+ 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ coincide con el máximo número de caminos entre 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ internamente disjuntos.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Whitney:
+\series default
+ 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\begin_inset Formula $k$
+\end_inset
+
+-conexo si y sólo si para 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+ distintos hay al menos 
+\begin_inset Formula $k$
+\end_inset
+
+ caminos internamente disjuntos entre 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $G\cong K_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa(G)=n-1$
+\end_inset
+
+ y estos 
+\begin_inset Formula $n-1$
+\end_inset
+
+ caminos son 
+\begin_inset Formula $uv$
+\end_inset
+
+ y 
+\begin_inset Formula $uiv$
+\end_inset
+
+ para 
+\begin_inset Formula $i\neq u,v$
+\end_inset
+
+.
+ En otro caso 
+\begin_inset Formula $G$
+\end_inset
+
+ no es completo.
+ Si 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ no son adyacentes, sea 
+\begin_inset Formula $U$
+\end_inset
+
+ el conjunto de menor tamaño que separa 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+, como 
+\begin_inset Formula $G-U$
+\end_inset
+
+ es disconexo, 
+\begin_inset Formula $|U|\geq k$
+\end_inset
+
+, y por el teorema de Menger hay 
+\begin_inset Formula $k$
+\end_inset
+
+ caminos internamente disjuntos entre 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $e:=(u,v)\in E$
+\end_inset
+
+, como 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\begin_inset Formula $k$
+\end_inset
+
+-conexo, 
+\begin_inset Formula $G-e$
+\end_inset
+
+ es 
+\begin_inset Formula $k-1$
+\end_inset
+
+ conexo, luego existen al menos 
+\begin_inset Formula $k-1$
+\end_inset
+
+ caminos internamente disjuntos entre 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ en 
+\begin_inset Formula $G-e$
+\end_inset
+
+ y, por tanto, existen 
+\begin_inset Formula $k$
+\end_inset
+
+ caminos internamente disjuntos entre 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ añadiendo el camino 
+\begin_inset Formula $uv$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $S$
+\end_inset
+
+ un conjunto separador de vértices de tamaño mínimo y 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ en distintas componentes conexas de 
+\begin_inset Formula $G-S$
+\end_inset
+
+, como hay al menos 
+\begin_inset Formula $k$
+\end_inset
+
+ caminos internamente disjuntos entre 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+, por el teorema de Menger 
+\begin_inset Formula $|S|\geq k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Teorema de Menger para ejes
+\end_layout
+
+\begin_layout Standard
+Dado un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+, el 
+\series bold
+grafo en línea
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\begin_inset Formula $L(G):=(V^{L},E^{L})$
+\end_inset
+
+ dado por 
+\begin_inset Formula $V^{L}:=E$
+\end_inset
+
+ y 
+\begin_inset Formula $E^{L}:=\{(e,f):e\neq f,e\cap f\neq\emptyset\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Menger para ejes:
+\series default
+ Sean 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ un grafo conexo y 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+, el cardinal mínimo de un conjunto separador de ejes que separa 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ es el máximo número de caminos de 
+\begin_inset Formula $u$
+\end_inset
+
+ a 
+\begin_inset Formula $v$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ sin ejes comunes.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $x,y\notin{\cal P}(V)$
+\end_inset
+
+ y 
+\begin_inset Formula $G':=(V',E')$
+\end_inset
+
+ dado por 
+\begin_inset Formula $V':=V^{L}\dot{\cup}\{x,y\}$
+\end_inset
+
+ y 
+\begin_inset Formula $E':=E^{L}\cup\{((i,u),x)\}_{(i,u)\in E}\cup\{((j,v),y)\}_{(j,v)\in E}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado un camino 
+\begin_inset Formula $P$
+\end_inset
+
+ de 
+\begin_inset Formula $x$
+\end_inset
+
+ a 
+\begin_inset Formula $y$
+\end_inset
+
+, seleccionamos vértices de la siguiente manera: empezamos considerando
+ el vértice 
+\begin_inset Formula $u\in V$
+\end_inset
+
+ y elegimos el último vértice de 
+\begin_inset Formula $P$
+\end_inset
+
+ en 
+\begin_inset Formula $V'$
+\end_inset
+
+ que contenga a 
+\begin_inset Formula $u$
+\end_inset
+
+, digamos 
+\begin_inset Formula $(u,i)$
+\end_inset
+
+; entonces consideramos el vértice 
+\begin_inset Formula $i\in V$
+\end_inset
+
+ y elegimos el último vértice del camino posterior a 
+\begin_inset Formula $(u,i)$
+\end_inset
+
+ que contenga a 
+\begin_inset Formula $i$
+\end_inset
+
+, y así sucesivamente.
+ Como el resultado contendrá al último eje interno del camino, claramente
+ será la lista de ejes de un paseo de 
+\begin_inset Formula $u$
+\end_inset
+
+ a 
+\begin_inset Formula $v$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+, por lo que si hay un camino de 
+\begin_inset Formula $x$
+\end_inset
+
+ a 
+\begin_inset Formula $y$
+\end_inset
+
+ en 
+\begin_inset Formula $G'$
+\end_inset
+
+ hay uno de 
+\begin_inset Formula $u$
+\end_inset
+
+ a 
+\begin_inset Formula $v$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ y todo conjunto de ejes en 
+\begin_inset Formula $G$
+\end_inset
+
+ que separa 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ es un conjunto de vértices en 
+\begin_inset Formula $G'$
+\end_inset
+
+ que separa 
+\begin_inset Formula $x$
+\end_inset
+
+ y 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Recíprocamente, dado un camino de 
+\begin_inset Formula $u$
+\end_inset
+
+ a 
+\begin_inset Formula $v$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ con lista de ejes 
+\begin_inset Formula $e_{1}\cdots e_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $xe_{1}\cdots e_{k}y$
+\end_inset
+
+ es un paseo de 
+\begin_inset Formula $x$
+\end_inset
+
+ a 
+\begin_inset Formula $y$
+\end_inset
+
+, por lo que todo conjunto de vértices en 
+\begin_inset Formula $G'$
+\end_inset
+
+ que separa 
+\begin_inset Formula $x$
+\end_inset
+
+ e 
+\begin_inset Formula $y$
+\end_inset
+
+ es un conjunto de ejes en 
+\begin_inset Formula $G$
+\end_inset
+
+ que separa 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea ahora 
+\begin_inset Formula $X$
+\end_inset
+
+ un conjunto de ejes de menor tamaño que separa 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $X$
+\end_inset
+
+ es un conjunto de vértices de menor tamaño que separa 
+\begin_inset Formula $x$
+\end_inset
+
+ e 
+\begin_inset Formula $y$
+\end_inset
+
+, y por el teorema de Menger 
+\begin_inset Formula $|X|$
+\end_inset
+
+ es el máximo número de caminos internamente disjuntos entre 
+\begin_inset Formula $x$
+\end_inset
+
+ e 
+\begin_inset Formula $y$
+\end_inset
+
+ en 
+\begin_inset Formula $G'$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $P$
+\end_inset
+
+ un conjunto de 
+\begin_inset Formula $|X|$
+\end_inset
+
+ caminos internamente disjuntos entre 
+\begin_inset Formula $x$
+\end_inset
+
+ e 
+\begin_inset Formula $y$
+\end_inset
+
+, reemplazando cada uno por un subcamino cuya lista de vértices es la lista
+ de ejes de un paseo de 
+\begin_inset Formula $u$
+\end_inset
+
+ a 
+\begin_inset Formula $v$
+\end_inset
+
+, que sabemos que existe, nos queda un conjunto de 
+\begin_inset Formula $|X|$
+\end_inset
+
+ caminos internamente disjuntos, por lo que hay 
+\begin_inset Formula $|X|$
+\end_inset
+
+ paseos sin ejes comunes y por tanto 
+\begin_inset Formula $|X|$
+\end_inset
+
+ caminos sin ejes comunes.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Whitney para ejes:
+\series default
+ 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ es 
+\begin_inset Formula $k$
+\end_inset
+
+-conexo por ejes si y sólo si para 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+ distintos existen al menos 
+\begin_inset Formula $k$
+\end_inset
+
+ caminos en 
+\begin_inset Formula $G$
+\end_inset
+
+ entre 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ sin ejes comunes.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $G\cong K_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda(G)=n-1$
+\end_inset
+
+ y estos 
+\begin_inset Formula $n-1$
+\end_inset
+
+ caminos son 
+\begin_inset Formula $uv$
+\end_inset
+
+ y 
+\begin_inset Formula $uiv$
+\end_inset
+
+ para 
+\begin_inset Formula $i\neq u,v$
+\end_inset
+
+.
+ En otro caso 
+\begin_inset Formula $G$
+\end_inset
+
+ no es completo.
+ Si 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ no son adyacentes, sea 
+\begin_inset Formula $S$
+\end_inset
+
+ el conjunto de ejes de menor tamaño que separa 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+, como 
+\begin_inset Formula $G-S$
+\end_inset
+
+ es disconexo, 
+\begin_inset Formula $|S|\geq k$
+\end_inset
+
+, y por el teorema de Menger para ejes hay 
+\begin_inset Formula $k$
+\end_inset
+
+ caminos sin ejes comunes entre 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $e:=(u,v)\in E$
+\end_inset
+
+, como 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\begin_inset Formula $k$
+\end_inset
+
+-conexo por ejes, 
+\begin_inset Formula $G-e$
+\end_inset
+
+ es 
+\begin_inset Formula $k-1$
+\end_inset
+
+ conexo por ejes, luego existen al menos 
+\begin_inset Formula $k-1$
+\end_inset
+
+ caminos sin ejes comunes entre 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ en 
+\begin_inset Formula $G-e$
+\end_inset
+
+ y basta añadir el camino 
+\begin_inset Formula $uv$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $S$
+\end_inset
+
+ un conjunto separador de ejes de tamaño mínimo y 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ en distintas componentes conexas de 
+\begin_inset Formula $G-S$
+\end_inset
+
+, como hay al menos 
+\begin_inset Formula $k$
+\end_inset
+
+ caminos internamente disjuntos entre 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+, por el teorema de Menger para ejes 
+\begin_inset Formula $|S|\geq k$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
