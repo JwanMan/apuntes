@@ -1102,24 +1102,6 @@ Sea
 \end_inset
 
 .
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\begin{align*}
-\sum_{i=1}^{k}o(i) & =\sum_{i=1}^{k}|\{j\in N(i):j\leq k\}|+\sum_{i=1}^{k}|\{j\in N(i):j>k\}|\\
- & =\sum_{i=1}^{k}o_{G_{\{1,\dots,k\}}}|N(i)|+\sum_{j=k+1}^{n}|\{i\in N(j):i\leq k\}|\leq2\binom{k}{2}+\sum_{j=k+1}^{n}\min\{k,d_{j}\}.
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
@@ -1896,11 +1878,15 @@ camino
 \series bold
 cadena
 \series default
- es un paseo en que 
-\begin_inset Formula $\forall i,j\in\{0,\dots,k\},(i\neq j\land\{i,j\}\neq\{0,k\}\implies v_{i}\neq v_{j})$
+ es un paseo en que
+\begin_inset Formula 
+\[
+\forall i,j\in\{0,\dots,k\},(i\neq j\land\{i,j\}\neq\{0,k\}\implies v_{i}\neq v_{j}),
+\]
+
 \end_inset
 
-, y un 
+ y un 
 \series bold
 ciclo
 \series default
@@ -2038,10 +2024,17 @@ matriz de adyacencia
 \end_inset
 
  dada por 
-\begin_inset Formula $a_{ij}:=\chi_{E}(i,j)$
+\begin_inset Formula 
+\[
+a_{ij}:=\left\{ \begin{aligned}1, & (i,j)\in E;\\
+0, & \text{en otro caso}.
+\end{aligned}
+\right.
+\]
+
 \end_inset
 
-.Como 
+Como 
 \series bold
 teorema
 \series default
@@ -2144,11 +2137,18 @@ matriz de incidencia
 \begin_inset Formula $(b_{ij})_{ij}\in{\cal M}_{n\times m}(\mathbb{Z})$
 \end_inset
 
- dada por 
-\begin_inset Formula $b_{ij}:=\chi_{\{(i,j):i\in e_{j}\}}(i,j)$
+ dada por
+\begin_inset Formula 
+\[
+b_{ij}:=\left\{ \begin{aligned}1, & i\in e_{j};\\
+0, & \text{en otro caso}.
+\end{aligned}
+\right.
+\]
+
 \end_inset
 
-.
+
 \end_layout
 
 \end_body
