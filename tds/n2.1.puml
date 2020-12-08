@@ -1,0 +1,9 @@
+@startuml
+participant ":Cart" as Cart
+participant ":CartItem" as CartItem
+participant ":Product" as Product
+
+[-> Cart : getPrice()
+Cart -> CartItem : [*] getProduct()
+Cart-> Product : [*] getPrice()
+@enduml

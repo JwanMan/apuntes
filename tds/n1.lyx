@@ -761,6 +761,16 @@ numeración jerárquica
 .2, etc., de forma recursiva.
 \end_layout
 
+\begin_layout Standard
+Si hay varios objetos del mismo tipo que reciben igual tratamiento, se pueden
+ representar como un solo objeto con varios recuadros de igual tamaño apilados
+ detrás.
+ Si se quiere indicar que un usuario causaría el envío de un mensaje o recibiría
+ información de mensajes pero no se quiere representar a través de qué objeto,
+ el objeto se puede sustituir por un monigote que simboliza un usuario de
+ forma abstracta.
+\end_layout
+
 \begin_layout Subsection
 Diagramas de secuencia
 \end_layout
@@ -905,6 +915,501 @@ ref
 \family default
 ): El cuerpo (el interior del recuadro salvo el nombre) se sustituye por
  el nombre de otra interacción, que es la que se ejecuta.
+\end_layout
+
+\begin_layout Section
+Patrones GRASP
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+1.9 Pure fabrication 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los objetos de una clase conocen sus datos privados y realizan acciones
+ sobre ellos, como cálculos o creación de otros objetos, y para ello pueden
+ iniciar acciones en otros objetos y coordinarlas.
+ Los 
+\series bold
+patrones GRASP
+\series default
+ ayudan a decidir cómo distribuir responsabilidades entre las clases de
+ un programa, implementando cada responsabilidad mediante uno o más métodos
+ de una o más clases según el tamaño de esta.
+\end_layout
+
+\begin_layout Subsection
+Bajo acoplamiento
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+acoplamiento
+\series default
+ es el nivel de dependencia directa entre distintas clases.
+ Hay acoplamiento entre las clases 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ si 
+\begin_inset Formula $A$
+\end_inset
+
+ posee un atributo de tipo 
+\begin_inset Formula $B$
+\end_inset
+
+, tiene un método con algún parámetro o valor de retorno de tipo 
+\begin_inset Formula $B$
+\end_inset
+
+, es subclase directa o indirecta de 
+\begin_inset Formula $B$
+\end_inset
+
+ o implementa la interfaz 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Reducir el acoplamiento favorece la reutilización, la comprensión y el
+ mantenimiento del código.
+\end_layout
+
+\begin_layout Subsection
+Alta cohesión
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+cohesión
+\series default
+ es el grado de relación entre los elementos de un mismo módulo, como los
+ métodos de una clase, las clases de un paquete, etc.
+ Aumentarla favorece la reutilización, la comprensión y el mantenimiento
+ del código.
+\end_layout
+
+\begin_layout Subsection
+Experto en información
+\end_layout
+
+\begin_layout Standard
+Se asigna una responsabilidad a la clase que tiene la información necesaria
+ para cumplirla.
+ Las responsabilidades se distribuyen de forma homogénea, evitando crear
+ 
+\series bold
+clases dios
+\series default
+ que acaparan varias responsabilidades poco relacionadas.
+ Esto favorece un bajo acoplamiento y una alta cohesión.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfil 
+\end_layout
+
+\end_inset
+
+
+\begin_inset External
+	template RasterImage
+	filename n2.1.png
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfil 
+\end_layout
+
+\end_inset
+
+
+\begin_inset External
+	template RasterImage
+	filename n2.2.png
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfil
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A la izquierda, un ejemplo de programa que no cumple el patrón experto.
+ A la derecha, el mismo programa tras aplicar el patrón experto.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+principio 
+\begin_inset Quotes cld
+\end_inset
+
+no hables con extraños
+\begin_inset Quotes crd
+\end_inset
+
+
+\series default
+ desaconseja enviar mensajes a objetos obtenidos de forma indirecta (a través
+ de mensajes a otros objetos) y recorrer largos caminos en la estructura
+ de objetos, pues esto causa un diseño frágil ante cambios.
+\end_layout
+
+\begin_layout Subsection
+Creador
+\end_layout
+
+\begin_layout Standard
+Una clase 
+\begin_inset Formula $A$
+\end_inset
+
+ tiene la responsabilidad de crear instancias de 
+\begin_inset Formula $B$
+\end_inset
+
+ si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un agregado de instancias de 
+\begin_inset Formula $B$
+\end_inset
+
+, contiene o registra instancias de 
+\begin_inset Formula $B$
+\end_inset
+
+, hace un uso específico de instancias de 
+\begin_inset Formula $B$
+\end_inset
+
+ o proporciona los datos necesarios para inicializar un objeto de 
+\begin_inset Formula $B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Controlador
+\end_layout
+
+\begin_layout Standard
+Dividir una aplicación en 
+\series bold
+capas
+\series default
+ que reúnen clases relacionadas con un mismo aspecto del sistema evita el
+ acoplamiento, permitiendo reutilizar código, desarrollar distintas capas
+ en paralelo y cambiar algo de una capa haciendo pocos o ningún cambio en
+ el resto.
+ La 
+\series bold
+arquitectura en 4 capas
+\series default
+ se divide en las siguientes 5 capas:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Presentación
+\series default
+: Muestra ventanas o similares, genera informes y recibe eventos del usuario.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Aplicación
+\series default
+: Mantiene una sesión, gestiona peticiones de la capa de presentación y
+ coordina las transiciones entre ventanas o similares.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Dominio
+\series default
+ o 
+\series bold
+negocio
+\series default
+: Gestiona peticiones de la capa de aplicación e implementa la lógica de
+ la aplicación y reglas de negocio.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Servicios técnicos
+\series default
+: Persistencia de los datos y otros servicios que pueda necesitar la capa
+ de dominio.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Base
+\series default
+: Bibliotecas y utilidades genéricas.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+arquitectura en 3 capas
+\series default
+ tiene capas de presentación, dominio y persistencia.
+ Es muy común, y en Java suele usarse con HTML y CSS para la capa de presentació
+n, 
+\lang english
+Spring
+\lang spanish
+ para la de dominio y 
+\lang english
+Hibernate
+\lang spanish
+ para la persistencia.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+La arquitectura MVC (Modelo-Vista-Controlador) consta de 3 capas que se
+ comunican de manera circular.
+ La vista obtiene sus datos del modelo a través de una interfaz e informa
+ de los eventos al controlador, el cual los procesa y los usa para modificar
+ el modelo o cambiar de vista.
+ El modelo recibe los datos del controlador e informa a la vista, que se
+ habrá registrado en el modelo mediante 
+\emph on
+listeners
+\emph default
+.
+ Con esto el modelo no sabe nada de la vista, aunque cada vista conoce la
+ interfaz de lectura proporcionada por la parte correspondiente del modelo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+separación modelo-vista
+\series default
+ consiste en que las clases del modelo o dominio no conozcan a las de la
+ vista o presentación, ni viceversa, lo que favorece la cohesión, permite
+ desarrollar la vista y el dominio en paralelo y permite conectar otras
+ vistas al modelo, incluso simultáneamente, y ejecutar el modelo en un proceso
+ independiente a la capa de presentación.
+\end_layout
+
+\begin_layout Standard
+Una forma de conseguir esto es con un 
+\series bold
+controlador
+\series default
+, una clase que hace de intermediaria entre el código del modelo y la vista,
+ procesando los eventos que le llegan de la vista para actualizar el modelo
+ en consecuencia y actualizando la vista según la información del modelo.
+ 
+\end_layout
+
+\begin_layout Standard
+La vista solo contiene el código para mostrar lo que se le indique e informar
+ de los eventos, pero no conoce su significado y delega todo el procesamiento
+ en el controlador.
+ El controlador entonces lee los datos necesarios de la vista y realiza
+ la acción correspondiente en el modelo.
+\end_layout
+
+\begin_layout Subsection
+Polimorfismo
+\end_layout
+
+\begin_layout Standard
+Cuando se requiere una misma funcionalidad de varias clases o clases no
+ previstas, se define una interfaz que provea esa funcionalidad y se usan
+ objetos de la interfaz, facilitando añadir nuevas alternativas.
+ Se programa 
+\series bold
+hacia la interfaz
+\series default
+, evitando declarar variables de clases concretas y usando patrones de creación
+ para conseguir un sistema basado en interfaces y no en implementaciones
+ concretas.
+\end_layout
+
+\begin_layout Subsection
+Indirección
+\end_layout
+
+\begin_layout Standard
+Cuando no sea deseable un acoplamiento directo entre dos clases, crear una
+ clase intermediaria que proporcione una interfaz más adecuada a cada parte.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Teorema Fundamental de la Ingeniería de Software: Todo problema se puede
+ solucionar con un nivel más de indirección, salvo el problema de demasiados
+ niveles de indirección.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Variaciones protegidas
+\end_layout
+
+\begin_layout Standard
+Proteger a elementos del código de las variaciones de otros elementos, por
+ ejemplo mediante interfaces.
+ Algunos principios para esto:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Principio de ocultación de la información
+\series default
+: Ocultar los detalles de implementación al cliente, por ejemplo, declarando
+ los atributos privados y ofreciendo métodos para acceder a ellos y modificarlos.
+ Esto permite establecer restricciones sobre los valores de los atributos
+ en los 
+\emph on
+\lang english
+setters
+\emph default
+\lang spanish
+ y cambiar la representación de los datos sin afectar al código cliente,
+ así como ejecutar efectos colaterales como notificar de los cambios a otros
+ objetos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Principio de acceso uniforme
+\series default
+: Ofrecer una sintaxis uniforme que no distinga si los valores son almacenados
+ en el objeto o calculados.
+ Esto es soportado por Eiffel y C#, y favorece que una responsabilidad implement
+ada como un método pase a ser un atributo sin afectar a la ocultación de
+ información.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Principio de sustitución de Liskov
+\series default
+: Una variable de un tipo debe poder contener un valor de cualquier subclase
+ de este, por lo que las subclases deben ser semánticamente consistentes
+ con la superclase.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Principio abierto-cerrado
+\series default
+: Un módulo debe ser abierto para extensión, pudiendo añadir nueva funcionalidad
+, pero cerrado para modificación, para que el código que dependa del módulo
+ siga funcionando.
+\end_layout
+
+\begin_layout Section
+Composición y herencia
+\end_layout
+
+\begin_layout Standard
+Para añadir variabilidad a una clase, podemos definir una subclase de esta
+ clase, pero en general esto hace que la subclase dependa de los detalles
+ de implementación de la superclase para funcionar correctamente, rompiendo
+ la encapsulación y haciendo que la subclase sea más difícil de comprender
+ y pueda fallar por cambios en la implementación de la superclase.
+\end_layout
+
+\begin_layout Standard
+Por ello en general es preferible la composición: hacer que la clase acepte
+ parámetros de alguna interfaz y, para implementar variabilidad, crear una
+ subclase de la interfaz, o bien crear un nuevo tipo basado en el original
+ y generalmente con la misma funcionalidad pero añadiendo la funcionalidad
+ deseada.
 \end_layout
 
 \end_body
