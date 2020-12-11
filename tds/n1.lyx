@@ -243,7 +243,12 @@ estereotipo
 \end_layout
 
 \begin_layout Standard
-Los atributos se expresan cada uno en una línea como [
+Los atributos se expresan cada uno en una línea como
+\end_layout
+
+\begin_layout Standard
+\align center
+[
 \family sans
 \emph on
 visibilidad
@@ -270,7 +275,23 @@ multiplicidad
 \emph default
 ]
 \family default
-], donde 
+], 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent 
+\end_layout
+
+\end_inset
+
+donde 
 \family sans
 \emph on
 visibilidad
@@ -390,6 +411,7 @@ Dependencia
 \begin_inset External
 	template RasterImage
 	filename n1.1.png
+	scale 50
 
 \end_inset
 
@@ -411,6 +433,7 @@ Generalización
 \begin_inset External
 	template RasterImage
 	filename n1.2.png
+	scale 50
 
 \end_inset
 
@@ -435,6 +458,7 @@ Asociación
 \begin_inset External
 	template RasterImage
 	filename n1.3.png
+	scale 50
 
 \end_inset
 
@@ -464,6 +488,7 @@ Agregación
 \begin_inset External
 	template RasterImage
 	filename n1.4.png
+	scale 50
 
 \end_inset
 
@@ -487,6 +512,7 @@ Composición
 \begin_inset External
 	template RasterImage
 	filename n1.5.png
+	scale 50
 
 \end_inset
 
@@ -508,6 +534,7 @@ Realización
 \begin_inset External
 	template RasterImage
 	filename n1.6.png
+	scale 50
 
 \end_inset
 
@@ -1044,6 +1071,7 @@ hfil
 \begin_inset External
 	template RasterImage
 	filename n2.1.png
+	scale 50
 
 \end_inset
 
@@ -1064,6 +1092,7 @@ hfil
 \begin_inset External
 	template RasterImage
 	filename n2.2.png
+	scale 50
 
 \end_inset
 
@@ -1250,8 +1279,10 @@ La arquitectura MVC (Modelo-Vista-Controlador) consta de 3 capas que se
  El modelo recibe los datos del controlador e informa a la vista, que se
  habrá registrado en el modelo mediante 
 \emph on
+\lang english
 listeners
 \emph default
+\lang spanish
 .
  Con esto el modelo no sabe nada de la vista, aunque cada vista conoce la
  interfaz de lectura proporcionada por la parte correspondiente del modelo.
@@ -1410,6 +1441,182 @@ Por ello en general es preferible la composición: hacer que la clase acepte
  subclase de la interfaz, o bien crear un nuevo tipo basado en el original
  y generalmente con la misma funcionalidad pero añadiendo la funcionalidad
  deseada.
+\end_layout
+
+\begin_layout Section
+Proceso de desarrollo de software
+\end_layout
+
+\begin_layout Standard
+Un proceso establece cómo construir software de forma sistemática mediante
+ etapas como el estudio de viabilidad, el análisis de requisitos, el diseño
+ de la solución, la implementación, la fase de pruebas, el despliegue y
+ el mantenimiento.
+ Tipos de métodos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Pesados
+\series default
+: Predictivos en vez de adaptativos, con planificación detallada a largo
+ plazo y un ambiente burocrático con rigidez y control.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Un ejemplo es 
+\series bold
+RUP
+\series default
+ (
+\series bold
+\emph on
+\lang english
+Rational Unified Process
+\series default
+\emph default
+\lang spanish
+), que usa modelos UML en cada etapa e intentó convertirse en estándar de
+ facto.
+ Muchos decían usarlo pero esto era poco creíble, y actualmente el interés
+ es escaso.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Ágiles
+\series default
+: Enfocados a responder a los cambios en vez de planificar con antelación,
+ centrándose en las relaciones entre personas y colaborando con los clientes
+ en todo el proceso.
+ Priorizan trabajar con el software frente a realizar modelos, pues en muchos
+ dominios la calidad y la productividad dependen de las buenas prácticas,
+ técnicas y herramientas y no del uso de modelos.
+ Muy usados, adecuados para proyectos de no más de 10 personas-año.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Un ejemplo es el 
+\series bold
+\emph on
+\lang english
+Extreme Programming
+\series default
+\emph default
+\lang spanish
+ (
+\series bold
+XP
+\series default
+).
+ Scrum y Kanban son muy usados.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+El 
+\series bold
+diseño dirigido por dominio
+\series default
+ (
+\series bold
+DDD
+\series default
+) es la creación y el uso de un modelo del dominio para guiar el diseño
+ y la implementación del resto del sistema.
+ En este, un analista y un experto en el dominio representan con gráficos
+ o texto el conocimiento sobre el dominio en un lenguaje compartido orientado
+ a la creación de código, normalmente como un modelo entidad-relación en
+ que las entidades son clases y las relaciones son asociaciones entre ellas.
+\end_layout
+
+\begin_layout Standard
+Se consideran objetos de varios tipos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Entidades
+\series default
+, objetos con una identidad que se mantiene a lo largo de la vida del sistema.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Objetos valor
+\series default
+, que no tienen una identidad, pueden ser compartidos y deberían ser inmutables.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Servicios
+\series default
+, que encapsulan un proceso o transformación en el dominio que no es una
+ responsabilidad natural de ningún objeto valor o entidad.
+\end_layout
+
+\begin_layout Standard
+Las clases se agrupan en 
+\series bold
+módulos
+\series default
+ para dominar la complejidad y favorecer la cohesión, con una fachada para
+ reducir el acoplamiento.
+ Un 
+\series bold
+agregado
+\series default
+ es un grupo de objetos relacionados que se consideran como una unidad,
+ y al que se accede a través de un objeto raíz que es una entidad y controla
+ que el resto de objetos satisfagan los invariantes del agregado.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+repositorio
+\series default
+ o 
+\series bold
+catálogo
+\series default
+ es un objeto que encapsula la lógica para buscar, recuperar, añadir, eliminar
+ entidades, aunque no se encarga de crearlas.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Refactorizar
+\series default
+ código es hacer un cambio al código para mejorar su calidad o añadirle
+ nuevos conceptos sin cambiar el comportamientos.
+ Son 
+\series bold
+técnicos
+\series default
+ si mejoran la calidad del código mediante 
+\emph on
+\lang english
+refactorings
+\emph default
+\lang spanish
+ como extraer o mover un método, eliminar una comprobación explícita de
+ tipo, dividir una clase, etc., o 
+\series bold
+de dominio
+\series default
+ si mejoran el modelo del dominio para añadir nuevos conceptos.
 \end_layout
 
 \end_body
