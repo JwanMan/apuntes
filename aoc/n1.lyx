@@ -179,7 +179,26 @@ densidad de integración
  Estos transistores se usan para aumentar los recursos del chip mediante
  paralelismo y cachés, por lo que los programas limitados por CPU aumentaban
  su velocidad de forma cuadrática sin cambios.
- No obstante, actualmente esto plantea varios problemas.
+ Por ejemplo, la empresa de procesadores Intel evoluciona sus diseños en
+ dos pasos: una fase 
+\emph on
+\lang english
+tick
+\emph default
+\lang spanish
+ en la que disminuye el tamaño de los componentes, optimiza el diseño de
+ los núcleos y aprovecha el aumento en densidad de transistores para conseguir
+ mejor rendimiento y eficiencia energética, y una fase 
+\emph on
+\lang english
+tock
+\emph default
+\lang spanish
+ en la que diseña una nueva arquitectura y amplia la ISA.
+\end_layout
+
+\begin_layout Standard
+No obstante, actualmente esto plantea varios problemas.
 \end_layout
 
 \begin_layout Section
@@ -417,6 +436,114 @@ disponibilidad
 \end_layout
 
 \begin_layout Section
+Medidas de rendimiento
+\end_layout
+
+\begin_layout Standard
+Podemos medir el rendimiento de un procesador por el tiempo de ejecución
+ de algún programa o su productividad o 
+\emph on
+\lang english
+throughput
+\emph default
+\lang spanish
+ (operaciones de algún tipo por unidad de tiempo).
+ Se puede usar el tiempo de ejecución real, que incluye la sobrecarga de
+ todo el sistema, o el tiempo de CPU usado para el cálculo.
+ La 
+\begin_inset Quotes cld
+\end_inset
+
+
+\series bold
+aceleración
+\series default
+
+\begin_inset Quotes crd
+\end_inset
+
+ de un procesador o un programa respecto a otro (funcionalmente equivalente)
+ es el tiempo de ejecución del segundo entre el del primero.
+ El 
+\series bold
+ancho de banda
+\series default
+ es el trabajo total realizado en un tiempo determinado, y la 
+\series bold
+latencia
+\series default
+ o 
+\series bold
+tiempo de respuesta
+\series default
+ es el tiempo entre el inicio y el final de una operación.
+\end_layout
+
+\begin_layout Standard
+Los 
+\series bold
+\emph on
+\lang english
+benchmarks
+\series default
+\emph default
+\lang spanish
+ son programas usados para comparar el rendimiento.
+ Hay de varios tipos: 
+\emph on
+\lang english
+kernels
+\emph default
+\lang spanish
+ (como multiplicación de matrices), programas de juguete (como ordenación
+ de elementos), 
+\emph on
+\lang english
+benchmarks
+\emph default
+\lang spanish
+ sintéticos (como Dhrystone) o suites de 
+\emph on
+\lang english
+benchmarks
+\emph default
+\lang spanish
+ como SPEC06fp o TPC-C.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+intensidad aritmética
+\series default
+ es el número de operaciones en coma flotante por byte u operando leído
+ de memoria para un cierto algoritmo.
+ El 
+\series bold
+modelo de rendimiento 
+\emph on
+\lang english
+Roofline
+\series default
+\emph default
+\lang spanish
+ consiste en medir el rendimiento de coma flotante en 
+\series bold
+FLOPS
+\series default
+ (operaciones de punto flotante por segundo) en función de la intensidad
+ aritmética, midiendo así tanto el ancho de banda de memoria como el rendimiento
+ de punto flotante.
+\end_layout
+
+\begin_layout Standard
+Algunos aspectos relevantes son la frecuencia de reloj, el número de transistore
+s, el tamaño de la caché de cada nivel, la cantidad de memoria direccionable,
+ el ancho de banda del bus de memoria, el número de núcleos por chip, el
+ tamaño de la litografía y el tamaño de los operandos.
+\end_layout
+
+\begin_layout Section
 Paralelismo
 \end_layout
 
@@ -565,113 +692,7 @@ Los clústeres y centros de datos usan memoria distribuida entre los ordenadores
  y vectorización SIMD.
 \end_layout
 
-\begin_layout Section
-Medidas de rendimiento
-\end_layout
-
-\begin_layout Standard
-Podemos medir el rendimiento de un procesador por el tiempo de ejecución
- de algún programa o su productividad o 
-\emph on
-\lang english
-throughput
-\emph default
-\lang spanish
- (operaciones de algún tipo por unidad de tiempo).
- Se puede usar el tiempo de ejecución real, que incluye la sobrecarga de
- todo el sistema, o el tiempo de CPU usado para el cálculo.
- La 
-\begin_inset Quotes cld
-\end_inset
-
-
-\series bold
-aceleración
-\series default
-
-\begin_inset Quotes crd
-\end_inset
-
- de un procesador o un programa respecto a otro (funcionalmente equivalente)
- es el tiempo de ejecución del segundo entre el del primero.
- El 
-\series bold
-ancho de banda
-\series default
- es el trabajo total realizado en un tiempo determinado, y la 
-\series bold
-latencia
-\series default
- o 
-\series bold
-tiempo de respuesta
-\series default
- es el tiempo entre el inicio y el final de una operación.
-\end_layout
-
-\begin_layout Standard
-Los 
-\series bold
-\emph on
-\lang english
-benchmarks
-\series default
-\emph default
-\lang spanish
- son programas usados para comparar el rendimiento.
- Hay de varios tipos: 
-\emph on
-\lang english
-kernels
-\emph default
-\lang spanish
- (como multiplicación de matrices), programas de juguete (como ordenación
- de elementos), 
-\emph on
-\lang english
-benchmarks
-\emph default
-\lang spanish
- sintéticos (como Dhrystone) o suites de 
-\emph on
-\lang english
-benchmarks
-\emph default
-\lang spanish
- como SPEC06fp o TPC-C.
-\end_layout
-
-\begin_layout Standard
-La 
-\series bold
-intensidad aritmética
-\series default
- es el número de operaciones en coma flotante por byte u operando leído
- de memoria para un cierto algoritmo.
- El 
-\series bold
-modelo de rendimiento 
-\emph on
-Roofline
-\series default
-\emph default
- consiste en medir el rendimiento de coma flotante en 
-\series bold
-FLOPS
-\series default
- (operaciones de punto flotante por segundo) en función de la intensidad
- aritmética, midiendo así tanto el ancho de banda de memoria como el rendimiento
- de punto flotante.
-\end_layout
-
-\begin_layout Standard
-Algunos aspectos relevantes son la frecuencia de reloj, el número de transistore
-s, el tamaño de la caché de cada nivel, la cantidad de memoria direccionable,
- el ancho de banda del bus de memoria, el número de núcleos por chip, el
- tamaño de la litografía y el tamaño de los operandos.
-\end_layout
-
-\begin_layout Section
+\begin_layout Subsection
 Límites del paralelismo
 \end_layout
 
@@ -754,6 +775,110 @@ Esto cambia los objetivos hacia la formulación de problemas para poder solucion
 r casos mayores en la misma cantidad de tiempo, de modo que a veces es preferibl
 e aumentar la cantidad total de cálculos a cambio de disminuir la parte
  secuencial.
+\end_layout
+
+\begin_layout Subsection
+Software paralelo
+\end_layout
+
+\begin_layout Standard
+Podemos usar 
+\series bold
+paralelismo de datos
+\series default
+, en que se ejecuta una misma tarea en varios datos a la vez, y 
+\series bold
+paralelismo de tareas
+\series default
+, en que se ejecutan distintas tareas a la vez.
+ No obstante, hay que tener en cuenta que comenzar un hilo o proceso, comunicar
+ datos compartidos, sincronizar o hacer computación redundante tiene un
+ coste en el rango de milisegundos.
+\end_layout
+
+\begin_layout Standard
+Debemos balancear la carga para evitar que haya núcleos rápidos esperando
+ a otros lentos y debemos gestionar los recursos compartidos de forma segura,
+ considerando estas cuestiones a la hora de decidir la granularidad de las
+ tareas y modelar el rendimiento.
+\end_layout
+
+\begin_layout Section
+Tipos de ordenadores
+\end_layout
+
+\begin_layout Standard
+Distinguimos:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ordenadores empotrados
+\series default
+, usados para controlar dispositivos, pequeños y baratos.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Móviles
+\series default
+, 
+\emph on
+\lang english
+tablets
+\emph default
+\lang spanish
+, etc.
+ Con más potencia pero enfocados en la eficiencia energética y una baja
+ latencia.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ordenadores de escritorio
+\series default
+: Enfocados en la relación rendimiento/precio.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Servidores
+\series default
+: Enfocados en la disponibilidad, la escalabilidad y el rendimiento.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\emph on
+\lang english
+Clusters
+\series default
+\emph default
+\lang spanish
+: Enfocados en disponibilidad y rendimiento/precio.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Supercomputadores
+\series default
+: Con gran velocidad en punto flotante, red de interconexión y consumo de
+ energía.
+ Se usan para ciencia, ingeniería, negocios y defensa.
+\end_layout
+
+\begin_layout Standard
+Se considera que el primer supercomputador es el CDC 6600, aunque el término
+ se acuñó para el Cray-1, un ordenador con arquitectura de carga y almacenamient
+o sin caché de datos ni memoria virtual y con control cableado, pero con
+ registros e instrucciones vectoriales, unidades funcionales muy segmentadas
+ y varios bancos de memoria.
 \end_layout
 
 \end_body
