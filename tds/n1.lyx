@@ -949,19 +949,6 @@ Patrones GRASP
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-1.9 Pure fabrication 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Los objetos de una clase conocen sus datos privados y realizan acciones
  sobre ellos, como cálculos o creación de otros objetos, y para ello pueden
  iniciar acciones en otros objetos y coordinarlas.
@@ -1423,6 +1410,16 @@ Principio abierto-cerrado
  siga funcionando.
 \end_layout
 
+\begin_layout Subsection
+Servicios
+\end_layout
+
+\begin_layout Standard
+Encapsulan un proceso o transformación en el dominio que no es una responsabilid
+ad natural de otra clase.
+ No tienen estado.
+\end_layout
+
 \begin_layout Section
 Composición y herencia
 \end_layout
@@ -1537,32 +1534,17 @@ DDD
 \end_layout
 
 \begin_layout Standard
-Se consideran objetos de varios tipos:
-\end_layout
-
-\begin_layout Itemize
-
+Los objetos se clasifican en 
 \series bold
-Entidades
+entidades
 \series default
-, objetos con una identidad que se mantiene a lo largo de la vida del sistema.
-\end_layout
-
-\begin_layout Itemize
-
+, objetos con una identidad que se mantiene a lo largo de la vida del sistema;
+ 
 \series bold
-Objetos valor
+objetos valor
 \series default
-, que no tienen una identidad, pueden ser compartidos y deberían ser inmutables.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Servicios
-\series default
-, que encapsulan un proceso o transformación en el dominio que no es una
- responsabilidad natural de ningún objeto valor o entidad.
+, que no tienen una identidad, pueden ser compartidos y deberían ser inmutables,
+ y servicios.
 \end_layout
 
 \begin_layout Standard
