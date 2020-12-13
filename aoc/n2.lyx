@@ -93,23 +93,7 @@ Para reducir por debajo de 1 los CPI de un núcleo del procesador, debemos
 \series bold
 Arquitecturas superescalares
 \series default
-: Lanzan un número variable de instrucciones por ciclo, de 0 a 8, planificadas
- de forma 
-\series bold
-estática
-\series default
- por el compilador y 
-\series bold
-dinámica
-\series default
- por el 
-\emph on
-\lang english
-hardware
-\emph default
-\lang spanish
-.
- La ejecución puede ser en orden o fuera de orden, especulativa o no.
+: Lanzan un número variable de instrucciones por ciclo, de 0 a 8.
 \end_layout
 
 \begin_layout Itemize
@@ -142,86 +126,86 @@ hardware
  del procesador, por lo que actualmente está casi en desuso.
 \end_layout
 
-\begin_layout Standard
-Un núcleo superescalar tiene un sistema de memoria de alto rendimiento y
- unidades funcionales redundantes, que administra con técnicas como:
-\end_layout
-
-\begin_layout Itemize
-Renombrado de registros para eliminar las dependencias de nombre.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Planificación dinámica
-\series default
-: Reorganizar la secuencia de instrucciones separando la decodificación
- de la comprobación de dependencias y la emisión.
-\end_layout
-
-\begin_layout Itemize
-Ejecución fuera de orden para mitigar la degradación de rendimiento por
- dependencias de datos.
-\end_layout
-
-\begin_layout Itemize
-Ejecución especulativa para mitigar los riesgos de control.
+\begin_layout Section
+Planificación
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
+Aunque la mayoría de compiladores reordenan las instrucciones para intentar
+ evitar riesgos, estos todavía pueden producirse.
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Standard
+Un núcleo con arquitectura superescalar tiene planificación 
+\series bold
+estática
+\series default
+ si, cuando encuentra un riesgo, detiene el cauce hasta que el riesgo desaparece
+, y tiene planificación 
+\series bold
+dinámica
+\series default
+ si reordena las instrucciones para evitar detenciones, lo que aumenta la
+ velocidad y reduce la necesidad del compilador de conocer la microarquitectura
+ a cambio de necesitar más recursos.
+ Con planificación dinámica, la ejecución es fuera de orden, y la terminación
+ puede ser en orden o fuera de orden.
+ La predicción de saltos es 
+\series bold
+estática
+\series default
+ si siempre predice el mismo resultado para el mismo salto o 
+\series bold
+dinámica
+\series default
+ en otro caso.
+\end_layout
 
+\begin_layout Standard
+Los núcleos superescalares normalmente tienen un sistema de memoria de alto
+ rendimiento y unidades funcionales redundantes, que administra con técnicas
+ como planificación dinámica, ejecución especulativa para mitigar riesgos
+ de control y renombrado de registros para mitigar las dependencias de nombre.
+\end_layout
+
+\begin_layout Section
+Algoritmo de Tomasulo
+\end_layout
+
+\begin_layout Standard
+El 
 \series bold
-Obtención de instrucciones
+algoritmo de R.
+ M.
+ Tomasulo
 \series default
- (
-\series bold
-IF
-\series default
-): Lee varias instrucciones por ciclo en orden y las añade a una 
+ de 1971 es un método de planificación dinámica con renombrado de registros.
+ En su versión con terminación en orden, usa:
+\end_layout
+
+\begin_layout Itemize
+Una 
 \series bold
 cola de instrucciones
 \series default
-, que suaviza los fallos de la caché de instrucciones.
- También hace 
-\emph on
-\lang english
-prefetching
-\emph default
-\lang spanish
- de instrucciones.
- La predicción de saltos de puede hacer aquí o en ID, y es estática si siempre
- se predice el mismo comportamiento para el mismo salto o dinámica si no.
+ a decodificar, que también suaviza los fallos de caché.
 \end_layout
 
-\begin_layout Enumerate
-
+\begin_layout Itemize
+Un 
 \series bold
-Decodificación
+\emph on
+\lang english
+buffer
+\emph default
+\lang spanish
+ de re-ordenación
 \series default
  (
-\series bold
-ID
-\series default
-): Decodifica varias instrucciones por ciclo en orden para conocer su tipo,
- las añade decodificadas en una 
-\series bold
-ventana de instrucciones
-\series default
- y renombra los registros para evitar riesgos.
- Si se quiere terminación en orden se almacenan las instrucciones en un
- 
 \series bold
 ROB
 \series default
- (
+, 
 \emph on
 \lang english
 Re-Order Buffer
@@ -233,10 +217,146 @@ Re-Order Buffer
 buffer
 \emph default
 \lang spanish
- circular FIFO que almacena las instrucciones y posteriormente los resultados
- hasta que se escriben en orden.
+ FIFO circular que almacena las instrucciones en curso
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Si el procesador usa micro-instrucciones, serán estas las que se añadan
+ al ROB.
 \end_layout
 
+\end_inset
+
+ y, cuando terminan de ejecutarse, también el valor calculado por ellas
+ si lo hay, así como las excepciones que surjan.
+\end_layout
+
+\begin_layout Itemize
+Un 
+\series bold
+estado de los registros
+\series default
+, que indica si el último valor de cada registro se debe tomar del ROB y,
+ en tal caso, de qué entrada.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Estaciones de reserva
+\series default
+ (
+\series bold
+ER
+\series default
+): Tablas asociadas a un grupo de unidades funcionales con las instrucciones
+ por ejecutar por dicho grupo, dados por un código de instrucción, la entrada
+ del ROB correspondiente y, para cada operando, su valor o la entrada del
+ ROB que lo producirá.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+\lang english
+Buffer
+\emph default
+\lang spanish
+ de carga
+\series default
+: Tabla con una serie de direcciones a cargar junto con la entrada del ROB
+ en la que cargarla.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Bus de resultados
+\series default
+ (
+\series bold
+CDB
+\series default
+, 
+\emph on
+\lang english
+Common Data Bus
+\emph default
+\lang spanish
+): Para transmitir los resultados al ROB y los ERs, implementando el adelantamie
+nto.
+\end_layout
+
+\begin_layout Standard
+Las instrucciones se segmentan en 6 etapas:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Obtención de instrucciones
+\series default
+ (
+\series bold
+IF
+\series default
+, 
+\series bold
+F
+\series default
+, 
+\emph on
+\lang english
+Instruction Fetch
+\emph default
+\lang spanish
+): Lee varias instrucciones por ciclo en orden y las añade a la cola de
+ instrucciones.
+ La predicción de saltos se puede hacer aquí o en ID.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Decodificación
+\series default
+ (
+\series bold
+ID
+\series default
+, 
+\series bold
+D
+\series default
+, 
+\emph on
+\lang english
+Instruction Decode
+\emph default
+\lang spanish
+): Decodifica varias instrucciones por ciclo para conocer su tipo, en orden.
+ Si hay una entrada libre en el ROB y una en el ER para la instrucción,
+ añade la instrucción al ROB y al ER.
+ Para cada operando, carga el valor en el ER desde el ROB o el banco de
+ registros según indique el estado del registro o, si este no ha sido calculado,
+ el número de la entrada del ROB donde estará.
+ Finalmente guarda el número de la entrada del ROB en el estado del registro
+ de destino, si lo hay.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Los algoritmos con terminación fuera de orden usan una 
+\series bold
+ventana de instrucciones
+\series default
+ en vez de un ROB.
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 
 \series bold
@@ -250,11 +370,15 @@ Issue
 \series default
 \emph default
 \lang spanish
-): Se comprueba que los operandos y recursos (unidades funcionales y puestos
- de E/S) de cada instrucción estén disponibles y, cuando lo están, se manda
- a ejecutar la instrucción.
- Puede ser fuera de orden, permitiendo que instrucciones cuyos operandos
- y recursos estén disponibles adelanten a otras más antiguas.
+): Fuera de orden.
+ Para cada ER, si un operando no está disponible, espera a que llegue por
+ el CDB para guardarlo en la ER.
+ En otro caso, si hay una unidad funcional disponible, le envía los operandos
+ para que ejecute la instrucción, y si no la hay espera.
+ Hay que asegurar que dos ERs no puedan enviar a la misma unidad funcional
+ a la vez.
+ Como mejora, se pueden usar técnicas como la predicción de valor o la reutiliza
+ción de valores.
 \end_layout
 
 \begin_layout Enumerate
@@ -270,15 +394,27 @@ EX
 \series bold
 X
 \series default
-): Fuera de orden, con varias unidades funcionales de cada tipo a ser posible
- totalmente segmentadas.
- Para que la latencia sea lo menor posible, se usa 
-\series bold
-adelantamiento
-\series default
-, difundiendo el resultado de una operación a las pendientes tan pronto
- esta termina, y técnicas como la predicción de valor o la reutilización
- de valores.
+, 
+\emph on
+\lang english
+Execute
+\emph default
+\lang spanish
+): Fuera de orden, preferiblemente con varias unidades funcionales de cada
+ tipo totalmente segmentadas, y llevando la cuenta de cuál es el destino
+ de la instrucción.
+ Los almacenamientos solo calculan la dirección.
+ Las cargas se dividen en las etapas X1, en que se calcula la dirección
+ de memoria, y X2, en que se accede a memoria, separadas por el 
+\emph on
+\lang english
+buffer
+\emph default
+\lang spanish
+ de carga.
+ Antes de una carga, se debe esperar a que los almacenamientos anteriores
+ en el ROB terminen, o a que se conozca su dirección de memoria y puede
+ que su valor, para evitar riesgos RAW de memoria.
 \end_layout
 
 \begin_layout Enumerate
@@ -286,15 +422,29 @@ adelantamiento
 \series bold
 Pos-escritura
 \series default
+ o 
+\series bold
+escritura
+\series default
  (
 \series bold
 WB
 \series default
-): Se difunden los resultados sobre un 
+, 
+\series bold
+W
+\series default
+, 
+\emph on
+\lang english
+Write-Back
+\emph default
+\lang spanish
+): Se difunden los resultados al 
 \series bold
 bus de resultados
 \series default
-, actualizando el ROB, del que otras instrucciones pueden tomar sus operandos.
+, actualizando el ROB y las ER, y se libera la ER.
  Los almacenamientos no hacen nada.
 \end_layout
 
@@ -311,14 +461,20 @@ Commit
 \series default
 \emph default
 \lang spanish
-): Actualiza el estado de la máquina (registros y almacenamientos en memoria)
- en orden de programa desde el ROB, comprobando también las excepciones.
- La terminación en orden facilita deshacer las instrucciones mal especuladas
- y tratar las excepciones.`
-\end_layout
-
-\begin_layout Section
-Algoritmo de Tomasulo
+): Toma varias instrucciones del ROB por ciclo, en orden.
+ Si una causa una excepción, vacía el ROB con las instrucciones siguientes,
+ guarda el contador de programa para la siguiente instrucción e invoca a
+ una rutina de manejo de excepciones.
+ En otro caso, si el estado del registro de destino indica la misma entrada
+ del ROB, escribe el resultado al banco de registros y borra el estado del
+ registro; si es un almacenamiento, escribe el dato en memoria, normalmente
+ a través de un 
+\emph on
+\lang english
+buffer
+\emph default
+\lang spanish
+ de almacenamiento, y finalmente borra la entrada del ROB.
 \end_layout
 
 \end_body
