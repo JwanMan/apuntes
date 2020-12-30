@@ -241,11 +241,90 @@ grafo
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-TODO Recordatorio del teorema de la función implícita.
+
+
+\backslash
+sremember{FVV3}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+[...][
+\series bold
+Teorema de la función implícita:
+\series default
+ Sean 
+\begin_inset Formula $F:D\subseteq(\mathbb{R}^{n}\times\mathbb{R}^{m})\to\mathbb{R}^{m}$
+\end_inset
+
+ 
+\begin_inset Formula ${\cal C}^{k}$
+\end_inset
+
+ con 
+\begin_inset Formula $k\geq1$
+\end_inset
+
+, 
+\begin_inset Formula $(x_{0},y_{0})\in D$
+\end_inset
+
+ con 
+\begin_inset Formula $F(x_{0},y_{0})=0$
+\end_inset
+
+ y 
+\begin_inset Formula $d(y\mapsto F(x_{0},y))(y_{0}):\mathbb{R}^{m}\to\mathbb{R}^{m}$
+\end_inset
+
+ no singular, existen 
+\begin_inset Formula ${\cal U}\in{\cal E}(x_{0})$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal V}\in{\cal E}(y_{0})$
+\end_inset
+
+ con 
+\begin_inset Formula ${\cal U}\times{\cal V}\subseteq D$
+\end_inset
+
+ tales que existe una única 
+\begin_inset Formula $f:{\cal U}\to{\cal V}$
+\end_inset
+
+ con 
+\begin_inset Formula $F(x,f(x))=0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in{\cal U}$
+\end_inset
+
+ y esta es 
+\begin_inset Formula ${\cal C}^{k}$
+\end_inset
+
+.]
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
 \end_layout
 
 \end_inset
@@ -306,6 +385,14 @@ valor regular
 
  es un valor regular de 
 \begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ es 
+\begin_inset Formula ${\cal C}^{1}$
 \end_inset
 
 , la 
@@ -392,13 +479,6 @@ Demostración:
 \end_inset
 
  es una superficie regular.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -508,12 +588,7 @@ hiperboloide de dos hojas
 \begin_inset Formula $H':=\{x^{2}+y^{2}-z^{2}=-1\}$
 \end_inset
 
- son superficies regulares
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-.
+ son superficies regulares.
  Estas son superficies de revolución resultantes de rotar la hipérbola 
 \begin_inset Formula $\{xy=1\}$
 \end_inset
@@ -534,12 +609,7 @@ status open
 \begin_inset Formula $H'$
 \end_inset
 
-.
-\end_layout
-
-\end_inset
-
-
+, aplicando antes una transformación lineal.
 \end_layout
 
 \begin_deeper
@@ -569,79 +639,282 @@ Sea
 \end_inset
 
  son superficies regulares.
-\begin_inset Note Comment
-status open
+\end_layout
 
-\begin_layout Plain Layout
-La recta 
-\begin_inset Formula $\ell_{1}:=\{y=-x\}$
+\begin_layout Standard
+Para ver que los ejes de simetría de la hipérbola son los mencionados, sean
+ 
+\begin_inset Formula $v:=(a,b)$
 \end_inset
 
- en 
-\begin_inset Formula $\mathbb{R}^{2}$
+ unitario tal que 
+\begin_inset Formula $\text{span}\{v\}$
 \end_inset
 
- tiene un vector ortogonal unitario 
-\begin_inset Formula $v_{1}:=\frac{1}{\sqrt{2}}(1,1)$
+ es un eje de simetría y 
+\begin_inset Formula $p:=(x,\frac{1}{x})\in\{xy=1\}$
 \end_inset
 
-, y dado un punto 
-\begin_inset Formula $p:=(x,\frac{1}{x})$
-\end_inset
-
- de la hipérbola, su simétrico por 
-\begin_inset Formula $\ell_{1}$
-\end_inset
-
-, 
-\begin_inset Formula $p_{1}:=p-2\langle p,v_{1}\rangle v_{1}=(x,\frac{1}{x})-(x+\frac{1}{x})(1,1)=(-\frac{1}{x},-x)$
-\end_inset
-
-, también está en la hipérbola, y 
-\begin_inset Formula $\ell_{1}$
-\end_inset
-
- es efectivamente un eje de simetría.
- Análogamente, 
-\begin_inset Formula $v_{2}:=\frac{1}{\sqrt{2}}(1,-1)$
-\end_inset
-
- es unitario y ortogonal a 
-\begin_inset Formula $\ell_{2}:=\{y=x\}$
-\end_inset
-
-, y el simétrico de 
+, el simétrico de 
 \begin_inset Formula $p$
 \end_inset
 
- por 
-\begin_inset Formula $\ell_{2}$
-\end_inset
-
  es 
-\begin_inset Formula $p_{2}:=p-2\langle p,v_{2}\rangle v_{2}=(x,\frac{1}{x})-(x-\frac{1}{x})(1,-1)=(\frac{1}{x},x)$
+\begin_inset Formula $p-2\langle p,v\rangle v=((1-2a^{2})x-\frac{2ab}{x},\frac{1-2b^{2}}{x}-2abx)$
 \end_inset
 
-, que también está en la hipérbola.
+, luego 
+\begin_inset Formula $((1-2a^{2})x-\frac{2ab}{x})(\frac{1-2b^{2}}{x}-2abx)=1$
+\end_inset
+
+ y, como esto se cumple para todo 
+\begin_inset Formula $x\in\mathbb{R}^{*}$
+\end_inset
+
+, multiplicando todo por 
+\begin_inset Formula $x^{2}$
+\end_inset
+
+ y haciendo 
+\begin_inset Formula $x$
+\end_inset
+
+ tender a 
+\begin_inset Formula $+\infty$
+\end_inset
+
+, 
+\begin_inset Formula $(-2ab)(1-2b^{2})=0$
+\end_inset
+
+, por lo que bien 
+\begin_inset Formula $-2ab=0$
+\end_inset
+
+ y 
+\begin_inset Formula $v\in\{(\pm1,0),(0,\pm1)\}$
+\end_inset
+
+, para lo que cualquier punto de la hipérbola sirve de contraejemplo, bien
+ 
+\begin_inset Formula $1-2b^{2}=0$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $v\in\{\frac{1}{\sqrt{2}}(\pm1,\pm1)\}$
+\end_inset
+
+, lo que nos da las rectas 
+\begin_inset Formula $\{y=-x\}$
+\end_inset
+
+ e 
+\begin_inset Formula $\{y=x\}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $v=\frac{1}{\sqrt{2}}(1,1)$
+\end_inset
+
+, 
+\begin_inset Formula $p-2\langle p,v\rangle v=(-\frac{1}{x},-x)$
+\end_inset
+
+, y efectivamente 
+\begin_inset Formula $(-\frac{1}{x})(-x)=1$
+\end_inset
+
+, y si 
+\begin_inset Formula $v=\frac{1}{\sqrt{2}}(1,-1)$
+\end_inset
+
+, 
+\begin_inset Formula $p-2\langle p,v\rangle v=(\frac{1}{x},x)$
+\end_inset
+
+, y efectivamente 
+\begin_inset Formula $\frac{1}{x}x=1$
+\end_inset
+
+.
 \end_layout
 
-\begin_layout Plain Layout
-Finalmente, 
-\begin_inset Note Note
-status open
+\begin_layout Standard
+Queda ver que las figuras de revolución son efectivamente las mencionadas.
+ Para 
+\begin_inset Formula $H$
+\end_inset
 
-\begin_layout Plain Layout
-TODO Ver que efectivamente salen las superficies buscadas.
-\end_layout
+,
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{2}\begin{pmatrix}1 & 1\\
+-1 & 1
+\end{pmatrix}\begin{pmatrix}u\\
+\frac{1}{u}
+\end{pmatrix} & =\frac{1}{2}\begin{pmatrix}u+\frac{1}{u}\\
+-u+\frac{1}{u}
+\end{pmatrix}, & \frac{1}{2}\begin{pmatrix}1 & 1\\
+-1 & 1
+\end{pmatrix}\begin{pmatrix}-1\\
+1
+\end{pmatrix} & =\begin{pmatrix}0\\
+1
+\end{pmatrix},
+\end{align*}
 
 \end_inset
 
+y los puntos son de la forma 
+\begin_inset Formula $(x,y,z):=((u+\frac{1}{u})\cos v,(u+\frac{1}{u})\sin v,-u+\frac{1}{u})/2$
+\end_inset
 
+, de modo que 
+\begin_inset Formula $x^{2}+y^{2}-z^{2}=\frac{1}{4}((u+\frac{1}{u})^{2}-(u-\frac{1}{u})^{2})=\frac{1}{4}\cdot4=1$
+\end_inset
+
+.
+ Recíprocamente, dado 
+\begin_inset Formula $(x,y,z)$
+\end_inset
+
+ con 
+\begin_inset Formula $x^{2}+y^{2}-z^{2}=1$
+\end_inset
+
+, como 
+\begin_inset Formula $u\mapsto(u+\frac{1}{u})/2$
+\end_inset
+
+ tiene como imagen 
+\begin_inset Formula $\mathbb{R}\setminus(-1,1)$
+\end_inset
+
+ y 
+\begin_inset Formula $x^{2}+y^{2}=z^{2}+1\geq1$
+\end_inset
+
+, existe 
+\begin_inset Formula $u$
+\end_inset
+
+ con 
+\begin_inset Formula $(u+\frac{1}{u})/2=\sqrt{x^{2}+y^{2}}$
+\end_inset
+
+, y existe 
+\begin_inset Formula $v$
+\end_inset
+
+ tal que 
+\begin_inset Formula $(u+\frac{1}{u})/2\cdot(\cos v,\sin v)=(x,y)$
+\end_inset
+
+.
+ Finalmente, 
+\begin_inset Formula $z^{2}=x^{2}+y^{2}-1=\frac{1}{4}(u+\frac{1}{u})^{2}-1=\frac{1}{4}(u-\frac{1}{u})^{2}$
+\end_inset
+
+, luego 
+\begin_inset Formula $z\in\{\pm\frac{1}{2}(-u+\frac{1}{u})\}$
+\end_inset
+
+, y si los signos son opuestos basta cambiar 
+\begin_inset Formula $u$
+\end_inset
+
+ por 
+\begin_inset Formula $\frac{1}{u}$
+\end_inset
+
+.
 \end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $H'$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{2}\begin{pmatrix}1 & -1\\
+1 & 1
+\end{pmatrix}\begin{pmatrix}u\\
+\frac{1}{u}
+\end{pmatrix} & =\frac{1}{2}\begin{pmatrix}u-\frac{1}{u}\\
+u+\frac{1}{u}
+\end{pmatrix}, & \frac{1}{2}\begin{pmatrix}1 & -1\\
+1 & 1
+\end{pmatrix}\begin{pmatrix}1\\
+1
+\end{pmatrix} & =\begin{pmatrix}0\\
+1
+\end{pmatrix},
+\end{align*}
 
 \end_inset
 
+y los puntos son de la forma 
+\begin_inset Formula $(x,y,z):=((u-\frac{1}{u})\cos v,(u-\frac{1}{u})\sin v,u+\frac{1}{u})/2$
+\end_inset
 
+, de modo que 
+\begin_inset Formula $x^{2}+y^{2}-z^{2}=\frac{1}{4}((u-\frac{1}{u})^{2}-(u+\frac{1}{u})^{2})=-1$
+\end_inset
+
+.
+ Recíprocamente, dado 
+\begin_inset Formula $(x,y,z)$
+\end_inset
+
+ con 
+\begin_inset Formula $x^{2}+y^{2}-z^{2}=-1$
+\end_inset
+
+, como 
+\begin_inset Formula $u\mapsto(u-\frac{1}{u})/2$
+\end_inset
+
+ tiene como imagen todo 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+, existe 
+\begin_inset Formula $u$
+\end_inset
+
+ con 
+\begin_inset Formula $(u-\frac{1}{u})/2=\sqrt{x^{2}+y^{2}}$
+\end_inset
+
+, y existe 
+\begin_inset Formula $v$
+\end_inset
+
+ tal que 
+\begin_inset Formula $(u-\frac{1}{u})/2\cdot(\cos v,\sin v)=(x,y)$
+\end_inset
+
+.
+ Finalmente, 
+\begin_inset Formula $z^{2}=x^{2}+y^{2}+1=\frac{1}{4}(u-\frac{1}{u})^{2}+1=\frac{1}{4}(u+\frac{1}{u})$
+\end_inset
+
+, luego 
+\begin_inset Formula $z\in\{\pm\frac{1}{2}(u+\frac{1}{u})\}$
+\end_inset
+
+ y, si los signos son opuestos, basta cambiar 
+\begin_inset Formula $u$
+\end_inset
+
+ por 
+\begin_inset Formula $-\frac{1}{u}$
+\end_inset
+
+.
 \end_layout
 
 \end_deeper
@@ -1725,22 +1998,6 @@ Demostración:
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{samepage}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Una función 
 \begin_inset Formula $f:S\to\mathbb{R}^{m}$
 \end_inset
@@ -1879,22 +2136,6 @@ Sea
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{samepage}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -2186,152 +2427,6 @@ Dada una parametrización
 \end_inset
 
  también.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-Ejemplos:
-\end_layout
-
-\begin_layout Enumerate
-Sean 
-\begin_inset Formula $S$
-\end_inset
-
- una superficie regular y 
-\begin_inset Formula $p_{0}\in\mathbb{R}^{3}$
-\end_inset
-
-, 
-\begin_inset Formula $f(p):=|p-p_{0}|^{2}$
-\end_inset
-
- es diferenciable en 
-\begin_inset Formula $S$
-\end_inset
-
-, pero la función distancia, 
-\begin_inset Formula $g(p):=|p-p_{0}|$
-\end_inset
-
-, es diferenciable en 
-\begin_inset Formula $S$
-\end_inset
-
- si y sólo si 
-\begin_inset Formula $p_{0}\notin S$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Como 
-\begin_inset Formula $f$
-\end_inset
-
- es polinómica, es diferenciable en todo 
-\begin_inset Formula $\mathbb{R}^{3}$
-\end_inset
-
- y por tanto en 
-\begin_inset Formula $S$
-\end_inset
-
-.
- Entonces 
-\begin_inset Formula $g$
-\end_inset
-
- es diferenciable en todo 
-\begin_inset Formula $\mathbb{R}^{3}\setminus\{p_{0}\}$
-\end_inset
-
-, luego lo es en 
-\begin_inset Formula $S$
-\end_inset
-
- si 
-\begin_inset Formula $p_{0}\notin S$
-\end_inset
-
-, pero si 
-\begin_inset Formula $p_{0}\in S$
-\end_inset
-
-, dada una parametrización 
-\begin_inset Formula $(U,X)$
-\end_inset
-
- de 
-\begin_inset Formula $S$
-\end_inset
-
- con 
-\begin_inset Formula $p_{0}\in X(U)$
-\end_inset
-
-, 
-\begin_inset Formula $(g\circ X)(q)=|X(q)-p_{0}|=|X(q)-X(q_{0})|$
-\end_inset
-
- para algún 
-\begin_inset Formula $q_{0}\in U$
-\end_inset
-
-.
- Entonces 
-\begin_inset Formula $\frac{\partial(g\circ X)}{\partial q}=\frac{\sum_{i=1}^{3}(X_{i}(q)-X_{i}(q_{0}))X'_{i}(q)}{|X(q)-X(q_{0})|}$
-\end_inset
-
-, que no está definida en 
-\begin_inset Formula $q_{0}$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Dado un vector 
-\begin_inset Formula $v$
-\end_inset
-
- unitario, la 
-\series bold
-función altura
-\series default
-, 
-\begin_inset Formula $h(p):=\langle p,v\rangle$
-\end_inset
-
-, representa la distancia de 
-\begin_inset Formula $p$
-\end_inset
-
- al plano ortogonal a 
-\begin_inset Formula $v$
-\end_inset
-
- por el origen y es diferenciable en toda superficie regular 
-\begin_inset Formula $S$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Por ser 
-\begin_inset Formula $h$
-\end_inset
-
- polinómica y por tanto diferenciable en todo 
-\begin_inset Formula $\mathbb{R}^{3}$
-\end_inset
-
-.
 \end_layout
 
 \end_deeper
@@ -3178,6 +3273,1202 @@ Tomando signo positivo, la base
 \end_layout
 
 \begin_layout Section
+Diferencial de funciones en superficies
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $S$
+\end_inset
+
+ una superficie regular, 
+\begin_inset Formula $f:S\to\mathbb{R}^{n}$
+\end_inset
+
+ diferenciable y 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, llamamos 
+\series bold
+diferencial
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $p$
+\end_inset
+
+ a 
+\begin_inset Formula $df_{p}:T_{p}S\to\mathbb{R}^{n}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $df_{p}(v):=(f\circ\alpha)'(0)$
+\end_inset
+
+, siendo 
+\begin_inset Formula $\alpha:(-\varepsilon,\varepsilon)\to S$
+\end_inset
+
+ una curva regular con 
+\begin_inset Formula $\alpha(0)=p$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha'(0)=v$
+\end_inset
+
+.
+ La función 
+\begin_inset Formula $df_{p}$
+\end_inset
+
+ está bien definida y es lineal, y si 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ es una parametrización de 
+\begin_inset Formula $S$
+\end_inset
+
+ en 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $q:=X^{-1}(p)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $df_{p}(v_{1}X_{u}(q)+v_{2}X_{v}(q))=d(f\circ X)_{q}(v_{1},v_{2})$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $a\in T_{p}S$
+\end_inset
+
+, 
+\begin_inset Formula $q:=X^{-1}(p)$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha:I\to S$
+\end_inset
+
+ una curva diferenciable con 
+\begin_inset Formula $\alpha(0)=p$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha'(0)=a$
+\end_inset
+
+ y 
+\begin_inset Formula $\tilde{\alpha}:=X^{-1}\circ\alpha:\alpha^{-1}(X(U))\to U$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\tilde{\alpha}(0)=q$
+\end_inset
+
+, y como 
+\begin_inset Formula $f\circ\alpha=(f\circ X)\circ(X^{-1}\circ\alpha)=:\tilde{f}\circ\tilde{\alpha}$
+\end_inset
+
+, si 
+\begin_inset Formula $\tilde{\alpha}(t)=:(u(t),v(t))$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+df_{p}(a)=(f\circ\alpha)'(0)=(\tilde{f}\circ\tilde{\alpha})'(0)=d\tilde{f}_{\tilde{\alpha}(0)}(\tilde{\alpha}'(0))=d\tilde{f}_{q}(u'(0),v'(0)),
+\]
+
+\end_inset
+
+pero por la regla de la cadena, 
+\begin_inset Formula $a=\alpha'(0)=u'(0)X_{u}(q)+v'_{0}X_{v}(q)$
+\end_inset
+
+, luego 
+\begin_inset Formula $u'(0)$
+\end_inset
+
+ y 
+\begin_inset Formula $v'(0)$
+\end_inset
+
+ no dependen de la curva elegida y 
+\begin_inset Formula $f$
+\end_inset
+
+ está bien definida.
+ Además, por lo anterior, 
+\begin_inset Formula $df_{p}(v_{1}X_{u}(q)+v_{2}X_{v}(q))=d\tilde{f}_{q}(v_{1},v_{2})$
+\end_inset
+
+, luego 
+\begin_inset Formula $df_{p}$
+\end_inset
+
+ es lineal.
+\end_layout
+
+\begin_layout Subsection
+Ejemplos
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $S$
+\end_inset
+
+ una superficie regular:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $v\in\mathbb{S}^{2}$
+\end_inset
+
+, la 
+\series bold
+función altura
+\series default
+ 
+\begin_inset Formula $h(p):=\langle p,v\rangle$
+\end_inset
+
+ representa la distancia de 
+\begin_inset Formula $p$
+\end_inset
+
+ al plano ortogonal a 
+\begin_inset Formula $v$
+\end_inset
+
+ por el origen y es diferenciable en todo 
+\begin_inset Formula $S$
+\end_inset
+
+ con diferencial 
+\begin_inset Formula $dh_{p}(u)=\langle u,v\rangle$
+\end_inset
+
+.
+ En particular, si 
+\begin_inset Formula $T_{p}S$
+\end_inset
+
+ es paralelo a 
+\begin_inset Formula $\text{span}\{v\}^{\bot}$
+\end_inset
+
+ es 
+\begin_inset Formula $dh_{p}\equiv0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Es diferenciable por ser polinómica y por tanto diferenciable en todo 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+.
+ Su diferencial es 
+\begin_inset Formula $dh_{p}(w)=:(h\circ\alpha)'(0)=dh_{\alpha(0)}(\alpha'(0))=\langle\alpha'(0),v\rangle=\langle w,v\rangle$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Dado 
+\begin_inset Formula $p_{0}\in\mathbb{R}^{3}$
+\end_inset
+
+, la función distancia 
+\begin_inset Formula $g(p):=|p-p_{0}|$
+\end_inset
+
+ es diferenciable en 
+\begin_inset Formula $S$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $p_{0}\notin S$
+\end_inset
+
+, con 
+\begin_inset Formula $dg_{p}(v)=\frac{\langle v,p-p_{0}\rangle}{|p-p_{0}|}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Como 
+\begin_inset Formula $g$
+\end_inset
+
+ es diferenciable en todo 
+\begin_inset Formula $\mathbb{R}^{3}\setminus\{p_{0}\}$
+\end_inset
+
+, si 
+\begin_inset Formula $p_{0}\notin S$
+\end_inset
+
+, 
+\begin_inset Formula $g$
+\end_inset
+
+ es diferenciable en 
+\begin_inset Formula $S$
+\end_inset
+
+ con
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+df_{p}(v) & =(f\circ\alpha)'(0)=\frac{d}{dt}|\alpha(t)-p_{0}|(0)=\frac{d}{dt}\sqrt{\langle\alpha(t)-p_{0},\alpha(t)-p_{0}\rangle}(0)\\
+ & =\left(t\mapsto\frac{\langle\alpha'(t),\alpha(t)-p_{0}\rangle}{|\alpha(t)-p_{0}|}\right)(0)=\frac{\langle v,p-p_{0}\rangle}{|p-p_{0}|},
+\end{align*}
+
+\end_inset
+
+pero si 
+\begin_inset Formula $p_{0}\in S$
+\end_inset
+
+, 
+\begin_inset Formula $g$
+\end_inset
+
+ no es diferenciable en 
+\begin_inset Formula $S$
+\end_inset
+
+ porque de serlo sería 
+\begin_inset Formula $df_{p_{0}}(v)=\frac{0}{0}\#$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+La 
+\series bold
+función antípoda
+\series default
+ 
+\begin_inset Formula $A:\mathbb{S}^{2}\to\mathbb{S}^{2}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $A(p):=-p$
+\end_inset
+
+ es diferenciable con 
+\begin_inset Formula $dA_{p}=-1_{T_{p}\mathbb{S}^{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Es diferenciable porque es polinómica, y dada una curva 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ apropiada, 
+\begin_inset Formula $dA_{p}(v)=(A\circ\alpha)'(0)=\frac{d}{dt}(-\alpha(t))(0)=-\alpha'(0)=-v$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Dado 
+\begin_inset Formula $\theta\in\mathbb{R}$
+\end_inset
+
+, sea 
+\begin_inset Formula $\hat{F}:\mathbb{R}^{3}\to\mathbb{R}^{3}$
+\end_inset
+
+ la rotación de ángulo 
+\begin_inset Formula $\theta$
+\end_inset
+
+ respecto al eje 
+\begin_inset Formula $z$
+\end_inset
+
+, dada por 
+\begin_inset Formula $F(x,y,z)=(x\cos\theta-y\sin\theta,x\sin\theta+y\cos\theta,z)$
+\end_inset
+
+, 
+\begin_inset Formula $F:=\hat{F}|_{\mathbb{S}^{2}}:\mathbb{S}^{2}\to\mathbb{S}^{2}$
+\end_inset
+
+ es diferenciable con 
+\begin_inset Formula $dF_{p}(v)=\hat{F}(v)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Es diferenciable por ser la restricción de una función diferenciable en
+ 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+.
+ Tomando una curva 
+\begin_inset Formula $\alpha(t):=(x(t),y(t),z(t))$
+\end_inset
+
+ apropiadamente,
+\begin_inset Formula 
+\begin{align*}
+dF_{p}(v) & =(F\circ\alpha)'(0)=\frac{d}{dt}\left(x(t)\cos\theta-y(t)\sin\theta,x(t)\sin\theta+y(t)\cos\theta,z(t)\right)(0)\\
+ & =(x'(0)\cos\theta-y'(0)\sin\theta,x'(0)\sin\theta+y'(0)\cos\theta,z'(0))\\
+ & =\hat{F}(x'(0),y'(0),z'(0))=\hat{F}(v).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $0\notin S$
+\end_inset
+
+, 
+\begin_inset Formula $F:S\to\mathbb{S}^{2}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $F(p):=p/|p|$
+\end_inset
+
+ es diferenciable con 
+\begin_inset Formula $dF_{p}(v)=\frac{1}{|p|}v-\frac{\langle p,v\rangle}{|p|^{3}}p$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Claramente es diferenciable por ser la restricción de una función diferenciable.
+ Entonces 
+\begin_inset Formula $dF_{p}(v)=:(F\circ\alpha)(0)=\frac{d}{dt}\frac{\alpha(t)}{|\alpha(t)|}=\left(t\mapsto\frac{\alpha'(t)|\alpha(t)|-\alpha(t)\langle\alpha(t),\alpha'(t)\rangle/|\alpha(t)|}{|\alpha(t)|^{2}}\right)(0)=\frac{v}{|p|}-\frac{p\langle p,v\rangle}{|p|^{3}}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Diferencial de funciones entre superficies
+\end_layout
+
+\begin_layout Standard
+Dadas dos superficies regulares 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $F:S_{1}\to S_{2}$
+\end_inset
+
+ diferenciable, 
+\begin_inset Formula $p\in S_{1}$
+\end_inset
+
+, parametrizaciones 
+\begin_inset Formula $(U_{1},X_{1})$
+\end_inset
+
+ de 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ en 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $(U_{2},X_{2})$
+\end_inset
+
+ de 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ en 
+\begin_inset Formula $F(p)$
+\end_inset
+
+, 
+\begin_inset Formula $q_{1}:=X_{1}^{-1}(p)$
+\end_inset
+
+ y 
+\begin_inset Formula $q_{2}:=X_{2}^{-1}(F(p))$
+\end_inset
+
+, la matriz asociada a 
+\begin_inset Formula $dF_{p}$
+\end_inset
+
+ respecto de las bases 
+\begin_inset Formula ${\cal B}_{1}:=((X_{1})_{u}(q_{1}),(X_{1})_{v}(q_{1}))$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal B}_{2}:=((X_{2})_{u}(q_{2}),(X_{2})_{v}(q_{2}))$
+\end_inset
+
+ es el jacobiano de la expresión en coordenadas de 
+\begin_inset Formula $F$
+\end_inset
+
+ en 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $v:=v_{1}(X_{1})_{u}+v_{2}(X_{1})_{v}$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $[v]_{{\cal B}_{1}}=(v_{1},v_{2})$
+\end_inset
+
+, entonces 
+\begin_inset Formula $dF_{p}(v)=d(F\circ X_{1})_{q_{1}}(v_{1},v_{2})$
+\end_inset
+
+, pero la expresión en coordenadas 
+\begin_inset Formula $\tilde{F}:=X_{2}^{-1}\circ F\circ X_{1}:U_{1}\to U_{2}$
+\end_inset
+
+ cumple 
+\begin_inset Formula $d\tilde{F}_{q_{1}}=d(X_{2}^{-1})_{F(p)}\circ d(F\circ X_{1})_{q_{1}}=(d(X_{2})_{F(p)})^{-1}\circ d(F\circ X_{1})_{q_{1}}$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $[dF_{p}(v)]_{{\cal B}_{2}}=M_{{\cal B}_{2}{\cal C}}dF_{p}(v)=(d(X_{2})_{F(p)})^{-1}(d(F\circ X_{1})_{q_{1}}(v))=d\tilde{F}_{q_{1}}(v)$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+La demostración original era más larga porque la primera la hacía solo para
+ funciones reales (
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ en vez de 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+).
+ Esta puede que no sea válida 
+\emph on
+\lang english
+though
+\emph default
+\lang spanish
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Regla de la cadena:
+\series default
+ Sean 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $S_{3}$
+\end_inset
+
+ superficies regulares y 
+\begin_inset Formula $F:S_{1}\to S_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $G:S_{2}\to S_{3}$
+\end_inset
+
+ diferenciables, para 
+\begin_inset Formula $p\in S_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $d(G\circ F)_{p}=dG_{F(p)}\circ dF_{p}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Ya hemos visto que 
+\begin_inset Formula $G\circ F$
+\end_inset
+
+ es diferenciable.
+ Sean 
+\begin_inset Formula $\alpha:I\to S_{1}$
+\end_inset
+
+ una curva regular con 
+\begin_inset Formula $\alpha(0)=p$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha'(0)=v$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta:=F\circ\alpha$
+\end_inset
+
+, 
+\begin_inset Formula $\beta$
+\end_inset
+
+ es una curva regular en 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ con 
+\begin_inset Formula $\beta(0)=F(p)$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta'(0)=dF_{\alpha(0)}(\alpha'(0))=dF_{p}(v)$
+\end_inset
+
+, luego
+\begin_inset Formula 
+\[
+d(G\circ F)_{p}(v)=(G\circ F\circ\alpha)'(0)=(G\circ\beta)'(0)=dG_{\beta(0)}\beta'(0)=dG_{F(p)}(dF_{p}(v)).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{FVV3}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de la función inversa:
+\series default
+ Sean 
+\begin_inset Formula $f:D\subseteq\mathbb{R}^{d}\to\mathbb{R}^{d}$
+\end_inset
+
+ una aplicación de clase 
+\begin_inset Formula ${\cal C}^{k}$
+\end_inset
+
+ con 
+\begin_inset Formula $k\geq1$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{0}\in D$
+\end_inset
+
+ tal que 
+\begin_inset Formula $df(x_{0})$
+\end_inset
+
+ es no singular, existen [...] 
+\begin_inset Formula ${\cal U}\in{\cal E}(x_{0})$
+\end_inset
+
+ [y] 
+\begin_inset Formula ${\cal V}\in{\cal E}(y_{0}:=f(x_{0}))$
+\end_inset
+
+ tales que 
+\begin_inset Formula $f:{\cal U}\to{\cal V}$
+\end_inset
+
+ es biyectiva y inversa es 
+\begin_inset Formula ${\cal C}^{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de la función inversa:
+\series default
+ Sean 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ superficies regulares, 
+\begin_inset Formula $F:S_{1}\to S_{2}$
+\end_inset
+
+ 
+\begin_inset Formula ${\cal C}^{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $p\in S_{1}$
+\end_inset
+
+ con 
+\begin_inset Formula $dF_{p}$
+\end_inset
+
+ biyectiva, si existen parametrizaciones de 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ en 
+\begin_inset Formula $p$
+\end_inset
+
+ y de 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ en 
+\begin_inset Formula $F(p)$
+\end_inset
+
+ 
+\begin_inset Formula ${\cal C}^{1}$
+\end_inset
+
+, 
+\begin_inset Formula $F$
+\end_inset
+
+ es un difeomorfismo local en 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Tomamos parametrizaciones 
+\begin_inset Formula ${\cal C}^{1}$
+\end_inset
+
+ 
+\begin_inset Formula $(U_{1},X_{1})$
+\end_inset
+
+ de 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ en 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $(U_{2},X_{2})$
+\end_inset
+
+ de 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ en 
+\begin_inset Formula $F(p)$
+\end_inset
+
+, 
+\begin_inset Formula $q_{1}:=X_{1}^{-1}(p)$
+\end_inset
+
+, 
+\begin_inset Formula $q_{2}:=X_{2}^{-1}(F(p))$
+\end_inset
+
+, 
+\begin_inset Formula $V_{1}:=X_{1}(U_{1})$
+\end_inset
+
+ y 
+\begin_inset Formula $V_{2}:=X_{2}(U_{2})$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $\tilde{F}$
+\end_inset
+
+ la expresión en coordenadas de 
+\begin_inset Formula $F$
+\end_inset
+
+ respecto a 
+\begin_inset Formula $(U_{1},X_{1})$
+\end_inset
+
+ y 
+\begin_inset Formula $(U_{2},X_{2})$
+\end_inset
+
+ y 
+\begin_inset Formula $U:=X_{1}^{-1}(F^{-1}(V_{2}))$
+\end_inset
+
+ el dominio de 
+\begin_inset Formula $\tilde{F}$
+\end_inset
+
+, 
+\begin_inset Formula $d\tilde{F}_{q_{1}}$
+\end_inset
+
+ es un isomorfismo lineal, pues su matriz jacobiana es la de 
+\begin_inset Formula $dF_{p}$
+\end_inset
+
+ en una cierta base, y aplicando el teorema de la función inversa a 
+\begin_inset Formula $\tilde{F}:U\to\tilde{F}(U)$
+\end_inset
+
+, existen abiertos 
+\begin_inset Formula $\tilde{U}_{1}\subseteq U$
+\end_inset
+
+ de 
+\begin_inset Formula $q_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\tilde{U}_{2}\subseteq U_{2}$
+\end_inset
+
+ de 
+\begin_inset Formula $q_{2}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $\tilde{F}:\tilde{U}_{1}\to\tilde{U}_{2}$
+\end_inset
+
+ es un difeomorfismo.
+ Sea 
+\begin_inset Formula $V:=X_{1}(\tilde{U}_{1})$
+\end_inset
+
+, 
+\begin_inset Formula $F|_{V}:=(X_{2}\circ\tilde{F}\circ X_{1}^{-1})|_{V}:V\to F(V)$
+\end_inset
+
+ es un difeomorfismo por ser composición de difeomorfismos.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, sean 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ superficies regulares, si 
+\begin_inset Formula $F$
+\end_inset
+
+ es un difeomorfismo local en 
+\begin_inset Formula $p\in S_{1}$
+\end_inset
+
+ entre 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $dF_{p}:T_{p}S_{1}\to T_{F(p)}S_{2}$
+\end_inset
+
+ es un isomorfismo lineal.
+ En efecto, tomando entornos 
+\begin_inset Formula $V_{1}\subseteq S_{1}$
+\end_inset
+
+ de 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $V_{2}\subseteq S_{2}$
+\end_inset
+
+ de 
+\begin_inset Formula $F(p)$
+\end_inset
+
+ tales que 
+\begin_inset Formula $F|_{V_{1}}:V_{1}\to V_{2}$
+\end_inset
+
+ es un difeomorfismo, y por la regla de la cadena 
+\begin_inset Formula $1_{T_{p}S_{1}}=1_{T_{p}V_{1}}=d(F^{-1}\circ F)_{p}=d(F^{-1})_{F_{p}}\circ dF_{p}$
+\end_inset
+
+ y análogamente 
+\begin_inset Formula $dF_{p}\circ d(F^{-1})_{F(p)}=1_{T_{F(p)}S_{2}}$
+\end_inset
+
+, luego 
+\begin_inset Formula $dF_{p}$
+\end_inset
+
+ es invertible y por tanto un isomorfismo lineal.
+\end_layout
+
+\begin_layout Standard
+Dadas una superficie regular 
+\begin_inset Formula $S$
+\end_inset
+
+ y una función diferenciable 
+\begin_inset Formula $f:S\to\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $p\in S$
+\end_inset
+
+ es un 
+\series bold
+punto crítico
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ si 
+\begin_inset Formula $df_{p}\equiv0$
+\end_inset
+
+.
+ Entonces:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es constante, todos los puntos son críticos.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f(p)\equiv k$
+\end_inset
+
+, 
+\begin_inset Formula $df_{p}(v)=(f\circ\alpha)'(0)=\frac{dk}{dt}(0)=0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si todos los puntos son críticos y 
+\begin_inset Formula $S$
+\end_inset
+
+ es conexa, 
+\begin_inset Formula $f$
+\end_inset
+
+ es constante.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $a\in f(S)$
+\end_inset
+
+ y 
+\begin_inset Formula $A:=\{p\in S:f(p)=a\}\neq\emptyset$
+\end_inset
+
+, pues 
+\begin_inset Formula $a\in A$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $A=f^{-1}(\{a\})$
+\end_inset
+
+, 
+\begin_inset Formula $A$
+\end_inset
+
+ es cerrado, y solo queda ver que 
+\begin_inset Formula $A$
+\end_inset
+
+ es abierto para ver que 
+\begin_inset Formula $A=S$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $p\in A$
+\end_inset
+
+, 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ una parametrización de 
+\begin_inset Formula $S$
+\end_inset
+
+ en 
+\begin_inset Formula $p$
+\end_inset
+
+ en la que podemos suponer que 
+\begin_inset Formula $U$
+\end_inset
+
+ es conexo, 
+\begin_inset Formula $V:=X(U)$
+\end_inset
+
+ y 
+\begin_inset Formula $q\in U$
+\end_inset
+
+, 
+\begin_inset Formula $d(f\circ X)_{q}=df_{X(q)}\circ dX_{q}\equiv0$
+\end_inset
+
+, pues 
+\begin_inset Formula $df_{p}\equiv0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, luego 
+\begin_inset Formula $f\circ X:U\to\mathbb{R}$
+\end_inset
+
+ es constante en 
+\begin_inset Formula $a$
+\end_inset
+
+ y 
+\begin_inset Formula $f|_{V}$
+\end_inset
+
+ es constante en 
+\begin_inset Formula $a$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $V\subseteq A$
+\end_inset
+
+ y 
+\begin_inset Formula $A$
+\end_inset
+
+ es abierto.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Los extremos relativos son puntos críticos.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $p_{0}\in S$
+\end_inset
+
+ un máximo relativo de 
+\begin_inset Formula $f$
+\end_inset
+
+ (para un mínimo se hace por simetría), de modo que un entorno 
+\begin_inset Formula $V\subseteq S$
+\end_inset
+
+ de 
+\begin_inset Formula $p_{0}$
+\end_inset
+
+ con 
+\begin_inset Formula $f(p_{0})\geq f(p)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $p\in V$
+\end_inset
+
+.
+ Para calcular 
+\begin_inset Formula $f_{p_{0}}(v)$
+\end_inset
+
+, sean 
+\begin_inset Formula $\alpha:I\to V$
+\end_inset
+
+ una curva regular con 
+\begin_inset Formula $\alpha(0)=p_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha'(0)=v\in T_{p_{0}}S$
+\end_inset
+
+ y 
+\begin_inset Formula $h:=f\circ\alpha:I\to\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $h(t)\leq h(0)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $t\in I$
+\end_inset
+
+, luego 
+\begin_inset Formula $h'(0)=0$
+\end_inset
+
+ y 
+\begin_inset Formula $df_{p_{0}}(v)=(f\circ\alpha)'(0)=h'(0)=0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Section
 Primera forma fundamental
 \end_layout
 
@@ -3880,16 +5171,68 @@ Por tanto
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
+El área del toro 
+\begin_inset Formula $X(u,v):=((r\cos u+a)\cos v,(r\cos u+a)\sin v,r\sin u)$
+\end_inset
 
-\begin_layout Plain Layout
-TODO Toro de revolución
-\end_layout
+ es 
+\begin_inset Formula $4\pi^{2}ar$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Se tiene 
+\begin_inset Formula 
+\begin{align*}
+X_{u}(u,v) & =(-r\sin u\cos v,-r\sin u\sin v,r\cos u),\\
+X_{v}(u,v) & =(-(r\cos u+a)\sin v,(r\cos u+a)\cos v,0),
+\end{align*}
 
 \end_inset
 
+luego los coeficientes de la primera forma fundamental son 
+\begin_inset Formula $E=r^{2}$
+\end_inset
 
+, 
+\begin_inset Formula $F=0$
+\end_inset
+
+ y 
+\begin_inset Formula $G=(r\cos u+a)^{2}$
+\end_inset
+
+, y 
+\begin_inset Formula $\sqrt{EG-F^{2}}=r(r\cos u+a)$
+\end_inset
+
+.
+ La parametrización dada con el abierto 
+\begin_inset Formula $U:=(0,2\pi)\times(0,2\pi)$
+\end_inset
+
+ no cubre todo el toro, pero si definimos la región 
+\begin_inset Formula $R_{\varepsilon}:=X((\varepsilon,2\pi-\varepsilon)\times(\varepsilon,2\pi-\varepsilon))\subseteq X(U)$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+A(R_{\varepsilon}) & =\iint_{X^{-1}(R_{\varepsilon})}r(a+r\cos u)du\,dv=\int_{\varepsilon}^{2\pi-\varepsilon}\int_{\varepsilon}^{2\pi-\varepsilon}r(a+r\cos u)dv\,du\\
+ & =2r(\pi-\varepsilon)\int_{\varepsilon}^{2\pi-\varepsilon}(a+r\cos u)du=2r(\pi-\varepsilon)\left(a(2\pi-2\varepsilon)+r(\sin(2\pi-\varepsilon)-\sin\varepsilon)\right)\\
+ & =4r(\pi-\varepsilon)(a(\pi-\varepsilon)+r\sin\varepsilon),
+\end{align*}
+
+\end_inset
+
+y tomando límites, 
+\begin_inset Formula $A(\mathbb{T}^{2})=A(R_{0})=4\pi^{2}ar$
+\end_inset
+
+.
 \end_layout
 
 \end_body
