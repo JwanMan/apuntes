@@ -112,8 +112,10 @@ SDRAM
 \series default
 , 
 \emph on
+\lang english
 Synchronous DRAM
 \emph default
+\lang spanish
 ).
 \end_layout
 
@@ -125,8 +127,10 @@ discos SSD
 \series default
  (
 \emph on
+\lang english
 Solid State Drive
 \emph default
+\lang spanish
 ) usan memoria flash para almacenar los datos y por tanto son más rápidos
  que los 
 \series bold
@@ -346,8 +350,10 @@ etiqueta
 \series default
  (
 \emph on
+\lang english
 tag
 \emph default
+\lang spanish
 ) dada por 
 \begin_inset Formula $E=\left\lfloor \frac{D_{bloque}}{N_{S}}\right\rfloor $
 \end_inset
@@ -375,42 +381,62 @@ Escritura directa
 \series default
  (
 \emph on
+\lang english
 write through
 \emph default
+\lang spanish
 ): Las escrituras se hacen a la vez en la caché y en memoria.
  Si el bloque no está en caché, se suele escribir directamente la palabra
  en memoria principal (
 \emph on
+\lang english
 no write allocate
 \emph default
+\lang spanish
 ), si bien también se puede traer el bloque a la caché (
 \emph on
+\lang english
 write allocate
 \emph default
+\lang spanish
 ), pero esto es mucho menos común.
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_deeper
+\begin_layout Standard
 Esta política es más fácil de implementar y tiene la ventaja de que los
  fallos son menos costosos.
  Sin embargo, en la práctica es necesario un 
 \series bold
-buffer de escrituras
+\emph on
+\lang english
+buffer
+\emph default
+\lang spanish
+ de escrituras
 \series default
  que almacene los datos para ser escritos de forma que el procesador no
- tenga que detenerse hasta que acabe la escritura, salvo que el buffer esté
- lleno.
+ tenga que detenerse hasta que acabe la escritura, salvo que el 
+\emph on
+\lang english
+buffer
+\emph default
+\lang spanish
+ esté lleno.
 \end_layout
 
+\end_deeper
 \begin_layout Itemize
 
 \series bold
-Postescritura
+Pos-escritura
 \series default
  (
 \emph on
+\lang english
 write back
 \emph default
+\lang spanish
 ): Las escrituras se hacen sólo en la caché, y sólo se actualiza la información
  en memoria al sacar el bloque de la caché.
  Es necesario un 
@@ -423,12 +449,15 @@ de sucio
 \series default
  (
 \emph on
+\lang english
 dirty bit
 \emph default
+\lang spanish
 ) en cada bloque, y si el bloque no está en caché se debe traer a caché.
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_deeper
+\begin_layout Standard
 Esta política tiene la ventaja de que en caso de acierto se puede escribir
  más rápidamente, y que múltiples escrituras en un bloque requieren una
  sola escritura en memoria, pudiendo hacer uso de 
@@ -438,6 +467,7 @@ escritura en ráfaga
  para conseguir mayor ancho de banda.
 \end_layout
 
+\end_deeper
 \begin_layout Section
 Políticas de reemplazo
 \end_layout
@@ -465,8 +495,10 @@ LRU
 \series default
  (
 \emph on
+\lang english
 Least Recently Used
 \emph default
+\lang spanish
 , Menos Recientemente Usado): Se elige el bloque que haya estado más tiempo
  sin ser accedido.
  Consigue menores tasas de fallo que el aleatorio, pero al aumentar la asociativ
@@ -508,8 +540,10 @@ NRU
 \series default
  (
 \emph on
+\lang english
 Not Recently Used
 \emph default
+\lang spanish
 ): Para una caché de asociatividad 2, se puede implementar el LRU con un
  sólo bit por conjunto.
 \end_layout
