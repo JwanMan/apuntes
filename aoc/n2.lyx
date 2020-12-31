@@ -1,0 +1,957 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Para reducir por debajo de 1 los CPI de un núcleo del procesador, debemos
+ lanzar y ejecutar varias instrucciones en cada ciclo de reloj, pero esto
+ implica más presión sobre la memoria y los registros, más posibilidad de
+ riesgos, más área de silicio y más consumo.
+ Distinguimos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Arquitecturas superescalares
+\series default
+: Lanzan un número variable de instrucciones por ciclo, de 0 a 8.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+VLIW
+\series default
+ (
+\series bold
+\emph on
+\lang english
+Very Long Instruction Word
+\series default
+\emph default
+\lang spanish
+): En cada ciclo se carga una 
+\series bold
+ma
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+cro-ins
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+truc
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+ción
+\series default
+, formada por varias instrucciones independientes agrupadas por el compilador.
+ El 
+\emph on
+\lang english
+hardware
+\emph default
+\lang spanish
+ es más simple, lo que permite una mayor frecuencia de reloj y un menor
+ consumo, pero no se beneficia de las técnicas de planificación dinámica
+ y el código suele ser más grande e incompatible entre distintas versiones
+ del procesador, por lo que actualmente está casi en desuso.
+\end_layout
+
+\begin_layout Section
+Planificación
+\end_layout
+
+\begin_layout Standard
+Aunque la mayoría de compiladores reordenan las instrucciones para intentar
+ evitar riesgos, estos todavía pueden producirse.
+\end_layout
+
+\begin_layout Standard
+Un núcleo con arquitectura superescalar tiene planificación 
+\series bold
+estática
+\series default
+ si, cuando encuentra un riesgo, detiene el cauce hasta que el riesgo desaparece
+, y tiene planificación 
+\series bold
+dinámica
+\series default
+ si reordena las instrucciones para evitar detenciones, lo que aumenta la
+ velocidad y reduce la necesidad del compilador de conocer la microarquitectura
+ a cambio de necesitar más recursos.
+ Con planificación dinámica, la ejecución es fuera de orden, y la terminación
+ puede ser en orden o fuera de orden.
+\end_layout
+
+\begin_layout Standard
+Si la ejecución es fuera de orden, distintas instrucciones pueden producir
+ excepciones a la vez, puede pasar bastante tiempo desde que se produce
+ una excepción hasta que se reconoce y una instrucción puede producir una
+ excepción después de que una instrucción posterior se haya ejecutado.
+ Las excepciones son 
+\series bold
+precisas
+\series default
+ si, cuando se reconocen, el contador del programa apunta a una instrucción,
+ dicha instrucción provocó la excepción si esta es generada por el procesador,
+ las instrucciones anteriores se han completado y las posteriores no han
+ modificado el estado visible del procesador, y son 
+\series bold
+imprecisas
+\series default
+ en otro caso.
+ Hoy en día las excepciones imprecisas son inviables, y la mayoría de procesador
+es implementan excepciones precisas impidiendo que una instrucción cambie
+ el estado si hay instrucciones previas sin terminar.
+\end_layout
+
+\begin_layout Standard
+Los núcleos superescalares normalmente tienen un sistema de memoria de alto
+ rendimiento y unidades funcionales redundantes, que administra con técnicas
+ como planificación dinámica, ejecución especulativa para mitigar riesgos
+ de control y renombrado de registros para mitigar las dependencias de nombre.
+\end_layout
+
+\begin_layout Section
+Algoritmo de Tomasulo
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+algoritmo de R.
+ M.
+ Tomasulo
+\series default
+ de 1971 es un método de planificación dinámica con renombrado de registros.
+ En su versión con terminación en orden, usa:
+\end_layout
+
+\begin_layout Itemize
+Una 
+\series bold
+cola de instrucciones
+\series default
+ a decodificar, que también suaviza los fallos de caché.
+\end_layout
+
+\begin_layout Itemize
+Un 
+\series bold
+\emph on
+\lang english
+buffer
+\emph default
+\lang spanish
+ de re-ordenación
+\series default
+ (
+\series bold
+ROB
+\series default
+, 
+\emph on
+\lang english
+Re-Order Buffer
+\emph default
+\lang spanish
+), un 
+\emph on
+\lang english
+buffer
+\emph default
+\lang spanish
+ FIFO circular que almacena las instrucciones en curso
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Si el procesador usa micro-instrucciones, serán estas las que se añadan
+ al ROB.
+\end_layout
+
+\end_inset
+
+ y, cuando terminan de ejecutarse, también el valor calculado por ellas
+ si lo hay, así como las excepciones que surjan.
+\end_layout
+
+\begin_layout Itemize
+Un 
+\series bold
+estado de los registros
+\series default
+, que indica si el último valor de cada registro se debe tomar del ROB y,
+ en tal caso, de qué entrada.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Estaciones de reserva
+\series default
+ (
+\series bold
+ER
+\series default
+): Tablas asociadas a un grupo de unidades funcionales con las instrucciones
+ por ejecutar por dicho grupo, dados por un código de instrucción, la entrada
+ del ROB correspondiente y, para cada operando, su valor o la entrada del
+ ROB que lo producirá.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+\lang english
+Buffer
+\emph default
+\lang spanish
+ de carga
+\series default
+: Tabla con una serie de direcciones a cargar junto con la entrada del ROB
+ en la que cargarla.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Bus de resultados
+\series default
+ (
+\series bold
+CDB
+\series default
+, 
+\emph on
+\lang english
+Common Data Bus
+\emph default
+\lang spanish
+): Para transmitir los resultados al ROB y los ERs, implementando el adelantamie
+nto.
+\end_layout
+
+\begin_layout Standard
+Las instrucciones se segmentan en 6 etapas:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Obtención de instrucciones
+\series default
+ (
+\series bold
+IF
+\series default
+, 
+\series bold
+F
+\series default
+, 
+\emph on
+\lang english
+Instruction Fetch
+\emph default
+\lang spanish
+): Lee varias instrucciones por ciclo en orden y las añade a la cola de
+ instrucciones.
+ La predicción de saltos se puede hacer aquí o en ID.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Decodificación
+\series default
+ (
+\series bold
+ID
+\series default
+, 
+\series bold
+D
+\series default
+, 
+\emph on
+\lang english
+Instruction Decode
+\emph default
+\lang spanish
+): Decodifica varias instrucciones por ciclo para conocer su tipo, en orden.
+ Si hay una entrada libre en el ROB y una en el ER para la instrucción,
+ añade la instrucción al ROB y al ER.
+ Para cada operando, carga el valor en el ER desde el ROB o el banco de
+ registros según indique el estado del registro o, si este no ha sido calculado,
+ el número de la entrada del ROB donde estará.
+ Finalmente guarda el número de la entrada del ROB en el estado del registro
+ de destino, si lo hay.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Los algoritmos con terminación fuera de orden usan una 
+\series bold
+ventana de instrucciones
+\series default
+ en vez de un ROB.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Emisión
+\series default
+ (
+\series bold
+\emph on
+\lang english
+Issue
+\series default
+\emph default
+\lang spanish
+): Fuera de orden.
+ Para cada ER, si un operando no está disponible, espera a que llegue por
+ el CDB para guardarlo en la ER.
+ En otro caso, si hay una unidad funcional disponible, le envía los operandos
+ para que ejecute la instrucción, y si no la hay espera.
+ Hay que asegurar que dos ERs no puedan enviar a la misma unidad funcional
+ a la vez.
+ Como mejora, se pueden usar técnicas como la predicción de valor o la reutiliza
+ción de valores.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ejecución
+\series default
+ (
+\series bold
+EX
+\series default
+, 
+\series bold
+X
+\series default
+, 
+\emph on
+\lang english
+Execute
+\emph default
+\lang spanish
+): Fuera de orden, preferiblemente con varias unidades funcionales de cada
+ tipo totalmente segmentadas, y llevando la cuenta de cuál es el destino
+ de la instrucción.
+ Los almacenamientos solo calculan la dirección.
+ Las cargas se dividen en las etapas X1, en que se calcula la dirección
+ de memoria, y X2, en que se accede a memoria, separadas por el 
+\emph on
+\lang english
+buffer
+\emph default
+\lang spanish
+ de carga.
+ Antes de una carga, se debe esperar a que los almacenamientos anteriores
+ en el ROB terminen, o a que se conozca su dirección de memoria y puede
+ que su valor, para evitar riesgos RAW de memoria.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Pos-escritura
+\series default
+ o 
+\series bold
+escritura
+\series default
+ (
+\series bold
+WB
+\series default
+, 
+\series bold
+W
+\series default
+, 
+\emph on
+\lang english
+Write-Back
+\emph default
+\lang spanish
+): Se difunden los resultados al 
+\series bold
+bus de resultados
+\series default
+, actualizando el ROB y las ER, y se libera la ER.
+ Los almacenamientos no hacen nada.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Confirmación
+\series default
+ (
+\series bold
+\emph on
+\lang english
+Commit
+\series default
+\emph default
+\lang spanish
+): Toma varias instrucciones del ROB por ciclo, en orden.
+ Si una causa una excepción, vacía el ROB con las instrucciones siguientes,
+ guarda el contador de programa para la siguiente instrucción e invoca a
+ una rutina de manejo de excepciones.
+ En otro caso, si el estado del registro de destino indica la misma entrada
+ del ROB, escribe el resultado al banco de registros y borra el estado del
+ registro; si es un almacenamiento, escribe el dato en memoria, normalmente
+ a través de un 
+\emph on
+\lang english
+buffer
+\emph default
+\lang spanish
+ de almacenamiento, y finalmente borra la entrada del ROB.
+\end_layout
+
+\begin_layout Standard
+Esto se puede combinar con ejecución especulativa, normalmente para instruccione
+s de salto y de memoria, ejecutando las instrucciones especuladas pero solo
+ confirmando los resultados si la predicción fue correcta.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Se sabe que esto puede permitir ataques 
+\emph on
+\lang english
+side-channel
+\emph default
+\lang spanish
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Ejecución especulativa
+\end_layout
+
+\begin_layout Standard
+La predicción de saltos es 
+\series bold
+estática
+\series default
+ si siempre predice el mismo resultado para el mismo salto o 
+\series bold
+dinámica
+\series default
+ en otro caso.
+ Algunos mecanismos de predicción de saltos dinámicos son la predicción
+ básica de 
+\begin_inset Formula $n$
+\end_inset
+
+ bits, la de predicción con correlación y la predicción híbrida o de contienda.
+ También se suele usar un 
+\series bold
+\emph on
+\lang english
+buffer
+\emph default
+\lang spanish
+ de destino de saltos
+\series default
+ (
+\series bold
+BTB
+\series default
+, 
+\emph on
+\lang english
+Branch Target Predictor
+\emph default
+\lang spanish
+), que almacena la dirección de destino de saltos previos para poder cargar
+ las instrucciones de dichas direcciones directamente.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Se sabe que esto puede permitir ataques 
+\emph on
+\lang english
+side-channel
+\emph default
+\lang spanish
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si la longitud del 
+\emph on
+\lang english
+pipeline
+\emph default
+\lang spanish
+ del procesador aumenta, la penalización por fallo de predicción de saltos
+ aumenta al tardar más ciclos en detectar un fallo de predicción, y si el
+ ancho del procesador aumenta, llegan más instrucciones de salto por ciclo
+ (hay una medida de un salto por cada 8 instrucciones) y una mala predicción
+ afectará a más instrucciones.
+ Por ello, si la predicción de saltos es mala, el rendimiento se ve muy
+ afectado.
+\end_layout
+
+\begin_layout Standard
+Para reducir la latencia de memoria se pueden reordenar las instrucciones
+ que acceden a memoria.
+ Si una carga produce un fallo de caché, se pueden ejecutar cargas posteriores,
+ pero en principio, en cualquier caso, no se puede ejecutar una carga hasta
+ que se haya calculado la dirección de todos los almacenamientos anteriores
+ y ninguno de los que están pendientes de confirmar tiene la misma dirección
+ que la carga.
+\end_layout
+
+\begin_layout Standard
+Para mitigar los riesgos de datos, se suele permitir la ejecución especulativa
+ de las cargas aunque no se haya calculado la dirección de los almacenamientos
+ anteriores.
+ Cuando se sabe la dirección de un almacenamiento, se compara con las direccione
+s de las cargas posteriores y, si hay coincidencia, se descartan los resultados
+ de la carga y las instrucciones posteriores.
+\end_layout
+
+\begin_layout Section
+Procesamiento multihilo
+\end_layout
+
+\begin_layout Standard
+Aprovechar al máximo las unidades funcionales de un núcleo con un solo hilo
+ es difícil, por lo que se usa el 
+\series bold
+paralelismo a nivel de hilo
+\series default
+ (
+\series bold
+TLP
+\series default
+, 
+\emph on
+\lang english
+Thread-Level Parallelism
+\emph default
+\lang spanish
+) y se permite ejecutar varios hilos en el mismo núcleo.
+\end_layout
+
+\begin_layout Standard
+Tradicionalmente se reparten los ciclos entre los hilos según una 
+\series bold
+política de ejecución
+\series default
+:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Entrelazado fijo
+\series default
+: Cada hilo toma un ciclo y ejecuta una instrucción, por turnos.
+ Si un hilo no está listo, se pone una 
+\series bold
+burbuja
+\series default
+ en el cauce, un ciclo en que no se hace nada.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Entrelazado controlado por el sistema operativo
+\series default
+: El sistema asigna una cantidad de 
+\emph on
+\lang english
+slots
+\emph default
+\lang spanish
+, mayor al número de hilos, y los reparte entre los hilos disponibles en
+ cada momento.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Entrelazado controlado por 
+\emph on
+\lang english
+hardware
+\series default
+\emph default
+\lang spanish
+: El 
+\emph on
+\lang english
+hardware
+\emph default
+\lang spanish
+ mantiene una lista de los hilos en ejecución y elige el siguiente hilo
+ a ejecutan según un esquema de prioridades.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+multihilo simultáneo
+\series default
+ (
+\series bold
+SMT
+\series default
+, 
+\series bold
+\emph on
+\lang english
+Simultaneous Multi-Threading
+\series default
+\emph default
+\lang spanish
+) permite ejecutar varios hilos en el mismo ciclo, usando uno los recursos
+ que no usa el otro, especialmente unidades funcionales.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Se sabe que esto puede permitir ataques 
+\emph on
+\lang english
+side-channel
+\emph default
+\lang spanish
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El sistema operativo debe manejar más hilos, y hay más conflictos de caché
+ y TLB salvo que se aumente el tamaño.
+ Cada hilo necesita sus propios registros, tanto de propósito general como
+ el contador de programa, el registro para la tabla de páginas y los de
+ manejo de excepciones, por lo que se debe propagar el identificador de
+ hilo por todo el cauce para saber qué registros usar.
+ Se replican las tablas de renombrado de registros, pero se comparten el
+ ROB, las cachés y las tablas de predicción de saltos.
+\end_layout
+
+\begin_layout Standard
+El SMT se puede adaptar para que cuando hay alto TLP el ancho de emisión
+ se comparta entre los hilos y cuando hay poco no se reparta y se dedique
+ al ILP.
+\end_layout
+
+\begin_layout Section
+Vectorización
+\end_layout
+
+\begin_layout Standard
+Las aplicaciones multimedia, como de realidad virtual, comunicaciones, procesami
+ento de imágenes, reconocimiento de voz, etc., así como la compresión y el
+ cifrado, requieren cálculo intensivo, a menudo con restricciones de tiempo
+ real, y es común que apliquen la misma operación a todos los elementos
+ de una lista.
+\end_layout
+
+\begin_layout Standard
+Los procesadores de propósito general no están optimizados para estas aplicacion
+es, por lo que surgen las 
+\series bold
+extensiones multimedia
+\series default
+ con instrucciones SIMD para explotar el paralelismo de datos con el coste
+ mínimo de recursos del chip.
+ En la arquitectura IA-32 de Intel y AMD, se crean:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+MMX
+\series default
+ (
+\emph on
+Multi-Media Extensions
+\emph default
+): Operaciones con 8 enteros de 8 bits o 4 de 16 bits.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+SSE
+\series default
+ (
+\emph on
+Streaming SIMD Extensions
+\emph default
+), SSE2 y SSE4.2: 16 enteros de 8 bits, 8 de 16 bits, 4 de 32 bits, 4 números
+ de punto flotante de 32 bits o 2 de 64 bits.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+AVX
+\series default
+ (
+\emph on
+Advanced Vector Extensions
+\emph default
+) y 
+\series bold
+AVX2
+\series default
+: 4 números enteros o de punto flotante de 64 bits.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+AVX-512
+\series default
+: 8 números enteros o de punto flotante de 64 bits.
+\end_layout
+
+\begin_layout Standard
+Intel también crea 
+\series bold
+IMCI
+\series default
+ (
+\emph on
+Intel Many-Core Instructions
+\emph default
+) para la primera generación de Intel Xeon 
+\lang english
+Phi
+\lang spanish
+, con registros de 512 bits.
+ En cualquier caso, los operandos deben estar en posiciones de memoria consecuti
+vas y alineadas al tamaño del registro.
+\end_layout
+
+\begin_layout Standard
+Esto es como lo que hacen los procesadores vectoriales en las GPUs, aunque
+ en general con modos de direccionamiento más sofisticados e instrucciones
+ para mover datos de una parte del registro a otra.
+ Muchas extensiones SIMD soportan instrucciones como 
+\family typewriter
+FMA
+\family default
+ (
+\emph on
+\lang english
+Fused Multiply-Add
+\emph default
+\lang spanish
+), que multiplica dos registros y suma otro al resultado elemento a elemento.
+\end_layout
+
+\begin_layout Standard
+Los compiladores suelen intentar usar instrucciones SIMD para los bucles
+ más internos del programa, pero el programador debe elegir el compilador
+ y las opciones adecuados, reordenar el código para hacer más visible lo
+ que ocurre y, si es necesario, usar 
+\emph on
+\lang english
+intrinsics
+\emph default
+\lang spanish
+, funciones que el compilador trata de forma especial, o escribir en ensamblador.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Vectorizar
+\series default
+ es convertir bucles con instrucciones escalares para que usen instrucciones
+ SIMD, y lo suele hacer el compilador tras asegurarse de que esto no modifica
+ los resultados del cálculo, viendo si una iteración accede a los datos
+ producidos en iteraciones previas.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Cuando hay un registro de acumulación, por ejemplo al sumar una lista de
+ números, este se suele convertir a un registro vectorial con varios acumuladore
+s a los que luego se les aplica una reducción.
+ Esto no se puede hacer en punto flotante porque las operaciones de punto
+ flotante no son conmutativas ni asociativas, pero muchos compiladores tienen
+ opciones para no respetar el estándar en este caso y tratar las operaciones
+ como conmutativas y asociativas.
+ Ejemplos son 
+\family typewriter
+gcc
+\family default
+ (
+\emph on
+\lang english
+GNU C Compiler
+\emph default
+\lang spanish
+) con la orden 
+\family typewriter
+-ffast-math
+\family default
+ y el software privativo 
+\family typewriter
+icc
+\family default
+ (
+\emph on
+\lang english
+Intel Compiler Collection
+\emph default
+\lang spanish
+), solo para arquitecturas Intel, que nunca respeta el estándar.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
