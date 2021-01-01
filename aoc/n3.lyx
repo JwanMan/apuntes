@@ -1099,5 +1099,189 @@ Diagrama de transición de MESI basado en fisgoneo.
 
 \end_layout
 
+\begin_layout Section
+Modelos de consistencia de memoria
+\end_layout
+
+\begin_layout Standard
+El compilador y los núcleos del procesador pueden cambiar el orden de cargas
+ y almacenamientos, por lo que en principio un hilo no puede depender del
+ orden en que otro carga y almacena los valores.
+ Como hace falta un orden para la sincronización, necesitamos un 
+\series bold
+modelo de memoria
+\series default
+, una especificación de las restricciones en el orden en que las operaciones
+ de memoria de un hilo se hacen visibles al resto.
+ Todos los modelos son coherentes, pero la 
+\series bold
+consistencia
+\series default
+, la generalización de la coherencia a posiciones de memoria distintas,
+ es rara.
+ Algunos modelos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Consistencia estricta
+\series default
+: La escritura a una variable por un procesador es vista instantáneamente
+ por el resto.
+ Este modelo es determinista y asume un reloj global en el procesador, y
+ aunque es fácil de conseguir en procesadores mononúcleo cuando no hacen
+ E/S, enlentece mucho los sistemas distribuidos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Consistencia secuencial
+\series default
+: Las escrituras no tienen que hacerse visibles instantáneamente, pero son
+ 
+\series bold
+atómicas
+\series default
+, vistas en el mismo orden por todos los hilos, y en particular las de un
+ mismo hilo se ven en el orden del programa.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Esto requiere esperar a que las escrituras terminen de propagarse antes
+ de emitir otra operación de memoria, rompiendo optimizaciones como los
+ 
+\emph on
+\lang english
+buffers
+\emph default
+\lang spanish
+ de escritura y el adelantamiento y dificultando mecanismos como la segmentación
+, lo que se puede aliviar con especulación pero añadiendo mucha complejidad.
+ Además, muchas optimizaciones de compiladores se basan en reordenar el
+ código fuente y en particular los accesos a memoria, o en usar registros.
+ Por eso x86, ARM, MIPS, PowerPC y RISC-V no lo implementan.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+En la práctica se usan modelos de consistencia relajados:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Consistencia del procesador
+\series default
+ o 
+\series bold
+\emph on
+\lang english
+Processor Consistency
+\series default
+\emph default
+\lang spanish
+: Cada hilo ve las escrituras de un mismo procesador en orden.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Consistencia débil
+\series default
+: Los accesos a memoria pueden marcarse como de sincronización.
+ Estos accesos tienen consistencia secuencial entre sí y todos los hilos
+ ven el mismo conjunto de operaciones de memoria entre accesos de sincronización.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Consistencia de liberación
+\series default
+: Los accesos a memoria pueden marcarse como de 
+\series bold
+adquisición
+\series default
+ (
+\emph on
+\lang english
+acquire
+\emph default
+\lang spanish
+) o de 
+\series bold
+liberación
+\series default
+ (
+\emph on
+\lang english
+release
+\emph default
+\lang spanish
+).
+ Los accesos de adquisición y liberación tienen consistencia del procesador
+ entre sí, todos los accesos esperan a que los anteriores de adquisición
+ hayan terminado y los de liberación esperan a que todos los anteriores
+ hayan terminado.
+ Normalmente las secciones críticas empiezan con una 
+\emph on
+\lang english
+acquire
+\emph default
+\lang spanish
+ y terminan con una 
+\emph on
+\lang english
+release
+\emph default
+\lang spanish
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Este es el modelo usado por C, C++ y Java,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+C, C++ y Rust usan el mismo modelo, que también incluye consistencia débil,
+ aunque esta se puede implementar a través de consistencia de liberación.
+\end_layout
+
+\end_inset
+
+ y ARMv8 y RISC-V tienen modelos similares.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Los accesos a memoria marcados especialmente se suelen traducir en ensamblador
+ como 
+\emph on
+\lang english
+memory fences
+\emph default
+\lang spanish
+.
+ Programar con modelos relajados es más difícil, y se aconseja evitar las
+ 
+\series bold
+condiciones de carrera
+\series default
+, en que dos hilos acceden a la misma memoria sin ordenación y al menos
+ uno escribe en ella, y usar las primitivas de sincronización del lenguaje
+ de programación, que en general incluyen las 
+\emph on
+\lang english
+fences
+\emph default
+\lang spanish
+ necesarias.
+\end_layout
+
 \end_body
 \end_document
