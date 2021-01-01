@@ -1,0 +1,16 @@
+digraph G {
+	S, I, M, E
+	M -> M [label="ReqRd /\nReqWr /"]
+	M -> S [label="BusRd / FlushM"]
+	M -> I [label="Reemplazo / FlushM\nBusRdX / Flush\nBusUpd / Flush"]
+	E -> M [label="ReqWr /"]
+	E -> E [label="ReqRd /"]
+	E -> S [label="BusRd /"]
+	E -> I [label="Reemplazo /\nBusRdX /\nBusUpd /"]
+	S -> M [label="ReqWr / BusUpd"]
+	S -> S [label="ReqRd /\nBusRd /"]
+	S -> I [label="Reemplazo /\nBusRdX /\nBusUpd /"]
+	I -> M [label="ReqWr / BusRdX"]
+	I -> E [label="ReqRd, E / BusRd"]
+	I -> S [label="ReqRd, !E / BusRd"]
+}

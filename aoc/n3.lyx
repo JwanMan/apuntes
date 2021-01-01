@@ -5,6 +5,9 @@
 \save_transient_properties true
 \origin unavailable
 \textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
 \use_default_options true
 \begin_modules
 algorithm2e
@@ -199,6 +202,896 @@ status open
 
 \backslash
 eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la práctica se usan 
+\series bold
+cachés multinivel
+\series default
+, con niveles normalmente de L1 a L3, siendo L1 la caché más cercana al
+ procesador y con menor latencia pero menor capacidad.
+ La 
+\series bold
+política de inclusión
+\series default
+ indica si los datos en un nivel de caché están también en los niveles inferiore
+s (de mayor número), y según esta la caché puede ser:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Inclusiva
+\series default
+: Todas las líneas en una caché están en las cachés de niveles inferiores,
+ por lo que comprobar si un procesador tiene en su caché una copia de una
+ línea solo requiere comprobar la caché externa.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Exclusiva
+\series default
+: Cada línea está en un único nivel de caché, y cuando un nivel requiere
+ una línea de caché, intercambia la línea con la caché inferior.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Ni inclusiva ni exclusiva
+\series default
+ (
+\series bold
+\lang english
+NINE
+\series default
+\lang spanish
+, 
+\emph on
+\lang english
+Non-Inclusive Non-Exclusive
+\emph default
+\lang spanish
+): Las líneas de un nivel de caché pueden estar o no en el nivel inferior.
+\end_layout
+
+\begin_layout Standard
+Los fallos de caché pueden ser:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Obligatorios
+\series default
+, el primer acceso a una línea.
+ Ocurrirían incluso con una caché infinita, aunque se pueden mitigar con
+ 
+\emph on
+\lang english
+prefetching
+\emph default
+\lang spanish
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De capacidad
+\series default
+, cuando la línea se expulsó previamente porque la caché no es lo suficientement
+e grande.
+ Ocurrirían aun si la caché fuera totalmente asociativa.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De conflicto
+\series default
+, debidas a la falta de asociatividad.
+ El resto.
+\end_layout
+
+\begin_layout Standard
+Los núcleos en un CMP suelen ser 
+\series bold
+multiprocesadores simétricos
+\series default
+ (
+\series bold
+SMP
+\series default
+, 
+\emph on
+\lang english
+symmetric multiprocessors
+\emph default
+\lang spanish
+), que acceden a una memoria común con latencia de acceso uniforme, pero
+ tienen cachés que pueden ser:
+\end_layout
+
+\begin_layout Enumerate
+Totalmente separadas, una caché por procesador.
+ Es el caso de las cachés L1, de las que hay dos por procesador para datos
+ e instrucciones.
+ Dos cachés separadas pueden tener el mismo dato.
+\end_layout
+
+\begin_layout Enumerate
+Compartidas, para aprovechar mejor el espacio a cambio de un acceso más
+ lento.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+NUCA
+\series default
+ (
+\emph on
+\lang english
+Non-Uniform Cache Access
+\emph default
+\lang spanish
+): Una caché por procesador pero lógicamente compartida, de modo que si
+ un procesador necesita un bloque que no está en su caché se lo pide a las
+ cachés de los otros procesadores.
+\end_layout
+
+\begin_layout Standard
+También hay procesadores con 
+\series bold
+DSM
+\series default
+ (
+\emph on
+\lang english
+Distributed Shared Memory
+\emph default
+\lang spanish
+), una arquitectura 
+\series bold
+NUMA
+\series default
+ (
+\emph on
+\lang english
+Non-Uniform Memory Access
+\emph default
+\lang spanish
+, acceso a memoria no uniforme) en la que cada núcleo tiene una porción
+ de memoria y acceso a E/S y puede acceder a la porción de otros procesadores
+ mediante una red de interconexión.
+\end_layout
+
+\begin_layout Section
+Coherencia de cachés
+\end_layout
+
+\begin_layout Standard
+Un sistema de memoria multiprocesador es 
+\series bold
+coherente
+\series default
+ si todas las copias accesibles de la misma posición de memoria tienen el
+ mismo valor, esto es, si el resultado de cualquier ejecución de un programa
+ es tal que, para una posición de memoria, se puede construir una ordenación
+ secuencial de las operaciones realizadas sobre dicha posición y en la que
+ las operaciones emitidas por un mismo procesador aparecen en el orden en
+ que son emitidas por el procesador al sistema de memoria y el valor devuelto
+ por una operación de lectura es el escrito en la última escritura con la
+ ordenación secuencial.
+\end_layout
+
+\begin_layout Standard
+Equivalentemente, es coherente si el resultado de cualquier ejecución de
+ un programa se puede obtener dividiendo la ejecución de cada hilo en una
+ secuencia de épocas o momentos lógicos de forma que en cada época o bien
+ hay un único procesador leyendo y escribiendo de una dirección o bien ningún
+ procesador escribe en la dirección, y el valor en una dirección al comienzo
+ de una época para cualquier lector es el mismo que el que tenía al final
+ de la última época en que se escribió a la dirección.
+\end_layout
+
+\begin_layout Standard
+En sistemas de memoria compartida, el 
+\emph on
+\lang english
+hardware
+\emph default
+\lang spanish
+ mantiene la coherencia mediante un 
+\series bold
+protocolo de coherencia
+\series default
+, que debe ser correcto y queremos que sea rápido sin consumir mucha energía
+ y requiera poco 
+\emph on
+\lang english
+hardware
+\emph default
+\lang spanish
+.
+ Un procesador mononúcleo puede tener problemas de coherencia por la E/S,
+ pues un controlador DMA puede escribir a una zona de memoria pero el procesador
+ lee de caché.
+ Lo que se hace entonces es desactivar el uso de caché para esa zona.
+ Para procesadores multinúcleo los protocolos pueden ser:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Basados en invalidación
+\series default
+: Cuando un procesador modifica su copia, notifica al resto para que descarten
+ la suya.
+ Solo hay que comunicar la primera escritura, pues tras esta no existen
+ más copias hasta que otro nodo vuelva a acceder al dato, y el resto de
+ escrituras a la misma línea de caché son locales.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Basados en actualización
+\series default
+: Cuando un procesador modifica su copia, indica su modificación al resto
+ para que la actualicen.
+ No invalida copias de otros nodos, por lo que no aumenta la tasa de fallos,
+ pero usa mucho ancho de banda en actualizaciones que en general no son
+ accedidas de nuevo por otros nodos.
+\end_layout
+
+\begin_layout Standard
+La invalidación o actualización de un bloque en un nivel de caché debe transmiti
+rse a los niveles superiores.
+ La mayoría de sistemas usan protocolos basados en invalidación.
+\end_layout
+
+\begin_layout Subsection
+MSI con fisgoneo
+\end_layout
+
+\begin_layout Standard
+Los protocolos 
+\series bold
+\emph on
+\lang english
+snoopy
+\series default
+\emph default
+\lang spanish
+ o basados en 
+\series bold
+fisgoneo
+\series default
+ se basan en que los nodos puedan ver los fallos de caché del resto y actuar
+ en consecuencia, invalidando las copias si hace falta o proporcionando
+ los datos.
+ Esto requiere una red totalmente ordenada que permita la difusión, como
+ un bus o cualquier otra red si se obliga a los mensajes a pasar por un
+ punto de serialización, aunque hay sistemas modernos que usan variantes
+ del fisgoneo que funcionan con redes que no garantizan un orden total,
+ normalmente anillos.
+ Los protocolos basados en fisgoneo funcionan bien cuando hay pocos nodos,
+ pero con muchos nodos la red totalmente ordenada es un cuello de botella.
+\end_layout
+
+\begin_layout Standard
+El protocolo 
+\series bold
+MSI
+\series default
+ es un protocolo basado en invalidación en el que los bloques pueden estar
+ en uno de tres estados:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\emph on
+\lang english
+Modified
+\series default
+\emph default
+\lang spanish
+: Los datos están actualizados, la copia en memoria es obsoleta y ninguna
+ otra caché tiene copia.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\emph on
+\lang english
+Shared
+\series default
+\emph default
+\lang spanish
+: Los datos están actualizados en caché y memoria, y otras cachés pueden
+ tener copia.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\emph on
+\lang english
+Invalid
+\series default
+\emph default
+\lang spanish
+: Bloque inválido.
+\end_layout
+
+\begin_layout Standard
+Los mensajes intercambiados son:
+\end_layout
+
+\begin_layout Itemize
+Del procesador (o nivel de caché superior) a la caché, petición de lectura
+ (
+\family typewriter
+ReqRd
+\family default
+) y de escritura (
+\family typewriter
+ReqWr
+\family default
+), a las que la caché siempre acaba respondiendo.
+\end_layout
+
+\begin_layout Itemize
+En el bus, petición de lectura (
+\family typewriter
+BusRd
+\family default
+), de lectura exclusiva (con intención de modificar, 
+\family typewriter
+BusRdX
+\family default
+) o de invalidación de bloque (
+\family typewriter
+BusUpd
+\family default
+), y envío de datos a otra caché (
+\family typewriter
+Flush
+\family default
+) o a memoria y opcionalmente a otra caché (
+\family typewriter
+FlushM
+\family default
+).
+\end_layout
+
+\begin_layout Standard
+El diagrama de estados resultante está en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:msi-snoopy"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Una versión simplificada del protocolo sustituye 
+\family typewriter
+Flush
+\family default
+ y 
+\family typewriter
+FlushM
+\family default
+ por un solo mensaje 
+\family typewriter
+BusWr
+\family default
+, equivalente a 
+\family typewriter
+FlushM
+\family default
+, y 
+\family typewriter
+BusUpd
+\family default
+ por 
+\family typewriter
+BusRdX
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template VectorGraphics
+	filename n3.1.dot
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:msi-snoopy"
+
+\end_inset
+
+Diagrama de estados del protocolo MSI con fisgoneo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cuando se recibe un 
+\family typewriter
+BusRd
+\family default
+ de un bloque modificado, hacer 
+\family typewriter
+FlushM
+\family default
+ y compartir el bloque permite que posteriores lecturas por el procesador
+ original resulten en acierto de caché, pero si el nuevo procesador escribe
+ en el bloque, tiene que notificar la actualización para invalidar el bloque
+ y la latencia de la escritura aumenta.
+ Si el patrón de acceso es migratorio; por ejemplo, si se va actualizando
+ un contador compartido, se escribe el bloque continuamente a memoria (más
+ comúnmente a caché L3 compartida), por lo que puede ser mejor hacer 
+\family typewriter
+Flush
+\family default
+ e invalidar el bloque.
+ 
+\end_layout
+
+\begin_layout Standard
+En general es preferible compartir cuando es más probable que el procesador
+ original vuelva a leer y es preferible invalidar cuando es más probable
+ que el patrón de acceso sea migratorio.
+ Algunos procesadores adaptan el protocolo según el tipo de acceso observado.
+\end_layout
+
+\begin_layout Subsection
+Directorios
+\end_layout
+
+\begin_layout Standard
+Un directorio es una tabla cuyas entradas están formadas por la etiqueta
+ de un bloque al que asocia bits de presencia, indicando en qué núcleos
+ está el bloque normalmente mediante un vector de bits, y bits de estado.
+ Se usa como punto de serialización para dar escalabilidad a los protocolos
+ de fisgoneo.
+ 
+\end_layout
+
+\begin_layout Standard
+Puede ser centralizado, pero como tiene que ser consultado cada vez que
+ un acceso a memoria falla en una caché local, es mejor que sea distribuido,
+ con varios directorios cada uno encargado de un subconjunto de direcciones
+ de memoria.
+ La latencia de acceso es variable porque puede el directorio asociado a
+ una dirección puede estar conectado al nodo local de la red o a uno más
+ o menos remoto.
+\end_layout
+
+\begin_layout Standard
+Para que un protocolo de directorio sea escalable debe tener buen rendimiento,
+ minimizando el ancho de banda por fallo, especialmente en el camino crítico,
+ y la frecuencia de los fallos, y reduciendo la sobrecarga de memoria asociada
+ al estado del directorio.
+\end_layout
+
+\begin_layout Standard
+El protocolo MSI basado en directorio usa 3 estados posibles para una entrada
+ de directorio: NC (
+\emph on
+\lang english
+Non-Cached
+\emph default
+\lang spanish
+), S (
+\emph on
+\lang english
+Shared
+\emph default
+\lang spanish
+) y P (
+\emph on
+\lang english
+Private
+\emph default
+\lang spanish
+).
+ Los mensajes son:
+\end_layout
+
+\begin_layout Enumerate
+Del procesador a la caché: Petición de lectura (
+\family typewriter
+ReqRd
+\family default
+) y de escritura (
+\family typewriter
+ReqWr
+\family default
+).
+\end_layout
+
+\begin_layout Enumerate
+Del directorio a las cachés: Petición de invalidación (
+\family typewriter
+CInv
+\family default
+), de obtener copia para lectura (
+\family typewriter
+CRd
+\family default
+) y de enviar copia para escritura (
+\family typewriter
+CWr
+\family default
+).
+\end_layout
+
+\begin_layout Enumerate
+De las cachés al directorio: Petición de lectura (
+\family typewriter
+DirRd
+\family default
+), escritura (
+\family typewriter
+DirWr
+\family default
+) y volcado en memoria (
+\family typewriter
+DirWB
+\family default
+); confirmación de invalidación (
+\family typewriter
+CInvOK
+\family default
+) y de envío de copia para lectura (
+\family typewriter
+CRdOK
+\family default
+, contiene el dato leído) y escritura (
+\family typewriter
+CWrOK
+\family default
+).
+\end_layout
+
+\begin_layout Enumerate
+Respuesta con datos solicitados (
+\family typewriter
+Data
+\family default
+), de una caché a otra o, si el dato no estaba en ninguna caché, del directorio
+ a la caché, tras solicitar el dato de memoria.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template VectorGraphics
+	filename n3.2.dot
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:msi-dir"
+
+\end_inset
+
+Transiciones del directorio en MSI con directorios, donde 
+\family typewriter
+c
+\family default
+ es la caché peticionaria y 
+\family typewriter
+r
+\family default
+ es una caché remota que tiene el dato.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template VectorGraphics
+	filename n3.3.dot
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:msi-dir-cache"
+
+\end_inset
+
+Transiciones de las cachés en MSI con directorios, donde 
+\family typewriter
+c
+\family default
+ es la caché que pide un dato a esta.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los diagramas de transición se muestran en las figuras 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:msi-dir"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:msi-dir-cache"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ En la práctica queremos que varios procesadores puedan ejecutar transacciones
+ a la vez, incluso hacia la misma línea de caché, lo que supone mucha complejida
+d.
+\end_layout
+
+\begin_layout Subsection
+Datos compartidos
+\end_layout
+
+\begin_layout Standard
+Cuando varios procesadores usan la misma línea de caché a la vez se dice
+ que comparten la línea.
+ En los protocolos de invalidación, las escrituras frecuentes a una línea
+ compartida degradan el rendimiento.
+ Distinguimos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Verdadera compartición
+\series default
+: Los hilos usan la misma variable.
+ Esto no es un problema si la variable es de sólo lectura, pero si se escribe
+ frecuentemente se deberían usar copias de la variable por hilo si el algoritmo
+ lo permite.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Falsa compartición
+\series default
+: Los hilos usan variables distintas en el mismo bloque.
+ La solución es almacenar las variables en bloques distintos o evitar el
+ entrelazamiento de los accesos.
+\end_layout
+
+\begin_layout Subsection
+Mejoras a MSI
+\end_layout
+
+\begin_layout Standard
+MSI se puede optimizar con nuevos estados:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\emph on
+\lang english
+Exclusive
+\series default
+\emph default
+\lang spanish
+: No se ha modificado el bloque pero ninguna otra caché tiene una copia.
+ Esto es habitual, y codificarlo en otro estado evita enviar mensajes de
+ coherencia para datos privados.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\emph on
+\lang english
+Owner
+\series default
+\emph default
+\lang spanish
+: Otras cachés pueden tener copias en estado 
+\emph on
+\lang english
+Shared
+\emph default
+\lang spanish
+, pero la copia en memoria no está actualizada y esta caché es la encargada
+ de dar los datos en caso de fallo.
+ Esto evita escribir en memoria cuando otro núcleo quiere leer un dato que
+ se ha modificado.
+\end_layout
+
+\begin_layout Standard
+Esto nos da los protocolos 
+\series bold
+MESI
+\series default
+ (MSI con 
+\emph on
+\lang english
+Exclusive
+\emph default
+\lang spanish
+, figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:mesi-snoppy"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), 
+\series bold
+MOSI
+\series default
+ (MSI con 
+\emph on
+\lang english
+Owner
+\emph default
+\lang spanish
+) y 
+\series bold
+MOESI
+\series default
+ (MSI con 
+\emph on
+\lang english
+Exclusive
+\emph default
+\lang spanish
+ y 
+\emph on
+\lang english
+Owner
+\emph default
+\lang spanish
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template VectorGraphics
+	filename n3.4.dot
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:mesi-snoppy"
+
+\end_inset
+
+Diagrama de transición de MESI basado en fisgoneo.
+ Una señal 
+\begin_inset Formula $E$
+\end_inset
+
+ se activa cuando ningún nodo ha solicitado el bloque.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset

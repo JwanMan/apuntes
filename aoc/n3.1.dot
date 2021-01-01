@@ -1,0 +1,10 @@
+digraph G {
+	I -> S[label="ReqRd / BusRd"]
+	I -> M[label="ReqWr / BusRdX"]
+	S -> M[label="ReqWr / BusUpd"]
+	S -> S[label="ReqRd /\nBusRd / Flush"]
+	S -> I[label="BusUpd, Reemplazo /\nBusRdX / Flush"]
+	M -> M[label="ReqRd, ReqWr /"]
+	M -> S[label="BusRd / FlushM"]
+	M -> I[label="BusRdX / Flush\nReemplazo / FlushM"]
+}

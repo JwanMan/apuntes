@@ -1,0 +1,10 @@
+digraph G {
+	I -> S [label="ReqRd / DirRd, {Data /}"]
+	I -> M [label="ReqWr / DirWr, {Data /}"]
+	S -> I [label="CInv / CInvOK\nReemplazo /"]
+	S -> S [label="ReqRd /"]
+	S -> M [label="ReqWr / DirWr, {Data /}"]
+	M -> I [label="CWr / c.Data, CWrOK\nReemplazo / DirWB"]
+	M -> S [label="CRd / c.Data, CRdOK"]
+	M -> M [label="ReqRd /\nReqWr /"]
+}

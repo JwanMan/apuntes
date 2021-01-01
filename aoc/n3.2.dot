@@ -1,0 +1,9 @@
+digraph G {
+	NC -> S [label="DirRd / :=[c], Data"]
+	NC -> P [label="DirWr / :=[c], Data"]
+	S -> S [label="DirRd / +=c, Data"]
+	S -> P [label="DirWr / all r.CInv,\n {all r.CInvOK / :=[c]}"]
+	P -> NC [label="DirWB /"]
+	P -> S [label="DirRd / +=c, r.CRd,\n {r.CRdOK / Data}"]
+	P -> P [label="DirWr / r.CWr, {r.CWrOK / :=[c]}"]
+}
