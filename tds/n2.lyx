@@ -1,0 +1,1829 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Clases anidadas
+\end_layout
+
+\begin_layout Standard
+Algunos lenguajes orientados a objetos
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+En esta asignatura, cuando hablamos de programación orientada a objetos
+ nos referimos al sentido actual con lenguajes como Java y C#, centrados
+ en clases, interfaces y patrones de diseño, en vez de al sentido original
+ con lenguajes como Smalltalk, centrados en el intercambio de mensajes.
+\end_layout
+
+\end_inset
+
+ como C++
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Alan Kay: 
+\emph on
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+I made up the term object-oriented and I can tell you I did not have C++
+ in mind.
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, C# y Java permiten definir una clase dentro de otra cuando esta solo es
+ necesaria dentro de la otra.
+ En Java tenemos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Clases anidadas estáticas
+\series default
+, definidas con el modificador 
+\family typewriter
+\lang english
+static
+\family default
+\lang spanish
+ en el cuerpo de otra clase.
+ La clase anidada puede ver todos los miembros de la que la contiene y de
+ sus instancias, y viceversa.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Clases internas
+\series default
+, cuyas instancias existen en el contexto de una instancia de la 
+\series bold
+clase externa
+\series default
+ y que pueden ver todos los miembros de dicha instancia.
+ Pueden implementar interfaces, por lo que son útiles para crear 
+\emph on
+\lang english
+callbacks
+\emph default
+\lang spanish
+.
+ Tipos:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Clases miembro
+\series default
+, definidas en el cuerpo de la clase externa sin 
+\family typewriter
+\lang english
+static
+\family default
+\lang spanish
+.
+ Las instancias son creadas por la clase externa mediante 
+\family typewriter
+this.new 
+\emph on
+Clase
+\family default
+\emph default
+[
+\family typewriter
+<
+\family default
+[
+\family typewriter
+\emph on
+T
+\emph default
+, 
+\family default
+...]
+\family typewriter
+>
+\family default
+]
+\family typewriter
+(
+\family default
+[
+\family typewriter
+\emph on
+parámetro
+\emph default
+, 
+\family default
+...]
+\family typewriter
+)
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Clases locales
+\series default
+, definidas en el cuerpo de un método.
+ Tienen en su ámbito las variables locales del método definidas previamente
+ y pueden usar las que son 
+\family typewriter
+\lang english
+final
+\family default
+\lang spanish
+.
+ Las instancias son creadas por el método con la sintaxis habitual (
+\family typewriter
+new
+\family default
+).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Clases anónimas
+\series default
+, como las locales pero definidas e instanciadas a la vez con una expresión
+ 
+\family typewriter
+new 
+\emph on
+Superclase
+\emph default
+(
+\family default
+[
+\family typewriter
+\emph on
+parámetro
+\emph default
+, 
+\family default
+...]
+\family typewriter
+) { 
+\emph on
+cuerpo de la clase 
+\emph default
+}
+\family default
+, donde 
+\family typewriter
+\emph on
+Superclase
+\family default
+\emph default
+ es la clase o interfaz de la que deriva la clase anónima y los parámetros
+ se pasan a un constructor de la 
+\family typewriter
+\emph on
+Superclase
+\family default
+\emph default
+, de modo que si esta es una interfaz no hay parámetros.
+ Se usan cuando se necesita un objeto de una clase que implemente una cierta
+ interfaz y la definición es pequeña, de unas 10 líneas.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Objetos función
+\end_layout
+
+\begin_layout Standard
+En lenguajes como Smalltalk, Python, Ruby y Javascript, las funciones se
+ pueden tratar como valores y pueden capturar variables del ámbito de su
+ definición.
+\end_layout
+
+\begin_layout Standard
+A partir de Java 8, una 
+\series bold
+expresión lambda
+\series default
+ es una de la forma 
+\family typewriter
+(
+\family default
+[[
+\family typewriter
+\emph on
+tipo
+\family default
+\emph default
+] 
+\family typewriter
+\emph on
+parámetro
+\emph default
+, 
+\family default
+...]
+\family typewriter
+) -> { 
+\emph on
+cuerpo
+\emph default
+ }
+\family default
+, que si se esperaba un objeto de una 
+\family typewriter
+\emph on
+Interfaz
+\family default
+\emph default
+ que solo tiene un 
+\family typewriter
+\emph on
+método
+\family default
+\emph default
+, equivale a 
+\family typewriter
+\lang english
+new
+\lang spanish
+ 
+\emph on
+Interfaz
+\emph default
+ { 
+\lang english
+public
+\lang spanish
+ 
+\emph on
+método
+\emph default
+(
+\family default
+[
+\family typewriter
+\emph on
+parámetro
+\emph default
+, 
+\family default
+...]
+\family typewriter
+) { 
+\emph on
+cuerpo
+\emph default
+ }
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Además, 
+\family typewriter
+{ 
+\lang english
+return 
+\emph on
+expr
+\emph default
+\lang spanish
+; }
+\family default
+ se puede abreviar como 
+\family typewriter
+\emph on
+expr
+\family default
+\emph default
+, y si hay solo un parámetro se puede cambiar 
+\family typewriter
+(
+\emph on
+parámetro
+\emph default
+)
+\family default
+ por 
+\family typewriter
+\emph on
+parámetro
+\family default
+\emph default
+.
+ 
+\family typewriter
+\emph on
+Clase
+\emph default
+::
+\emph on
+método
+\family default
+\emph default
+ equivale a 
+\family typewriter
+\emph on
+Clase
+\emph default
+ o -> o.
+\emph on
+método
+\emph default
+()
+\family default
+, y 
+\family typewriter
+\emph on
+Clase
+\emph default
+::new
+\family default
+ equivale a 
+\family typewriter
+(
+\family default
+[
+\family typewriter
+\emph on
+parámetro
+\emph default
+, 
+\family default
+...]
+\family typewriter
+) -> new 
+\emph on
+Clase
+\emph default
+(
+\emph on
+parámetro
+\emph default
+, 
+\family default
+...
+\family typewriter
+)
+\family default
+, donde el constructor tomado depende de la interfaz de cuyo tipo se esperaba
+ un objeto.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+interfaz funcional
+\series default
+ es una con un solo método usada como tipo de una expresión lambda.
+ Se puede anotar con 
+\family typewriter
+@
+\lang english
+FunctionalInterface
+\family default
+\lang spanish
+ encima de la interfaz.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+package
+\begin_inset space ~
+\end_inset
+
+java.awt.event
+\family default
+ Interfaces y clases de eventos lanzados por componentes AWT.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+En adelante los tipos de datos y métodos cuya visibilidad no se especifique
+ tienen visibilidad pública.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+interface
+\begin_inset space ~
+\end_inset
+
+ActionListener
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+EventListener
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+void
+\begin_inset space ~
+\end_inset
+
+actionPerformed(ActionEvent)
+\family default
+ Recibe una acción y actúa en consecuencia.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+package
+\begin_inset space ~
+\end_inset
+
+java.util.function
+\family default
+ Interfaces funcionales genéricas.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+@FunctionalInterface
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+BiFunction<T,U,R>
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+R
+\begin_inset space ~
+\end_inset
+
+apply(T,U)
+\family default
+ Aplica cierta función a los argumentos.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+@FunctionalInterface
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+BinaryOperator<T>
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+BiFunction<T,T,T>
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+@FunctionalInterface
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+Consumer<T>
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+void
+\begin_inset space ~
+\end_inset
+
+Accept(T)
+\family default
+ Acepta un argumento y hace algo con él.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+@FunctionalInterface
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+Function<T,R>
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+R
+\begin_inset space ~
+\end_inset
+
+apply(T)
+\family default
+ Aplica cierta función al argumento.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+@FunctionalInterface
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+Predicate<T>
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+boolean
+\begin_inset space ~
+\end_inset
+
+test(T)
+\family default
+ Comprueba si el argumento cumple cierta condición.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+@FunctionalInterface
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+Supplier<T>
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+T
+\begin_inset space ~
+\end_inset
+
+get()
+\family default
+ Suministra un objeto.
+ No tiene por qué ser siempre el mismo o distinto.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+@FunctionalInterface
+\begin_inset space ~
+\end_inset
+
+interface
+\begin_inset space ~
+\end_inset
+
+ToIntFunction<T>
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+int
+\begin_inset space ~
+\end_inset
+
+applyAsInt(T)
+\family default
+ Aplica una función entera al argumento.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+package
+\begin_inset space ~
+\end_inset
+
+javax.swing
+\family default
+ Biblioteca de interfaz gráfica multiplataforma.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+abstract
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+AbstractButton
+\family default
+\series default
+ Código común a varios tipos de botones.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+void
+\begin_inset space ~
+\end_inset
+
+addActionListener(ActionListener)
+\family default
+ Añade un 
+\family typewriter
+ActionListener
+\family default
+ para llamarlo al pulsar el botón.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+class
+\begin_inset space ~
+\end_inset
+
+JButton
+\series default
+
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+AbstractButton
+\family default
+ Botón estándar.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+JButton(String)
+\family default
+ Crea un botón con el texto dado.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+class
+\begin_inset space ~
+\end_inset
+
+JLabel
+\family default
+ Área para mostrar un texto corto, una imagen o ambos.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+JLabel()
+\family default
+ Crea un 
+\family typewriter
+JLabel
+\family default
+ sin imagen ni texto.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+void
+\begin_inset space ~
+\end_inset
+
+setText(String)
+\family default
+ Establece el texto.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section
+Objetos nulos
+\end_layout
+
+\begin_layout Standard
+La mayoría de lenguajes de programación desde Algol
+\begin_inset space ~
+\end_inset
+
+W representan la falta de un valor como un valor especial 
+\family typewriter
+null
+\family default
+ o 
+\family typewriter
+nil
+\family default
+.
+ Esto hace el código menos legible por las comprobaciones, es fuente de
+ errores y rompe con la idea de ocultar los punteros, por lo que Scala
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Y en general los lenguajes funcionales.
+\end_layout
+
+\end_inset
+
+ usa en su lugar un tipo 
+\family typewriter
+Option[T]
+\family default
+ (que puede contener un valor de tipo 
+\family typewriter
+T
+\family default
+ o ninguno) y Groovy usa un operador de navegación segura (que sale de la
+ función si el operando es nulo).
+\end_layout
+
+\begin_layout Standard
+En Java, el patrón 
+\emph on
+\lang english
+Null Object
+\emph default
+\lang spanish
+ consiste en sustituir 
+\family typewriter
+null
+\family default
+ para una interfaz por un valor de una clase que implemente la interfaz
+ con una implementación apropiada para la ausencia de valor.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+final
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+java.util.Optional<T>
+\family default
+ Valor de 
+\family typewriter
+T
+\family default
+ no nulo o ausencia de valor.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+static
+\begin_inset space ~
+\end_inset
+
+<T>
+\begin_inset space ~
+\end_inset
+
+Optional<T>
+\begin_inset space ~
+\end_inset
+
+empty()
+\family default
+ Devuelve un 
+\family typewriter
+Optional
+\family default
+ vacío.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+T
+\begin_inset space ~
+\end_inset
+
+get()
+\family default
+\series default
+ Si tiene un valor lo devuelve.
+ 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+boolean
+\begin_inset space ~
+\end_inset
+
+isPresent()
+\family default
+ Indica si tiene un valor.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+static
+\begin_inset space ~
+\end_inset
+
+<T>
+\begin_inset space ~
+\end_inset
+
+Optional<T>
+\begin_inset space ~
+\end_inset
+
+of(T)
+\family default
+ Devuelve un 
+\family typewriter
+Optional
+\family default
+ con el valor no nulo dado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+static
+\begin_inset space ~
+\end_inset
+
+<T>
+\begin_inset space ~
+\end_inset
+
+Optional<T>
+\begin_inset space ~
+\end_inset
+
+ofNullable(T)
+\family default
+ Devuelve un 
+\family typewriter
+Optional
+\family default
+ con el valor dado si es no nulo o vacío en otro caso.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+T
+\begin_inset space ~
+\end_inset
+
+orElse(T)
+\family default
+ Si tiene un valor lo devuelve, y si no devuelve el parámetro.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+
+\emph on
+\lang english
+Streams
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+package
+\begin_inset space ~
+\end_inset
+
+java.lang
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+final
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+String
+\family default
+ Tipo de los literales de cadena de caracteres, inmutable.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+boolean
+\begin_inset space ~
+\end_inset
+
+endsWith(String)
+\family default
+ Indica si la cadena tiene el sufijo indicado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+String
+\begin_inset space ~
+\end_inset
+
+toUpperCase()
+\family default
+ Convierte la cadena a mayúsculas con la localización por defecto.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+package
+\begin_inset space ~
+\end_inset
+
+java.util
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+interface
+\begin_inset space ~
+\end_inset
+
+Collection<E>
+\family default
+ Colección de elementos de un tipo 
+\family typewriter
+E
+\family default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+default
+\begin_inset space ~
+\end_inset
+
+Stream<E>
+\begin_inset space ~
+\end_inset
+
+parallelStream()
+\family default
+\series default
+ Devuelve un 
+\emph on
+\lang english
+stream
+\emph default
+\lang spanish
+ posiblemente paralelo con los elementos de la colección.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+default
+\begin_inset space ~
+\end_inset
+
+Stream<E>
+\begin_inset space ~
+\end_inset
+
+stream()
+\family default
+ Devuelve un 
+\emph on
+\lang english
+stream
+\emph default
+\lang spanish
+ secuencial sobre los elementos de la colección.
+\end_layout
+
+\begin_layout Description
+...
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+package
+\begin_inset space ~
+\end_inset
+
+java.util.stream
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+interface
+\begin_inset space ~
+\end_inset
+
+Collector<T,A,R>
+\family default
+\series default
+ Operación de reducción de elementos de tipo 
+\family typewriter
+T
+\family default
+ al tipo 
+\family typewriter
+A
+\family default
+ con representación final de tipo 
+\family typewriter
+R
+\family default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+class
+\begin_inset space ~
+\end_inset
+
+Collectors
+\family default
+ Colectores útiles.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+static
+\begin_inset space ~
+\end_inset
+
+<T,K>
+\begin_inset space ~
+\end_inset
+
+Collector<T,?,Map<K,List<T>>>
+\begin_inset space ~
+\end_inset
+
+groupingBy(Function<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T,?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+K>)
+\family default
+\series default
+ Aplica la función a todos los elementos y devuelve un diccionario cuyas
+ claves son los valores devueltos por la función y cuyos valores son listas
+ con los elementos a los que la función asocia la clave.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+static
+\begin_inset space ~
+\end_inset
+
+<T>
+\begin_inset space ~
+\end_inset
+
+Collector<T,?,Integer>
+\begin_inset space ~
+\end_inset
+
+summingInt(ToIntFunction<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>)
+\family default
+\series default
+ Aplica la función a cada elemento y devuelve la suma.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+static
+\begin_inset space ~
+\end_inset
+
+<T,C
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+Collection<T>>
+\begin_inset space ~
+\end_inset
+
+Collector<T,?,C>
+\begin_inset space ~
+\end_inset
+
+toCollection(Supplier<C>)
+\family default
+\series default
+ Almacena los elementos en una colección proporcionada por el parámetro.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+static
+\begin_inset space ~
+\end_inset
+
+<T>
+\begin_inset space ~
+\end_inset
+
+Collector<T,?,List<T>>
+\begin_inset space ~
+\end_inset
+
+toList()
+\family default
+ Almacena los elementos en una nueva lista.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+static
+\begin_inset space ~
+\end_inset
+
+<T>
+\begin_inset space ~
+\end_inset
+
+Collector<T,?,Set<T>>
+\begin_inset space ~
+\end_inset
+
+toSet()
+\family default
+ Almacena los elementos en un nuevo conjunto.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+interface
+\begin_inset space ~
+\end_inset
+
+java.util.stream.Stream<T>
+\family default
+ Secuencia de elementos que soporta operaciones secuenciales y paralelas.
+ En general los métodos que devuelven (siempre) otro 
+\emph on
+\lang english
+stream
+\emph default
+\lang spanish
+ son perezosas; no procesan los elementos hasta que sea necesario.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+bool
+\begin_inset space ~
+\end_inset
+
+allMatch(Predicate<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>)
+\family default
+\series default
+ Indica si todos los elementos del 
+\emph on
+\lang english
+stream
+\emph default
+\lang spanish
+ cumplen la condición.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+bool
+\begin_inset space ~
+\end_inset
+
+anyMatch(Predicate<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>)
+\family default
+\series default
+ Indica si alguno cumple la condición.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+<R,A>
+\begin_inset space ~
+\end_inset
+
+R
+\begin_inset space ~
+\end_inset
+
+collect(Collector<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T,A,R>)
+\family default
+ Reduce los elementos con el colector dado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+long
+\begin_inset space ~
+\end_inset
+
+count()
+\family default
+ Devuelve el número de elementos en el 
+\emph on
+\lang english
+stream
+\emph default
+\lang spanish
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+Stream<T>
+\begin_inset space ~
+\end_inset
+
+filter(Predicate<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>)
+\family default
+\series default
+ Devuelve un 
+\emph on
+\lang english
+stream
+\emph default
+\lang spanish
+ con los elementos de este que cumplen la condición.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Optional<T>
+\begin_inset space ~
+\end_inset
+
+findAny()
+\family default
+ Devuelve un elemento cualquiera del 
+\emph on
+\lang english
+stream
+\emph default
+\lang spanish
+ si lo hay.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+<R>
+\begin_inset space ~
+\end_inset
+
+Stream<R>
+\begin_inset space ~
+\end_inset
+
+flatMap(Function<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T,?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+Stream<?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+R>>)
+\family default
+ Devuelve un 
+\emph on
+\lang english
+stream
+\emph default
+\lang spanish
+ con los elementos de los 
+\emph on
+\lang english
+streams
+\emph default
+\lang spanish
+ resultantes de aplicar la función a cada elemento del 
+\emph on
+\lang english
+stream
+\emph default
+\lang spanish
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+void
+\begin_inset space ~
+\end_inset
+
+forEach(Consumer<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>)
+\family default
+ Aplica la acción con cada elemento.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+static
+\begin_inset space ~
+\end_inset
+
+<T>
+\begin_inset space ~
+\end_inset
+
+Stream<T>
+\begin_inset space ~
+\end_inset
+
+of(T...)
+\family default
+ Devuelve un 
+\emph on
+\lang english
+stream
+\emph default
+\lang spanish
+ secuencial con los elementos dados.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+<R>
+\begin_inset space ~
+\end_inset
+
+Stream<R>
+\begin_inset space ~
+\end_inset
+
+map(Function<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T,?
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+R>)
+\family default
+ Devuelve un 
+\emph on
+\lang english
+stream
+\emph default
+\lang spanish
+ resultante de aplicar la función dada a cada elemento de este.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Optional<T>
+\begin_inset space ~
+\end_inset
+
+max(Comparator<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>)
+\family default
+ Devuelve el máximo del 
+\emph on
+\lang english
+stream
+\emph default
+\lang spanish
+ según el comparador, salvo que esté vacío.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Optional<T>
+\begin_inset space ~
+\end_inset
+
+min(Comparator<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>)
+\family default
+ Devuelve el mínimo del 
+\emph on
+\lang english
+stream
+\emph default
+\lang spanish
+ según el comparador, salvo que esté vacío.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+boolean
+\begin_inset space ~
+\end_inset
+
+noneMatch(Predicate<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>)
+\family default
+ Indica si ningún elemento cumple la condición.
+ 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Optional<T>
+\begin_inset space ~
+\end_inset
+
+reduce(BinaryOperator<T>)
+\family default
+ Reduce los elementos del 
+\emph on
+\lang english
+stream
+\emph default
+\lang spanish
+ con una función de acumulación asociativa, salvo que esté vacío.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Stream<T>
+\begin_inset space ~
+\end_inset
+
+sorted()
+\family default
+ Devuelve un 
+\emph on
+\lang english
+stream
+\emph default
+\lang spanish
+ con los elementos de este ordenados por su orden natural.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Stream<T>
+\begin_inset space ~
+\end_inset
+
+sorted(Comparator<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>)
+\family default
+ Como 
+\family typewriter
+sorted()
+\family default
+ pero usa el comparador indicado.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_body
+\end_document
