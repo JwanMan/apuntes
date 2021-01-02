@@ -1248,8 +1248,7 @@ Este es el modelo usado por C, C++ y Java,
 status open
 
 \begin_layout Plain Layout
-C, C++ y Rust usan el mismo modelo, que también incluye consistencia débil,
- aunque esta se puede implementar a través de consistencia de liberación.
+C, C++ y Rust usan el mismo modelo, que también incluye consistencia débil.
 \end_layout
 
 \end_inset
@@ -1260,7 +1259,7 @@ C, C++ y Rust usan el mismo modelo, que también incluye consistencia débil,
 \end_deeper
 \begin_layout Standard
 Los accesos a memoria marcados especialmente se suelen traducir en ensamblador
- como 
+ como barreras de memoria o 
 \emph on
 \lang english
 memory fences
@@ -1281,6 +1280,299 @@ fences
 \emph default
 \lang spanish
  necesarias.
+\end_layout
+
+\begin_layout Section
+Semáforos
+\end_layout
+
+\begin_layout Standard
+La comunicación y compartición de recursos entre procesos requiere de mecanismos
+ de sincronización, como son:
+\end_layout
+
+\begin_layout Itemize
+Semáforos o cerrojos para la exclusión mutua.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Señales
+\series default
+ para la sincronización punto a punto, en que uno o más hilos esperan a
+ que otro envíe una señal.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Barreras
+\series default
+ para sincronización global, que impiden que los hilos sigan avanzando hasta
+ que todos lleguen a cierto punto de su ejecución.
+\end_layout
+
+\begin_layout Standard
+Las implementaciones de exclusión mutua constan de:
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\series bold
+método de adquisición
+\series default
+ para obtener el cerrojo, con poca latencia si no hay más hilos intentando
+ sincronizarse.
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\series bold
+algoritmo de espera
+\series default
+ para esperar a que el cerrojo esté disponible cuando no lo esté, y que
+ consuma poco ancho de banda de la red de interconexión.
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\series bold
+método de liberación
+\series default
+ para notificar que el cerrojo está disponible, que sea suficientemente
+ imparcial y no provoque inanición.
+\end_layout
+
+\begin_layout Standard
+Es importante que el protocolo sea escalable y requiera poca información
+ para funcionar.
+ Estos protocolos se pueden implementar con consistencia secuencial, pero
+ el resultado es complicado e ineficiente, por lo que es más común ampliar
+ el ISA con instrucciones atómicas de sincronización, que actúan como barreras.
+ Algunas son:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+\lang english
+Test and set
+\series default
+\emph default
+\lang spanish
+ (
+\family typewriter
+t&s
+\family default
+): Lee una posición de memoria en un registro y escribe 1 en dicha posición.
+ Un cerrojo representado por un booleano se bloquearía con
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+lock: t&s t0, MUTEX; bnez t0, lock
+\end_layout
+
+\end_inset
+
+y se desbloquea con 
+\family typewriter
+sw r0, LOCK
+\family default
+.
+ Cuando el cerrojo está ocupado, esto genera invalidaciones continuas, por
+ lo que es preferible usar 
+\emph on
+\lang english
+test&test&set
+\emph default
+\lang spanish
+, comprobando con una carga normal si el cerrojo está disponible antes de
+ obtenerlo:
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+lock: lw t0, MUTEX; bnez t0, lock; t&s t0, MUTEX; bnz t0, lock
+\end_layout
+
+\end_inset
+
+Esto aumenta algo la latencia pero reduce el tráfico entre cachés y es más
+ escalable.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+\lang english
+Swap
+\series default
+\emph default
+\lang spanish
+: Intercambia los valores de un registro y una posición de memoria.
+ Se puede usar como 
+\family typewriter
+t&s
+\family default
+ estableciendo el registro a 1.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+\lang english
+Fetch&op
+\series default
+\emph default
+\lang spanish
+: Lee una posición de memoria un registro y escribe en memoria el valor
+ obtenido al aplicar una cierta operación.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+\lang english
+Compare&swap
+\series default
+\emph default
+\lang spanish
+: Compara el valor en una posición de memoria con el de un registro y, si
+ coinciden, intercambia el contenido de la posición con el de otro registro.
+\end_layout
+
+\begin_layout Standard
+Estas instrucciones son difíciles de implementar y lentas, y una alternativa
+ es el par 
+\lang english
+LL
+\lang spanish
+/
+\lang english
+SC
+\lang spanish
+, formado por las instrucciones:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+\lang english
+Load Linked
+\series default
+\emph default
+\lang spanish
+ (
+\lang english
+LL
+\lang spanish
+): Lee una posición de memoria en un registro.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+\lang english
+Store Conditional
+\series default
+\emph default
+\lang spanish
+ (
+\lang english
+SC
+\lang spanish
+): Si, en el bloque (normalmente de caché) de la posición de memoria indicada,
+ nadie ha escrito desde el último 
+\lang english
+LL
+\lang spanish
+, escribe el valor del registro en la posición.
+ Si alguien ha escrito antes, la instrucción falla; ni escribe ni hay invalidaci
+ones.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+En la práctica esto puede ocurrir cuando hay una interrupción, cambio de
+ contexto, otro LL, una escritura a otro bloque, etc.
+\end_layout
+
+\end_inset
+
+ También establece algún registro para indicar si la instrucción tuvo éxito.
+\end_layout
+
+\begin_layout Standard
+Se ha de ejecutar el mínimo de operaciones posible entre 
+\lang english
+LL
+\lang spanish
+ y 
+\lang english
+SC
+\lang spanish
+ para favorecer que 
+\lang english
+SC
+\lang spanish
+ tenga éxito.
+ Un cerrojo se bloquearía con
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+li t1, 1; lock: ll t0, MUTEX; bnez t0, lock; sc t1, MUTEX; beqz t1, lock
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta implementación tiene buen rendimiento, pues la espera activa no genera
+ tráfico ni invalidaciones, pero no es imparcial.
+\end_layout
+
+\begin_layout Section
+Red de interconexión
+\end_layout
+
+\begin_layout Standard
+Al aumentar el número de núcleos de un procesador, una mala red de interconexión
+ puede consumir buena parte de la energía y dar lugar a cuellos de botella.
+ Cuando se requieren muchos núcleos, se usan también redes de interconexión
+ externas como los 
+\emph on
+\lang english
+clusters
+\emph default
+\lang spanish
+ de servidores.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
