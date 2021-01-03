@@ -182,31 +182,124 @@ subproblema alternativo
 \end_layout
 
 \begin_layout Standard
-Podemos tratar la representación como un 
+Un 
 \series bold
-grafo Y-O
+grafo YO
 \series default
-, un grafo dirigido en que cada nodo es de uno de los 3 tipos, los primitivos
- no son el inicial de ningún arco y los Y son el inicial de algún arco.
- Dibujamos los nodos primitivos con un doble círculo y los nodos Y con un
- arco, cóncavo hacia el propio nodo, que cruza las flechas que lo unen con
- los sucesores, generalmente sin pasarse de las flechas de los extremos.
- Del mismo modo podemos usar un 
+ es un par 
+\begin_inset Formula $(V,A)$
+\end_inset
+
+ donde 
+\begin_inset Formula $V$
+\end_inset
+
+ es un conjunto de nodos y 
+\begin_inset Formula $A\subseteq V\times{\cal P}(V)$
+\end_inset
+
+ es un conjunto de 
 \series bold
-árbol Y-O
+hiperarcos
+\series default
+ o 
+\series bold
+conectores
 \series default
 .
- 
-\end_layout
+ Si 
+\begin_inset Formula $(a,S)$
+\end_inset
 
-\begin_layout Standard
-Un nodo es 
+ es un conector, 
+\begin_inset Formula $a$
+\end_inset
+
+ es su 
+\series bold
+antecesor
+\series default
+ y los nodos de 
+\begin_inset Formula $S$
+\end_inset
+
+ son sus
+\series bold
+ sucesores
+\series default
+.
+ Un 
+\series bold
+
+\begin_inset Formula $k$
+\end_inset
+
+-conector
+\series default
+ es un conector con 
+\begin_inset Formula $k$
+\end_inset
+
+ sucesores.
+ Para dibujar un grafo YO, dibujamos un punto con una etiqueta, o un círculo,
+ para cada nodo, y para cada hiperarco trazamos flechas del antecesor a
+ cada sucesor.
+ Si hay al menos dos sucesores, hacemos un arco, cóncavo hacia el antecesor,
+ que une las flechas, y si no hay ninguno en vez de esto representamos el
+ nodo antecesor con un doble círculo.
+ Un nodo es 
 \series bold
 resoluble
 \series default
- si es primitivo; es Y y todos sus sucesores son resolubles, o es O y al
- menos uno de sus sucesores es resoluble, entendiéndose una recursión bien
- fundada.
+ si es antecesor de un hiperarco cuyos sucesores son todos resolubles.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+grafo Y/O
+\series default
+ o 
+\series bold
+Y-O
+\series default
+ es un grafo YO en que para cada 
+\begin_inset Formula $u\in V$
+\end_inset
+
+, 
+\begin_inset Formula $\{S\subseteq V:(u,S)\in A\}$
+\end_inset
+
+ es unipuntual o todos sus hiperarcos tienen un único sucesor.
+ Si es unipuntual con al menos dos sucesores, es un nodo 
+\series bold
+Y
+\series default
+; si tiene algún hiperarco con un único sucesor, es un nodo 
+\series bold
+O
+\series default
+, y de lo contrario es un 
+\series bold
+terminal
+\series default
+, en cuyo caso es una 
+\series bold
+primitiva
+\series default
+ si es antecesor de un hiperarco sin sucesores.
+ Así, un nodo es resoluble si es una primitiva, es de tipo Y con todos sus
+ sucesores resolubles o es de tipo O con algún sucesor resoluble.
+ Un 
+\series bold
+árbol Y/O
+\series default
+ es un grafo Y/O para el que el grafo no dirigido 
+\begin_inset Formula $(V,\{(u,v)\in V\times V:\exists(u,S)\in A:v\in S\})$
+\end_inset
+
+ es acíclico.
 \end_layout
 
 \end_deeper
@@ -255,12 +348,16 @@ dirigida por datos
 \series default
 , 
 \emph on
+\lang english
 forward
 \emph default
+\lang spanish
  o 
 \emph on
+\lang english
 bottom-up
 \emph default
+\lang spanish
  si parte de la situación inicial y aplica los operadores hasta llegar al
  objetivo, y es 
 \series bold
@@ -272,12 +369,16 @@ dirigida por objetivos
 \series default
 , 
 \emph on
+\lang english
 backward
 \emph default
+\lang spanish
  o 
 \emph on
+\lang english
 top-down
 \emph default
+\lang spanish
  si parte de la situación final y aplica operadores al revés hasta llegar
  a la situación inicial.
  También existen estrategias de búsqueda bidireccionales.
@@ -327,8 +428,10 @@ exploración
 \series default
 , haciendo algún tipo de 
 \emph on
+\lang english
 backtracking
 \emph default
+\lang spanish
  sobre el grafo o el árbol de representación.
  En general esto es lento, pero es un método universal y se puede combinar
  con técnicas heurísticas.

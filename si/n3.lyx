@@ -1,0 +1,1787 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Los algoritmos de búsqueda que veremos operan sobre un grafo o árbol de
+ búsqueda, esto es, un grafo dirigido o árbol que representa un espacio
+ de estados o una reducción (en cuyo caso sería un árbol o grafo Y-O).
+ En cada nodo, además de almacenar el estado, almacenamos el nodo padre
+ y la acción que se ha aplicado a este para obtener el nodo, lo que describe
+ un camino.
+ También podemos almacenar el coste del camino y la profundidad (longitud
+ del camino) desde el nodo raíz.
+ Un método de búsqueda es 
+\series bold
+completo
+\series default
+ si siempre que exista una solución la encuentra, y es 
+\series bold
+óptimo
+\series default
+ si además la solución encontrada es de coste mínimo.
+\end_layout
+
+\begin_layout Standard
+El entorno es 
+\series bold
+observable
+\series default
+ si siempre conocemos todo el estado, 
+\series bold
+determinista
+\series default
+ si sabemos el resultado de cualquier secuencia de acciones desde un estado,
+ 
+\series bold
+estático
+\series default
+ si, al encontrar un camino solución, podemos ejecutarlo sin observar los
+ cambios y llegar a la solución, y 
+\series bold
+discreto
+\series default
+ si solo hay un número finito de acciones posibles desde cada estado.
+ Suponemos un entorno observable, determinista, estático y discreto, y omitimos
+ aspectos como el tiempo límite para obtener la solución, el gasto en combustibl
+e, la presión en el brazo robot, etc.
+\end_layout
+
+\begin_layout Section
+Estrategias en un espacio de estados
+\end_layout
+
+\begin_layout Standard
+Podemos representar un problema de búsqueda en un espacio de estados como
+ una tupla 
+\begin_inset Formula $(V,A,\omega,s,F)$
+\end_inset
+
+ donde 
+\begin_inset Formula $(V,A,\omega)$
+\end_inset
+
+ es una red dirigida de tamaño contable en la que queremos minimizar el
+ peso del camino y, para todo 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, 
+\begin_inset Formula $\{w\in V:(v,w)\in A\}$
+\end_inset
+
+ es finito y recursivamente enumerable a partir de 
+\begin_inset Formula $v$
+\end_inset
+
+; un estado inicial 
+\begin_inset Formula $s\in V$
+\end_inset
+
+, y un conjunto computable de estados finales 
+\begin_inset Formula $F\subseteq V$
+\end_inset
+
+.
+ Entonces una solución es un camino de 
+\begin_inset Formula $s$
+\end_inset
+
+ a un estado de 
+\begin_inset Formula $F$
+\end_inset
+
+, y los algoritmos de búsqueda tienen la forma del algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:search-generic"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, con ligeras variaciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Problema de búsqueda en espacio de estados $(V,A,
+\backslash
+omega,s,F)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Camino solución o $
+\backslash
+emptyset$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+$L
+\backslash
+gets((s))$
+\backslash
+tcp*{Lista de caminos {
+\backslash
+bf frontera}.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{$L
+\backslash
+neq
+\backslash
+emptyset$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	Extraer último elemento $P$ de $L$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+uSSi{$(i:=
+\backslash
+text{final}(P))
+\backslash
+in F$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+Devolver $P$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\backslash
+EnOtroCaso{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+Para{$j
+\backslash
+in V:(i,j)
+\backslash
+in A$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			Insertar $Pj$ en $L$ en orden dado por la estrategia
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Devolver $
+\backslash
+emptyset$
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:search-generic"
+
+\end_inset
+
+Algoritmo genérico de búsqueda en árboles.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+nodos cerrados
+\series default
+ a los nodos del árbol o grafo de búsqueda que han sido considerados y expandido
+s (se han calculado sus nodos hijo) y 
+\series bold
+nodos frontera
+\series default
+ a los que han sido generados pero no expandidos.
+\end_layout
+
+\begin_layout Subsection
+Búsqueda a ciegas
+\end_layout
+
+\begin_layout Standard
+Algunas estrategias son:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Primero en anchura
+\series default
+: Los nodos se insertan al principio en una cola, explorando sucesivamente
+ cada nivel del árbol.
+ Es completa pero no óptima, con complejidad en tiempo y espacio 
+\begin_inset Formula $O(b^{d+1})$
+\end_inset
+
+, donde 
+\begin_inset Formula $d$
+\end_inset
+
+ es la profundidad de la solución y 
+\begin_inset Formula $b$
+\end_inset
+
+ es el 
+\series bold
+factor de ramificación
+\series default
+, el número de hijos por nodo no hoja.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De costo uniforme
+\series default
+: Los nodos se insertan de menor a mayor peso del camino.
+ Si 
+\begin_inset Formula $\omega(A)$
+\end_inset
+
+ tiene una cota inferior 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+, es completa, óptima y con complejidad en tiempo y espacio 
+\begin_inset Formula $O(b^{c/\delta})$
+\end_inset
+
+, donde 
+\begin_inset Formula $c$
+\end_inset
+
+ es el peso del camino a la solución óptima.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Primero en profundidad
+\series default
+: Los nodos se insertan al final en una pila.
+ No es completa ni óptima, y tiene complejidad en tiempo 
+\begin_inset Formula $O(b^{h})$
+\end_inset
+
+, siendo 
+\begin_inset Formula $h$
+\end_inset
+
+ la altura del árbol, y en espacio 
+\begin_inset Formula $O(bh)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De profundidad limitada
+\series default
+: Como la búsqueda primero en profundidad pero limitando la profundidad
+ a un cierto 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ No es óptima, y es completa si y sólo si hay una solución en un nivel menor
+ o igual a 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ La complejidad es 
+\begin_inset Formula $O(b^{p})$
+\end_inset
+
+ en tiempo y 
+\begin_inset Formula $O(bp)$
+\end_inset
+
+ en espacio.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Primero en profundidad con profundidad iterativa
+\series default
+: Se parte de búsqueda de profundidad limitada (a 0) y se repite la búsqueda
+ con un límite mayor (en 1) hasta encontrar la solución.
+ Es completa pero no óptima, con complejidad en tiempo 
+\begin_inset Formula $O(b^{d})$
+\end_inset
+
+ y en espacio 
+\begin_inset Formula $O(bd)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si el árbol tiene muchos estados repetidos es preferible operar sobre el
+ grafo de búsqueda, manteniendo una lista de estados visitados para no volver
+ a insertarlos en la frontera y en su lugar, opcionalmente, sustituir los
+ caminos a estos en los nodos frontera por otros de menor peso.
+\end_layout
+
+\begin_layout Subsection
+Búsqueda heurística
+\end_layout
+
+\begin_layout Standard
+Podemos usar heurísticas específicas al problema para decidir el siguiente
+ nodo a expandir e, incluso, qué nodos no tener en cuenta, podando el árbol
+ de búsqueda.
+\end_layout
+
+\begin_layout Standard
+Suponemos 
+\begin_inset Formula $\omega(A)\subseteq\mathbb{R}^{\geq0}$
+\end_inset
+
+.Una 
+\series bold
+función heurística
+\series default
+, 
+\begin_inset Formula $h:V\to\mathbb{R}^{\geq0}$
+\end_inset
+
+ estima el menor peso de un camino de un nodo dado a un nodo objetivo de
+ forma que 
+\begin_inset Formula $h(F)=\{0\}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula ${\cal P}_{s,V}$
+\end_inset
+
+ el conjunto de caminos de 
+\begin_inset Formula $s$
+\end_inset
+
+ a un estado en 
+\begin_inset Formula $V$
+\end_inset
+
+, una 
+\series bold
+función de evaluación
+\series default
+ 
+\begin_inset Formula $f:{\cal P}_{s,V}\to\mathbb{R}$
+\end_inset
+
+ asigna un menor valor a los nodos más prometedores para expandir, y podemos
+ ordenar los nodos de menor a mayor valor de 
+\begin_inset Formula $f$
+\end_inset
+
+ en una cola con prioridad.
+\end_layout
+
+\begin_layout Standard
+Algunos algoritmos de búsqueda heurísticos: 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Búsqueda avara
+\series default
+, 
+\series bold
+voraz
+\series default
+ o 
+\series bold
+primero el mejor
+\series default
+: 
+\begin_inset Formula $f(P)=h(\text{final}(P))$
+\end_inset
+
+.
+ La complejidad en tiempo y espacio es 
+\begin_inset Formula $O(b^{m})$
+\end_inset
+
+, pero con una buena 
+\begin_inset Formula $h$
+\end_inset
+
+ el consumo de tiempo y espacio disminuye mucho.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+A*
+\series default
+: 
+\begin_inset Formula $f(P)=\omega(P)+h(\text{final}(P))$
+\end_inset
+
+, el coste del camino del inicio al nodo más el coste estimado del nodo
+ al objetivo.
+\end_layout
+
+\begin_layout Standard
+Una heurística 
+\begin_inset Formula $h$
+\end_inset
+
+ es 
+\series bold
+admisible
+\series default
+ u 
+\series bold
+optimista
+\series default
+ si, para 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, 
+\begin_inset Formula $h(v)\leq\min\omega({\cal P}_{v,F})$
+\end_inset
+
+, y es 
+\series bold
+pesimista
+\series default
+ en otro caso.
+ Si 
+\begin_inset Formula $h$
+\end_inset
+
+ es admisible y 
+\begin_inset Formula $\omega(A)$
+\end_inset
+
+ tiene una cota inferior positiva, la búsqueda A* guiada por 
+\begin_inset Formula $h$
+\end_inset
+
+ es óptima.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $c$
+\end_inset
+
+ el coste de las soluciones óptimas, toda solución no óptima 
+\begin_inset Formula $Q$
+\end_inset
+
+ cumple 
+\begin_inset Formula $f(Q)=\omega(Q)+h(\text{final}(Q))=\omega(Q)+0>c$
+\end_inset
+
+, y todo prefijo 
+\begin_inset Formula $R$
+\end_inset
+
+ de una solución óptima 
+\begin_inset Formula $RS$
+\end_inset
+
+ cumple 
+\begin_inset Formula 
+\[
+f(R)=\omega(R)+h(\text{final}(R))\leq\omega(R)+\min\omega({\cal P}_{\text{final}(R),F})\overset{S\in{\cal P}_{\text{final}(R),F}}{\leq}\omega(P)=c,
+\]
+
+\end_inset
+
+ por lo que siempre se procesa antes una solución óptima que una no óptima.
+ Sea ahora 
+\begin_inset Formula $p:=\inf\omega(A)>0$
+\end_inset
+
+, todo 
+\begin_inset Formula $Q\in{\cal P}_{s,V}$
+\end_inset
+
+ con 
+\begin_inset Formula $f(Q)\leq c$
+\end_inset
+
+ cumple 
+\begin_inset Formula $\omega(Q)\leq f(Q)\leq c$
+\end_inset
+
+ y tiene pues longitud máxima 
+\begin_inset Formula $c/p$
+\end_inset
+
+, luego hay una cantidad finita de nodos así y el algoritmo siempre llega
+ a una solución con coste 
+\begin_inset Formula $c$
+\end_inset
+
+ y termina.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $h$
+\end_inset
+
+ es admisible y 
+\begin_inset Formula $\omega(A)$
+\end_inset
+
+ tiene cota inferior positiva, A* guiado por 
+\begin_inset Formula $h$
+\end_inset
+
+ sobre el grafo de búsqueda es óptimo si, cuando se encuentra un estado
+ repetido por un camino con coste menor al que teníamos antes, sustituimos
+ el camino anterior por el nuevo en los nodos cerrados y frontera que lo
+ tengan como prefijo.
+ Si esto no se hace, el algoritmo no garantiza optimalidad, pues puede ignorar
+ el camino óptimo si en este aparece un estado repetido.
+\end_layout
+
+\begin_layout Standard
+Una heurística 
+\begin_inset Formula $h$
+\end_inset
+
+ es 
+\series bold
+consistente
+\series default
+ si para 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+ tales que existe un camino de 
+\begin_inset Formula $u$
+\end_inset
+
+ a 
+\begin_inset Formula $v$
+\end_inset
+
+, 
+\begin_inset Formula $h(u)\leq\min\omega({\cal P}_{u,v})+h(v)$
+\end_inset
+
+, y es 
+\series bold
+monótona
+\series default
+ si para 
+\begin_inset Formula $(u,v)\in A$
+\end_inset
+
+, 
+\begin_inset Formula $h(u)\leq\omega(u,v)+h(v)$
+\end_inset
+
+.
+ Estas condiciones son equivalentes y más fuertes que la admisibilidad.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $h$
+\end_inset
+
+ es consistente, 
+\begin_inset Formula $f$
+\end_inset
+
+ es la función de evaluación de A* guiado por 
+\begin_inset Formula $h$
+\end_inset
+
+ y 
+\begin_inset Formula $v_{0}\cdots v_{n}$
+\end_inset
+
+ es un camino en 
+\begin_inset Formula $(V,A)$
+\end_inset
+
+, 
+\begin_inset Formula $(f(v_{0}\cdots v_{i}))_{i=0}^{n}$
+\end_inset
+
+ es monótona creciente.
+ En efecto, sea 
+\begin_inset Formula $P_{i}:=v_{0}\cdots v_{i}$
+\end_inset
+
+, para 
+\begin_inset Formula $i<j$
+\end_inset
+
+ es 
+\begin_inset Formula $f(P_{j})=\omega(P_{j})+h(v_{j})=\omega(P_{i})+\omega(v_{i}\cdots v_{j})+h(v_{j})\geq\omega(P_{i})+h(v_{i})=f(P_{i})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Métodos limitados en memoria
+\end_layout
+
+\begin_layout Standard
+Cuando A* es óptimo, es el método óptimo más eficiente en tiempo, pero en
+ general usa una frontera de tamaño exponencial y se queda pronto sin espacio.
+ Algunos métodos usan menos espacio sin sacrificar optimalidad y completitud
+ a cambio de un mayor coste de ejecución:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Problema de búsqueda en espacio de estados $(V,A,
+\backslash
+omega,s,F)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Camino solución o $
+\backslash
+emptyset$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwFunction{RBFS}{{}RBFS}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwProg{Func}{función}{}{fin}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Func{
+\backslash
+RBFS{$(P,f_0),f_{
+\backslash
+text{limit}}$}}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$u:=
+\backslash
+text{final}(P)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$u
+\backslash
+in F$}{
+\backslash
+Devolver{$P$}}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$N:=
+\backslash
+{v
+\backslash
+in V:(u,v)
+\backslash
+in A
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$N=
+\backslash
+emptyset$}{
+\backslash
+Devolver fallo($+
+\backslash
+infty$)}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lPara{$v
+\backslash
+in N$}{$f_v
+\backslash
+gets
+\backslash
+max
+\backslash
+{
+\backslash
+omega(Pv)+h(v), f_0
+\backslash
+}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Repetir{$r$ no sea un fallo}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		Elegir $b
+\backslash
+in N$ con $f_b$ mínimo
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lSSi{$f_b > f_{
+\backslash
+text{limit}}$}{
+\backslash
+Devolver fallo($f_b$)}
+\end_layout
+
+\begin_layout Plain Layout
+
+		Elegir el menor $a
+\backslash
+in
+\backslash
+{f_v
+\backslash
+}_{v
+\backslash
+in N
+\backslash
+setminus
+\backslash
+{b
+\backslash
+}}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		$r
+\backslash
+gets
+\backslash
+text{
+\backslash
+RBFS{
+\backslash
+ensuremath{(Pb, f_b),a}}}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lSSi{$
+\backslash
+text{
+\backslash
+rm fallo}(t):=r$}{$b
+\backslash
+gets t$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Devolver $r$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+RBFS{$((s),h(s)),+
+\backslash
+infty$}
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:rbfs"
+
+\end_inset
+
+Búsqueda primero el mejor recursiva.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Búsqueda primero el mejor recursiva
+\series default
+ o 
+\series bold
+con memoria acotada
+\series default
+: Algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:rbfs"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Al inspeccionar un nodo, calcula los valores de 
+\begin_inset Formula $f$
+\end_inset
+
+ para sus hijos y expande el que tenga el menor valor, pero poniendo como
+ límite el valor del siguiente mejor para evitar expandir nodos por encima
+ de ese valor.
+ Además, cuando no se encuentra una solución suficientemente buena a partir
+ de un hijo, su valor 
+\begin_inset Formula $f$
+\end_inset
+
+ se actualiza al del mejor hijo de este.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+El método es óptimo para las mismas condiciones que A*.
+ Su complejidad en espacio es 
+\begin_inset Formula $O(bd)$
+\end_inset
+
+, pero en tiempo es peor que A* y dependiendo de la exactitud de la función
+ heurística tendrá que reevaluar más o menos nodos.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+A*MS
+\series default
+ o 
+\series bold
+A* con memoria acotada simplificado
+\series default
+: Como A* pero, cuando la memoria se llena, elimina el nodo con mayor valor
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Concretamente se elimina el nodo más antiguo dentro de los de mayor valor
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ y se procesa el nodo más nuevo dentro de los de menor valor de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ Esto se hace así para evitar entrar en un bucle cuando todos los nodos
+ tienen el valor, y funciona si hay más de un nodo, pero si solo hay un
+ nodo esto significa que el camino solución está ocupando toda la memoria
+ y no es representable en memoria.
+\end_layout
+
+\end_inset
+
+ Entonces guarda en el nodo padre el valor del hijo eliminado para reiniciar
+ desde ahí cuando el resto de caminos sean peores.
+\end_layout
+
+\begin_layout Standard
+Una heurística 
+\begin_inset Formula $h$
+\end_inset
+
+ es 
+\series bold
+
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+-admisible
+\series default
+ para un 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ si para 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ es 
+\begin_inset Formula $h(v)\leq\min\omega({\cal P}_{v,F})+\varepsilon$
+\end_inset
+
+.
+ Para ciertos problemas solo podemos diseñar de forma efectiva heurísticas
+ no admisibles, pero una heurística 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+-admisible nos permite obtener una solución que queda a 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ de una solución óptima.
+\end_layout
+
+\begin_layout Section
+Estrategias en un problema de reducción
+\end_layout
+
+\begin_layout Standard
+Podemos representar un problema de reducción como una tupla 
+\begin_inset Formula $(V,A,\omega,s)$
+\end_inset
+
+ donde 
+\begin_inset Formula $(V,A)$
+\end_inset
+
+ es un grafo YO acíclico con 
+\begin_inset Formula $\{(u,S):u\in V\}$
+\end_inset
+
+ finito y recursivamente enumerable a partir de 
+\begin_inset Formula $u$
+\end_inset
+
+, 
+\begin_inset Formula $\omega:A\to\mathbb{R}^{\geq0}$
+\end_inset
+
+ es una función de coste y 
+\begin_inset Formula $s\in V$
+\end_inset
+
+ es la situación inicial.
+\end_layout
+
+\begin_layout Standard
+Entonces, si 
+\begin_inset Formula $s$
+\end_inset
+
+ es resoluble en 
+\begin_inset Formula $(V,A)$
+\end_inset
+
+, dado un 
+\begin_inset Formula $c:=(s,\{v_{1},\dots,v_{n}\})\in A$
+\end_inset
+
+ tal que todos los 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ son resolubles, un 
+\series bold
+grafo solución
+\series default
+ de 
+\begin_inset Formula $(V,A,\omega,s)$
+\end_inset
+
+ es 
+\begin_inset Formula $(V',A'):=(\{s,v_{1},\dots,v_{n}\}\cup\bigcup_{i}V_{i},c\cup\bigcup_{i}A_{i})$
+\end_inset
+
+, donde 
+\begin_inset Formula $(V_{i},A_{i})$
+\end_inset
+
+ es el grafo solución de 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+, y el coste de la solución es 
+\begin_inset Formula $\omega(V',A'):=\omega(c)+\sum_{i}\omega(V_{i},A_{i})$
+\end_inset
+
+.
+ Nótese que esta definición puede contar el coste de alguno de los conectores
+ más de una vez.
+\end_layout
+
+\begin_layout Subsection
+Búsqueda a ciegas
+\end_layout
+
+\begin_layout Standard
+Los algoritmos tienen la forma del algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:search-generic-yo"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, que va expandiendo nodos y eliminando nodos resolubles e irresolubles
+ de la frontera hasta que el nodo inicial sea de uno de los dos tipos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Problema de reducción $(V,A,
+\backslash
+omega,s)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Solución o $
+\backslash
+emptyset$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+$F
+\backslash
+gets
+\backslash
+{(s)
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$I
+\backslash
+gets
+\backslash
+emptyset$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$R
+\backslash
+gets
+\backslash
+emptyset$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{$F
+\backslash
+neq
+\backslash
+emptyset$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	Extraer último $P=u_0
+\backslash
+cdots u_n$ de $F$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$N
+\backslash
+gets
+\backslash
+bigcup
+\backslash
+{S
+\backslash
+subseteq V:(u_n,S)
+\backslash
+in A
+\backslash
+}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lPara{$v
+\backslash
+in N$}{insertar $Pv$ en $F$ en orden dado por la estrategia}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+uSSi{$N=
+\backslash
+emptyset$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		$i
+\backslash
+gets n$;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+Repetir{exista $(u_i,S)
+\backslash
+in A$ con $S$ disjunto de $I$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			Añadir $u_i$ a $I$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+lSSi{$i=0$}{
+\backslash
+Devolver $
+\backslash
+emptyset$}
+\end_layout
+
+\begin_layout Plain Layout
+
+			$i
+\backslash
+gets i-1$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		Borrar de $F$ los nodos que contienen un vértice de $I$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$v
+\backslash
+in N:(v,
+\backslash
+emptyset)
+\backslash
+in A$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		$i
+\backslash
+gets n$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+Repetir{para $(u_i,S)
+\backslash
+in A$ sea $S
+\backslash
+nsubseteq R$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			Añadir $u_i$ a $R$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+lSSi{$i=0$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+				$A'
+\backslash
+gets
+\backslash
+{
+\backslash
+text{todos los hiperarcos del camino }P
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+				$V'
+\backslash
+gets
+\backslash
+text{vértices referenciados por }A'$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\backslash
+Devolver{$(V',A')$}
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+			$i
+\backslash
+gets i-1$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		Borrar de $F$ los nodos que contienen un vértice de $R$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Devolver $
+\backslash
+emptyset$
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:search-generic-yo"
+
+\end_inset
+
+Algoritmo genérico de búsqueda en árboles Y/O.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algunas estrategias son:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Primero en anchura
+\series default
+: Inserta los nodos al principio en una cola.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Primero en profundidad
+\series default
+: Inserta los nodos al final en una pila.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De profundidad limitada
+\series default
+: Como la búsqueda en profundidad pero con un límite de profundidad.
+\end_layout
+
+\begin_layout Subsection
+Búsqueda heurística
+\end_layout
+
+\begin_layout Standard
+Usamos una función heurística 
+\begin_inset Formula $h:V\to\mathbb{R}^{\geq0}$
+\end_inset
+
+ que estima el coste mínimo de una solución a partir de un grafo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Problema de reducción $(V,A,
+\backslash
+omega,s)$, heurística $h:V
+\backslash
+to
+\backslash
+mathbb{R}^{
+\backslash
+geq0} y valor futilidad $M>0$, de modo que si el coste estimado de las solucione
+s supera $M$ la búsqueda termina.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Grafo solución o $
+\backslash
+emptyset$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+$(V',A')
+\backslash
+gets(
+\backslash
+{s
+\backslash
+},
+\backslash
+emptyset)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$c_s
+\backslash
+gets h(s)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$S
+\backslash
+gets
+\backslash
+emptyset$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lSSi{$(s,0)
+\backslash
+in A$}{añadir $s$ a $S$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{$c(s)
+\backslash
+leq M$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO Usar la explicación de AIMA, desisto de intentar entender la otra.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Método YO*.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
