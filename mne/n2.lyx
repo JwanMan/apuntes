@@ -470,34 +470,6 @@ Métodos de Taylor
 \end_layout
 
 \begin_layout Standard
-Dado un método de paso fijo de la forma 
-\begin_inset Formula $\omega_{0}:=\alpha$
-\end_inset
-
-, 
-\begin_inset Formula $\omega_{i+1}:=\omega_{i}+hØ(t_{i},\omega_{i})$
-\end_inset
-
-, llamamos 
-\series bold
-error local de truncamiento
-\series default
- en 
-\begin_inset Formula $i\in\{1,\dots,n\}$
-\end_inset
-
- a
-\begin_inset Formula 
-\[
-\tau_{i}(h):=\frac{x(t_{i})-x(t_{i-1})}{h}-Ø(t_{i-1},x_{i-1}).
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 El 
 \series bold
 método de Taylor
@@ -534,13 +506,41 @@ donde
 .
  Por ejemplo,
 \begin_inset Formula 
-\[
-f'(t_{i})=\ddot{x}(t_{i})=\frac{\partial f}{\partial t}(t,x(t))+\frac{\partial f}{\partial x}(t,x(t))\dot{x}(t)=\frac{\partial f}{\partial t}(t_{i},\omega_{i})+\frac{\partial f}{\partial x}(t_{i},\omega_{i})f(t_{i},\omega_{i}).
-\]
+\begin{align*}
+f'(t_{i}) & =\ddot{x}(t_{i})=\frac{\partial f}{\partial t}(t,x(t))+\frac{\partial f}{\partial x}(t,x(t))\dot{x}(t)=\frac{\partial f}{\partial t}(t_{i},\omega_{i})+\frac{\partial f}{\partial x}(t_{i},\omega_{i})f(t_{i},\omega_{i}),
+\end{align*}
 
 \end_inset
 
 El método de Euler es el método de Taylor de orden 1.
+\end_layout
+
+\begin_layout Standard
+Dado un método de paso fijo de la forma 
+\begin_inset Formula $\omega_{0}:=\alpha$
+\end_inset
+
+, 
+\begin_inset Formula $\omega_{i+1}:=\omega_{i}+hØ(t_{i},\omega_{i})$
+\end_inset
+
+, llamamos 
+\series bold
+error local de truncamiento
+\series default
+ en 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+\tau_{i}(h):=\frac{x(t_{i})-x(t_{i-1})}{h}-Ø(t_{i-1},x_{i-1}).
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -602,6 +602,392 @@ pero
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+Decimos que un método de paso fijo es de orden 
+\begin_inset Formula $p$
+\end_inset
+
+ si su error local de truncamiento con 
+\begin_inset Formula $f\in{\cal C}^{\infty}$
+\end_inset
+
+ es 
+\begin_inset Formula $O(h^{p})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Métodos de Runge-Kutta
+\end_layout
+
+\begin_layout Standard
+Los métodos de Taylor tienen mucha precisión, pero requieren trabajo previo
+ y son difíciles de reutilizar, por lo que intentamos 
+\begin_inset Quotes cld
+\end_inset
+
+imitar
+\begin_inset Quotes crd
+\end_inset
+
+ la precisión de estos con operaciones que no requieran derivar 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ Los 
+\series bold
+métodos de Runge-Kutta
+\series default
+ tienen la forma
+\begin_inset Formula 
+\begin{align*}
+\omega_{i+1} & :=\omega_{i}+h\sum_{j=1}^{s}b_{j}k_{j}, & k_{1} & :=f(t_{i},\omega_{i}), & k_{j>1} & :=(t_{i}+c_{j}h,\omega_{i}+h(a_{j,1}k_{1}+\dots+a_{j,j-1}k_{j-1})),
+\end{align*}
+
+\end_inset
+
+para ciertos 
+\begin_inset Formula $s\in\mathbb{N}$
+\end_inset
+
+ y 
+\begin_inset Formula $(a_{ij})_{1\leq j<i\leq s},(b_{j})_{j=1}^{s},(c_{i})_{i=2}^{s}$
+\end_inset
+
+ reales.
+ Estos métodos se pueden representar con una 
+\series bold
+tabla de Butcher
+\series default
+:
+\begin_inset Formula 
+\[
+\begin{array}{c|ccccc}
+c_{2} & a_{21}\\
+c_{3} & a_{31} & a_{32}\\
+\vdots & \vdots & \vdots & \ddots\\
+c_{s} & a_{s1} & a_{s2} & \cdots & a_{s,s-1}\\
+\hline  & b_{1} & b_{2} & \cdots & b_{s-1} & b_{s}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+método del punto medio
+\series default
+ tiene tabla 
+\begin_inset Formula 
+\[
+\begin{array}{c|cc}
+\frac{1}{2} & \frac{1}{2}\\
+\hline  & 0 & 1
+\end{array},
+\]
+
+\end_inset
+
+ y es de orden 2.
+ 
+\series bold
+Demostración:
+\series default
+ Por Taylor, 
+\begin_inset Formula 
+\begin{align*}
+f(t+\tfrac{h}{2},x+\tfrac{h}{2}f(t,x))= & f(t,x)+\frac{h}{2}\frac{\partial f}{\partial t}(t,x)+\frac{h}{2}f(t,x)\frac{\partial f}{\partial x}(t,x)+\\
+ & +\frac{h^{2}}{8}\frac{\partial^{2}f}{\partial t^{2}}(\xi_{1},\mu_{1})+\frac{h^{2}}{4}f(t,x)\frac{\partial^{2}f}{\partial t\partial x}(\xi_{2},\mu_{2})+\frac{h^{2}}{8}f(t,x)^{2}\frac{\partial^{2}f}{\partial x^{2}}(\xi_{3},\mu_{3}).
+\end{align*}
+
+\end_inset
+
+El método de Taylor de orden 2 viene dado por 
+\begin_inset Formula $\omega_{i+1}=\omega_{i}+h(f(t_{i},\omega_{i})+\frac{h}{2}f'(t_{i},\omega_{i}))$
+\end_inset
+
+, pero
+\begin_inset Formula 
+\[
+f(t,x)+\frac{h}{2}f'(t,x)=f(t,x)+\frac{h}{2}\frac{\partial f}{\partial t}(t,x)+\frac{h}{2}f(t,x)\frac{\partial f}{\partial x}(t,x),
+\]
+
+\end_inset
+
+luego como las dobles derivadas parciales son continuas y por tanto su imagen
+ por 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ es compacta, la diferencia de error local entre ambos métodos es 
+\begin_inset Formula $O(h^{2})$
+\end_inset
+
+, que se suma al error de 
+\begin_inset Formula $O(h^{2})$
+\end_inset
+
+ del método de Taylor de orden 2.
+\end_layout
+
+\begin_layout Standard
+No existe un método de Runge-Kutta de orden 3 con solo 2 evaluaciones de
+ 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Como
+\begin_inset Formula 
+\begin{align*}
+f' & =\frac{\partial f}{\partial t}+f\frac{\partial f}{\partial x},\\
+f'' & =\frac{\partial f'(t,x(t))}{\partial t}=\frac{\partial^{2}f}{\partial t^{2}}+f\frac{\partial^{2}f}{\partial x\partial t}+\left(\frac{\partial f}{\partial t}+f\frac{\partial f}{\partial x}\right)\frac{\partial f}{\partial x}+f\left(\frac{\partial^{2}f}{\partial x\partial t}+f\frac{\partial^{2}f}{\partial x^{2}}\right)\\
+ & =\frac{\partial^{2}f}{\partial t^{2}}+\frac{\partial f}{\partial t}\frac{\partial f}{\partial x}+f\left(\frac{\partial f}{\partial x}\right)^{2}+2f\frac{\partial^{2}f}{\partial x\partial t}+f^{2}\frac{\partial^{2}f}{\partial x^{2}},
+\end{align*}
+
+\end_inset
+
+el método de Taylor de orden 3 es 
+\begin_inset Formula $\omega_{i+1}=\omega_{i}+hØ(t_{i},\omega_{i})$
+\end_inset
+
+, con
+\begin_inset Formula 
+\begin{align*}
+Ø(t,x) & =f(t,x)+\frac{h}{2}f'(t,x)+\frac{h^{2}}{6}f''(t,x)\\
+ & =f+\frac{h}{2}\left(\frac{\partial f}{\partial t}+f\frac{\partial f}{\partial x}\right)+\frac{h^{2}}{6}\left(\frac{\partial^{2}f}{\partial t^{2}}+\frac{\partial f}{\partial t}\frac{\partial f}{\partial x}+f\left(\frac{\partial f}{\partial x}\right)^{2}+2f\frac{\partial^{2}f}{\partial x\partial t}+f^{2}\frac{\partial^{2}f}{\partial x^{2}}\right),
+\end{align*}
+
+\end_inset
+
+pero los métodos de 2 evaluaciones tienen la forma
+\begin_inset Formula 
+\begin{multline*}
+b_{1}f(t,x)+b_{2}f(t+c_{2},x+a_{21}f(t,x))=\\
+=b_{1}f+b_{2}f+b_{2}c_{2}\frac{\partial f}{\partial t}+b_{2}a_{21}f\frac{\partial f}{\partial x}+b_{2}\frac{a_{21}^{2}}{2}\frac{\partial^{2}f}{\partial t^{2}}+b_{2}c_{2}a_{21}f\frac{\partial^{2}f}{\partial t\partial x}+b_{2}\frac{a_{21}^{2}}{2}f^{2}\frac{\partial^{2}f}{\partial x^{2}}+O(h^{3}).
+\end{multline*}
+
+\end_inset
+
+Para que ambas coincidieran en los términos hasta el orden 2, la última
+ fórmula debería tener un término proporcional a 
+\begin_inset Formula $f\left(\frac{\partial f}{\partial x}\right)^{2}$
+\end_inset
+
+, pero no lo tiene.
+\end_layout
+
+\begin_layout Standard
+Otros métodos son el 
+\series bold
+método de Euler modificado
+\series default
+, con tabla
+\begin_inset Formula 
+\[
+\begin{array}{c|cc}
+1 & 1\\
+\hline  & \frac{1}{2} & \frac{1}{2}
+\end{array},
+\]
+
+\end_inset
+
+y el 
+\series bold
+método de Heun
+\series default
+, con tabla
+\begin_inset Formula 
+\[
+\begin{array}{c|cc}
+\frac{2}{3} & \frac{2}{3}\\
+\hline  & \frac{1}{4} & \frac{3}{4}
+\end{array},
+\]
+
+\end_inset
+
+ambos de orden 2.
+\end_layout
+
+\begin_layout Standard
+El método de Runge-Kutta más usado es el de orden 4 (
+\series bold
+RK4
+\series default
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{c|cccc}
+\frac{1}{2} & \frac{1}{2}\\
+\frac{1}{2} & 0 & \frac{1}{2}\\
+1 & 0 & 0 & 1\\
+\hline  & \frac{1}{6} & \frac{1}{3} & \frac{1}{3} & \frac{1}{6}
+\end{array}
+\]
+
+\end_inset
+
+La siguiente tabla muestra el máximo orden alcanzable con métodos de Runge-Kutta
+ en función del número de evaluaciones de 
+\begin_inset Formula $f$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Evaluaciones (
+\begin_inset Formula $s$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\leq4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5–7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8–9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\geq10$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mejor orden
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $s$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $s-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $s-2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $s-3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \end_body
