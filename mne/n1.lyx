@@ -1,0 +1,462 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+problema de valores iniciales
+\series default
+ real es uno de la forma
+\begin_inset Formula 
+\[
+\left\{ \begin{aligned}\dot{x} & =f(t,x),\\
+x(t_{0}) & =x_{0},
+\end{aligned}
+\right.
+\]
+
+\end_inset
+
+dado por 
+\begin_inset Formula $f:\Omega\subseteq\mathbb{R}\times\mathbb{R}^{n}\to\mathbb{R}^{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ abierto y 
+\begin_inset Formula $(t_{0},x_{0})\in\Omega$
+\end_inset
+
+, y donde 
+\begin_inset Formula $x:I\subseteq\mathbb{R}\to\mathbb{R}^{n}$
+\end_inset
+
+ es la incógnita, siendo 
+\begin_inset Formula $I$
+\end_inset
+
+ un entorno de 
+\begin_inset Formula $t_{0}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+El problema está 
+\series bold
+bien planteado
+\series default
+ en un intervalo 
+\begin_inset Formula $[a,b]\subseteq I$
+\end_inset
+
+ si tiene solución única en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y para todo 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe un 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $c\in(-\varepsilon,\varepsilon)$
+\end_inset
+
+ y 
+\begin_inset Formula $e:[a,b]\to\mathbb{R}^{n}$
+\end_inset
+
+ es tal que 
+\begin_inset Formula $|e(t)|<\varepsilon$
+\end_inset
+
+ para todo 
+\begin_inset Formula $t\in[a,b]$
+\end_inset
+
+, entonces el 
+\series bold
+problema perturbado
+\series default
+
+\begin_inset Formula 
+\[
+\left\{ \begin{aligned}\dot{z} & =f(t,z)+e(t),\\
+z(t_{0}) & =x_{0}+c,
+\end{aligned}
+\right.
+\]
+
+\end_inset
+
+tiene solución única.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $D:=[a,b]\times\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $t_{0}\in[a,b]$
+\end_inset
+
+ y 
+\begin_inset Formula $f:D\to\mathbb{R}$
+\end_inset
+
+ es continua y lipschitziana en la segunda variable en todo 
+\begin_inset Formula $D$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\left\{ \begin{aligned}\dot{x} & =f(t,x),\\
+x(t_{0}) & =x_{0}
+\end{aligned}
+\right.
+\]
+
+\end_inset
+
+está bien planteado.
+\end_layout
+
+\begin_layout Standard
+En adelante supondremos que el dominio de 
+\begin_inset Formula $x$
+\end_inset
+
+ incluye un intervalo 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y 
+\begin_inset Formula $t_{0}=a$
+\end_inset
+
+.
+ No siempre se puede resolver un problema de valores iniciales de forma
+ analítica, por lo que usamos métodos de resolución numérica, que aproximan
+ 
+\begin_inset Formula $x|_{[a,b]}$
+\end_inset
+
+ creando una partición 
+\begin_inset Formula $a=t_{0}<\dots<t_{n}=c$
+\end_inset
+
+, para un cierto 
+\begin_inset Formula $c\geq b$
+\end_inset
+
+ con 
+\begin_inset Formula $[a,c]$
+\end_inset
+
+ en el dominio de 
+\begin_inset Formula $x$
+\end_inset
+
+, y obtienen una secuencia 
+\begin_inset Formula $(\omega_{i})_{i=0}^{n}$
+\end_inset
+
+ que aproxima 
+\begin_inset Formula $(x(t_{i}))_{i=0}^{n}$
+\end_inset
+
+ con un error 
+\begin_inset Formula $\max_{i=0}^{n}\Vert x(t_{i})-\omega_{i}\Vert$
+\end_inset
+
+ aceptable.
+ Los valores de 
+\begin_inset Formula $x$
+\end_inset
+
+ en el resto de puntos de 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ se obtienen por interpolación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{CN}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si el polinomio interpolador de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $x_{0},\dots,x_{n}$
+\end_inset
+
+ es 
+\begin_inset Formula $P(x)=a_{n}x^{n}+\dots+a_{0}$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $f[x_{0},\dots,x_{n}]:=a_{n}$
+\end_inset
+
+.
+ [...] 
+\begin_inset Formula $f[x]=f(x)$
+\end_inset
+
+.
+ [...] Para 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+f[x_{0},\dots,x_{n}]=\frac{f[x_{1},\dots,x_{n}]-f[x_{0},\dots,x_{n-1}]}{x_{n}-x_{0}}.
+\]
+
+\end_inset
+
+[...] Una forma de hallar 
+\begin_inset Formula $f[x_{0},\dots,x_{n}]$
+\end_inset
+
+ es usando una tabla triangular que se va llenando por columnas, donde la
+ primera columna contiene los 
+\begin_inset Formula $x_{k}$
+\end_inset
+
+, la segunda, los 
+\begin_inset Formula $f(x_{k})$
+\end_inset
+
+, [...], y la 
+\begin_inset Formula $j$
+\end_inset
+
+-ésima, los 
+\begin_inset Formula $f[x_{k-j+1},\dots,x_{k}]$
+\end_inset
+
+, llegando a 
+\begin_inset Formula $f[x_{0},\dots,x_{n}]$
+\end_inset
+
+ en la 
+\begin_inset Formula $(n+1)$
+\end_inset
+
+-ésima fila.
+\end_layout
+
+\begin_layout Standard
+[...] 
+\series bold
+Forma de Newton
+\series default
+ del polinomio interpolador, [...]
+\begin_inset Formula 
+\[
+f[x_{0}]+f[x_{0},x_{1}](x-x_{0})+\dots+f[x_{0},\dots,x_{n}](x-x_{0})\cdots(x-x_{n-1}).
+\]
+
+\end_inset
+
+Para cálculo computacional es más apropiada la forma anidada,
+\begin_inset Formula 
+\[
+f[x_{0}]+(x-x_{0})(f[x_{0},x_{1}]+(x-x_{1})(f[x_{0},x_{1},x_{2}]+\dots)).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+[...] Un 
+\series bold
+problema de Hermite
+\series default
+ consiste en hallar un polinomio 
+\begin_inset Formula $P$
+\end_inset
+
+ de grado 
+\begin_inset Formula $N$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $k\in\{0,\dots,m\}$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in S_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $P^{(k)}(x)=f^{(k)}(x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Existe un único polinomio de grado máximo 
+\begin_inset Formula $\sum_{k=0}^{m}|S_{k}|$
+\end_inset
+
+ que cumpla las condiciones, y podemos hallarlo mediante 
+\series bold
+diferencias divididas generalizadas
+\series default
+.
+ Si 
+\begin_inset Formula $x_{0}\leq\dots\leq x_{n}$
+\end_inset
+
+, [...]
+\begin_inset Formula 
+\[
+f[x_{0},\dots,x_{n}]:=\begin{cases}
+\frac{f[x_{1},\dots,x_{n}]-f[x_{0},\dots,x_{n-1}]}{x_{n}-x_{0}}, & x_{0}<x_{n};\\
+\frac{f^{(n)}(x_{0})}{n!}, & x_{0}=\dots=x_{n}.
+\end{cases}
+\]
+
+\end_inset
+
+Creamos una tabla de diferencias divididas en la que cada elemento 
+\begin_inset Formula $x\in S_{0}$
+\end_inset
+
+ aparece tantas veces como conjuntos de entre 
+\begin_inset Formula $S_{0},\dots,S_{m}$
+\end_inset
+
+ lo contienen, y expresamos el polinomio resultante [...] en forma de Newton.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
