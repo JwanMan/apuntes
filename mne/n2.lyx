@@ -465,5 +465,144 @@ Como
 .
 \end_layout
 
+\begin_layout Section
+Métodos de Taylor
+\end_layout
+
+\begin_layout Standard
+Dado un método de paso fijo de la forma 
+\begin_inset Formula $\omega_{0}:=\alpha$
+\end_inset
+
+, 
+\begin_inset Formula $\omega_{i+1}:=\omega_{i}+hØ(t_{i},\omega_{i})$
+\end_inset
+
+, llamamos 
+\series bold
+error local de truncamiento
+\series default
+ en 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+\tau_{i}(h):=\frac{x(t_{i})-x(t_{i-1})}{h}-Ø(t_{i-1},x_{i-1}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+método de Taylor
+\series default
+ de orden 
+\begin_inset Formula $p\in\mathbb{N}^{*}$
+\end_inset
+
+ es el dado por 
+\begin_inset Formula $\omega_{0}=x_{0}$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+\omega_{i+1}=\omega_{i}+h\left(f(t_{i},\omega_{i})+\frac{h}{2}f'(t_{i},\omega_{i})+\dots+\frac{h^{p-1}}{p!}f^{(p-1)}(t_{i},\omega_{i})\right),
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $f^{(p)}(t_{i},\omega_{i})$
+\end_inset
+
+ se define como 
+\begin_inset Formula $x^{(p+1)}(t_{i})$
+\end_inset
+
+ en el problema con la misma e.d.o.
+ pero condición inicial 
+\begin_inset Formula $x(t_{i})=\omega_{i}$
+\end_inset
+
+.
+ Por ejemplo,
+\begin_inset Formula 
+\[
+f'(t_{i})=\ddot{x}(t_{i})=\frac{\partial f}{\partial t}(t,x(t))+\frac{\partial f}{\partial x}(t,x(t))\dot{x}(t)=\frac{\partial f}{\partial t}(t_{i},\omega_{i})+\frac{\partial f}{\partial x}(t_{i},\omega_{i})f(t_{i},\omega_{i}).
+\]
+
+\end_inset
+
+El método de Euler es el método de Taylor de orden 1.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $x\in{\cal C}^{(p+1)}[a,b]$
+\end_inset
+
+, el error local de truncamiento del método de Taylor de orden 
+\begin_inset Formula $p$
+\end_inset
+
+ es 
+\begin_inset Formula $O(h^{p})$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula 
+\[
+x(t_{i+1})=x(t_{i}+h)=x(t_{i})+h\dot{x}(t_{i})+\dots+\frac{h^{p}}{p!}x^{(p)}(t_{i})+\frac{h^{p+1}}{(p+1)!}x^{(p+1)}(\xi_{i})
+\]
+
+\end_inset
+
+para un cierto 
+\begin_inset Formula $\xi_{i}\in[t_{i},t_{i+1}]$
+\end_inset
+
+, luego
+\begin_inset Formula 
+\[
+\tau_{i+1}(h)=\frac{x(t_{i+1})-x(t_{i})}{h}-\left(\dot{x}(t_{i})+\frac{h}{2}\ddot{x}(t_{i})+\dots+\frac{h^{p-1}}{p!}x^{(p)}(t_{i})\right)=\frac{h^{p}}{(p+1)!}x^{(p+1)}(\xi_{i}),
+\]
+
+\end_inset
+
+pero 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ es compacto y por tanto 
+\begin_inset Formula $x^{(p+1)}([a,b])$
+\end_inset
+
+ es acotado, digamos, por 
+\begin_inset Formula $M$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $|\tau_{i+1}(h)|\leq\frac{M}{(p+1)!}h^{p}=O(h^{p})$
+\end_inset
+
+.
+\end_layout
+
 \end_body
 \end_document
