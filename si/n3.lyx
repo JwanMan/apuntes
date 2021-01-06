@@ -1653,6 +1653,25 @@ Usamos una función heurística
 \end_inset
 
  que estima el coste mínimo de una solución a partir de un grafo.
+ Si 
+\begin_inset Formula $h$
+\end_inset
+
+ es monótona y existe un grafo solución del problema, el método 
+\series bold
+YO*
+\series default
+ (algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:yo-star"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) es óptimo.
 \end_layout
 
 \begin_layout Standard
@@ -1677,8 +1696,8 @@ to
 \backslash
 mathbb{R}^{
 \backslash
-geq0} y valor futilidad $M>0$, de modo que si el coste estimado de las solucione
-s supera $M$ la búsqueda termina.}
+geq0}$ y valor futilidad $F>0$, de modo que si el coste estimado de las
+ soluciones supera $M$ la búsqueda termina.}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1692,31 +1711,20 @@ emptyset$.}
 
 \begin_layout Plain Layout
 
-$(V',A')
+$R
 \backslash
-gets(
+gets
 \backslash
 {s
 \backslash
-},
-\backslash
-emptyset)$
+}$
 \backslash
 ;
 \end_layout
 
 \begin_layout Plain Layout
 
-$c_s
-\backslash
-gets h(s)$
-\backslash
-;
-\end_layout
-
-\begin_layout Plain Layout
-
-$S
+$C
 \backslash
 gets
 \backslash
@@ -1727,38 +1735,312 @@ emptyset$
 
 \begin_layout Plain Layout
 
-
+$w_s
 \backslash
-lSSi{$(s,0)
+gets h(s)$
 \backslash
-in A$}{añadir $s$ a $S$}
+;
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Mientras{$c(s)
+lPara{$v
 \backslash
-leq M$}{
+in V$}{$b_s
+\backslash
+gets
+\backslash
+emptyset$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lSSi{$s$ es primitiva}{$C
+\backslash
+gets
+\backslash
+{s
+\backslash
+}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{$s
+\backslash
+notin C
+\backslash
+land c_s
+\backslash
+leq F$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	Tomar $n
+\backslash
+in R$ con $b_n=
+\backslash
+emptyset$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$N
+\backslash
+gets
+\backslash
+{S
+\backslash
+in{
+\backslash
+cal P}(V):(n,S)
+\backslash
+in A$
+\backslash
+;
 \end_layout
 
 \begin_layout Plain Layout
 
 	
-\end_layout
-
-\end_inset
-
-
+\backslash
+uSSi{$N=
+\backslash
+emptyset$}{
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Note Note
-status open
+
+		$w_n
+\backslash
+gets F$
+\backslash
+;
+\end_layout
 
 \begin_layout Plain Layout
-TODO Usar la explicación de AIMA, desisto de intentar entender la otra.
+
+	} 
+\backslash
+EnOtroCaso{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+Para{$u
+\backslash
+in
+\backslash
+bigcup N$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+uSSi{$u$ es primitiva}{
+\end_layout
+
+\begin_layout Plain Layout
+
+				$C
+\backslash
+gets C
+\backslash
+cup
+\backslash
+{u
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+				$w_u
+\backslash
+gets0$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			} 
+\backslash
+EnOtroCasoSi{$u
+\backslash
+notin R$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+				$w_u
+\backslash
+gets h(u)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+			$R
+\backslash
+gets R
+\backslash
+cup
+\backslash
+{u
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$P
+\backslash
+gets
+\backslash
+{u
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Mientras{$P
+\backslash
+neq
+\backslash
+emptyset$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		Tomar $u
+\backslash
+in P$ y sacarlo de $P$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		Tomar el $S:(u,S)
+\backslash
+in A$ con mínimo $
+\backslash
+omega(u,S)+
+\backslash
+sum_{v
+\backslash
+in S}c_v$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		$w_u
+\backslash
+gets
+\backslash
+omega(u,S)+
+\backslash
+sum_{v
+\backslash
+in S}c_v$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		$b_u
+\backslash
+gets S$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lSSi{$S
+\backslash
+subseteq C$}{$C
+\backslash
+gets C
+\backslash
+cup
+\backslash
+{Pu
+\backslash
+}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		Añadir a $P$ los antecesores $v$ con $u
+\backslash
+in b_v$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Devolver un grafo que contenga el nodo $s$, el conector $b_s$, los sucesores
+ $(n_i)_i$ de $b_s$, sus conectores $b_{n_i}$, etc., de forma recursiva hasta
+ llegar a primitivas
+\backslash
+;
 \end_layout
 
 \end_inset
@@ -1770,6 +2052,12 @@ TODO Usar la explicación de AIMA, desisto de intentar entender la otra.
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:yo-star"
+
+\end_inset
+
 Método YO*.
 \end_layout
 
@@ -1781,6 +2069,209 @@ Método YO*.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Para modelar procesos físicos en los que un subproblema puede tener que
+ resolverse dos o más veces, se pueden modificar el método YO* para trabajar
+ con grafos que tengan ciclos, contando el coste de resolverlos varias veces,
+ pero esto no es apropiado para problemas con procesos de resolución distintos.
+ 
+\end_layout
+
+\begin_layout Standard
+Además, estamos suponiendo que la resolución de un subproblema no afecta
+ a la de otro, pero en muchos problemas sí que afecta, por lo que en vez
+ de esto se usan métodos de planificación.
+\end_layout
+
+\begin_layout Section
+Funciones heurísticas
+\end_layout
+
+\begin_layout Standard
+Si un problema tiene solución a profundidad 
+\begin_inset Formula $d$
+\end_inset
+
+ y un método la encuentra tras generar 
+\begin_inset Formula $N$
+\end_inset
+
+ nodos (no se cuenta el nodo inicial), el 
+\series bold
+factor de ramificación eficaz
+\series default
+ es el que un árbol con igual número de hijos en cada nodo tendría que tener
+ para que hubiera 
+\begin_inset Formula $N+1$
+\end_inset
+
+ nodos con altura máxima 
+\begin_inset Formula $d$
+\end_inset
+
+, un 
+\begin_inset Formula $b^{*}\in\mathbb{R}^{\geq0}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $N=b^{*}+(b^{*})^{2}+\dots+(b^{*})^{d}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Una buena heurística debería producir valores de 
+\begin_inset Formula $b^{*}$
+\end_inset
+
+ lo más bajos posible, teniendo en cuenta que siempre es 
+\begin_inset Formula $b^{*}\geq1$
+\end_inset
+
+.
+ Una forma de obtener 
+\begin_inset Formula $b^{*}$
+\end_inset
+
+ es generar y resolver muchos problemas del mismo tipo con el método a usar,
+ comparando por ejemplo con BFS o búsqueda en profundidad iterativa para
+ tener un caso base.
+\end_layout
+
+\begin_layout Standard
+Dadas dos heurísticas 
+\begin_inset Formula $h_{1},h_{2}:V\to\mathbb{R}^{\geq0}$
+\end_inset
+
+, 
+\begin_inset Formula $h_{1}$
+\end_inset
+
+ 
+\series bold
+domina
+\series default
+ a 
+\begin_inset Formula $h_{2}$
+\end_inset
+
+ si 
+\begin_inset Formula $h_{1}(v)\geq h_{2}(v)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $v\in V$
+\end_inset
+
+.
+ Entonces A* nunca expandirá más nodos con 
+\begin_inset Formula $h_{1}$
+\end_inset
+
+ que con 
+\begin_inset Formula $h_{2}$
+\end_inset
+
+, por lo que será más rápido con 
+\begin_inset Formula $h_{1}$
+\end_inset
+
+ si el tiempo de ejecución de 
+\begin_inset Formula $h_{1}$
+\end_inset
+
+ es razonable.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+problema 8-puzzle
+\series default
+ tiene como estado una ordenación de 8 piezas numeradas en una cuadrícula
+ de 
+\begin_inset Formula $3\times3$
+\end_inset
+
+, dejando una casilla libre; como transiciones el movimiento a la casilla
+ libre de una pieza adyacente vertical u horizontalmente, con coste 1, y
+ el estado final es uno en que, al concatenar las filas, aparecen los números
+ del 1 al 8 en orden, con la casilla libre al principio o al final según
+ el modo de juego.
+\end_layout
+
+\begin_layout Standard
+Algunas heurísticas son el número de piezas mal colocadas y la suma de las
+ distancias Manhattan de cada pieza a su posición objetivo.
+ La segunda domina a la primera y ambas son monótonas y mucho mejores que
+ la búsqueda a ciegas.
+\end_layout
+
+\begin_layout Standard
+Dado un problema por espacio de estados 
+\begin_inset Formula $(V,A,\omega,s,F)$
+\end_inset
+
+, un 
+\series bold
+problema relajado
+\series default
+ es un problema 
+\begin_inset Formula $(V',A',\omega',s,F')$
+\end_inset
+
+ con 
+\begin_inset Formula $V\subseteq V'$
+\end_inset
+
+, 
+\begin_inset Formula $A\subseteq A'$
+\end_inset
+
+, 
+\begin_inset Formula $F\subseteq F'$
+\end_inset
+
+ y 
+\begin_inset Formula $\omega'|_{V}=\omega$
+\end_inset
+
+, con lo que el coste de una solución óptima en el problema relajado es
+ una heurística admisible para el problema original.
+ Las heurísticas anteriores se han obtenido así, la segunda permitiendo
+ que las piezas se puedan mover a cualquier casilla adyacente aunque esté
+ ocupada y la primera permitiendo además que las piezas se puedan mover
+ a cualquier casilla.
+ Escribir un problema en lenguaje formal permite construir problemas relajados
+ de forma automática eliminando restricciones.
+\end_layout
+
+\begin_layout Standard
+Dadas las heurísticas 
+\begin_inset Formula $h_{1},\dots,h_{m}$
+\end_inset
+
+ para un mismo problema, 
+\begin_inset Formula $h(v):=\max_{i=1}^{m}h_{i}$
+\end_inset
+
+ es una heurística que domina a todas las 
+\begin_inset Formula $h_{i}$
+\end_inset
+
+, es admisible si las 
+\begin_inset Formula $h_{i}$
+\end_inset
+
+ lo son y es consistente si las 
+\begin_inset Formula $h_{i}$
+\end_inset
+
+ lo son.
 \end_layout
 
 \end_body
