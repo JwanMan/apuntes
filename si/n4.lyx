@@ -1,0 +1,392 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{amssymb}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Búsqueda local
+\end_layout
+
+\begin_layout Standard
+En muchos problemas, como en diseño de circuitos u optimización de redes,
+ solo importa el estado objetivo, no cómo se llega a él.
+\end_layout
+
+\begin_layout Standard
+Los métodos que veremos operan con un único estado actual, no suelen recordar
+ los caminos, usan muy poca memoria y pueden encontrar soluciones razonables
+ en espacios de estados grandes o continuos en que los algoritmos clásicos
+ no son adecuados.
+\end_layout
+
+\begin_layout Standard
+Podemos considerar el espacio de estados como un paisaje donde la posición
+ es un estado y la elevación viene dada por una función objetivo a maximizar
+ o minimizar; supondremos que maximizar.
+\end_layout
+
+\begin_layout Standard
+Por ejemplo, en el 
+\series bold
+problema de las 8 reinas
+\series default
+, consistente en situar 8 reinas en un tablero de ajedrez de forma que ninguna
+ esté en jaque, como cada reina debe estar en una columna, podemos representar
+ los estados como una tupla con la fila en la que está cada reina; cada
+ estado tendría 56 vecinos correspondientes a cambiar la posición de una
+ reina y la función a minimizar sería el número de jaques, que habría que
+ bajar a 0.
+\end_layout
+
+\begin_layout Subsection
+Búsqueda local avara o ascensión de colinas
+\end_layout
+
+\begin_layout Standard
+Se mueve en cada paso al vecino del estado actual con el valor objetivo
+ más alto.
+ A menudo se atasca en máximos locales; 
+\series bold
+crestas
+\series default
+, secuencias de máximos locales que dificultan mucho la navegación, y sobre
+ todo en 
+\series bold
+mesetas
+\series default
+ o 
+\series bold
+terrazas
+\series default
+, áreas donde la función objetivo es plana.
+\end_layout
+
+\begin_layout Standard
+Para evitar que se atasque en terrazas, se puede permitir un movimiento
+ lateral aleatorio cuando no hay ningún movimiento ascendente.
+ Esto lleva a un bucle infinito si el método alcanza un máximo local plano,
+ por lo que se suele limitar el número de movimientos laterales consecutivos.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+ascensión de colinas de reinicio aleatorio
+\series default
+ consiste en ejecutar la ascensión de colinas repetidamente con distintos
+ estados iniciales.
+ Es completa con probabilidad 1, aunque no garantiza terminar, en espacios
+ de estados finitos
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+En general cuando caer en un estado final tiene probabilidad no nula y ascender
+ infinitamente tiene probabilidad nula.
+\end_layout
+
+\end_inset
+
+, y es muy eficaz.
+\end_layout
+
+\begin_layout Subsection
+Temple simulado
+\end_layout
+
+\begin_layout Standard
+Para templar metal, este se calienta mucho para favorecer el movimiento
+ de las partículas y se enfría gradualmente para que estas se estabilicen
+ en estructuras cristalinas de baja energía.
+ Para tratar de colar una bola en el hueco más profundo de una superficie
+ con agujeros, esta se agita mucho para favorecer escapar de depresiones
+ locales y se reduce gradualmente la fuerza para que la bola se estabilice
+ en huecos profundos.
+\end_layout
+
+\begin_layout Standard
+Esta idea la usa el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:sim-annealing"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ para resolver problemas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Problema de espacio de estados sin costes $(V,A,s,F)$, función objetivo
+ $f:V
+\backslash
+to
+\backslash
+mathbb R$ y {
+\backslash
+bf esquema} de temperaturas $e:
+\backslash
+mathbb N
+\backslash
+to
+\backslash
+mathbb{R}^{
+\backslash
+geq0}$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Solución $s
+\backslash
+in V$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwFunction{rand}{rand}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$t
+\backslash
+gets1$ en adelante}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$T
+\backslash
+gets e(t)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$T=0$}{
+\backslash
+Devolver $s$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$
+\backslash
+{n_0,
+\backslash
+dots,n_{k-1}
+\backslash
+}
+\backslash
+gets
+\backslash
+{v
+\backslash
+in V:(s,v)
+\backslash
+in A
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$i
+\backslash
+gets0$ 
+\backslash
+KwA $k-1$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		$c
+\backslash
+gets n_{
+\backslash
+lfloor k
+\backslash
+rand{}
+\backslash
+rfloor}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		$
+\backslash
+Delta E
+\backslash
+gets f(c)-f(e)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lSSi{$
+\backslash
+Delta E>0
+\backslash
+lor
+\backslash
+rand{}<e^{
+\backslash
+Delta E/T}$}{$s
+\backslash
+gets c$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:sim-annealing"
+
+\end_inset
+
+Temple simulado.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
