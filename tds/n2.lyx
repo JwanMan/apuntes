@@ -546,6 +546,32 @@ package
 \begin_inset space ~
 \end_inset
 
+java.util
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+interface
+\begin_inset space ~
+\end_inset
+
+EventListener
+\family default
+\series default
+ Marcador para interfaces que reciben eventos.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+package
+\begin_inset space ~
+\end_inset
+
 java.util.function
 \family default
  Interfaces funcionales genéricas.
@@ -822,6 +848,18 @@ AbstractButton
 \begin_layout Description
 
 \family typewriter
+@ConstructorProperties(value=
+\begin_inset Quotes qrd
+\end_inset
+
+text
+\begin_inset Quotes qrd
+\end_inset
+
+)
+\begin_inset space ~
+\end_inset
+
 JButton(String)
 \family default
  Crea un botón con el texto dado.
@@ -1236,6 +1274,12 @@ R
 .
 \end_layout
 
+\begin_deeper
+\begin_layout Description
+...
+\end_layout
+
+\end_deeper
 \begin_layout Description
 
 \family typewriter
@@ -1824,6 +1868,385 @@ sorted()
 \end_layout
 
 \end_deeper
+\end_deeper
+\begin_layout Section
+Introspección
+\end_layout
+
+\begin_layout Standard
+Una clase puede considerarse un objeto, y una 
+\series bold
+metaclase
+\series default
+ es una clase cuyas instancias son clases.
+ La 
+\series bold
+introspección
+\series default
+ o 
+\series bold
+reflexión
+\series default
+ es la posibilidad de analizar el código del programa en tiempo de ejecución,
+ y la 
+\series bold
+metaprogramación
+\series default
+ es la posibilidad de modificarlo o generarlo desde el propio lenguaje.
+\end_layout
+
+\begin_layout Standard
+Smalltalk, Python y Ruby proporcionan metaprogramación, y Java proporciona
+ introspección.
+ Los objetos clase tienen atributos con las propiedades de una clase y métodos
+ para su acceso y, en el caso de metaprogramación, su modificación.
+ Esto es útil en inspectores de código, navegadores de clases, creadores
+ de interfaces de usuario, lenguajes específicos de dominio (
+\series bold
+DSLs
+\series default
+, 
+\emph on
+\lang english
+Domain-Specific Languages
+\emph default
+\lang spanish
+), etc.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+package
+\begin_inset space ~
+\end_inset
+
+java.lang
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+final
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+Class<T>
+\family default
+ El único objeto es la entidad 
+\family typewriter
+T
+\family default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+Constructor<?>[]
+\begin_inset space ~
+\end_inset
+
+getConstructors()
+\begin_inset space ~
+\end_inset
+
+throws
+\begin_inset space ~
+\end_inset
+
+SecurityException
+\family default
+ Devuelve los constructores públicos de la clase.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Field[]
+\begin_inset space ~
+\end_inset
+
+getFields()
+\begin_inset space ~
+\end_inset
+
+throws
+\begin_inset space ~
+\end_inset
+
+SecurityException
+\family default
+ Devuelve los atributos públicos de la clase o interfaz.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Class<?>[]
+\begin_inset space ~
+\end_inset
+
+getInterfaces()
+\family default
+ Devuelve las interfaces que implementa la clase o interfaz.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Method[]
+\begin_inset space ~
+\end_inset
+
+getMethods()
+\begin_inset space ~
+\end_inset
+
+throws
+\begin_inset space ~
+\end_inset
+
+SecurityException
+\family default
+ Devuelve los métodos públicos de la clase o interfaz, incluyendo los de
+ las superclases.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+String
+\begin_inset space ~
+\end_inset
+
+getName()
+\family default
+ Obtiene el nombre de la entidad.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Package
+\begin_inset space ~
+\end_inset
+
+getPackage()
+\family default
+ Obtiene el paquete en que se encuentra la entidad.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Class<?
+\begin_inset space ~
+\end_inset
+
+super
+\begin_inset space ~
+\end_inset
+
+T>
+\begin_inset space ~
+\end_inset
+
+getSuperClass()
+\family default
+ Obtiene la superclase de la clase, salvo de 
+\family typewriter
+Object
+\family default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+class
+\begin_inset space ~
+\end_inset
+
+Package
+\family default
+\series default
+ Paquete de código.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+package
+\begin_inset space ~
+\end_inset
+
+java.lang.reflect
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+final
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+Constructor<T>
+\begin_inset space ~
+\end_inset
+
+implements
+\begin_inset space ~
+\end_inset
+
+Member
+\family default
+\series default
+ Constructor de la clase 
+\family typewriter
+T
+\family default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+final
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+Field
+\begin_inset space ~
+\end_inset
+
+implements
+\begin_inset space ~
+\end_inset
+
+Member
+\family default
+ Atributo de una clase.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+public
+\begin_inset space ~
+\end_inset
+
+Class<?>
+\begin_inset space ~
+\end_inset
+
+getType()
+\family default
+ Tipo del atributo.
+\end_layout
+
+\begin_layout Description
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+interface
+\begin_inset space ~
+\end_inset
+
+Member
+\family default
+ Miembro de una clase.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+Class<?>
+\begin_inset space ~
+\end_inset
+
+getDeclaringClass()
+\family default
+ Obtiene la clase que declara el miembro.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+String
+\begin_inset space ~
+\end_inset
+
+getName()
+\family default
+ Obtiene el nombre del miembro.
+\end_layout
+
+\begin_layout Description
+...
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+final
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+Method
+\begin_inset space ~
+\end_inset
+
+implements
+\begin_inset space ~
+\end_inset
+
+Member
+\family default
+ Método de una clase.
+\end_layout
+
 \end_deeper
 \end_body
 \end_document
