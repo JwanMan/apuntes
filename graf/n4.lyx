@@ -80,26 +80,116 @@ algorithm2e
 
 \begin_body
 
+\begin_layout Section
+Caminos más cortos
+\end_layout
+
 \begin_layout Standard
-Un 
+Dada una red 
+\begin_inset Formula $(V,E,\ell)$
+\end_inset
+
+ y un camino 
+\begin_inset Formula $P:=v_{0}e_{1}v_{1}\cdots e_{k}v_{k}$
+\end_inset
+
+ en 
+\begin_inset Formula $(V,E)$
+\end_inset
+
+, llamamos 
 \series bold
-bosque
+longitud
 \series default
- o grafo 
+ de 
+\begin_inset Formula $P$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+\ell(P):=\sum_{i=1}^{k}\ell(e_{i}).
+\]
+
+\end_inset
+
+El problema del 
 \series bold
-acíclico
+camino más corto
 \series default
- es un grafo sin ciclos.
- Un 
-\series bold
-árbol
-\series default
- es un bosque conexo.
- Un 
-\series bold
-árbol generador
-\series default
- de un grafo es un subgrafo generador que es un árbol.
+ entre dos vértices 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+ es el de minimizar 
+\begin_inset Formula $\ell(P)$
+\end_inset
+
+ siendo 
+\begin_inset Formula $P$
+\end_inset
+
+ un camino que une 
+\begin_inset Formula $u$
+\end_inset
+
+ con 
+\begin_inset Formula $v$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $v_{0}v_{1}\cdots v_{k}$
+\end_inset
+
+ es el camino más corto de 
+\begin_inset Formula $v_{0}$
+\end_inset
+
+ a 
+\begin_inset Formula $v_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $v_{i}v_{i+1}\cdots v_{j}$
+\end_inset
+
+ es el camino más corto de 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ a 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ para 
+\begin_inset Formula $0\leq i<j\leq k$
+\end_inset
+
+, pues si no fuera el más corto, existiría un camino más corto de 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ a 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ y al sustituir este en 
+\begin_inset Formula $v_{0}\cdots v_{k}$
+\end_inset
+
+ se tendría un camino más corto de 
+\begin_inset Formula $v_{0}$
+\end_inset
+
+ a 
+\begin_inset Formula $v_{k}\#$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -107,1043 +197,298 @@ Como
 \series bold
 teorema
 \series default
-, un grafo 
-\begin_inset Formula $G=(V,E)$
+, sean 
+\begin_inset Formula $(V:=\{1,\dots,n\},E,\ell)$
 \end_inset
 
- no vacío es un árbol si y sólo si entre cada 
-\begin_inset Formula $u,v\in V$
-\end_inset
-
- distintos existe un único camino, si y sólo si es conexo con 
-\begin_inset Formula $|E|=|V|-1$
-\end_inset
-
-, si y sólo si es acíclico con 
-\begin_inset Formula $|E|=|V|-1$
-\end_inset
-
-, si y sólo si es conexo minimal (todos los ejes son de corte), si y solo
- si es acíclico maximal (añadir un eje forma un ciclo), en cuyo caso el
- ciclo formado al añadir el eje es único.
-\end_layout
-
-\begin_layout Description
-\begin_inset Formula $1\implies2]$
-\end_inset
-
- El camino existe por conexión.
- Supongamos que existen 
-\begin_inset Formula $u,v\in V$
-\end_inset
-
- distintos con dos caminos de 
-\begin_inset Formula $u$
-\end_inset
-
- a 
-\begin_inset Formula $v$
-\end_inset
-
- distintos, 
-\begin_inset Formula $uu_{1}\cdots u_{p-1}v$
+ una red conexa, 
+\begin_inset Formula $s\in\{1,\dots,n\}$
 \end_inset
 
  y 
-\begin_inset Formula $uv_{1}\cdots v_{q-1}v$
+\begin_inset Formula $d\in\mathbb{R}^{n}$
 \end_inset
 
-.
- Sean 
-\begin_inset Formula $u_{0}:=v_{0}:=u$
+ tal que todo 
+\begin_inset Formula $d_{i}$
 \end_inset
 
-, 
-\begin_inset Formula $u_{p}:=u_{q}:=v$
-\end_inset
-
- e 
-\begin_inset Formula $i\in\{1,\dots,\min\{p,q\}\}$
-\end_inset
-
- mínimo con 
-\begin_inset Formula $u_{i}\neq v_{i}$
-\end_inset
-
-, el paseo 
-\begin_inset Formula $u_{i}\cdots u_{p-1}vv_{q-1}\cdots v_{i}$
-\end_inset
-
-, que no contiene a 
-\begin_inset Formula $u_{i-1}=v_{i-1}$
-\end_inset
-
-, contiene un camino no trivial 
-\begin_inset Formula $P$
-\end_inset
-
- de 
-\begin_inset Formula $u_{i}$
+ es la longitud de algún camino de 
+\begin_inset Formula $i$
 \end_inset
 
  a 
-\begin_inset Formula $v_{i}$
-\end_inset
-
-, y entonces 
-\begin_inset Formula $(u_{i-1},u_{i})P(v_{i},v_{i-1})$
-\end_inset
-
- es un ciclo y 
-\begin_inset Formula $G$
-\end_inset
-
- no es un árbol.
-\begin_inset Formula $\#$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Description
-\begin_inset Formula $2\implies3]$
-\end_inset
-
- Claramente es conexo.
- Si 
-\begin_inset Formula $|V|=1$
-\end_inset
-
-, debe ser 
-\begin_inset Formula $|E|=0$
-\end_inset
-
-.
- Supuesto esto probado cuando 
-\begin_inset Formula $|V|=n\geq1$
-\end_inset
-
-, para 
-\begin_inset Formula $|V|=n+1$
-\end_inset
-
-, sea 
-\begin_inset Formula $e:=(u,v)\in E$
-\end_inset
-
-, 
-\begin_inset Formula $e$
-\end_inset
-
- es el único camino de 
-\begin_inset Formula $u$
-\end_inset
-
- a 
-\begin_inset Formula $v$
-\end_inset
-
- y por tanto 
-\begin_inset Formula $G-e$
-\end_inset
-
- es disconexo con dos componentes conexas de órdenes 
-\begin_inset Formula $n_{1},n_{2}\in\{1,\dots,n\}$
-\end_inset
-
-.
- Entre dos vértices distintos de la misma componente hay un único camino,
- luego por la hipótesis de inducción estas tienen 
-\begin_inset Formula $n_{1}-1$
+\begin_inset Formula $s$
 \end_inset
 
  y 
-\begin_inset Formula $n_{2}-1$
+\begin_inset Formula $d_{s}=0$
 \end_inset
 
- ejes respectivamente y 
-\begin_inset Formula $|E|=|E\setminus\{e\}|+1=n_{1}-1+n_{2}-1+1=n-1$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Description
-\begin_inset Formula $3\implies4]$
-\end_inset
-
- Si 
-\begin_inset Formula $G$
-\end_inset
-
- tuviera un ciclo, sea 
-\begin_inset Formula $e$
-\end_inset
-
- un eje en un ciclo, 
-\begin_inset Formula $G-e=:(V,E')$
-\end_inset
-
- sería conexo con 
-\begin_inset Formula $|E'|=|E|-1=|V|-1$
-\end_inset
-
-, pero la conexión implica 
-\begin_inset Formula $|E'|\geq|V|-1\#$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Description
-\begin_inset Formula $4\implies3]$
-\end_inset
-
- Si 
-\begin_inset Formula $G$
-\end_inset
-
- tiene componentes conexas 
-\begin_inset Formula $G_{1},\dots,G_{q}$
-\end_inset
-
- y 
-\begin_inset Formula $G_{i}$
-\end_inset
-
- tiene orden 
-\begin_inset Formula $n_{i}$
-\end_inset
-
- y tamaño 
-\begin_inset Formula $m_{i}$
-\end_inset
-
-, como cada 
-\begin_inset Formula $G_{i}$
-\end_inset
-
- es conexa y acíclica, usando (
-\begin_inset Formula $1\implies3$
-\end_inset
-
-) es 
-\begin_inset Formula $m_{i}=n_{i}-1$
-\end_inset
-
-, luego 
-\begin_inset Formula $m=\sum_{i=1}^{q}m_{i}=\sum_{i=1}^{q}(n_{i}-1)=n-q$
-\end_inset
-
-, y despejando 
-\begin_inset Formula $q=1$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Description
-\begin_inset Formula $3\implies5]$
-\end_inset
-
- Dado un eje 
-\begin_inset Formula $e$
-\end_inset
-
-, 
-\begin_inset Formula $G-e=:(V,E')$
-\end_inset
-
- cumple 
-\begin_inset Formula $|E'|=|E|-1=|V|-2$
-\end_inset
-
-, luego 
-\begin_inset Formula $G-e$
-\end_inset
-
- es disconexo y 
-\begin_inset Formula $e$
-\end_inset
-
- es un eje de corte.
-\end_layout
-
-\begin_layout Description
-\begin_inset Formula $5\implies6]$
-\end_inset
-
- Si hubiera un ciclo, al quitar un eje del ciclo el grafo seguiría siendo
- conexo, luego el eje no sería de corte.
-\begin_inset Formula $\#$
-\end_inset
-
- Sean ahora 
-\begin_inset Formula $u,v\in V$
-\end_inset
-
- distintos no adyacentes y 
-\begin_inset Formula $P$
-\end_inset
-
- una cadena de 
-\begin_inset Formula $u$
-\end_inset
-
- a 
-\begin_inset Formula $v$
-\end_inset
-
- en 
-\begin_inset Formula $G$
-\end_inset
-
-, que tendrá longitud al menos 2, añadiendo 
-\begin_inset Formula $(u,v)$
-\end_inset
-
- a 
-\begin_inset Formula $E$
-\end_inset
-
- tendríamos el ciclo 
-\begin_inset Formula $P(v,u)$
-\end_inset
-
-.
- Claramente todo ciclo tiene que contener a 
-\begin_inset Formula $(u,v)$
-\end_inset
-
-, pero como 
-\begin_inset Formula $P$
-\end_inset
-
- es único, el ciclo es único.
-\end_layout
-
-\begin_layout Description
-\begin_inset Formula $6\implies1]$
-\end_inset
-
- Para ver que 
-\begin_inset Formula $G$
-\end_inset
-
- es conexo, sean 
-\begin_inset Formula $u,v\in V$
-\end_inset
-
-, si 
-\begin_inset Formula $u$
-\end_inset
-
- y 
-\begin_inset Formula $v$
-\end_inset
-
- son iguales o adyacentes no hay que hacer nada, y en otro caso, sea 
-\begin_inset Formula $P$
-\end_inset
-
- el ciclo que se forma al añadir 
-\begin_inset Formula $e:=(u,v)$
-\end_inset
-
- a 
-\begin_inset Formula $E$
-\end_inset
-
-, que debe contener a 
-\begin_inset Formula $e$
-\end_inset
-
- y podemos suponer de la forma 
-\begin_inset Formula $ee_{1}\cdots e_{k}$
-\end_inset
-
-, 
-\begin_inset Formula $e_{k}\cdots e_{1}$
-\end_inset
-
- es un camino de 
-\begin_inset Formula $u$
-\end_inset
-
- a 
-\begin_inset Formula $v$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Todo árbol de orden al menos 2 tiene dos hojas.
- En efecto, sea 
-\begin_inset Formula $T=(V,E)$
-\end_inset
-
- un árbol de orden 
-\begin_inset Formula $n\geq2$
-\end_inset
-
- y tamaño 
-\begin_inset Formula $m=n-1$
-\end_inset
-
- con 
-\begin_inset Formula $h$
-\end_inset
-
- hojas, 
-\begin_inset Formula 
-\[
-2n-2=2(n-1)=\sum_{v\in V}o(v)=\sum_{v\text{ hoja}}1+\sum_{v\text{ no hoja}}o(v)\geq h+2(n-h)=2n-h,
-\]
-
-\end_inset
-
-y despejando es 
-\begin_inset Formula $h\geq2$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Un 
-\series bold
-árbol con raíz
-\series default
- o 
-\series bold
-enraizado
-\series default
- es un par 
-\begin_inset Formula $(T,r)$
-\end_inset
-
- donde 
-\begin_inset Formula $T=:(V,E)$
-\end_inset
-
- es un árbol y 
-\begin_inset Formula $r\in V$
-\end_inset
-
- es la 
-\series bold
-raíz
-\series default
-.
- Entonces un 
-\series bold
-nudo
-\series default
- es un nodo del árbol que distinto de la raíz que no es hoja.
- Dados 
-\begin_inset Formula $u,v\in V$
-\end_inset
-
- distintos, si el único camino de 
-\begin_inset Formula $v$
-\end_inset
-
- a la raíz contiene a 
-\begin_inset Formula $u$
-\end_inset
-
-, 
-\begin_inset Formula $u$
-\end_inset
-
- es 
-\series bold
-predecesor
-\series default
- de 
-\begin_inset Formula $v$
-\end_inset
-
- y 
-\begin_inset Formula $v$
-\end_inset
-
- es 
-\series bold
-sucesor
-\series default
- de 
-\begin_inset Formula $u$
-\end_inset
-
-.
- El nodo 
-\series bold
-padre
-\series default
- de un nodo es su único predecesor adyacente, y sus nodos 
-\series bold
-hijo
-\series default
- son sus sucesores adyacentes.
-\end_layout
-
-\begin_layout Standard
-Dos nodos 
-\begin_inset Formula $u$
-\end_inset
-
- y 
-\begin_inset Formula $v$
-\end_inset
-
- son 
-\series bold
-comparables
-\series default
- si son iguales o uno es sucesor de otro.
- El 
-\series bold
-nivel
-\series default
- de un nodo es la longitud del único camino del nodo a la raíz, y la 
-\series bold
-altura
-\series default
- del árbol es el nivel máximo de sus nodos.
-\end_layout
-
-\begin_layout Section
-Árboles binarios
-\end_layout
-
-\begin_layout Standard
-Un 
-\series bold
-árbol binario
-\series default
- es un árbol con raíz en que todos los nodos tienen grado 1 o 3 excepto
- la raíz, que tiene grado 2.
- Propiedades: Sea 
-\begin_inset Formula $T$
-\end_inset
-
- un árbol binario de orden 
-\begin_inset Formula $n$
-\end_inset
-
-:
+, entonces:
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $n$
+Cada 
+\begin_inset Formula $d_{i}$
 \end_inset
 
- es impar y al menos 3.
+ es la longitud del camino más corto de 
+\begin_inset Formula $i$
+\end_inset
+
+ a 
+\begin_inset Formula $s$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $d_{j}-d_{i}\leq\ell(i,j)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $(i,j)\in E$
+\end_inset
+
+.
 \end_layout
 
 \begin_deeper
-\begin_layout Standard
-Sea 
-\begin_inset Formula $T=:(V,E,r)$
-\end_inset
-
-, como 
-\begin_inset Formula $\sum_{v\in V}o(v)=2+\sum_{v\in V\setminus\{r\}}o(v)$
-\end_inset
-
- es par y 
-\begin_inset Formula $o(v)$
-\end_inset
-
- es impar para 
-\begin_inset Formula $v\in V\setminus\{r\}$
-\end_inset
-
-, 
-\begin_inset Formula $|V\setminus\{r\}|$
-\end_inset
-
- es par y por tanto 
-\begin_inset Formula $n$
-\end_inset
-
- es impar.
- Para 
-\begin_inset Formula $n\geq3$
-\end_inset
-
-, como 
-\begin_inset Formula $o(r)=2$
-\end_inset
-
-, 
-\begin_inset Formula $2\leq|E|=n-1$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
 \begin_layout Enumerate
-\begin_inset Formula $T$
-\end_inset
-
- tiene 
-\begin_inset Formula $\frac{n+1}{2}$
-\end_inset
-
- nodos hoja y 
-\begin_inset Formula $\frac{n-3}{2}$
-\end_inset
-
- nudos.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Si 
-\begin_inset Formula $T$
-\end_inset
-
- tiene 
-\begin_inset Formula $h$
-\end_inset
-
- hojas, tiene 
-\begin_inset Formula $n-h-1$
-\end_inset
-
- nudos y 
-\begin_inset Formula $2n-2=\sum_{v\in V}o(v)=2+h+3(n-h-1)=3n-2h-1$
-\end_inset
-
-, luego 
-\begin_inset Formula $2h=n+1$
-\end_inset
-
-, 
-\begin_inset Formula $h=\frac{n+1}{2}$
-\end_inset
-
- y hay 
-\begin_inset Formula $n-h-1=n-\frac{n+1}{2}-1=\frac{n-3}{2}$
-\end_inset
-
- nudos.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-La altura de 
-\begin_inset Formula $T$
-\end_inset
-
- está entre 
-\begin_inset Formula $\lceil\lg(n+1)-1\rceil$
-\end_inset
-
- y 
-\begin_inset Formula $\frac{n-1}{2}$
-\end_inset
-
-, y estos extremos son alcanzables.
-\begin_inset Foot
+\begin_inset Argument item:1
 status open
 
 \begin_layout Plain Layout
-\begin_inset Formula $\lg x:=\log_{2}x$
-\end_inset
-
-.
-\end_layout
-
+\begin_inset Formula $\implies]$
 \end_inset
 
 
 \end_layout
 
-\begin_deeper
-\begin_layout Standard
-Todos los niveles hasta el 
-\begin_inset Formula $h$
 \end_inset
 
- de un árbol de altura 
-\begin_inset Formula $h$
+Sea 
+\begin_inset Formula $P$
 \end_inset
 
-, salvo el nivel 0, tienen al menos 2 nodos, luego su orden mínimo es 
-\begin_inset Formula $2h+1$
+ un camino más corto de 
+\begin_inset Formula $s$
 \end_inset
 
-, pero 
-\begin_inset Formula $n\geq2h+1\iff h\leq\frac{n-1}{2}$
+ a 
+\begin_inset Formula $i$
 \end_inset
 
-.
- Como 
-\begin_inset Formula $\frac{n-1}{2}\in\mathbb{Z}$
+, entonces 
+\begin_inset Formula $Pj$
 \end_inset
 
-, la igualdad 
-\begin_inset Formula $h=\frac{n-1}{2}$
+ es un camino de 
+\begin_inset Formula $s$
 \end_inset
 
- se alcanza en 
-\begin_inset Formula $T':=(V',E')$
-\end_inset
-
- dado por 
-\begin_inset Formula $V':=\{b_{0},a_{1},b_{1},\dots,a_{h},b_{h}\}$
+ a 
+\begin_inset Formula $j$
 \end_inset
 
  y 
-\begin_inset Formula $E':=\{(a_{k},b_{k-1}),(b_{k},b_{k-1})\}_{k\in\{1,\dots,h\}}$
+\begin_inset Formula $\ell(Pj)=\ell(P)+\ell(i,j)=d_{i}+\ell(i,j)\geq d_{j}$
 \end_inset
 
 .
 \end_layout
 
-\begin_layout Standard
-Como en cada nivel puede haber como máximo el doble de nodos que en el nivel
- anterior, en el nivel 
-\begin_inset Formula $k$
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
 \end_inset
 
- hay un máximo de 
-\begin_inset Formula $2^{k}$
-\end_inset
 
- vértices, de modo que un árbol de altura 
-\begin_inset Formula $h$
-\end_inset
-
- tiene un máximo de 
-\begin_inset Formula $\sum_{k=0}^{h}2^{k}=2^{h+1}-1$
-\end_inset
-
-, pero 
-\begin_inset Formula 
-\[
-n\leq2^{h+1}-1\iff n+1\leq2^{h+1}\iff\lg(n+1)-1\leq h\overset{h\in\mathbb{Z}}{\iff}h\geq\lceil\lg(n+1)-1\rceil.
-\]
+\end_layout
 
 \end_inset
 
- La igualdad se alcanza en 
-\begin_inset Formula $T':=(V',E')$
+Sea 
+\begin_inset Formula $P:=si_{1}\cdots i_{k}$
 \end_inset
 
- con 
-\begin_inset Formula $V':=\{1,\dots,n\}$
+ un camino, y queremos ver que 
+\begin_inset Formula $d_{i_{k}}\leq\ell(P)$
 \end_inset
 
- y 
-\begin_inset Formula $E':=\{(k,\lfloor\frac{k}{2}\rfloor)\}_{k\in\{2,\dots,n\}}$
+.
+ Si 
+\begin_inset Formula $k=0$
+\end_inset
+
+ esto se da por hipótesis, y supuesto esto probado para caminos de longitud
+ 
+\begin_inset Formula $k-1$
+\end_inset
+
+, como 
+\begin_inset Formula $d_{i_{k}}-d_{i_{k-1}}\leq\ell(i_{k-1},i_{k})$
+\end_inset
+
+, 
+\begin_inset Formula $\ell(P)=\ell(si_{1}\cdots i_{k-1})+\ell(i_{k-1},i_{k})\geq d_{i_{k-1}}+d_{i_{k}}-d_{i_{k-1}}=d_{i_{k}}$
 \end_inset
 
 .
 \end_layout
 
 \end_deeper
-\begin_layout Section
-Árboles generadores mínimos
-\end_layout
-
-\begin_layout Standard
-Una 
-\series bold
-red
-\series default
- es una terna 
-\begin_inset Formula $(V,E,\ell)$
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\ell(e)\geq0$
 \end_inset
 
- donde 
-\begin_inset Formula $(V,E)$
+ para todo 
+\begin_inset Formula $e\in E$
 \end_inset
 
- es un grafo y 
-\begin_inset Formula $\ell:E\to\mathbb{R}$
+, sea 
+\begin_inset Formula $R\subseteq V\setminus\{s\}$
 \end_inset
 
- es la 
-\series bold
-función de peso
-\series default
- o 
-\series bold
-de longitud
-\series default
-.
- Dados una red conexa 
-\begin_inset Formula $G=(V,E,\ell)$
+ tal que, para 
+\begin_inset Formula $i\notin R$
 \end_inset
 
- y un árbol generador 
-\begin_inset Formula $T=(V,E')$
+, 
+\begin_inset Formula $d_{i}$
 \end_inset
 
- de 
-\begin_inset Formula $G$
-\end_inset
-
-, el 
-\series bold
-peso
-\series default
- del árbol es
-\begin_inset Formula 
-\[
-\ell(T):=\sum_{e\in E'}\ell(e).
-\]
-
-\end_inset
-
-
-\begin_inset Formula $T$
-\end_inset
-
- es un árbol generador 
-\series bold
-minimal
-\series default
- o 
-\series bold
-mínimo
-\series default
- si tiene el mínimo peso entre los árboles generadores de 
-\begin_inset Formula $G$
-\end_inset
-
-, si y sólo si para 
-\begin_inset Formula $a\in E\setminus E'$
-\end_inset
-
- y 
-\begin_inset Formula $e\in E'$
-\end_inset
-
- en el único camino de 
-\begin_inset Formula $u$
+ es la longitud de un camino más corto de 
+\begin_inset Formula $s$
 \end_inset
 
  a 
-\begin_inset Formula $v$
+\begin_inset Formula $i$
 \end_inset
 
- en 
-\begin_inset Formula $T$
-\end_inset
-
- es 
-\begin_inset Formula $\ell(e)\leq\ell(a)$
-\end_inset
-
-, si y sólo si para 
-\begin_inset Formula $e\in E'$
-\end_inset
-
- que separa 
-\begin_inset Formula $T$
-\end_inset
-
- en componentes conexas 
-\begin_inset Formula $V_{1}$
-\end_inset
-
- y 
-\begin_inset Formula $V_{2}$
-\end_inset
-
- y 
-\begin_inset Formula $a\in\omega_{G}(V_{1})$
-\end_inset
-
- es 
-\begin_inset Formula $\ell(e)\leq\ell(a)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Description
-\begin_inset Formula $1\implies2]$
-\end_inset
-
- Si fuera 
-\begin_inset Formula $\ell(a)<\ell(e)$
-\end_inset
-
-, como el grafo 
-\begin_inset Formula $(V,E'\cup\{a\}\setminus\{e\})$
-\end_inset
-
- es un árbol al ser conexo y acíclico, y su peso sería menor que el de 
-\begin_inset Formula $T$
+ y, para 
+\begin_inset Formula $i\in R$
 \end_inset
 
 , 
-\begin_inset Formula $T$
+\begin_inset Formula $d_{i}=\min_{j\in N(i)\setminus R}(d_{j}+\ell(j,i))$
 \end_inset
 
- no sería minimal.
-\begin_inset Formula $\#$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Description
-\begin_inset Formula $2\implies3]$
-\end_inset
-
- Sean 
-\begin_inset Formula $e\in T$
-\end_inset
-
-, 
-\begin_inset Formula $V_{1}$
-\end_inset
-
- y 
-\begin_inset Formula $V_{2}$
-\end_inset
-
- las componentes conexas de 
-\begin_inset Formula $T-e$
-\end_inset
-
-, y 
-\begin_inset Formula $u\in V_{1}$
-\end_inset
-
- y 
-\begin_inset Formula $v\in V_{2}$
-\end_inset
-
- tales que 
-\begin_inset Formula $a:=(u,v)\in E$
-\end_inset
-
-, si 
-\begin_inset Formula $a=e$
-\end_inset
-
- hemos terminado, y en otro caso 
-\begin_inset Formula $a\in E\setminus E'$
-\end_inset
-
- y 
-\begin_inset Formula $e$
-\end_inset
-
- está en el único camino que conecta 
-\begin_inset Formula $u$
+, sea 
+\begin_inset Formula $j\in R$
 \end_inset
 
  con 
-\begin_inset Formula $v$
+\begin_inset Formula $d_{j}=\min_{i\in R}d_{i}$
 \end_inset
 
- en 
-\begin_inset Formula $T$
+, entonces 
+\begin_inset Formula $d_{j}$
 \end_inset
 
-, luego 
-\begin_inset Formula $\ell(e)\leq\ell(a)$
+ es la longitud de un camino más corto de 
+\begin_inset Formula $s$
+\end_inset
+
+ a 
+\begin_inset Formula $j$
 \end_inset
 
 .
 \end_layout
 
-\begin_layout Description
-\begin_inset Formula $3\implies1]$
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $P:=st_{1}\cdots t_{p}j$
 \end_inset
 
- Elegimos un árbol generador minimal 
-\begin_inset Formula $T_{0}=(V,E_{0})$
+ un camino de 
+\begin_inset Formula $s$
 \end_inset
 
-.
- Si 
-\begin_inset Formula $T=T_{0}$
+ a 
+\begin_inset Formula $j$
 \end_inset
 
-, hemos terminado.
- En otro caso, como 
-\begin_inset Formula $|E'|=|E_{0}|$
+ e 
+\begin_inset Formula $i$
 \end_inset
 
-, existe 
-\begin_inset Formula $e\in E'\setminus E_{0}$
-\end_inset
-
-.
- Sean 
-\begin_inset Formula $V_{1}$
+ tal que 
+\begin_inset Formula $s,t_{1},\dots,t_{i}\notin R$
 \end_inset
 
  y 
-\begin_inset Formula $V_{2}$
+\begin_inset Formula $t_{k:=i+1},\dots,t_{p},j\in R$
 \end_inset
 
- las componentes conexas de 
-\begin_inset Formula $T-e$
+, entonces 
+\begin_inset Formula $P':=st_{1}\cdots t_{i}t_{k}$
 \end_inset
 
- y 
-\begin_inset Formula $S:=(V,E_{0}\cup\{e\})$
+ cumple 
+\begin_inset Formula $d_{i}+\ell(i,k)\leq\ell(P')\leq\ell(P)$
 \end_inset
 
-, como 
-\begin_inset Formula $S$
+, pero por hipótesis 
+\begin_inset Formula $d_{k}=\min_{j\in N(i)\setminus R}(d_{j}+\ell(j,i))\leq d_{i}+\ell(i,k)$
 \end_inset
 
- tiene un ciclo que contiene a 
-\begin_inset Formula $e\in\omega_{T}(V_{1})$
+, luego 
+\begin_inset Formula $d_{k}$
 \end_inset
 
-, debe contener a otro 
-\begin_inset Formula $a\in\omega_{T}(V_{1})\cap E_{0}$
+ es cota inferior de las longitudes de caminos de 
+\begin_inset Formula $s$
 \end_inset
 
-, luego por hipótesis 
-\begin_inset Formula $\ell(e)\leq\ell(a)$
-\end_inset
-
- y 
-\begin_inset Formula $T_{1}:=(V,E_{1}:=E_{0}\cup\{e\}\setminus\{a\})$
-\end_inset
-
- tiene menor o igual (en concreto igual) peso que 
-\begin_inset Formula $T_{0}$
-\end_inset
-
- pero que se diferencia de 
-\begin_inset Formula $T$
-\end_inset
-
- en un nodo menos que 
-\begin_inset Formula $T_{0}$
-\end_inset
-
-.
- Repitiendo este proceso llegamos a que 
-\begin_inset Formula $T_{0}$
-\end_inset
-
- tiene el mismo peso que 
-\begin_inset Formula $T$
+ a 
+\begin_inset Formula $j$
 \end_inset
 
  y por tanto 
-\begin_inset Formula $T$
+\begin_inset Formula $d_{j}$
 \end_inset
 
- es minimal.
+ también.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Esto justifica el 
+\series bold
+algoritmo de Dijkstra
+\series default
+ (algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:dijkstra"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ Otro algoritmo para calcular longitudes mínimas es el 
+\series bold
+algoritmo de Dantzig
+\series default
+ (algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:dantzig"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -1160,34 +505,99 @@ status open
 
 
 \backslash
-Entrada{Red conexa $G=(V,E,
+Entrada{Red $(
 \backslash
-ell)$.}
+{1,
+\backslash
+dots,n
+\backslash
+},E,
+\backslash
+ell)$ con $
+\backslash
+ell(E)
+\backslash
+in
+\backslash
+mathbb{R}^{
+\backslash
+geq0}$ y $s
+\backslash
+in
+\backslash
+{1,
+\backslash
+dots,n
+\backslash
+}$.}
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Salida{Árbol generador minimal $(V,T)$ de $G$.}
+Salida{Tuplas $(d_1,
+\backslash
+dots,d_n)$ y $(p_1,
+\backslash
+dots,p_n)$ tales que, para cada $i$, $d_i$ es la longitud de un camino más
+ corto de $s$ a $i$ y, para $i
+\backslash
+neq s$, $p_i$ es el penúltimo nodo de dicho camino.}
 \end_layout
 
 \begin_layout Plain Layout
 
-Ordenar los nodos de $E$ en orden creciente de peso $
+$d
 \backslash
-ell$ en la lista $L$
+gets(+
+\backslash
+infty,
+\backslash
+dots,+
+\backslash
+infty)$
 \backslash
 ;
 \end_layout
 
 \begin_layout Plain Layout
 
-$T
+$p
 \backslash
-gets
+gets(0,
 \backslash
-emptyset$
+dots,0)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$R
+\backslash
+gets 
+\backslash
+{1,
+\backslash
+dots,n
+\backslash
+}
+\backslash
+setminus
+\backslash
+{s
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$d_s
+\backslash
+gets0$
 \backslash
 ;
 \end_layout
@@ -1196,18 +606,46 @@ emptyset$
 
 
 \backslash
-Para{$i
+lPara{$i
 \backslash
-gets1$ 
+in N(s)$}{$p_i
 \backslash
-KwA $|L|$}{
+gets s$}
+\backslash
+;
 \end_layout
 
 \begin_layout Plain Layout
 
-	$(u,v)
+
 \backslash
-gets L_i$
+Mientras{$R
+\backslash
+neq
+\backslash
+emptyset$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	Tomar $j
+\backslash
+in R$ con $d_j$ mínimo
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$R
+\backslash
+gets R
+\backslash
+setminus
+\backslash
+{j
+\backslash
+}$
 \backslash
 ;
 \end_layout
@@ -1216,7 +654,50 @@ gets L_i$
 
 	
 \backslash
-lSSi{no existe un camino de $u$ a $v$ en $(V,T)$}{añadir $L_i$ a $T$}
+Para{$i
+\backslash
+in N(j)
+\backslash
+cap R$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+SSi{$d_j+
+\backslash
+ell(j,i)<d_i$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			$d_i
+\backslash
+gets d_j+
+\backslash
+ell(j,i)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			$p_i
+\backslash
+gets j$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1235,11 +716,11 @@ lSSi{no existe un camino de $u$ a $v$ en $(V,T)$}{añadir $L_i$ a $T$}
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:kruskal"
+name "alg:dijkstra"
 
 \end_inset
 
-Algoritmo de Kruskal.
+Algoritmo de Dijkstra.
 \end_layout
 
 \end_inset
@@ -1250,38 +731,6 @@ Algoritmo de Kruskal.
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-El 
-\series bold
-algoritmo de Kruskal
-\series default
- (algoritmo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:kruskal"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-) construye el árbol generador minimal de una red conexa, pues se asegura
- de que todo par de vértices adyacentes de la red estén conectados en el
- árbol, no crea ciclos y, si una arista 
-\begin_inset Formula $(u,v)$
-\end_inset
-
- queda fuera del árbol, todas las aristas del camino de 
-\begin_inset Formula $u$
-\end_inset
-
- a 
-\begin_inset Formula $v$
-\end_inset
-
- en el árbol ya habían sido consideradas y por tanto tienen peso menor.
 \end_layout
 
 \begin_layout Standard
@@ -1298,7 +747,13 @@ status open
 
 
 \backslash
-Entrada{Red conexa $G=(V,E,
+Entrada{Red $(V:=
+\backslash
+{1,
+\backslash
+dots,n
+\backslash
+},E,
 \backslash
 ell)$.}
 \end_layout
@@ -1307,12 +762,466 @@ ell)$.}
 
 
 \backslash
-Salida{Árbol generador minimal $(V,T)$ de $G$.}
+Salida{Matrices $D
+\backslash
+in{
+\backslash
+cal M}_n(
+\backslash
+mathbb R
+\backslash
+cup
+\backslash
+{+
+\backslash
+infty
+\backslash
+})$ y $P
+\backslash
+in{
+\backslash
+cal M}_n(V)$ tales que para $i,j
+\backslash
+in V$, si $i$ y $j$ están desconectados, $D_{ij}=+
+\backslash
+infty$, y si están conectados, $D_{ij}$ es la longitud de un camino más
+ corto de $i$ a $j$ y $P_{ij}$ es su penúltimo nodo, o $i$ si $i=j$ y el
+ camino es el trivial.}
 \end_layout
 
 \begin_layout Plain Layout
 
-Tomar $r
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% N.B.: La idea del algoritmo es que, en cada iteración de $k$, calcula las
+\end_layout
+
+\begin_layout Plain Layout
+
+% distancias a $k$ en el subgrafo generado por $
+\backslash
+{1,
+\backslash
+dots,k
+\backslash
+}$ a partir de
+\end_layout
+
+\begin_layout Plain Layout
+
+% las distancias entre nodos en el subgrafo generado por $
+\backslash
+{1,
+\backslash
+dots,k-1
+\backslash
+}$,
+\end_layout
+
+\begin_layout Plain Layout
+
+% y a continuación actualiza las distancias entre los nodos $1,
+\backslash
+dots,k-1$
+\end_layout
+
+\begin_layout Plain Layout
+
+% comprobando si hay un camino más corto pasando por $k$.
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$i,j
+\backslash
+in V$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$P_{ij}
+\backslash
+gets i$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$i=j$}{$D_{ij}
+\backslash
+gets0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lEnOtroCaso{$D_{ij}
+\backslash
+gets+
+\backslash
+infty$}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$k
+\backslash
+gets 2$ 
+\backslash
+KwA $n$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$i
+\backslash
+gets 1$ 
+\backslash
+KwA $k-1$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		Tomar $j
+\backslash
+in
+\backslash
+{1,
+\backslash
+dots,k-1
+\backslash
+}$ con $D_{ij}+
+\backslash
+ell(j,k)$ mínimo (si $(j,k)
+\backslash
+notin E$, $
+\backslash
+ell(j,k):=+
+\backslash
+infty$)
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		$D_{ki}
+\backslash
+gets D_{ik}
+\backslash
+gets D_{ij}+
+\backslash
+ell(j,k)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		$P_{ik}
+\backslash
+gets j$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lSSi{$j=i$}{$P_{ki}
+\backslash
+gets k$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lEnOtroCaso{$P_{ki}
+\backslash
+gets P_{ji}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$i,j
+\backslash
+gets 1$ 
+\backslash
+KwA $k-1$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+SSi{$D_{ij}>D_{ik}+D_{kj}$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			$D_{ij}
+\backslash
+gets D_{ik}+D_{kj}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			$P_{ij}
+\backslash
+gets P_{kj}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:dantzig"
+
+\end_inset
+
+Algoritmo de Dantzig.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Tours eulerianos
+\end_layout
+
+\begin_layout Standard
+Dado un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+, un 
+\series bold
+tour
+\series default
+ o 
+\series bold
+recorrido euleriano
+\series default
+ es un paseo cerrado que atraviesa cada eje del grafo exactamente una vez.
+ Un grafo es 
+\series bold
+euleriano
+\series default
+ si admite un recorrido euleriano.
+ Como 
+\series bold
+teorema
+\series default
+, un grafo conexo es euleriano si y solo si todos los vértices tiene orden
+ par, en cuyo caso se puede obtener un tour euleriano con el 
+\series bold
+algoritmo de Hierholzer
+\series default
+ (algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:hierholzer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $T$
+\end_inset
+
+ un tour euleriano, 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ y 
+\begin_inset Formula $e_{1},\dots,e_{k}$
+\end_inset
+
+ los ejes adyacentes a 
+\begin_inset Formula $v$
+\end_inset
+
+, cada eje está en 
+\begin_inset Formula $T$
+\end_inset
+
+ exactamente una vez y puede ser entrante (el siguiente nodo es 
+\begin_inset Formula $v$
+\end_inset
+
+) o saliente (lo es el anterior), pero a todo eje entrante le sigue uno
+ saliente y a todo saliente le precede uno entrante (podemos suponer que
+ 
+\begin_inset Formula $T$
+\end_inset
+
+ no empieza por 
+\begin_inset Formula $v$
+\end_inset
+
+), luego el número de entrantes y salientes es el mismo y 
+\begin_inset Formula $k$
+\end_inset
+
+ es par.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Claramente el algoritmo de Hierholzer toma cada eje exactamente una vez,
+ crea un paseo cerrado y termina, y queda ver que no da errores.
+ Si queda algún eje por tomar, alguno debe ser adyacente a un nodo en 
+\begin_inset Formula $P$
+\end_inset
+
+, pues de lo contrario los nodos y ejes de 
+\begin_inset Formula $P$
+\end_inset
+
+ formarían una componente conexa y, al haber más ejes, 
+\begin_inset Formula $G$
+\end_inset
+
+ sería disconexo.
+\begin_inset Formula $\#$
+\end_inset
+
+ Respecto al paso de tomar un eje, en la primera iteración hemos tomado
+ un nodo de forma que se pueda, y en el resto hemos tomado un número par
+ de ejes adyacentes a 
+\begin_inset Formula $i$
+\end_inset
+
+ como ejes entrantes y salientes más el nodo usado para entrar, y como el
+ orden es par, debe quedar otro eje sin añadir a 
+\begin_inset Formula $P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Grafo $G=(V,E)$ conexo en el que todos los vértices tienen orden
+ par.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Tour euleriano $P$ de $G$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+Elegir $s
 \backslash
 in V$
 \backslash
@@ -1321,39 +1230,9 @@ in V$
 
 \begin_layout Plain Layout
 
-$V_1
+$P
 \backslash
-gets
-\backslash
-{r
-\backslash
-}$
-\backslash
-;
-\end_layout
-
-\begin_layout Plain Layout
-
-$V_2
-\backslash
-gets V
-\backslash
-setminus
-\backslash
-{r
-\backslash
-}$
-\backslash
-;
-\end_layout
-
-\begin_layout Plain Layout
-
-$T
-\backslash
-gets
-\backslash
-emptyset$
+gets(s)$
 \backslash
 ;
 \end_layout
@@ -1362,32 +1241,80 @@ emptyset$
 
 
 \backslash
-Mientras{$|V_1|<|V|$}{
+Mientras{$E
+\backslash
+neq
+\backslash
+emptyset$}{
 \end_layout
 
 \begin_layout Plain Layout
 
-	Tomar $v_1
-\backslash
-in V_1$ y $v_2
-\backslash
-in V_2$ con $e:=(v_1,v_2)
-\backslash
-in E$ de peso mínimo
+	Tomar un nodo $i$ en $P$ adyacente a algún eje
 \backslash
 ;
 \end_layout
 
 \begin_layout Plain Layout
 
-	Añadir $e$ a $T$
+	$k
+\backslash
+gets i$
 \backslash
 ;
 \end_layout
 
 \begin_layout Plain Layout
 
-	Mover $v_2$ de $V_2$ a $V_1$
+	$P_0
+\backslash
+gets(i)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Repetir{$i=k$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		Sacar un $(i,j)$ de $E$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		$P_0
+\backslash
+gets P_0j$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		$i
+\backslash
+gets j$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	Con $P=:P_1kP_2$, hacer $P
+\backslash
+gets P_1P_0P_2$
 \backslash
 ;
 \end_layout
@@ -1408,11 +1335,11 @@ in E$ de peso mínimo
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:prim"
+name "alg:hierholzer"
 
 \end_inset
 
-Algoritmo de Prim.
+Algoritmo de Hierholzer.
 \end_layout
 
 \end_inset
@@ -1426,43 +1353,146 @@ Algoritmo de Prim.
 \end_layout
 
 \begin_layout Standard
-El 
+También se puede obtener un tour euleriano con el 
 \series bold
-algoritmo de Prim
+algoritmo de Fleury
 \series default
  (algoritmo 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:prim"
+reference "alg:fleury"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-) hace lo mismo, pues se asegura de que todos los vértices estén conectados
- a 
-\begin_inset Formula $r$
+).
+ 
+\series bold
+Demostración:
+\series default
+ Es claro que si el algoritmo funciona genera un tour euleriano.
+ Sea 
+\begin_inset Formula $s$
 \end_inset
 
-, no crea ciclos porque no considera ejes cuyos vértices ya hayan sido conectado
-s en el árbol y, cuando selecciona una arista 
-\begin_inset Formula $e$
+ el nodo inicial, cuando 
+\begin_inset Formula $o(s)>0$
 \end_inset
 
-, que estaría separando al árbol en 
-\begin_inset Formula $V_{1}$
+, 
+\begin_inset Formula $P$
 \end_inset
 
- y 
-\begin_inset Formula $V_{2}$
+ es un paseo que no repite ejes, por lo que todos los nodos salvo el primero
+ y el último tienen orden par (por ser 
+\begin_inset Formula $G$
 \end_inset
 
-, se asegura de que tenga peso mínimo entre las aristas de 
-\begin_inset Formula $\omega_{G}(V_{1})$
+ euleriano) y, como estos dos tienen orden impar, se puede salir del último
+ añadiendo otro eje al camino en cada paso hasta llegar a 
+\begin_inset Formula $s$
+\end_inset
+
+ y no poder salir, momento en que queremos ver que 
+\begin_inset Formula $E=\emptyset$
 \end_inset
 
 .
+ Si no fuera así, al final existiría un 
+\begin_inset Formula $e\in E$
+\end_inset
+
+ en una componente conexa de 
+\begin_inset Formula $G$
+\end_inset
+
+ distinta a la de 
+\begin_inset Formula $s$
+\end_inset
+
+, pero la conexión con 
+\begin_inset Formula $s$
+\end_inset
+
+ salvo en nodos aislados es un invariante del bucle.
+ En efecto, al principio de una iteración, 
+\begin_inset Formula $i$
+\end_inset
+
+ conecta con 
+\begin_inset Formula $s$
+\end_inset
+
+ porque no es aislado y solo se rompe la conexión si se quita un eje de
+ corte, pero entonces todos los ejes adyacentes a 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $(i,j_{1}),\dots,(i,j_{k})$
+\end_inset
+
+, serían de corte y 
+\begin_inset Formula $G-i$
+\end_inset
+
+ tendría 
+\begin_inset Formula $k$
+\end_inset
+
+ componentes conexas.
+ Sea entonces 
+\begin_inset Formula $V_{p}$
+\end_inset
+
+ la componente conexa con 
+\begin_inset Formula $j_{p}$
+\end_inset
+
+, si fuera 
+\begin_inset Formula $s\notin V_{p}$
+\end_inset
+
+, como todos los nodos de 
+\begin_inset Formula $V_{p}$
+\end_inset
+
+ tienen orden par salvo 
+\begin_inset Formula $j_{p}$
+\end_inset
+
+ que tendría orden impar al haber eliminado 
+\begin_inset Formula $(i,j_{p})$
+\end_inset
+
+, la suma de los órdenes sería impar
+\begin_inset Formula $\#$
+\end_inset
+
+, luego 
+\begin_inset Formula $s\in V_{p}$
+\end_inset
+
+ y, como 
+\begin_inset Formula $V_{1},\dots,V_{k}$
+\end_inset
+
+ es una partición, 
+\begin_inset Formula $k=1$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $i$
+\end_inset
+
+ es un nodo hoja y eliminar el eje de corte deja a 
+\begin_inset Formula $i$
+\end_inset
+
+ aislado.
 \end_layout
 
 \begin_layout Standard
@@ -1479,25 +1509,30 @@ status open
 
 
 \backslash
-Entrada{Red conexa $(V,E,
-\backslash
-ell)$}
+Entrada{Grafo euleriano conexo $G=(V,E)$.}
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-Salida{Árbol generador minimal $(V,T)$ de $G$.}
+Salida{Tour euleriano $P$ de $G$.}
 \end_layout
 
 \begin_layout Plain Layout
 
-$T
+Tomar $i
 \backslash
-gets
+in V$
 \backslash
-emptyset$
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$P
+\backslash
+gets(i)$
 \backslash
 ;
 \end_layout
@@ -1506,57 +1541,45 @@ emptyset$
 
 
 \backslash
-Mientras{$(V,T)$ sea disconexo}{
+Mientras{$E
+\backslash
+neq
+\backslash
+emptyset$}{
 \end_layout
 
 \begin_layout Plain Layout
 
 	
 \backslash
-ParaCada{componente conexa $V_i$ de $(V,T)$}{
+lSSi{existe $(i,j)
+\backslash
+in E$ que no sea de corte}{sacar $(i,j)$ de $E$}
 \end_layout
 
 \begin_layout Plain Layout
 
-		Tomar $u_i
+	
 \backslash
-in V_i$ y $v_i
+lEnOtroCaso{sacar un $(i,j)$ de $E$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$P
 \backslash
-in V
-\backslash
-setminus V_i$ con $(u_i,v_i)
-\backslash
-in E$ de peso mínimo
+gets Pj$
 \backslash
 ;
 \end_layout
 
 \begin_layout Plain Layout
 
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-	
+	$i
 \backslash
-ParaCada{componente conexa $V_i$ de $(V,T)$}{
-\end_layout
-
-\begin_layout Plain Layout
-
-		
+gets j$
 \backslash
-lSSi{$u_i$ y $v_i$ no están conectados en $(V,T)$}{$T
-\backslash
-gets T
-\backslash
-cup(u_i,v_i)$}
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
+;
 \end_layout
 
 \begin_layout Plain Layout
@@ -1575,11 +1598,11 @@ cup(u_i,v_i)$}
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:boruvka"
+name "alg:fleury"
 
 \end_inset
 
-Algoritmo de Sollin.
+Algoritmo de Fleury.
 \end_layout
 
 \end_inset
@@ -1590,56 +1613,71 @@ Algoritmo de Sollin.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Problema del cartero chino
 \end_layout
 
 \begin_layout Standard
-Otro algoritmo para hacer esto es el 
-\series bold
-algoritmo de Sollin
-\series default
- (algoritmo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:boruvka"
-plural "false"
-caps "false"
-noprefix "false"
-
+Dada una red 
+\begin_inset Formula $(V,E,\ell)$
 \end_inset
 
-)
-\begin_inset Foot
+, el 
+\series bold
+problema del cartero chino
+\series default
+ consiste en obtener un paseo cerrado de longitud mínima que incluya todos
+ los ejes al menos una vez.
+ Para resolverlo:
+\end_layout
+
+\begin_layout Enumerate
+Calculamos la longitud de los caminos más cortos entre cada par de nodos,
+ por ejemplo con el algoritmo de Dantzig.
+\end_layout
+
+\begin_layout Enumerate
+Identificamos los nodos de orden impar, de los que habrá un número par,
+ y los emparejamos minimizando la suma de las longitudes de los caminos
+ más cortos entre cada par.
+\end_layout
+
+\begin_layout Enumerate
+Duplicamos los ejes de un camino más corto entre cada par, obteniendo un
+ grafo euleriano.
+\end_layout
+
+\begin_layout Enumerate
+Obtenemos un tour euleriano, que será la solución.
+\end_layout
+
+\begin_layout Section
+Grafos hamiltonianos
+\end_layout
+
+\begin_layout Standard
+Dado un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+, un camino es 
+\series bold
+hamiltoniano
+\series default
+ si contiene a todos los vértices.
+ Un grafo es hamiltoniano si admite un ciclo hamiltoniano.
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Se recomienda comprobar la conexión de 
-\begin_inset Formula $(V,T)$
-\end_inset
 
- manteniendo un conjunto cociente con las componentes conexas.
- Ver el capítulo 3 de los apuntes de AED I para más información.
 \end_layout
 
 \end_inset
 
-.
- Finalmente, podemos calcular un árbol generador 
-\series bold
-maximal
-\series default
- o 
-\series bold
-máximo
-\series default
- de una red 
-\begin_inset Formula $(V,E,\ell)$
-\end_inset
 
- (el de mayor peso) como un árbol generador minimal de 
-\begin_inset Formula $(V,E,-\ell)$
-\end_inset
-
-, o invirtiendo el sentido de las comparaciones en los algoritmos anteriores.
 \end_layout
 
 \end_body
