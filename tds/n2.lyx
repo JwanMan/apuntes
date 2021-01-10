@@ -174,7 +174,13 @@ static
 \family default
 \lang spanish
 .
- Las instancias son creadas por la clase externa mediante 
+ Las instancias son creadas por la clase externa mediante
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+
 \family typewriter
 this.new 
 \emph on
@@ -214,6 +220,7 @@ parámetro
 .
 \end_layout
 
+\end_deeper
 \begin_layout Itemize
 
 \series bold
@@ -241,7 +248,12 @@ new
 Clases anónimas
 \series default
 , como las locales pero definidas e instanciadas a la vez con una expresión
- 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+
 \family typewriter
 new 
 \emph on
@@ -264,7 +276,11 @@ cuerpo de la clase
 \emph default
 }
 \family default
-, donde 
+,
+\end_layout
+
+\begin_layout Standard
+donde 
 \family typewriter
 \emph on
 Superclase
@@ -283,6 +299,7 @@ Superclase
  
 \end_layout
 
+\end_deeper
 \end_deeper
 \begin_layout Section
 Objetos función
@@ -1297,35 +1314,38 @@ Collectors
 
 \family typewriter
 \series bold
-static
-\begin_inset space ~
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+static <T,K> Collector<T,?,Map<K,List<T>>> groupingBy(
+\begin_inset Newline newline
 \end_inset
 
-<T,K>
-\begin_inset space ~
+Function<? super T,? extends K>)
+\end_layout
+
 \end_inset
 
-Collector<T,?,Map<K,List<T>>>
-\begin_inset space ~
-\end_inset
 
-groupingBy(Function<?
-\begin_inset space ~
-\end_inset
-
-super
-\begin_inset space ~
-\end_inset
-
-T,?
-\begin_inset space ~
-\end_inset
-
-extends
-\begin_inset space ~
-\end_inset
-
-K>)
 \family default
 \series default
  Aplica la función a todos los elementos y devuelve un diccionario cuyas
@@ -1367,27 +1387,38 @@ T>)
 
 \family typewriter
 \series bold
-static
-\begin_inset space ~
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+static <T,C extends Collection<T>> Collector<T,?,C> toCollection(
+\begin_inset Newline newline
 \end_inset
 
-<T,C
-\begin_inset space ~
+Supplier<C>)
+\end_layout
+
 \end_inset
 
-extends
-\begin_inset space ~
-\end_inset
 
-Collection<T>>
-\begin_inset space ~
-\end_inset
-
-Collector<T,?,C>
-\begin_inset space ~
-\end_inset
-
-toCollection(Supplier<C>)
 \family default
 \series default
  Almacena los elementos en una colección proporcionada por el parámetro.
@@ -1595,39 +1626,46 @@ stream
 \begin_layout Description
 
 \family typewriter
-<R>
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+<R> Stream<R> flatMap(
+\begin_inset Newline newline
+\end_inset
+
+Function<? super T,?
 \begin_inset space ~
 \end_inset
 
-Stream<R>
-\begin_inset space ~
-\end_inset
-
-flatMap(Function<?
-\begin_inset space ~
-\end_inset
-
-super
-\begin_inset space ~
-\end_inset
-
-T,?
-\begin_inset space ~
-\end_inset
-
-extends
-\begin_inset space ~
-\end_inset
-
-Stream<?
-\begin_inset space ~
-\end_inset
-
-extends
+extends Stream<? extends
 \begin_inset space ~
 \end_inset
 
 R>>)
+\end_layout
+
+\end_inset
+
+
 \family default
  Devuelve un 
 \emph on
@@ -1900,8 +1938,12 @@ Smalltalk, Python y Ruby proporcionan metaprogramación, y Java proporciona
  introspección.
  Los objetos clase tienen atributos con las propiedades de una clase y métodos
  para su acceso y, en el caso de metaprogramación, su modificación.
- Esto es útil en inspectores de código, navegadores de clases, creadores
- de interfaces de usuario, lenguajes específicos de dominio (
+ 
+\end_layout
+
+\begin_layout Standard
+La introspección es útil en inspectores de código, navegadores de clases,
+ creadores de interfaces de usuario, lenguajes específicos de dominio (
 \series bold
 DSLs
 \series default
@@ -1911,7 +1953,19 @@ DSLs
 Domain-Specific Languages
 \emph default
 \lang spanish
-), etc.
+), etc., pero 
+\begin_inset Quotes cld
+\end_inset
+
+convierte
+\begin_inset Quotes crd
+\end_inset
+
+ errores en tiempo de compilación en errores en tiempo de ejecución y el
+ código suele ser largo y tedioso, por lo que se recomienda solo usarlo
+ para instanciar objetos y acceder a ellos con alguna interfaz o superclase
+ conocida en tiempo de ejecución.
+ 
 \end_layout
 
 \begin_layout Description
@@ -1943,6 +1997,10 @@ Class<T>
 \family typewriter
 T
 \family default
+, que es devuelto por la expresión 
+\family typewriter
+T.class
+\family default
 .
 \end_layout
 
@@ -1950,6 +2008,81 @@ T
 \begin_layout Description
 
 \family typewriter
+\series medium
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+static
+\begin_inset space ~
+\end_inset
+
+Class<?>
+\begin_inset space ~
+\end_inset
+
+forName(String)
+\begin_inset space ~
+\end_inset
+
+throws
+\begin_inset space ~
+\end_inset
+
+ClassNotFoundException
+\end_layout
+
+\end_inset
+
+
+\family default
+\series default
+ Clase con el nombre indicado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
 Constructor<?>[]
 \begin_inset space ~
 \end_inset
@@ -1963,13 +2096,40 @@ throws
 \end_inset
 
 SecurityException
+\end_layout
+
+\end_inset
+
+
 \family default
- Devuelve los constructores públicos de la clase.
+ Constructores públicos de la clase.
 \end_layout
 
 \begin_layout Description
 
 \family typewriter
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
 Field[]
 \begin_inset space ~
 \end_inset
@@ -1983,8 +2143,13 @@ throws
 \end_inset
 
 SecurityException
+\end_layout
+
+\end_inset
+
+
 \family default
- Devuelve los atributos públicos de la clase o interfaz.
+ Atributos públicos de la clase.
 \end_layout
 
 \begin_layout Description
@@ -1996,7 +2161,7 @@ Class<?>[]
 
 getInterfaces()
 \family default
- Devuelve las interfaces que implementa la clase o interfaz.
+ Interfaces que implementa la clase o interfaz.
 \end_layout
 
 \begin_layout Description
@@ -2016,8 +2181,7 @@ throws
 
 SecurityException
 \family default
- Devuelve los métodos públicos de la clase o interfaz, incluyendo los de
- las superclases.
+ Métodos públicos de la clase o interfaz, incluyendo los de las superclases.
 \end_layout
 
 \begin_layout Description
@@ -2029,7 +2193,7 @@ String
 
 getName()
 \family default
- Obtiene el nombre de la entidad.
+ Nombre de la entidad.
 \end_layout
 
 \begin_layout Description
@@ -2041,7 +2205,7 @@ Package
 
 getPackage()
 \family default
- Obtiene el paquete en que se encuentra la entidad.
+ Paquete en que se encuentra la entidad.
 \end_layout
 
 \begin_layout Description
@@ -2061,11 +2225,127 @@ T>
 
 getSuperClass()
 \family default
- Obtiene la superclase de la clase, salvo de 
+ Superclase de la clase, salvo de 
 \family typewriter
 Object
 \family default
 .
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+T
+\begin_inset space ~
+\end_inset
+
+newInstance()
+\begin_inset space ~
+\end_inset
+
+throws
+\begin_inset space ~
+\end_inset
+
+InstantiationException,
+\begin_inset space ~
+\end_inset
+
+IllegalAccessException
+\family default
+ Crea una instancia de la clase con el constructor por defecto, si existe.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+class
+\begin_inset space ~
+\end_inset
+
+ClassNotFoundException
+\end_layout
+
+\end_inset
+
+
+\family default
+\series default
+ No se ha encontrado una definición de la clase indicada.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+class
+\begin_inset space ~
+\end_inset
+
+IllegalAccessException
+\family default
+\series default
+ El método actualmente en ejecución no tiene acceso a la definición de la
+ entidad o el miembro indicado.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+class
+\begin_inset space ~
+\end_inset
+
+InstantiationException
+\family default
+ La clase no tiene constructor por defecto.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+class
+\begin_inset space ~
+\end_inset
+
+Object
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+Class<?>
+\begin_inset space ~
+\end_inset
+
+getClass()
+\family default
+ Devuelve la clase en tiempo de ejecución del objeto.
 \end_layout
 
 \end_deeper
@@ -2081,6 +2361,18 @@ Package
 \family default
 \series default
  Paquete de código.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+class
+\begin_inset space ~
+\end_inset
+
+SecurityException
+\family default
+ Violación de seguridad.
 \end_layout
 
 \end_deeper
@@ -2112,11 +2404,11 @@ Constructor<T>
 \begin_inset space ~
 \end_inset
 
-implements
+extends
 \begin_inset space ~
 \end_inset
 
-Member
+Executable
 \family default
 \series default
  Constructor de la clase 
@@ -2124,6 +2416,38 @@ Member
 T
 \family default
 .
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+abstract
+\begin_inset space ~
+\end_inset
+
+class
+\begin_inset space ~
+\end_inset
+
+Executable
+\begin_inset space ~
+\end_inset
+
+extends
+\begin_inset space ~
+\end_inset
+
+AccessibleObject
+\begin_inset space ~
+\end_inset
+
+implements
+\begin_inset space ~
+\end_inset
+
+Member
+\family default
+ 
 \end_layout
 
 \begin_layout Description
@@ -2154,6 +2478,48 @@ Member
 \begin_layout Description
 
 \family typewriter
+\series bold
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+public Object get(Object) throws IllegalArgumentException,
+\begin_inset Newline newline
+\end_inset
+
+IllegalAccessException
+\end_layout
+
+\end_inset
+
+
+\family default
+\series default
+ Valor del atributo en el objeto indicado.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
 public
 \begin_inset space ~
 \end_inset
@@ -2167,17 +2533,21 @@ getType()
  Tipo del atributo.
 \end_layout
 
+\begin_deeper
 \begin_layout Description
-\begin_inset Note Note
-status open
 
-\begin_layout Plain Layout
-
-\end_layout
-
+\family typewriter
+public
+\begin_inset space ~
 \end_inset
 
+void
+\begin_inset space ~
+\end_inset
 
+set(Object,Object)
+\family default
+ Establece el valor del atributo en el primer objeto como el segundo objeto.
 \end_layout
 
 \end_deeper
@@ -2203,7 +2573,7 @@ Class<?>
 
 getDeclaringClass()
 \family default
- Obtiene la clase que declara el miembro.
+ Clase que declara el miembro.
 \end_layout
 
 \begin_layout Description
@@ -2215,7 +2585,7 @@ String
 
 getName()
 \family default
- Obtiene el nombre del miembro.
+ Nombre del miembro.
 \end_layout
 
 \begin_layout Description
@@ -2238,15 +2608,710 @@ Method
 \begin_inset space ~
 \end_inset
 
-implements
+extends
 \begin_inset space ~
 \end_inset
 
-Member
+Executable
 \family default
  Método de una clase.
 \end_layout
 
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+Class<?>[]
+\begin_inset space ~
+\end_inset
+
+getParameterTypes()
+\family default
+ Tipos de los parámetros del método.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+Class<?>
+\begin_inset space ~
+\end_inset
+
+getReturnType()
+\family default
+\series default
+ Tipo de retorno del método.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Object
+\begin_inset space ~
+\end_inset
+
+invoke(Object,Object...)
+\family default
+ Invoca el método sobre el objeto indicado con los parámetros indicados.
+ Si el método es estático, el objeto es ignorado y puede ser 
+\family typewriter
+null
+\family default
+.
+\end_layout
+
 \end_deeper
+\end_deeper
+\begin_layout Section
+Anotaciones
+\end_layout
+
+\begin_layout Standard
+La anotaciones en Java permiten adjuntar metadatos al código que pueden
+ ser leídos por el compilador, herramientas como de generación de código
+ o el propio programa con introspección.
+\end_layout
+
+\begin_layout Standard
+Estas se declaran con un tipo introspección, de la forma [
+\family typewriter
+\emph on
+visibilidad
+\family default
+\emph default
+]
+\family typewriter
+ @interface 
+\emph on
+Nombre
+\emph default
+ { 
+\emph on
+campo
+\family default
+\emph default
+*
+\family typewriter
+ }
+\family default
+, donde los campos tienen forma 
+\family typewriter
+\emph on
+Tipo
+\emph default
+ 
+\emph on
+nombre
+\emph default
+() 
+\family default
+[
+\family typewriter
+default 
+\emph on
+valor
+\family default
+\emph default
+]
+\family typewriter
+;
+\family default
+, siendo 
+\family typewriter
+\emph on
+valor
+\family default
+\emph default
+ del 
+\family typewriter
+\emph on
+Tipo
+\family default
+\emph default
+ indicado.
+ Para anotar un tipo, método, etc., se coloca 
+\family typewriter
+@
+\emph on
+Anotación
+\emph default
+(
+\family default
+[
+\family typewriter
+\emph on
+valor
+\emph default
+, 
+\family default
+...]
+\family typewriter
+)
+\family default
+ o 
+\family typewriter
+@
+\emph on
+Anotación
+\emph default
+(
+\emph on
+nombre
+\emph default
+=
+\emph on
+valor
+\emph default
+, 
+\family default
+...
+\family typewriter
+)
+\family default
+ como un modificador de este, normalmente antes del resto de modificadores.
+\end_layout
+
+\begin_layout Standard
+Si el valor es de tipo 
+\family typewriter
+T[]
+\family default
+, se puede indicar una lista de un solo elemento indicando simplemente el
+ elemento.
+ Si es un enumerado 
+\family typewriter
+\emph on
+Enum
+\family default
+\emph default
+, se puede usar 
+\family typewriter
+\emph on
+VAL
+\family default
+\emph default
+ en vez de 
+\family typewriter
+\emph on
+Enum
+\emph default
+.
+\emph on
+VAL
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+package
+\begin_inset space ~
+\end_inset
+
+java.lang
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+@Documented @Target(TYPE) @Retention(RUNTIME) @interface
+\begin_inset Newline newline
+\end_inset
+
+FunctionalInterface
+\end_layout
+
+\end_inset
+
+
+\family default
+\series default
+ Indica que lo anotado es una interfaz funcional.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+@Target(METHOD)
+\begin_inset space ~
+\end_inset
+
+@Retention(SOURCE)
+\begin_inset space ~
+\end_inset
+
+@interface
+\begin_inset space ~
+\end_inset
+
+Override
+\family default
+ Indica que el método sobrescribe a un método de una superclase.
+ Genera un error si no es así.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+@Target({TYPE,FIELD,METHOD,PARAMETER,CONSTRUCTOR,LOCAL_VARIABLE})
+\begin_inset Newline newline
+\end_inset
+
+@Retention(SOURCE) @interface SuppressWarnings
+\end_layout
+
+\end_inset
+
+
+\family default
+ Suprime las alertas del compilador en el elemento anotado.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+String[]
+\begin_inset space ~
+\end_inset
+
+value
+\family default
+ Conjunto de alertas a suprimir.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+package
+\begin_inset space ~
+\end_inset
+
+java.lang.annotation
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+interface
+\begin_inset space ~
+\end_inset
+
+Annotation
+\family default
+\series default
+ Interfaz implementada por todos los tipos de anotación.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+...
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+@Documented @Retention(RUNTIME) @Target(ANNOTATION_TYPE) @interface
+\begin_inset Newline newline
+\end_inset
+
+Documented
+\end_layout
+
+\end_inset
+
+
+\family default
+\series default
+ Indica a javadoc que documente la anotación cuando la encuentre en la definició
+n de un tipo.
+ 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\series bold
+enum
+\begin_inset space ~
+\end_inset
+
+ElementType
+\family default
+\series default
+ Tipo de elemento del programa.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+ANNOTATION_TYPE
+\family default
+ Anotación.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+CONSTRUCTOR
+\family default
+ Constructor.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+FIELD
+\family default
+ Atributo.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+LOCAL_VARIABLE
+\family default
+ Variable local.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+METHOD
+\family default
+ Método.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+PARAMETER
+\family default
+ Parámetro formal.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+TYPE
+\family default
+ Clase, interfaz, enumerado o anotación.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+TYPE_PARAMETER
+\family default
+ Parámetro de tipo.
+\end_layout
+
+\begin_layout Description
+...
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+\series bold
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+@Documented @Retention(RUNTIME) @Target(ANNOTATION_TYPE) @interface
+\begin_inset Newline newline
+\end_inset
+
+Retention
+\end_layout
+
+\end_inset
+
+
+\family default
+\series default
+ Indica hasta cuándo se debe retener una anotación.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+RetentionPolicy
+\begin_inset space ~
+\end_inset
+
+value
+\family default
+ Política de retención.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+enum
+\begin_inset space ~
+\end_inset
+
+RetentionPolicy
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+RUNTIME
+\family default
+ La anotación se guarda en el fichero 
+\family typewriter
+.class
+\family default
+ y la JVM la carga para ser leída con introspección.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+SOURCE
+\family default
+ El compilador descarta la anotación.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+@Documented
+\begin_inset space ~
+\end_inset
+
+@Retention(RUNTIME)
+\begin_inset space ~
+\end_inset
+
+@Target(ANNOTATION_TYPE)
+\begin_inset space ~
+\end_inset
+
+@interface
+\begin_inset space ~
+\end_inset
+
+Target
+\family default
+ Indica los contextos en que se puede aplicar una anotación.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+ElementType[]
+\begin_inset space ~
+\end_inset
+
+value
+\family default
+ Cuándo es la anotación aplicable.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Description
+
+\family typewriter
+package
+\begin_inset space ~
+\end_inset
+
+java.lang.reflect
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+class
+\begin_inset space ~
+\end_inset
+
+AccessibleObject
+\begin_inset space ~
+\end_inset
+
+implements
+\begin_inset space ~
+\end_inset
+
+AnnotatedElement
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+interface
+\begin_inset space ~
+\end_inset
+
+AnnotatedElement
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+default boolean isAnnotationPresent(Class<? extends Annotation>)
+\end_layout
+
+\end_inset
+
+
+\family default
+ Indica si el elemento incluye alguna anotación del tipo especificado.
+\end_layout
+
+\begin_layout Description
+...
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Section
+Inyección de dependencias
+\end_layout
+
+\begin_layout Plain Layout
+No entra en el examen.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
