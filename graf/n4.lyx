@@ -1668,10 +1668,401 @@ hamiltoniano
 \series default
  si contiene a todos los vértices.
  Un grafo es hamiltoniano si admite un ciclo hamiltoniano.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+grafo clausura
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $[G]$
+\end_inset
+
+, es el grafo resultante de añadir a 
+\begin_inset Formula $G$
+\end_inset
+
+ los 
+\begin_inset Formula $(u,v)\in E^{\complement}$
+\end_inset
+
+ con 
+\begin_inset Formula $o(u)+o(v)\geq|V|$
+\end_inset
+
+ hasta que no quede ningún 
+\begin_inset Formula $(u,v)\in E^{\complement}$
+\end_inset
+
+ que cumpla la condición.
+ Como 
+\series bold
+teorema
+\series default
+, 
+\begin_inset Formula $G$
+\end_inset
+
+ es hamiltoniano si y sólo si lo es 
+\begin_inset Formula $[G]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Trivial.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $G$
+\end_inset
+
+ no fuera hamiltoniano y, para obtener 
+\begin_inset Formula $[G]$
+\end_inset
+
+, le hubiéramos añadido los ejes 
+\begin_inset Formula $e_{1},\dots,e_{n}$
+\end_inset
+
+ en ese orden, existiría un 
+\begin_inset Formula $e_{k}=:(u,v)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $G_{i}:=(V,E_{i}):=G+\{e_{1},\dots,e_{i}\}$
+\end_inset
+
+ es hamiltoniano si y sólo si 
+\begin_inset Formula $i>k$
+\end_inset
+
+, por lo que existe un camino hamiltoniano 
+\begin_inset Formula $(u=:u_{1})u_{2}\cdots(u_{n}:=v)$
+\end_inset
+
+ en 
+\begin_inset Formula $G_{k}$
+\end_inset
+
+, con 
+\begin_inset Formula $n:=|V|$
+\end_inset
+
+.
+ Sean ahora 
+\begin_inset Formula $X:=\{i\in\{2,\dots,n-2\}:(u_{i},v)\in E_{k}\}$
+\end_inset
+
+ e 
+\begin_inset Formula $Y:=\{i\in\{2,\dots,n-2\}:(u_{i+1},u)\in E_{k}\}$
+\end_inset
+
+, se tiene 
+\begin_inset Formula $|X|=o(u)-1$
+\end_inset
+
+ e 
+\begin_inset Formula $|Y|=o(v)-1$
+\end_inset
+
+, pero como 
+\begin_inset Formula $o(u)+o(v)\geq n$
+\end_inset
+
+ en 
+\begin_inset Formula $G_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $|X|+|Y|=o(u)+o(v)\geq n-2>n-1=|\{2,\dots,n-2\}|$
+\end_inset
+
+ y existe 
+\begin_inset Formula $j\in X\cap Y$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $u_{1}u_{k}u_{k+1}\cdots u_{n}u_{k-1}u_{k-2}\cdots u_{1}$
+\end_inset
+
+ es un ciclo hamiltoniano en 
+\begin_inset Formula $G_{j}\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Una 
+\series bold
+sucesión hamiltoniana
+\series default
+ es una tupla 
+\begin_inset Formula $(a_{1},\dots,a_{n})$
+\end_inset
+
+ de naturales tal que todo grafo 
+\begin_inset Formula $(\{1,\dots,n\},E)$
+\end_inset
+
+ con 
+\begin_inset Formula $o(1)\leq\dots\leq o(n)$
+\end_inset
+
+ y 
+\begin_inset Formula $o(i)\geq a_{i}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $i$
+\end_inset
+
+ es hamiltoniano.
+ Como 
+\series bold
+teorema
+\series default
+, para 
+\begin_inset Formula $n\geq3$
+\end_inset
+
+, 
+\begin_inset Formula $(a_{1},\dots,a_{n})$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{1}\leq\dots\leq a_{n}<n$
+\end_inset
+
+ es una sucesión hamiltoniana si y sólo si para 
+\begin_inset Formula $i<\frac{n}{2}$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{i}\leq i$
+\end_inset
+
+ es 
+\begin_inset Formula $a_{n-1}\geq n-i$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
+¿Debería añadir la demostración de esto? En plan, solo ha explicado una
+ parte y más bien mal y para la otra ha puesto un ejemplo.
+ ¿El examen lo escribe Pulido o Pascual?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+problema del viajero
+\series default
+ o 
+\series bold
+del viajante
+\series default
+ en una red 
+\begin_inset Formula $(V,E,\ell)$
+\end_inset
+
+ consiste en encontrar el ciclo hamiltoniano de longitud mínima.
+ Se puede aproximar con el 
+\series bold
+algoritmo de Christofides
+\series default
+ (algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:christofides"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 1976).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Red $(V,E,
+\backslash
+ell)$ completa en la que $
+\backslash
+ell$ cumple la desigualdad triangular.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Ciclo hamiltoniano $C$ con longitud a lo sumo $3
+\backslash
+over 2$ de la del ciclo hamiltoniano de longitud mínima en la red.}
+\end_layout
+
+\begin_layout Plain Layout
+
+Encontrar un árbol generador minimal $T$ de $(V,E)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$O
+\backslash
+gets
+\backslash
+{v
+\backslash
+in V:o(v)
+\backslash
+text{ impar en }T
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+Obtener un emparejamiento $M$ de los vértices de $O$ con $
+\backslash
+sum_{e
+\backslash
+in M}
+\backslash
+ell(e)$ mínimo
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$H
+\backslash
+gets(V,T
+\backslash
+amalg M)$
+\backslash
+tcp*{{
+\backslash
+rm $H$ es un multigrafo euleriano.}}
+\end_layout
+
+\begin_layout Plain Layout
+
+Encontrar un ciclo euleriano $C$ en $H$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+Borrar de $C$ los nodos repetidos
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:christofides"
+
+\end_inset
+
+Algoritmo de Christofides.
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
