@@ -1,0 +1,2075 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Caminos más cortos
+\end_layout
+
+\begin_layout Standard
+Dada una red 
+\begin_inset Formula $(V,E,\ell)$
+\end_inset
+
+ y un camino 
+\begin_inset Formula $P:=v_{0}e_{1}v_{1}\cdots e_{k}v_{k}$
+\end_inset
+
+ en 
+\begin_inset Formula $(V,E)$
+\end_inset
+
+, llamamos 
+\series bold
+longitud
+\series default
+ de 
+\begin_inset Formula $P$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+\ell(P):=\sum_{i=1}^{k}\ell(e_{i}).
+\]
+
+\end_inset
+
+El problema del 
+\series bold
+camino más corto
+\series default
+ entre dos vértices 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+ es el de minimizar 
+\begin_inset Formula $\ell(P)$
+\end_inset
+
+ siendo 
+\begin_inset Formula $P$
+\end_inset
+
+ un camino que une 
+\begin_inset Formula $u$
+\end_inset
+
+ con 
+\begin_inset Formula $v$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $v_{0}v_{1}\cdots v_{k}$
+\end_inset
+
+ es el camino más corto de 
+\begin_inset Formula $v_{0}$
+\end_inset
+
+ a 
+\begin_inset Formula $v_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $v_{i}v_{i+1}\cdots v_{j}$
+\end_inset
+
+ es el camino más corto de 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ a 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ para 
+\begin_inset Formula $0\leq i<j\leq k$
+\end_inset
+
+, pues si no fuera el más corto, existiría un camino más corto de 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ a 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ y al sustituir este en 
+\begin_inset Formula $v_{0}\cdots v_{k}$
+\end_inset
+
+ se tendría un camino más corto de 
+\begin_inset Formula $v_{0}$
+\end_inset
+
+ a 
+\begin_inset Formula $v_{k}\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, sean 
+\begin_inset Formula $(V:=\{1,\dots,n\},E,\ell)$
+\end_inset
+
+ una red conexa, 
+\begin_inset Formula $s\in\{1,\dots,n\}$
+\end_inset
+
+ y 
+\begin_inset Formula $d\in\mathbb{R}^{n}$
+\end_inset
+
+ tal que todo 
+\begin_inset Formula $d_{i}$
+\end_inset
+
+ es la longitud de algún camino de 
+\begin_inset Formula $i$
+\end_inset
+
+ a 
+\begin_inset Formula $s$
+\end_inset
+
+ y 
+\begin_inset Formula $d_{s}=0$
+\end_inset
+
+, entonces:
+\end_layout
+
+\begin_layout Enumerate
+Cada 
+\begin_inset Formula $d_{i}$
+\end_inset
+
+ es la longitud del camino más corto de 
+\begin_inset Formula $i$
+\end_inset
+
+ a 
+\begin_inset Formula $s$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $d_{j}-d_{i}\leq\ell(i,j)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $(i,j)\in E$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $P$
+\end_inset
+
+ un camino más corto de 
+\begin_inset Formula $s$
+\end_inset
+
+ a 
+\begin_inset Formula $i$
+\end_inset
+
+, entonces 
+\begin_inset Formula $Pj$
+\end_inset
+
+ es un camino de 
+\begin_inset Formula $s$
+\end_inset
+
+ a 
+\begin_inset Formula $j$
+\end_inset
+
+ y 
+\begin_inset Formula $\ell(Pj)=\ell(P)+\ell(i,j)=d_{i}+\ell(i,j)\geq d_{j}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $P:=si_{1}\cdots i_{k}$
+\end_inset
+
+ un camino, y queremos ver que 
+\begin_inset Formula $d_{i_{k}}\leq\ell(P)$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $k=0$
+\end_inset
+
+ esto se da por hipótesis, y supuesto esto probado para caminos de longitud
+ 
+\begin_inset Formula $k-1$
+\end_inset
+
+, como 
+\begin_inset Formula $d_{i_{k}}-d_{i_{k-1}}\leq\ell(i_{k-1},i_{k})$
+\end_inset
+
+, 
+\begin_inset Formula $\ell(P)=\ell(si_{1}\cdots i_{k-1})+\ell(i_{k-1},i_{k})\geq d_{i_{k-1}}+d_{i_{k}}-d_{i_{k-1}}=d_{i_{k}}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\ell(e)\geq0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $e\in E$
+\end_inset
+
+, sea 
+\begin_inset Formula $R\subseteq V\setminus\{s\}$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $i\notin R$
+\end_inset
+
+, 
+\begin_inset Formula $d_{i}$
+\end_inset
+
+ es la longitud de un camino más corto de 
+\begin_inset Formula $s$
+\end_inset
+
+ a 
+\begin_inset Formula $i$
+\end_inset
+
+ y, para 
+\begin_inset Formula $i\in R$
+\end_inset
+
+, 
+\begin_inset Formula $d_{i}=\min_{j\in N(i)\setminus R}(d_{j}+\ell(j,i))$
+\end_inset
+
+, sea 
+\begin_inset Formula $j\in R$
+\end_inset
+
+ con 
+\begin_inset Formula $d_{j}=\min_{i\in R}d_{i}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $d_{j}$
+\end_inset
+
+ es la longitud de un camino más corto de 
+\begin_inset Formula $s$
+\end_inset
+
+ a 
+\begin_inset Formula $j$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $P:=st_{1}\cdots t_{p}j$
+\end_inset
+
+ un camino de 
+\begin_inset Formula $s$
+\end_inset
+
+ a 
+\begin_inset Formula $j$
+\end_inset
+
+ e 
+\begin_inset Formula $i$
+\end_inset
+
+ tal que 
+\begin_inset Formula $s,t_{1},\dots,t_{i}\notin R$
+\end_inset
+
+ y 
+\begin_inset Formula $t_{k:=i+1},\dots,t_{p},j\in R$
+\end_inset
+
+, entonces 
+\begin_inset Formula $P':=st_{1}\cdots t_{i}t_{k}$
+\end_inset
+
+ cumple 
+\begin_inset Formula $d_{i}+\ell(i,k)\leq\ell(P')\leq\ell(P)$
+\end_inset
+
+, pero por hipótesis 
+\begin_inset Formula $d_{k}=\min_{j\in N(i)\setminus R}(d_{j}+\ell(j,i))\leq d_{i}+\ell(i,k)$
+\end_inset
+
+, luego 
+\begin_inset Formula $d_{k}$
+\end_inset
+
+ es cota inferior de las longitudes de caminos de 
+\begin_inset Formula $s$
+\end_inset
+
+ a 
+\begin_inset Formula $j$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $d_{j}$
+\end_inset
+
+ también.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Esto justifica el 
+\series bold
+algoritmo de Dijkstra
+\series default
+ (algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:dijkstra"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ Otro algoritmo para calcular longitudes mínimas es el 
+\series bold
+algoritmo de Dantzig
+\series default
+ (algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:dantzig"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Red $(
+\backslash
+{1,
+\backslash
+dots,n
+\backslash
+},E,
+\backslash
+ell)$ con $
+\backslash
+ell(E)
+\backslash
+in
+\backslash
+mathbb{R}^{
+\backslash
+geq0}$ y $s
+\backslash
+in
+\backslash
+{1,
+\backslash
+dots,n
+\backslash
+}$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Tuplas $(d_1,
+\backslash
+dots,d_n)$ y $(p_1,
+\backslash
+dots,p_n)$ tales que, para cada $i$, $d_i$ es la longitud de un camino más
+ corto de $s$ a $i$ y, para $i
+\backslash
+neq s$, $p_i$ es el penúltimo nodo de dicho camino.}
+\end_layout
+
+\begin_layout Plain Layout
+
+$d
+\backslash
+gets(+
+\backslash
+infty,
+\backslash
+dots,+
+\backslash
+infty)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$p
+\backslash
+gets(0,
+\backslash
+dots,0)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$R
+\backslash
+gets 
+\backslash
+{1,
+\backslash
+dots,n
+\backslash
+}
+\backslash
+setminus
+\backslash
+{s
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$d_s
+\backslash
+gets0$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lPara{$i
+\backslash
+in N(s)$}{$p_i
+\backslash
+gets s$}
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{$R
+\backslash
+neq
+\backslash
+emptyset$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	Tomar $j
+\backslash
+in R$ con $d_j$ mínimo
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$R
+\backslash
+gets R
+\backslash
+setminus
+\backslash
+{j
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$i
+\backslash
+in N(j)
+\backslash
+cap R$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+SSi{$d_j+
+\backslash
+ell(j,i)<d_i$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			$d_i
+\backslash
+gets d_j+
+\backslash
+ell(j,i)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			$p_i
+\backslash
+gets j$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:dijkstra"
+
+\end_inset
+
+Algoritmo de Dijkstra.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Red $(V:=
+\backslash
+{1,
+\backslash
+dots,n
+\backslash
+},E,
+\backslash
+ell)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Matrices $D
+\backslash
+in{
+\backslash
+cal M}_n(
+\backslash
+mathbb R
+\backslash
+cup
+\backslash
+{+
+\backslash
+infty
+\backslash
+})$ y $P
+\backslash
+in{
+\backslash
+cal M}_n(V)$ tales que para $i,j
+\backslash
+in V$, si $i$ y $j$ están desconectados, $D_{ij}=+
+\backslash
+infty$, y si están conectados, $D_{ij}$ es la longitud de un camino más
+ corto de $i$ a $j$ y $P_{ij}$ es su penúltimo nodo, o $i$ si $i=j$ y el
+ camino es el trivial.}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% N.B.: La idea del algoritmo es que, en cada iteración de $k$, calcula las
+\end_layout
+
+\begin_layout Plain Layout
+
+% distancias a $k$ en el subgrafo generado por $
+\backslash
+{1,
+\backslash
+dots,k
+\backslash
+}$ a partir de
+\end_layout
+
+\begin_layout Plain Layout
+
+% las distancias entre nodos en el subgrafo generado por $
+\backslash
+{1,
+\backslash
+dots,k-1
+\backslash
+}$,
+\end_layout
+
+\begin_layout Plain Layout
+
+% y a continuación actualiza las distancias entre los nodos $1,
+\backslash
+dots,k-1$
+\end_layout
+
+\begin_layout Plain Layout
+
+% comprobando si hay un camino más corto pasando por $k$.
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$i,j
+\backslash
+in V$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$P_{ij}
+\backslash
+gets i$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$i=j$}{$D_{ij}
+\backslash
+gets0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lEnOtroCaso{$D_{ij}
+\backslash
+gets+
+\backslash
+infty$}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$k
+\backslash
+gets 2$ 
+\backslash
+KwA $n$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$i
+\backslash
+gets 1$ 
+\backslash
+KwA $k-1$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		Tomar $j
+\backslash
+in
+\backslash
+{1,
+\backslash
+dots,k-1
+\backslash
+}$ con $D_{ij}+
+\backslash
+ell(j,k)$ mínimo (si $(j,k)
+\backslash
+notin E$, $
+\backslash
+ell(j,k):=+
+\backslash
+infty$)
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		$D_{ki}
+\backslash
+gets D_{ik}
+\backslash
+gets D_{ij}+
+\backslash
+ell(j,k)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		$P_{ik}
+\backslash
+gets j$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lSSi{$j=i$}{$P_{ki}
+\backslash
+gets k$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lEnOtroCaso{$P_{ki}
+\backslash
+gets P_{ji}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$i,j
+\backslash
+gets 1$ 
+\backslash
+KwA $k-1$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+SSi{$D_{ij}>D_{ik}+D_{kj}$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			$D_{ij}
+\backslash
+gets D_{ik}+D_{kj}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+			$P_{ij}
+\backslash
+gets P_{kj}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:dantzig"
+
+\end_inset
+
+Algoritmo de Dantzig.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Tours eulerianos
+\end_layout
+
+\begin_layout Standard
+Dado un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+, un 
+\series bold
+tour
+\series default
+ o 
+\series bold
+recorrido euleriano
+\series default
+ es un paseo cerrado que atraviesa cada eje del grafo exactamente una vez.
+ Un grafo es 
+\series bold
+euleriano
+\series default
+ si admite un recorrido euleriano.
+ Como 
+\series bold
+teorema
+\series default
+, un grafo conexo es euleriano si y solo si todos los vértices tiene orden
+ par, en cuyo caso se puede obtener un tour euleriano con el 
+\series bold
+algoritmo de Hierholzer
+\series default
+ (algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:hierholzer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $T$
+\end_inset
+
+ un tour euleriano, 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ y 
+\begin_inset Formula $e_{1},\dots,e_{k}$
+\end_inset
+
+ los ejes adyacentes a 
+\begin_inset Formula $v$
+\end_inset
+
+, cada eje está en 
+\begin_inset Formula $T$
+\end_inset
+
+ exactamente una vez y puede ser entrante (el siguiente nodo es 
+\begin_inset Formula $v$
+\end_inset
+
+) o saliente (lo es el anterior), pero a todo eje entrante le sigue uno
+ saliente y a todo saliente le precede uno entrante (podemos suponer que
+ 
+\begin_inset Formula $T$
+\end_inset
+
+ no empieza por 
+\begin_inset Formula $v$
+\end_inset
+
+), luego el número de entrantes y salientes es el mismo y 
+\begin_inset Formula $k$
+\end_inset
+
+ es par.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Claramente el algoritmo de Hierholzer toma cada eje exactamente una vez,
+ crea un paseo cerrado y termina, y queda ver que no da errores.
+ Si queda algún eje por tomar, alguno debe ser adyacente a un nodo en 
+\begin_inset Formula $P$
+\end_inset
+
+, pues de lo contrario los nodos y ejes de 
+\begin_inset Formula $P$
+\end_inset
+
+ formarían una componente conexa y, al haber más ejes, 
+\begin_inset Formula $G$
+\end_inset
+
+ sería disconexo.
+\begin_inset Formula $\#$
+\end_inset
+
+ Respecto al paso de tomar un eje, en la primera iteración hemos tomado
+ un nodo de forma que se pueda, y en el resto hemos tomado un número par
+ de ejes adyacentes a 
+\begin_inset Formula $i$
+\end_inset
+
+ como ejes entrantes y salientes más el nodo usado para entrar, y como el
+ orden es par, debe quedar otro eje sin añadir a 
+\begin_inset Formula $P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Grafo $G=(V,E)$ conexo en el que todos los vértices tienen orden
+ par.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Tour euleriano $P$ de $G$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+Elegir $s
+\backslash
+in V$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$P
+\backslash
+gets(s)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{$E
+\backslash
+neq
+\backslash
+emptyset$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	Tomar un nodo $i$ en $P$ adyacente a algún eje
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$k
+\backslash
+gets i$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$P_0
+\backslash
+gets(i)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Repetir{$i=k$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		Sacar un $(i,j)$ de $E$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		$P_0
+\backslash
+gets P_0j$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		$i
+\backslash
+gets j$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	Con $P=:P_1kP_2$, hacer $P
+\backslash
+gets P_1P_0P_2$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:hierholzer"
+
+\end_inset
+
+Algoritmo de Hierholzer.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+También se puede obtener un tour euleriano con el 
+\series bold
+algoritmo de Fleury
+\series default
+ (algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:fleury"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ 
+\series bold
+Demostración:
+\series default
+ Es claro que si el algoritmo funciona genera un tour euleriano.
+ Sea 
+\begin_inset Formula $s$
+\end_inset
+
+ el nodo inicial, cuando 
+\begin_inset Formula $o(s)>0$
+\end_inset
+
+, 
+\begin_inset Formula $P$
+\end_inset
+
+ es un paseo que no repite ejes, por lo que todos los nodos salvo el primero
+ y el último tienen orden par (por ser 
+\begin_inset Formula $G$
+\end_inset
+
+ euleriano) y, como estos dos tienen orden impar, se puede salir del último
+ añadiendo otro eje al camino en cada paso hasta llegar a 
+\begin_inset Formula $s$
+\end_inset
+
+ y no poder salir, momento en que queremos ver que 
+\begin_inset Formula $E=\emptyset$
+\end_inset
+
+.
+ Si no fuera así, al final existiría un 
+\begin_inset Formula $e\in E$
+\end_inset
+
+ en una componente conexa de 
+\begin_inset Formula $G$
+\end_inset
+
+ distinta a la de 
+\begin_inset Formula $s$
+\end_inset
+
+, pero la conexión con 
+\begin_inset Formula $s$
+\end_inset
+
+ salvo en nodos aislados es un invariante del bucle.
+ En efecto, al principio de una iteración, 
+\begin_inset Formula $i$
+\end_inset
+
+ conecta con 
+\begin_inset Formula $s$
+\end_inset
+
+ porque no es aislado y solo se rompe la conexión si se quita un eje de
+ corte, pero entonces todos los ejes adyacentes a 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $(i,j_{1}),\dots,(i,j_{k})$
+\end_inset
+
+, serían de corte y 
+\begin_inset Formula $G-i$
+\end_inset
+
+ tendría 
+\begin_inset Formula $k$
+\end_inset
+
+ componentes conexas.
+ Sea entonces 
+\begin_inset Formula $V_{p}$
+\end_inset
+
+ la componente conexa con 
+\begin_inset Formula $j_{p}$
+\end_inset
+
+, si fuera 
+\begin_inset Formula $s\notin V_{p}$
+\end_inset
+
+, como todos los nodos de 
+\begin_inset Formula $V_{p}$
+\end_inset
+
+ tienen orden par salvo 
+\begin_inset Formula $j_{p}$
+\end_inset
+
+ que tendría orden impar al haber eliminado 
+\begin_inset Formula $(i,j_{p})$
+\end_inset
+
+, la suma de los órdenes sería impar
+\begin_inset Formula $\#$
+\end_inset
+
+, luego 
+\begin_inset Formula $s\in V_{p}$
+\end_inset
+
+ y, como 
+\begin_inset Formula $V_{1},\dots,V_{k}$
+\end_inset
+
+ es una partición, 
+\begin_inset Formula $k=1$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $i$
+\end_inset
+
+ es un nodo hoja y eliminar el eje de corte deja a 
+\begin_inset Formula $i$
+\end_inset
+
+ aislado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Grafo euleriano conexo $G=(V,E)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Tour euleriano $P$ de $G$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+Tomar $i
+\backslash
+in V$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$P
+\backslash
+gets(i)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{$E
+\backslash
+neq
+\backslash
+emptyset$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{existe $(i,j)
+\backslash
+in E$ que no sea de corte}{sacar $(i,j)$ de $E$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lEnOtroCaso{sacar un $(i,j)$ de $E$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$P
+\backslash
+gets Pj$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$i
+\backslash
+gets j$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:fleury"
+
+\end_inset
+
+Algoritmo de Fleury.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Problema del cartero chino
+\end_layout
+
+\begin_layout Standard
+Dada una red 
+\begin_inset Formula $(V,E,\ell)$
+\end_inset
+
+, el 
+\series bold
+problema del cartero chino
+\series default
+ consiste en obtener un paseo cerrado de longitud mínima que incluya todos
+ los ejes al menos una vez.
+ Para resolverlo:
+\end_layout
+
+\begin_layout Enumerate
+Calculamos la longitud de los caminos más cortos entre cada par de nodos,
+ por ejemplo con el algoritmo de Dantzig.
+\end_layout
+
+\begin_layout Enumerate
+Identificamos los nodos de orden impar, de los que habrá un número par,
+ y los emparejamos minimizando la suma de las longitudes de los caminos
+ más cortos entre cada par.
+\end_layout
+
+\begin_layout Enumerate
+Duplicamos los ejes de un camino más corto entre cada par, obteniendo un
+ grafo euleriano.
+\end_layout
+
+\begin_layout Enumerate
+Obtenemos un tour euleriano, que será la solución.
+\end_layout
+
+\begin_layout Section
+Grafos hamiltonianos
+\end_layout
+
+\begin_layout Standard
+Dado un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+, un camino es 
+\series bold
+hamiltoniano
+\series default
+ si contiene a todos los vértices.
+ Un grafo es hamiltoniano si admite un ciclo hamiltoniano.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+grafo clausura
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $[G]$
+\end_inset
+
+, es el grafo resultante de añadir a 
+\begin_inset Formula $G$
+\end_inset
+
+ los 
+\begin_inset Formula $(u,v)\in E^{\complement}$
+\end_inset
+
+ con 
+\begin_inset Formula $o(u)+o(v)\geq|V|$
+\end_inset
+
+ hasta que no quede ningún 
+\begin_inset Formula $(u,v)\in E^{\complement}$
+\end_inset
+
+ que cumpla la condición.
+ Como 
+\series bold
+teorema
+\series default
+, 
+\begin_inset Formula $G$
+\end_inset
+
+ es hamiltoniano si y sólo si lo es 
+\begin_inset Formula $[G]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Trivial.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $G$
+\end_inset
+
+ no fuera hamiltoniano y, para obtener 
+\begin_inset Formula $[G]$
+\end_inset
+
+, le hubiéramos añadido los ejes 
+\begin_inset Formula $e_{1},\dots,e_{n}$
+\end_inset
+
+ en ese orden, existiría un 
+\begin_inset Formula $e_{k}=:(u,v)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $G_{i}:=(V,E_{i}):=G+\{e_{1},\dots,e_{i}\}$
+\end_inset
+
+ es hamiltoniano si y sólo si 
+\begin_inset Formula $i>k$
+\end_inset
+
+, por lo que existe un camino hamiltoniano 
+\begin_inset Formula $(u=:u_{1})u_{2}\cdots(u_{n}:=v)$
+\end_inset
+
+ en 
+\begin_inset Formula $G_{k}$
+\end_inset
+
+, con 
+\begin_inset Formula $n:=|V|$
+\end_inset
+
+.
+ Sean ahora 
+\begin_inset Formula $X:=\{i\in\{2,\dots,n-2\}:(u_{i},v)\in E_{k}\}$
+\end_inset
+
+ e 
+\begin_inset Formula $Y:=\{i\in\{2,\dots,n-2\}:(u_{i+1},u)\in E_{k}\}$
+\end_inset
+
+, se tiene 
+\begin_inset Formula $|X|=o(u)-1$
+\end_inset
+
+ e 
+\begin_inset Formula $|Y|=o(v)-1$
+\end_inset
+
+, pero como 
+\begin_inset Formula $o(u)+o(v)\geq n$
+\end_inset
+
+ en 
+\begin_inset Formula $G_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $|X|+|Y|=o(u)+o(v)\geq n-2>n-1=|\{2,\dots,n-2\}|$
+\end_inset
+
+ y existe 
+\begin_inset Formula $j\in X\cap Y$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $u_{1}u_{k}u_{k+1}\cdots u_{n}u_{k-1}u_{k-2}\cdots u_{1}$
+\end_inset
+
+ es un ciclo hamiltoniano en 
+\begin_inset Formula $G_{j}\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Una 
+\series bold
+sucesión hamiltoniana
+\series default
+ es una tupla 
+\begin_inset Formula $(a_{1},\dots,a_{n})$
+\end_inset
+
+ de naturales tal que todo grafo 
+\begin_inset Formula $(\{1,\dots,n\},E)$
+\end_inset
+
+ con 
+\begin_inset Formula $o(1)\leq\dots\leq o(n)$
+\end_inset
+
+ y 
+\begin_inset Formula $o(i)\geq a_{i}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $i$
+\end_inset
+
+ es hamiltoniano.
+ Como 
+\series bold
+teorema
+\series default
+, para 
+\begin_inset Formula $n\geq3$
+\end_inset
+
+, 
+\begin_inset Formula $(a_{1},\dots,a_{n})$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{1}\leq\dots\leq a_{n}<n$
+\end_inset
+
+ es una sucesión hamiltoniana si y sólo si para 
+\begin_inset Formula $i<\frac{n}{2}$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{i}\leq i$
+\end_inset
+
+ es 
+\begin_inset Formula $a_{n-1}\geq n-i$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+¿Debería añadir la demostración de esto? En plan, solo ha explicado una
+ parte y más bien mal y para la otra ha puesto un ejemplo.
+ ¿El examen lo escribe Pulido o Pascual?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+problema del viajero
+\series default
+ o 
+\series bold
+del viajante
+\series default
+ en una red 
+\begin_inset Formula $(V,E,\ell)$
+\end_inset
+
+ consiste en encontrar el ciclo hamiltoniano de longitud mínima.
+ Se puede aproximar con el 
+\series bold
+algoritmo de Christofides
+\series default
+ (algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:christofides"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 1976).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Red $(V,E,
+\backslash
+ell)$ completa en la que $
+\backslash
+ell$ cumple la desigualdad triangular.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Ciclo hamiltoniano $C$ con longitud a lo sumo $3
+\backslash
+over 2$ de la del ciclo hamiltoniano de longitud mínima en la red.}
+\end_layout
+
+\begin_layout Plain Layout
+
+Encontrar un árbol generador minimal $T$ de $(V,E)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$O
+\backslash
+gets
+\backslash
+{v
+\backslash
+in V:o(v)
+\backslash
+text{ impar en }T
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+Obtener un emparejamiento $M$ de los vértices de $O$ con $
+\backslash
+sum_{e
+\backslash
+in M}
+\backslash
+ell(e)$ mínimo
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$H
+\backslash
+gets(V,T
+\backslash
+amalg M)$
+\backslash
+tcp*{{
+\backslash
+rm $H$ es un multigrafo euleriano.}}
+\end_layout
+
+\begin_layout Plain Layout
+
+Encontrar un ciclo euleriano $C$ en $H$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+Borrar de $C$ los nodos repetidos
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:christofides"
+
+\end_inset
+
+Algoritmo de Christofides.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
