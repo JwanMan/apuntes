@@ -78,6 +78,765 @@
 \begin_body
 
 \begin_layout Standard
+Dada una superficie regular 
+\begin_inset Formula $S$
+\end_inset
+
+, un 
+\series bold
+campo de vectores
+\series default
+ sobre 
+\begin_inset Formula $S$
+\end_inset
+
+ es una función 
+\begin_inset Formula $\xi:S\to\mathbb{R}^{3}$
+\end_inset
+
+, y es 
+\series bold
+tangente
+\series default
+ si 
+\begin_inset Formula $\xi(p)\in T_{p}S$
+\end_inset
+
+ para todo 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, 
+\series bold
+normal
+\series default
+ si 
+\begin_inset Formula $\xi(p)\in(T_{p}S)^{\bot}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $p\in S$
+\end_inset
+
+ y 
+\series bold
+unitario
+\series default
+ si 
+\begin_inset Formula $|\xi(p)|=1$
+\end_inset
+
+ para todo 
+\begin_inset Formula $p\in S$
+\end_inset
+
+.
+ Llamamos 
+\begin_inset Formula $\mathfrak{X}(S)$
+\end_inset
+
+ al conjunto de campos de vectores tangentes sobre 
+\begin_inset Formula $S$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathfrak{X}(S)^{\bot}$
+\end_inset
+
+ al conjunto de campos de vectores normales sobre 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+orientación
+\series default
+ de una superficie regular 
+\begin_inset Formula $S$
+\end_inset
+
+ es un campo de vectores diferenciable, normal y unitario sobre 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ 
+\begin_inset Formula $S$
+\end_inset
+
+ es 
+\series bold
+orientable
+\series default
+ si admite una orientación, si y sólo si existe un campo 
+\begin_inset Formula $\xi$
+\end_inset
+
+ normal y diferenciable sobre 
+\begin_inset Formula $S$
+\end_inset
+
+ que no se anula en ningún punto, pues las orientaciones son de esta forma
+ y, dado 
+\begin_inset Formula $\xi$
+\end_inset
+
+, basta tomar la orientación 
+\begin_inset Formula $N(p):=\xi(p)/|\xi(p)|$
+\end_inset
+
+.
+ Una orientación 
+\begin_inset Formula $N$
+\end_inset
+
+ de 
+\begin_inset Formula $S$
+\end_inset
+
+ da a cada 
+\begin_inset Formula $p\in S$
+\end_inset
+
+ un sentido de giro para 
+\begin_inset Formula $T_{p}S$
+\end_inset
+
+ dado por el producto vectorial en 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $S$
+\end_inset
+
+ está orientada cuando se ha escogido una orientación concreta.
+\end_layout
+
+\begin_layout Standard
+Dos cartas 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ y 
+\begin_inset Formula $(U',X')$
+\end_inset
+
+ de 
+\begin_inset Formula $S$
+\end_inset
+
+ son 
+\series bold
+compatibles
+\series default
+ si 
+\begin_inset Formula $V:=X(U)$
+\end_inset
+
+ y 
+\begin_inset Formula $V':=X'(U')$
+\end_inset
+
+ son disjuntos o 
+\begin_inset Formula $\det(Jh)>0$
+\end_inset
+
+, donde 
+\begin_inset Formula $h:X^{-1}(V')\to(X')^{-1}(V)$
+\end_inset
+
+ es el cambio de coordenadas de 
+\begin_inset Formula $V$
+\end_inset
+
+ a 
+\begin_inset Formula $V'$
+\end_inset
+
+.
+ Un 
+\series bold
+atlas
+\series default
+ para 
+\begin_inset Formula $S$
+\end_inset
+
+ es una familia 
+\begin_inset Formula $\{(U_{i},X_{i})\}_{i\in I}$
+\end_inset
+
+ de cartas tales que 
+\begin_inset Formula $\bigcup_{i\in I}X_{i}(U_{i})=S$
+\end_inset
+
+.
+ Entonces una superficie es orientable si y sólo si existe un atlas cuyas
+ cartas son compatibles.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula ${\cal A}:=\{(U_{i},X_{i})\}_{i\in I}$
+\end_inset
+
+ un atlas de cartas compatibles en 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, 
+\begin_inset Formula $(U,X)\in{\cal A}(I)$
+\end_inset
+
+ con 
+\begin_inset Formula $p\in X(U)$
+\end_inset
+
+ y 
+\begin_inset Formula $N:X(U)\to\mathbb{R}^{3}$
+\end_inset
+
+ dado por 
+\begin_inset Formula 
+\[
+N(X(u,v)):=N(u,v):=\frac{X_{u}\wedge X_{v}}{|X_{u}\wedge X_{v}|}(u,v),
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula $N$
+\end_inset
+
+ está bien definido y es diferenciable, normal y unitario.
+ Sean ahora 
+\begin_inset Formula $(\overline{U},\overline{X})\in{\cal A}(I)$
+\end_inset
+
+ con 
+\begin_inset Formula $p\in\overline{X}(\overline{U})$
+\end_inset
+
+, 
+\begin_inset Formula $\overline{N}(\overline{X}(u,v)):=\overline{N}(u,v):=\frac{\overline{X}_{u}\cap\overline{X}_{v}}{|\overline{X}_{u}\cap\overline{X}_{v}|}(u,v)$
+\end_inset
+
+ y 
+\begin_inset Formula $h$
+\end_inset
+
+ el cambio de coordenadas de 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ a 
+\begin_inset Formula $(\overline{U},\overline{X})$
+\end_inset
+
+, para 
+\begin_inset Formula $(u,v)\in X^{-1}(V_{0})$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+dX(u,v)=d(\overline{X}\circ h)(u,v)=d\overline{X}(h(u,v))\circ dh(u,v),
+\]
+
+\end_inset
+
+ luego
+\begin_inset Formula 
+\[
+N(u,v)=\frac{X_{u}\wedge X_{v}}{|X_{u}\wedge X_{v}|}=\frac{\det(Jh(u,v))}{|\det(Jh(u,v))|}\frac{\overline{X}_{u}\wedge\overline{X}_{v}}{|\overline{X}_{u}\wedge\overline{X}_{v}|}(h(u,v))\overset{Jh(u,v)>0}{=}\overline{N}(u,v),
+\]
+
+\end_inset
+
+ de modo que 
+\begin_inset Formula $N(p)$
+\end_inset
+
+ es diferenciable, normal, unitario y no depende de la carta del atlas escogida.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $N$
+\end_inset
+
+ una orientación de 
+\begin_inset Formula $S$
+\end_inset
+
+, para toda carta 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ de 
+\begin_inset Formula $S$
+\end_inset
+
+ es 
+\begin_inset Formula $N(X(q))=\pm\frac{X_{u}\wedge X_{v}}{|X_{u}\wedge X_{v}|}(q)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $q\in U$
+\end_inset
+
+.
+ Entonces, para 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, podemos tomar una carta 
+\begin_inset Formula $(U_{p},X_{p})$
+\end_inset
+
+ de 
+\begin_inset Formula $S$
+\end_inset
+
+ con 
+\begin_inset Formula $N(X(q))=\frac{(X_{p})_{u}\wedge(X_{p})_{v}}{|(X_{p})_{u}\wedge(X_{p})_{v}|}(q)$
+\end_inset
+
+ para 
+\begin_inset Formula $q\in U$
+\end_inset
+
+, pues si el normal fuese el opuesto basta cambiar 
+\begin_inset Formula $X_{p}(u,v)$
+\end_inset
+
+ por 
+\begin_inset Formula $X_{p}(v,u)$
+\end_inset
+
+ y 
+\begin_inset Formula $U_{p}$
+\end_inset
+
+ por 
+\begin_inset Formula $\{(u,v)\}_{(v,u)\in U}$
+\end_inset
+
+, y el resultado se tiene por la antisimetría del producto vectorial.
+ Con esto, dados 
+\begin_inset Formula $a,b\in S$
+\end_inset
+
+ con 
+\begin_inset Formula $V:=X_{a}(U_{a})\cap X_{b}(U_{b})\neq\emptyset$
+\end_inset
+
+, queremos ver que el determinante del cambio de coordenadas 
+\begin_inset Formula $h:X_{a}^{-1}(V)\to X_{b}^{-1}(V)$
+\end_inset
+
+ de 
+\begin_inset Formula $(U_{a},X_{a})$
+\end_inset
+
+ a 
+\begin_inset Formula $(U_{b},X_{b})$
+\end_inset
+
+ tiene jacobiano con determinante positivo.
+ En efecto, 
+\begin_inset Formula $\det(Jh)$
+\end_inset
+
+ debe ser no nulo, pero si fuera negativo, para un 
+\begin_inset Formula $p\in V$
+\end_inset
+
+, sean 
+\begin_inset Formula $q_{a}:=X_{a}^{-1}(p)$
+\end_inset
+
+ y 
+\begin_inset Formula $q_{b}:=X_{b}^{-1}(p)$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+N(p)=\frac{X_{au}\wedge X_{av}}{|X_{au}\wedge X_{av}|}(q_{a})=\frac{\det(Jh)}{|\det(Jh)|}\frac{X_{bu}\wedge X_{bv}}{|X_{bu}\wedge X_{bv}|}(q_{b})=-N(p),
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $N(p)=0\#$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $\det(Jh)>0$
+\end_inset
+
+ y las cartas del atlas 
+\begin_inset Formula $\{(U_{p},X_{p})\}_{p\in S}$
+\end_inset
+
+ son compatibles.
+\end_layout
+
+\begin_layout Standard
+En adelante, cuando consideremos una parametrización 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+, escribiremos 
+\begin_inset Formula $N(u,v):=N(X(u,v))$
+\end_inset
+
+, 
+\begin_inset Formula $N_{u}(u,v):=\frac{\partial(N\circ X)}{\partial u}(u,v)$
+\end_inset
+
+ y 
+\begin_inset Formula $N_{v}(u,v):=\frac{\partial(N\circ X)}{\partial v}(u,v)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ejemplos:
+\begin_inset Note Comment
+status open
+
+\begin_layout Enumerate
+La banda de Möbius se puede expresar como la imagen de 
+\begin_inset Formula $X:\mathbb{R}\times(-1,1)\to\mathbb{R}^{3}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+X(u,v):=\left((2-v\sin\tfrac{u}{2})\sin u,(2-v\sin\tfrac{u}{2})\cos u,v\cos\tfrac{u}{2}\right).
+\]
+
+\end_inset
+
+Esta es una superficie regular no orientable.
+\end_layout
+
+\begin_deeper
+\begin_layout Plain Layout
+Claramente 
+\begin_inset Formula $X$
+\end_inset
+
+ es diferenciable, y es inyectiva en 
+\begin_inset Formula $U_{1}:=(0,2\pi)\times(-1,1)$
+\end_inset
+
+ y en 
+\begin_inset Formula $U_{2}:=(-\pi,\pi)\times(-1,1)$
+\end_inset
+
+.
+ Su diferencial es
+\begin_inset Formula 
+\[
+dX(u,v)\equiv\begin{pmatrix}-\frac{v}{2}\cos\frac{u}{2}\sin u+(2-v\sin\frac{u}{2})\cos u & -\sin\frac{u}{2}\sin u\\
+-\frac{v}{2}\cos\frac{u}{2}\cos u-(2-v\sin\frac{u}{2})\sin u & -\sin\frac{u}{2}\cos u\\
+-\frac{v}{2}\sin\frac{u}{2} & \cos\frac{u}{2}
+\end{pmatrix},
+\]
+
+\end_inset
+
+y el determinante de las dos primeras filas es
+\begin_inset Formula 
+\[
+-\sin\frac{u}{2}\left(-\frac{v}{2}\cos\frac{u}{2}\begin{vmatrix}\sin u & \sin u\\
+\cos u & \cos u
+\end{vmatrix}+\left(2-v\sin\frac{u}{2}\right)\begin{vmatrix}\cos u & \sin u\\
+-\sin u & \cos u
+\end{vmatrix}\right)=-\sin\frac{u}{2}\left(2-v\sin\frac{u}{2}\right),
+\]
+
+\end_inset
+
+lo que solo se anula cuando 
+\begin_inset Formula $u\in\{2k\pi\}_{k\in\mathbb{Z}}$
+\end_inset
+
+, pero en tal caso
+\begin_inset Formula 
+\[
+dX(u,v)\equiv\begin{pmatrix}2 & 0\\
+-\frac{v}{2} & 0\\
+0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+y el determinante de la submatriz resultante de quitar la segunda fila es
+ 
+\begin_inset Formula $2\neq0$
+\end_inset
+
+.
+ Esto prueba que la banda de Möbius es una superficie.
+ 
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+El plano 
+\begin_inset Formula $p_{0}+\langle v\rangle^{\bot}\subseteq\mathbb{R}^{3}$
+\end_inset
+
+ admite la orientación 
+\begin_inset Formula $N(p):=v/|v|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Dados 
+\begin_inset Formula $f:\mathbb{R}^{3}\to\mathbb{R}$
+\end_inset
+
+ 
+\begin_inset Formula ${\cal C}^{2}$
+\end_inset
+
+ y un valor regular 
+\begin_inset Formula $c$
+\end_inset
+
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+, la superficie de nivel 
+\begin_inset Formula $S:=f^{-1}(c)$
+\end_inset
+
+ admite la orientación 
+\begin_inset Formula 
+\[
+N(p):=\frac{\nabla f(p)}{|\nabla f(p)|},
+\]
+
+\end_inset
+
+ donde 
+\begin_inset Formula $\nabla f(p):=(\frac{\partial f}{\partial x}(p),\frac{\partial f}{\partial y}(p),\frac{\partial f}{\partial z}(p))$
+\end_inset
+
+ es el 
+\series bold
+gradiente
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha:=(x,y,z):I\to S$
+\end_inset
+
+ una curva diferenciable con 
+\begin_inset Formula $\alpha(0)=p$
+\end_inset
+
+ y 
+\begin_inset Formula $v:=\alpha'(0)\in T_{p}S$
+\end_inset
+
+, para 
+\begin_inset Formula $t\in I$
+\end_inset
+
+ es 
+\begin_inset Formula $f(\alpha(t))=c$
+\end_inset
+
+ por ser 
+\begin_inset Formula $\alpha(t)\in S$
+\end_inset
+
+, luego derivando, 
+\begin_inset Formula $\frac{\partial f}{\partial x}(\alpha(t))x'(t)+\frac{\partial f}{\partial y}(\alpha(t))y'(t)+\frac{\partial f}{\partial z}(\alpha(t))z'(t)=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\nabla f(p)\bot v$
+\end_inset
+
+.
+ Además, 
+\begin_inset Formula $\nabla f(p)\neq0$
+\end_inset
+
+ porque 
+\begin_inset Formula $p\in S=f^{-1}(c)$
+\end_inset
+
+ y 
+\begin_inset Formula $c$
+\end_inset
+
+ es un valor regular de 
+\begin_inset Formula $f$
+\end_inset
+
+, y claramente 
+\begin_inset Formula $\nabla f$
+\end_inset
+
+ es diferenciable.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{S}^{2}$
+\end_inset
+
+ admite la orientación 
+\begin_inset Formula $N(p):=p$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f(x,y,z):=x^{2}+y^{2}+z^{2}$
+\end_inset
+
+, 1 es un valor regular de 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbb{S}^{2}$
+\end_inset
+
+ es la superficie de nivel 
+\begin_inset Formula $\{p:f(p)=1\}$
+\end_inset
+
+, luego admite la orientación 
+\begin_inset Formula 
+\[
+N(x,y,z)=\frac{\nabla f(x,y,z)}{|\nabla f(x,y,z)|}=\frac{(2x,2y,2z)}{|(2x,2y,2z)|}=\frac{(x,y,z)}{|(x,y,z)|}=(x,y,z).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Dada 
+\begin_inset Formula $f:U\subseteq\mathbb{R}^{2}\to\mathbb{R}$
+\end_inset
+
+ diferenciable en el abierto 
+\begin_inset Formula $U$
+\end_inset
+
+, el grafo 
+\begin_inset Formula $S:=\{(x,y,f(x,y))\}_{x,y\in U}$
+\end_inset
+
+ admite la orientación
+\begin_inset Formula 
+\[
+N(u,v)=\frac{(-f_{u},-f_{v},1)}{\sqrt{1+f_{u}^{2}+f_{v}^{2}}}(u,v).
+\]
+
+\end_inset
+
+Dada la parametrización 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ con 
+\begin_inset Formula $X(u,v):=(u,v,f(u,v))$
+\end_inset
+
+, 
+\begin_inset Formula $X_{u}=(1,0,f_{u})$
+\end_inset
+
+ y 
+\begin_inset Formula $X_{v}=(0,1,f_{v})$
+\end_inset
+
+, y 
+\begin_inset Formula $X_{u}\wedge X_{v}=(-f_{u},-f_{v},1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
