@@ -5,6 +5,9 @@
 \save_transient_properties true
 \origin unavailable
 \textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language spanish
@@ -76,6 +79,10 @@
 \end_header
 
 \begin_body
+
+\begin_layout Section
+Orientación
+\end_layout
 
 \begin_layout Standard
 Dada una superficie regular 
@@ -215,7 +222,340 @@ orientable
 \begin_inset Formula $S$
 \end_inset
 
- está orientada cuando se ha escogido una orientación concreta.
+ está orientada cuando se ha escogido una orientación concreta, en cuyo
+ caso dicha orientación es su 
+\series bold
+aplicación de Gauss
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Ejemplos:
+\begin_inset Note Comment
+status open
+
+\begin_layout Enumerate
+La banda de Möbius se puede expresar como la imagen de 
+\begin_inset Formula $X:\mathbb{R}\times(-1,1)\to\mathbb{R}^{3}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+X(u,v):=\left((2-v\sin\tfrac{u}{2})\sin u,(2-v\sin\tfrac{u}{2})\cos u,v\cos\tfrac{u}{2}\right).
+\]
+
+\end_inset
+
+Esta es una superficie regular no orientable.
+\end_layout
+
+\begin_deeper
+\begin_layout Plain Layout
+Claramente 
+\begin_inset Formula $X$
+\end_inset
+
+ es diferenciable, y es inyectiva en 
+\begin_inset Formula $U_{1}:=(0,2\pi)\times(-1,1)$
+\end_inset
+
+ y en 
+\begin_inset Formula $U_{2}:=(-\pi,\pi)\times(-1,1)$
+\end_inset
+
+.
+ Su diferencial es
+\begin_inset Formula 
+\[
+dX(u,v)\equiv\begin{pmatrix}-\frac{v}{2}\cos\frac{u}{2}\sin u+(2-v\sin\frac{u}{2})\cos u & -\sin\frac{u}{2}\sin u\\
+-\frac{v}{2}\cos\frac{u}{2}\cos u-(2-v\sin\frac{u}{2})\sin u & -\sin\frac{u}{2}\cos u\\
+-\frac{v}{2}\sin\frac{u}{2} & \cos\frac{u}{2}
+\end{pmatrix},
+\]
+
+\end_inset
+
+y el determinante de las dos primeras filas es
+\begin_inset Formula 
+\[
+-\sin\frac{u}{2}\left(-\frac{v}{2}\cos\frac{u}{2}\begin{vmatrix}\sin u & \sin u\\
+\cos u & \cos u
+\end{vmatrix}+\left(2-v\sin\frac{u}{2}\right)\begin{vmatrix}\cos u & \sin u\\
+-\sin u & \cos u
+\end{vmatrix}\right)=-\sin\frac{u}{2}\left(2-v\sin\frac{u}{2}\right),
+\]
+
+\end_inset
+
+lo que solo se anula cuando 
+\begin_inset Formula $u\in\{2k\pi\}_{k\in\mathbb{Z}}$
+\end_inset
+
+, pero en tal caso
+\begin_inset Formula 
+\[
+dX(u,v)\equiv\begin{pmatrix}2 & 0\\
+-\frac{v}{2} & 0\\
+0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+y el determinante de la submatriz resultante de quitar la segunda fila es
+ 
+\begin_inset Formula $2\neq0$
+\end_inset
+
+.
+ Esto prueba que la banda de Möbius es una superficie.
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+El plano 
+\begin_inset Formula $p_{0}+\langle v\rangle^{\bot}\subseteq\mathbb{R}^{3}$
+\end_inset
+
+ admite la orientación 
+\begin_inset Formula $N(p):=v/|v|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Dados 
+\begin_inset Formula $f:\mathbb{R}^{3}\to\mathbb{R}$
+\end_inset
+
+ 
+\begin_inset Formula ${\cal C}^{2}$
+\end_inset
+
+ y un valor regular 
+\begin_inset Formula $c$
+\end_inset
+
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+, la superficie de nivel 
+\begin_inset Formula $S:=f^{-1}(c)$
+\end_inset
+
+ admite la orientación 
+\begin_inset Formula 
+\[
+N(p):=\frac{\nabla f(p)}{|\nabla f(p)|},
+\]
+
+\end_inset
+
+ donde 
+\begin_inset Formula $\nabla f(p):=(\frac{\partial f}{\partial x}(p),\frac{\partial f}{\partial y}(p),\frac{\partial f}{\partial z}(p))$
+\end_inset
+
+ es el 
+\series bold
+gradiente
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha:=(x,y,z):I\to S$
+\end_inset
+
+ una curva diferenciable con 
+\begin_inset Formula $\alpha(0)=p$
+\end_inset
+
+ y 
+\begin_inset Formula $v:=\alpha'(0)\in T_{p}S$
+\end_inset
+
+, para 
+\begin_inset Formula $t\in I$
+\end_inset
+
+ es 
+\begin_inset Formula $f(\alpha(t))=c$
+\end_inset
+
+ por ser 
+\begin_inset Formula $\alpha(t)\in S$
+\end_inset
+
+, luego derivando, 
+\begin_inset Formula $\frac{\partial f}{\partial x}(\alpha(t))x'(t)+\frac{\partial f}{\partial y}(\alpha(t))y'(t)+\frac{\partial f}{\partial z}(\alpha(t))z'(t)=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\nabla f(p)\bot v$
+\end_inset
+
+.
+ Además, 
+\begin_inset Formula $\nabla f(p)\neq0$
+\end_inset
+
+ porque 
+\begin_inset Formula $p\in S=f^{-1}(c)$
+\end_inset
+
+ y 
+\begin_inset Formula $c$
+\end_inset
+
+ es un valor regular de 
+\begin_inset Formula $f$
+\end_inset
+
+, y claramente 
+\begin_inset Formula $\nabla f$
+\end_inset
+
+ es diferenciable.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{S}^{2}(r)$
+\end_inset
+
+ admite la orientación 
+\begin_inset Formula $N(p)=\frac{1}{r}p$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f(x,y,z):=x^{2}+y^{2}+z^{2}$
+\end_inset
+
+, 
+\begin_inset Formula $r^{2}$
+\end_inset
+
+ es un valor regular de 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbb{S}^{2}$
+\end_inset
+
+ es la superficie de nivel 
+\begin_inset Formula $\{p:f(p)=r^{2}\}$
+\end_inset
+
+, luego admite la orientación 
+\begin_inset Formula 
+\[
+N(x,y,z)=\frac{\nabla f(x,y,z)}{|\nabla f(x,y,z)|}=\frac{(2x,2y,2z)}{|(2x,2y,2z)|}=\frac{(x,y,z)}{|(x,y,z)|}=\frac{1}{r}(x,y,z).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+El cilindro 
+\begin_inset Formula $\{x^{2}+y^{2}=r^{2}\}$
+\end_inset
+
+ admite la orientación 
+\begin_inset Formula $N(x,y,z)=(x,y,0)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Es una superficie de nivel y tiene pues orientación 
+\begin_inset Formula $N(p)=\frac{(2x,2y,0)}{|(2x,2y,0)|}=\frac{(x,y,0)}{|(x,y,0)|}=\frac{1}{r}(x,y,0)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Dada 
+\begin_inset Formula $f:U\subseteq\mathbb{R}^{2}\to\mathbb{R}$
+\end_inset
+
+ diferenciable en el abierto 
+\begin_inset Formula $U$
+\end_inset
+
+, el grafo 
+\begin_inset Formula $S:=\{(x,y,f(x,y))\}_{x,y\in U}$
+\end_inset
+
+ admite la orientación
+\begin_inset Formula 
+\[
+N(u,v)=\frac{(-f_{u},-f_{v},1)}{\sqrt{1+f_{u}^{2}+f_{v}^{2}}}(u,v).
+\]
+
+\end_inset
+
+Dada la parametrización 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ con 
+\begin_inset Formula $X(u,v):=(u,v,f(u,v))$
+\end_inset
+
+, 
+\begin_inset Formula $X_{u}=(1,0,f_{u})$
+\end_inset
+
+ y 
+\begin_inset Formula $X_{v}=(0,1,f_{v})$
+\end_inset
+
+, y 
+\begin_inset Formula $X_{u}\wedge X_{v}=(-f_{u},-f_{v},1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Las superficies orientables tienen exactamente dos orientaciones, una opuesta
+ de la otra.
 \end_layout
 
 \begin_layout Standard
@@ -536,149 +876,668 @@ En adelante, cuando consideremos una parametrización
 \end_inset
 
 .
+ En general, para 
+\begin_inset Formula $f:\mathbb{R}^{n}\to\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $f_{x_{i}}:=\frac{\partial f}{\partial x_{i}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+La segunda forma fundamental
 \end_layout
 
 \begin_layout Standard
-Ejemplos:
-\begin_inset Note Comment
-status open
+Sea 
+\begin_inset Formula $S$
+\end_inset
+
+ una superficie orientada con aplicación de Gauss 
+\begin_inset Formula $N:S\to\mathbb{S}^{2}$
+\end_inset
+
+, llamamos 
+\series bold
+imagen esférica
+\series default
+ de 
+\begin_inset Formula $S$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{Im}N\subseteq\mathbb{S}^{2}$
+\end_inset
+
+.
+ Ejemplos:
+\end_layout
 
 \begin_layout Enumerate
-La banda de Möbius se puede expresar como la imagen de 
-\begin_inset Formula $X:\mathbb{R}\times(-1,1)\to\mathbb{R}^{3}$
-\end_inset
-
- dada por
-\begin_inset Formula 
-\[
-X(u,v):=\left((2-v\sin\tfrac{u}{2})\sin u,(2-v\sin\tfrac{u}{2})\cos u,v\cos\tfrac{u}{2}\right).
-\]
-
-\end_inset
-
-Esta es una superficie regular no orientable.
+La imagen esférica de un plano es unipuntual.
 \end_layout
 
 \begin_deeper
-\begin_layout Plain Layout
-Claramente 
-\begin_inset Formula $X$
+\begin_layout Standard
+Dado el plano 
+\begin_inset Formula $\Pi:=p_{0}+\langle v\rangle\subseteq\mathbb{R}^{3}$
 \end_inset
 
- es diferenciable, y es inyectiva en 
-\begin_inset Formula $U_{1}:=(0,2\pi)\times(-1,1)$
+, donde podemos suponer 
+\begin_inset Formula $v$
 \end_inset
 
- y en 
-\begin_inset Formula $U_{2}:=(-\pi,\pi)\times(-1,1)$
+ unitario, la imagen de 
+\begin_inset Formula $N(p):=v$
 \end_inset
 
-.
- Su diferencial es
-\begin_inset Formula 
-\[
-dX(u,v)\equiv\begin{pmatrix}-\frac{v}{2}\cos\frac{u}{2}\sin u+(2-v\sin\frac{u}{2})\cos u & -\sin\frac{u}{2}\sin u\\
--\frac{v}{2}\cos\frac{u}{2}\cos u-(2-v\sin\frac{u}{2})\sin u & -\sin\frac{u}{2}\cos u\\
--\frac{v}{2}\sin\frac{u}{2} & \cos\frac{u}{2}
-\end{pmatrix},
-\]
-
-\end_inset
-
-y el determinante de las dos primeras filas es
-\begin_inset Formula 
-\[
--\sin\frac{u}{2}\left(-\frac{v}{2}\cos\frac{u}{2}\begin{vmatrix}\sin u & \sin u\\
-\cos u & \cos u
-\end{vmatrix}+\left(2-v\sin\frac{u}{2}\right)\begin{vmatrix}\cos u & \sin u\\
--\sin u & \cos u
-\end{vmatrix}\right)=-\sin\frac{u}{2}\left(2-v\sin\frac{u}{2}\right),
-\]
-
-\end_inset
-
-lo que solo se anula cuando 
-\begin_inset Formula $u\in\{2k\pi\}_{k\in\mathbb{Z}}$
-\end_inset
-
-, pero en tal caso
-\begin_inset Formula 
-\[
-dX(u,v)\equiv\begin{pmatrix}2 & 0\\
--\frac{v}{2} & 0\\
-0 & 1
-\end{pmatrix}
-\]
-
-\end_inset
-
-y el determinante de la submatriz resultante de quitar la segunda fila es
- 
-\begin_inset Formula $2\neq0$
+ es 
+\begin_inset Formula $\{v\}$
 \end_inset
 
 .
- Esto prueba que la banda de Möbius es una superficie.
- 
 \end_layout
 
 \end_deeper
-\end_inset
-
-
-\end_layout
-
 \begin_layout Enumerate
-El plano 
-\begin_inset Formula $p_{0}+\langle v\rangle^{\bot}\subseteq\mathbb{R}^{3}$
+La imagen esférica de 
+\begin_inset Formula $\mathbb{S}^{2}$
 \end_inset
 
- admite la orientación 
-\begin_inset Formula $N(p):=v/|v|$
+ es 
+\begin_inset Formula $\mathbb{S}^{2}$
 \end_inset
 
 .
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+La aplicación de Gauss es 
+\begin_inset Formula $\pm1_{\mathbb{S}^{2}}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
-Dados 
-\begin_inset Formula $f:\mathbb{R}^{3}\to\mathbb{R}$
+La imagen esférica de un grafo 
+\begin_inset Formula $\{(x,y,f(x,y))\}_{(x,y)\in U}$
 \end_inset
 
- 
-\begin_inset Formula ${\cal C}^{2}$
+ con 
+\begin_inset Formula $f:U\subseteq\mathbb{R}^{2}\to\mathbb{R}$
 \end_inset
 
- y un valor regular 
-\begin_inset Formula $c$
+ diferenciable está contenida en el hemisferio (estricto) norte o sur.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Una orientación es 
+\begin_inset Formula $N(u,v)=\frac{(-f_{u},-f_{v},1)}{\sqrt{1+f_{u}^{2}+f_{v}^{2}}}(u,v)$
+\end_inset
+
+, y como la coordenada 
+\begin_inset Formula $z$
 \end_inset
 
  de 
-\begin_inset Formula $f$
+\begin_inset Formula $N$
 \end_inset
 
-, la superficie de nivel 
-\begin_inset Formula $S:=f^{-1}(c)$
+ es siempre positiva, 
+\begin_inset Formula $\text{Im}N$
 \end_inset
 
- admite la orientación 
-\begin_inset Formula 
-\[
-N(p):=\frac{\nabla f(p)}{|\nabla f(p)|},
-\]
+ está en el hemisferio norte estricto.
+ Con la orientación opuesta está en el hemisferio sur estricto.
+\end_layout
 
+\end_deeper
+\begin_layout Enumerate
+La imagen esférica de un cilindro es un circulo máximo de la esfera.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Los cilindros se obtienen por un movimiento de 
+\begin_inset Formula $S_{r}:=\{x^{2}+y^{2}=r^{2}\}$
 \end_inset
 
- donde 
-\begin_inset Formula $\nabla f(p):=(\frac{\partial f}{\partial x}(p),\frac{\partial f}{\partial y}(p),\frac{\partial f}{\partial z}(p))$
+ para algún 
+\begin_inset Formula $r>0$
+\end_inset
+
+, y como su orientación es 
+\begin_inset Formula $N(x,y,z)=\pm\frac{1}{r}(x,y,0)$
+\end_inset
+
+, 
+\begin_inset Formula $N(S_{r})=\{\frac{1}{r}(x,y,0):x^{2}+y^{2}=r^{2}\}=\{(x,y,0):x^{2}+y^{2}=1\}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+El 
+\series bold
+catenoide
+\series default
+, 
+\begin_inset Formula $C:=\{x^{2}+y^{2}=\cosh^{2}z\}$
+\end_inset
+
+, tiene imagen esférica 
+\begin_inset Formula $\mathbb{S}^{2}\setminus\{\mathsf{N},\mathsf{S}\}$
+\end_inset
+
+, donde 
+\begin_inset Formula $\mathsf{N}:=(0,0,1)$
 \end_inset
 
  es el 
 \series bold
-gradiente
+polo norte
+\series default
+ y 
+\begin_inset Formula $\mathsf{S}:=(0,0,-1)$
+\end_inset
+
+ es el 
+\series bold
+polo sur
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $f(x,y,z):=x^{2}+y^{2}-\cosh^{2}z$
+\end_inset
+
+, como 
+\begin_inset Formula $f_{x}=2x$
+\end_inset
+
+, 
+\begin_inset Formula $f_{y}=2y$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{z}=-2\cosh z\sinh z$
+\end_inset
+
+, el único punto crítico de 
+\begin_inset Formula $f$
+\end_inset
+
+ es el origen, con 
+\begin_inset Formula $f(0)=-1$
+\end_inset
+
+, de modo que 0 es un valor regular de 
+\begin_inset Formula $f\in{\cal C}^{\infty}$
+\end_inset
+
+ y 
+\begin_inset Formula $C=\{f(x,y,z)=0\}$
+\end_inset
+
+ es una superficie de nivel regular y
+\begin_inset Formula 
+\begin{align*}
+N(x,y,z) & =\frac{\nabla f(x,y,z)}{\Vert\nabla f(x,y,z)\Vert}=\frac{(2x,2y,-2\cosh z\sinh z)}{2\sqrt{x^{2}+y^{2}+\cosh^{2}z\sinh^{2}z}}\\
+ & =\frac{(x,y,-\cosh z\sinh z)}{\sqrt{\cosh^{2}z+\cosh^{2}z\sinh^{2}z}}=\frac{(x,y,-\cosh z\sinh z)}{\cosh^{2}z}.
+\end{align*}
+
+\end_inset
+
+Como 
+\begin_inset Formula $N_{1}(p)^{2}+N_{2}(p)^{2}=\frac{x^{2}+y^{2}}{\cosh^{4}z}=\frac{1}{\cosh^{2}z}>0$
+\end_inset
+
+, no se cubren los polos norte y sur.
+ Sean ahora 
+\begin_inset Formula $(\hat{x},\hat{y},\hat{z})\in\mathbb{S}^{2}\setminus\{\mathsf{N},\mathsf{S}\}$
+\end_inset
+
+, 
+\begin_inset Formula $z:=\arg\tanh(-\hat{z})$
+\end_inset
+
+ (que existe porque 
+\begin_inset Formula $\hat{z}\in(-1,1)$
+\end_inset
+
+), 
+\begin_inset Formula $x:=\hat{x}\cosh^{2}z$
+\end_inset
+
+ e 
+\begin_inset Formula $y:=\hat{y}\cosh^{2}z$
+\end_inset
+
+, es claro que 
+\begin_inset Formula $N(x,y,z)=(\hat{x},\hat{y},\hat{z})$
+\end_inset
+
+.
+ Ahora bien, 
+\begin_inset Formula 
+\begin{multline*}
+x^{2}+y^{2}=(\hat{x}^{2}+\hat{y}^{2})\cosh^{4}z=(1-\hat{z}^{2})\cosh^{4}z=\left(1-\tanh^{2}z\right)\cosh^{4}z=\\
+=\frac{\cosh^{2}z-\sinh^{2}z}{\cosh^{2}z}\cosh^{4}z=\frac{\cosh^{4}z}{\cosh^{2}z}=\cosh^{2}z,
+\end{multline*}
+
+\end_inset
+
+luego 
+\begin_inset Formula $(x,y,z)\in C$
+\end_inset
+
+ y 
+\begin_inset Formula $N(x,y,z)$
+\end_inset
+
+ cubre 
+\begin_inset Formula $\mathbb{S}^{2}\setminus\{\mathsf{N},\mathsf{S}\}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $p\in\mathbb{S}^{2}$
+\end_inset
+
+ es 
+\begin_inset Formula $T_{N(p)}\mathbb{S}^{2}=T_{p}\mathbb{S}^{2}$
+\end_inset
+
+, pues 
+\begin_inset Formula $N(p)=\pm p$
+\end_inset
+
+ y 
+\begin_inset Formula $T_{-p}\mathbb{S}^{2}=\langle N(-p)\rangle^{\bot}=\langle p\rangle^{\bot}=\langle N(p)\rangle^{\bot}=T_{p}\mathbb{S}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $S$
+\end_inset
+
+ una superficie regular orientada por 
+\begin_inset Formula $N$
+\end_inset
+
+, llamamos 
+\series bold
+operador forma
+\series default
+ o 
+\series bold
+endomorfismo de Weingarten
+\series default
+ en 
+\begin_inset Formula $p\in S$
+\end_inset
+
+ a 
+\begin_inset Formula $A_{p}:=-dN_{p}:T_{p}S\to T_{p}S$
+\end_inset
+
+.
+ En efecto, como 
+\begin_inset Formula $N:S\to\mathbb{S}^{2}$
+\end_inset
+
+, 
+\begin_inset Formula $dN_{p}:T_{p}S\to T_{N(p)}\mathbb{S}^{2}$
+\end_inset
+
+, pero como la normal en 
+\begin_inset Formula $\mathbb{S}^{2}$
+\end_inset
+
+ es 
+\begin_inset Formula $1_{\mathbb{S}^{2}}$
+\end_inset
+
+, 
+\begin_inset Formula $T_{p'}\mathbb{S}^{2}=\langle p'\rangle^{\bot}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $p'\in\mathbb{S}^{2}$
+\end_inset
+
+ y en particular 
+\begin_inset Formula $T_{N(p)}\mathbb{S}^{2}=\langle N(p)\rangle^{\bot}=T_{p}S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{p}$
+\end_inset
+
+ es 
+\series bold
+autoadjunto
+\series default
+, es decir, 
+\begin_inset Formula $\langle A_{p}v,w\rangle=\langle v,A_{p}w\rangle$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Por linealidad, basta demostrarlo para una base de 
+\begin_inset Formula $T_{p}S$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ una parametrización de 
+\begin_inset Formula $S$
+\end_inset
+
+ en 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $q:=(u_{0},v_{0}):=X^{-1}(p)$
+\end_inset
+
+, tomamos la base 
+\begin_inset Formula $(X_{u}(q),X_{v}(q))$
+\end_inset
+
+ y queremos ver que 
+\begin_inset Formula $\langle dN_{p}(X_{u}(q)),X_{v}(q)\rangle=\langle X_{u}(q),dN_{p}(X_{v}(q))\rangle$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $\alpha(u):=X(u_{0}+u,v_{0})$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha(0)=p$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha'(0)=X_{u}(q)$
+\end_inset
+
+, luego 
+\begin_inset Formula $dN_{p}(X_{u}(q))=\frac{\partial(N\circ\alpha)}{\partial u}(0)=\frac{\partial(N\circ X)}{\partial u}(u_{0},v_{0})=N_{u}(u_{0},v_{0})$
+\end_inset
+
+.
+ Análogamente 
+\begin_inset Formula $dN_{p}(X_{v}(q))=N_{v}(u_{0},v_{0})$
+\end_inset
+
+, por lo que queda ver que 
+\begin_inset Formula $\langle N_{u},X_{v}\rangle(q)=\langle N_{v},X_{u}\rangle(q)$
+\end_inset
+
+.
+ Sabemos que 
+\begin_inset Formula $\langle N,X_{u}\rangle=\langle N,X_{v}\rangle=0$
+\end_inset
+
+, y derivando, 
+\begin_inset Formula $\langle N_{v},X_{u}\rangle+\langle N,X_{uv}\rangle=\langle N_{u},X_{v}\rangle+\langle N,X_{vu}\rangle=0$
+\end_inset
+
+, pero 
+\begin_inset Formula $X_{uv}=X_{vu}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+Para un plano, 
+\begin_inset Formula $A_{p}\equiv0$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $N$
+\end_inset
+
+ es fijo, luego 
+\begin_inset Formula $-dN_{p}\equiv0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $\mathbb{S}^{2}(r)$
+\end_inset
+
+ orientada con 
+\begin_inset Formula $N(p)=\pm\frac{1}{r}p$
+\end_inset
+
+, 
+\begin_inset Formula $A_{p}=\mp\frac{1}{r}1_{T_{p}\mathbb{S}^{2}(r)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Para el cilindro 
+\begin_inset Formula $X(\mathbb{R}^{2})$
+\end_inset
+
+ con 
+\begin_inset Formula $X(u,v):=(r\cos u,r\sin u,v)$
+\end_inset
+
+, si 
+\begin_inset Formula $p\in C$
+\end_inset
+
+ y 
+\begin_inset Formula $q\in X^{-1}(p)$
+\end_inset
+
+, 
+\begin_inset Formula $A_{p}=\text{diag}(-\frac{1}{r},0)$
+\end_inset
+
+ respecto a la base 
+\begin_inset Formula $(X_{u}(q),X_{v}(q))$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $p=:(x,y,z)$
+\end_inset
+
+ y 
+\begin_inset Formula $q=:(u,v)$
+\end_inset
+
+, 
+\begin_inset Formula $X_{u}(q)=(-r\sin u,r\cos u,0)$
+\end_inset
+
+, 
+\begin_inset Formula $X_{v}(q)=(0,0,1)$
+\end_inset
+
+ y, como 
+\begin_inset Formula $N(x,y,z)=\frac{1}{r}(x,y,0)=(\cos u,\sin u,0)$
+\end_inset
+
+, 
+\begin_inset Formula $N_{u}(q)=(-\sin u,\cos u,0)=-\frac{1}{r}X_{u}$
+\end_inset
+
+ y 
+\begin_inset Formula $N_{v}(q)=0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Para el 
+\series bold
+paraboloide hiperbólico
+\series default
+ o 
+\series bold
+silla de montar
+\series default
+, 
+\begin_inset Formula $S:=\{y^{2}-x^{2}=z\}=\{(u,v,v^{2}-u^{2})\}_{(u,v)\in\mathbb{R}^{2}}$
+\end_inset
+
+, 
+\begin_inset Formula $A_{p}(0)\equiv\text{diag}(-2,2)$
+\end_inset
+
+ respecto a la base 
+\begin_inset Formula $(X_{u}(0),X_{v}(0))$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $S$
+\end_inset
+
+ es una superficie porque es el grafo de 
+\begin_inset Formula $f:\mathbb{R}^{2}\to\mathbb{R}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f(u,v):=v^{2}-u^{2}$
+\end_inset
+
+.
+ Entonces
+\begin_inset Formula 
+\[
+N(u,v)=\frac{(-f_{u},-f_{v},1)}{\sqrt{1+f_{u}^{2}+f_{v}^{2}}}=\frac{(2u,-2v,1)}{\sqrt{1+4u^{2}+4v^{2}}},
+\]
+
+\end_inset
+
+luego
+\begin_inset Formula 
+\begin{align*}
+N_{u}(u,v) & =\frac{(2(1+4u^{2}+4v^{2})-8u^{2},8uv,-4u)}{(1+4u^{2}+4v^{2})^{3/2}}=\frac{(2(1+4v^{2}),8uv,-4u)}{(1+4u^{2}+4v^{2})^{3/2}},\\
+N_{v}(u,v) & =\frac{(-8uv,-2(1+4u^{2}+4v^{2})+8v^{2},-4v)}{(1+4u^{2}+4v^{2})^{3/2}}=\frac{(-8uv,-2(1+4u^{2}),-4v)}{(1+4u^{2}+4v^{2})^{3/2}},
+\end{align*}
+
+\end_inset
+
+y en particular 
+\begin_inset Formula $N_{u}(0)=(2,0,0)$
+\end_inset
+
+ y 
+\begin_inset Formula $N_{v}(0)=(0,-2,0)$
+\end_inset
+
+, pero 
+\begin_inset Formula $X_{u}(0)=(1,0,0)$
+\end_inset
+
+ y 
+\begin_inset Formula $X_{v}(0)=(0,1,0)$
+\end_inset
+
+, luego 
+\begin_inset Formula $N_{u}(0)=2X_{u}(0)$
+\end_inset
+
+ y 
+\begin_inset Formula $N_{v}(0)=2X_{v}(0)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+El operador forma 
+\begin_inset Formula $A_{p}$
+\end_inset
+
+ lleva asociada unívocamente una forma bilineal simétrica 
+\begin_inset Formula $\sigma_{p}:T_{p}S\times T_{p}S\to\mathbb{R}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\sigma_{p}(v,w):=\langle A_{p}v,w\rangle$
+\end_inset
+
+, así como una forma cuadrática 
+\begin_inset Formula ${\cal II}_{p}:T_{p}S\to\mathbb{R}$
+\end_inset
+
+ dada por 
+\begin_inset Formula ${\cal II}_{p}(v):=\sigma_{p}(v,v)=\langle A_{p}v,v\rangle$
+\end_inset
+
+.
+ 
+\begin_inset Formula ${\cal II}_{p}$
+\end_inset
+
+ es la 
+\series bold
+segunda forma fundamental
 \series default
  de 
-\begin_inset Formula $f$
+\begin_inset Formula $S$
 \end_inset
 
  en 
@@ -688,155 +1547,19 @@ gradiente
 .
 \end_layout
 
-\begin_deeper
 \begin_layout Standard
-Sean 
-\begin_inset Formula $p\in S$
-\end_inset
+Las tres formas dan la misma información usando la 
+\series bold
+identidad de polarización:
+\series default
 
-, 
-\begin_inset Formula $\alpha:=(x,y,z):I\to S$
-\end_inset
-
- una curva diferenciable con 
-\begin_inset Formula $\alpha(0)=p$
-\end_inset
-
- y 
-\begin_inset Formula $v:=\alpha'(0)\in T_{p}S$
-\end_inset
-
-, para 
-\begin_inset Formula $t\in I$
-\end_inset
-
- es 
-\begin_inset Formula $f(\alpha(t))=c$
-\end_inset
-
- por ser 
-\begin_inset Formula $\alpha(t)\in S$
-\end_inset
-
-, luego derivando, 
-\begin_inset Formula $\frac{\partial f}{\partial x}(\alpha(t))x'(t)+\frac{\partial f}{\partial y}(\alpha(t))y'(t)+\frac{\partial f}{\partial z}(\alpha(t))z'(t)=0$
-\end_inset
-
- y 
-\begin_inset Formula $\nabla f(p)\bot v$
-\end_inset
-
-.
- Además, 
-\begin_inset Formula $\nabla f(p)\neq0$
-\end_inset
-
- porque 
-\begin_inset Formula $p\in S=f^{-1}(c)$
-\end_inset
-
- y 
-\begin_inset Formula $c$
-\end_inset
-
- es un valor regular de 
-\begin_inset Formula $f$
-\end_inset
-
-, y claramente 
-\begin_inset Formula $\nabla f$
-\end_inset
-
- es diferenciable.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-\begin_inset Formula $\mathbb{S}^{2}$
-\end_inset
-
- admite la orientación 
-\begin_inset Formula $N(p):=p$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Sea 
-\begin_inset Formula $f(x,y,z):=x^{2}+y^{2}+z^{2}$
-\end_inset
-
-, 1 es un valor regular de 
-\begin_inset Formula $f$
-\end_inset
-
- y 
-\begin_inset Formula $\mathbb{S}^{2}$
-\end_inset
-
- es la superficie de nivel 
-\begin_inset Formula $\{p:f(p)=1\}$
-\end_inset
-
-, luego admite la orientación 
 \begin_inset Formula 
 \[
-N(x,y,z)=\frac{\nabla f(x,y,z)}{|\nabla f(x,y,z)|}=\frac{(2x,2y,2z)}{|(2x,2y,2z)|}=\frac{(x,y,z)}{|(x,y,z)|}=(x,y,z).
+\sigma_{p}(v,w)=\frac{1}{2}\left({\cal II}_{p}(v+w)-{\cal II}_{p}(v)-{\cal II}_{p}(w)\right).
 \]
 
 \end_inset
 
-
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Dada 
-\begin_inset Formula $f:U\subseteq\mathbb{R}^{2}\to\mathbb{R}$
-\end_inset
-
- diferenciable en el abierto 
-\begin_inset Formula $U$
-\end_inset
-
-, el grafo 
-\begin_inset Formula $S:=\{(x,y,f(x,y))\}_{x,y\in U}$
-\end_inset
-
- admite la orientación
-\begin_inset Formula 
-\[
-N(u,v)=\frac{(-f_{u},-f_{v},1)}{\sqrt{1+f_{u}^{2}+f_{v}^{2}}}(u,v).
-\]
-
-\end_inset
-
-Dada la parametrización 
-\begin_inset Formula $(U,X)$
-\end_inset
-
- con 
-\begin_inset Formula $X(u,v):=(u,v,f(u,v))$
-\end_inset
-
-, 
-\begin_inset Formula $X_{u}=(1,0,f_{u})$
-\end_inset
-
- y 
-\begin_inset Formula $X_{v}=(0,1,f_{v})$
-\end_inset
-
-, y 
-\begin_inset Formula $X_{u}\wedge X_{v}=(-f_{u},-f_{v},1)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
 
 \end_layout
 
