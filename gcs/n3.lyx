@@ -868,11 +868,11 @@ En adelante, cuando consideremos una parametrización
 \end_inset
 
 , 
-\begin_inset Formula $N_{u}(u,v):=\frac{\partial(N\circ X)}{\partial u}(u,v)$
+\begin_inset Formula $N_{u}:=\frac{\partial(N\circ X)}{\partial u}$
 \end_inset
 
  y 
-\begin_inset Formula $N_{v}(u,v):=\frac{\partial(N\circ X)}{\partial v}(u,v)$
+\begin_inset Formula $N_{v}:=\frac{\partial(N\circ X)}{\partial v}$
 \end_inset
 
 .
@@ -2978,6 +2978,253 @@ luego
 
  están en la esfera 
 \begin_inset Formula $a+\mathbb{S}^{2}(\frac{1}{c^{2}})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Parámetros de la segunda forma fundamental
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $S$
+\end_inset
+
+ una superficie regular orientada por 
+\begin_inset Formula $N$
+\end_inset
+
+ y 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ una parametrización de 
+\begin_inset Formula $S$
+\end_inset
+
+, los 
+\series bold
+coeficientes de la segunda forma fundamental
+\series default
+ son 
+\begin_inset Formula $e,f,g:U\to\mathbb{R}$
+\end_inset
+
+ dados por 
+\begin_inset Formula 
+\begin{align*}
+e & :=\langle N,X_{uu}\rangle=-\langle N_{u},X_{u}\rangle,\\
+f & :=\langle N,X_{uv}\rangle=-\langle N_{v},X_{u}\rangle=-\langle N_{u},X_{v}\rangle,\\
+g & :=\langle N,X_{vv}\rangle=-\langle N_{v},X_{v}\rangle,
+\end{align*}
+
+\end_inset
+
+y para 
+\begin_inset Formula $p\in S$
+\end_inset
+
+ y 
+\begin_inset Formula $v\in T_{p}S$
+\end_inset
+
+, si 
+\begin_inset Formula $q:=X^{-1}(p)$
+\end_inset
+
+ y 
+\begin_inset Formula $v=v_{1}X_{u}(q)+v_{2}X_{v}(q)$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+{\cal II}_{p}(v):=v_{1}^{2}e+2v_{1}v_{2}f+v_{2}^{2}g.
+\]
+
+\end_inset
+
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $\langle N,X_{u}\rangle=\langle N,X_{v}\rangle=0$
+\end_inset
+
+, y derivando se obtiene 
+\begin_inset Formula $\langle N_{u},X_{u}\rangle+\langle N,X_{uu}\rangle=0$
+\end_inset
+
+, 
+\begin_inset Formula $\langle N_{v},X_{u}\rangle+\langle N,X_{uv}\rangle=0$
+\end_inset
+
+, 
+\begin_inset Formula $\langle N_{u},X_{v}\rangle+\langle N,X_{vu}\rangle=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle N_{v},X_{v}\rangle+\langle N,X_{vv}\rangle=0$
+\end_inset
+
+, lo que nos da las igualdades en los coeficientes teniendo en cuenta que
+ 
+\begin_inset Formula $\langle N,X_{uv}\rangle=\langle N,X_{vu}\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $q:=X^{-1}(p)=(u(0),v(0))$
+\end_inset
+
+, por linealidad 
+\begin_inset Formula $dN_{p}(v)=v_{1}dN_{p}(X_{u}(q))+v_{2}dN_{p}(X_{v}(q))=v_{1}N_{u}(q)+v_{2}N_{v}(q)$
+\end_inset
+
+.
+ Entonces, evaluando las derivadas de 
+\begin_inset Formula $X$
+\end_inset
+
+ y 
+\begin_inset Formula $N$
+\end_inset
+
+ en 
+\begin_inset Formula $q$
+\end_inset
+
+, d
+\begin_inset Formula 
+\begin{align*}
+{\cal II}_{p}(v) & =\langle A_{p}v,v\rangle=-\langle dN_{p}(v),v\rangle=-\langle v_{1}N_{u}+v_{2}N_{v},v_{1}X_{u}+v_{2}X_{v}\rangle\\
+ & =v_{1}^{2}\langle N_{u},X_{u}\rangle-v_{1}v_{2}\langle N_{u},X_{v}\rangle-v_{1}v_{2}\langle N_{v},X_{u}\rangle-v_{2}^{2}\langle N_{v},X_{v}\rangle\\
+ & =v_{1}^{2}e+v_{1}v_{2}f+v_{2}^{2}g.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si
+\begin_inset Formula 
+\[
+dN_{p}\equiv\begin{pmatrix}a_{11} & a_{12}\\
+a_{21} & a_{22}
+\end{pmatrix}
+\]
+
+\end_inset
+
+respecto de la base 
+\begin_inset Formula $(X_{u},X_{v})$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\begin{align*}
+\begin{pmatrix}-e & -f\\
+-f & -g
+\end{pmatrix} & =\begin{pmatrix}a_{11} & a_{21}\\
+a_{12} & a_{22}
+\end{pmatrix}\begin{pmatrix}E & F\\
+F & G
+\end{pmatrix}, & K(p) & =\frac{eg-f^{2}}{EG-F^{2}}, & H(p) & =\frac{1}{2}\frac{eG+gE-2fF}{EG-F^{2}}.
+\end{align*}
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+
+\begin_inset Formula 
+\begin{align*}
+-e & =\langle N_{u},X_{u}\rangle=\langle a_{11}X_{u}+a_{21}X_{v},X_{u}\rangle=a_{11}E+a_{21}F,\\
+-f & =\langle N_{v},X_{u}\rangle=\langle a_{12}X_{u}+a_{22}X_{v},X_{u}\rangle=a_{12}E+a_{22}F\\
+ & =\langle N_{u},X_{v}\rangle=\langle a_{11}X_{u}+a_{21}X_{v},X_{v}\rangle=a_{11}F+a_{21}G,\\
+-g & =\langle N_{v},X_{v}\rangle=\langle a_{12}X_{u}+a_{22}X_{v},X_{v}\rangle=a_{12}F+a_{22}G.
+\end{align*}
+
+\end_inset
+
+Despejando,
+\begin_inset Formula 
+\[
+\begin{pmatrix}a_{11} & a_{21}\\
+a_{12} & a_{22}
+\end{pmatrix}=-\begin{pmatrix}e & f\\
+f & g
+\end{pmatrix}\begin{pmatrix}E & F\\
+F & G
+\end{pmatrix}^{-1}=-\frac{1}{EG-F^{2}}\begin{pmatrix}e & f\\
+f & g
+\end{pmatrix}\begin{pmatrix}G & -F\\
+-F & E
+\end{pmatrix}=\frac{1}{EG-F^{2}}\begin{pmatrix}fF-eG & eF-fE\\
+gF-fG & fF-gE
+\end{pmatrix}.
+\]
+
+\end_inset
+
+Con esto,
+\begin_inset Formula 
+\begin{align*}
+K(p) & =\det A_{p}=\det(dN_{p})=\frac{1}{EG-F^{2}}((fF-eG)(fF-gE)-(gF-fG)(eF-fE))\\
+ & =\frac{1}{(EG-F^{2})^{2}}(f^{2}F^{2}-fgEF-efFG+egEG-egF^{2}+fgEF+efFG-f^{2}EG)\\
+ & =\frac{f^{2}F^{2}+egEG-egF^{2}-f^{2}EG}{(EG-F^{2})^{2}}=\frac{(EG-F^{2})(eg-f^{2})}{(EG-F^{2})^{2}},\\
+H(p) & =\frac{1}{2}\text{tr}A_{p}=-\frac{1}{2}\text{tr}(dN_{p})=-\frac{1}{2}\frac{2fF-eG-gE}{EG-F^{2}}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las curvaturas principales son
+\begin_inset Formula 
+\[
+\kappa_{i}(p)=H(p)\pm\sqrt{H(p)^{2}-K(p)}.
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Un 
+\begin_inset Formula $\lambda\in\mathbb{R}$
+\end_inset
+
+ es un valor propio de 
+\begin_inset Formula $A_{p}$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula 
+\begin{align*}
+0 & =\det(\lambda1_{T_{p}S}-A_{p})=\det(dN_{p}+\lambda1_{T_{p}S})=\begin{vmatrix}a_{11}+\lambda & a_{12}\\
+a_{21} & a_{22}+\lambda
+\end{vmatrix}\\
+ & =\lambda^{2}+(a_{11}+a_{22})\lambda+(a_{11}a_{22}-a_{12}a_{21})=\lambda^{2}-2H(p)+K(p),
+\end{align*}
+
+\end_inset
+
+si y sólo si 
+\begin_inset Formula $\lambda=H(p)\pm\sqrt{H(p)^{2}-K(p)}$
 \end_inset
 
 .
