@@ -2051,5 +2051,937 @@ Si
 Curvaturas principales
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{AAlG}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Toda matriz simétrica real 
+\begin_inset Formula $A\in{\cal M}_{m}(\mathbb{R})$
+\end_inset
+
+ admite una matriz ortogonal 
+\begin_inset Formula $P$
+\end_inset
+
+ tal que 
+\begin_inset Formula $P^{-1}AP=P^{t}AP$
+\end_inset
+
+ es diagonal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dados una superficie regular 
+\begin_inset Formula $S$
+\end_inset
+
+ orientada y 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, existe una base ortonormal 
+\begin_inset Formula $(e_{1},e_{2})$
+\end_inset
+
+ en la que 
+\begin_inset Formula $A_{p}$
+\end_inset
+
+ es diagonal, pues 
+\begin_inset Formula $A_{p}$
+\end_inset
+
+ es simétrica.
+ Si 
+\begin_inset Formula $\kappa_{1}(p)$
+\end_inset
+
+ y 
+\begin_inset Formula $\kappa_{2}(p)$
+\end_inset
+
+ son los valores propios asociados respectivamente a 
+\begin_inset Formula $e_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $e_{2}$
+\end_inset
+
+, podemos suponer que 
+\begin_inset Formula $\kappa_{1}(p)\leq\kappa_{2}(p)$
+\end_inset
+
+, y llamamos 
+\series bold
+curvaturas principales
+\series default
+ de 
+\begin_inset Formula $S$
+\end_inset
+
+ en 
+\begin_inset Formula $p$
+\end_inset
+
+ a 
+\begin_inset Formula $\kappa_{1}(p)$
+\end_inset
+
+ y 
+\begin_inset Formula $\kappa_{2}(p)$
+\end_inset
+
+ y 
+\series bold
+direcciones principales
+\series default
+ a 
+\begin_inset Formula $e_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $e_{2}$
+\end_inset
+
+, o a todos los vectores unitarios de 
+\begin_inset Formula $T_{p}S$
+\end_inset
+
+ si 
+\begin_inset Formula $\kappa_{1}(p)=\kappa_{2}(p)$
+\end_inset
+
+, pues en tal caso todos los vectores no nulos son propios al ser 
+\begin_inset Formula $A_{p}$
+\end_inset
+
+ una homotecia.
+ Se tiene 
+\begin_inset Formula $\kappa_{1}(p)=\kappa_{n}(e_{1},p)$
+\end_inset
+
+ y 
+\begin_inset Formula $\kappa_{2}(p)=\kappa_{n}(e_{2},p)$
+\end_inset
+
+, pues 
+\begin_inset Formula $\kappa_{n}(e_{i},p)=\langle A_{p}e_{i},e_{i}\rangle=\langle\kappa_{i}(p)e_{i},e_{i}\rangle=\kappa_{i}(p)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+Todas las direcciones del plano y la esfera son principales.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Como 
+\begin_inset Formula $\kappa_{n}$
+\end_inset
+
+ es constante, 
+\begin_inset Formula $\kappa_{1}(p)=\kappa_{2}(p)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+El cilindro 
+\begin_inset Formula $\{x^{2}+y^{2}=r^{2}\}$
+\end_inset
+
+ tiene como curvaturas principales 
+\begin_inset Formula $-\frac{1}{r}$
+\end_inset
+
+ y 0.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $C:=\{x^{2}+y^{2}=r^{2}\}=\{X(u,v):=(r\cos u,r\sin u,v)\}_{u,v\in\mathbb{R}}$
+\end_inset
+
+, 
+\begin_inset Formula $p=(x,y,z)\in C$
+\end_inset
+
+ y la orientación 
+\begin_inset Formula $N(p):=\frac{1}{r}(x,y,0)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $X_{u}=(-r\sin u,r\cos u,0)$
+\end_inset
+
+, 
+\begin_inset Formula $X_{v}=e_{3}$
+\end_inset
+
+ y 
+\begin_inset Formula $N(u,v)=(\cos u,\sin u,0)$
+\end_inset
+
+, luego 
+\begin_inset Formula $A_{p}=-(-\sin u,\cos u,0)=-\frac{1}{r}X_{u}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $A_{p}\equiv\text{diag}(-\frac{1}{r},0)$
+\end_inset
+
+ con la base 
+\begin_inset Formula $(X_{u},X_{v})$
+\end_inset
+
+ de 
+\begin_inset Formula $T_{p}S$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+La silla de montar tiene curvaturas principales 
+\begin_inset Formula $-2$
+\end_inset
+
+ y 2 en el origen.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $A_{p}\equiv\text{diag}(-2,2)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Una 
+\series bold
+línea de curvatura
+\series default
+ en una superficie regular orientada 
+\begin_inset Formula $S$
+\end_inset
+
+ es una curva 
+\begin_inset Formula $\alpha:I\to S$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\alpha'(t)$
+\end_inset
+
+ es una dirección principal de 
+\begin_inset Formula $\alpha(t)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $t\in I$
+\end_inset
+
+.
+ Si las curvaturas principales son distintas en todo punto de un abierto
+ 
+\begin_inset Formula $V\subseteq S$
+\end_inset
+
+, por cada 
+\begin_inset Formula $p\in V$
+\end_inset
+
+ pasan dos únicas líneas de curvatura y estas se cortan de forma ortogonal.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Fórmula de Euler:
+\series default
+ Sean 
+\begin_inset Formula $S$
+\end_inset
+
+ una superficie regular orientada, 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa_{1}(p)\leq\kappa_{2}(p)$
+\end_inset
+
+ las curvaturas principales de 
+\begin_inset Formula $S$
+\end_inset
+
+ en 
+\begin_inset Formula $p$
+\end_inset
+
+, 
+\begin_inset Formula $e_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $e_{2}$
+\end_inset
+
+ las respectivas direcciones principales, 
+\begin_inset Formula $v\in T_{p}S$
+\end_inset
+
+ y 
+\begin_inset Formula $\theta$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\cos\theta=\langle e_{1},v\rangle$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\kappa_{n}(v,p)=\kappa_{1}(p)\cos^{2}\theta+\kappa_{2}(p)\sin^{2}\theta$
+\end_inset
+
+.
+ En efecto, sea 
+\begin_inset Formula $v=:\cos\omega e_{1}+\sin\omega e_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa_{n}(v,p)=\langle A_{p}v,v\rangle=\langle\kappa_{1}(p)\cos\omega e_{1}+\kappa_{2}(p)\cos\omega e_{2},\cos\omega e_{1}+\sin\omega e_{2}\rangle=\kappa_{1}(p)\cos^{2}\omega+\kappa_{2}(p)\sin^{2}\omega$
+\end_inset
+
+, y aunque 
+\begin_inset Formula $\omega=\pm\theta+2k\pi$
+\end_inset
+
+ para algún 
+\begin_inset Formula $k\in\mathbb{Z}$
+\end_inset
+
+, el coseno y por tanto el cuadrado del seno coinciden.
+\end_layout
+
+\begin_layout Standard
+Con esto, 
+\begin_inset Formula $\kappa_{1}(p)=\min\{\kappa_{n}(v,p)\}_{|v|=1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\kappa_{2}(p)=\max\{\kappa_{n}(v,p)\}_{|v|=1}$
+\end_inset
+
+, pues por la fórmula, si 
+\begin_inset Formula $|v|=1$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa_{n}(v,p)=\kappa_{1}(p)(1-\sin^{2}\theta)+\kappa_{2}(p)\sin^{2}\theta$
+\end_inset
+
+ para algún 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+curvatura mínima
+\series default
+ a 
+\begin_inset Formula $\kappa_{1}(p)$
+\end_inset
+
+ y 
+\series bold
+curvatura máxima
+\series default
+ a 
+\begin_inset Formula $\kappa_{2}(p)$
+\end_inset
+
+.
+ La 
+\series bold
+curvatura de Gauss
+\series default
+ de 
+\begin_inset Formula $S$
+\end_inset
+
+ en 
+\begin_inset Formula $p\in S$
+\end_inset
+
+ es 
+\begin_inset Formula $K(p):=\det A_{p}=\kappa_{1}(p)\kappa_{2}(p)$
+\end_inset
+
+, y la 
+\series bold
+curvatura media
+\series default
+ es 
+\begin_inset Formula $H(p):=\frac{1}{2}\text{tr}A_{p}=\frac{1}{2}(\kappa_{1}(p)+\kappa_{2}(p))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Las curvaturas máxima, mínima y media cambian de signo al cambiar de orientación.
+ La curvatura de Gauss no, pues es el producto de dos curvaturas que cambian
+ de signo a la vez.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $S$
+\end_inset
+
+ una superficie regular, 
+\begin_inset Formula $p\in S$
+\end_inset
+
+ es 
+\series bold
+elíptico
+\series default
+ si 
+\begin_inset Formula $K(p)>0$
+\end_inset
+
+, 
+\series bold
+hiperbólico
+\series default
+ si 
+\begin_inset Formula $K(p)<0$
+\end_inset
+
+, 
+\series bold
+parabólico
+\series default
+ si 
+\begin_inset Formula $K(p)=0$
+\end_inset
+
+ pero 
+\begin_inset Formula $A_{p}\not\equiv0$
+\end_inset
+
+ y 
+\series bold
+llano
+\series default
+ o 
+\series bold
+plano
+\series default
+ si 
+\begin_inset Formula $A_{p}\equiv0$
+\end_inset
+
+.
+ Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+Los puntos de un plano son planos.
+\end_layout
+
+\begin_layout Enumerate
+Los puntos de una esfera son elípticos.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $r$
+\end_inset
+
+ es el radio, 
+\begin_inset Formula $K(p)=(-\frac{1}{r})^{2}=\frac{1}{r^{2}}>0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+El origen en la silla de montar es hiperbólico.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $A_{p}\equiv\text{diag}(-2,2)$
+\end_inset
+
+ respecto de cierta base, luego 
+\begin_inset Formula $K(p)=-4$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Los puntos de un cilindro son parabólicos.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $r$
+\end_inset
+
+ es el radio, 
+\begin_inset Formula $A_{p}\equiv\text{diag}(-\frac{1}{r},0)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+En 
+\begin_inset Formula $\{z=(x^{2}+y^{2})^{2}\}$
+\end_inset
+
+, el origen es un punto plano.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+La superficie es el grafo 
+\begin_inset Formula $S:=\{X(u,v):=(u,v,(u^{2}+v^{2})^{2}\}_{u,v\in\mathbb{R}}$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $X_{u}=(1,0,2(u^{2}+v^{2})u)$
+\end_inset
+
+, 
+\begin_inset Formula $X_{v}=(0,1,2(u^{2}+v^{2})v)$
+\end_inset
+
+, 
+\begin_inset Formula $N=\frac{(-4(u^{2}+v^{2})u,-4(u^{2}+v^{2})v,1)}{\sqrt{16(u^{2}+v^{2})^{2}+1}}$
+\end_inset
+
+, 
+\begin_inset Formula $N_{u}=\frac{(-4(3u^{2}+v^{2})(16(u^{2}+v^{2})^{2}+1)+256(u^{2}+v^{2})^{2}u^{2},-8uv(16(u^{2}+v^{2})^{2}+1)+256(u^{2}+v^{2})^{2}uv,64(u^{2}+v^{2})u)}{(16(u^{2}+v^{2})^{2}+1)^{3/2}}$
+\end_inset
+
+ y entonces 
+\begin_inset Formula $N_{u}(0,0)=(0,0,0)$
+\end_inset
+
+ y, por simetría, 
+\begin_inset Formula $N_{v}(0,0)=(0,0,0)$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $A_{p}\equiv0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En una superficie regular 
+\begin_inset Formula $S$
+\end_inset
+
+ orientada, 
+\begin_inset Formula $p\in S$
+\end_inset
+
+ es un 
+\series bold
+punto umbilical
+\series default
+ si 
+\begin_inset Formula $\kappa_{1}(p)=\kappa_{2}(p)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $S$
+\end_inset
+
+ es 
+\series bold
+totalmente umbilical
+\series default
+ si todos sus puntos son umbilicales.
+ Así, el plano y la esfera son totalmente umbilicales.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, toda superficie regular, orientable con orientación 
+\begin_inset Formula ${\cal C}^{2}$
+\end_inset
+
+, conexa y totalmente umbilical es un trozo de esfera o plano.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $S$
+\end_inset
+
+ la superficie y 
+\begin_inset Formula $N$
+\end_inset
+
+ una orientación de 
+\begin_inset Formula $S$
+\end_inset
+
+, para 
+\begin_inset Formula $p\in S$
+\end_inset
+
+ es 
+\begin_inset Formula $H(p)=\kappa_{1}(p)=\kappa_{2}(p)$
+\end_inset
+
+, luego 
+\begin_inset Formula $A_{p}\equiv\text{diag}(H(p),H(p))$
+\end_inset
+
+ y 
+\begin_inset Formula $A_{p}=H(p)1_{T_{p}S}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $H:S\to\mathbb{R}$
+\end_inset
+
+ es diferenciable, y queremos ver que es constante.
+ Sean 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ una parametrización de 
+\begin_inset Formula $S$
+\end_inset
+
+ en 
+\begin_inset Formula $p$
+\end_inset
+
+, 
+\begin_inset Formula $q:=(u_{0},v_{0}):=X^{-1}(p)$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha(u):=X(u_{0}+u,v_{0})$
+\end_inset
+
+, como 
+\begin_inset Formula $\alpha(0)=p$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha'(0)=q$
+\end_inset
+
+, 
+\begin_inset Formula $dH_{p}(X_{u}(q))=\frac{d(H\circ\alpha)}{dt}(0)=\frac{d}{dt}(H(X(u_{0}+u,v_{0})))(0)=(H\circ X)_{u}(q)$
+\end_inset
+
+, y por simetría 
+\begin_inset Formula $dH_{p}(X_{v}(q))=\frac{\partial(H\circ X)}{\partial v}(q)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Como 
+\begin_inset Formula $A_{p}=H(p)1_{T_{p}S}$
+\end_inset
+
+, 
+\begin_inset Formula $(H\circ X)(q)X_{u}(q)=H(p)X_{u}(q)=A_{p}(X_{u}(q))=-dN_{p}(X_{u}(q))=-(N\circ X)(q)$
+\end_inset
+
+, y como esto es cierto para todo 
+\begin_inset Formula $q\in U$
+\end_inset
+
+, 
+\begin_inset Formula $(N\circ X)_{u}=-(H\circ X)X_{u}$
+\end_inset
+
+, y por simetría 
+\begin_inset Formula $(N\circ X)_{v}=-(H\circ X)X_{v}$
+\end_inset
+
+.
+ Derivando, 
+\begin_inset Formula $(N\circ X)_{uv}=-(H\circ X)_{v}X_{u}-(H\circ X)X_{uv}$
+\end_inset
+
+ y 
+\begin_inset Formula $(N\circ X)_{vu}=-(H\circ X)_{u}X_{v}-(H\circ X)X_{vu}$
+\end_inset
+
+, y como las derivadas cruzadas coinciden, 
+\begin_inset Formula $(H\circ X)_{v}X_{u}=(H\circ X)_{u}X_{v}$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $(X_{u}(q),X_{v}(q))$
+\end_inset
+
+ es una base en cada 
+\begin_inset Formula $q\in U$
+\end_inset
+
+, necesariamente 
+\begin_inset Formula $(H\circ X)_{u},(H\circ X)_{v}\equiv0$
+\end_inset
+
+, luego 
+\begin_inset Formula $dH_{p}(X_{u}(q)),dH_{p}(X_{v}(q))=0$
+\end_inset
+
+ y al ser 
+\begin_inset Formula $S$
+\end_inset
+
+ conexa, 
+\begin_inset Formula $H\equiv c$
+\end_inset
+
+ para algún 
+\begin_inset Formula $c\in\mathbb{R}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $c=0$
+\end_inset
+
+, 
+\begin_inset Formula $H\equiv0$
+\end_inset
+
+ y 
+\begin_inset Formula $dN_{p}=-A_{p}\equiv0$
+\end_inset
+
+, luego 
+\begin_inset Formula $N$
+\end_inset
+
+ es constante en algún 
+\begin_inset Formula $a\in\mathbb{R}^{3}$
+\end_inset
+
+.
+ Sean ahora 
+\begin_inset Formula $\phi(p):=\langle p,a\rangle$
+\end_inset
+
+, 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, 
+\begin_inset Formula $v\in T_{p}S$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha:I\to S$
+\end_inset
+
+ una curva con 
+\begin_inset Formula $\alpha(0)=p$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha'(0)=v$
+\end_inset
+
+, entonces 
+\begin_inset Formula $d\phi_{p}(v)=\frac{d(\phi\circ\alpha)}{dt}(0)=\frac{d}{dt}(\langle\alpha(t),a\rangle)(0)=\langle\alpha'(0),a\rangle=\langle v,a\rangle\overset{a=N(p)}{=}0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\phi$
+\end_inset
+
+ es constante en algún 
+\begin_inset Formula $d\in\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $S\subseteq\{\langle p,a\rangle=d\}=\{\langle p-p',a\rangle=0\}$
+\end_inset
+
+ para algún 
+\begin_inset Formula $p'$
+\end_inset
+
+ con 
+\begin_inset Formula $\langle p',a\rangle=d$
+\end_inset
+
+, pero 
+\begin_inset Formula $\{\langle p-p',a\rangle=0\}=p'+\langle a\rangle^{\bot}$
+\end_inset
+
+, luego 
+\begin_inset Formula $S$
+\end_inset
+
+ esta contenido en un plano.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $c\neq0$
+\end_inset
+
+, sea 
+\begin_inset Formula $\phi:S\to\mathbb{R}^{3}$
+\end_inset
+
+ la función diferenciable dada por 
+\begin_inset Formula $\phi(p):=p+\frac{1}{c}N(p)$
+\end_inset
+
+, para 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, 
+\begin_inset Formula $v\in T_{p}S$
+\end_inset
+
+ y una curva 
+\begin_inset Formula $\alpha:I\to S$
+\end_inset
+
+ con 
+\begin_inset Formula $\alpha(0)=p$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha'(0)=v$
+\end_inset
+
+, entonces 
+\begin_inset Formula 
+\begin{align*}
+d\phi_{p}(v) & =\frac{d(\phi\circ\alpha)}{dt}(0)=\frac{d}{dt}\left(\alpha(t)+\frac{1}{c}N(\alpha(t))\right)(0)=\alpha'(0)+\frac{1}{c}(N\circ\alpha)'(0)\\
+ & =v+\frac{1}{c}dN_{p}(v)=v-\frac{1}{c}A_{p}v=v-\frac{1}{c}cv=0,
+\end{align*}
+
+\end_inset
+
+luego 
+\begin_inset Formula $\phi$
+\end_inset
+
+ es constante en algún 
+\begin_inset Formula $a\in\mathbb{R}^{3}$
+\end_inset
+
+.
+ Pero para 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, 
+\begin_inset Formula $p-a=-\frac{1}{c}N(p)$
+\end_inset
+
+, luego 
+\begin_inset Formula $\Vert p-a\Vert^{2}=\frac{1}{c^{2}}$
+\end_inset
+
+ y todos los puntos de 
+\begin_inset Formula $S$
+\end_inset
+
+ están en la esfera 
+\begin_inset Formula $a+\mathbb{S}^{2}(\frac{1}{c^{2}})$
+\end_inset
+
+.
+\end_layout
+
 \end_body
 \end_document
