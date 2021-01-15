@@ -3137,11 +3137,27 @@ respecto de la base
 a_{12} & a_{22}
 \end{pmatrix}\begin{pmatrix}E & F\\
 F & G
-\end{pmatrix}, & K(p) & =\frac{eg-f^{2}}{EG-F^{2}}, & H(p) & =\frac{1}{2}\frac{eG+gE-2fF}{EG-F^{2}}.
+\end{pmatrix}
 \end{align*}
 
 \end_inset
 
+ y tenemos las 
+\series bold
+fórmulas de Weingarten:
+\series default
+
+\begin_inset Formula 
+\begin{align*}
+a_{11} & =\frac{fF-eG}{EG-F^{2}}, & a_{12} & =\frac{gF-fG}{EG-F^{2}}, & a_{21} & =\frac{eF-fE}{EG-F^{2}}, & a_{22} & =\frac{fF-gE}{EG-F^{2}}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 
 \series bold
 Demostración:
@@ -3160,7 +3176,7 @@ Demostración:
 Despejando,
 \begin_inset Formula 
 \[
-\begin{pmatrix}a_{11} & a_{21}\\
+\begin{pmatrix}a_{11} & a_{12}\\
 a_{12} & a_{22}
 \end{pmatrix}=-\begin{pmatrix}e & f\\
 f & g
@@ -3177,7 +3193,38 @@ gF-fG & fF-gE
 
 \end_inset
 
-Con esto,
+
+\end_layout
+
+\begin_layout Standard
+De aquí,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+K(p) & =\frac{eg-f^{2}}{EG-F^{2}}, & H(p) & =\frac{1}{2}\frac{eG+gE-2fF}{EG-F^{2}},
+\end{align*}
+
+\end_inset
+
+y las curvaturas principales son
+\begin_inset Formula 
+\[
+\kappa_{i}(p)=H(p)\pm\sqrt{H(p)^{2}-K(p)}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ 
 \begin_inset Formula 
 \begin{align*}
 K(p) & =\det A_{p}=\det(dN_{p})=\frac{1}{EG-F^{2}}((fF-eG)(fF-gE)-(gF-fG)(eF-fE))\\
@@ -3188,23 +3235,7 @@ H(p) & =\frac{1}{2}\text{tr}A_{p}=-\frac{1}{2}\text{tr}(dN_{p})=-\frac{1}{2}\fra
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Las curvaturas principales son
-\begin_inset Formula 
-\[
-\kappa_{i}(p)=H(p)\pm\sqrt{H(p)^{2}-K(p)}.
-\]
-
-\end_inset
-
-
-\series bold
-Demostración:
-\series default
- Un 
+Un 
 \begin_inset Formula $\lambda\in\mathbb{R}$
 \end_inset
 
@@ -3773,6 +3804,303 @@ Demostración:
 \end_inset
 
  conserva productos escalares.
+\end_layout
+
+\begin_layout Section
+
+\lang latin
+Theorema Egregium
+\lang spanish
+ de Gauss
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $S$
+\end_inset
+
+ una superficie regular orientada por 
+\begin_inset Formula $N$
+\end_inset
+
+ y 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ una parametrización de 
+\begin_inset Formula $S$
+\end_inset
+
+ con la base 
+\begin_inset Formula $(X_{u},X_{v},N)$
+\end_inset
+
+ de 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+ positivamente orientada.
+ Las 
+\series bold
+fórmulas de Gauss
+\series default
+ son
+\begin_inset Formula 
+\[
+\left\{ \begin{aligned}X_{uu} & =\Gamma_{11}^{1}X_{u}+\Gamma_{11}^{2}X_{v}+eN,\\
+X_{uv} & =\Gamma_{12}^{1}X_{u}+\Gamma_{12}^{2}X_{v}+fN,\\
+X_{vu} & =\Gamma_{21}^{1}X_{u}+\Gamma_{21}^{2}X_{v}+fN,\\
+X_{vv} & =\Gamma_{22}^{1}X_{u}+\Gamma_{22}^{2}X_{v}+gN,
+\end{aligned}
+\right.
+\]
+
+\end_inset
+
+donde los 
+\begin_inset Formula $\Gamma_{ij}^{k}$
+\end_inset
+
+ son los 
+\series bold
+símbolos de Christoffel
+\series default
+, y se basan en que 
+\begin_inset Formula $\langle X_{uu},N\rangle=e$
+\end_inset
+
+, 
+\begin_inset Formula $\langle X_{uv},N\rangle=\langle X_{vu},N\rangle=f$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle X_{vv},N\rangle=g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Gamma_{12}^{1}=\Gamma_{21}^{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\Gamma_{12}^{2}=\Gamma_{22}^{2}$
+\end_inset
+
+, pues 
+\begin_inset Formula $X_{uv}=X_{vu}$
+\end_inset
+
+.
+ Además,
+\begin_inset Formula 
+\[
+\begin{pmatrix}\Gamma_{11}^{1} & \Gamma_{12}^{1} & \Gamma_{22}^{1}\\
+\Gamma_{11}^{2} & \Gamma_{12}^{2} & \Gamma_{22}^{2}
+\end{pmatrix}=\frac{1}{EG-F^{2}}\begin{pmatrix}G & -F\\
+-F & E
+\end{pmatrix}\begin{pmatrix}\frac{E_{u}}{2} & \frac{E_{v}}{2} & F_{v}-\frac{G_{u}}{2}\\
+F_{u}-\frac{E_{v}}{2} & \frac{G_{u}}{2} & \frac{G_{v}}{2}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Multiplicando escalarmente las ecuaciones de Gauss por 
+\begin_inset Formula $X_{u}$
+\end_inset
+
+ y 
+\begin_inset Formula $X_{v}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+\langle X_{uu},X_{u}\rangle & =\Gamma_{11}^{1}E+\Gamma_{11}^{2}F, & \langle X_{uu},X_{v}\rangle & =\Gamma_{11}^{1}F+\Gamma_{11}^{2}G,\\
+\langle X_{uv},X_{u}\rangle & =\Gamma_{12}^{1}E+\Gamma_{12}^{2}F, & \langle X_{uv},X_{v}\rangle & =\Gamma_{12}^{1}F+\Gamma_{12}^{2}G,\\
+\langle X_{vv},X_{u}\rangle & =\Gamma_{22}^{1}E+\Gamma_{22}^{2}F, & \langle X_{vv},X_{v}\rangle & =\Gamma_{22}^{1}F+\Gamma_{22}^{2}G.
+\end{align*}
+
+\end_inset
+
+Derivando 
+\begin_inset Formula $E$
+\end_inset
+
+, 
+\begin_inset Formula $F$
+\end_inset
+
+ y 
+\begin_inset Formula $G$
+\end_inset
+
+ respecto a 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+E_{u} & =2\langle X_{uu},X_{u}\rangle, & F_{u} & =\langle X_{uu},X_{v}\rangle+\langle X_{u},X_{vu}\rangle, & G_{u} & =2\langle X_{vu},X_{v}\rangle,\\
+E_{v} & =2\langle X_{uv},X_{u}\rangle, & F_{v} & =\langle X_{uv},X_{v}\rangle+\langle X_{u},X_{vv}\rangle, & G_{v} & =2\langle X_{vv},X_{v}\rangle,
+\end{align*}
+
+\end_inset
+
+por lo que
+\begin_inset Formula 
+\begin{align*}
+\langle X_{uu},X_{u}\rangle & =\frac{E_{u}}{2}, & \langle X_{uv},X_{u}\rangle & =\frac{E_{v}}{2}, & \langle X_{vv},X_{u}\rangle & =F_{v}-\langle X_{uv},X_{v}\rangle=F_{v}-\frac{G_{u}}{2},\\
+\langle X_{uv},X_{v}\rangle & =\frac{G_{u}}{2}, & \langle X_{vv},X_{v}\rangle & =\frac{G_{v}}{2}, & \langle X_{uu},X_{v}\rangle & =F_{u}-\langle X_{u},X_{vu}\rangle=F_{u}-\frac{E_{v}}{2}.
+\end{align*}
+
+\end_inset
+
+Igualando queda el sistema
+\begin_inset Formula 
+\[
+\left\{ \begin{aligned}E\Gamma_{11}^{1}+F\Gamma_{11}^{2} & =\frac{1}{2}E_{u}, & E\Gamma_{12}^{1}+F\Gamma_{12}^{2} & =\frac{1}{2}E_{v}, & E\Gamma_{22}^{1}+F\Gamma_{22}^{2} & =F_{v}-\frac{1}{2}G_{u},\\
+F\Gamma_{11}^{1}+G\Gamma_{11}^{2} & =F_{u}-\frac{1}{2}E_{v}, & F\Gamma_{12}^{1}+G\Gamma_{12}^{2} & =\frac{1}{2}G_{u}, & F\Gamma_{22}^{1}+G\Gamma_{22}^{2} & =\frac{1}{2}G_{v},
+\end{aligned}
+\right.
+\]
+
+\end_inset
+
+que se divide en tres sistemas disjuntos de izquierda a derecha.
+ Para el primero,
+\begin_inset Formula 
+\[
+\begin{pmatrix}\Gamma_{11}^{1}\\
+\Gamma_{12}^{2}
+\end{pmatrix}=\begin{pmatrix}E & F\\
+F & G
+\end{pmatrix}^{-1}\begin{pmatrix}\frac{1}{2}E_{u}\\
+F_{u}-\frac{E_{v}}{2}
+\end{pmatrix}=\frac{1}{EG-F^{2}}\begin{pmatrix}G & -F\\
+-F & E
+\end{pmatrix}\begin{pmatrix}\frac{1}{2}E_{u}\\
+F_{u}-\frac{E_{v}}{2}
+\end{pmatrix},
+\]
+
+\end_inset
+
+y para los otros dos es análogo.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+ecuación de Gauss
+\series default
+ es
+\begin_inset Formula 
+\[
+\Gamma_{11}^{1}\Gamma_{12}^{2}+(\Gamma_{11}^{2})_{v}+\Gamma_{11}^{2}\Gamma_{22}^{2}-\Gamma_{12}^{1}\Gamma_{11}^{2}-(\Gamma_{12}^{2})_{u}-\Gamma_{12}^{2}\Gamma_{12}^{2}=EK.
+\]
+
+\end_inset
+
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $X_{uuv}=X_{uvu}$
+\end_inset
+
+, y sustituyendo 
+\begin_inset Formula $X_{uu}$
+\end_inset
+
+ y 
+\begin_inset Formula $X_{vv}$
+\end_inset
+
+ según las fórmulas de Gauss,
+\begin_inset Formula 
+\begin{multline*}
+0=X_{uuv}-X_{uvu}=(\Gamma_{11}^{1})_{v}X_{u}+\Gamma_{11}^{1}X_{uv}+(\Gamma_{11}^{2})_{v}X_{v}+\Gamma_{11}^{2}X_{vv}+e_{v}N+eN_{v}-\\
+-(\Gamma_{12}^{1})_{u}X_{u}-\Gamma_{12}^{1}X_{uu}-(\Gamma_{12}^{2})_{u}X_{v}-\Gamma_{12}^{2}X_{vu}-f_{u}N-fN_{u}.
+\end{multline*}
+
+\end_inset
+
+Sustituyendo con las fórmulas de Gauss,
+\begin_inset Formula 
+\begin{multline*}
+0=(\Gamma_{11}^{1})_{v}X_{u}+\Gamma_{11}^{1}(\Gamma_{12}^{1}X_{u}+\Gamma_{12}^{2}X_{v}+fN)+(\Gamma_{11}^{2})_{v}X_{v}+\Gamma_{11}^{2}(\Gamma_{22}^{1}X_{u}+\Gamma_{22}^{2}X_{v}+gN)-\\
+-(\Gamma_{12}^{1})_{u}X_{u}-\Gamma_{12}^{1}(\Gamma_{11}^{1}X_{u}+\Gamma_{11}^{2}X_{v}+eN)-(\Gamma_{12}^{2})_{u}X_{v}-\Gamma_{12}^{2}(\Gamma_{12}^{1}X_{u}+\Gamma_{12}^{2}X_{v}+fN)+\\
++e_{v}N+e(a_{12}X_{u}+a_{22}X_{v})-f_{u}N-f(a_{11}X_{u}+a_{21}X_{v})=:A_{1}X_{u}+B_{1}X_{v}+C_{1}N.
+\end{multline*}
+
+\end_inset
+
+Como 
+\begin_inset Formula $(X_{u},X_{v},N)$
+\end_inset
+
+ es base de 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+, 
+\begin_inset Formula $A_{1},B_{1},C_{1}=0$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $B_{1}=0$
+\end_inset
+
+, usando las fórmulas de Weingarten,
+\begin_inset Formula 
+\begin{multline*}
+\Gamma_{11}^{1}\Gamma_{12}^{2}+(\Gamma_{11}^{2})_{v}X_{v}+\Gamma_{11}^{2}\Gamma_{22}^{2}-\Gamma_{12}^{1}\Gamma_{11}^{2}-(\Gamma_{12}^{2})_{u}-\Gamma_{12}^{2}\Gamma_{12}^{2}=fa_{21}-ea_{22}=\\
+=f\frac{eF-fE}{EG-F^{2}}-e\frac{fF-gE}{EG-F^{2}}=\frac{efF-f^{2}E-efF+egE}{EG-F^{2}}=E\frac{eg-f^{2}}{EG-F^{2}}=EK.
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esto implica la curvatura de Gauss depende solo de la primera forma fundamental,
+ pues los símbolos de Christoffel solo dependen de esta y, como 
+\begin_inset Formula $EG-F^{2}>0$
+\end_inset
+
+, 
+\begin_inset Formula $E\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
