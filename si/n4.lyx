@@ -388,5 +388,991 @@ Temple simulado.
 
 \end_layout
 
+\begin_layout Subsection
+Haz local
+\end_layout
+
+\begin_layout Standard
+Se empieza con 
+\begin_inset Formula $k$
+\end_inset
+
+ estados elegidos aleatoriamente y, en cada paso, se generan los sucesores
+ de cada estado, se comprueba si alguno es objetivo para terminar y, si
+ ninguno lo es, se toman los 
+\begin_inset Formula $k$
+\end_inset
+
+ mejores sucesores de entre todos.
+ Si hay poca diversidad entre los 
+\begin_inset Formula $k$
+\end_inset
+
+ estados, esto no es mucho mejor que la ascensión de colinas, por lo que
+ los nuevos estados se suelen elegir de forma estocástica.
+\end_layout
+
+\begin_layout Subsection
+Algoritmos genéticos
+\end_layout
+
+\begin_layout Standard
+Son una variante de la búsqueda de haz local estocástica.
+ Cada estado, 
+\series bold
+individuo
+\series default
+ o 
+\series bold
+cromosoma
+\series default
+ se codifica como una cadena, normalmente de longitud finita, de un alfabeto
+ finito, en la que cada símbolo es un 
+\series bold
+gen
+\series default
+.
+ Las codificaciones más usadas son 
+\series bold
+binaria
+\series default
+ mediante cadenas de dígitos binarios, 
+\series bold
+entera
+\series default
+ mediante cadenas de enteros de algún conjunto finito, y 
+\series bold
+de orden
+\series default
+, en que la cadena es una permutación.
+\end_layout
+
+\begin_layout Standard
+En cada paso hay una 
+\series bold
+población
+\series default
+ de 
+\begin_inset Formula $k$
+\end_inset
+
+ estados generados aleatoriamente.
+ Mediante un algoritmo de 
+\series bold
+selección
+\series default
+, se escogen 
+\begin_inset Formula $k$
+\end_inset
+
+ individuos de la población, posiblemente repetidos, que podrán reproducirse.
+ Estos se emparejan y cada pareja, con una probabilidad 
+\begin_inset Formula $p_{c}$
+\end_inset
+
+, se sustituye por dos individuos hijos mediante un algoritmo de 
+\series bold
+cruce
+\series default
+.
+ Finalmente, se usa un algoritmo de 
+\series bold
+mutación
+\series default
+ para mutar cada gen de cada individuo con una probabilidad 
+\begin_inset Formula $p_{m}$
+\end_inset
+
+, y el resultado es la nueva población.
+ Esto se repite hasta que haya un individuo en la población suficientemente
+ bueno o pase bastante tiempo.
+\end_layout
+
+\begin_layout Standard
+Los 
+\series bold
+operadores genéticos
+\series default
+ son los algoritmos de selección, cruce y mutación.
+ Algunos algoritmos de selección:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Ruleta
+\series default
+: Para cada uno de los 
+\begin_inset Formula $k$
+\end_inset
+
+ puestos, se elige un individuo con probabilidad proporcional a su valor
+ por la función objetivo, su 
+\series bold
+idoneidad
+\series default
+ o 
+\series bold
+\emph on
+\lang english
+fitness
+\series default
+\emph default
+\lang spanish
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Torneo
+\series default
+: Se eligen 
+\begin_inset Formula $2k$
+\end_inset
+
+ parejas por un algoritmo como la ruleta y se toma el de mayor idoneidad
+ en cada una.
+\end_layout
+
+\begin_layout Standard
+Algunos algoritmos de cruce:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Por un punto
+\series default
+: Se elige una posición al azar de las cadenas de los padres.
+ Un hijo adopta la parte a la izquierda de un padre y la parte a la derecha
+ del otro y el otro hijo al revés.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Por dos puntos
+\series default
+: Se eligen dos posiciones.
+ Un hijo adopta los extremos de un padre y el centro del otro y el otro
+ hijo al revés.
+\end_layout
+
+\begin_layout Standard
+Algunos de mutación:
+\end_layout
+
+\begin_layout Itemize
+Cambio de un gen aleatorio de un individuo por otro valor.
+\end_layout
+
+\begin_layout Itemize
+Intercambio de dos genes del individuo.
+\end_layout
+
+\begin_layout Section
+Búsqueda entre adversarios
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+juego
+\series default
+ o 
+\series bold
+problema de búsqueda entre adversarios
+\series default
+ es un entorno competitivo en que los objetivos de distintos agentes están
+ en conflicto.
+ Se deben considerar las decisiones de los otros agentes, pero su imprevisibilid
+ad puede generar muchas contingencias.
+\end_layout
+
+\begin_layout Standard
+Consideramos juegos de suma cero (la suma del valor objetivo de cada agente
+ es 0), de dos jugadores, por turnos, determinista y de información perfecta
+ (entorno totalmente observable).
+ Los jugadores son 
+\family typewriter
+max
+\family default
+, que mueve primero e intenta maximizar una cierta función utilidad 
+\begin_inset Formula $u$
+\end_inset
+
+ de los estados terminales, y 
+\family typewriter
+min
+\family default
+, que intenta minimizar 
+\begin_inset Formula $u$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos representar un juego por una tupla 
+\begin_inset Formula $(V,A,M,s,F,u)$
+\end_inset
+
+, donde 
+\begin_inset Formula $(V,A)$
+\end_inset
+
+ es un grafo como el de la búsqueda clásica de espacios de estados pero
+ en el que todos los nodos hoja son terminales; 
+\begin_inset Formula $M\subseteq V$
+\end_inset
+
+ es un conjunto computable de 
+\series bold
+estados 
+\family typewriter
+max
+\family default
+\series default
+ (en los que el turno es de 
+\family typewriter
+max
+\family default
+), cuyo complementario es el conjunto de 
+\series bold
+estados 
+\family typewriter
+min
+\family default
+\series default
+ y tal que los sucesores de un estado 
+\family typewriter
+max
+\family default
+ son estados 
+\family typewriter
+min
+\family default
+ y viceversa; 
+\begin_inset Formula $s\in M$
+\end_inset
+
+ es el estado inicial; 
+\begin_inset Formula $F\subseteq V$
+\end_inset
+
+ es un conjunto computable de estados finales, y 
+\begin_inset Formula $u:F\to\mathbb{R}$
+\end_inset
+
+ es una función de utilidad.
+\end_layout
+
+\begin_layout Subsection
+Minimax
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Juego $(V,A,M,s,F,u)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Sucesor $s'$ óptimo.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwProg{Fn}{función}{}{fin}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwFunction{minimax}{minimax}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Fn{
+\backslash
+minimax{$n$}}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$n
+\backslash
+in F$}{
+\backslash
+Devolver $u(n)$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lEnOtroCasoSi{$n
+\backslash
+in M$}{
+\backslash
+Devolver$
+\backslash
+max
+\backslash
+{
+\backslash
+minimax{v}
+\backslash
+}_{(n,v)
+\backslash
+in A}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lEnOtroCaso{
+\backslash
+Devolver$
+\backslash
+min
+\backslash
+{
+\backslash
+minimax{v}
+\backslash
+}_{(n,v)
+\backslash
+in A}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Devolver $s'$ con $(s,s')
+\backslash
+in A$ y $
+\backslash
+minimax{s'}$ máximo
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:minimax"
+
+\end_inset
+
+Algoritmo minimax.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+minimax
+\series default
+ (algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:minimax"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) intenta maximizar el valor final de 
+\begin_inset Formula $u$
+\end_inset
+
+ anticipándose a que el oponente intentará minimizarlo, y es óptimo.
+ Su complejidad en tiempo es 
+\begin_inset Formula $O(b^{m})$
+\end_inset
+
+, y su complejidad en espacio es 
+\begin_inset Formula $O(bm)$
+\end_inset
+
+ si se generan todos los sucesores de un nodo a la vez u 
+\begin_inset Formula $O(m)$
+\end_inset
+
+ si se generan uno a uno, donde 
+\begin_inset Formula $b$
+\end_inset
+
+ es el factor de ramificación y 
+\begin_inset Formula $m$
+\end_inset
+
+ es la profundidad máxima del árbol de búsqueda.
+\end_layout
+
+\begin_layout Standard
+El algoritmo se puede extender a juegos de más de dos jugadores; en este
+ caso la utilidad sería de la forma 
+\begin_inset Formula $V\to\mathbb{R}^{n}$
+\end_inset
+
+, donde 
+\begin_inset Formula $n$
+\end_inset
+
+ es el número de jugadores y 
+\begin_inset Formula $u(n_{i})$
+\end_inset
+
+ es el valor objetivo del nodo 
+\begin_inset Formula $u$
+\end_inset
+
+ para el jugador 
+\begin_inset Formula $i$
+\end_inset
+
+, y en vez de 
+\begin_inset Formula $M$
+\end_inset
+
+ tendríamos una función computable 
+\begin_inset Formula $J:V\to\{1,\dots,n\}$
+\end_inset
+
+ que indica de quién es el turno y tal que para 
+\begin_inset Formula $(i,j)\in A$
+\end_inset
+
+, 
+\begin_inset Formula $J(j)\equiv J(i)+1\bmod n$
+\end_inset
+
+.
+ Entonces, en cada nodo 
+\begin_inset Formula $u$
+\end_inset
+
+ no terminal, nos quedaríamos con el valor minimax de los sucesores con
+ coordenada 
+\begin_inset Formula $J(u)$
+\end_inset
+
+-ésima máxima, y el algoritmo seguiría siendo óptimo aun cuando el juego
+ no fuera de suma cero.
+\end_layout
+
+\begin_layout Subsection
+Poda alfa-beta
+\end_layout
+
+\begin_layout Standard
+Es posible acelerar el algoritmo minimax con 
+\series bold
+poda alfa-beta
+\series default
+ (algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:alpha-beta"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ La idea es que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es el mayor valor encontrado para 
+\family typewriter
+max
+\family default
+ y 
+\begin_inset Formula $\beta$
+\end_inset
+
+ es el menor valor encontrado para 
+\family typewriter
+min
+\family default
+.
+ Entonces, si 
+\family typewriter
+MinValor
+\family default
+ encuentra un 
+\begin_inset Formula $v\leq\alpha$
+\end_inset
+
+, el valor que devuelva será no mayor a 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ porque está minimizando, y no merece la pena seguir porque 
+\family typewriter
+MaxValor
+\family default
+, que llamó a 
+\family typewriter
+MinValor
+\family default
+, descartaría el valor.
+ Del mismo modo, si 
+\family typewriter
+MaxValor
+\family default
+ encuentra un 
+\begin_inset Formula $v\geq\beta$
+\end_inset
+
+, termina porque su valor de retorno sería descartado por 
+\family typewriter
+MinValor
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Juego $(V,A,M,s,F,u)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Sucesor $s'$ óptimo.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwProg{Fn}{función}{}{fin}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwFunction{MaxValor}{MaxValor}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwFunction{MinValor}{MinValor}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Fn{
+\backslash
+MaxValor{$n,
+\backslash
+alpha,
+\backslash
+beta$}}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$n
+\backslash
+in F$}{
+\backslash
+Devolver $n$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$v
+\backslash
+gets-
+\backslash
+infty$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$i:(n,i)
+\backslash
+in A$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		$v
+\backslash
+gets
+\backslash
+max
+\backslash
+{v,
+\backslash
+MinValor{$i,
+\backslash
+alpha,
+\backslash
+beta$}
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lSSi{$v
+\backslash
+geq
+\backslash
+beta$}{
+\backslash
+Devolver $i$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		$
+\backslash
+alpha
+\backslash
+gets
+\backslash
+max
+\backslash
+{
+\backslash
+alpha,v
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Devolver $v$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Fn{
+\backslash
+MinValor{$n,
+\backslash
+alpha,
+\backslash
+beta$}}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$n
+\backslash
+in F$}{
+\backslash
+Devolver $n$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$v
+\backslash
+gets+
+\backslash
+infty$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$i:(n,i)
+\backslash
+in A$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		$i
+\backslash
+gets
+\backslash
+min
+\backslash
+{i,
+\backslash
+MaxValor{$i,
+\backslash
+alpha,
+\backslash
+beta$}
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lSSi{$v
+\backslash
+leq
+\backslash
+alpha$}{
+\backslash
+Devolver $v$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		$
+\backslash
+beta
+\backslash
+gets
+\backslash
+min
+\backslash
+{
+\backslash
+beta,v
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Devolver $v$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+Tomar el sucesor $s'$ de $s$ asociado al resultado de 
+\backslash
+MaxValor{$n,-
+\backslash
+infty,+
+\backslash
+infty$}
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:alpha-beta"
+
+\end_inset
+
+Minimax con poda alfa-beta.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La eficiencia de minimax con poda alfa-beta es 
+\begin_inset Formula $O(b^{m/2})$
+\end_inset
+
+ en el caso mejor y 
+\begin_inset Formula $O(b^{m})$
+\end_inset
+
+ en el caso peor, y la diferencia es muy dependiente del orden en que se
+ examinan los sucesores de cada nodo.
+ En el caso medio tenemos 
+\begin_inset Formula $O(b^{3m/4})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Heurísticas
+\end_layout
+
+\begin_layout Standard
+Buscar hasta los estados terminales no suele ser práctico porque los movimientos
+ deben hacerse en una cantidad razonable de tiempo, por lo que se usan heurístic
+as 
+\begin_inset Formula $h:V\to\mathbb{R}$
+\end_inset
+
+ para sustituir a 
+\begin_inset Formula $u$
+\end_inset
+
+ y un test de corte 
+\begin_inset Formula $D\subseteq V\times\mathbb{N}$
+\end_inset
+
+ (computable) que decide cuándo parar la búsqueda y aplicar 
+\begin_inset Formula $h$
+\end_inset
+
+ según el estado y la profundidad.
+ 
+\end_layout
+
+\begin_layout Standard
+Una opción es parar a una profundidad fija, elegida para que el tiempo usado
+ no exceda lo permitido por las reglas del juego.
+ Un test más sofisticado solo para cuando encuentra una posición suficientemente
+ estable, en la que sea de esperar que la heurística sea buena.
+\end_layout
+
+\begin_layout Subsection
+Juegos estocásticos
+\end_layout
+
+\begin_layout Standard
+Muchos juegos incluyen un elemento aleatorio.
+ Esto se puede modelar como que entre un nivel de nodos 
+\family typewriter
+max
+\family default
+ y uno de nodos 
+\family typewriter
+min
+\family default
+, y viceversa, hay un nivel de nodos de posibilidad cuyos sucesores son
+ posibles alternativas, y en minimax, en esos nodos, en vez de tomar el
+ máximo o el mínimo, tomamos la media ponderada a la probabilidad de cada
+ suceso.
+\end_layout
+
 \end_body
 \end_document
