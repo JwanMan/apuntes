@@ -1,0 +1,620 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{amssymb}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\series bold
+Planificar
+\series default
+ es obtener una secuencia de acciones para llegar a un estado objetivo.
+ Esto se puede hacer con técnicas de búsqueda, pero el espacio de búsqueda
+ suele ser muy complejo, los problemas no suelen ser descomponibles y los
+ estados de búsqueda suelen ser complejos porque requieren buena parte del
+ entorno, por lo que se suelen usar algoritmos específicos.
+ 
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+problema del marco
+\series default
+ o 
+\series bold
+de la estructura
+\series default
+ (
+\emph on
+\lang english
+frame problem
+\emph default
+\lang spanish
+) es el de qué permanece sin cambios al aplicar una regla; el de la 
+\series bold
+cualificación
+\series default
+ es qué necesita la regla que se cumpla para poder ejecutable, y el de la
+ 
+\series bold
+ramificación
+\series default
+ es qué elementos cambian.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+plan lineal
+\series default
+ es una secuencia de acciones para ir de un estado inicial a un estado objetivo,
+ y un 
+\series bold
+plan no lineal
+\series default
+ es una familia de acciones con un orden parcial de forma que cada secuenciación
+ de esas acciones que respete el orden parcial es un plan lineal.
+\end_layout
+
+\begin_layout Section
+STRIPS
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+STRIPS
+\series default
+ (
+\emph on
+\lang english
+Stanford Research Institute Problem Solver
+\emph default
+\lang spanish
+) es un planificador lineal o 
+\series bold
+de orden total
+\series default
+ que usa una forma restringida de lógica de situaciones.
+ Los problemas están formados por un estado inicial, un estado objetivo
+ y un conjunto de acciones, y los literales o proposiciones atómicas que
+ aparecen no tienen variables resultado de funciones.
+\end_layout
+
+\begin_layout Standard
+Los estados inicial e intermedios son conjunciones de literales sin variables,
+ y los estados objetivo y subobjetivos son conjunciones de literales en
+ las que todas las variables se cuantifican existencialmente con ámbito
+ global en la proposición.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+unificador
+\series default
+ entre dos fórmulas lógicas que no comparten variables libres es una asociación
+ de variables a valores tal que, al aplicarla por sustitución a las variables
+ libres de las dos fórmulas, queda la misma fórmula.
+ Si existe, las dos fórmulas 
+\series bold
+unifican
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Las acciones están formadas por:
+\end_layout
+
+\begin_layout Itemize
+Un 
+\series bold
+antecedente
+\series default
+ o 
+\series bold
+fórmula de precondición
+\series default
+, una conjunción de proposiciones atómicas en que las variables (libres)
+ se entienden cuantificadas existencialmente, y que indica cuándo se puede
+ aplicar la regla.
+ Para que la regla sea aplicable a un estado, debe existir un 
+\series bold
+unificador más general
+\series default
+ de la fórmula a la conjunción de un subconjunto de los literales en el
+ estado, que se puede obtener creando unificadores de literales y viendo
+ que sean consistentes.
+\end_layout
+
+\begin_layout Itemize
+Una 
+\series bold
+lista de supresión
+\series default
+, una lista de literales cuyas variables deben aparecer en el antecedente
+ y que, al aplicar la regla, dejan de ser ciertos.
+\end_layout
+
+\begin_layout Itemize
+Una 
+\series bold
+fórmula de adición
+\series default
+, una lista de literales cuyas variables deben aparecer en el antecedente
+ y que, al aplicar la regla, se hacen ciertos.
+\end_layout
+
+\begin_layout Section
+Búsqueda
+\end_layout
+
+\begin_layout Standard
+Lo más sencillo es obtener un plan lineal con técnicas de búsqueda ya conocidas,
+ pero como las descripciones de acciones indican tanto precondiciones como
+ efectos, la búsqueda se puede hacer hacia delante, del estado inicial hasta
+ un objetivo, o hacia atrás, del objetivo al estado inicial.
+\end_layout
+
+\begin_layout Standard
+En el caso de reglas tipo STRIPS, aplicar una regla hacia atrás genera un
+ subobjetivo.
+ Para obtenerlo, unificamos un subconjunto de los literales del objetivo
+ con la fórmula de adición, aplicamos el unificador a todo el objetivo y
+ la regla y tomamos la conjunción de la fórmula de precondición de la regla
+ con la regresión de los literales del objetivo que no aparecen en el subconjunt
+o unificado.
+ La 
+\series bold
+regresión
+\series default
+ de un literal es Falso si el literal aparece en la lista de supresión,
+ Cierto si aparece en la de adición y el propio literal en otro caso.
+\end_layout
+
+\begin_layout Standard
+El espacio de subobjetivos es más amplio que el espacio de estados obtenido
+ de aplicar las reglas hacia delante, pero el literal Cierto se puede obviar
+ y se pueden podar los subobjetivos que contienen Falso o que es fácil ver
+ en el contexto que son imposibles.
+\end_layout
+
+\begin_layout Standard
+La búsqueda exhaustiva no es práctica, por lo que se deben usar heurísticas.
+\end_layout
+
+\begin_layout Section
+Pila de objetivos
+\end_layout
+
+\begin_layout Standard
+STRIPS usa una planificación lineal mediante una pila de subobjetivos con
+ el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:strips"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, que puede usar heurísticas para ordenar los literales de un objetivo compuesto
+ al apilarlos y para elegir qué unificador usar y qué regla elegir para
+ un objetivo simple.
+ Se pueden obtener planes subóptimos por una mala ordenación de los objetivos.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+De hecho, en algunos problemas una mala ordenación puede evitar encontrar
+ una solución.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Estado inicial $s$, estado objetivo $o$ y conjunto de reglas $R$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Camino $P$ de $s$ a $f$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+$P
+\backslash
+gets(s)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$S
+\backslash
+gets(o)$%
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+tcp*{{
+\backslash
+rm $S$ es la pila de objetivos, que también contiene reglas.}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{$S
+\backslash
+neq
+\backslash
+emptyset$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	Extraer el último $p$ de $S$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+uSSi{$p$ es una regla aplicable a $s$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		Aplicar $p$ a $s$ obteniendo un nuevo $s$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		$P
+\backslash
+gets Pps$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\backslash
+uEnOtroCasoSi{$p$ unifica con $s$ por algún $U$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		Aplicar $U$ a todos los elementos de $S$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\backslash
+uEnOtroCasoSi{$p=:l_1
+\backslash
+land
+\backslash
+dots
+\backslash
+land l_n$ con $n
+\backslash
+geq2$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		$S
+\backslash
+gets Spl_1
+\backslash
+cdots l_n$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\backslash
+uEnOtroCaso{
+\end_layout
+
+\begin_layout Plain Layout
+
+		Elegir $r
+\backslash
+in R$ cuya fórmula de adición unifique con $p$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		Sea $l_1
+\backslash
+land
+\backslash
+dots
+\backslash
+land l_n$ la precondición de $r$ unificada,
+\end_layout
+
+\begin_layout Plain Layout
+
+			$S
+\backslash
+gets Srl_1
+\backslash
+cdots l_n$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:strips"
+
+\end_inset
+
+Método de planificación de STRIPS.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Planificación de orden parcial
+\end_layout
+
+\begin_layout Standard
+La planificación no lineal o 
+\series bold
+de orden parcial
+\series default
+ se basa en descomponer el problema y trabajar en varios subobjetivos independie
+ntemente y creando un plan a partir de ellos.
+ Suele haber acciones ficticias inicio y final.
+ La 
+\series bold
+planificación de compromiso mínimo
+\series default
+ es la idea de tomar solo las acciones y unificaciones estrictamente necesarias.
+\end_layout
+
+\begin_layout Standard
+Aunque podemos representar un plan con un diagrama de grafo de orden parcial,
+ también podemos hacerlo como sigue: dibujamos todas las acciones a realizar
+ con un círculo, conectado por debajo a los literales de la precondición
+ y por encima a los de la lista de adición, representados por un cuadrado,
+ y en particular inicio tiene como lista de adición las condiciones iniciales
+ y fin tiene como precondiciones los literales del objetivo unificados.
+ 
+\end_layout
+
+\begin_layout Standard
+Cuando una acción 
+\begin_inset Formula $A$
+\end_inset
+
+ va antes que otra 
+\begin_inset Formula $B$
+\end_inset
+
+, en general conectamos cada precondición de 
+\begin_inset Formula $B$
+\end_inset
+
+ con una adición igual de 
+\begin_inset Formula $A$
+\end_inset
+
+ o de otro ancestro que no aparezca en la lista de supresión de otra acción
+ posterior en el camino, pero si el motivo que vaya antes es que 
+\begin_inset Formula $B$
+\end_inset
+
+ suprime una precondición de 
+\begin_inset Formula $A$
+\end_inset
+
+, se dibuja una flecha de 
+\begin_inset Formula $A$
+\end_inset
+
+ a la precondición de 
+\begin_inset Formula $B$
+\end_inset
+
+ que suprime, llamada 
+\series bold
+arco amenaza
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Son planificadores no lineales NOAH, MOLGEN y SIPE.
+\end_layout
+
+\begin_layout Section
+Planificación jerárquica
+\end_layout
+
+\begin_layout Standard
+Consiste en dividir el problema en niveles de complejidad, de forma que
+ se crea un plan de alto nivel y cada acción del plan se ejecuta con las
+ acciones de un plan del nivel inferior, hasta llegar a un nivel suficiente
+ de detalle.
+ Esto permite resolver problemas complejos en los que no es posible hacer
+ una búsqueda completa.
+ 
+\series bold
+ABSTRIPS
+\series default
+ (
+\emph on
+\lang english
+Abstraction-Based STRIPS
+\emph default
+\lang spanish
+) es un planificador jerárquico creado por Earl D.
+ Sacerdoti en 1973.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+valor crítico
+\series default
+ de una precondición es una medida de la dificultad de satisfacerla, como
+ por ejemplo el número de acciones que satisfacen la precondición.
+ En cada nivel de la jerarquía se tratan precondiciones con igual valor
+ crítico, empezando con un plan que considera las precondiciones de mayor
+ valor crítico dando por satisfechas las demás.
+ Si hay problemas, volvemos al nivel anterior para buscar otro plan.
+\end_layout
+
+\end_body
+\end_document
