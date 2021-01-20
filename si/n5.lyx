@@ -1,0 +1,988 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{amssymb}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+El 
+\series bold
+conocimiento
+\series default
+ consiste en descripciones declarativas explícitas formadas por conceptos
+ y relaciones entre los conceptos específicos a un dominio de aplicación,
+ y en métodos genéricos de resolución de problemas, formados por 
+\series bold
+técnicas de razonamiento
+\series default
+ que usan las relaciones entre conceptos para inferir conclusiones y una
+ estructura de control para aplicar las técnicas.
+ Por ejemplo, se puede representar el conocimiento por cláusulas de lógica
+ de predicados de primer orden, y entonces una técnica de razonamiento es
+ el principio de resolución.
+\end_layout
+
+\begin_layout Standard
+Algunos tipos de conocimiento:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De entidades
+\series default
+: Propiedades y estructura física de entes del mundo real.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De conducta
+\series default
+: Comportamiento o forma de proceder de los entes.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De eventos
+\series default
+: Secuencias de eventos, distribución temporal y relaciones causales.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Procedimental
+\series default
+: Cómo realizar determinados procesos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Sobre incertidumbre
+\series default
+: Nivel de certeza asociada a hechos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Meta-conocimiento
+\series default
+: Conocimiento sobre el propio conocimiento, sus propiedades y cómo usarlo.
+\end_layout
+
+\begin_layout Standard
+Los sistemas inteligentes son 
+\series bold
+intensivos en datos
+\series default
+ si minan grandes cantidades de datos para obtener conclusiones e 
+\series bold
+intensivos en conocimiento
+\series default
+ (
+\series bold
+sistemas basados en conocimiento
+\series default
+) si aplican gran cantidad de conocimiento a los datos.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Diagnosticar
+\series default
+ es encontrar una causa para un comportamiento observado distinto a lo normal,
+ partiendo de hallazgos normales y anormales y dando uno o más diagnósticos,
+ puede que ordenados por grado de certeza, que explican los hallazgos anormales
+ sin contradecir los normales.
+ Con sistemas basados en conocimiento, esto requiere de las siguientes fases:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Adquisición
+\series default
+ de conocimiento de alguna fuente, sea un experto o un proceso de prueba
+ y error mediante técnicas de aprendizaje.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Conceptualización
+\series default
+ o 
+\series bold
+modelado
+\series default
+, fase central en la ingeniería del conocimiento, consistente en definir
+ y organizar los componentes de conocimiento.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Representación
+\series default
+ o 
+\series bold
+formalización
+\series default
+ del conocimiento en estructuras como cláusulas lógicas o reglas, normalmente
+ agrupadas en módulos para facilitar su recuperación y poder añadir, modificar
+ y borrar estructuras de forma independiente del resto.
+ Puede ser necesario que las estructuras de datos sean comprensibles por
+ humanos.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Implementación
+\series default
+ del software con el conocimiento y las técnicas de inferencia.
+ Las técnicas se suelen implementar de forma imperativa.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Acceso
+\series default
+ al conocimiento desde la recuperación.
+ La velocidad de acceso es muy importante cuando hay mucho conocimiento,
+ es complejo o se requiere funcionamiento en tiempo real.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Selección
+\series default
+ o 
+\series bold
+recuperación
+\series default
+ de un elemento concreto de conocimiento, adecuado al problema y el estado
+ del proceso de resolución.
+ Muchas veces se selecciona un módulo completo, y se usa meta-conocimiento
+ para elegir el siguiente módulo a cargar.
+ Si hay varios métodos de resolución, se puede usar meta-conocimiento para
+ usar el más apropiado.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+ámbito
+\series default
+ de una representación de conocimiento es el dominio en que se va a aplicar.
+ Definir conocimiento genérico es muy costoso, por lo que son más adecuadas
+ representaciones para contextos restringidos.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+granularidad
+\series default
+ es el tamaño de la unidad mínima de representación, 
+\series bold
+gránulo
+\series default
+ o 
+\series bold
+grano
+\series default
+.
+ Con un grano grueso, los contenidos de alto nivel se representan de forma
+ sencilla pero el tratamiento es difícil, mientras que uno fino permite
+ representar procesos de bajo nivel y construir estructuras jerárquicas
+ fácilmente pero da problemas para representar conceptos de alto nivel.
+\end_layout
+
+\begin_layout Standard
+El conocimiento es 
+\series bold
+redundante
+\series default
+ si se representa el mismo de varias formas, lo que permite una aplicación
+ más efectiva porque algunas formas de conocimiento son más adecuadas para
+ ciertos casos que otras pero aumenta el volumen de datos.
+\end_layout
+
+\begin_layout Section
+Sistemas basados en reglas
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+sistema basado en reglas
+\series default
+ o 
+\series bold
+sistema experto
+\series default
+ es un sistema basado en conocimiento que usa reglas de la forma 
+\begin_inset Quotes cld
+\end_inset
+
+si 
+\emph on
+condición
+\emph default
+ entonces 
+\emph on
+acción
+\emph default
+
+\begin_inset Quotes crd
+\end_inset
+
+, dadas por un 
+\series bold
+antecedente
+\series default
+ o 
+\series bold
+condición
+\series default
+ formado por una lista de cláusulas a verificar y un 
+\series bold
+consecuente
+\series default
+ o 
+\series bold
+acción
+\series default
+ formado por una lista de acciones a ejecutar cuando se cumplen las condiciones.
+ Consta de:
+\end_layout
+
+\begin_layout Itemize
+Una 
+\series bold
+base de hechos
+\series default
+ o 
+\series bold
+memoria de trabajo
+\series default
+ con hechos conocidos de una situación particular.
+ Los hechos son:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+De entrada, introducidos por el usuario u obtenidos de fuentes como sensores
+ o bases de datos, iniciales o introducidos durante el proceso conforme
+ se obtienen.
+\end_layout
+
+\begin_layout Itemize
+Inferidos por el sistema durante el proceso.
+\end_layout
+
+\begin_layout Itemize
+Los objetivos y subobjetivos a alcanzar.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Una 
+\series bold
+base de conocimiento
+\series default
+ con las reglas del dominio.
+ La ejecución de una acción puede modificar de la base de hechos, normalmente
+ añadiendo hechos inferidos.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Una 
+\series bold
+red de inferencia
+\series default
+ es una representación gráfica de una red de conocimiento de forma similar
+ a un grafo.
+ Las reglas se dibujan como puertas lógicas en función de cómo tengan que
+ combinarse los antecedentes para que la regla sea aplicable.
+ 
+\end_layout
+
+\begin_layout Standard
+Un hecho que sea se representa como una flecha que va hacia la entrada de
+ las reglas que lo tengan como antecedente, posiblemente dividiéndose en
+ el camino.
+ Si el hecho es resultado del consecuente de una única regla, la flecha
+ parte del consecuente; si lo es de varias reglas, parte de un rectángulo
+ y se dibujan flechas de dichas reglas al rectángulo, y si no lo es de ninguna
+ regla, parte de la nada.
+ 
+\end_layout
+
+\begin_layout Standard
+Generalmente las flechas se dibujan de izquierda a derecha, con los hechos
+ de partida a la izquierda y las metas a la derecha.
+ Los hechos y las reglas pueden etiquetarse.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Un 
+\series bold
+mecanismo
+\series default
+ o 
+\series bold
+motor de inferencias
+\series default
+ que selecciona reglas aplicables para obtener alguna conclusión.
+\end_layout
+
+\begin_layout Standard
+Los sistemas expertos son importantes en escenarios gobernados por reglas
+ deterministas, y sobre todo en los que escasean expertos humanos, porque
+ permiten capturar la experiencia humana de forma natural.
+ Las reglas indican implicación causal, pero se les aplica razonamiento
+ deductivo basado en 
+\emph on
+\lang latin
+modus ponens
+\emph default
+\lang spanish
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Equiparar
+\series default
+ es buscar un conjunto, el 
+\series bold
+conjunto conflicto
+\series default
+, de reglas de la base de conocimiento, las reglas 
+\series bold
+aplicables
+\series default
+ o 
+\series bold
+activadas
+\series default
+, cuyas condiciones o acciones sean compatibles con los datos almacenados.
+ 
+\series bold
+Resolver
+\series default
+ es seleccionar una regla del conjunto conflicto.
+ Así, mientras la base de hechos no haya alcanzado una condición de finalización
+, normalmente alcanzar un hecho meta, y no se haya ejecutado una acción
+ de parada, el motor de inferencias equipara, resuelve y ejecuta la regla
+ elegida, actualizando la base de hechos con los hechos resultantes de aplicar
+ la regla.
+\end_layout
+
+\begin_layout Standard
+El motor de inferencias usa 
+\series bold
+encadenamiento hacia delante
+\series default
+ o 
+\series bold
+dirigido por datos
+\series default
+ si parte de los hechos conocidos y busca qué metas se verifican a partir
+ de estos, equiparando hechos con antecedentes de reglas, y usa 
+\series bold
+encadenamiento hacia atrás
+\series default
+ o 
+\series bold
+dirigido por metas
+\series default
+ si parte de la meta dada y comprueba si se deduce de los hechos creando
+ subobjetivos, equiparando metas con consecuentes de reglas.
+ 
+\end_layout
+
+\begin_layout Standard
+Equiparar no siempre es trivial, pues las reglas pueden ser generales y
+ por ejemplo contener variables.
+ Además, examinar todas las reglas en cada ciclo es costoso si la base de
+ conocimiento es grande, por lo que se indizan las reglas y se usan técnicas
+ que evitan examinar todo el conocimiento.
+ El 
+\series bold
+algoritmo RETE
+\series default
+, usado en las herramientas Jess y DROOLS, busca patrones en reglas y construye
+ un grafo para acelerar la equiparación de reglas al usar encadenamiento
+ hacia delante.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+método de resolución de conflictos
+\series default
+ elige qué regla aplicar del conjunto conflicto, y de este depende el tiempo
+ de respuesta del sistema ante cambios del entorno y la posibilidad de ejecutar
+ secuencias de acciones relativamente largas.
+ Estos métodos pueden ser:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Estáticos
+\series default
+, basados solo en la base de conocimiento, como seleccionar las reglas ordenadas
+ por un criterio como su número de antecedentes.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Dinámicos
+\series default
+, como elegir las reglas que usan elementos más recientes de la base de
+ hechos o reglas no usadas previamente.
+\end_layout
+
+\begin_layout Standard
+Los sistemas expertos son de grano fino, modulares, uniformes, simples y
+ aplicables a muchos ámbitos.
+ Separan estrictamente la representación del conocimiento, declarativa,
+ de la técnica de razonamiento, y los razonamientos son relativamente comprensib
+les por humanos, aunque su baja granularidad dificulta entender posibles
+ superestructuras cuando hay muchas reglas.
+ Es fácil extenderlos para que incluyan meta-conocimiento mediante meta-reglas,
+ y conocimiento sobre incertidumbre.
+\end_layout
+
+\begin_layout Section
+Lógicas no clásicas
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+lógica
+\series default
+ es un lenguaje de 
+\series bold
+proposiciones
+\series default
+ junto con un conjunto de 
+\series bold
+reglas de inferencia
+\series default
+ que transforman unas proposiciones en otras.
+ Una 
+\series bold
+teoría
+\series default
+ es un conjunto de proposiciones o 
+\series bold
+axiomas
+\series default
+ en el contexto de una lógica, y todas las proposiciones que se puedan obtener
+ de esta por aplicación de reglas de inferencia de la lógica, incluyendo
+ los propios axiomas, son sus 
+\series bold
+teoremas
+\series default
+.
+ Escribimos 
+\begin_inset Formula ${\cal T}\vdash P$
+\end_inset
+
+ si 
+\begin_inset Formula $P$
+\end_inset
+
+ es un teorema de la teoría 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+.
+ Las lógicas suelen incluir una semántica 
+\begin_inset Quotes cld
+\end_inset
+
+genérica
+\begin_inset Quotes crd
+\end_inset
+
+ para las proposiciones que las teorías completan.
+\end_layout
+
+\begin_layout Standard
+Una lógica es 
+\series bold
+monótona
+\series default
+ si siempre que 
+\begin_inset Formula ${\cal T}\vdash P$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal T}'$
+\end_inset
+
+ sea una teoría cuyos axiomas incluyan los de 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+, se tiene 
+\begin_inset Formula ${\cal T}'\vdash P$
+\end_inset
+
+.
+ Las lógicas clásicas son monótonas, pero la monotonía no es apropiada cuando
+ el conocimiento es incompleto, pues puede que haya que hacer suposiciones
+ por defecto que puedan invalidarse cuando se tenga más conocimiento, ni
+ cuando el mundo es cambiante.
+\end_layout
+
+\begin_layout Standard
+Las lógicas clásicas no son apropiadas para tratar conocimiento incompleto,
+ incierto, impreciso o inconsistente, y los algoritmos para manipular conocimien
+to lógico son ineficientes, por lo que se crean otras lógicas más apropiadas.
+\end_layout
+
+\begin_layout Subsection
+Lógica de situaciones
+\end_layout
+
+\begin_layout Standard
+Como la lógica de predicados de primer orden pero todos los predicados tienen
+ un argumento extra que indica en qué situación la fórmula es cierta, pues
+ una fórmula puede pasar a ser falsa tras un cambio.
+ Existe una función 
+\begin_inset Formula $R/2$
+\end_inset
+
+ de modo que 
+\begin_inset Formula $R(e,s)$
+\end_inset
+
+ es la situación resultante de que ocurra el evento 
+\begin_inset Formula $e$
+\end_inset
+
+ en la situación 
+\begin_inset Formula $s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Al crear el modelo, hay que indicar qué proposiciones simples se siguen
+ cumpliendo al aplicar un cambio a la situación.
+\end_layout
+
+\begin_layout Subsection
+Lógica difusa
+\end_layout
+
+\begin_layout Standard
+En lógica de predicados, a todo predicado 
+\begin_inset Formula $P$
+\end_inset
+
+ sobre un dominio 
+\begin_inset Formula $U$
+\end_inset
+
+ le corresponde un conjunto 
+\begin_inset Formula $\{x\in U:P(x)\}$
+\end_inset
+
+ y una 
+\series bold
+función de pertenencia
+\series default
+ 
+\begin_inset Formula $f:U\to\{0,1\}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+f(x):=\begin{cases}
+1, & P(x);\\
+0, & \neg P(x);
+\end{cases}
+\]
+
+\end_inset
+
+distinguiendo entre predicados ciertos y falsos.
+ En lógica difusa usamos 
+\series bold
+predicados vagos
+\series default
+, de modo que a un predicado 
+\begin_inset Formula $P$
+\end_inset
+
+ sobre un dominio 
+\begin_inset Formula $U$
+\end_inset
+
+ le corresponde un 
+\series bold
+conjunto difuso
+\series default
+ y una función de pertenencia 
+\begin_inset Formula $f:U\to[0,1]$
+\end_inset
+
+.
+ La lógica clásica y la teoría de conjuntos difusos nos permiten razonar
+ con afirmaciones vagas con palabras como 
+\begin_inset Quotes cld
+\end_inset
+
+joven
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+alto
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+muy
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+muchos
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+bastantes
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+pocos
+\begin_inset Quotes crd
+\end_inset
+
+, etc., pues de otra forma tendríamos inconsistencias.
+\end_layout
+
+\begin_layout Subsection
+Factores de certeza
+\end_layout
+
+\begin_layout Standard
+Para razonar con hechos con fiabilidad o precisión limitada o sobre los
+ que no estamos seguros, se suele incorporar la incertidumbre a una lógica
+ que no la incluye.
+ Esto se suele hacer con probabilidades y redes bayesianas, basadas probabilidad
+ condicionada e independencia de sucesos.
+\end_layout
+
+\begin_layout Standard
+A finales de los 70 se crea Mycin, un sistema basado en reglas usado para
+ identificar la bacteria causante de una infección y seleccionar un tratamiento
+ basándose en datos clínicos y encadenamiento hacia atrás.
+ Por entonces no se habían inventado las redes bayesianas y era difícil
+ obtener valores objetivos para las probabilidades, por lo que se usaron
+ factores de certeza obtenidos de estimaciones subjetivas.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+factor de certeza
+\series default
+ de una 
+\series bold
+hipótesis
+\series default
+ 
+\begin_inset Formula $h$
+\end_inset
+
+ según una 
+\series bold
+evidencia
+\series default
+ 
+\begin_inset Formula $e$
+\end_inset
+
+, 
+\begin_inset Formula $\text{FC}(h,e)$
+\end_inset
+
+ es la diferencia de una 
+\series bold
+medida de creencia
+\series default
+, un número en 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+ que indica en qué grado 
+\begin_inset Formula $e$
+\end_inset
+
+ apoya 
+\begin_inset Formula $h$
+\end_inset
+
+, y una 
+\series bold
+medida de incredulidad
+\series default
+, un número en 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+ que indica en qué grado 
+\begin_inset Formula $e$
+\end_inset
+
+ apoya 
+\begin_inset Formula $\neg h$
+\end_inset
+
+.
+ Las medidas de creencia e incredulidad no pueden ser positivas a la vez,
+ por lo que 
+\begin_inset Formula $\text{FC}(h,e)\in[-1,1]$
+\end_inset
+
+ es suficiente para despejar ambas.
+\end_layout
+
+\begin_layout Standard
+El antecedente de una regla es una conjunción o disyunción de proposiciones
+ atómicas en lógica preposicional y el consecuente es una proposición atómica.
+ Las funciones de combinación deben ser conmutativas y asociativas, pues
+ el orden en que se obtienen las evidencias es arbitrario; el resultado
+ de encadenar inferencias debe tener menor certeza que cada inferencia individua
+l, y si una evidencia adicional confirma una hipótesis, su factor de creencia
+ debe aumentar.
+ 
+\end_layout
+
+\begin_layout Standard
+Con esto, cada regla 
+\begin_inset Formula $h\to e$
+\end_inset
+
+ lleva un factor de certeza asociado 
+\begin_inset Formula $\text{FC}(h,e)$
+\end_inset
+
+, cada hipótesis 
+\begin_inset Formula $h$
+\end_inset
+
+ en la base de hechos lleva un factor de certeza 
+\begin_inset Formula $\text{FC}(h,\bot)$
+\end_inset
+
+, donde 
+\begin_inset Formula $\bot$
+\end_inset
+
+ es la situación particular, y las reglas son:
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+En las diapositivas, las dos primeras reglas aparecen como 
+\begin_inset Formula $\text{FC}(h,e_{1}\land e_{2})=\min\{\text{FC}(h,e_{1}),\text{FC}(h,e_{2})\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{FC}(h,e_{1}\lor e_{2})=\max\{\text{FC}(h,e_{1}),\text{FC}(h,e_{2})\}$
+\end_inset
+
+, pero esto tendría menos sentido aún que las reglas que realmente usamos,
+ que son las que se muestran.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\text{FC}(h_{1}\land h_{2},e) & =\min\{\text{FC}(h_{1},e),\text{FC}(h_{2},e)\},\\
+\text{FC}(h_{1}\lor h_{2},e) & =\max\{\text{FC}(h_{1},e),\text{FC}(h_{2},e)\},\\
+\text{FC}(h,e) & =\text{FC}(h,s)\max\{0,\text{FC}(s,e)\},\\
+\text{FC}(h,e_{1}\land e_{2}) & =\begin{cases}
+\text{FC}(h,e_{1})+\text{FC}(h,e_{2})-\text{FC}(h,e_{1})\text{FC}(h,e_{2}), & \text{FC}(h,e_{1}),\text{FC}(h,e_{2})\geq0;\\
+\text{FC}(h,e_{1})+\text{FC}(h,e_{2})+\text{FC}(h,e_{1})\text{FC}(h,e_{2}), & \text{FC}(h,e_{1}),\text{FC}(h,e_{2})\leq0;\\
+\frac{\text{FC}(h,e_{1})+\text{FC}(h,e_{2})}{1-\min\{|\text{FC}(h,e_{1})|,|\text{FC}(h,e_{2})|\}}, & \text{FC}(h,e_{1})\text{FC}(h,e_{2})\leq0.
+\end{cases}
+\end{align*}
+
+\end_inset
+
+Las dos primeras se usan para evaluar el factor de certeza de antecedentes
+ de reglas; la tercera para obtener el factor de certeza del consecuente
+ de una regla sabiendo el de su antecedente y la cuarta para combinar factores
+ de certeza obtenidos por distintas reglas.
+\end_layout
+
+\begin_layout Section
+Representaciones estructuradas del conocimiento
+\end_layout
+
+\begin_layout Standard
+Las 
+\series bold
+redes semánticas
+\series default
+, inventadas por Quillian en 1961, se basan en grafos para modelar la capacidad
+ de la memoria humana de recuperar conceptos a través de las relaciones
+ que los enlazan.
+ Los 
+\series bold
+marcos
+\series default
+ o 
+\series bold
+\emph on
+\lang english
+frames
+\series default
+\emph default
+\lang spanish
+, inventados por Minsky en 1975, se basan en estructuras parecidas a formularios
+ y permiten hacer inferencias basadas en herencia.
+\end_layout
+
+\begin_layout Standard
+En los años 90, en ingeniería del conocimiento se adoptan las 
+\series bold
+ontologías
+\series default
+, especificaciones formales explícitas de conceptos organizados en forma
+ jerárquica para servir de soporte a aplicaciones que requieren conocimiento
+ específico sobre una materia concreta.
+ En la segunda mitad de los 90, estas se aplican a la web para añadir descripcio
+nes semánticas a los contenidos, creándose la 
+\series bold
+web semántica
+\series default
+.
+\end_layout
+
+\end_body
+\end_document
