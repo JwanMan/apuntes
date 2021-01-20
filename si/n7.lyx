@@ -1,0 +1,776 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{amssymb}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+El 
+\series bold
+aprendizaje
+\series default
+ es el cambio adaptativo del comportamiento de un organismo resultante de
+ su interacción con el medio, y es un aspecto esencial de la inteligencia.
+ Permite implementar tareas que solo podemos describir bien mediante ejemplos,
+ hallar correlaciones entre grandes cantidades de datos, mejorar automáticamente
+ el diseño de un sistema con el tiempo, usar grandes cantidades de conocimiento
+ que sobrepasan la capacidad de codificación por un humano, adaptar el programa
+ a cambios en el entorno y actualizar automáticamente el conocimiento del
+ programa.
+\end_layout
+
+\begin_layout Standard
+El aprendizaje ocurre con una fase de entrenamiento, en la que el programa
+ adquiere experiencia con ejemplos etiquetados si el aprendizaje es 
+\series bold
+supervisado
+\series default
+ o con observaciones del entorno si no lo es, y una fase de prueba, en la
+ que se comprueba que el programa 
+\series bold
+clasifica
+\series default
+ los nuevos ejemplos o 
+\series bold
+predice
+\series default
+ su solución correctamente (da un resultado correcto).
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+precisión
+\series default
+ es la fiabilidad del modelo aprendido, medida normalmente por la proporción
+ de ejemplos clasificados correctamente, aunque a veces es preferible sacrificar
+ precisión por velocidad de predicción, por ejemplo en detección de errores
+ en cadenas de producción.
+\end_layout
+
+\begin_layout Standard
+Si el modelo lo usa un humano, el razonamiento debe ser fácil de entender
+ para evitar errores.
+ También es importante reducir el tiempo de aprendizaje y el número de observaci
+ones necesarias.
+\end_layout
+
+\begin_layout Section
+Estimación del error
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+estimador del error en los ejemplos
+\series default
+ es la proporción de ejemplos de la prueba clasificados incorrectamente,
+ y es un buen estimador si los ejemplos de prueba no se usaron en el entrenamien
+to.
+ El 
+\series bold
+error de resustitución
+\series default
+ es el estimador del error poniendo como ejemplos los mismos datos que en
+ el entrenamiento, y es una aproximación optimista al error real.
+\end_layout
+
+\begin_layout Standard
+La estimación del error por 
+\series bold
+validación cruzada
+\series default
+ mide el error de un método, no de un modelo concreto, y se aplica cuando
+ los datos son escasos.
+ El conjunto de ejemplos 
+\begin_inset Formula $S$
+\end_inset
+
+ se particiona en trozos 
+\begin_inset Formula $S_{1},\dots,S_{v}$
+\end_inset
+
+ de tamaño semejante, y para cada 
+\begin_inset Formula $i\in\{1,\dots,v\}$
+\end_inset
+
+, se construye un modelo sobre 
+\begin_inset Formula $S\setminus S_{i}$
+\end_inset
+
+ y se calcula su error estimador de los ejemplos 
+\begin_inset Formula $R_{i}$
+\end_inset
+
+ usando el conjunto de prueba 
+\begin_inset Formula $S_{i}$
+\end_inset
+
+.
+ El error de validación cruzada es 
+\begin_inset Formula $\sum_{i=1}^{v}\frac{|S_{i}|}{|S|}R_{i}$
+\end_inset
+
+.
+ Un buen valor de 
+\begin_inset Formula $v$
+\end_inset
+
+ es 10, y entonces el método se llama 
+\series bold
+\emph on
+\lang english
+10-fold cross-validation
+\series default
+\emph default
+\lang spanish
+.
+ Otro caso es el 
+\series bold
+\emph on
+\lang english
+leave-one-out
+\series default
+\emph default
+\lang spanish
+, en el que 
+\begin_inset Formula $S$
+\end_inset
+
+ se particiona en 
+\begin_inset Formula $|S|$
+\end_inset
+
+ trozos de un elemento.
+ Solo se usa cuando 
+\begin_inset Formula $S$
+\end_inset
+
+ es pequeño, pues es computacionalmente costoso.
+\end_layout
+
+\begin_layout Standard
+A veces algunos errores son más costosos que otros; por ejemplo es más costoso
+ un falso negativo de una enfermedad que un falso positivo.
+ Si el problema es clasificar ejemplos en 
+\begin_inset Formula $n$
+\end_inset
+
+ categorías, una 
+\series bold
+matriz de confusión
+\series default
+ es una matriz 
+\begin_inset Formula $A\in{\cal M}_{n}(\mathbb{N})$
+\end_inset
+
+ en la que 
+\begin_inset Formula $a_{ij}$
+\end_inset
+
+ es el número de ejemplos de clase 
+\begin_inset Formula $i$
+\end_inset
+
+ que fueron clasificados como de clase 
+\begin_inset Formula $j$
+\end_inset
+
+, y una 
+\series bold
+matriz de costos
+\series default
+ es una matriz 
+\begin_inset Formula $C\in{\cal M}_{n}(\mathbb{R})$
+\end_inset
+
+ en la que 
+\begin_inset Formula $c_{ij}$
+\end_inset
+
+ es el coste de clasificar un ejemplo de clase 
+\begin_inset Formula $i$
+\end_inset
+
+ como de clase 
+\begin_inset Formula $j$
+\end_inset
+
+, y que por tanto tiene diagonal nula.
+ Entonces el estimador de coste de una mala clasificación es 
+\begin_inset Formula 
+\[
+\sum_{i=1}^{n}\sum_{\begin{subarray}{c}
+j=1\\
+j\neq i
+\end{subarray}}^{n}a_{ij}c_{ij}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cuando el rango de soluciones es numérico y continuo, un buen estimador
+ es el 
+\series bold
+error cuadrático medio
+\series default
+ (
+\series bold
+MSE
+\series default
+, 
+\emph on
+\lang english
+Mean Squared Error
+\emph default
+\lang spanish
+), que con 
+\begin_inset Formula $n$
+\end_inset
+
+ ejemplos con soluciones 
+\begin_inset Formula $x_{1},\dots,x_{n}$
+\end_inset
+
+ para los que el programa da soluciones respectivas 
+\begin_inset Formula $y_{1},\dots,y_{n}$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\frac{1}{n}\sum_{i=1}^{n}(x_{i}-y_{i})^{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Aprendizaje memorístico
+\end_layout
+
+\begin_layout Standard
+Es una técnica consistente en almacenar todo es conocimiento nuevo para
+ usarlo cuando se encuentre un caso similar, y puede estar integrada en
+ un sistema de aprendizaje más complejo.
+\end_layout
+
+\begin_layout Standard
+Es adecuada cuando es más conveniente almacenar los datos que re-calcular.
+ En particular el acceso debe ser rápido, lo que requiere indizado.
+ No es adecuada cuando el entorno cambia rápidamente y lo almacenado puede
+ quedar fácilmente desfasado.
+\end_layout
+
+\begin_layout Standard
+Se puede decidir si almacenar o no cada vez que llega nueva información
+ o almacenar todo y después olvidar lo que se usa menos.
+\end_layout
+
+\begin_layout Section
+Resolución de problemas
+\end_layout
+
+\begin_layout Standard
+Un programa para resolver problemas puede recordar la estructura del programa
+ que ha resuelto, los métodos usados para resolverlo y su solución, generalizar
+ la experiencia y usarla para resolver problemas similares.
+\end_layout
+
+\begin_layout Standard
+El primer programa en hacer esto fue STRIPS, que tras cada episodio de planifica
+ción tomaba el plan calculado o una parte y lo transformaba en un 
+\series bold
+macro-operador
+\series default
+, una secuencia de acciones abstracta encapsulada en un 
+\series bold
+operador
+\series default
+ o acción para su uso posterior como una acción normal.
+\end_layout
+
+\begin_layout Standard
+Como es raro que se de un mismo problema dos veces, el macro-operador debe
+ generalizarse, cambiando constantes por variables siempre que se pueda.
+ STRIPS sustituye todas las constantes por variables y después re-evalúa
+ las precondiciones de cada operador usado para unificar y convertir variables
+ en constantes si es necesario.
+ Los buenos macro-operadores son muy útiles, y pueden producir un pequeño
+ cambio local en el mundo aunque los operadores que lo forman produzcan
+ muchos cambios locales.
+\end_layout
+
+\begin_layout Section
+Reglas de asociación
+\end_layout
+
+\begin_layout Standard
+Las 
+\series bold
+reglas de asociación
+\series default
+ relacionan los elementos que pueden aparecer en una base de datos, y son
+ útiles para toma de decisiones, diagnóstico y predicción.
+ 
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $I$
+\end_inset
+
+ un conjunto de ítems que pueden aparecer en la descripción de un elemento
+ de una base de datos, una regla de asociación tiene forma 
+\begin_inset Quotes cld
+\end_inset
+
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ entonces 
+\begin_inset Formula $Y$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+ o 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $X\Rightarrow Y$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+, donde 
+\begin_inset Formula $X,Y\subseteq I$
+\end_inset
+
+ son disjuntos.
+ Sea 
+\begin_inset Formula $D\subseteq{\cal P}(I)$
+\end_inset
+
+ un conjunto finito de elementos de la base de datos, el 
+\series bold
+soporte
+\series default
+ de un 
+\begin_inset Formula $Z\subseteq I$
+\end_inset
+
+ es 
+\begin_inset Formula $s(Z):=\frac{|\{e\in D:Z\subseteq e\}|}{|D|}$
+\end_inset
+
+; la 
+\series bold
+confianza
+\series default
+ o 
+\series bold
+precisión
+\series default
+ de la regla 
+\begin_inset Quotes cld
+\end_inset
+
+si 
+\begin_inset Formula $X$
+\end_inset
+
+ entonces 
+\begin_inset Formula $Y$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+ es 
+\begin_inset Formula $c(X\Rightarrow Y):=\frac{s(X\cup Y)}{s(X)}$
+\end_inset
+
+, y su 
+\series bold
+soporte
+\series default
+ o 
+\series bold
+cobertura
+\series default
+ es 
+\begin_inset Formula $s(X\Rightarrow Y):=s(X\cup Y)$
+\end_inset
+
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Las diapositivas usan la notación de mierda 
+\begin_inset Formula $|X|:=|\{e\in D:X\subseteq e\}|$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Conjunto de ítems $I$ de tamaño $k
+\backslash
+in
+\backslash
+mathbb{N}$, conjunto de elementos $D
+\backslash
+subseteq{
+\backslash
+cal P}(I)$ y soporte mínimo $f
+\backslash
+in[0,1]$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Conjunto ${
+\backslash
+cal L}
+\backslash
+subseteq{
+\backslash
+cal P}(I)$ de conjuntos de ítems con soporte al menos $f$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+$L_1
+\backslash
+gets
+\backslash
+{
+\backslash
+{i
+\backslash
+}
+\backslash
+}_{i
+\backslash
+in D,s(
+\backslash
+{i
+\backslash
+})
+\backslash
+geq f}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$k
+\backslash
+gets1$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{$L_k
+\backslash
+neq
+\backslash
+emptyset$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$G
+\backslash
+gets
+\backslash
+{S
+\backslash
+cup
+\backslash
+{i
+\backslash
+}
+\backslash
+}_{S
+\backslash
+in L_k,i
+\backslash
+in I
+\backslash
+setminus S}$%
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+tcp*{{
+\backslash
+rm Fase de formación.}}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$C
+\backslash
+gets
+\backslash
+{S
+\backslash
+in G:
+\backslash
+forall i
+\backslash
+in S,S
+\backslash
+setminus
+\backslash
+{i
+\backslash
+}
+\backslash
+in L_k
+\backslash
+}$%
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+tcp*{{
+\backslash
+rm Fase de poda.}}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$L_{k+1}
+\backslash
+gets
+\backslash
+{S
+\backslash
+in C:s(S)
+\backslash
+geq f
+\backslash
+}$%
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+tcp*{{
+\backslash
+rm Candidatos de tamaño $k$ frecuentes.}}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$k
+\backslash
+gets k+1$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+${
+\backslash
+cal L}
+\backslash
+gets
+\backslash
+bigcup_{i=1}^{k-1}L_i$
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:a-priori"
+
+\end_inset
+
+Algoritmo a priori.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para obtener reglas con buenos valores de soporte y confianza, primero ejecutamo
+s el algoritmo a priori (algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:a-priori"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) para obtener los conjuntos de ítems frecuentes en 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ y luego tomamos las reglas 
+\begin_inset Formula $r\in\bigcup_{L\in{\cal L}}\{X\Rightarrow L\setminus X\}_{X\subseteq L}$
+\end_inset
+
+ con 
+\begin_inset Formula $c(r)\geq p$
+\end_inset
+
+, donde 
+\begin_inset Formula $p$
+\end_inset
+
+ es la precisión mínima.
+\end_layout
+
+\end_body
+\end_document
