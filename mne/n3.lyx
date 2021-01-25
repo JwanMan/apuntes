@@ -1,0 +1,550 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Dados un problema de valores iniciales
+\begin_inset Formula 
+\[
+\left\{ \begin{aligned}\dot{x}(t) & =f(t,x(t)),\\
+x(a) & =x_{0}
+\end{aligned}
+\right.
+\]
+
+\end_inset
+
+y una solución aproximada 
+\begin_inset Formula $(t_{i},\omega_{i})_{i=0}^{n}$
+\end_inset
+
+ del problema, llamamos 
+\series bold
+solución local
+\series default
+ 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ a la solución del problema
+\begin_inset Formula 
+\[
+\left\{ \begin{aligned}\dot{z}_{i}(t) & =f(t,z_{i}(t)),\\
+z_{i}(t_{i}) & =\omega_{i}.
+\end{aligned}
+\right.
+\]
+
+\end_inset
+
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $f$
+\end_inset
+
+ es lipschitziana de constante 
+\begin_inset Formula $k>0$
+\end_inset
+
+ y existe 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\Vert z_{i}(t_{i+1})-\omega_{i+1}\Vert\leq\varepsilon(t_{i+1}-t_{i})$
+\end_inset
+
+ para cada 
+\begin_inset Formula $i\in\{0,\dots,n-1\}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\Vert y(t_{n})-\omega_{n}\Vert\leq e^{k(t_{n}-a)}\Vert y(t_{0})-\omega_{0}\Vert+\frac{e^{k(t_{n}-a)}-1}{k}\varepsilon.
+\]
+
+\end_inset
+
+Si el método es un 
+\series bold
+método en diferencias
+\series default
+, uno de la forma 
+\begin_inset Formula $t_{i+1}=t_{i}+h_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $\omega_{i+1}=\omega_{i}+h_{i}Ø(t_{i},\omega_{i},h_{i})$
+\end_inset
+
+, y si 
+\begin_inset Formula $z_{i}(t_{i})\cong x(t_{i})\cong\omega_{i}$
+\end_inset
+
+, el 
+\series bold
+criterio de error local
+\series default
+ para algún 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ e 
+\begin_inset Formula $i\in\{0,\dots,n-1\}$
+\end_inset
+
+ consiste en que
+\begin_inset Formula 
+\[
+\Vert\tau_{i+1}(h_{i})\Vert:=\frac{\Vert x(t_{i+1})-x(t_{i})-h_{i}Ø(t_{i},x(t_{i}),h_{i})\Vert}{h_{i}}\leq\varepsilon.
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $z_{i}(t_{i})\approxeq x(t_{i})\approxeq\omega_{i}$
+\end_inset
+
+, se tiene
+\begin_inset Formula 
+\[
+\Vert\tau_{i+1}(h_{i})\Vert\approx\cong\frac{\Vert z_{i}(t_{i+1})-\omega_{i+1}\Vert}{h}.
+\]
+
+\end_inset
+
+Queremos ajustar el paso automáticamente para mantener el error local dentro
+ de ciertos límites y economizar en número de cálculos.
+\end_layout
+
+\begin_layout Section
+Extrapolación de Richardson
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si el método en diferencias 
+\begin_inset Formula $\omega_{i+1}=\omega_{i}+h_{i}Ø(t_{i},\omega_{i},h_{i})$
+\end_inset
+
+ verifica en cada paso que 
+\begin_inset Formula $z_{i}(t_{i+1})=\omega_{i+1}+cz_{i}^{(k+1)}(t_{i})h^{k+1}+O(h^{k+2})$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $c\in\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+, sean 
+\begin_inset Formula $h:=h_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $(t_{i+1},Y)$
+\end_inset
+
+ el resultado de dar dos pasos desde 
+\begin_inset Formula $(t_{i},\omega_{i})$
+\end_inset
+
+ con el método de paso fijo 
+\begin_inset Formula $\xi_{j+1}=\xi_{j}+\frac{h}{2}Ø(t_{j},\xi_{j},\frac{h}{2})$
+\end_inset
+
+, entonces 
+\begin_inset Formula 
+\[
+z_{i}(t_{i+1})=Y+2cz_{i}^{(k+1)}(t_{i})\left(\frac{h}{2}\right)^{k+1}+O(h^{k+2}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En estas condiciones:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+z_{i}(t_{i+1})=\frac{2^{k}Y-\omega_{i+1}}{2^{k}-1}+O(h^{k+2}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Multiplicando por 
+\begin_inset Formula $2^{k}$
+\end_inset
+
+ el resultado del teorema y restando la fórmula de la hipótesis,
+\begin_inset Formula 
+\begin{align*}
+(2^{k}-1)z_{i}(t_{i+1}) & =2^{k}Y+2^{k+1}cz_{i}^{(k+1)}(t_{i})\left(\frac{h}{2}\right)^{k+1}-cz_{i}^{(k+1)}(t_{i})h^{k+1}-\omega_{i+1}+O(h^{k+2})\\
+ & \overset{2^{k}\left(\frac{h}{2}\right)^{k+1}=h^{k+1}}{=}2^{k}Y-\omega_{i+1}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+z_{i}(t_{i+1})-\omega_{i+1}=\frac{2^{k}}{2^{k}-1}(Y-\omega_{i+1})+O(h^{k+2}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Restando 
+\begin_inset Formula $\omega_{i+1}$
+\end_inset
+
+ a ambas partes de lo anterior.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Para un 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, queremos que 
+\begin_inset Formula $\Vert z_{i}(t_{i+1})-\omega_{i+1}\Vert<\varepsilon h_{i}$
+\end_inset
+
+.
+ El siguiente es un método práctico para dar un paso de tamaño adaptativo:
+\end_layout
+
+\begin_layout Enumerate
+Dar un paso con 
+\begin_inset Formula $h$
+\end_inset
+
+ para obtener 
+\begin_inset Formula $\omega_{i+1}$
+\end_inset
+
+ y dos con 
+\begin_inset Formula $\frac{h}{2}$
+\end_inset
+
+ para obtener 
+\begin_inset Formula $Y_{h}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Obtener el error 
+\begin_inset Formula $E:=\frac{2^{k}}{2^{k}-1}\Vert Y-\omega_{i+1}\Vert\approx\Vert z_{i}(t_{i+1})-\omega_{i+1}\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $E>\varepsilon h$
+\end_inset
+
+, ajustar 
+\begin_inset Formula $h$
+\end_inset
+
+ y volver a intentar desde el principio.
+\end_layout
+
+\begin_layout Enumerate
+Aceptar el paso 
+\begin_inset Formula $(t_{i}+h,\omega_{i+1})$
+\end_inset
+
+ y ajustar 
+\begin_inset Formula $h$
+\end_inset
+
+ para el siguiente paso.
+\end_layout
+
+\begin_layout Standard
+Para ajustar el paso:
+\end_layout
+
+\begin_layout Enumerate
+Calcular 
+\begin_inset Formula $q:=\left(\frac{\varepsilon h}{2E}\right)^{1/k}$
+\end_inset
+
+ y 
+\begin_inset Formula $q':=\min\{4,\max\{0.1,q\}\}$
+\end_inset
+
+, y hacer 
+\begin_inset Formula $h\gets q'h$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para cierta constante 
+\begin_inset Formula $C$
+\end_inset
+
+, si 
+\begin_inset Formula $y$
+\end_inset
+
+ es el resultado de aplicar un paso de tamaño 
+\begin_inset Formula $qh$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert z_{i}(t_{i}+qh)-y\Vert\approx C(qh)^{k+1}=Cq^{k+1}h^{k+1}\approx q^{k+1}\Vert z_{i}(t_{i+1})-\omega_{i+1}\Vert\approx q^{k+1}E$
+\end_inset
+
+, pero 
+\begin_inset Formula $q^{k+1}E\leq\varepsilon qh\iff q^{k}E\leq\varepsilon h\iff q\leq\left(\frac{\varepsilon h}{E}\right)^{1/k}$
+\end_inset
+
+.
+ Entonces usamos 
+\begin_inset Formula $2E$
+\end_inset
+
+ en vez de 
+\begin_inset Formula $E$
+\end_inset
+
+ para tener cierto margen para evitar re-calcular y añadimos límites en
+ 
+\begin_inset Formula $q'$
+\end_inset
+
+ por estabilidad.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Usando umbrales 
+\begin_inset Formula $h_{\min}$
+\end_inset
+
+ y 
+\begin_inset Formula $h_{\max}$
+\end_inset
+
+ para el paso, si 
+\begin_inset Formula $|h|<h_{\min}$
+\end_inset
+
+, informamos de un error, pues los errores de redondeo serían demasiado
+ grandes, y si 
+\begin_inset Formula $|h|>h_{\max}$
+\end_inset
+
+, hacemos 
+\begin_inset Formula $h\gets h_{\max}\text{sgn}h$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Método de Runge-Kutta-Fehlberg
+\end_layout
+
+\begin_layout Standard
+Dados dos métodos de Runge-Kutta con los mismos pasos, 
+\begin_inset Formula $(\omega_{i})$
+\end_inset
+
+ de orden 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $(\tilde{\omega}_{i})$
+\end_inset
+
+ de orden 
+\begin_inset Formula $p+1$
+\end_inset
+
+, 
+\begin_inset Formula $z_{i}(t_{i+1})-\omega_{i+1}\approx\tilde{\omega}_{i+1}-\omega_{i+1}$
+\end_inset
+
+.
+ En efecto, para ciertos 
+\begin_inset Formula $C_{1},C_{2}\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $z_{i}(t_{i}+h)-\omega_{i+1}\approx C_{1}h^{p+1}+O(h^{p+2})$
+\end_inset
+
+ y 
+\begin_inset Formula $\tilde{z}_{i}(t_{i+1})-\tilde{\omega}_{i+1}\approx C_{2}h^{p+2}+O(h^{p+3})$
+\end_inset
+
+, luego 
+\begin_inset Formula $z_{i}(t_{i}+h)-\omega_{i+1}\approx\tilde{z}_{i}(t_{i+1})-\tilde{\omega}_{i+1}+\tilde{\omega}_{i+1}-\omega_{i+1}\approx\tilde{\omega}_{i+1}-\omega_{i+1}+O(h^{p+2})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+método de Runge-Kutta-Fehlberg
+\series default
+ consiste en usar esta aproximación del error 
+\begin_inset Formula $E$
+\end_inset
+
+ en el método anterior de paso adaptativo con los siguientes dos métodos
+ de Runge-Kutta que tienen los mismos 
+\begin_inset Formula $k_{i}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{c|ccccc}
+\frac{1}{4} & \frac{1}{4}\\
+\frac{3}{8} & \frac{3}{32} & \frac{9}{32}\\
+\frac{12}{13} & \frac{1932}{2197} & -\frac{7200}{2197} & \frac{7296}{2197}\\
+1 & \frac{439}{216} & -8 & \frac{3680}{513} & -\frac{845}{4104}\\
+\frac{1}{2} & -\frac{8}{27} & 2 & -\frac{443}{332} & \frac{1859}{4104} & -\frac{11}{40}\\
+\hline \omega: & \frac{25}{216} & \frac{1408}{2565} & \frac{2197}{4104} & -\frac{1}{5}\\
+\tilde{\omega}: & \frac{16}{135} & \frac{6656}{12825} & \frac{28561}{56430} & -\frac{9}{50} & \frac{2}{55}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El método 
+\begin_inset Formula $\omega$
+\end_inset
+
+ es de orden 4 y 
+\begin_inset Formula $\tilde{\omega}$
+\end_inset
+
+ es de orden 5.
+\end_layout
+
+\end_body
+\end_document
