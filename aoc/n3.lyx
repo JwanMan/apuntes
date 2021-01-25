@@ -480,11 +480,20 @@ fisgoneo
  se basan en que los nodos puedan ver los fallos de caché del resto y actuar
  en consecuencia, invalidando las copias si hace falta o proporcionando
  los datos.
- Esto requiere una red totalmente ordenada que permita la difusión, como
- un bus o cualquier otra red si se obliga a los mensajes a pasar por un
- punto de serialización, aunque hay sistemas modernos que usan variantes
- del fisgoneo que funcionan con redes que no garantizan un orden total,
- normalmente anillos.
+ Esto requiere una red de interconexión (
+\series bold
+NoC
+\series default
+, 
+\emph on
+\lang english
+Network on Chip
+\emph default
+\lang spanish
+) totalmente ordenada que permita la difusión, como un bus o cualquier otra
+ red si se obliga a los mensajes a pasar por un punto de serialización,
+ aunque hay sistemas modernos que usan variantes del fisgoneo que funcionan
+ con redes que no garantizan un orden total, normalmente anillos.
  Los protocolos basados en fisgoneo funcionan bien cuando hay pocos nodos,
  pero con muchos nodos la red totalmente ordenada es un cuello de botella.
 \end_layout
@@ -1119,7 +1128,26 @@ consistencia
 \series default
 , la generalización de la coherencia a posiciones de memoria distintas,
  es rara.
- Algunos modelos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algunos modelos:
 \end_layout
 
 \begin_layout Itemize
@@ -1166,6 +1194,22 @@ buffers
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 En la práctica se usan modelos de consistencia relajados:
 \end_layout
@@ -1281,6 +1325,822 @@ fences
 \emph default
 \lang spanish
  necesarias.
+\end_layout
+
+\begin_layout Section
+Redes de interconexión
+\end_layout
+
+\begin_layout Standard
+En sistemas con varias CPUs puede haber 
+\series bold
+interconexión 
+\emph on
+\lang english
+on-chip
+\series default
+\emph default
+\lang spanish
+, entre procesadores en un mismo chip, e 
+\series bold
+interconexión 
+\emph on
+\lang english
+off-chip
+\series default
+\emph default
+\lang spanish
+, entre procesadores de distintos chips, como en los clústeres de servidores.
+ Las redes Ethernet suelen tener ancho de banda de 
+\begin_inset Formula $0.1,1,10,\unit[100]{Gbps},\dots$
+\end_inset
+
+ y latencia de único salto de 
+\begin_inset Formula $\unit[\text{25--100}]{\mu s}$
+\end_inset
+
+, mientras que InfiniBand tiene 
+\begin_inset Formula $20,40,54,\unit[80]{Gbps},\dots$
+\end_inset
+
+ y latencia de único salto de 
+\begin_inset Formula $\unit[\text{1--3}]{\mu s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Las redes están formadas por enlaces; conmutadores (
+\emph on
+\lang english
+switches
+\emph default
+\lang spanish
+ o 
+\emph on
+\lang english
+routers
+\emph default
+\lang spanish
+), que conectan enlaces y pueden tener funciones de encaminamiento, y una
+ interfaz de red en cada núcleo que lo conecta con un conmutador.
+\end_layout
+
+\begin_layout Standard
+La longitud de un cable determina la frecuencia a la que se puede operar
+ y la potencia que puede haber que disipar.
+ Queremos una red con alto ancho de banda (frecuencia por número de hilos)
+ y baja latencia, que sea simple (lo que suele llevar a mejor rendimiento),
+ fiable (que no produzca fallos y soporte un número limitado de ellos) y
+ con bajo coste económico y energético, y queremos estructurarla de forma
+ escalable (que el ancho de banda aumente conforme lo haga el número de
+ nodos) y fácilmente particionable (que se pueda dividir en subsistemas).
+\end_layout
+
+\begin_layout Subsection
+Topologías de red
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+hipergrafo dirigido
+\series default
+ es un par 
+\begin_inset Formula $(V,H)$
+\end_inset
+
+ formado por un conjunto de 
+\series bold
+nodos
+\series default
+ 
+\begin_inset Formula $V$
+\end_inset
+
+ y un conjunto de 
+\series bold
+hiperarcos
+\series default
+ 
+\begin_inset Formula $H\subseteq\{(A,B)\in{\cal P}(V)\times{\cal P}(V):A,B\neq\emptyset\}$
+\end_inset
+
+.
+ Un 
+\series bold
+hipergrafo no dirigido
+\series default
+ es un par 
+\begin_inset Formula $(V,H)$
+\end_inset
+
+ donde 
+\begin_inset Formula $V$
+\end_inset
+
+ es un conjunto de nodos y 
+\begin_inset Formula $H\subseteq{\cal P}(V)\setminus\{\emptyset\}$
+\end_inset
+
+ es un conjunto de 
+\series bold
+hiperejes
+\series default
+.
+ Identificamos el hipergrafo no dirigido 
+\begin_inset Formula $(V,H)$
+\end_inset
+
+ con el hipergrafo dirigido 
+\begin_inset Formula $(V,\{(h,h)\}_{h\in H})$
+\end_inset
+
+.
+ con ancho de banda 
+\begin_inset Formula $\omega(A,B)$
+\end_inset
+
+.
+ Un 
+\series bold
+corte de bisección
+\series default
+ de un hipergrafo no dirigido finito es un conjunto separador de hiperejes
+ de tamaño mínimo, y el 
+\series bold
+ancho de la bisección
+\series default
+ (
+\emph on
+\lang english
+bisection bandwidth
+\emph default
+\lang spanish
+) es dicho tamaño.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+hiperred
+\series default
+ es una tupla 
+\begin_inset Formula $(V,H,\omega)$
+\end_inset
+
+ donde 
+\begin_inset Formula $(V,H)$
+\end_inset
+
+ es un hipergrafo y 
+\begin_inset Formula $\omega:H\to\mathbb{R}$
+\end_inset
+
+ es una función de pesos.
+ Un corte de bisección de una hiperred no dirigida finita es un conjunto
+ separador de hiperejes con mínima suma de los pesos, y el ancho de la bisección
+ es dicha suma.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+topología de red
+\series default
+ es un hipergrafo dirigido finito 
+\begin_inset Formula $(V,H)$
+\end_inset
+
+ donde los nodos representan 
+\emph on
+\lang english
+routers
+\emph default
+\lang spanish
+ y un hiperarco 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ es un enlace que transmite de los nodos de 
+\begin_inset Formula $A$
+\end_inset
+
+ a los de 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Si se añade una función de pesos, el peso de un enlace es su ancho de banda.
+ La topología es 
+\series bold
+simétrica
+\series default
+ si el hipergrafo es no dirigido.
+ Informalmente, es 
+\series bold
+regular
+\series default
+ si los nodos están conectados en un patrón definido, de modo que se pueden
+ asignar coordenadas a los nodos y generalmente se pueden encaminar los
+ mensajes solo según las coordenadas de los extremos, y es 
+\series bold
+irregular
+\series default
+ si los nodos se conectan sin estructura, lo que es más expansible, en cuyo
+ caso se suele encaminar con algoritmos que intentan encontrar el camino
+ más corto.
+\end_layout
+
+\begin_layout Standard
+Algunas topologías regulares simétricas, donde 
+\begin_inset Formula $\mathbb{N}_{n}:=\{0,\dots,n-1\}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Buses
+\series default
+: 
+\begin_inset Formula $(V,\{V\})$
+\end_inset
+
+, con ancho de bisección 1 y grado 1.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Mallas
+\series default
+ 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensionales: 
+\begin_inset Formula $(V,E)$
+\end_inset
+
+ con 
+\begin_inset Formula $V:=\mathbb{N}_{d_{1}}\times\dots\times\mathbb{N}_{d_{n}}$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+E:=\{\{(i_{1},\dots,i_{n}),(i_{1},\dots,i_{k-1},i_{k}+1,i_{k+1},\dots,i_{n})\}\}_{(i_{1},\dots,i_{n})\in V,k\in\mathbb{N}_{d},i_{k}+1<d_{k}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Hipercubos
+\series default
+: Mallas con 
+\begin_inset Formula $d_{i}=2$
+\end_inset
+
+ para todo 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Toros
+\series default
+ 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensionales: 
+\begin_inset Formula $(V,E)$
+\end_inset
+
+ con 
+\begin_inset Formula $V:=\mathbb{N}_{d_{1}}\times\dots\times\mathbb{N}_{d_{n}}$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+E:=\{\{(i_{1},\dots,i_{n}),(i_{1},\dots,i_{k-1},i_{k}+1\bmod d_{k},i_{k+1},\dots,i_{n})\}\}_{(i_{1},\dots,i_{n})\in V,k\in\mathbb{N}_{d}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Anillos
+\series default
+: Toros unidimensionales, con ancho de bisección 2, grado 2 y diámetro 
+\begin_inset Formula $\lfloor\frac{n}{2}\rfloor$
+\end_inset
+
+ si tiene 
+\begin_inset Formula $n$
+\end_inset
+
+ nodos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Árboles
+\series default
+, con ancho de bisección 1 y encaminamiento normalmente por el único camino
+ entre fuente y destino.
+\end_layout
+
+\begin_layout Subsection
+Redes indirectas
+\end_layout
+
+\begin_layout Standard
+Una red es 
+\series bold
+directa
+\series default
+ si cada conmutador conecta con algún núcleo e 
+\series bold
+indirecta
+\series default
+ en otro caso.
+ Los buses y las mallas son redes directas.
+ Las 
+\series bold
+redes 
+\emph on
+cross-bar
+\series default
+\emph default
+ son redes indirectas con los nodos
+\begin_inset Formula 
+\[
+(\mathbb{N}_{n}\times\mathbb{N}_{m},\{\{(n,m),(n+1,m)\},\{(n,m),(n,m+1)\}\}_{(n,m)\in\mathbb{N}_{n-1}\times\mathbb{N}_{m-1}}),
+\]
+
+\end_inset
+
+con los nodos en 
+\begin_inset Formula $\mathbb{N}_{n}\times0$
+\end_inset
+
+ conectados a 
+\begin_inset Formula $n$
+\end_inset
+
+ núcleos de procesador y los nodos en 
+\begin_inset Formula $0\times\mathbb{N}_{m}$
+\end_inset
+
+ conectados a 
+\begin_inset Formula $m$
+\end_inset
+
+ unidades de memoria.
+ Los conmutadores se llaman 
+\series bold
+\emph on
+\lang english
+cross-point switches
+\series default
+\emph default
+\lang spanish
+.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+red multietapa
+\series default
+ de 
+\begin_inset Formula $n$
+\end_inset
+
+ etapas tiene topología
+\begin_inset Formula 
+\[
+(\mathbb{N}_{m}\times\mathbb{N}_{n+1},\{\{(i,j),(i,j+1)\},\{(i,j),(\sigma_{j}(i),j+1)\}\}_{(i,j)\in\mathbb{N}_{m}\times\mathbb{N}_{n}}),
+\]
+
+\end_inset
+
+donde cada 
+\begin_inset Formula $\sigma_{j}:\mathbb{N}_{m}\to\mathbb{N}_{m}$
+\end_inset
+
+ es una permutación y los conmutadores conectados a nodos son los 
+\begin_inset Formula $\mathbb{N}_{m}\times\{0\}$
+\end_inset
+
+ y los 
+\begin_inset Formula $\mathbb{N}_{m}\times\{n\}$
+\end_inset
+
+, con distintos tipos de nodo.
+\end_layout
+
+\begin_layout Standard
+Una red 
+\series bold
+\emph on
+\lang english
+Butterfly
+\series default
+\emph default
+\lang spanish
+ es una de 
+\begin_inset Formula $n$
+\end_inset
+
+ etapas con 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ nodos a cada lado y 
+\begin_inset Formula $\sigma_{j}(i)=i+2^{j}\bmod2^{n}$
+\end_inset
+
+, y es 
+\series bold
+bloqueante
+\series default
+, es decir, se puede producir contención en los enlaces según la comunicación
+ entre los nodos de un lado y del otro.
+ Una red 
+\series bold
+Benes
+\series default
+ resulta de 
+\begin_inset Quotes cld
+\end_inset
+
+concatenar
+\begin_inset Quotes crd
+\end_inset
+
+ dos redes 
+\emph on
+\lang english
+Butterfly
+\emph default
+\lang spanish
+: tiene 
+\begin_inset Formula $2n$
+\end_inset
+
+ etapas y 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ nodos a cada lado y 
+\begin_inset Formula $\sigma_{j}(i)=i+2^{\min\{j,2n-j-1\}}\bmod2^{n}$
+\end_inset
+
+.
+ Es no bloqueante.
+\end_layout
+
+\begin_layout Subsection
+Mecanismo de enrutamiento
+\end_layout
+
+\begin_layout Standard
+El enrutamiento es 
+\series bold
+determinista
+\series default
+ si la ruta que siguen los mensajes solo depende del origen y el destino,
+ y es 
+\series bold
+adaptativo
+\series default
+ si también depende del estado de la red y de los enlaces.
+ Puede ser 
+\series bold
+de ruta mínima
+\series default
+ o 
+\series bold
+no mínima
+\series default
+, y en el último caso puede tener o no 
+\series bold
+vuelta atrás
+\series default
+ (poder o no producir paseos que no sean caminos).
+ El enrutamiento es 
+\series bold
+fuente
+\series default
+ si el nodo origen calcula todo el camino y es 
+\series bold
+destino
+\series default
+ si cada conmutador decide el siguiente enlace.
+\end_layout
+
+\begin_layout Standard
+En una malla 
+\begin_inset Formula $(V,E)$
+\end_inset
+
+, el 
+\series bold
+\emph on
+\lang english
+dimension-order routing
+\series default
+\emph default
+\lang spanish
+ consiste en que, si 
+\begin_inset Formula $x,y\in V$
+\end_inset
+
+ con 
+\begin_inset Formula $x\neq y$
+\end_inset
+
+, para llevar un mensaje de 
+\begin_inset Formula $x$
+\end_inset
+
+ a 
+\begin_inset Formula $y$
+\end_inset
+
+, tomamos el menor 
+\begin_inset Formula $k$
+\end_inset
+
+ con 
+\begin_inset Formula $x_{k}\neq y_{k}$
+\end_inset
+
+ y lo llevamos primero a 
+\begin_inset Formula $(x_{1},\dots,x_{k-1},x_{k}\pm1,x_{k+1},\dots,x_{n})$
+\end_inset
+
+, tomando 
+\begin_inset Formula $x_{k}+1$
+\end_inset
+
+ si 
+\begin_inset Formula $x_{k}<y_{k}$
+\end_inset
+
+ o 
+\begin_inset Formula $x_{k}-1$
+\end_inset
+
+ si 
+\begin_inset Formula $x_{k}>y_{k}$
+\end_inset
+
+.
+ En un hipercubo esto se llama 
+\series bold
+\emph on
+\lang english
+edge-cube routing
+\series default
+\emph default
+\lang spanish
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Estrategia de conmutación
+\end_layout
+
+\begin_layout Standard
+Es la forma en que los datos pasan a través de los conmutadores.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{AR}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Conmutación
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+circuitos La red telefónica.
+ [...] Conectan puertos de entrada y salida [...].
+ [...] El circuito es dedicado y con un ancho de banda fijo [...].
+ [La latencia es el tiempo de establecer el circuito y propagar los datos.]
+\end_layout
+
+\begin_layout Description
+
+\series bold
+Conmutación
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+mensajes
+\series default
+ Los 
+\emph on
+\lang english
+routers
+\emph default
+\lang spanish
+ redirigen el mensaje por la interfaz adecuada usando información adicional
+ en los mismos [...], y usan 
+\emph on
+\lang english
+buffers
+\emph default
+\lang spanish
+ para almacenar los mensajes [...] (
+\emph on
+\lang english
+store-and-forward
+\emph default
+\lang spanish
+).
+\end_layout
+
+\begin_layout Description
+Conmutación
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+paquetes Como la de mensajes, pero los mensajes se dividen en trozos pequeños
+ llamados paquetes, enrutados individualmente [...].
+ [La latencia es proporcional a la distancia.]
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En redes 
+\emph on
+\lang english
+on-chip
+\emph default
+\lang spanish
+ se usan mecanismos de altas prestaciones: 
+\end_layout
+
+\begin_layout Description
+
+\emph on
+\lang english
+Wormhole
+\emph default
+\lang spanish
+ Los paquetes se dividen en 
+\emph on
+\lang english
+flits
+\emph default
+\lang spanish
+, trozos con el tamaño exacto que cabe en el canal, de los que el primero
+ contiene la cabecera con la dirección de destino.
+ El 
+\emph on
+\lang english
+switch
+\emph default
+\lang spanish
+ encamina el paquete en cuanto recibe la cabecera, y solo almacena partes
+ de este en 
+\emph on
+\lang english
+buffers
+\emph default
+\lang spanish
+ pequeños con baja latencia y poco sensibles a la distancia.
+\end_layout
+
+\begin_layout Description
+
+\emph on
+\lang english
+Virtual
+\begin_inset space ~
+\end_inset
+
+Cut
+\begin_inset space ~
+\end_inset
+
+Through
+\emph default
+\lang spanish
+ Variante de 
+\emph on
+\lang english
+wormhole
+\emph default
+\lang spanish
+ en la que, si el canal de salida no está disponible, el paquete se almacena.
+ La latencia es similar a la de 
+\emph on
+\lang english
+wormhole
+\emph default
+\lang spanish
+, no afectada por la distancia, y da más prestaciones cuando hay congestión
+ a cambio de necesitar 
+\emph on
+\lang english
+buffers
+\emph default
+\lang spanish
+ más grandes, capaces de almacenar un paquete completo.
+\end_layout
+
+\begin_layout Standard
+Para el control de flujo en altas prestaciones, cuando se alcanza un límite
+ de uso 
+\emph on
+\lang english
+stop
+\emph default
+\lang spanish
+ procesando 
+\emph on
+\lang english
+flits
+\emph default
+\lang spanish
+ de un canal, se envía una señal al resto para que dejen de enviar y evitar
+ el desbordamiento, y cuando el uso baja un límite 
+\emph on
+\lang english
+go
+\emph default
+\lang spanish
+, se avisa al resto de que pueden volver a enviar.
 \end_layout
 
 \end_body
