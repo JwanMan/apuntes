@@ -5,6 +5,9 @@
 \save_transient_properties true
 \origin unavailable
 \textclass book
+\begin_preamble
+\usepackage{amssymb}
+\end_preamble
 \use_default_options true
 \begin_modules
 algorithm2e
@@ -180,7 +183,7 @@ El
 número cromático
 \series default
  de un grafo 
-\begin_inset Formula $G$
+\begin_inset Formula $G=(V,E)$
 \end_inset
 
 , 
@@ -199,8 +202,17 @@ número cromático
 \begin_inset Formula $k$
 \end_inset
 
--coloreable.
- Ejemplos:
+-coloreable, el mínimo número de conjuntos independientes en que se puede
+ particionar 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ Ejemplos: Dado un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Enumerate
@@ -212,11 +224,7 @@ número cromático
 
 \begin_deeper
 \begin_layout Standard
-En adelante el grafo a considerar será 
-\begin_inset Formula $(V,E)$
-\end_inset
-
- y 
+En adelante 
 \begin_inset Formula $f$
 \end_inset
 
@@ -520,20 +528,1578 @@ Se tiene
 \end_deeper
 \begin_layout Enumerate
 Sea 
-\begin_inset Note Note
+\begin_inset Formula $C_{n}$
+\end_inset
+
+ el anillo o 
+\series bold
+ciclo
+\series default
+ de tamaño 
+\begin_inset Formula $n$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\chi(C_{n})=\begin{cases}
+2, & n\text{ par};\\
+3, & n\text{ impar}.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Como 
+\begin_inset Formula $C_{n}:=(V:=\{0,\dots,n-1\},\{\{i,[i+1]_{n}\}\}_{i\in V})$
+\end_inset
+
+ tiene ejes, 
+\begin_inset Formula $\chi(C_{n})\geq2$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $n$
+\end_inset
+
+ par, tomamos 
+\begin_inset Formula $f(i)=[i]_{2}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $n$
+\end_inset
+
+ impar, si 
+\begin_inset Formula $C_{n}$
+\end_inset
+
+ fuera bipartito, sea 
+\begin_inset Formula $V_{0}$
+\end_inset
+
+ el elemento que contiene al 0 y 
+\begin_inset Formula $V_{1}$
+\end_inset
+
+ el que contiene al 1, necesariamente 
+\begin_inset Formula $V_{0}\neq V_{1}$
+\end_inset
+
+ y, por inducción, el que contiene a 
+\begin_inset Formula $i$
+\end_inset
+
+ es 
+\begin_inset Formula $V_{[i]_{2}}$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $0,n-1\in V_{0}\#$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $C_{n}$
+\end_inset
+
+ no es bipartito y 
+\begin_inset Formula $\chi(C_{n})>2$
+\end_inset
+
+, y tomamos 
+\begin_inset Formula $f(i):=[i]_{2}$
+\end_inset
+
+ para 
+\begin_inset Formula $i\in\{1,\dots,n-1\}$
+\end_inset
+
+ y 
+\begin_inset Formula $f(0):=2$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $H$
+\end_inset
+
+ es un subgrafo de 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $\chi(H)\leq\chi(G)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es una 
+\begin_inset Formula $\chi(G)$
+\end_inset
+
+-coloración de 
+\begin_inset Formula $G$
+\end_inset
+
+, también es una 
+\begin_inset Formula $\chi(G)$
+\end_inset
+
+-coloración de 
+\begin_inset Formula $H$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $K_{q}$
+\end_inset
+
+ es subgrafo de 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $\chi(G)\geq q$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $q=\chi(K_{q})\leq\chi(G)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, 
+\begin_inset Formula $\chi(G-v)\in\{\chi(G),\chi(G)-1\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $k:=\chi(G-v)$
+\end_inset
+
+ y 
+\begin_inset Formula $f:V\to\{1,\dots,k\}$
+\end_inset
+
+ una 
+\begin_inset Formula $k$
+\end_inset
+
+-coloración de 
+\begin_inset Formula $G-v$
+\end_inset
+
+, 
+\begin_inset Formula $k\leq\chi(G)$
+\end_inset
+
+, y como 
+\begin_inset Formula $g:V\to\{1,\dots,k+1\}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $g(i):=f(i)$
+\end_inset
+
+ para 
+\begin_inset Formula $i\neq v$
+\end_inset
+
+ y 
+\begin_inset Formula $g(v):=k+1$
+\end_inset
+
+ es una 
+\begin_inset Formula $(k+1)$
+\end_inset
+
+-coloración de 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $\chi(G)\leq k+1$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $e\in E$
+\end_inset
+
+, 
+\begin_inset Formula $\chi(G-e)\in\{\chi(G),\chi(G)-1\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $e=:(u,v)$
+\end_inset
+
+, como 
+\begin_inset Formula $G-v$
+\end_inset
+
+ es un subgrafo de 
+\begin_inset Formula $G-e$
+\end_inset
+
+, 
+\begin_inset Formula $\chi(G)-1\leq\chi(G-v)\leq\chi(G-e)\leq\chi(G)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+El coloreado de grafos se puede aplicar a problemas que traten de distribuir
+ productos con ciertas relaciones de incompatibilidad, como en el coloreado
+ de mapas, los sudokus.
+ la asignación de frecuencias en torres de telecomunicaciones, la organización
+ de horarios o la distribución de productos peligrosos en un almacén.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Grafo $G=(V=
+\backslash
+{1,
+\backslash
+dots,n
+\backslash
+},E)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Coloración $f$ de $G$ que intenta usar pocos colores.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lPara{$i
+\backslash
+gets1$ 
+\backslash
+KwA $n$}{$f_i
+\backslash
+gets
+\backslash
+min(
+\backslash
+mathbb N
+\backslash
+setminus
+\backslash
+{f_j
+\backslash
+}_{j
+\backslash
+in N(i),j<i})$}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:color"
+
+\end_inset
+
+Algoritmo heurístico para coloreado de grafos.
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \end_inset
 
 
-\begin_inset Formula $C_{n}:=(\{1,\dots,n\},\{\{$
+\end_layout
+
+\begin_layout Standard
+Podemos colorear un grafo con el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:color"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, aunque este no garantiza una coloración óptima.
+ Todo grafo 
+\begin_inset Formula $G$
+\end_inset
+
+ cumple 
+\begin_inset Formula $\chi(G)\leq\Delta_{G}+1$
+\end_inset
+
+, pues el algoritmo siempre elige el menor color de todos salvo un conjunto
+ de tamaño máximo 
+\begin_inset Formula $\Delta_{G}$
+\end_inset
+
+.
+ Así, parece preferible al aplicar el algoritmo ordenar los nodos en orden
+ decreciente de sus grados.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Brooks:
+\series default
+ Si un grafo conexo 
+\begin_inset Formula $G$
+\end_inset
+
+ no es completo ni un ciclo de longitud impar, entonces 
+\begin_inset Formula $\chi(G)\leq\Delta_{G}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Grafos críticos
+\end_layout
+
+\begin_layout Standard
+Un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ es 
+\series bold
+crítico
+\series default
+ o 
+\series bold
+
+\begin_inset Formula $\chi(G)$
+\end_inset
+
+-crítico
+\series default
+ si todo subgrafo estricto 
+\begin_inset Formula $H$
+\end_inset
+
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ cumple 
+\begin_inset Formula $\chi(H)<\chi(G)$
+\end_inset
+
+, 
+\series bold
+crítico por ejes
+\series default
+ si para todo 
+\begin_inset Formula $e\in E$
+\end_inset
+
+ es 
+\begin_inset Formula $\chi(G-e)<\chi(G)$
+\end_inset
+
+ y 
+\series bold
+crítico por vértices
+\series default
+ si para todo 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ es 
+\begin_inset Formula $\chi(G-v)<\chi(G)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Entonces:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $G$
+\end_inset
+
+ es crítico si y sólo si es crítico por ejes y por vértices.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es crítico por ejes y no tiene nodos aislados, es crítico por vértices.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, 
+\begin_inset Formula $v$
+\end_inset
+
+ es adyacente a algún 
+\begin_inset Formula $e\in E$
+\end_inset
+
+ y 
+\begin_inset Formula $G-v$
+\end_inset
+
+ es un subgrafo de 
+\begin_inset Formula $G-e$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $G$
+\end_inset
+
+ es crítico por ejes si y sólo si 
+\begin_inset Formula $\chi(G-e)=\chi(G)-1$
+\end_inset
+
+ para todo 
+\begin_inset Formula $e\in E$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\chi(G-e)\in\{\chi(G),\chi(G)-1\}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $|V|\geq2$
+\end_inset
+
+, 
+\begin_inset Formula $G$
+\end_inset
+
+ tiene un subgrafo crítico 
+\begin_inset Formula $H$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\chi(G)=\chi(H)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si todos los vértices de 
+\begin_inset Formula $G$
+\end_inset
+
+ son aislados, 
+\begin_inset Formula $\chi(G)=1$
+\end_inset
+
+ y tomamos un subgrafo unipuntual, que es crítico.
+ En otro caso, sea 
+\begin_inset Formula $G_{0}$
+\end_inset
+
+ el subgrafo de 
+\begin_inset Formula $G$
+\end_inset
+
+ generado por sus vértices no aislados, claramente 
+\begin_inset Formula $G_{0}$
+\end_inset
+
+ tiene orden al menos 2 y 
+\begin_inset Formula $\chi(G_{0})=\chi(G)$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $G_{0}$
+\end_inset
+
+ es crítico, tomamos 
+\begin_inset Formula $G_{0}$
+\end_inset
+
+, y de lo contrario existe 
+\begin_inset Formula $e_{1}\in E$
+\end_inset
+
+ con 
+\begin_inset Formula $\chi(H_{0}:=G_{0}-e_{1})=\chi(G_{0})$
+\end_inset
+
+.
+ Si todos los vértices de 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ son aislados, 
+\begin_inset Formula $\chi(H_{0})=\chi(G)=1$
+\end_inset
+
+ y tomamos un subgrafo unipuntual, y de lo contrario llamamos 
+\begin_inset Formula $G_{1}$
+\end_inset
+
+ al subgrafo de 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ generado por sus vértices no aislados y repetimos.
+ Como 
+\begin_inset Formula $E$
+\end_inset
+
+ es finito, en algún momento se llega a un subgrafo crítico.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $G$
+\end_inset
+
+ es crítico, 
+\begin_inset Formula $\chi(G)\leq\delta_{G}+1$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $k:=\chi(G)$
+\end_inset
+
+ y supongamos 
+\begin_inset Formula $k>\delta_{G}+1$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\delta_{G}\leq k-2$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ con 
+\begin_inset Formula $o(v)=\delta_{G}$
+\end_inset
+
+, debe ser 
+\begin_inset Formula $\chi(G-v)=\chi(G)-1$
+\end_inset
+
+, pero en una coloración de 
+\begin_inset Formula $G-v$
+\end_inset
+
+, como 
+\begin_inset Formula $v$
+\end_inset
+
+ es de menor grado, se usan a lo sumo 
+\begin_inset Formula $\delta_{G}\leq k-2$
+\end_inset
+
+ colores para los vértices adyacentes a 
+\begin_inset Formula $v$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+, luego hay un color que no se ha utilizado y, pintando 
+\begin_inset Formula $v$
+\end_inset
+
+ de ese color, tenemos una 
+\begin_inset Formula $(k-1)$
+\end_inset
+
+-coloración de 
+\begin_inset Formula $G\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Polinomio cromático
+\end_layout
+
+\begin_layout Standard
+Dados un grafo 
+\begin_inset Formula $G$
+\end_inset
+
+ y 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $p(G;k)$
+\end_inset
+
+ al número de 
+\begin_inset Formula $k$
+\end_inset
+
+-coloraciones de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Así:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $p(G,k)=0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $k<\chi(G)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $p(K_{n},k)=k(k-1)\cdots(k-n+1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Sea 
+\begin_inset Formula $P_{n}$
+\end_inset
+
+ la malla unidimensional o 
+\series bold
+cadena
+\series default
+ de 
+\begin_inset Formula $n$
+\end_inset
+
+ nodos, 
+\begin_inset Formula $p(P_{n},k)=k(k-1)^{n-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+, 
+\begin_inset Formula $u,v\in E$
+\end_inset
+
+ y 
+\begin_inset Formula $e:=(u,v)$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $G+e:=(V,E\cup\{e\})$
+\end_inset
+
+, y si 
+\begin_inset Formula $e\in E$
+\end_inset
+
+ llamamos 
+\series bold
+grafo contraído
+\series default
+ a
+\begin_inset Formula 
+\[
+G\circ e:=((V\setminus\{u,v\})\amalg\{*\},E_{V\setminus\{u,v\}}\cup(\{(*,i)\}_{(u,i)\in E}\cup\{(*,i)\}_{(v,i)\in E})\setminus\{u,v\}).
+\]
+
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de reducción:
+\series default
+ Sean 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ un grafo y 
+\begin_inset Formula $e\notin E^{\complement}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $p(G;k)=p(G+e;k)+p(G\circ e;k)$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $(u,v):=e$
+\end_inset
+
+, las coloraciones 
+\begin_inset Formula $f$
+\end_inset
+
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ con 
+\begin_inset Formula $f(u)=f(v)$
+\end_inset
+
+ son precisamente las de 
+\begin_inset Formula $G\circ e$
+\end_inset
+
+ haciendo 
+\begin_inset Formula $f(*):=f(u)=f(v)$
+\end_inset
+
+, y las coloraciones 
+\begin_inset Formula $f$
+\end_inset
+
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ con 
+\begin_inset Formula $f(u)\neq f(v)$
+\end_inset
+
+ son precisamente las de 
+\begin_inset Formula $G+e$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Así, dados un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ y un 
+\begin_inset Formula $e\in E$
+\end_inset
+
+, 
+\begin_inset Formula $p(G;k)=p(G-e;k)-p(G\circ e;k)$
+\end_inset
+
+, pues 
+\begin_inset Formula $G=(G-e)+e$
+\end_inset
+
+ y 
+\begin_inset Formula $G\circ e=(G-e)\circ e$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+polinomio cromático
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\begin_inset Formula $p(G;k)$
+\end_inset
+
+ respecto a 
+\begin_inset Formula $k$
+\end_inset
+
+, y si 
+\begin_inset Formula $G$
+\end_inset
+
+ tiene grado 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+, 
+\begin_inset Formula $p(G;k)$
+\end_inset
+
+ es un polinomio de grado 
+\begin_inset Formula $n$
+\end_inset
+
+ en que el coeficiente de grado 
+\begin_inset Formula $n$
+\end_inset
+
+ es 1, el término independiente es 0 y los coeficientes de los términos
+ intermedios son enteros y se alternan en signo.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+, 
+\begin_inset Formula $n=|V|$
+\end_inset
+
+ y 
+\begin_inset Formula $m=|E|$
+\end_inset
+
+, y hacemos inducción sobre 
+\begin_inset Formula $(n,m)$
+\end_inset
+
+ (el orden lexicográfico es un buen orden en 
+\begin_inset Formula $\mathbb{N}^{*}\times\mathbb{N}$
+\end_inset
+
+).
+ Para 
+\begin_inset Formula $m=0$
+\end_inset
+
+, todos los puntos son aislados y 
+\begin_inset Formula $p(G;k)=k^{n}$
+\end_inset
+
+, y para 
+\begin_inset Formula $n=1$
+\end_inset
+
+ es 
+\begin_inset Formula $m=0$
+\end_inset
+
+.
+ Sean ahora 
+\begin_inset Formula $n>1$
+\end_inset
+
+ y 
+\begin_inset Formula $m>0$
+\end_inset
+
+, 
+\begin_inset Formula $p(G;k)=p(G-e;k)-p(G\circ e;k)$
+\end_inset
+
+, pero 
+\begin_inset Formula $G-e$
+\end_inset
+
+ tiene un eje menos y 
+\begin_inset Formula $G\circ e$
+\end_inset
+
+ tiene un nodo menos, luego ambos cumplen la hipótesis y como 
+\begin_inset Formula $p(G-e;k)$
+\end_inset
+
+ tiene orden 
+\begin_inset Formula $n$
+\end_inset
+
+ y 
+\begin_inset Formula $p(G\circ e;k)$
+\end_inset
+
+ tiene orden 
+\begin_inset Formula $n-1$
+\end_inset
+
+, 
+\begin_inset Formula $p(G;k)$
+\end_inset
+
+ cumple la hipótesis.
+\end_layout
+
+\begin_layout Section
+Planaridad
+\end_layout
+
+\begin_layout Standard
+Un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ es 
+\series bold
+planar
+\series default
+ si existen 
+\begin_inset Formula $f:V\to\mathbb{R}^{2}$
+\end_inset
+
+ inyectiva y 
+\begin_inset Formula $g:E\to[0,1]\to\mathbb{R}^{2}$
+\end_inset
+
+ tales que, para 
+\begin_inset Formula $e:=(u,v)\in E$
+\end_inset
+
+, 
+\begin_inset Formula $g(e)$
+\end_inset
+
+ es una curva regular simple que une 
+\begin_inset Formula $f(u)$
+\end_inset
+
+ y 
+\begin_inset Formula $f(v)$
+\end_inset
+
+, no pasa por ningún vértice en 
+\begin_inset Formula $(0,1)$
+\end_inset
+
+ y no corta a 
+\begin_inset Formula $g(e')$
+\end_inset
+
+ para ningún otro 
+\begin_inset Formula $e'\in E$
+\end_inset
+
+ en 
+\begin_inset Formula $(0,1)$
+\end_inset
+
+.
+ En tal caso 
+\begin_inset Formula $(V,E,f,g)$
+\end_inset
+
+ es un 
+\series bold
+grafo plano
+\series default
+ o 
+\series bold
+grafo embutido
+\series default
+, con imagen 
+\begin_inset Formula $f(V)\cup\bigcup_{e\in E}g(e)([0,1])$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+estrella
+\series default
+ es un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ donde existe un 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ con 
+\begin_inset Formula $v\in e$
+\end_inset
+
+ para todo 
+\begin_inset Formula $e\in E$
+\end_inset
+
+.
+ Toda estrella es planar.
+ En efecto, sea 
+\begin_inset Formula $G=(\{v_{0},\dots,v_{n}\},E)$
+\end_inset
+
+ la estrella y 
+\begin_inset Formula $v_{0}\in e$
+\end_inset
+
+ para todo 
+\begin_inset Formula $e\in E$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $f(v_{0}):=0$
+\end_inset
+
+, 
+\begin_inset Formula $f(v_{i}):=(\cos i/n,\sin i/n)$
+\end_inset
+
+ para 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+ y 
+\begin_inset Formula $g(v_{0},v_{i})(t):=tv_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $(V,E,f,g)$
+\end_inset
+
+ un grafo plano con imagen 
+\begin_inset Formula $I$
+\end_inset
+
+, llamamos 
+\series bold
+caras
+\series default
+ a las componentes conexas de 
+\begin_inset Formula $\mathbb{R}^{2}\setminus I$
+\end_inset
+
+ y 
+\series bold
+cara externa
+\series default
+ a la no acotada, que es única por ser 
+\begin_inset Formula $I$
+\end_inset
+
+ compacto y por tanto acotado.
+ 
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+contorno
+\series default
+ de una cara es la imagen de un subgrafo de 
+\begin_inset Formula $G$
+\end_inset
+
+, que existe, cuya imagen con las mismas 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ es la frontera de la cara.
+ Los ejes y vértices de dicho subgrafo son 
+\series bold
+incidentes
+\series default
+ a la cara.
+ Un puente es incidente a una sola cara, y un eje no de corte es incidente
+ a 2 caras.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+grado
+\series default
+ de una cara 
+\begin_inset Formula $F$
+\end_inset
+
+, 
+\begin_inset Formula $d(F)$
+\end_inset
+
+, es el número de ejes incidentes a ella, contando los puentes dos veces.
+ Así, si 
+\begin_inset Formula $F$
+\end_inset
+
+ es el conjunto de caras del grafo, 
+\begin_inset Formula $\sum_{f\in F}d(f)=2|E|$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $|V|\geq3$
+\end_inset
+
+, 
+\begin_inset Formula $d(f)\geq3$
+\end_inset
+
+ para todo 
+\begin_inset Formula $f\in F$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Identidad de Euler:
+\series default
+ Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un grafo plano conexo con 
+\begin_inset Formula $n$
+\end_inset
+
+ vértices, 
+\begin_inset Formula $m$
+\end_inset
+
+ ejes y 
+\begin_inset Formula $c$
+\end_inset
+
+ caras, 
+\begin_inset Formula $n-m+c=2$
+\end_inset
+
+, y en particular todos los grafos planos de un mismo grafo planar conexo
+ tienen el mismo número de caras.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $c=1$
+\end_inset
+
+, 
+\begin_inset Formula $G$
+\end_inset
+
+ no tiene ciclos y, al ser conexo, es un árbol, luego 
+\begin_inset Formula $m=n-1$
+\end_inset
+
+ y 
+\begin_inset Formula $n-m+c=2$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $c\geq2$
+\end_inset
+
+, supuesto esto probado para 
+\begin_inset Formula $c-1$
+\end_inset
+
+ caras, sean 
+\begin_inset Formula $C$
+\end_inset
+
+ un ciclo de 
+\begin_inset Formula $G$
+\end_inset
+
+ y 
+\begin_inset Formula $e$
+\end_inset
+
+ un eje de 
+\begin_inset Formula $C$
+\end_inset
+
+, 
+\begin_inset Formula $e$
+\end_inset
+
+ no es un puente, luego es incidente a 2 caras y se puede ver que 
+\begin_inset Formula $G-e$
+\end_inset
+
+ tiene 
+\begin_inset Formula $c-1$
+\end_inset
+
+ caras y es conexo, de modo que por hipótesis 
+\begin_inset Formula $n-(m-1)+(c-1)=2$
+\end_inset
+
+ y 
+\begin_inset Formula $n-m+c=2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En un grafo plano con al menos 3 nodos, toda cara tiene al menos 3 ejes
+ incidentes.
+ Entonces, si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un grafo planar conexo con 
+\begin_inset Formula $n\geq3$
+\end_inset
+
+ vértices y 
+\begin_inset Formula $m$
+\end_inset
+
+ nodos, 
+\begin_inset Formula $m\leq3n-6$
+\end_inset
+
+, y si además 
+\begin_inset Formula $G$
+\end_inset
+
+ no contiene a 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+, 
+\begin_inset Formula $m\leq2n-4$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $F$
+\end_inset
+
+ el conjunto de las caras de un grafo plano arbitrario de 
+\begin_inset Formula $G$
+\end_inset
+
+ y 
+\begin_inset Formula $c:=|F|$
+\end_inset
+
+, como toda 
+\begin_inset Formula $f\in F$
+\end_inset
+
+ cumple 
+\begin_inset Formula $d(f)\geq3$
+\end_inset
+
+, 
+\begin_inset Formula $3c\leq\sum_{f\in F}d(f)=2m$
+\end_inset
+
+, y como 
+\begin_inset Formula $c=2-n+m$
+\end_inset
+
+, tenemos 
+\begin_inset Formula $6-3n+3m\leq2m$
+\end_inset
+
+ y 
+\begin_inset Formula $m\leq3n-6$
+\end_inset
+
+.
+ Si una cara 
+\begin_inset Formula $f$
+\end_inset
+
+ cumple 
+\begin_inset Formula $d(f)=3$
+\end_inset
+
+, se puede ver que el único grafo con 3 ejes contando doblemente los puentes
+ es 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+, por lo que si 
+\begin_inset Formula $G$
+\end_inset
+
+ no contiene a 
+\begin_inset Formula $K_{3}$
+\end_inset
+
+, 
+\begin_inset Formula $d(f)\geq4$
+\end_inset
+
+, 
+\begin_inset Formula $4c=8-4n+4m\leq2m$
+\end_inset
+
+ y 
+\begin_inset Formula $2m\leq4n-8$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $m\leq2n-4$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Por ejemplo, el 
+\series bold
+grafo de Petersen
+\series default
+, 
+\begin_inset Formula $(\{a_{i},b_{i}\}_{i=0}^{4},\{(a_{i},b_{i}),(a_{i},a_{[i+1]_{5}}),(b_{i},b_{[i+2]_{5}})\}_{i=0}^{4})$
+\end_inset
+
+, no es un grafo planar, pues tiene 5 nodos y 15 ejes, y 
+\begin_inset Formula $15>9=3\cdot5-6$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $F$
+\end_inset
+
+ una cara de un grafo plano con 
+\begin_inset Formula $d(F)\geq4$
+\end_inset
+
+, el grafo tiene dos vértices no adyacentes en 
+\begin_inset Formula $F$
+\end_inset
+
+.
+ Entonces, si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un grafo planar maximal con al menos 3 nodos, toda cara 
+\begin_inset Formula $F$
+\end_inset
+
+ de todo grafo plano de 
+\begin_inset Formula $G$
+\end_inset
+
+ cumple 
+\begin_inset Formula $d(F)=3$
+\end_inset
+
+.
+ Como 
+\series bold
+teorema
+\series default
+, todo grafo planar maximal con 
+\begin_inset Formula $n$
+\end_inset
+
+ nodos tiene exactamente 
+\begin_inset Formula $3n-6$
+\end_inset
+
+ ejes.
+\end_layout
+
+\begin_layout Standard
+Dado un grafo 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+, una 
+\series bold
+subdivisión de un eje
+\series default
+ 
+\begin_inset Formula $e=(u,v)\in E$
+\end_inset
+
+ es el grafo 
+\begin_inset Formula $(V\amalg\{*\},E\setminus e\cup(u,*)\cup(*,v))$
+\end_inset
+
+, y una 
+\series bold
+subdivisión
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ es el resultado de realizar subdivisiones sucesivas sobre 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Kuratowski:
+\series default
+ Un grafo es planar si y sólo si no contiene como subgrafo ninguna subdivisión
+ de 
+\begin_inset Formula $K_{5}$
+\end_inset
+
+ ni de 
+\begin_inset Formula $K_{3,3}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de los 4 colores:
+\series default
+ Todo grafo planar es 4-coloreable.
 \end_layout
 
 \end_body
