@@ -1,0 +1,2099 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{amssymb}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+modelo
+\series default
+ o 
+\series bold
+problema de programación lineal entera
+\series default
+ es un modelo de programación u optimización lineal al que se le añade la
+ restricción de que algunas o todas las variables deben ser enteras.
+ El modelo general es
+\begin_inset Formula 
+\begin{align*}
+ & \max & \sum_{i=1}^{n}c_{i}x_{i}\\
+ &  & \sum_{i=1}^{n}a_{ij}x_{i} & \leq b_{j}, &  & \forall j\in\{1,\dots,m\},\\
+ &  & x_{i} & \geq0, &  & \forall i\in\{1,\dots,n\},\\
+ &  & x_{i} & \in\mathbb{Z}, &  & \forall i\in I\subseteq\{1,\dots,n\}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El problema es 
+\series bold
+entero puro
+\series default
+ si 
+\begin_inset Formula $I=\{1,\dots,n\}$
+\end_inset
+
+ y 
+\series bold
+entero mixto
+\series default
+ en otro caso.
+ Como en la programación lineal, se pueden hacer transformaciones como cambiar
+ el sentido de optimización del problema, el sentido de una restricción
+ o el signo de una variable; convertir una restricción de igualdad en dos
+ de desigualdad, o transformar una variable no restringida en dos variables
+ positivas.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+relajación lineal
+\series default
+ de un problema de programación lineal entera al resultado de eliminar de
+ este las 
+\series bold
+restricciones de integridad
+\series default
+, las de la forma 
+\begin_inset Formula $x_{i}\in\mathbb{Z}$
+\end_inset
+
+.
+ El valor óptimo de la relajación lineal es mejor o igual al del problema
+ entero.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $x\in\mathbb{R}^{m}$
+\end_inset
+
+ e 
+\begin_inset Formula $y\in\mathbb{R}^{n}$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $[x,y]:=(x_{1},\dots,x_{m},y_{1},\dots,y_{n})\in\mathbb{R}^{n+m}$
+\end_inset
+
+; si 
+\begin_inset Formula $A\in{\cal M}_{n\times p}(\mathbb{R})$
+\end_inset
+
+ y 
+\begin_inset Formula $B\in{\cal M}_{n\times q}(\mathbb{R})$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $[A,B]:=(c_{ij})\in{\cal M}_{n\times(p+q)}(\mathbb{R})$
+\end_inset
+
+ dada por 
+\begin_inset Formula $c_{ij}:=a_{ij}$
+\end_inset
+
+ para 
+\begin_inset Formula $j\leq p$
+\end_inset
+
+ y 
+\begin_inset Formula $c_{ij}:=b_{i(j-p)}$
+\end_inset
+
+ para 
+\begin_inset Formula $j>p$
+\end_inset
+
+, y escribimos 
+\begin_inset Formula $[x_{1},\dots,x_{n}]:=[x_{1},[x_{2},\dots,x_{n}]]$
+\end_inset
+
+ para 
+\begin_inset Formula $n>2$
+\end_inset
+
+ y 
+\begin_inset Formula $[x_{1}]:=x_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, sean 
+\begin_inset Formula $A\in{\cal M}_{n\times p}(\mathbb{Q})$
+\end_inset
+
+, 
+\begin_inset Formula $G\in{\cal M}_{n\times q}(\mathbb{Q})$
+\end_inset
+
+, 
+\begin_inset Formula $b\in\mathbb{Q}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $P:=\{[x,y]\in\mathbb{R}^{p+q}:Ax+Gy\leq b\}$
+\end_inset
+
+ y 
+\begin_inset Formula $S:=\{[x,y]\in P:x\in\mathbb{Z}^{p}\}$
+\end_inset
+
+, existen 
+\begin_inset Formula $A'\in{\cal M}_{n\times p}(\mathbb{Q})$
+\end_inset
+
+, 
+\begin_inset Formula $G'\in{\cal M}_{n\times q}(\mathbb{Q})$
+\end_inset
+
+ y 
+\begin_inset Formula $b'\in\mathbb{Q}^{n}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $\text{ec}S=\{[x,y]:A'x+G'y\leq b'\}$
+\end_inset
+
+.
+ Si algunos coeficientes son irracionales, la envoltura convexa del conjunto
+ factible puede no ser un poliedro.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $S:=\{(x,y)\in\mathbb{Z}^{2}:y\leq\sqrt{2}x,x\geq0,y\geq0\}$
+\end_inset
+
+ y 
+\begin_inset Formula $C:=\{(x,y):y<\sqrt{2}x,x\geq0,y\geq0\}\cup\{0\}$
+\end_inset
+
+.
+ Como para 
+\begin_inset Formula $x\in\mathbb{Z}$
+\end_inset
+
+ es 
+\begin_inset Formula $\sqrt{2}x\notin\mathbb{Z}$
+\end_inset
+
+, 
+\begin_inset Formula $S\subseteq C$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $a,b\in C$
+\end_inset
+
+, 
+\begin_inset Formula $t\in[0,1]$
+\end_inset
+
+ y 
+\begin_inset Formula $p:=(1-t)a+tb$
+\end_inset
+
+, si uno de 
+\begin_inset Formula $a$
+\end_inset
+
+ o 
+\begin_inset Formula $b$
+\end_inset
+
+ es 0, por ejemplo 
+\begin_inset Formula $a$
+\end_inset
+
+, entonces 
+\begin_inset Formula $p=(tb_{1},tb_{2})$
+\end_inset
+
+, que es 0 si 
+\begin_inset Formula $t=0$
+\end_inset
+
+ y en otro caso cumple las otras condiciones, y en otro caso 
+\begin_inset Formula $p$
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+hereda
+\begin_inset Quotes crd
+\end_inset
+
+ las otras condiciones de 
+\begin_inset Formula $a$
+\end_inset
+
+ y 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $C$
+\end_inset
+
+ es conexo y 
+\begin_inset Formula $\text{ec}S\subseteq C$
+\end_inset
+
+.
+ Además, 
+\begin_inset Formula $0\in S$
+\end_inset
+
+ y para 
+\begin_inset Formula $(x,y)\in C\setminus\{0\}$
+\end_inset
+
+, como 
+\begin_inset Formula $x>0$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{y}{x}<\sqrt{2}$
+\end_inset
+
+ y existen 
+\begin_inset Formula $p,q\in\mathbb{Z}$
+\end_inset
+
+ con 
+\begin_inset Formula $\frac{p}{q}\in[\frac{y}{x},\sqrt{2})$
+\end_inset
+
+, luego 
+\begin_inset Formula $(q,p)\in S$
+\end_inset
+
+ y, como 
+\begin_inset Formula $(q,0)\in S$
+\end_inset
+
+ y 
+\begin_inset Formula $p>q\frac{y}{x}$
+\end_inset
+
+, 
+\begin_inset Formula $(q,q\frac{y}{x})\in\text{ec}S$
+\end_inset
+
+ y 
+\begin_inset Formula $(q\frac{x}{q},q\frac{y}{x}\frac{x}{q})=(x,y)\in\text{ec}S$
+\end_inset
+
+, luego 
+\begin_inset Formula $C\subseteq\text{ec}S$
+\end_inset
+
+.
+ Así, 
+\begin_inset Formula $C=\text{ec}S$
+\end_inset
+
+, pero 
+\begin_inset Formula $C$
+\end_inset
+
+ no es un poliedro.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $A\in{\cal M}_{m\times n}(\mathbb{Q})$
+\end_inset
+
+, 
+\begin_inset Formula $b\in\mathbb{Q}^{m}$
+\end_inset
+
+ y 
+\begin_inset Formula $P:=\{x\in\mathbb{R}^{n}:Ax\leq b\}$
+\end_inset
+
+, si 
+\begin_inset Formula $P_{I}:=\text{ec}(P\cap\mathbb{Z}^{n})\neq\emptyset$
+\end_inset
+
+, para 
+\begin_inset Formula $c\in\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\{c\cdot x\}_{x\in P_{I}}$
+\end_inset
+
+ está acotado superiormente si y sólo si lo está 
+\begin_inset Formula $\{c\cdot x\}_{x\in P}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Matrices totalmente unimodulares
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{OL}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $A\in{\cal M}_{m\times n}(\mathbb{R})$
+\end_inset
+
+ de rango 
+\begin_inset Formula $m$
+\end_inset
+
+ (por tanto 
+\begin_inset Formula $m\leq n$
+\end_inset
+
+), 
+\begin_inset Formula $b\in\mathbb{R}^{m}$
+\end_inset
+
+ y 
+\begin_inset Formula $c\in\mathbb{R}^{n}$
+\end_inset
+
+.
+ [...] Llamamos 
+\begin_inset Formula $A_{1},\dots,A_{n}$
+\end_inset
+
+ a las columnas de 
+\begin_inset Formula $A$
+\end_inset
+
+ [...].
+\end_layout
+
+\begin_layout Standard
+Dado 
+\begin_inset Formula $S\subseteq\{1,\dots,n\}$
+\end_inset
+
+, la submatriz 
+\begin_inset Formula $B\in{\cal M}_{m}(\mathbb{R})$
+\end_inset
+
+ formada por las columnas de 
+\begin_inset Formula $A$
+\end_inset
+
+ con índice en 
+\begin_inset Formula $S$
+\end_inset
+
+ es 
+\series bold
+básica
+\series default
+ si es de rango máximo.
+ Entonces, de las variables 
+\begin_inset Formula $x_{1},\dots,x_{n}$
+\end_inset
+
+, [...] 
+\begin_inset Formula $x_{k}$
+\end_inset
+
+ es una 
+\series bold
+variable básica
+\series default
+ [...] si 
+\begin_inset Formula $k\in S$
+\end_inset
+
+ [...] ([...] 
+\begin_inset Formula $N$
+\end_inset
+
+ es la submatriz formada por las columnas de 
+\begin_inset Formula $A$
+\end_inset
+
+ con índice no en 
+\begin_inset Formula $S$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+[...] Si 
+\begin_inset Formula $S=\{s_{1},\dots,s_{m}\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\{1,\dots,n\}\setminus S=\{t_{1},\dots,t_{n-m}\}$
+\end_inset
+
+ con 
+\begin_inset Formula $s_{1}<\dots<s_{m}$
+\end_inset
+
+ y 
+\begin_inset Formula $t_{1}<\dots<t_{n-m}$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $x_{B}:=(x_{s_{1}},\dots,x_{s_{m}})$
+\end_inset
+
+, 
+\begin_inset Formula $x_{N}:=(x_{t_{1}},\dots,x_{t_{n-m}})$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{b}(x_{1},\dots,x_{m})=\sum_{k}e_{s_{k}}x_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbf{n}(x_{1},\dots,x_{n-m}):=\sum_{k}e_{t_{k}}x_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{b}\in{\cal M}_{n\times m}(\mathbb{R})$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{n}\in{\cal M}_{n\times(n-m)}(\mathbb{R})$
+\end_inset
+
+.
+ [...]
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+solución básica
+\series default
+ a [...] 
+\begin_inset Formula $x\in\{Ax=b\}$
+\end_inset
+
+ con 
+\begin_inset Formula $x_{N}=0$
+\end_inset
+
+ y, por tanto, [...] 
+\begin_inset Formula $x_{B}=B^{-1}b$
+\end_inset
+
+, y [...] es 
+\series bold
+factible
+\series default
+ si 
+\begin_inset Formula $x\geq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado 
+\begin_inset Formula $F:=\{Ax=b,x\geq0\}$
+\end_inset
+
+, 
+\begin_inset Formula $x\in F$
+\end_inset
+
+ es un punto extremo si y sólo si es una solución básica factible.
+ Además, si 
+\begin_inset Formula $F\neq\emptyset$
+\end_inset
+
+, existe al menos un punto extremo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A\in{\cal M}_{m\times n}(\mathbb{R})$
+\end_inset
+
+ es 
+\series bold
+unimodular
+\series default
+ si tiene rango máximo, todos sus coeficientes son enteros y el determinante
+ de cualquier submatriz cuadrada de tamaño máximo es 1, 0 o 
+\begin_inset Formula $-1$
+\end_inset
+
+, y es 
+\series bold
+totalmente unimodular
+\series default
+ si el determinante de cualquier submatriz cuadrada es 1, 0 o 
+\begin_inset Formula $-1$
+\end_inset
+
+, de modo que todas sus entradas son 1, 0 
+\begin_inset Formula $-1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un poliedro 
+\begin_inset Formula $P\subseteq\mathbb{R}$
+\end_inset
+
+ es 
+\series bold
+entero
+\series default
+ si todos sus puntos extremos están en 
+\begin_inset Formula $\mathbb{Z}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Lema de Veinott-Dantzig:
+\series default
+ Si 
+\begin_inset Formula $m<n$
+\end_inset
+
+, 
+\begin_inset Formula $A\in{\cal M}_{m\times n}(\mathbb{Z})$
+\end_inset
+
+ de rango 
+\begin_inset Formula $m$
+\end_inset
+
+ es unimodular si y sólo si para cada 
+\begin_inset Formula $b\in\mathbb{Z}^{m}$
+\end_inset
+
+, 
+\begin_inset Formula $Q:=\{x\in\mathbb{R}^{n}:Ax=b,x\geq0\}$
+\end_inset
+
+ es entero.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $x$
+\end_inset
+
+ un punto extremo de 
+\begin_inset Formula $Q$
+\end_inset
+
+, 
+\begin_inset Formula $x$
+\end_inset
+
+ es una solución básica factible y tiene forma 
+\begin_inset Formula $x=:\mathbf{b}B^{-1}b$
+\end_inset
+
+ para cierta submatriz 
+\begin_inset Formula $B\in{\cal M}_{m}(\mathbb{Z})$
+\end_inset
+
+ no singular de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ La adjunta de 
+\begin_inset Formula $B$
+\end_inset
+
+ también tiene coeficientes enteros, y como 
+\begin_inset Formula $|B|\in\{\pm1\}$
+\end_inset
+
+, 
+\begin_inset Formula $B^{-1}=\frac{1}{|B|}\text{adj}B\in{\cal M}_{m}(\mathbb{Z})$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in\mathbb{Z}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $B\in{\cal M}_{m}(\mathbb{Z})$
+\end_inset
+
+ una submatriz no singular de 
+\begin_inset Formula $A$
+\end_inset
+
+ y queremos ver que 
+\begin_inset Formula $|B|\in\{\pm1\}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+, sean 
+\begin_inset Formula $y\in\mathbb{Z}^{m}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $z:=y+(B^{-1})_{i}\geq0$
+\end_inset
+
+ y 
+\begin_inset Formula $b:=Bz=By+e_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $b\in\mathbb{Z}^{m}$
+\end_inset
+
+ al tener 
+\begin_inset Formula $B$
+\end_inset
+
+, 
+\begin_inset Formula $y$
+\end_inset
+
+ y 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+ todos los coeficientes enteros, luego 
+\begin_inset Formula $Q:=\{Ax=b,x\geq0\}$
+\end_inset
+
+ es entero y 
+\begin_inset Formula $x:=\mathbf{b}z=\mathbf{b}B^{-1}b$
+\end_inset
+
+ es una solución básica factible de 
+\begin_inset Formula $\{Ax=b,x\geq0\}$
+\end_inset
+
+ y por tanto un punto extremo de 
+\begin_inset Formula $Q$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $x=\mathbf{b}(y+(B^{-1})_{i})\in\mathbb{Z}^{m}$
+\end_inset
+
+, 
+\begin_inset Formula $(B^{-1})_{i}\in\mathbb{Z}^{m}$
+\end_inset
+
+ y, como 
+\begin_inset Formula $i$
+\end_inset
+
+ es arbitrario, 
+\begin_inset Formula $B^{-1}\in\mathbb{Z}^{m}$
+\end_inset
+
+.
+ Ahora bien, como 
+\begin_inset Formula $B$
+\end_inset
+
+ y 
+\begin_inset Formula $B^{-1}$
+\end_inset
+
+ son enteras y 
+\begin_inset Formula $|B||B^{-1}|=1$
+\end_inset
+
+, 
+\begin_inset Formula $|B|\in\{1,-1\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Hoffman-Kruskal:
+\series default
+ 
+\begin_inset Formula $A\in{\cal M}_{m\times n}(\mathbb{Z})$
+\end_inset
+
+ con 
+\begin_inset Formula $m\leq n$
+\end_inset
+
+ es totalmente unimodular si y sólo si para 
+\begin_inset Formula $b\in\mathbb{Z}^{m}$
+\end_inset
+
+, el poliedro 
+\begin_inset Formula $\{x\in\mathbb{R}^{n}:Ax\leq b,x\geq0\}$
+\end_inset
+
+ es entero.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dada una submatriz 
+\begin_inset Formula $B\in{\cal M}_{m}$
+\end_inset
+
+ de 
+\begin_inset Formula $[A,I]$
+\end_inset
+
+ no singular, si 
+\begin_inset Formula $B$
+\end_inset
+
+ es submatriz de 
+\begin_inset Formula $A$
+\end_inset
+
+, claramente 
+\begin_inset Formula $|B|\in\{\pm1\}$
+\end_inset
+
+, y en otro caso, desarrollando por columnas, 
+\begin_inset Formula $|B|=|B'|$
+\end_inset
+
+ para alguna submatriz 
+\begin_inset Formula $B'$
+\end_inset
+
+ de 
+\begin_inset Formula $B$
+\end_inset
+
+ y de 
+\begin_inset Formula $A$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $|B|\in\{\pm1\}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $[I,A]$
+\end_inset
+
+ es unimodular, con lo que 
+\begin_inset Formula $Q:=\{[x,y]\in\mathbb{R}^{n+m}:Ax+Iy=b,[x,y]\geq0\}$
+\end_inset
+
+ es entero.
+ Sea ahora 
+\begin_inset Formula $[x,y]\in Q$
+\end_inset
+
+ (
+\begin_inset Formula $x\in\mathbb{R}^{n}$
+\end_inset
+
+), claramente 
+\begin_inset Formula $y=b-Ax$
+\end_inset
+
+, por lo que la proyección de 
+\begin_inset Formula $Q$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{R}^{n}\times0_{\mathbb{R}^{m}}$
+\end_inset
+
+ es 
+\begin_inset Formula $P:=\{x\in\mathbb{R}^{n}:b=b,x\geq0,b-Ax\geq0\}=\{Ax\leq b,x\geq0\}$
+\end_inset
+
+.
+ Así, dado un punto extremo 
+\begin_inset Formula $x\in P$
+\end_inset
+
+, 
+\begin_inset Formula $[x,b-Ax]\in Q$
+\end_inset
+
+ es un punto extremo, pues si no lo fuera existirían 
+\begin_inset Formula $U:=[u,b-Au],V:=[v,b-Av]\in Q$
+\end_inset
+
+ distintos y 
+\begin_inset Formula $t\in(0,1)$
+\end_inset
+
+ con 
+\begin_inset Formula $(1-t)U+tV=[x,b-Ax]$
+\end_inset
+
+ y 
+\begin_inset Formula $(1-t)u+tv=x$
+\end_inset
+
+, y como 
+\begin_inset Formula $u,v\in P$
+\end_inset
+
+, 
+\begin_inset Formula $x$
+\end_inset
+
+ no sería punto extremo.
+ Entonces 
+\begin_inset Formula $[x,b-Ax]\in\mathbb{Z}^{n+m}$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in\mathbb{Z}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $b\in\mathbb{Z}^{m}$
+\end_inset
+
+, 
+\begin_inset Formula $P:=\{x:Ax\leq b,x\geq0\}$
+\end_inset
+
+, 
+\begin_inset Formula $Q:=\{[x,y]:Ax+y=b,[x,y]\geq0\}$
+\end_inset
+
+ y 
+\begin_inset Formula $[x,y]\in Q$
+\end_inset
+
+, claramente 
+\begin_inset Formula $y=b-Ax$
+\end_inset
+
+, y si 
+\begin_inset Formula $[x,y]$
+\end_inset
+
+ es punto extremo de 
+\begin_inset Formula $Q$
+\end_inset
+
+, 
+\begin_inset Formula $x$
+\end_inset
+
+ lo es de 
+\begin_inset Formula $P$
+\end_inset
+
+, pues si no lo fuera habrían 
+\begin_inset Formula $u,v\in P$
+\end_inset
+
+ distintos y 
+\begin_inset Formula $t\in(0,1)$
+\end_inset
+
+ con 
+\begin_inset Formula $(1-t)u+tv=x$
+\end_inset
+
+, pero 
+\begin_inset Formula $[u,b-Au],[v,b-Av]\in Q$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $[x,y]$
+\end_inset
+
+ no sería punto extremo de 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ Así, como 
+\begin_inset Formula $P$
+\end_inset
+
+ es entero, 
+\begin_inset Formula $Q$
+\end_inset
+
+ también, luego 
+\begin_inset Formula $[A,I]$
+\end_inset
+
+ es unimodular.
+ Sea entonces 
+\begin_inset Formula $B$
+\end_inset
+
+ una submatriz cuadrada de 
+\begin_inset Formula $A$
+\end_inset
+
+, añadiendo a 
+\begin_inset Formula $B$
+\end_inset
+
+ las filas de 
+\begin_inset Formula $A$
+\end_inset
+
+ que no se han tomado para 
+\begin_inset Formula $B$
+\end_inset
+
+ y las columnas de 
+\begin_inset Formula $I$
+\end_inset
+
+ que valen 1 en esas filas, obtenemos una submatriz 
+\begin_inset Formula $B'$
+\end_inset
+
+ de 
+\begin_inset Formula $[I,A]$
+\end_inset
+
+ de tamaño 
+\begin_inset Formula $m$
+\end_inset
+
+ y, desarrollando por columnas de 
+\begin_inset Formula $I$
+\end_inset
+
+, tenemos que 
+\begin_inset Formula $|B'|=|B|$
+\end_inset
+
+, pero por ser 
+\begin_inset Formula $[I,A]$
+\end_inset
+
+ unimodular, 
+\begin_inset Formula $|B|=|B'|\in\{1,0,-1\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Caracterizaciones de matrices unimodulares
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, una matriz 
+\begin_inset Formula $A$
+\end_inset
+
+ es totalmente unimodular si y sólo si lo es 
+\begin_inset Formula $A^{t}$
+\end_inset
+
+, si y sólo si lo es 
+\begin_inset Formula $[A,I]$
+\end_inset
+
+, si y solo si lo es el resultado de añadir o quitar de 
+\begin_inset Formula $A$
+\end_inset
+
+ una fila o columna igual a 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+ para algún 
+\begin_inset Formula $i$
+\end_inset
+
+, si y sólo si lo es el resultado de multiplicar una fila o columna de 
+\begin_inset Formula $A$
+\end_inset
+
+ por 
+\begin_inset Formula $-1$
+\end_inset
+
+, si y sólo si lo es el resultado de intercambiar dos filas o columnas de
+ 
+\begin_inset Formula $A$
+\end_inset
+
+, si y sólo si lo es el resultado de duplicar una columna o fila de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A\in{\cal M}_{m\times n}(\mathbb{R})$
+\end_inset
+
+ es 
+\series bold
+euleriana
+\series default
+ si en cada fila o columna la suma de los elementos es par.
+ Como 
+\series bold
+teorema
+\series default
+, 
+\begin_inset Formula $A\in{\cal M}_{m\times n}(\{1,0,-1\})$
+\end_inset
+
+ es totalmente unimodular si y sólo si la suma de los elementos de cada
+ submatriz cuadrada euleriana de 
+\begin_inset Formula $A$
+\end_inset
+
+ es múltiplo de 4, si y sólo si para cada 
+\begin_inset Formula $F\subseteq\{1,\dots,m\}$
+\end_inset
+
+ existe 
+\begin_inset Formula $F_{1}\subseteq F$
+\end_inset
+
+ tal que, si 
+\begin_inset Formula $F_{2}:=F\setminus F_{1}$
+\end_inset
+
+, para 
+\begin_inset Formula $j\in\{1,\dots,n\}$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\left|\sum_{i\in F_{1}}a_{ij}-\sum_{i\in F_{2}}a_{ij}\right|\leq1.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $A\in{\cal M}_{m\times n}(\{1,0,-1\})$
+\end_inset
+
+, ninguna columna de 
+\begin_inset Formula $A$
+\end_inset
+
+ tiene más de dos elementos no nulos y existe una partición 
+\begin_inset Formula $\{F_{1},F_{2}\}$
+\end_inset
+
+ de 
+\begin_inset Formula $\{1,\dots,m\}$
+\end_inset
+
+ con elementos no necesariamente vacíos tal que, para 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+ y 
+\begin_inset Formula $j,k\in\{1,\dots,m\}$
+\end_inset
+
+, 
+\begin_inset Formula $j$
+\end_inset
+
+ y 
+\begin_inset Formula $k$
+\end_inset
+
+ están en el mismo conjunto de la partición si y sólo si 
+\begin_inset Formula $a_{ji}$
+\end_inset
+
+ y 
+\begin_inset Formula $a_{ki}$
+\end_inset
+
+ tienen el mismo signo, entonces 
+\begin_inset Formula $A$
+\end_inset
+
+ es totalmente unimodular.
+ En particular 
+\begin_inset Formula $A$
+\end_inset
+
+ es totalmente unimodular si en cada columna tiene a lo sumo un coeficiente
+ 
+\begin_inset Formula $+1$
+\end_inset
+
+ y otro 
+\begin_inset Formula $-1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+matriz de intervalo
+\series default
+ es una matriz 
+\begin_inset Formula $A\in{\cal M}_{m\times n}(\{0,1\})$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $j\in\{1,\dots,n\}$
+\end_inset
+
+ e 
+\begin_inset Formula $i,k\in\{1,\dots,m\}$
+\end_inset
+
+ con 
+\begin_inset Formula $i<k$
+\end_inset
+
+, si 
+\begin_inset Formula $a_{ij}=a_{kj}=1$
+\end_inset
+
+, entonces 
+\begin_inset Formula $a_{hj}=1$
+\end_inset
+
+ para todo 
+\begin_inset Formula $i\leq h\leq k$
+\end_inset
+
+.
+ Toda matriz de intervalo es totalmente unimodular.
+\end_layout
+
+\begin_layout Section
+Modelos clásicos
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+problema de asignación
+\series default
+ consiste en asignar 
+\begin_inset Formula $n$
+\end_inset
+
+ tareas a 
+\begin_inset Formula $n$
+\end_inset
+
+ operarios, una tarea por operario, minimizando el tiempo total dada una
+ matriz 
+\begin_inset Formula $T\in{\cal M}_{n}(\mathbb{R}^{\geq0})$
+\end_inset
+
+ en la que 
+\begin_inset Formula $t_{ij}$
+\end_inset
+
+ es el tiempo que tarda el operario 
+\begin_inset Formula $i$
+\end_inset
+
+ en realizar la tarea 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ Si llamamos
+\begin_inset Formula 
+\[
+x_{ij}:=\begin{cases}
+1, & \text{el operario }i\text{ es asignado a la tarea }j;\\
+0, & \text{en otro caso}
+\end{cases}
+\]
+
+\end_inset
+
+para 
+\begin_inset Formula $i,j\in\{1,\dots,n\}$
+\end_inset
+
+, podemos formular el problema como
+\begin_inset Formula 
+\begin{alignat*}{3}
+ & \min & {\textstyle \sum_{ij}}t_{ij}x_{ij}\\
+ &  & {\textstyle \sum_{j}}x_{ij} & \leq1, &  & \forall i\\
+ &  & {\textstyle \sum_{i}}x_{ij} & \geq1, &  & \forall j\\
+ &  & x_{ij} & \in\{0,1\}, &  & \forall i,j
+\end{alignat*}
+
+\end_inset
+
+Si las tareas se pueden hacer a la vez, lo que queremos minimizar es 
+\begin_inset Formula $\max_{i}\sum_{j}t_{ij}x_{ij}$
+\end_inset
+
+, para lo que cambiamos la formulación a
+\begin_inset Formula 
+\begin{alignat*}{3}
+ & \min & z\\
+ &  & {\textstyle \sum_{j}}x_{ij} & \leq1, &  & \forall i\\
+ &  & {\textstyle \sum_{i}}x_{ij} & \geq1, &  & \forall j\\
+ &  & z-{\textstyle \sum_{j}}t_{ij}x_{ij} & \geq0, &  & \forall i\\
+ &  & x_{ij} & \in\{0,1\}, &  & \forall i,j
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean ahora 
+\begin_inset Formula $R:=(V:=\{1,\dots,n\},E,\omega)$
+\end_inset
+
+ una red y 
+\begin_inset Formula $s,t\in V$
+\end_inset
+
+ distintos, y queremos encontrar un paseo de coste mínimo de 
+\begin_inset Formula $s$
+\end_inset
+
+ a 
+\begin_inset Formula $t$
+\end_inset
+
+, lo que definiendo las variables
+\begin_inset Formula 
+\[
+x_{ij}:=\begin{cases}
+1, & j\text{ aparece a continuación de }i\text{ en el camino};\\
+0, & \text{en otro caso},
+\end{cases}
+\]
+
+\end_inset
+
+para 
+\begin_inset Formula $(i,j)\in V\times V$
+\end_inset
+
+ con 
+\begin_inset Formula $\{i,j\}\in E$
+\end_inset
+
+, podemos formular como
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{3}
+ & \min & {\textstyle \sum_{ij}}d_{ij}x_{ij}\\
+ &  & {\textstyle \sum_{(s,j)\in E}}x_{sj} & =1,\\
+ &  & {\textstyle \sum_{(j,t)\in E}}x_{jt} & =1, &  & \forall j\\
+ &  & {\textstyle \sum_{(i,v)\in E}}x_{iv}-{\textstyle \sum_{(v,j)\in E}x_{vj}} & =0, &  & \forall v\neq s,t\\
+ &  & x_{ij} & \in\{0,1\}, &  & \forall i,j
+\end{alignat*}
+
+\end_inset
+
+Entonces el camino empieza en 
+\begin_inset Formula $s$
+\end_inset
+
+, sigue en el único 
+\begin_inset Formula $i$
+\end_inset
+
+ con 
+\begin_inset Formula $x_{si}=1$
+\end_inset
+
+, luego en el único 
+\begin_inset Formula $j$
+\end_inset
+
+ con 
+\begin_inset Formula $x_{ij}=1$
+\end_inset
+
+, y así hasta llegar a 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ La unicidad sabemos que se da si 
+\begin_inset Formula $\omega(e)\geq0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $e$
+\end_inset
+
+; de lo contrario tenemos que añadir 
+\begin_inset Formula $\sum_{(i,v)\in E}x_{iv}\leq1,\forall v\neq s,t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para obtener el árbol generador minimal de 
+\begin_inset Formula $R$
+\end_inset
+
+, 
+\begin_inset Formula $T=(V,E_{T})$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $x_{ij}:=\chi_{E_{T}}(i,j)$
+\end_inset
+
+ para 
+\begin_inset Formula $(i,j)\in E$
+\end_inset
+
+, y formulamos el problema como
+\begin_inset Formula 
+\begin{alignat*}{3}
+ & \min & {\textstyle \sum_{ij}}c_{ij}x_{ij}\\
+ &  & {\textstyle \sum_{(i,j)\in E}x_{ij}} & =|V|-1\\
+ &  & {\textstyle \sum_{(i,j)\in E_{S}}x_{ij}} & \leq|S|-1, &  & \forall S\subsetneq V:|S|\geq3\\
+ &  & x_{ij} & \in\{0,1\}, &  & \forall i,j
+\end{alignat*}
+
+\end_inset
+
+En efecto, la primera condición nos asegura que 
+\begin_inset Formula $T$
+\end_inset
+
+ tenga 
+\begin_inset Formula $|V|-1$
+\end_inset
+
+ ejes y la segunda que no tenga ciclos salvo, quizá, uno con todos los vértices
+ de 
+\begin_inset Formula $V$
+\end_inset
+
+, lo que la primera condición ya descarta, y esto caracteriza un árbol.
+ La relajación lineal de este problema da una solución entera.
+\end_layout
+
+\begin_layout Standard
+Otra posible formulación, con las mismas variables resulta de cambiar la
+ segunda condición por 
+\begin_inset Formula $\sum_{(i,j)\in[S,V\setminus S]}x_{ij}\geq1,\forall S\subsetneq V:S\neq\emptyset$
+\end_inset
+
+, pues esto nos da la conexión y, junto con la primera condición, caracteriza
+ al árbol.
+ La relajación lineal no tiene por qué dar una solución entera.
+\end_layout
+
+\begin_layout Standard
+Para el problema del viajante de comercio sobre una red completa 
+\begin_inset Formula $R:=(V:=\{0,\dots,n-1\},E:=\{\{i,j\}\}_{i,j\in V,i\neq j},d)$
+\end_inset
+
+, existen varias formulaciones:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Formulación de Dantzig-Fulkerson-Johnson:
+\series default
+ Sea
+\begin_inset Formula 
+\[
+x_{ij}:=\left\{ \begin{aligned}1, & \text{el ciclo tiene }i\text{ y a continuación }j;\\
+0, & \text{en otro caso}
+\end{aligned}
+\right.
+\]
+
+\end_inset
+
+para 
+\begin_inset Formula $(i,j)\in V\times V$
+\end_inset
+
+ con 
+\begin_inset Formula $\{i,j\}\in E$
+\end_inset
+
+, el problema es
+\begin_inset Formula 
+\begin{alignat*}{3}
+ & \min & {\textstyle \sum}_{ij}d_{ij}x_{ij}\\
+ &  & {\textstyle \sum_{(i,j)\in E}}x_{ij} & =1, &  & \forall i\\
+ &  & {\textstyle \sum}_{(k,i)\in E}x_{ki} & =1, &  & \forall i\\
+ &  & x_{ij} & \in\{0,1\}, &  & \forall i,j
+\end{alignat*}
+
+\end_inset
+
+Para obtener el camino, tomamos un nodo inicial 
+\begin_inset Formula $i_{0}$
+\end_inset
+
+, luego el único 
+\begin_inset Formula $i_{1}$
+\end_inset
+
+ con 
+\begin_inset Formula $x_{i_{0}i_{1}}=1$
+\end_inset
+
+, y luego repetimos hasta volver a 
+\begin_inset Formula $i_{0}$
+\end_inset
+
+.
+ El ciclo resultante puede no ser hamiltoniano porque esta formulación permite
+ subciclos estrictos, ciclos que no contienen a todos los nodos.
+ Para evitar esto, podemos añadir la restricción 
+\begin_inset Formula $\sum_{e\in E_{s}}x_{e}\leq|S|-1,\forall S\subsetneq V:|S|\geq2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si ahora las variables son
+\begin_inset Formula 
+\[
+x_{ij}:=\begin{cases}
+1, & (i,j)\text{ está en el ciclo};\\
+0, & \text{en otro caso}
+\end{cases}
+\]
+
+\end_inset
+
+para 
+\begin_inset Formula $(i,j)\in E$
+\end_inset
+
+, otra formulación es
+\begin_inset Formula 
+\begin{alignat*}{3}
+ & \min & {\textstyle \sum}_{e}d_{e}x_{e}\\
+ &  & {\textstyle \sum_{e\in N(v)}}x_{e} & =2, &  & \forall v\\
+ &  & {\textstyle \sum}_{e\in E_{S}}x_{e} & \leq|S|-1, &  & \forall S\subsetneq V:|S|\geq3\\
+ &  & x_{ij} & \in\{0,1\}, &  & \forall i,j
+\end{alignat*}
+
+\end_inset
+
+El ciclo se obtendría tomando un nodo inicial 
+\begin_inset Formula $i_{0}$
+\end_inset
+
+, luego un 
+\begin_inset Formula $i_{1}$
+\end_inset
+
+ con 
+\begin_inset Formula $x_{i_{0}i_{1}}=1$
+\end_inset
+
+, luego un 
+\begin_inset Formula $i_{2}\neq i_{0}$
+\end_inset
+
+ con 
+\begin_inset Formula $x_{i_{1}i_{2}}=1$
+\end_inset
+
+, etc.
+ En estas formulaciones el número de restricciones crece exponencialmente
+ con el número de vértices.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Formulación de Miller-Tucker-Zemlin:
+\series default
+ Las variables se definen como en la primera formulación con variables adicional
+es 
+\begin_inset Formula $u_{1},\dots,u_{n}$
+\end_inset
+
+.
+ Llamando 
+\begin_inset Formula $n:=|V|$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{alignat*}{3}
+ & \min & {\textstyle \sum}_{ij}d_{ij}x_{ij}\\
+ &  & {\textstyle \sum_{(i,j)\in E}}x_{ij} & =1 &  & \forall i\\
+ &  & {\textstyle \sum_{(k,i)\in E}}x_{ki} & =1 &  & \forall i\\
+ &  & u_{i}-u_{j}+nx_{ij} & \leq n-1 &  & \forall i,j\in\{1,\dots,n-1\}:(i,j)\in E\\
+ &  & x_{ij} & \in\{0,1\} &  & \forall i,j\\
+ &  & u_{i} & \in\mathbb{R}^{>0} &  & \forall i
+\end{alignat*}
+
+\end_inset
+
+Esto evita los ciclos que no contengan a 0, por lo que todos los nodos están
+ en el mismo ciclo.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $x$
+\end_inset
+
+ una solución factible, si 
+\begin_inset Formula $x$
+\end_inset
+
+ tuviera un ciclo que no contuviera al 0, como 
+\begin_inset Formula $1\,2\cdots k1$
+\end_inset
+
+, entonces 
+\begin_inset Formula $u_{i}-u_{i+1}+n\leq n-1$
+\end_inset
+
+ para 
+\begin_inset Formula $i\in\{1,\dots,k-1\}$
+\end_inset
+
+ y 
+\begin_inset Formula $u_{k}-u_{1}+n\leq n-1$
+\end_inset
+
+, y sumando todo queda 
+\begin_inset Formula $kn\leq kn-1\#$
+\end_inset
+
+.
+ Recíprocamente, sea 
+\begin_inset Formula $x$
+\end_inset
+
+ la representación por variables de un ciclo hamiltoniano, llamamos 
+\begin_inset Formula $u_{i}:=t$
+\end_inset
+
+ si 
+\begin_inset Formula $i$
+\end_inset
+
+ es el 
+\begin_inset Formula $t$
+\end_inset
+
+-ésimo vértice visitado en el ciclo después del 0.
+ Entonces, para 
+\begin_inset Formula $(i,j)\in E$
+\end_inset
+
+ con 
+\begin_inset Formula $i,j\neq0$
+\end_inset
+
+, si 
+\begin_inset Formula $x_{ij}=0$
+\end_inset
+
+, 
+\begin_inset Formula $u_{i}-u_{j}<u_{i}\leq n-1$
+\end_inset
+
+, y si 
+\begin_inset Formula $x_{ij}=1$
+\end_inset
+
+, 
+\begin_inset Formula $u_{j}=u_{i}+1$
+\end_inset
+
+, 
+\begin_inset Formula $u_{i}-u_{j}=-1$
+\end_inset
+
+ y 
+\begin_inset Formula $u_{i}-u_{j}+n=n-1$
+\end_inset
+
+, y en ambos casos la tercera condición se cumple.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Situaciones generales
+\end_layout
+
+\begin_layout Standard
+Si tenemos 
+\begin_inset Formula $m$
+\end_inset
+
+ restricciones 
+\begin_inset Formula $g_{i}(x_{1},\dots,x_{n})\leq0$
+\end_inset
+
+ para 
+\begin_inset Formula $i\in\{1,\dots,m\}$
+\end_inset
+
+ de las que queremos que se verifiquen al menos 
+\begin_inset Formula $k<m$
+\end_inset
+
+, tomamos 
+\begin_inset Formula $M$
+\end_inset
+
+ lo suficientemente grande, añadimos las variables 
+\begin_inset Formula $y_{1},\dots,y_{m}\in\{0,1\}$
+\end_inset
+
+ y añadimos las restricciones 
+\begin_inset Formula $g_{i}(x_{1},\dots,x_{n})\leq M(1-y_{i})$
+\end_inset
+
+ para 
+\begin_inset Formula $i\in\{1,\dots,m\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sum_{i=1}^{m}y_{i}\geq k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dadas dos variables 
+\begin_inset Formula $x_{1},x_{2}\in\mathbb{Z}$
+\end_inset
+
+, para definir una variable 
+\begin_inset Formula $y:=[x_{1}>x_{2}]$
+\end_inset
+
+ (
+\begin_inset Formula $y=1$
+\end_inset
+
+ si 
+\begin_inset Formula $x_{1}>x_{2}$
+\end_inset
+
+ e 
+\begin_inset Formula $y=0$
+\end_inset
+
+ en otro caso), tomamos 
+\begin_inset Formula $M$
+\end_inset
+
+ lo suficientemente grande y añadimos 
+\begin_inset Formula $x_{1}-x_{2}-My\leq0$
+\end_inset
+
+, 
+\begin_inset Formula $x_{2}-x_{1}+(1+M)y\leq M$
+\end_inset
+
+ e 
+\begin_inset Formula $y\in\{0,1\}$
+\end_inset
+
+.
+ De esta forma, si 
+\begin_inset Formula $x_{1}>x_{2}$
+\end_inset
+
+, con 
+\begin_inset Formula $y=1$
+\end_inset
+
+ tenemos 
+\begin_inset Formula $x_{1}-x_{2}-M\leq0$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{2}-x_{1}+(1+M)\leq-1+1+M=M$
+\end_inset
+
+ pero con 
+\begin_inset Formula $y=0$
+\end_inset
+
+ tenemos 
+\begin_inset Formula $x_{1}-x_{2}>0\#$
+\end_inset
+
+, y si 
+\begin_inset Formula $x_{1}\le x_{2}$
+\end_inset
+
+, con 
+\begin_inset Formula $y=0$
+\end_inset
+
+ tenemos 
+\begin_inset Formula $x_{1}-x_{2}\leq0$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{2}-x_{1}\leq M$
+\end_inset
+
+ pero con 
+\begin_inset Formula $y=1$
+\end_inset
+
+ tenemos 
+\begin_inset Formula $x_{2}-x_{1}+1+M\geq1+M>M\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dadas dos variables reales 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+, para definir 
+\begin_inset Formula $z\geq\min\{x_{1},x_{2}\}$
+\end_inset
+
+, hacemos que se cumpla una de 
+\begin_inset Formula $z\geq x_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $z\geq x_{2}$
+\end_inset
+
+, y para definir 
+\begin_inset Formula $z\leq\max\{x_{1},x_{2}\}$
+\end_inset
+
+, hacemos que se cumpla una de 
+\begin_inset Formula $z\leq x_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $z\leq x_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $x_{1},x_{2}\in\{0,1\}$
+\end_inset
+
+, para definir 
+\begin_inset Formula $y:=\min\{x_{1},x_{2}\}$
+\end_inset
+
+ añadimos 
+\begin_inset Formula $y\leq x_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $y\leq x_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $y\geq x_{1}+x_{2}-1$
+\end_inset
+
+ e 
+\begin_inset Formula $y\in\{0,1\}$
+\end_inset
+
+, y para definir 
+\begin_inset Formula $y:=\max\{x_{1},x_{2}\}$
+\end_inset
+
+ añadimos 
+\begin_inset Formula $y\geq x_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $y\geq x_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $y\leq x_{1}+x_{2}$
+\end_inset
+
+ e 
+\begin_inset Formula $y\in\{0,1\}$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
