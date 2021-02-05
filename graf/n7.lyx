@@ -1,0 +1,1822 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{amssymb}
+\usepackage{amstext}
+\input{../defs}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Problema $
+\backslash
+min
+\backslash
+{c
+\backslash
+cdot x
+\backslash
+}_{Ax=b,x
+\backslash
+geq0}$ dado por $m,n
+\backslash
+in{
+\backslash
+mathbb N}^*$ con $m<n$, $A
+\backslash
+in{
+\backslash
+cal M}_{m
+\backslash
+times n}(
+\backslash
+mathbb R)$, $b
+\backslash
+in{
+\backslash
+mathbb R}^m$ con $b
+\backslash
+geq0$ y $c
+\backslash
+in{
+\backslash
+mathbb R}^n$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Dirección de ilimitación $d
+\backslash
+in{
+\backslash
+mathbb R}^n$, conjunto $C
+\backslash
+subseteq{
+\backslash
+mathbb R}^n$ de puntos óptimos o $
+\backslash
+emptyset$ si el problema es infactible.
+ Puede no terminar.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKw{Salir}{salir}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwBlock{Repetir}{repetir}{siempre}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwProg{Funcion}{función}{}{fin}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwFunction{params}{params}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwFunction{interpretar}{interpretar}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Funcion{
+\backslash
+params{$
+\backslash
+sigma$}}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$T
+\backslash
+gets[A_{
+\backslash
+sigma(1)},
+\backslash
+dots,A_{
+\backslash
+sigma(m)}]^{-1}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Devolver $(T,
+\backslash
+mathbf{b}Tb)$%
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+tcp*{{
+\backslash
+rm Para la notación,
+\end_layout
+
+\begin_layout Plain Layout
+
+			$B=[A_{
+\backslash
+sigma(1)},
+\backslash
+dots,A_{
+\backslash
+sigma(m)}]$.}}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Funcion{
+\backslash
+interpretar{$
+\backslash
+sigma,Y,x,q$}}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$S
+\backslash
+gets
+\backslash
+{x
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$D
+\backslash
+gets
+\backslash
+{0
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$k:N$ con $q_k=0$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lSSi{$Y_k
+\backslash
+leq0$}{$D
+\backslash
+gets D
+\backslash
+cup
+\backslash
+{e_k-
+\backslash
+mathbf{b}Y_k
+\backslash
+}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lEnOtroCaso{$S
+\backslash
+gets S
+\backslash
+cup
+\backslash
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+			x + 
+\backslash
+min_{r
+\backslash
+in
+\backslash
+{1,
+\backslash
+dots,m
+\backslash
+},y_{rk}>0}
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\backslash
+frac{x_{
+\backslash
+sigma(r)}}{y_{kr}}
+\end_layout
+
+\begin_layout Plain Layout
+
+				(e_k-
+\backslash
+mathbf{b}Y_k)
+\backslash
+}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Devolver $
+\backslash
+{x + 
+\backslash
+lambda u
+\backslash
+}_{x
+\backslash
+in
+\backslash
+text{cc}S, u
+\backslash
+in D, 
+\backslash
+lambda
+\backslash
+geq0}
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\backslash
+subseteq {
+\backslash
+mathbb R}^n$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ParaCada{subsecuencia $
+\backslash
+sigma:
+\backslash
+{1,
+\backslash
+dots,m
+\backslash
+}
+\backslash
+to
+\backslash
+{1,
+\backslash
+dots,n
+\backslash
+}$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+SSi{$A_{
+\backslash
+sigma(1)},
+\backslash
+dots,A_{
+\backslash
+sigma(m)}$ son linealmente independientes}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		$(T,x)
+\backslash
+gets
+\backslash
+text{
+\backslash
+params{
+\backslash
+ensuremath{
+\backslash
+sigma}}}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lSSi{$x
+\backslash
+geq0$}{
+\backslash
+Salir}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lSSi{no se ha obtenido $x
+\backslash
+geq0$}{
+\backslash
+Devolver $
+\backslash
+emptyset$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Repetir{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$Y
+\backslash
+gets TA$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$q
+\backslash
+gets c_B^tY-c$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	Tomar $k:N$ con $q_k$ máximo
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+uSSi{$q_k
+\backslash
+leq0$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+Devolver 
+\backslash
+interpretar{$
+\backslash
+sigma,Y,x,q$}
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\backslash
+uEnOtroCasoSi{$Y_k
+\backslash
+leq0$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+Devolver $e_k-
+\backslash
+mathbf{b}Y_k 
+\backslash
+in {
+\backslash
+mathbb R}^n$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\backslash
+EnOtroCaso{
+\end_layout
+
+\begin_layout Plain Layout
+
+		Tomar $r
+\backslash
+in
+\backslash
+{1,
+\backslash
+dots,m
+\backslash
+}$ con $y_{rk}>0$ y
+\end_layout
+
+\begin_layout Plain Layout
+
+			$
+\backslash
+frac{x_{
+\backslash
+sigma(r)}}{y_{rk}}$ mínimo
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\backslash
+bf Pivotar:} $
+\backslash
+sigma(r)
+\backslash
+gets k$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		$(T,x)
+\backslash
+gets
+\backslash
+text{
+\backslash
+params{
+\backslash
+ensuremath{
+\backslash
+sigma}}}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:simplex"
+
+\end_inset
+
+Algoritmo del símplex para minimizar.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{OL}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Algoritmo del símplex
+\series default
+ [...] para minimizar es el Algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:simplex"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Si quisiéramos maximizar, [...] minimizaríamos 
+\begin_inset Formula $q_{k}$
+\end_inset
+
+ [...] y [...] haríamos las comparaciones opuestas [con los 
+\begin_inset Formula $q_{k}$
+\end_inset
+
+].
+ [...] Se suele hacer con una 
+\series bold
+tabla del símplex
+\series default
+ como la siguiente:
+\begin_inset Formula 
+\[
+\begin{array}{c|c|ccc|c}
+| & | &  &  &  & |\\
+c_{B} & \sigma &  & Y &  & x_{B}\\
+| & | &  &  &  & |\\
+\hline  &  & - & q & - & z
+\end{array}
+\]
+
+\end_inset
+
+En esta, 
+\begin_inset Formula $z$
+\end_inset
+
+ es el coste total.
+ [...] Para pasar de la tabla del símplex de una iteración a la de la [...] siguiente,
+ basta conseguir una matriz identidad en las columnas correspondientes a
+ la base haciendo operaciones por filas en la submatriz 
+\begin_inset Formula $\left(\begin{array}{c|c}
+Y & x_{B}\end{array}\right)$
+\end_inset
+
+, asegurándose de que 
+\begin_inset Formula $x\geq0$
+\end_inset
+
+, y calcular 
+\begin_inset Formula $q$
+\end_inset
+
+ y 
+\begin_inset Formula $z$
+\end_inset
+
+.
+ [...] Si 
+\begin_inset Formula $\sigma(i)=k$
+\end_inset
+
+, en vez de 
+\begin_inset Formula $k$
+\end_inset
+
+ escribimos 
+\begin_inset Formula $x_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un punto extremo 
+\begin_inset Formula $x$
+\end_inset
+
+ asociado a una base 
+\begin_inset Formula $B$
+\end_inset
+
+ es 
+\series bold
+degenerado
+\series default
+ si existe 
+\begin_inset Formula $i:B$
+\end_inset
+
+ con 
+\begin_inset Formula $x_{i}=0$
+\end_inset
+
+; entonces [...] se pivotará este elemento, se tendrá 
+\begin_inset Formula $\frac{x_{i}}{y_{\sigma^{-1}(i)k}}=0$
+\end_inset
+
+ y 
+\begin_inset Formula $x$
+\end_inset
+
+ valdrá lo mismo en la siguiente iteración.
+ También se puede dar 
+\series bold
+ciclaje
+\series default
+, consistente en ir cambiando de base de forma cíclica.
+ [...] Se puede evitar usando la 
+\series bold
+regla de Bland:
+\series default
+ [...] [Si 
+\begin_inset Formula $k$
+\end_inset
+
+ obtenido cumple 
+\begin_inset Formula $q_{k}>0$
+\end_inset
+
+,] se establece 
+\begin_inset Formula $k$
+\end_inset
+
+ al menor índice con 
+\begin_inset Formula $q_{k}>0$
+\end_inset
+
+, y si hay varios 
+\begin_inset Formula $r$
+\end_inset
+
+ que minimizan 
+\begin_inset Formula $\frac{x_{\sigma(r)}}{y_{rk}}$
+\end_inset
+
+, se elige el de menor 
+\begin_inset Formula $\sigma(r)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+[...] Sean 
+\begin_inset Formula $A\in{\cal M}_{m\times n}(\mathbb{R})$
+\end_inset
+
+ de rango 
+\begin_inset Formula $m$
+\end_inset
+
+, 
+\begin_inset Formula $b\in\mathbb{R}^{m}$
+\end_inset
+
+, 
+\begin_inset Formula $c\in\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $F:=\{x:Ax=b,x\geq0\}$
+\end_inset
+
+ y 
+\begin_inset Formula $P:=\{c\cdot x\}_{x\in F}$
+\end_inset
+
+.
+ Para encontrar una base inicial para el símplex, por cada 
+\begin_inset Formula $k\in\{1,\dots,m\}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $e_{k}$
+\end_inset
+
+ no es una columna de 
+\begin_inset Formula $A$
+\end_inset
+
+, añadimos una columna al final de 
+\begin_inset Formula $A$
+\end_inset
+
+ con valor 
+\begin_inset Formula $e_{k}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{OL}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si [...] 
+\begin_inset Formula $T\in{\cal M}_{m\times p}(\mathbb{R})$
+\end_inset
+
+ es la matriz formada por las columnas añadidas, escribimos 
+\begin_inset Formula $F^{*}:=\{[x,x^{*}]\in\mathbb{R}^{n+p}:Ax+Tx^{*}=b,[x,x^{*}]\geq0\}$
+\end_inset
+
+ y vemos que 
+\begin_inset Formula $x\in F\iff[x,0_{\mathbb{R}^{p}}]\in F^{*}$
+\end_inset
+
+.
+ Los elementos de 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+ son las 
+\series bold
+variables artificiales
+\series default
+, y 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+ es el 
+\series bold
+vector de variables artificiales
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+[...] [
+\series bold
+Método de las dos fases:
+\series default
+] La primera fase consiste en hallar 
+\begin_inset Formula $\min\{\sum_{i}x_{i}^{*}:Ax+Tx^{*}=b,[x,x^{*}]\geq0\}$
+\end_inset
+
+.
+ Si el resultado es distinto de 0, [...] el problema no es factible.
+ Para la segunda fase:
+\end_layout
+
+\begin_layout Enumerate
+Si la tabla del símplex al final de la primera fase no incluye variables
+ artificiales básicas, tenemos una base de 
+\begin_inset Formula $A$
+\end_inset
+
+, [...] eliminar las variables artificiales y maximizar o minimizar 
+\begin_inset Formula $P$
+\end_inset
+
+ [...].
+\end_layout
+
+\begin_layout Enumerate
+Si hay variables artificiales básicas, [...] eliminar las filas con variables
+ artificiales y estaríamos en el primer caso.
+\end_layout
+
+\begin_layout Standard
+[
+\series bold
+Método de penalización:
+\series default
+] Sea 
+\begin_inset Formula $M>0$
+\end_inset
+
+ lo suficientemente grande, definimos 
+\begin_inset Formula $P_{M}:=\{c\cdot x+M\sum_{i}x_{i}^{*}\}_{[x,x^{*}]\in F^{*}}$
+\end_inset
+
+ si estamos minimizando o 
+\begin_inset Formula $P_{-M}:=\{c\cdot x-M\sum_{i}x_{i}^{*}\}_{[x,x^{*}]\in F^{*}}$
+\end_inset
+
+ [si maximizamos].
+ [...] Así:
+\end_layout
+
+\begin_layout Itemize
+Si hay soluciones óptimas 
+\begin_inset Formula $[x,x^{*}]$
+\end_inset
+
+, las soluciones con 
+\begin_inset Formula $x^{*}=0$
+\end_inset
+
+ son soluciones del problema original.
+ Si no hay [...] de este tipo, el problema no es factible.
+\end_layout
+
+\begin_layout Itemize
+Si hay dirección de ilimitación 
+\begin_inset Formula $[d,d^{*}]$
+\end_inset
+
+, sea 
+\begin_inset Formula $[x,x^{*}]$
+\end_inset
+
+ la solución básica asociada a la tabla del símplex:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Si 
+\begin_inset Formula $x^{*}=0$
+\end_inset
+
+, d es dirección de ilimitación del problema [...].
+ [...]
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $x^{*}\neq0$
+\end_inset
+
+, en general no podemos decir nada.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+¿Debería incluir el método revisado y el método para variables acotadas?
+ ¿Y el problema dual?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Problema $
+\backslash
+min
+\backslash
+{c
+\backslash
+cdot x
+\backslash
+}_{Ax=b,x
+\backslash
+geq0}$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Como en el algoritmo 
+\backslash
+ref{alg:simplex}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwFunction{interpretar}{interpretar}
+\end_layout
+
+\begin_layout Plain Layout
+
+Encontrar una subsecuencia $
+\backslash
+sigma:
+\backslash
+{1,
+\backslash
+dots,m
+\backslash
+}
+\backslash
+to
+\backslash
+{1,
+\backslash
+dots,m
+\backslash
+}$ tal que $B:=[A_{
+\backslash
+sigma(1)},
+\backslash
+dots,A_{
+\backslash
+sigma(m)}]$ es dual factible (si no la hay, este algoritmo no es aplicable)
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$(T,x)
+\backslash
+gets
+\backslash
+text{
+\backslash
+params{
+\backslash
+ensuremath{
+\backslash
+sigma}}}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{$x<0$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$Y
+\backslash
+gets TA$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	Tomar $r$ con $x_{
+\backslash
+sigma(r)}<0$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$
+\backslash
+forall j:N,y_{rj}
+\backslash
+geq0$}{
+\backslash
+Devolver $
+\backslash
+emptyset$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$q
+\backslash
+gets c_B^tY-c$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	Tomar $k$ con $y_{rk}<0$ y $
+\backslash
+frac{q_k}{y_{rk}}$ mínimo
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$q_k
+\backslash
+leq0$}{
+\backslash
+Devolver 
+\backslash
+interpretar{$
+\backslash
+sigma,Y,x,q,k$}}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$
+\backslash
+sigma(
+\backslash
+sigma^{-1}(r))
+\backslash
+gets k$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$(T,x)
+\backslash
+gets
+\backslash
+text{
+\backslash
+params{
+\backslash
+ensuremath{
+\backslash
+sigma}}}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Devolver 
+\backslash
+interpretar{$
+\backslash
+sigma,Y,x,q$}
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:simplex-dual"
+
+\end_inset
+
+Algoritmo dual del símplex para minimizar.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado un problema de programación lineal 
+\begin_inset Formula $\min_{Ax=b,x\geq0}\{c\cdot x\}$
+\end_inset
+
+, una matriz básica 
+\begin_inset Formula $B$
+\end_inset
+
+ es 
+\series bold
+dual factible
+\series default
+ si 
+\begin_inset Formula $(c_{B}B^{-1}A-c)_{N}\leq0$
+\end_inset
+
+.
+ El 
+\series bold
+algoritmo dual del símplex
+\series default
+ es el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:simplex-dual"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Supongamos que tenemos una tabla de símplex óptima con parámetros 
+\begin_inset Formula $Y,x,q,\sigma$
+\end_inset
+
+ y queremos añadir al problema una restricción 
+\begin_inset Formula $\sum_{j=1}^{n}\alpha_{j}x_{j}\leq\beta$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\alpha_{j}=0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $j:B$
+\end_inset
+
+, podemos añadir la restricción directamente a la tabla añadiendo lo siguiente,
+ donde 
+\begin_inset Formula $t:=\beta-\sum_{j=1}^{n}\alpha_{j}x_{j}$
+\end_inset
+
+ y 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+ es el valor óptimo de 
+\begin_inset Formula $x$
+\end_inset
+
+ calculado antes:
+\begin_inset Formula 
+\[
+\begin{array}{c|c|ccc|c|c}
+| & | &  &  &  & | & |\\
+c_{B} & \sigma &  & Y &  & 0 & x^{*}\\
+| & | &  &  &  & | & |\\
+\hline 0 & x_{n+1} & - & \alpha & - & 1 & t\\
+\hline  &  & - & q & - & 0 & z
+\end{array}
+\]
+
+\end_inset
+
+Queda una base dual factible de la que sacar la solución con el algoritmo
+ dual.
+ Si la restricción tiene variables básicas, tenemos que cambiarlas por sus
+ expresión respecto a las no básicas con la fórmula 
+\begin_inset Formula $x_{\sigma(i)}=x_{\sigma(i)}^{*}-\sum_{j:N}y_{ij}x_{j}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Ramificación y acotación
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+ramificación y acotación
+\series default
+ (
+\emph on
+\lang english
+branch and bound
+\emph default
+\lang spanish
+) es un algoritmo para resolver problemas de programación lineal entera.
+ Primero resolvemos el problema relajado para obtener una solución 
+\begin_inset Formula $(x_{1}^{*},\dots,x_{n}^{*})$
+\end_inset
+
+.
+ Si en ella todas las variables que debían ser enteras lo son, la solución
+ es óptima, y si existe 
+\begin_inset Formula $k$
+\end_inset
+
+ tal que 
+\begin_inset Formula $x_{k}^{*}$
+\end_inset
+
+ debería ser entera pero es fraccionaria, creamos dos subproblemas introduciendo
+ las restricciones 
+\begin_inset Formula $x_{k}\leq\lfloor x_{k}^{*}\rfloor$
+\end_inset
+
+ en uno y 
+\begin_inset Formula $x_{k}\geq\lceil x_{k}^{*}\rceil$
+\end_inset
+
+ en el otro.
+ Como 
+\begin_inset Formula $x_{k}$
+\end_inset
+
+ es básica, se puede introducir la nueva restricción fácilmente en la tabla
+ del símplex óptima obteniendo una tabla con base dual factible.
+\end_layout
+
+\begin_layout Standard
+Esto nos da un árbol de subproblemas cuyas hojas son problemas infactibles
+ o cuya solución es solución del problema entero, y que hemos de explorar.
+ La 
+\series bold
+solución incumbente
+\series default
+ es la mejor solución del problema entero encontrada hasta ahora, y su valor
+ es el 
+\series bold
+valor incumbente
+\series default
+.
+ Podemos podar los nodos con valor óptimo del problema relajado menor o
+ igual que el valor incumbente, pues los valores de sus hijos no van a ser
+ mejores.
+ Como optimización, en vez de añadir una restricción 
+\begin_inset Formula $x_{k}\leq0$
+\end_inset
+
+, podemos eliminar 
+\begin_inset Formula $x_{k}$
+\end_inset
+
+ del subproblema.
+\end_layout
+
+\begin_layout Standard
+Aunque esto no es 
+\begin_inset Quotes cld
+\end_inset
+
+estándar
+\begin_inset Quotes crd
+\end_inset
+
+, si todos los coeficientes de la función objetivo son enteros y todos los
+ no nulos van con una variable entera, todas las soluciones tendrán valor
+ entero y, si un nodo tiene un valor mejor que el incumbente pero con una
+ diferencia menor que 1, podemos podarlo, pues no va a producir una solución
+ mejor del problema entero.
+\end_layout
+
+\begin_layout Standard
+La mayoría de los programas de optimización recorren el árbol de subproblemas
+ con 
+\emph on
+\lang english
+backtracking
+\emph default
+\lang spanish
+, lo que suele dar soluciones factibles antes que la búsqueda en anchura.
+ También se puede usar búsqueda primero el mejor, por ejemplo.
+\end_layout
+
+\begin_layout Standard
+Cuando hay varias variables por las que se puede ramificar, una elección
+ adecuada puede acelerar la resolución del problema.
+ Algunas heurísticas son elegir la variable con mayor valor fraccionario,
+ la de valor fraccionario más cercano a 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+ o la que más influye en la función objetivo.
+\end_layout
+
+\begin_layout Section
+Hiperplanos de corte
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+hiperplano de corte
+\series default
+ o 
+\series bold
+desigualdad válida
+\series default
+ de un problema lineal entero es una desigualdad que cumplen todos sus puntos
+ factibles.
+ Se puede usar para mejorar las cotas en los nodos del árbol de ramificación.
+ Llamamos 
+\begin_inset Formula $[[x]]:=x-\lfloor x\rfloor\in[0,1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dados un problema entero puro 
+\begin_inset Formula $\min_{Ax=b,x\in\mathbb{N}^{n}}\{c\cdot x\}$
+\end_inset
+
+ con tabla del símplex óptima para la relajación lineal con coeficientes
+ 
+\begin_inset Formula $(\sigma,Y,x^{*},q)$
+\end_inset
+
+ y 
+\begin_inset Formula $k$
+\end_inset
+
+ tal que 
+\begin_inset Formula $x_{k':=\sigma(k)}^{*}\notin\mathbb{Z}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+-\sum_{j:N}[[y_{kj}]]x_{j}\leq-[[x_{k'}^{*}]]
+\]
+
+\end_inset
+
+es una desigualdad válida del problema entero que 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+ no satisface.
+ 
+\series bold
+Demostración:
+\series default
+ Por la fórmula usada antes para añadir una restricción con variables básicas,
+ para 
+\begin_inset Formula $x\in P$
+\end_inset
+
+, 
+\begin_inset Formula $x_{k'}+\sum_{j:N}y_{kj}x_{j}=x_{k'}^{*}$
+\end_inset
+
+, luego 
+\begin_inset Formula $x_{k'}+\sum_{j:N}([y_{kj}]+[[y_{kj}]])x_{j}=[x_{k'}^{*}]+[[x_{k'}^{*}]]$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{k'}+\sum_{j:N}[y_{kj}]x_{j}-[x_{k'}^{*}]=-\sum_{j:N}[[y_{kj}]]x_{j}+[[x_{k'}^{*}]]\overset{[[y_{kj}]]\in[0,1),x_{j}\geq0}{\leq}[[x_{k'}^{*}]]<1$
+\end_inset
+
+, y como la parte izquierda de la igualdad es entera, la derecha también
+ y por tanto 
+\begin_inset Formula $-\sum_{j:N}[[y_{kj}]]x_{j}+[[x_{k'}^{*}]]\leq0$
+\end_inset
+
+.
+ Despejando para 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+ quedaría 
+\begin_inset Formula $0\leq-[[x_{k'}^{*}]]$
+\end_inset
+
+, pero 
+\begin_inset Formula $[[x_{k'}^{*}]]\in(0,1)$
+\end_inset
+
+ porque 
+\begin_inset Formula $x_{k'}^{*}\notin\mathbb{Z}\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dados un problema entero puro 
+\begin_inset Formula $\min_{Ax=b,x\geq0,\forall i\in I,x_{i}\in\mathbb{Z}}\{c\cdot x\}$
+\end_inset
+
+ con tabla del símplex óptima para la relajación lineal con coeficientes
+ 
+\begin_inset Formula $(\sigma,Y,x^{*},q)$
+\end_inset
+
+ y 
+\begin_inset Formula $k\in I$
+\end_inset
+
+ tal que 
+\begin_inset Formula $k':=\sigma(k)\in I$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{k':=\sigma(k)}^{*}\notin\mathbb{Z}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\sum_{j\in N^{-}}\frac{[[x_{k'}^{*}]]}{1-[[x_{k'}^{*}]]}y_{kj}x_{j}-\sum_{j\in N^{+}}y_{kj}x_{j}\leq-[[x_{k'}^{*}]]
+\]
+
+\end_inset
+
+es una desigualdad válida del problema entero no satisfecha por 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $x$
+\end_inset
+
+ factible, como 
+\begin_inset Formula $x_{k'}+\sum_{j:N}y_{kj}x_{j}=x_{k'}^{*}=[x_{k'}^{*}]+[[x_{k'}^{*}]]$
+\end_inset
+
+, entonces 
+\begin_inset Formula $x_{k'}-[x_{k'}^{*}]=-\sum_{j:N}y_{kj}x_{j}+[[x_{k'}^{*}]]$
+\end_inset
+
+.
+ Así, si 
+\begin_inset Formula $x_{k'}\leq[x_{k'}^{*}]$
+\end_inset
+
+, 
+\begin_inset Formula $-\sum_{j:N}y_{kj}x_{j}+[[x_{k'}^{*}]]\leq0$
+\end_inset
+
+ y 
+\begin_inset Formula $-\sum_{j\in N^{+}}y_{kj}x_{j}-\sum_{j\in N^{-}}y_{kj}x_{j}\leq-[[x_{k'}^{*}]]$
+\end_inset
+
+, pero 
+\begin_inset Formula $\sum_{j\in N^{-}}y_{kj}x_{j}\geq0$
+\end_inset
+
+, luego 
+\begin_inset Formula $-\sum_{j\in N^{+}}y_{kj}x_{j}\leq-[[x_{k'}^{*}]]$
+\end_inset
+
+ y además 
+\begin_inset Formula $\sum_{j\in N^{-}}\frac{[[x_{k'}^{*}]]}{1-[[x_{k'}^{*}]]}y_{kj}x_{j}\leq0$
+\end_inset
+
+, de donde se obtiene la desigualdad.
+ Por otro lado, si 
+\begin_inset Formula $x_{k'}>[x_{k'}^{*}]$
+\end_inset
+
+, entonces 
+\begin_inset Formula $x_{k'}\geq[x_{k'}^{*}]+1$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $-\sum_{j:N}y_{kj}x_{j}+[[x_{k'}^{*}]]\geq1$
+\end_inset
+
+ y 
+\begin_inset Formula $-\sum_{j\in N^{+}}y_{kj}x_{j}-\sum_{j\in N^{-}}y_{kj}x_{j}\geq1-[[x_{k'}^{*}]]$
+\end_inset
+
+.
+ Con esto, como 
+\begin_inset Formula $-\sum_{j\in N^{+}}y_{kj}x_{j}\leq0$
+\end_inset
+
+, se tiene 
+\begin_inset Formula $-\sum_{j\in N^{-}}y_{kj}x_{j}\geq1-[[x_{k'}^{*}]]$
+\end_inset
+
+ y, multiplicando por 
+\begin_inset Formula $-\frac{[[x_{k'}^{*}]]}{1-[[x_{k'}^{*}]]}$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{j\in N^{-}}\frac{[[x_{k'}^{*}]]}{1-[[x_{k'}^{*}]]}y_{kj}x_{j}\leq-[[x_{k'}^{*}]]$
+\end_inset
+
+, de donde se obtiene la desigualdad usando 
+\begin_inset Formula $-\sum_{j\in N^{+}}y_{kj}x_{j}\leq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+método de los hiperplanos de corte de Gomory
+\series default
+ consiste en hallar sucesivamente un hiperplano de corte de una de las dos
+ formas anteriores, según si el problema es entero puro o mixto, añadirlo
+ al problema y re-optimizar (con el método dual del símplex) hasta llegar
+ a una solución entera.
+ Si hay varios índices 
+\begin_inset Formula $k$
+\end_inset
+
+ candidatos, se elige el que tiene 
+\begin_inset Formula $[[(x_{B}^{*})_{k}]]$
+\end_inset
+
+ más cercano a 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si los coeficientes de 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $b$
+\end_inset
+
+ no son enteros sino racionales, se pueden multiplicar restricciones o variables
+ apropiadamente para convertirlos en enteros antes de empezar.
+ Lo de que 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $b$
+\end_inset
+
+ sean enteros se usa para que, al añadir las variables de holgura de las
+ desigualdades, estas sean enteras.
+\end_layout
+
+\begin_layout Section
+Desigualdades de Chvátal-Gomory
+\end_layout
+
+\begin_layout Standard
+Dado un problema entero puro con conjunto factible 
+\begin_inset Formula $P:=\{Ax\leq b,x\in\mathbb{N}^{n}\}$
+\end_inset
+
+, donde 
+\begin_inset Formula $A\in{\cal M}_{m\times n}(\mathbb{R})$
+\end_inset
+
+, para 
+\begin_inset Formula $u\in\mathbb{R}^{m}$
+\end_inset
+
+ con 
+\begin_inset Formula $u\geq0$
+\end_inset
+
+, 
+\begin_inset Formula $\lfloor u^{\intercal}A\rfloor x\leq\lfloor u\cdot b\rfloor$
+\end_inset
+
+ es una desigualdad válida del problema.
+ Las desigualdades de esta forma se llaman 
+\series bold
+desigualdades de Chvátal-Gomory
+\series default
+, y toda desigualdad válida de 
+\begin_inset Formula $P$
+\end_inset
+
+ se puede obtener utilizando el procedimiento de obtener y añadir una desigualda
+d de este tipo al problema un número finito de veces.
+\end_layout
+
+\end_body
+\end_document
