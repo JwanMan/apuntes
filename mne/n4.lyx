@@ -1,0 +1,1074 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+método en 
+\begin_inset Formula $m$
+\end_inset
+
+ pasos
+\series default
+ es uno para el que existen 
+\begin_inset Formula $a_{0},\dots,a_{m-1},b_{0},\dots,b_{m}\in\mathbb{R}$
+\end_inset
+
+ tales que, si 
+\begin_inset Formula $(t_{i},\omega_{i})_{i=0}^{n}$
+\end_inset
+
+ es una solución aproximada de un problema por el método, para 
+\begin_inset Formula $i\geq m$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\omega_{i}=a_{0}\omega_{i-m}+\dots+a_{m-1}\omega_{i-1}+(t_{i}-t_{i-1})(b_{0}f(t_{i-m},\omega_{i-m})+\dots+b_{m}f(t_{i},\omega_{i})).
+\]
+
+\end_inset
+
+El método es 
+\series bold
+explícito
+\series default
+ si 
+\begin_inset Formula $b_{m}=0$
+\end_inset
+
+ e 
+\series bold
+implícito
+\series default
+ si no.
+ Estos métodos requieren usar otros métodos para calcular 
+\begin_inset Formula $(t_{i},\omega_{i})_{i=0}^{m-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El método es de paso fijo si 
+\begin_inset Formula $t_{i}-t_{i-1}=h$
+\end_inset
+
+ para un cierto parámetro 
+\begin_inset Formula $h$
+\end_inset
+
+ e 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+.
+ Para el problema 
+\begin_inset Formula 
+\[
+\left\{ \begin{aligned}\dot{x}(t) & =f(t,x(t)),\\
+x(t_{0}) & =\omega_{0},
+\end{aligned}
+\right.
+\]
+
+\end_inset
+
+algunos métodos multipaso de paso fijo son:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Método explícito de Adams-Bashford de 4 pasos:
+\series default
+
+\begin_inset Formula 
+\[
+\omega_{i}=\omega_{i-1}+\frac{h}{24}\left(55f(t_{i-1},\omega_{i-1})-59f(t_{i-2},\omega_{i-2})+37f(t_{i-3},\omega_{i-3})-9f(t_{i-4},\omega_{i-4})\right).
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es lo suficientemente regular, 
+\begin_inset Formula $\tau_{i}(h)=\frac{251}{720}x^{(5)}(\xi)h^{4}$
+\end_inset
+
+ para cierto 
+\begin_inset Formula $\xi\in[t_{i-1},t_{i}]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Método implícito de Adams-Moulton de 3 pasos:
+\series default
+
+\begin_inset Formula 
+\[
+\omega_{i}=\omega_{i-1}+\frac{h}{24}\left(9f(t_{i},\omega_{i})+19f(t_{i-1},\omega_{i-1})-5f(t_{i-2},\omega_{i-2})+f(t_{i-3},\omega_{i-3})\right).
+\]
+
+\end_inset
+
+Para 
+\begin_inset Formula $f$
+\end_inset
+
+ suficientemente regular, 
+\begin_inset Formula $\tau_{i}(h)=-\frac{19}{720}x^{(5)}(\xi)h^{4}$
+\end_inset
+
+ para cierto 
+\begin_inset Formula $\xi\in[t_{i-1},t_{i}]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Se tiene
+\begin_inset Formula 
+\[
+x(t_{i+1})=x(t_{i})+\int_{t_{i}}^{t_{i+1}}f(t,x(t))dt,
+\]
+
+\end_inset
+
+pues
+\begin_inset Formula 
+\[
+x(t_{i+1})-x(t_{i})=\int_{t_{i}}^{t_{i+1}}\dot{x}=\int_{t_{i}}^{t_{i+1}}f(t,x(t))dt.
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section
+Teoría general de convergencia
+\end_layout
+
+\begin_layout Standard
+Dados un problema
+\begin_inset Formula 
+\[
+\left\{ \begin{aligned}\dot{x}(t) & =f(t,x(t)),\\
+x(t_{0}) & =a
+\end{aligned}
+\right.
+\]
+
+\end_inset
+
+y una solución aproximada 
+\begin_inset Formula $(t_{i},\omega_{i})_{i=0}^{n}$
+\end_inset
+
+ por un método multipaso de coeficientes 
+\begin_inset Formula $a_{0},\dots,a_{m-1},b_{0},\dots,b_{m}$
+\end_inset
+
+ con paso fijo 
+\begin_inset Formula $h>0$
+\end_inset
+
+, el 
+\series bold
+error local de truncamiento
+\series default
+ es
+\begin_inset Formula 
+\[
+\tau_{i}(h)=\frac{x(t_{i})-a_{m-1}x(t_{i-1})-\dots-a_{0}x(t_{i-m})}{h}-\left(b_{m}f(t_{i},x(t_{i}))+\dots+b_{0}f(t_{i-m},x(t_{i-m}))\right),
+\]
+
+\end_inset
+
+para 
+\begin_inset Formula $i\in\{m,\dots,n\}$
+\end_inset
+
+, de forma que
+\begin_inset Formula 
+\[
+x(t_{i})=\sum_{j=1}^{m}a_{m-j}x(t_{i-j})+h\sum_{j=0}^{m}b_{m-j}\dot{x}(t_{i-j})+h\tau_{i}(h).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consideremos un método multipaso de paso fijo que, para un problema en un
+ intervalo 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ da soluciones 
+\begin_inset Formula $(t_{hi},\omega_{hi})_{i=0}^{n_{h}}$
+\end_inset
+
+ que cubren 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ con paso 
+\begin_inset Formula $h$
+\end_inset
+
+ en cierto intervalo 
+\begin_inset Formula $[0,h_{\max}]$
+\end_inset
+
+ y con 
+\begin_inset Formula $\omega_{hi}=x(t_{hi})$
+\end_inset
+
+ para 
+\begin_inset Formula $i<m$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $\tau:[0,h_{\max}]\to\mathbb{R}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\tau(h):=\max_{i=0}^{n_{h}}\Vert\tau_{i}(h)\Vert$
+\end_inset
+
+, el método es 
+\series bold
+consistente
+\series default
+ o 
+\series bold
+compatible
+\series default
+ (en este problema e intervalo) si
+\begin_inset Formula 
+\[
+\lim_{h\to0}\tau(h)=0,
+\]
+
+\end_inset
+
+es 
+\series bold
+de orden 
+\begin_inset Formula $p\geq1$
+\end_inset
+
+
+\series default
+ si 
+\begin_inset Formula $p$
+\end_inset
+
+ es el mayor entero con 
+\begin_inset Formula $\tau(h)=O(h^{p})$
+\end_inset
+
+, es 
+\series bold
+convergente
+\series default
+ si
+\begin_inset Formula 
+\[
+\lim_{h\to0}\max_{i\in\{1,\dots,n_{h}\}}\Vert x(t_{hi})-\omega_{hi}\Vert=0,
+\]
+
+\end_inset
+
+y 
+\series bold
+estable
+\series default
+ si existe 
+\begin_inset Formula $M>0$
+\end_inset
+
+ tal que, para todo 
+\begin_inset Formula $h$
+\end_inset
+
+ y para ciertos 
+\begin_inset Formula $\varepsilon_{m},\dots,\varepsilon_{n_{h}}\in\mathbb{R}$
+\end_inset
+
+, sea 
+\begin_inset Formula $(t_{i},\omega_{i})_{i=0}^{n}:=(t_{hi},\omega_{hi})_{i=0}^{n_{h}}$
+\end_inset
+
+, si se puede generar una solución 
+\begin_inset Formula $(t_{i},\tilde{\omega}_{i})_{i=0}^{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $\tilde{\omega}_{i}:=\omega_{i}$
+\end_inset
+
+ para 
+\begin_inset Formula $i<m$
+\end_inset
+
+ y 
+\begin_inset Formula 
+\[
+\tilde{\omega}_{i}=\sum_{j=1}^{m}a_{m-j}\tilde{\omega}_{i-j}+h\sum_{j=0}^{m}b_{m-j}f(t_{i-j},\tilde{\omega}_{i-j})+\varepsilon_{i}
+\]
+
+\end_inset
+
+para 
+\begin_inset Formula $i\in\{m,\dots,n\}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\max_{i\in\{m,\dots,n\}}\Vert\tilde{\omega}_{i}-\omega_{i}\Vert\leq M\left(\max_{i\in\{0,\dots,m-1\}}\Vert\tilde{\omega}_{i}-\omega_{i}\Vert+\sum_{i\in\{m,\dots,n\}}\Vert\varepsilon_{i}\Vert\right).
+\]
+
+\end_inset
+
+El método de Euler es estable.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si un método de 
+\begin_inset Formula $m$
+\end_inset
+
+ pasos de paso fijo es estable y consistente para un problema en un cierto
+ dominio, entonces es convergente para el método en el dominio, y si además
+ es de orden 
+\begin_inset Formula $p\geq1$
+\end_inset
+
+, dada una solución aproximada 
+\begin_inset Formula $(t_{i},\omega_{i})_{i=0}^{n}$
+\end_inset
+
+ de un problema con el e.d.o.
+ con este método y paso 
+\begin_inset Formula $h>0$
+\end_inset
+
+, existen 
+\begin_inset Formula $M,K\in\mathbb{R}$
+\end_inset
+
+ tales que
+\begin_inset Formula 
+\[
+\max_{i\in\{0,\dots,n\}}\Vert x(t_{i})-\omega_{i}\Vert\leq M\left(\max_{i\in\{0,\dots,m-1\}}\Vert x(t_{i})-\omega_{i}\Vert+Kh^{p}\right).
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $a_{0},\dots,a_{m-1},b_{0},\dots,b_{m}$
+\end_inset
+
+ los coeficientes del método y 
+\begin_inset Formula $\varepsilon_{i}:=h\tau_{i}(h)$
+\end_inset
+
+, como 
+\begin_inset Formula $(t_{i},x(t_{i}))_{i=0}^{n}$
+\end_inset
+
+ se obtiene de añadir al método un error de 
+\begin_inset Formula $\varepsilon_{i}$
+\end_inset
+
+ en cada paso 
+\begin_inset Formula $i$
+\end_inset
+
+, por la estabilidad,
+\begin_inset Formula 
+\[
+\max_{i\in\{m,\dots,n\}}\Vert x(t_{i})-\omega_{i}\Vert\leq M\left(\max_{i\in\{0,\dots,m-1\}}\Vert x(t_{i})-\omega_{i}\Vert+\sum_{i=m}^{n}\Vert\varepsilon_{i}\Vert\right)=M\sum_{i=m}^{n}\Vert\varepsilon_{i}\Vert
+\]
+
+\end_inset
+
+para cierto 
+\begin_inset Formula $M$
+\end_inset
+
+ que no depende de 
+\begin_inset Formula $h$
+\end_inset
+
+, y si el intervalo es 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{i=m}^{n}\Vert\varepsilon_{i}\Vert=\sum_{i=m}^{n}|h|\Vert\tau_{i}(h)\Vert\leq(n-m+1)|h|\max_{i\in\{m,\dots,n\}}\Vert\tau_{i}(h)\Vert\leq(b-a)\Vert\tau_{i}(h)\Vert$
+\end_inset
+
+, que tiende a 0 cuando 
+\begin_inset Formula $h\to0$
+\end_inset
+
+ por la consistencia, y como 
+\begin_inset Formula $\max_{i\in\{0,\dots,m-1\}}\Vert x(t_{i})-\omega_{i}\Vert=0$
+\end_inset
+
+, el método es convergente.
+ Además, si 
+\begin_inset Formula $\tau_{i}(h)=O(h^{p})$
+\end_inset
+
+, sea 
+\begin_inset Formula $k$
+\end_inset
+
+ con 
+\begin_inset Formula $\tau(h)\leq Kh^{p}$
+\end_inset
+
+ para 
+\begin_inset Formula $h\in[0,h_{\max}]$
+\end_inset
+
+, cada 
+\begin_inset Formula $\Vert\varepsilon_{i}\Vert=h\Vert\tau_{i}(h)\Vert\leq kh^{p+1}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\sum_{i=m}^{n}\Vert\varepsilon_{i}\Vert\leq\sum_{i=m}^{n}kh^{p+1}\leq\frac{b-a}{h}kh^{p+1}=(b-a)kh^{p}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Convergencia en un paso
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, dados 
+\begin_inset Formula $h_{0}>0$
+\end_inset
+
+ y un método de un paso fijo 
+\begin_inset Formula $h\in[0,h_{0}]$
+\end_inset
+
+ dado por 
+\begin_inset Formula $\omega_{0}:=x(t_{0})$
+\end_inset
+
+ y 
+\begin_inset Formula $\omega_{i+1}:=\omega_{i}+hØ(t_{i},\omega_{i},h)$
+\end_inset
+
+ con 
+\begin_inset Formula $Ø$
+\end_inset
+
+ continua y lipschitziana en la segunda variable:
+\end_layout
+
+\begin_layout Enumerate
+El método es estable.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Fijado 
+\begin_inset Formula $h$
+\end_inset
+
+, sean 
+\begin_inset Formula $(t_{i},\omega_{i})_{i=0}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $(t_{i},\tilde{\omega}_{i})_{i=0}^{n}$
+\end_inset
+
+ dados por 
+\begin_inset Formula $\omega_{i+1}:=\omega_{i}+hØ(t_{i},\omega_{i},h)$
+\end_inset
+
+ y 
+\begin_inset Formula $\tilde{\omega}_{i+1}:=\tilde{\omega}_{i}+hØ(t_{i},\tilde{\omega}_{i},h)+\varepsilon_{i+1}$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $\varepsilon_{1},\dots,\varepsilon_{n}$
+\end_inset
+
+, queremos ver que para 
+\begin_inset Formula $i\in\{0,\dots,n\}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert\tilde{\omega}_{i}-\omega_{i}\Vert\leq(1+hL)^{i}(\Vert\tilde{\omega}_{0}-\omega_{0}\Vert+\sum_{j=1}^{i}\Vert\varepsilon_{j}\Vert)$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $i=0$
+\end_inset
+
+ esto es claro, y supuesto esto probado para un cierto 
+\begin_inset Formula $i$
+\end_inset
+
+, para 
+\begin_inset Formula $i+1$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{multline*}
+\Vert\tilde{\omega}_{i+1}-\omega_{i+1}\Vert=\Vert\tilde{\omega}_{i}-\omega_{i}+hØ(t_{i},\omega_{i},h)-hØ(t_{i},\tilde{\omega}_{i},h)+\varepsilon_{i}\Vert\leq(1+hL)\Vert\tilde{\omega}_{i}-\omega_{i}\Vert+\Vert\varepsilon_{i}\Vert\leq\\
+\leq(1+hL)^{i+1}\left(\Vert\tilde{\omega}_{0}-\omega_{0}\Vert+\sum_{j=1}^{i}\Vert\varepsilon_{j}\Vert\right)+\Vert\varepsilon_{i}\Vert\overset{(1+hL)^{i+1}\geq1}{\leq}(1+hL)^{i+1}\left(\Vert\tilde{\omega}_{0}-\omega_{0}\Vert+\sum_{j=1}^{i+1}\Vert\varepsilon_{j}\Vert\right).
+\end{multline*}
+
+\end_inset
+
+Con esto, como 
+\begin_inset Formula $(1+hL)^{i}\leq(1+hL)^{n}$
+\end_inset
+
+, llamando 
+\begin_inset Formula $M:=(1+hL)^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert\tilde{\omega}_{i}-\omega_{i}\Vert\leq M(\Vert\tilde{\omega}_{0}-\omega_{0}\Vert+\sum_{j=1}^{i}\Vert\varepsilon_{j}\Vert)$
+\end_inset
+
+ y el método es estable.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $Ø(t,x,0)\equiv f(t,x)$
+\end_inset
+
+, el método es consistente y por tanto convergente.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Existe 
+\begin_inset Formula $\xi_{i}\in(t_{i-1},t_{i})$
+\end_inset
+
+ con 
+\begin_inset Formula 
+\begin{align*}
+\tau_{i}(h) & =\frac{x(t_{i})-x(t_{i-1})}{h}-Ø(t_{i},x(t_{i}),h)=\dot{x}(\xi_{i})-Ø(t_{i},x(t_{i}),h)=\\
+ & =f(\xi_{i},x(\xi_{i}))-Ø(\xi_{i},x(\xi_{i}),0)+Ø(\xi_{i},x(\xi_{i}),0)-Ø(t_{i},x(t_{i}),h)=\\
+ & =Ø(\xi_{i},x(\xi_{i}),0)-Ø(t_{i},x(t_{i}),h).
+\end{align*}
+
+\end_inset
+
+Si el intervalo es 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+, por la continuidad de 
+\begin_inset Formula $((t,h)\mapstoØ(t,x(t),h)):[a,b]\times[0,h_{0}]\to\mathbb{R}^{n}$
+\end_inset
+
+, para cada 
+\begin_inset Formula $(t,h)\in[a,b]\times[0,h_{0}]$
+\end_inset
+
+ y cada 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $|t'-t|,|h'-h|<\delta$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\VertØ(t',x(t'),h')-Ø(t,x(t),h)\Vert<\varepsilon$
+\end_inset
+
+.
+ En particular, si 
+\begin_inset Formula $|h|<\delta$
+\end_inset
+
+, como 
+\begin_inset Formula $|\xi_{i}-t_{i}|<|h|<\delta$
+\end_inset
+
+, 
+\begin_inset Formula $|Ø(\xi_{i},x(\xi_{i}),0)-Ø(t_{i},x(t_{i}),h)|<\varepsilon$
+\end_inset
+
+, luego 
+\begin_inset Formula $\tau(h)\to0$
+\end_inset
+
+ cuando 
+\begin_inset Formula $h\to0$
+\end_inset
+
+ y el método es consistente, y es convergente por ser además estable.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Dado 
+\begin_inset Formula $K>0$
+\end_inset
+
+, si 
+\begin_inset Formula $|\tau_{i}(h)|\leq K$
+\end_inset
+
+ para cada 
+\begin_inset Formula $h\in[0,h_{0}]$
+\end_inset
+
+ e 
+\begin_inset Formula $i$
+\end_inset
+
+, entonces 
+\begin_inset Formula $|x(t_{i})-\omega_{i}|\leq\frac{K}{L}e^{L(t_{i}-t_{0})}$
+\end_inset
+
+, donde 
+\begin_inset Formula $L$
+\end_inset
+
+ es una constante de Lipschitz de 
+\begin_inset Formula $Ø$
+\end_inset
+
+ en la segunda variable.
+\end_layout
+
+\begin_layout Section
+Convergencia en métodos multipaso
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+ecuación de recurrencia
+\series default
+ es una de la forma
+\begin_inset Formula 
+\[
+x_{i+m}=a_{0}x_{i}+a_{1}x_{i+1}+\dots+a_{m-1}x_{i+m-1},
+\]
+
+\end_inset
+
+donde los 
+\begin_inset Formula $a_{i}\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $a_{0}\neq0$
+\end_inset
+
+ y la incógnita es la sucesión 
+\begin_inset Formula $(x_{n})_{n\in\mathbb{N}}$
+\end_inset
+
+.
+ Las soluciones de la ecuación forman un espacio vectorial de dimensión
+ 
+\begin_inset Formula $m$
+\end_inset
+
+, pues vienen dadas por los 
+\begin_inset Formula $m$
+\end_inset
+
+ primeros términos.
+ El 
+\series bold
+polinomio característico
+\series default
+ de la ecuación es 
+\begin_inset Formula $P(\lambda):=\lambda^{m}-a_{m-1}\lambda^{m-1}-\dots-a_{1}\lambda-a_{0}$
+\end_inset
+
+.
+ Si sus soluciones son todas reales, 
+\begin_inset Formula $\lambda_{0},\dots,\lambda_{m-1}\in\mathbb{R}$
+\end_inset
+
+ donde cada una aparece tantas veces como su multiplicidad, las soluciones
+ de la ecuación de recurrencia son los 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ dados por 
+\begin_inset Formula $\sum_{i=0}^{m-1}c_{i}\lambda_{i}$
+\end_inset
+
+, con 
+\begin_inset Formula $c_{0},\dots,c_{m-1}\in\mathbb{R}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dados un método multipaso de paso fijo con 
+\begin_inset Formula $\omega_{i}:=a_{0}\omega_{i-m}+\dots+a_{m-1}\omega_{i-1}+hF(t_{i},h,\omega_{i-m},\dots,\omega_{i})$
+\end_inset
+
+ y 
+\begin_inset Formula $\omega_{i}:=\alpha_{i}$
+\end_inset
+
+ para 
+\begin_inset Formula $i<m$
+\end_inset
+
+ y el problema
+\begin_inset Formula 
+\[
+\left\{ \begin{aligned}\dot{x}(t) & =0,\\
+x(t_{0}) & =\alpha,
+\end{aligned}
+\right.
+\]
+
+\end_inset
+
+entonces 
+\begin_inset Formula $F(t_{i},h,\omega_{i-m},\dots,\omega_{i})=b_{0}f(t_{i}-hm,\omega_{i-m})+\dots+b_{m}f(t_{i},\omega_{i})=0$
+\end_inset
+
+, de donde obtenemos la ecuación de recurrencia 
+\begin_inset Formula $\omega_{i}=a_{0}\omega_{i-m}+\dots+a_{m-1}\omega_{i-1}$
+\end_inset
+
+.
+ Sean entonces 
+\begin_inset Formula $\lambda_{0},\dots,\lambda_{m-1}$
+\end_inset
+
+ las soluciones de la ecuación de recurrencia, el método cumple la 
+\series bold
+condición de raíz
+\series default
+ si todo 
+\begin_inset Formula $|\lambda_{i}|\leq1$
+\end_inset
+
+ y las raíces con 
+\begin_inset Formula $|\lambda_{i}|=1$
+\end_inset
+
+ son simples.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, un método multipaso de paso fijo es estable si y solo si cumple la condición
+ de raíz, en cuyo caso es consistente si y sólo si es convergente.
+ Así:
+\end_layout
+
+\begin_layout Enumerate
+Los métodos a un paso son estables.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+La ecuación de recurrencia es 
+\begin_inset Formula $\omega_{i+1}=\omega_{i}$
+\end_inset
+
+, el polinomio característico es 
+\begin_inset Formula $\lambda-1$
+\end_inset
+
+ y la única solución es 
+\begin_inset Formula $\lambda=1$
+\end_inset
+
+ y es simple.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Los métodos de Adams-Bashford y Adams-Moulton son estables.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+En ambos casos la ecuación es 
+\begin_inset Formula $\omega_{i}=\omega_{i-1}$
+\end_inset
+
+, la misma que en los métodos a un paso.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Método predictor-corrector
+\end_layout
+
+\begin_layout Standard
+Dados un método implícito 
+\begin_inset Formula $\omega_{i}:=F(t_{i},h,\omega_{i-1},\dots,\omega_{i-m})$
+\end_inset
+
+ y uno explícito 
+\begin_inset Formula $\omega_{i}:=G(t_{i},h,\omega_{i},\dots,\omega_{i-m})$
+\end_inset
+
+, el 
+\series bold
+método predictor-corrector
+\series default
+ consiste en usar 
+\begin_inset Formula $F$
+\end_inset
+
+ como 
+\series bold
+predictor
+\series default
+ para obtener 
+\begin_inset Formula $\omega_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $G$
+\end_inset
+
+ como 
+\series bold
+corrector
+\series default
+ para obtener un valor mejor a 
+\begin_inset Formula $\omega_{i}$
+\end_inset
+
+ a partir del calculado, de modo que
+\begin_inset Formula 
+\[
+\omega_{i}=G(t_{i},h,F(t_{i},h,\omega_{i-1},\dots,\omega_{i-m}),\omega_{i-1},\dots,\omega_{i-m}).
+\]
+
+\end_inset
+
+Así se combina la simplicidad de un método explícito con el menor error
+ de uno implícito.
+ Se podría repetir el paso corrector para obtener mejores cotas, pero es
+ más eficiente reducir el paso.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\beta_{i}$
+\end_inset
+
+ el 
+\begin_inset Formula $\omega_{i}$
+\end_inset
+
+ obtenido con el paso predictor Adams-Bashford y 
+\begin_inset Formula $\omega_{i}$
+\end_inset
+
+ el obtenido al aplicar el corrector Adams-Moulton, 
+\begin_inset Formula $x(t_{i})-\omega_{i}\approx\frac{19}{270}(\beta_{i}-\omega_{i})$
+\end_inset
+
+.
+ En efecto, como 
+\begin_inset Formula $x(t_{i})-\beta_{i}\approx\frac{251}{720}x^{(5)}(\xi)h^{5}$
+\end_inset
+
+ y 
+\begin_inset Formula $x(t_{i})-\omega_{i}\approx-\frac{19}{720}x^{(5)}(\mu)h^{5}$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $\xi,\mu\in(t_{i-1},t_{i})$
+\end_inset
+
+, como para 
+\begin_inset Formula $h$
+\end_inset
+
+ pequeño es 
+\begin_inset Formula $x^{(5)}(\xi)\approx x^{(5)}(\mu)$
+\end_inset
+
+, 
+\begin_inset Formula $\omega_{i}-\beta_{i}=(x(t_{i})-\beta_{i})-(x(t_{i})-\omega_{i})\approx\frac{h^{5}}{720}(251x^{(5)}(\xi)+19x^{(5)}(\mu))\approx\frac{270}{720}h^{5}x^{(5)}(\xi)=\frac{3}{8}x^{(5)}(\mu)h^{5}$
+\end_inset
+
+, luego 
+\begin_inset Formula $x^{(5)}(\mu)\approx\frac{8}{3}h^{-5}(\omega_{i}-\beta_{i})$
+\end_inset
+
+ y 
+\begin_inset Formula $x(t_{i})-\omega_{i}\approx-\frac{19}{720}\frac{8}{3}h^{-5}(\omega_{i}-\beta_{i})h^{5}=\frac{19}{270}(\beta_{i}-\omega_{i})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El método es de paso variable, ajustando el paso como en los métodos de
+ paso fijo pero con error 
+\begin_inset Formula $E:=\frac{19}{270}\Vert\beta_{i}-\omega_{i}\Vert$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $T$
+\end_inset
+
+ es la tolerancia haríamos 
+\begin_inset Formula $q\gets\left(\frac{Th}{E}\right)^{1/4}\cong2.48\left(\frac{Th}{\Vert\beta_{i}-\omega_{i}\Vert}\right)^{1/4}$
+\end_inset
+
+, pero como ajustar el paso conlleva repetir los pasos a partir de 
+\begin_inset Formula $(t_{i-4},\omega_{i-4})$
+\end_inset
+
+ con un método de paso fijo para que el método funcione, se suele ser más
+ conservador y usar 
+\begin_inset Formula $1.5$
+\end_inset
+
+ en vez de 
+\begin_inset Formula $2.48$
+\end_inset
+
+ o 2 y se ignora el cambio de paso cuando 
+\begin_inset Formula $E\in(\frac{Th}{10},Th)$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
