@@ -1,0 +1,672 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Cuando las derivadas de la solución están acotadas, se puede acotar e incluso
+ predecir el error adecuadamente, y cuando la solución y su derivada crecen
+ moderadamente, el error absoluto crece pero el relativo es estable.
+ Si la derivada crece y la función no tenemos un 
+\series bold
+problema rígido
+\series default
+, en el que el error relativo se dispara.
+ Un caso típico es el problema
+\begin_inset Formula 
+\[
+\left\{ \begin{aligned}\dot{x}(t) & =\lambda x(t),\\
+x(0) & =\alpha,
+\end{aligned}
+\right.
+\]
+
+\end_inset
+
+cuya solución es claramente 
+\begin_inset Formula $x(t)=\alpha e^{\lambda t}$
+\end_inset
+
+ en todo 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ y, si 
+\begin_inset Formula $\lambda\ll0$
+\end_inset
+
+, al iterar hacia delante, 
+\begin_inset Formula $x(t)\to0$
+\end_inset
+
+ rápidamente y 
+\begin_inset Formula $x^{(p)}(t)=\alpha\lambda^{p}e^{\lambda t}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+En este caso, con el método de Euler, para que la solución tienda a cero
+ y para que el error no crezca, el paso debe ser 
+\begin_inset Formula $h<\frac{2}{|\lambda|}$
+\end_inset
+
+.
+ En efecto, 
+\begin_inset Formula $\omega_{n}\to0\iff|1+h\lambda|<1\iff-1<1+h\lambda<1$
+\end_inset
+
+, y como 
+\begin_inset Formula $h>0$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda<0$
+\end_inset
+
+, 
+\begin_inset Formula $1+h\lambda<1$
+\end_inset
+
+, pero 
+\begin_inset Formula $h\lambda>-2\iff h|\lambda|<2$
+\end_inset
+
+, y si además hay error de redondeo 
+\begin_inset Formula $\omega_{0}=\alpha+\varepsilon$
+\end_inset
+
+, el error en 
+\begin_inset Formula $\omega_{n}$
+\end_inset
+
+ es 
+\begin_inset Formula $(1+h\lambda)^{n}\varepsilon$
+\end_inset
+
+ y para que el error no crezca debe ser 
+\begin_inset Formula $|1+h\lambda|<1\iff h<\frac{2}{|\lambda|}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En general, con los métodos de un paso fijo en 
+\begin_inset Formula $h$
+\end_inset
+
+ existe un polinomio 
+\begin_inset Formula $Q$
+\end_inset
+
+ tal que, para que la solución converja, debe ser 
+\begin_inset Formula $|Q(h\lambda)|<1$
+\end_inset
+
+.
+ Para un método de Taylor de orden 
+\begin_inset Formula $n$
+\end_inset
+
+, esto es 
+\begin_inset Formula $Q(x):=\sum_{i=0}^{n}\frac{x^{i}}{i!}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean ahora un método multipaso de paso fijo 
+\begin_inset Formula $h$
+\end_inset
+
+ con parámetros 
+\begin_inset Formula $a_{0},\dots,a_{m-1},b_{0},\dots,b_{m}$
+\end_inset
+
+ y la ecuación de recurrencia asociada al método
+\begin_inset Formula 
+\[
+(1-h\lambda b_{m})\omega_{i}=(a_{m-1}+h\lambda b_{m-1})\omega_{i-1}+\dots+(a_{0}+h\lambda b_{0})\omega_{i-m},
+\]
+
+\end_inset
+
+si las raíces del polinomio característico son reales y distintas, 
+\begin_inset Formula $\beta_{1},\dots,\beta_{n}$
+\end_inset
+
+, para que el método aproxime bien a la solución del problema debe ser cada
+ 
+\begin_inset Formula $|\beta_{i}|<1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+región de estabilidad absoluta
+\series default
+ de un método es 
+\begin_inset Formula $R\subseteq\mathbb{C}$
+\end_inset
+
+ tal que, si 
+\begin_inset Formula $h\lambda\in R$
+\end_inset
+
+, el método converge.
+ Para un método de un paso que converge cuando 
+\begin_inset Formula $|Q(h\lambda)|<1$
+\end_inset
+
+, 
+\begin_inset Formula $R=\{z\in\mathbb{C}:|Q(z)|<1\}$
+\end_inset
+
+, y para uno multipaso que converge cuando cada 
+\begin_inset Formula $|\beta_{i}|<1$
+\end_inset
+
+, es 
+\begin_inset Formula $R=\{z\in\mathbb{C}:|\beta_{i}|<1,\forall i\}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Hay que tener en cuenta la región de estabilidad antes de considerar un
+ método adaptativo, pues estos pueden aumentar 
+\begin_inset Formula $h$
+\end_inset
+
+ por convergencia y evitar la estabilidad.
+ Para problemas rígidos queremos que 
+\begin_inset Formula $R$
+\end_inset
+
+ sea lo más grande posible.
+ Un método es 
+\series bold
+A-estable
+\series default
+ si 
+\begin_inset Formula $\{z\in\mathbb{C}:\text{Re}z<0\}\subseteq R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, los métodos explícitos de Runge-Kutta no son A-estables, y un método multipaso
+ A-estable tiene orden de convergencia máximo 2.
+ Algunos métodos implícitos son:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Método de Euler implícito
+\series default
+ o 
+\series bold
+hacia atrás:
+\series default
+ 
+\begin_inset Formula $\omega_{i}=\omega_{i-1}+hf(t_{i},\omega_{i})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Es estable.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Como la relación de recurrencia es 
+\begin_inset Formula $\omega_{i}=\omega_{i-1}$
+\end_inset
+
+, cumple la condición de raíz.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Es consistente cuando 
+\begin_inset Formula $\ddot{x}$
+\end_inset
+
+ es acotada.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Existe 
+\begin_inset Formula $\xi\in[t_{i},t_{i+1}]$
+\end_inset
+
+ con 
+\begin_inset Formula $\tau_{i+1}(h)=\frac{x(t_{i}+h)-x(t_{i})}{h}-f(t_{i}+h,x(t_{i}+h))=\dot{x}(t_{i}+h)+\frac{h}{2}\ddot{x}(\xi)-\dot{x}(t_{i}+h)=\frac{h}{2}\ddot{x}(\xi)$
+\end_inset
+
+, y si 
+\begin_inset Formula $\Vert\ddot{x}\Vert$
+\end_inset
+
+ está acotado, como ocurre en el problema, 
+\begin_inset Formula $\max_{i}\Vert\tau_{i+1}(h)\Vert\to0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Es A-estable.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+El polinomio 
+\begin_inset Formula $(1-h\lambda)z-1$
+\end_inset
+
+ tiene como única raíz 
+\begin_inset Formula $\beta:=\frac{1}{1-h\lambda}$
+\end_inset
+
+, y si 
+\begin_inset Formula $h\lambda=:a+bi$
+\end_inset
+
+ con 
+\begin_inset Formula $a<0$
+\end_inset
+
+, 
+\begin_inset Formula $|\beta|=\frac{1}{\sqrt{(1-a)^{2}+b^{2}}}\leq\frac{1}{1-a}<1$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Para implementarlo, sea 
+\begin_inset Formula $F(\omega):=\omega-\omega_{i-1}-hf(t_{i},\omega)$
+\end_inset
+
+, se trata de resolver 
+\begin_inset Formula $F(\omega)=0$
+\end_inset
+
+, lo que podemos hacer, por ejemplo, por el método de Newton, que nos da
+ una sucesión 
+\begin_inset Formula $(\omega_{i}^{k})_{k\in\mathbb{N}}$
+\end_inset
+
+ que converge a la raíz de 
+\begin_inset Formula $F(\omega)=0$
+\end_inset
+
+, dada por 
+\begin_inset Formula $\omega_{i}^{0}:=\omega_{i-1}$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+\omega_{i}^{k+1}:=\omega_{i}^{k}-\frac{\omega_{i}^{k}-\omega_{i-1}-hf(t_{i},\omega_{i}^{k})}{1-h\frac{\partial f}{\partial x}(t_{i},\omega)}.
+\]
+
+\end_inset
+
+Si no conocemos 
+\begin_inset Formula $\frac{\partial f}{\partial x}$
+\end_inset
+
+, podemos usar el método de la secante.
+ Iteramos hasta que 
+\begin_inset Formula $\Vert\omega_{i}^{k+1}-\omega_{i}^{k}\Vert$
+\end_inset
+
+ sea menor que una tolerancia, o si hemos llegado un máximo de iteraciones.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Método del trapecio:
+\series default
+ 
+\begin_inset Formula $\omega_{i}=\omega_{i-1}+\frac{h}{2}(f(t_{i-1},\omega_{i-1})+f(t_{i},\omega_{i}))$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Es estable.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Cumple la condición de raíz con una única raíz 1.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Es consistente y de orden 2 para 
+\begin_inset Formula $\dddot{x}$
+\end_inset
+
+ acotada.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para cierto 
+\begin_inset Formula $t$
+\end_inset
+
+ existen 
+\begin_inset Formula $\xi,\mu\in[t,t+h]$
+\end_inset
+
+ con 
+\begin_inset Formula 
+\begin{multline*}
+x(t+h)-x(t)-\frac{h}{2}(f(t,x(t))+f(t+h,x(t+h)))=\\
+=\left(x(t)+h\dot{x}(t)+\frac{1}{2}h^{2}\ddot{y}(t)+\frac{1}{6}h^{3}\dddot{y}(\xi)\right)-x(t)-\frac{h}{2}\left(\dot{x}(t)+\left(\dot{x}(t)+h\ddot{x}(t)+\frac{h^{2}}{2}\dddot{x}(\mu)\right)\right)=\\
+=\frac{1}{6}h^{3}\dddot{x}(\xi)-\frac{1}{4}h^{3}\dddot{x}(\mu),
+\end{multline*}
+
+\end_inset
+
+y si 
+\begin_inset Formula $\Vert\dddot{x}\Vert$
+\end_inset
+
+ es acotada por un cierto 
+\begin_inset Formula $C$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert\tau_{i+1}(h)\Vert\leq h^{2}(\frac{1}{6}C+\frac{1}{4}C)$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert\tau(h)\Vert\leq\frac{5}{12}Ch^{2}\to0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Es A-estable.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+La recurrencia es 
+\begin_inset Formula $Q_{h\lambda}(z)=(1-\frac{h\lambda}{2})z-(1+\frac{h\lambda}{2})$
+\end_inset
+
+ y el polinomio característico tiene una única raíz 
+\begin_inset Formula $\beta=\frac{1+\frac{h\lambda}{2}}{1-\frac{h\lambda}{2}}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\frac{h\lambda}{2}=:a+bi$
+\end_inset
+
+ con 
+\begin_inset Formula $a<0$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+|\beta|=\frac{|1+a+bi|}{|1-a-bi|}=\sqrt{\frac{(1+a)^{2}+b^{2}}{(1-a)^{2}+b^{2}}}<1,
+\]
+
+\end_inset
+
+pues 
+\begin_inset Formula $(1+a)^{2}<(1-a)^{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+Dado un método a 
+\begin_inset Formula $m$
+\end_inset
+
+ pasos
+\begin_inset Formula 
+\[
+\omega_{i}=a_{0}\omega_{i-m}+\dots+a_{m-1}\omega_{i-1}+h(b_{0}f(t_{i-m},\omega_{i-m})+\dots+b_{m}f(t_{i},\omega_{i})),
+\]
+
+\end_inset
+
+llamamos 
+\begin_inset Formula $\rho(z):=z^{m}-a_{m-1}z^{m-1}-\dots-a_{1}z-a_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma(z):=b_{m}z^{m}+\dots+b_{1}z+b_{0}$
+\end_inset
+
+.
+ Entonces el método es una 
+\series bold
+BDF
+\series default
+ (
+\emph on
+\lang english
+Backwards Differentiation Formula
+\emph default
+\lang spanish
+) si es de orden 
+\begin_inset Formula $m$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma(z)=\beta z^{m}$
+\end_inset
+
+ para algún 
+\begin_inset Formula $\beta\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Todo método BDF cumple 
+\begin_inset Formula $\beta=\left(\sum_{j=1}^{m}\frac{1}{j}\right)^{-1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\rho(z)=\beta\sum_{j=1}^{m}\frac{1}{j}z^{m-j}(z-1)^{j}$
+\end_inset
+
+.
+ Así:
+\end_layout
+
+\begin_layout Enumerate
+El BDF de orden 2 es 
+\begin_inset Formula $\omega_{i}=\frac{4}{3}\omega_{i-1}-\frac{1}{3}\omega_{i-2}+\frac{2}{3}hf(t_{i},\omega_{i})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se tiene 
+\begin_inset Formula $\beta=\left(1+\frac{1}{2}\right)^{-1}=\frac{2}{3}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\rho(z)=\frac{2}{3}\left(z(z-1)+\frac{1}{2}(z-1)^{2}\right)=\frac{2}{3}\left(\frac{3}{2}z^{2}-2z+\frac{1}{2}\right)=z^{2}-\frac{4}{3}z+\frac{1}{3}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $a_{1}=\frac{4}{3}$
+\end_inset
+
+ y 
+\begin_inset Formula $a_{0}=-\frac{1}{3}$
+\end_inset
+
+.
+ Además, 
+\begin_inset Formula $b_{0},\dots,b_{m-1},b_{m}=0,\dots,0,\beta$
+\end_inset
+
+, luego 
+\begin_inset Formula $\omega_{i}=\frac{4}{3}\omega_{i-1}-\frac{1}{3}\omega_{i-2}+\frac{2}{3}hf(t_{i},\omega_{i})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+El BDF de orden 3 es 
+\begin_inset Formula $\omega_{i}=\frac{18}{11}\omega_{i-1}-\frac{9}{11}\omega_{i-2}+\frac{2}{11}\omega_{i-3}+\frac{6}{11}f(t_{i},\omega_{i})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\beta=\left(1+\frac{1}{2}+\frac{1}{3}\right)^{-1}=\frac{6}{11}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\rho(z)=\frac{6}{11}\left(z^{2}(z-1)+\frac{1}{2}z(z-1)^{2}+\frac{1}{3}(z-1)^{3}\right)=\frac{6}{11}\left(z^{3}-z^{2}+\frac{1}{2}(z^{3}-2z^{2}+z)+\frac{1}{3}(z^{3}-3z^{2}+3z-1)\right)=z^{3}-\frac{18}{11}z^{2}+\frac{9}{11}z-\frac{2}{11}$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $\omega_{i}-\frac{18}{11}\omega_{i-1}+\frac{9}{11}\omega_{i-2}-\frac{2}{11}\omega_{i-3}=\frac{6}{11}f(t_{i},\omega_{i})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Los métodos BDF tienen una región de estabilidad lineal grande, y como 
+\series bold
+teorema
+\series default
+, un método BDF cumple la condición de raíz y es convergente si y sólo si
+ es de orden entre 1 y 6.
+\end_layout
+
+\end_body
+\end_document
