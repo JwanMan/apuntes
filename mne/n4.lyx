@@ -250,12 +250,12 @@ y una solución aproximada
 \begin_inset Formula $(t_{i},\omega_{i})_{i=0}^{n}$
 \end_inset
 
- por un método multipaso de coeficientes 
-\begin_inset Formula $a_{0},\dots,a_{m-1},b_{0},\dots,b_{m}$
+ por un método multipaso con paso 
+\begin_inset Formula $h>0$
 \end_inset
 
- con paso fijo 
-\begin_inset Formula $h>0$
+ y coeficientes 
+\begin_inset Formula $a_{0},\dots,a_{m-1},b_{0},\dots,b_{m}$
 \end_inset
 
 , el 
@@ -630,7 +630,8 @@ Fijado
 \begin_inset Formula 
 \begin{multline*}
 \Vert\tilde{\omega}_{i+1}-\omega_{i+1}\Vert=\Vert\tilde{\omega}_{i}-\omega_{i}+hØ(t_{i},\omega_{i},h)-hØ(t_{i},\tilde{\omega}_{i},h)+\varepsilon_{i}\Vert\leq(1+hL)\Vert\tilde{\omega}_{i}-\omega_{i}\Vert+\Vert\varepsilon_{i}\Vert\leq\\
-\leq(1+hL)^{i+1}\left(\Vert\tilde{\omega}_{0}-\omega_{0}\Vert+\sum_{j=1}^{i}\Vert\varepsilon_{j}\Vert\right)+\Vert\varepsilon_{i}\Vert\overset{(1+hL)^{i+1}\geq1}{\leq}(1+hL)^{i+1}\left(\Vert\tilde{\omega}_{0}-\omega_{0}\Vert+\sum_{j=1}^{i+1}\Vert\varepsilon_{j}\Vert\right).
+\leq(1+hL)^{i+1}\left(\Vert\tilde{\omega}_{0}-\omega_{0}\Vert+\sum_{j=1}^{i}\Vert\varepsilon_{j}\Vert\right)+\Vert\varepsilon_{i}\Vert\leq\\
+\overset{(1+hL)^{i+1}\geq1}{\leq}(1+hL)^{i+1}\left(\Vert\tilde{\omega}_{0}-\omega_{0}\Vert+\sum_{j=1}^{i+1}\Vert\varepsilon_{j}\Vert\right).
 \end{multline*}
 
 \end_inset
@@ -830,11 +831,15 @@ polinomio característico
 \end_layout
 
 \begin_layout Standard
-Dados un método multipaso de paso fijo con 
-\begin_inset Formula $\omega_{i}:=a_{0}\omega_{i-m}+\dots+a_{m-1}\omega_{i-1}+hF(t_{i},h,\omega_{i-m},\dots,\omega_{i})$
+Dados un método multipaso de paso fijo
+\begin_inset Formula 
+\[
+\omega_{i}:=a_{0}\omega_{i-m}+\dots+a_{m-1}\omega_{i-1}+hF(t_{i},h,\omega_{i-m},\dots,\omega_{i})
+\]
+
 \end_inset
 
- y 
+y 
 \begin_inset Formula $\omega_{i}:=\alpha_{i}$
 \end_inset
 
@@ -932,6 +937,18 @@ Método predictor-corrector
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
 Dados un método implícito 
 \begin_inset Formula $\omega_{i}:=F(t_{i},h,\omega_{i-1},\dots,\omega_{i-m})$
 \end_inset
@@ -976,6 +993,23 @@ corrector
 
 \end_inset
 
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Así se combina la simplicidad de un método explícito con el menor error
  de uno implícito.
  Se podría repetir el paso corrector para obtener mejores cotas, pero es
