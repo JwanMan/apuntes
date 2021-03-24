@@ -1573,17 +1573,54 @@ Sean
 \end_inset
 
  una superficie regular y 
-\begin_inset Formula $V:\mathbb{R}\to T_{p}S$
+\begin_inset Formula $\alpha:I\to S$
 \end_inset
 
- diferenciable, llamamos 
+ una curva regular, un 
+\series bold
+campo de vectores a lo largo de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\series default
+ es una función 
+\begin_inset Formula $V:I\to\mathbb{R}^{3}$
+\end_inset
+
+, y es 
+\series bold
+tangente
+\series default
+ a 
+\begin_inset Formula $S$
+\end_inset
+
+ (a lo largo de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+) si para 
+\begin_inset Formula $t\in S$
+\end_inset
+
+ es 
+\begin_inset Formula $V(t)\in T_{\alpha(t)}S$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $V:I\to\mathbb{R}^{3}$
+\end_inset
+
+ un campo de vectores tangente y diferenciable, llamamos 
 \series bold
 derivada covariante
 \series default
  a 
 \begin_inset Formula 
 \[
-\frac{DV}{dt}(t):=\pi_{T_{p}S}V'(t),
+\frac{DV}{dt}(t):=\pi_{T_{\alpha(t)}S}V'(t),
 \]
 
 \end_inset
@@ -1598,11 +1635,11 @@ la proyección de
 
 .
  Propiedades: Sean 
-\begin_inset Formula $V,W:\mathbb{R}\to T_{p}S$
+\begin_inset Formula $V,W:I\to T_{p}S$
 \end_inset
 
  y 
-\begin_inset Formula $f:I\subseteq\mathbb{R}\to\mathbb{R}$
+\begin_inset Formula $f:I\to\mathbb{R}$
 \end_inset
 
  diferenciables, siendo 
@@ -1622,11 +1659,11 @@ la proyección de
 \begin_deeper
 \begin_layout Standard
 Si 
-\begin_inset Formula $\pi:=\pi_{T_{p}S}$
+\begin_inset Formula $\pi:=\pi_{T_{\alpha(t)}S}$
 \end_inset
 
 , 
-\begin_inset Formula $\frac{D(fV)}{dt}=\pi((fV)')=\pi(fV'+f'V)=f\pi V'+f'\pi V=f\frac{DV}{dt}+f'V$
+\begin_inset Formula $\frac{D(fV)}{dt}=\pi((fV)')=\pi(fV'+f'V)=f\pi(V')+f'\pi(V)=f\frac{DV}{dt}+f'V$
 \end_inset
 
 .
@@ -1642,7 +1679,7 @@ Si
 
 \begin_deeper
 \begin_layout Standard
-\begin_inset Formula $\frac{D(V+W)}{dt}=\pi((V+W)')=\pi V'+\pi W'=\frac{DV}{dt}+\frac{DW}{dt}$
+\begin_inset Formula $\frac{D(V+W)}{dt}=\pi((V+W)')=\pi(V')+\pi(W')=\frac{DV}{dt}+\frac{DW}{dt}$
 \end_inset
 
 .
@@ -1678,7 +1715,7 @@ Si
 \end_inset
 
 , 
-\begin_inset Formula $\langle\frac{dV}{dt}(t),W(t)\rangle=\sum_{i=1}^{3}x_{i}y_{i}\overset{y_{3}=0}{=}x_{1}y_{1}+x_{2}y_{2}=\langle\pi_{T_{p}S}\frac{dV}{dt}(t),W(t)\rangle=\langle\frac{DV}{dt}(t),W(t)\rangle$
+\begin_inset Formula $\langle\frac{dV}{dt}(t),W(t)\rangle=\sum_{i=1}^{3}x_{i}y_{i}\overset{y_{3}=0}{=}x_{1}y_{1}+x_{2}y_{2}=\langle\pi(\frac{dV}{dt}(t)),W(t)\rangle=\langle\frac{DV}{dt}(t),W(t)\rangle$
 \end_inset
 
 , y análogamente para 
@@ -1686,7 +1723,7 @@ Si
 \end_inset
 
 , luego 
-\begin_inset Formula $\frac{d}{dt}\langle V,W\rangle=\langle\frac{DV}{dt},W\rangle+\langle V,\frac{dW}{dt}\rangle$
+\begin_inset Formula $\frac{d}{dt}\langle V,W\rangle=\langle\frac{dV}{dt},W\rangle+\langle V,\frac{dW}{dt}\rangle=\langle\frac{DV}{dt},W\rangle+\langle V,\frac{DW}{dt}\rangle$
 \end_inset
 
 .
@@ -1773,10 +1810,14 @@ triedro de Darboux
 
 .
  Entonces 
-\begin_inset Formula $\frac{D\alpha'}{ds}(s)=\kappa_{g}(s)J\alpha'(s)$
+\begin_inset Formula 
+\[
+\frac{D\alpha'}{ds}(s)=\kappa_{g}(s)J\alpha'(s),
+\]
+
 \end_inset
 
-, donde 
+ donde 
 \begin_inset Formula $\kappa_{g}:=\langle\alpha'',J\alpha'\rangle:I\to\mathbb{R}$
 \end_inset
 
@@ -1794,15 +1835,10 @@ curvatura geodésica
 
 .
  En efecto, 
-\begin_inset Formula 
-\begin{multline*}
-\langle\frac{D\alpha'}{ds}(s),\alpha'(s)\rangle=\langle\alpha''(s)-\langle\alpha''(s),N(\alpha(s))\rangle N(\alpha(s)),\alpha'(s)\rangle=\\
-=\langle\alpha''(s),\alpha'(s)\rangle-\langle\alpha''(s),N(\alpha(s))\rangle\langle N(\alpha(s)),\alpha'(s)\rangle=0,
-\end{multline*}
-
+\begin_inset Formula $\langle\frac{D\alpha'}{ds}(s),\alpha'(s)\rangle=\langle\alpha''(s)-\langle\alpha''(s),N(\alpha(s))\rangle N(\alpha(s)),\alpha'(s)\rangle=\langle\alpha''(s),\alpha'(s)\rangle-\langle\alpha''(s),N(\alpha(s))\rangle\langle N(\alpha(s)),\alpha'(s)\rangle=0$
 \end_inset
 
-y 
+, y 
 \begin_inset Formula $\kappa_{g}(s)=\langle\frac{D\alpha'}{ds}(s),J\alpha'(s)\rangle=\langle\alpha''(s),J\alpha'(s)\rangle$
 \end_inset
 
@@ -2204,10 +2240,6 @@ direcciones principales
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Ejemplos:
 \end_layout
 
 \begin_layout Enumerate
@@ -3135,15 +3167,15 @@ respecto de la base
 
 , entonces
 \begin_inset Formula 
-\begin{align*}
+\[
 \begin{pmatrix}-e & -f\\
 -f & -g
-\end{pmatrix} & =\begin{pmatrix}a_{11} & a_{21}\\
+\end{pmatrix}=\begin{pmatrix}a_{11} & a_{21}\\
 a_{12} & a_{22}
 \end{pmatrix}\begin{pmatrix}E & F\\
 F & G
 \end{pmatrix}
-\end{align*}
+\]
 
 \end_inset
 
@@ -3888,7 +3920,7 @@ símbolos de Christoffel
 \end_inset
 
  y 
-\begin_inset Formula $\Gamma_{12}^{2}=\Gamma_{22}^{2}$
+\begin_inset Formula $\Gamma_{12}^{2}=\Gamma_{21}^{2}$
 \end_inset
 
 , pues 
@@ -4103,9 +4135,9 @@ Como
 
  nos da
 \begin_inset Formula 
-\begin{multline*}
+\[
 \Gamma_{11}^{1}f+\Gamma_{11}^{2}g-\Gamma_{12}^{1}e-\Gamma_{12}^{1}f+e_{v}-f_{u}=0,
-\end{multline*}
+\]
 
 \end_inset
 
