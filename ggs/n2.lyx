@@ -833,6 +833,128 @@ Así,
  está bien definido por lo anterior y cumple las propiedades.
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+Lema de homogeneidad de las geodésicas:
+\series default
+ Sean 
+\begin_inset Formula $S$
+\end_inset
+
+ una superficie regular, 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, 
+\begin_inset Formula $v\in T_{p}S$
+\end_inset
+
+, 
+\begin_inset Formula $\gamma_{v}:I_{v}\to S$
+\end_inset
+
+ la geodésica maximal con condiciones iniciales 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda\in\mathbb{R}^{*}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\gamma_{\lambda v}:I_{\gamma v}\to S$
+\end_inset
+
+ viene dada por 
+\begin_inset Formula $I_{\lambda v}=\frac{1}{\lambda}I_{v}=\{\frac{t}{v}\}_{t\in I_{v}}$
+\end_inset
+
+ y 
+\begin_inset Formula $\gamma_{\lambda v}(t)=\gamma_{v}(\lambda t)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $t\in I_{\lambda v}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $\alpha:I\to S$
+\end_inset
+
+ con 
+\begin_inset Formula $\alpha(t):=\gamma_{v}(\lambda t)$
+\end_inset
+
+, claramente 
+\begin_inset Formula $I=\frac{1}{\lambda}I_{v}$
+\end_inset
+
+, pero 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es una reparametrización afín de 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ y por tanto es una geodésica, 
+\begin_inset Formula $\alpha(0)=\gamma(0)=p$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha'(0)=\lambda\gamma'_{v}(0)=\lambda v$
+\end_inset
+
+, de modo que por unicidad es 
+\begin_inset Formula $\alpha\equiv\gamma_{\lambda v}|_{I}$
+\end_inset
+
+e 
+\begin_inset Formula $I=\frac{1}{\lambda}I_{v}\subseteq I_{\lambda v}$
+\end_inset
+
+.
+ Ahora bien, sea 
+\begin_inset Formula $w:=\lambda v$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta:I'\to S$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\beta(t):=\gamma_{w}(\frac{1}{\lambda}v)$
+\end_inset
+
+, por el mismo argumento es 
+\begin_inset Formula $I'=\lambda I_{w}=\lambda I_{\lambda v}\subseteq I_{v}$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $I_{\lambda v}\subseteq\frac{1}{\lambda}I_{v}$
+\end_inset
+
+ e 
+\begin_inset Formula $I_{\lambda v}=\frac{1}{\lambda}I_{v}$
+\end_inset
+
+, con 
+\begin_inset Formula $\alpha=\gamma_{\lambda v}$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 Ecuaciones diferenciales lineales
 \end_layout
@@ -949,41 +1071,6 @@ Hallar bases
 .
 \end_layout
 
-\begin_layout Enumerate
-Respecto de la base
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-{\cal B}:= & (w_{11},\dots,w_{1p_{1}},\dots,w_{r1},\dots,w_{rp_{r}},\\
- & \,v_{11},u_{11},\dots,v_{1q_{1}},u_{1q_{1}},\dots,v_{s1},u_{s1},\dots,v_{sq_{s}},u_{sq_{s}}),
-\end{align*}
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -1021,7 +1108,38 @@ sremember{EDO}
 status open
 
 \begin_layout Plain Layout
+3.
+\end_layout
 
+\end_inset
+
+Respecto de la base
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+{\cal B}:= & (w_{11},\dots,w_{1p_{1}},\dots,w_{r1},\dots,w_{rp_{r}},\\
+ & \,v_{11},u_{11},\dots,v_{1q_{1}},u_{1q_{1}},\dots,v_{s1},u_{s1},\dots,v_{sq_{s}},u_{sq_{s}}),
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
 \end_layout
 
 \end_inset
@@ -1187,24 +1305,10 @@ status open
 
 \end_inset
 
-Si 
-\begin_inset Formula $A$
-\end_inset
 
- es [de la primera forma][...], [...]
-\begin_inset Formula 
-\[
-e^{tA}[...]=e^{t\lambda}\begin{pmatrix}1\\
-t & 1\\
-\frac{t^{2}}{2} & t & 1\\
-\vdots & \ddots & \ddots & \ddots\\
-\frac{t^{n-1}}{(n-1)!} & \cdots & \frac{t^{2}}{2} & t & 1
-\end{pmatrix}
-\]
+\end_layout
 
-\end_inset
-
-
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -1230,6 +1334,27 @@ status open
 \backslash
 sremember{EDO}
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es [de la primera forma][...], [...]
+\begin_inset Formula 
+\[
+e^{tA}[...]=e^{t\lambda}\begin{pmatrix}1\\
+t & 1\\
+\frac{t^{2}}{2} & t & 1\\
+\vdots & \ddots & \ddots & \ddots\\
+\frac{t^{n-1}}{(n-1)!} & \cdots & \frac{t^{2}}{2} & t & 1
+\end{pmatrix}
+\]
 
 \end_inset
 
