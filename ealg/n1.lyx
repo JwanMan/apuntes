@@ -1,0 +1,1834 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Trabajaremos solo con anillos conmutativos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{GyA}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado un anillo conmutativo 
+\begin_inset Formula $A$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $A[[X]]$
+\end_inset
+
+ al anillo conmutativo de las sucesiones de elementos de 
+\begin_inset Formula $A$
+\end_inset
+
+ entendidas como 
+\series bold
+series de potencias
+\series default
+ en una 
+\series bold
+indeterminada
+\series default
+ [o 
+\series bold
+variable
+\series default
+] 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $(a_{n})_{n}=\sum_{n=0}^{\infty}a_{n}X^{n}$
+\end_inset
+
+, con las operaciones
+\begin_inset Formula 
+\begin{align*}
+(a_{n})_{n}+(b_{n})_{n} & :=(a_{n}+b_{n})_{n}; & (a_{n})_{n}(b_{n})_{n} & :=\left(\sum_{k=0}^{n}a_{k}b_{n-k}\right)_{n}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\begin_inset Formula $A[X]$
+\end_inset
+
+ al subanillo de 
+\begin_inset Formula $A[[X]]$
+\end_inset
+
+ formado por las sucesiones con un número finito de elementos no nulos,
+ [...] 
+\series bold
+polinomios
+\series default
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ es un subanillo de 
+\begin_inset Formula $A[X]$
+\end_inset
+
+ identificando los elementos de 
+\begin_inset Formula $A$
+\end_inset
+
+ con los 
+\series bold
+polinomios constantes
+\series default
+, de la forma 
+\begin_inset Formula $P(X)=a_{0}$
+\end_inset
+
+.
+ [...]
+\end_layout
+
+\begin_layout Standard
+Dado 
+\begin_inset Formula $p:=\sum_{k\in\mathbb{N}}p_{k}X^{k}\in A[X]\setminus\{0\}$
+\end_inset
+
+, llamamos 
+\series bold
+grado
+\series default
+ de 
+\begin_inset Formula $p$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{gr}(p):=\max\{k\in\mathbb{N}:p_{k}\neq0\}$
+\end_inset
+
+, 
+\series bold
+coeficiente
+\series default
+ de 
+\series bold
+grado
+\series default
+ 
+\begin_inset Formula $k$
+\end_inset
+
+ de 
+\begin_inset Formula $p$
+\end_inset
+
+ a 
+\begin_inset Formula $p_{k}$
+\end_inset
+
+ [...] y 
+\series bold
+coeficiente principal
+\series default
+ al de grado 
+\begin_inset Formula $\text{gr}(p)$
+\end_inset
+
+.
+ Un polinomio es 
+\series bold
+mónico
+\series default
+ si su coeficiente princial es 1.
+ El polinomio 0 tiene grado 
+\begin_inset Formula $-\infty$
+\end_inset
+
+ [...].
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+monomio
+\series default
+ es un polinomio de la forma 
+\begin_inset Formula $aX^{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ y 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+ Todo polinomio en 
+\begin_inset Formula $A[X]$
+\end_inset
+
+ se escribe como suma finita de monomios de distinto grado de forma única
+ salvo orden.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $P,Q\in A[X]\setminus\{0\}$
+\end_inset
+
+ tienen coeficientes principales respectivos 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $q$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{gr}(P+Q)\leq\max\{\text{gr}(P),\text{gr}(Q)\}$
+\end_inset
+
+, con desigualdad estricta si y sólo si 
+\begin_inset Formula $\text{gr}(P)=\text{gr}(Q)$
+\end_inset
+
+ y 
+\begin_inset Formula $p+q=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{gr}(PQ)\leq\text{gr}(P)+\text{gr}(Q)$
+\end_inset
+
+, con igualdad si y sólo si 
+\begin_inset Formula $pq\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A[X]$
+\end_inset
+
+ [...] es un dominio si y sólo si lo es 
+\begin_inset Formula $A$
+\end_inset
+
+, en cuyo caso llamamos 
+\series bold
+cuerpo de las funciones
+\series default
+ [o 
+\series bold
+fracciones
+\series default
+] 
+\series bold
+racionales
+\series default
+ sobre 
+\begin_inset Formula $A$
+\end_inset
+
+ al cuerpo de fracciones de 
+\begin_inset Formula $A[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+[...] Dados 
+\begin_inset Formula $f\in A[X]$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, [...] si 
+\begin_inset Formula $f(a)=0$
+\end_inset
+
+, [...] 
+\begin_inset Formula $a$
+\end_inset
+
+ es una 
+\series bold
+raíz
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Propiedad universal
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{GyA}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Primer teorema de isomorfía:
+\series default
+ Dado un homomorfismo de anillos [...] 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+, existe un único isomorfismo [...] 
+\begin_inset Formula $\tilde{f}:A/\ker f\to\text{Im}f$
+\end_inset
+
+ tal que 
+\begin_inset Formula $i\circ\tilde{f}\circ p=f$
+\end_inset
+
+, donde 
+\begin_inset Formula $i:\text{Im}f\to B$
+\end_inset
+
+ es la inclusión y 
+\begin_inset Formula $p:A\to A/\ker f$
+\end_inset
+
+ es la proyección.
+ En particular, 
+\begin_inset Formula 
+\[
+A/\ker f\cong\text{Im}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{GyA}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Propiedad universal del anillo de polinomios
+\series default
+ (
+\series bold
+PUAP
+\series default
+)
+\series bold
+:
+\series default
+ Sean 
+\begin_inset Formula $A$
+\end_inset
+
+ un anillo y 
+\begin_inset Formula $u:A\to A[X]$
+\end_inset
+
+ el homomorfismo inclusión [...] para cada homomorfismo de anillos [...] 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in B$
+\end_inset
+
+, el único homomorfismo 
+\begin_inset Formula $\tilde{f}:A[X]\to B$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\tilde{f}(X)=b$
+\end_inset
+
+ y 
+\begin_inset Formula $\tilde{f}\circ u=f$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\tilde{f}\left(\sum_{n}p_{n}X^{n}\right):=\sum_{n}f(p_{n})b^{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+[...]
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un subanillo de 
+\begin_inset Formula $B$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in B$
+\end_inset
+
+, el 
+\series bold
+homomorfismo 
+\series default
+[...] 
+\series bold
+de evaluación
+\series default
+ en 
+\begin_inset Formula $b$
+\end_inset
+
+ es 
+\begin_inset Formula $S_{b}:A[X]\to B$
+\end_inset
+
+ dado por
+\begin_inset Formula 
+\[
+S_{b}(p):=p(b):=\sum_{n}p_{n}b^{n},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+y su imagen es el subanillo generado por 
+\begin_inset Formula $A\cup\{b\}$
+\end_inset
+
+, llamado 
+\begin_inset Formula $A[b]$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por ejemplo, 
+\begin_inset Formula $\mathbb{C}=\mathbb{R}[i]$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $b$
+\end_inset
+
+ es 
+\series bold
+trascendente
+\series default
+ sobre 
+\begin_inset Formula $A$
+\end_inset
+
+ si 
+\begin_inset Formula $\ker(S_{b})=0$
+\end_inset
+
+, es decir, si 
+\begin_inset Formula $b$
+\end_inset
+
+ solo es raíz del polinomio nulo, y en otro caso 
+\begin_inset Formula $b$
+\end_inset
+
+ es 
+\series bold
+algebraico
+\series default
+ y llamamos 
+\series bold
+ideal de las relaciones algebraicas
+\series default
+ de 
+\begin_inset Formula $b$
+\end_inset
+
+ sobre 
+\begin_inset Formula $A$
+\end_inset
+
+ a 
+\begin_inset Formula $\ker(S_{b})\neq0$
+\end_inset
+
+.
+ Así:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A[b]\cong A[X]/\ker(S_{b})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Por el primer teorema de isomorfía.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $b$
+\end_inset
+
+ es trascendente, 
+\begin_inset Formula $S_{b}:A[X]\to A[b]$
+\end_inset
+
+ es un isomorfismo.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Por el primer teorema de isomorfía, existe un isomorfismo 
+\begin_inset Formula $f:A[X]/0\to A[b]$
+\end_inset
+
+ con 
+\begin_inset Formula $S_{b}(p)=f([p])$
+\end_inset
+
+, pero 
+\begin_inset Formula $(p\mapsto[p]):A[X]\to A[X]/0$
+\end_inset
+
+ es un isomorfismo.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Todo 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ es algebraico sobre 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Es la raíz de 
+\begin_inset Formula $X-a$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\pi$
+\end_inset
+
+ y 
+\begin_inset Formula $e$
+\end_inset
+
+ son trascendentes sobre 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{R}[i]=\mathbb{C}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+4.
+\end_layout
+
+\end_inset
+
+Todo homomorfismo de anillos 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ induce un homomorfismo 
+\begin_inset Formula $\hat{f}:A[X]\to B[X]$
+\end_inset
+
+ dado por
+\begin_inset Formula 
+\[
+\hat{f}(p)=\sum_{n}f(p_{n})X^{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Raíces
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{GyA}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Todo DIP [(dominio de ideales principales)] es un DFU.
+ [...] Dado un dominio 
+\begin_inset Formula $D\neq0$
+\end_inset
+
+, una función 
+\begin_inset Formula $\delta:D\setminus\{0\}\to\mathbb{N}$
+\end_inset
+
+ es 
+\series bold
+euclídea
+\series default
+ si cumple:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall a,b\in D\setminus\{0\},(a\mid b\implies\delta(a)\leq\delta(b))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall a\in D,b\in D\setminus\{0\},\exists q,r\in D:(a=bq+r\land(r=0\lor\delta(r)<\delta(b)))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+dominio euclídeo
+\series default
+ es uno que admite una función euclídea.
+ [...] Todo dominio euclídeo es DIP.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{GyA}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $f,g\in A[X]$
+\end_inset
+
+, si el coeficiente principal de 
+\begin_inset Formula $g$
+\end_inset
+
+ es invertible en 
+\begin_inset Formula $A$
+\end_inset
+
+, existen dos únicos polinomios 
+\begin_inset Formula $q,r\in A[X]$
+\end_inset
+
+, llamados respectivamente 
+\series bold
+cociente
+\series default
+ y 
+\series bold
+resto
+\series default
+ de la 
+\series bold
+división
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ entre 
+\begin_inset Formula $g$
+\end_inset
+
+, tales que 
+\begin_inset Formula $f=gq+r$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{gr}(r)<\text{gr}(g)$
+\end_inset
+
+, y [
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ son el 
+\series bold
+dividendo
+\series default
+ y el 
+\series bold
+divisor
+\series default
+.][...] En particular, el grado es una función euclídea.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema del resto:
+\series default
+ Dados 
+\begin_inset Formula $f\in A[X]$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, el resto de 
+\begin_inset Formula $f$
+\end_inset
+
+ entre 
+\begin_inset Formula $X-a$
+\end_inset
+
+ es 
+\begin_inset Formula $f(a)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+[...] 
+\series bold
+Teorema de Ruffini
+\series default
+, [...] 
+\begin_inset Formula $f$
+\end_inset
+
+ es divisible por 
+\begin_inset Formula $X-a$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $f(a)=0$
+\end_inset
+
+ [...].
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $f\in A[X]\setminus\{0\}$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, existe 
+\begin_inset Formula $m:=\max\{k\in\mathbb{N}:(X-a)^{k}\mid f\}$
+\end_inset
+
+.
+ Llamamos a 
+\begin_inset Formula $m$
+\end_inset
+
+ 
+\series bold
+multiplicidad
+\series default
+ de 
+\begin_inset Formula $a$
+\end_inset
+
+ en 
+\begin_inset Formula $f$
+\end_inset
+
+, y 
+\begin_inset Formula $a$
+\end_inset
+
+ es raíz de 
+\begin_inset Formula $f$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $m\geq1$
+\end_inset
+
+.
+ [...] 
+\begin_inset Formula $a$
+\end_inset
+
+ es una 
+\series bold
+raíz simple
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ si 
+\begin_inset Formula $m=1$
+\end_inset
+
+ y [...] es una 
+\series bold
+raíz 
+\series default
+[...][
+\series bold
+múltiple
+\series default
+] si 
+\begin_inset Formula $m>1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La multiplicidad de 
+\begin_inset Formula $a$
+\end_inset
+
+ en 
+\begin_inset Formula $f$
+\end_inset
+
+ es el único natural 
+\begin_inset Formula $m$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f=(X-a)^{m}g$
+\end_inset
+
+ para algún 
+\begin_inset Formula $g\in A[X]$
+\end_inset
+
+ del que 
+\begin_inset Formula $a$
+\end_inset
+
+ no es raíz.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $D$
+\end_inset
+
+ es un dominio, 
+\begin_inset Formula $f\in D[X]\setminus\{0\}$
+\end_inset
+
+, [...] la suma de las multiplicidades de las raíces de 
+\begin_inset Formula $f$
+\end_inset
+
+, y el número de raíces, no son superiores a 
+\begin_inset Formula $\text{gr}(f)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremeber
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En particular, si 
+\begin_inset Formula $g\in D[X]$
+\end_inset
+
+ tiene infinitas raíces en 
+\begin_inset Formula $D$
+\end_inset
+
+ entonces 
+\begin_inset Formula $g=0$
+\end_inset
+
+.
+ Esto no tiene por qué cumplirse si 
+\begin_inset Formula $D$
+\end_inset
+
+ no en un dominio, pues en 
+\begin_inset Formula $\mathbb{Z}\times\mathbb{Z}$
+\end_inset
+
+ todos los elementos de 
+\begin_inset Formula $0\times\mathbb{Z}$
+\end_inset
+
+ son raíces de 
+\begin_inset Formula $(1,0)X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{GyA}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado un anillo [...] 
+\begin_inset Formula $A$
+\end_inset
+
+, definimos la 
+\series bold
+derivada
+\series default
+ de 
+\begin_inset Formula $P:=\sum_{k}a_{k}X^{k}\in A[X]$
+\end_inset
+
+ como 
+\begin_inset Formula $P':=[...]:=\sum_{k\geq1}ka_{k}X^{k-1}$
+\end_inset
+
+, y escribimos 
+\begin_inset Formula $P^{(0)}:=P$
+\end_inset
+
+ y 
+\begin_inset Formula $P^{(n+1)}:=P^{(n)\prime}$
+\end_inset
+
+.
+ Dados 
+\begin_inset Formula $a,b\in A$
+\end_inset
+
+ y 
+\begin_inset Formula $P,Q\in A[X]$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(aP+bQ)'=aP'+bQ'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(PQ)'=P'Q+PQ'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(P^{n})'=nP^{n-1}P'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un anillo, 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ es raíz múltiple de 
+\begin_inset Formula $p\in A[X]$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $p(a)=p'(a)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{GyA}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si [...] 
+\begin_inset Formula $a=\text{mcd}S$
+\end_inset
+
+ [...] llamamos 
+\series bold
+identidad de Bézout
+\series default
+ a una expresión de la forma 
+\begin_inset Formula $a=a_{1}s_{1}+\dots+a_{n}s_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{1},\dots,a_{n}\in A$
+\end_inset
+
+ y 
+\begin_inset Formula $s_{1},\dots,s_{n}\in S$
+\end_inset
+
+, que existe [...].
+\end_layout
+
+\begin_layout Standard
+[...] 
+\begin_inset Formula $A[X]$
+\end_inset
+
+ es un dominio euclídeo si y sólo si es un DIP, si y sólo si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un cuerpo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $K$
+\end_inset
+
+ un cuerpo y 
+\begin_inset Formula $f\in K[X]$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\text{mcd}\{f,f'\}=1$
+\end_inset
+
+ entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ no tiene raíces múltiples en 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Existen 
+\begin_inset Formula $p,q\in K[X]$
+\end_inset
+
+ para los que se da la identidad de Bézout 
+\begin_inset Formula $pf+qf'=1$
+\end_inset
+
+, y si 
+\begin_inset Formula $f$
+\end_inset
+
+ tuviera una raíz múltiple 
+\begin_inset Formula $a\in K$
+\end_inset
+
+, se tendría 
+\begin_inset Formula $f(a)=f'(a)=0$
+\end_inset
+
+ y 
+\begin_inset Formula $a$
+\end_inset
+
+ sería raíz de 
+\begin_inset Formula $pf+qf'\#$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ son cuerpos y 
+\begin_inset Formula $f\in K[X]$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ con una raíz en 
+\begin_inset Formula $L$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene raíces múltiples en 
+\begin_inset Formula $L$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $f'=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si fuera 
+\begin_inset Formula $f'\neq0$
+\end_inset
+
+, como 
+\begin_inset Formula $\text{gr}f'<\text{gr}f$
+\end_inset
+
+ y el grado es euclídeo, 
+\begin_inset Formula $\text{gr}(\text{mcd}\{f,f'\})<\text{gr}f$
+\end_inset
+
+, y como 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible, 
+\begin_inset Formula $\text{mcd}\{f,f'\}=1$
+\end_inset
+
+ en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+.
+ Ahora bien,
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+pasar a que lo es en 
+\begin_inset Formula $L[X]$
+\end_inset
+
+ por identidades de Bézout y cosas de DIP y caracterización de mcd por ideal
+ principal
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Divisibilidad
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{GyA}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $D$
+\end_inset
+
+ un dominio y 
+\begin_inset Formula $p\in D$
+\end_inset
+
+ [...] 
+\begin_inset Formula $p$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $D$
+\end_inset
+
+ si y sólo si lo es en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+[...] Como 
+\series bold
+teorema
+\series default
+, 
+\begin_inset Formula $D$
+\end_inset
+
+ es un DFU si y sólo si lo es 
+\begin_inset Formula $D[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+[...] Si 
+\begin_inset Formula $D$
+\end_inset
+
+ es un DFU [...][para 
+\begin_inset Formula $p\in D[X]$
+\end_inset
+
+], 
+\begin_inset Formula $c(p):=\{x:x=\text{mcd}_{k\geq0}p_{k}\}$
+\end_inset
+
+, y [...] si 
+\begin_inset Formula $c(p)=aD^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $a$
+\end_inset
+
+ es el 
+\series bold
+contenido
+\series default
+ de 
+\begin_inset Formula $p$
+\end_inset
+
+ (
+\begin_inset Formula $a=c(p)$
+\end_inset
+
+).
+ [...] 
+\begin_inset Formula $p$
+\end_inset
+
+ es 
+\series bold
+primitivo
+\series default
+ si 
+\begin_inset Formula $c(p)=1$
+\end_inset
+
+, esto es, si [...]
+\begin_inset Formula $\text{mcd}_{k}p_{k}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+[...] Sean 
+\begin_inset Formula $K$
+\end_inset
+
+ un cuerpo y 
+\begin_inset Formula $f\in K[X]$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\text{gr}(f)=1$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+.
+ [...]
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+3.
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $\text{gr}(f)\in\{2,3\}$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ si y sólo si no tiene raíces en 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $D$
+\end_inset
+
+ es un DFU con cuerpo de fracciones 
+\begin_inset Formula $K$
+\end_inset
+
+, 
+\begin_inset Formula $f:=\sum_{k}a_{k}X^{k}\in D[X]$
+\end_inset
+
+ y 
+\begin_inset Formula $n:=\text{gr}(f)$
+\end_inset
+
+, todas las raíces de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $K$
+\end_inset
+
+ son de la forma 
+\begin_inset Formula $\frac{r}{s}$
+\end_inset
+
+ con 
+\begin_inset Formula $r\mid a_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $s\mid a_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Criterio de reducción:
+\series default
+ [...] Si 
+\begin_inset Formula $p\in\mathbb{Z}$
+\end_inset
+
+ es primo, 
+\begin_inset Formula $f:=\sum_{k}a_{k}X^{k}\in\mathbb{Z}[X]$
+\end_inset
+
+ es primitivo, 
+\begin_inset Formula $n:=\text{gr}(f)$
+\end_inset
+
+, 
+\begin_inset Formula $p\nmid a_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $\mathbb{Z}_{p}[X]$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $\mathbb{Z}[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Criterio de Eisenstein:
+\series default
+ Sean 
+\begin_inset Formula $D$
+\end_inset
+
+ un DFU, 
+\begin_inset Formula $f:=\sum_{k}a_{k}X^{k}\in D[X]$
+\end_inset
+
+ primitivo y 
+\begin_inset Formula $n:=\text{gr}f$
+\end_inset
+
+, si existe un irreducible 
+\begin_inset Formula $p\in D$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall k\in\{0,\dots,n-1\},p\mid a_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $p^{2}\nmid a_{0}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+1.24,1.25
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
