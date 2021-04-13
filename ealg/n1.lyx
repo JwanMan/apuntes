@@ -1739,6 +1739,47 @@ Divisibilidad
 \end_layout
 
 \begin_layout Standard
+Si 
+\begin_inset Formula $p\in A[X]$
+\end_inset
+
+ está formado por subsecuencias proporcionales, es decir, si viene dado
+ por 
+\begin_inset Formula 
+\[
+(0,\dots,0,\alpha_{1}a_{0},\dots,\alpha_{1}a_{k},0,\dots,0,\alpha_{2}a_{0},\dots,\alpha_{2}a_{k},\dots,0,\dots,0,\alpha_{t}a_{0},\dots,\alpha_{t}a_{k},0,\dots),
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $\alpha_{1},\dots,\alpha_{t},a_{0},\dots a_{k}\in A$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{0},a_{k}\neq0$
+\end_inset
+
+, sea 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ la posición de 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $i$
+\end_inset
+
+, entonces 
+\begin_inset Formula $p=(a_{0}+a_{1}X+\dots+a_{k}X^{k})(\alpha_{1}X^{n_{1}}+\dots+\alpha_{t}X^{n_{t}})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -1845,6 +1886,23 @@ primitivo
 \end_inset
 
 .
+ [...] Dado 
+\begin_inset Formula $f\in D[X]\setminus D$
+\end_inset
+
+ primitivo, 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $D[X]$
+\end_inset
+
+ si y sólo si lo es en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ [...].
 \end_layout
 
 \begin_layout Standard
@@ -2131,6 +2189,85 @@ que es irreducible por Eisenstein porque
 .
 \end_layout
 
+\begin_layout Standard
+Un polinomio 
+\begin_inset Formula $p\in K[X]$
+\end_inset
+
+ de grado 
+\begin_inset Formula $n$
+\end_inset
+
+ es 
+\series bold
+recíproco
+\series default
+ si para 
+\begin_inset Formula $i\in\{0,\dots,n\}$
+\end_inset
+
+ es 
+\begin_inset Formula $p_{i}=p_{n-i}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $K$
+\end_inset
+
+ es un cuerpo y 
+\begin_inset Formula $n$
+\end_inset
+
+ es par, las raíces no nulas de 
+\begin_inset Formula $p(X)$
+\end_inset
+
+ son los ceros de 
+\begin_inset Formula $f(x):=p(x)/x^{n/2}:K^{*}\to K$
+\end_inset
+
+, que será de la forma 
+\begin_inset Formula 
+\[
+f(x)=p_{0}x^{k}+\dots+p_{k-1}x+p_{k}+p_{k-1}x^{-1}+\dots+p_{0}x^{-k},
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $k:=n/2$
+\end_inset
+
+.
+ Haciendo el cambio de variable 
+\begin_inset Formula $y:=x+x^{-1}$
+\end_inset
+
+ nos queda una función polinómica de grado 
+\begin_inset Formula $k$
+\end_inset
+
+ y hemos reducido el grado a la mitad.
+ Para hacer el cambio, calculamos 
+\begin_inset Formula $y^{2},y^{3},\dots,y^{k}$
+\end_inset
+
+, sustituimos 
+\begin_inset Formula $p_{0}(x^{k}+x^{-k})$
+\end_inset
+
+ por 
+\begin_inset Formula $p_{0}y^{k}$
+\end_inset
+
+ más un polinomio de grado menor, hacemos lo propio con el grado 
+\begin_inset Formula $k-1$
+\end_inset
+
+, etc.
+\end_layout
+
 \begin_layout Section
 Factorización en 
 \begin_inset Formula $\mathbb{C}[X]$
@@ -2388,6 +2525,72 @@ Demostración:
 La segunda parte se obtiene por inducción.
 \end_layout
 
+\begin_layout Standard
+Las raíces de 
+\begin_inset Formula $X^{n}-z\in\mathbb{C}[X]$
+\end_inset
+
+ son las raíces 
+\begin_inset Formula $n$
+\end_inset
+
+-ésimas de 
+\begin_inset Formula $z$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $z=re^{i\theta}$
+\end_inset
+
+ con 
+\begin_inset Formula $r,\theta\in\mathbb{R}$
+\end_inset
+
+, estas son de la forma 
+\begin_inset Formula $\sqrt[n]{r}\omega^{k}$
+\end_inset
+
+, con 
+\begin_inset Formula $\omega=e^{2\pi i/n}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $n\in\mathbb{N}^{*}$
+\end_inset
+
+, una 
+\series bold
+raíz 
+\begin_inset Formula $n$
+\end_inset
+
+-ésima de la unidad
+\series default
+ es una de 
+\begin_inset Formula $X^{n}-1$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+, y es 
+\series bold
+primitiva
+\series default
+ si no es raíz 
+\begin_inset Formula $k$
+\end_inset
+
+-ésima de la unidad para un 
+\begin_inset Formula $k<n$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 Polinomios en varias variables
 \end_layout
@@ -2538,34 +2741,6 @@ Dados un homomorfismo de anillos
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-eremember
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-sremember{GyA}
-\end_layout
-
-\end_inset
-
 Así:
 \end_layout
 
@@ -2968,38 +3143,6 @@ grado
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-eremember
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-sremember{GyA}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
