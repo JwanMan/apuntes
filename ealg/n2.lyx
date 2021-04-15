@@ -151,7 +151,7 @@ de cuerpos
 \end_inset
 
 , que representamos como 
-\begin_inset Formula $K\subset L$
+\begin_inset Formula $K\subseteq L$
 \end_inset
 
 , 
@@ -171,11 +171,11 @@ de cuerpos
 
 \begin_layout Standard
 Algunas extensiones son 
-\begin_inset Formula $\mathbb{Q}\subset\mathbb{R}$
+\begin_inset Formula $\mathbb{Q}\subseteq\mathbb{R}$
 \end_inset
 
 , 
-\begin_inset Formula $\mathbb{R}\subset\mathbb{C}$
+\begin_inset Formula $\mathbb{R}\subseteq\mathbb{C}$
 \end_inset
 
  y, para todo cuerpo 
@@ -183,7 +183,7 @@ Algunas extensiones son
 \end_inset
 
 , 
-\begin_inset Formula $K\subset K(X)$
+\begin_inset Formula $K\subseteq K(X)$
 \end_inset
 
 , donde 
@@ -196,29 +196,47 @@ Algunas extensiones son
 
 .
  Otras son 
-\begin_inset Formula $\mathbb{Q}\subset\mathbb{Q}[\sqrt{m}]$
+\begin_inset Formula $\mathbb{Q}\subseteq\mathbb{Q}[\sqrt{m}]$
 \end_inset
 
  para 
 \begin_inset Formula $m\in\mathbb{Z}$
 \end_inset
 
- no cuadrado y 
-\begin_inset Formula $\mathbb{Q}\subset\mathbb{Q}[i]$
+ no cuadrado, incluyendo 
+\begin_inset Formula $\mathbb{Q}[i]$
 \end_inset
 
 .
- En ef
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-a.pdf::27
-\end_layout
-
+ En efecto, es claro que 
+\begin_inset Formula $\mathbb{Q}[\sqrt{m}]$
 \end_inset
 
+ es cerrado para restas y productos, y para inversos, sean 
+\begin_inset Formula $a,b\in\mathbb{Q}$
+\end_inset
 
+ con 
+\begin_inset Formula $a+b\sqrt{m}\neq0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $c:=(a+b\sqrt{m})(a-b\sqrt{m})=a^{2}-mb^{2}\in\mathbb{Q}\setminus0$
+\end_inset
+
+, pues 
+\begin_inset Formula $m$
+\end_inset
+
+ no es racional, y entonces 
+\begin_inset Formula $\frac{a}{c}-\frac{b}{c}\sqrt{m}\in\mathbb{Q}[\sqrt{m}]$
+\end_inset
+
+ es el inverso de 
+\begin_inset Formula $a+b\sqrt{m}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -238,7 +256,27 @@ sremember{GyA}
 \end_layout
 
 \begin_layout Standard
-Sea 
+Llamamos 
+\series bold
+subanillo primo
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ a 
+\begin_inset Formula $\mathbb{Z}1:=\{n1_{A}\}_{n\in\mathbb{Z}}$
+\end_inset
+
+, el menor subanillo de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+[...] Sea 
 \begin_inset Formula $K$
 \end_inset
 
@@ -279,6 +317,91 @@ subcuerpo primo
 \end_inset
 
  en caso contrario.
+ 
+\series bold
+Demostración:
+\series default
+ Si la característica es un primo 
+\begin_inset Formula $p$
+\end_inset
+
+, el subanillo primo de 
+\begin_inset Formula $K$
+\end_inset
+
+, isomorfo a 
+\begin_inset Formula $\mathbb{Z}_{p}$
+\end_inset
+
+, es un cuerpo y contiene a cualquier subanillo de 
+\begin_inset Formula $K$
+\end_inset
+
+ [...].
+ En otro caso [...] la característica es 0, por lo que 
+\begin_inset Formula $f:\mathbb{Z}\to K$
+\end_inset
+
+ dado por 
+\begin_inset Formula $f(n):=n1$
+\end_inset
+
+ es un homomorfismo inyectivo y la propiedad universal nos da un homomorfismo
+ 
+\begin_inset Formula $\tilde{f}:Q(\mathbb{Z})=\mathbb{Q}\to K$
+\end_inset
+
+ dado por 
+\begin_inset Formula $f(\frac{n}{m})=f(n)f(m)^{-1}$
+\end_inset
+
+.
+ Es claro entonces que 
+\begin_inset Formula $K':=\tilde{f}(\mathbb{Q})$
+\end_inset
+
+ es isomorfo a 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+, y queda ver que está contenido en cualquier subcuerpo de 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ Dado un tal 
+\begin_inset Formula $F$
+\end_inset
+
+, para 
+\begin_inset Formula $m\in\mathbb{Z}$
+\end_inset
+
+, 
+\begin_inset Formula $f(m)=m1\in F$
+\end_inset
+
+, y para 
+\begin_inset Formula $n\in\mathbb{Z}\setminus\{0\}$
+\end_inset
+
+, 
+\begin_inset Formula $f(n)\neq0$
+\end_inset
+
+ y 
+\begin_inset Formula $f(n)^{-1}\in F$
+\end_inset
+
+, luego 
+\begin_inset Formula $\tilde{f}(\frac{m}{n})=f(m)f(n)^{-1}\in F$
+\end_inset
+
+, y en resumen 
+\begin_inset Formula $\tilde{f}(\mathbb{Q})\subseteq F$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -290,6 +413,1470 @@ status open
 
 \backslash
 eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Grado de una extensión
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ es una extensión de cuerpos, 
+\begin_inset Formula $L$
+\end_inset
+
+ es un 
+\begin_inset Formula $K$
+\end_inset
+
+-espacio vectorial con la suma y el producto por escalares dados por la
+ suma y el producto en 
+\begin_inset Formula $L$
+\end_inset
+
+, y 
+\begin_inset Formula $K$
+\end_inset
+
+ es un subespacio de 
+\begin_inset Formula $L$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+grado
+\series default
+ de 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ a 
+\begin_inset Formula $[L:K]:=\dim_{K}L$
+\end_inset
+
+, la dimensión de 
+\begin_inset Formula $L$
+\end_inset
+
+ como 
+\begin_inset Formula $K$
+\end_inset
+
+-espacio vectorial.
+ 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ es 
+\series bold
+finita
+\series default
+ o 
+\series bold
+infinita
+\series default
+ según lo sea 
+\begin_inset Formula $[L:K]$
+\end_inset
+
+.
+ Entonces:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $[L:K]=1\iff L=K$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si hubiera 
+\begin_inset Formula $\alpha\in L\setminus K$
+\end_inset
+
+, como 
+\begin_inset Formula $\alpha\notin K=\text{span}\{1\}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y 1 son linealmente independientes y 
+\begin_inset Formula $\text{span}\{1,\alpha\}\subseteq L$
+\end_inset
+
+, luego 
+\begin_inset Formula $[L:K]\geq2\#$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $[\mathbb{C}:\mathbb{R}]=2$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Tomando la base 
+\begin_inset Formula $(1,i)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $m\in\mathbb{Z}$
+\end_inset
+
+ no cuadrado, 
+\begin_inset Formula $[\mathbb{Q}[\sqrt{m}]:\mathbb{Q}]=2$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Tomando la base 
+\begin_inset Formula $(1,\sqrt{m})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{Q}\subseteq\mathbb{R}$
+\end_inset
+
+ es infinita.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si fuera 
+\begin_inset Formula $[\mathbb{R}:\mathbb{Q}]=:n<+\infty$
+\end_inset
+
+, habría un isomorfismo de espacios vectoriales 
+\begin_inset Formula $\mathbb{R}\cong\mathbb{Q}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ sería numerable.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $K\subseteq K(X)$
+\end_inset
+
+ es infinita.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\{X^{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+ es infinito y linealmente independiente sobre 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Dadas dos extensiones 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ y 
+\begin_inset Formula $L\subseteq M$
+\end_inset
+
+, 
+\begin_inset Formula $[M:K]=[M:L][L:K]$
+\end_inset
+
+.
+ En particular, si 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ y 
+\begin_inset Formula $L\subseteq M$
+\end_inset
+
+ son finitas, entonces 
+\begin_inset Formula $[M:L],[L:K]\mid[M:K]$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $(u_{i})_{i\in I}$
+\end_inset
+
+ una base de 
+\begin_inset Formula $M$
+\end_inset
+
+ sobre 
+\begin_inset Formula $L$
+\end_inset
+
+ y 
+\begin_inset Formula $(v_{j})_{j\in J}$
+\end_inset
+
+ una de 
+\begin_inset Formula $L$
+\end_inset
+
+ sobre 
+\begin_inset Formula $K$
+\end_inset
+
+, todo 
+\begin_inset Formula $\alpha\in M$
+\end_inset
+
+ se expresa de forma única como 
+\begin_inset Formula $\alpha=:\sum_{i\in I}a_{i}u_{i}$
+\end_inset
+
+ con los 
+\begin_inset Formula $a_{i}\in L$
+\end_inset
+
+, y cada 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ se expresa de forma única como 
+\begin_inset Formula $a_{i}=:\sum_{j\in J}c_{ij}v_{j}$
+\end_inset
+
+ con los 
+\begin_inset Formula $c_{ij}\in K$
+\end_inset
+
+, luego 
+\begin_inset Formula $\alpha=\sum_{(i,j)\in I\times J}c_{ij}u_{i}v_{j}$
+\end_inset
+
+.
+ Pero agrupando, esta descomposición es única, luego 
+\begin_inset Formula $(u_{i}v_{j})_{(i,j)\in I\times J}$
+\end_inset
+
+ es base de 
+\begin_inset Formula $M$
+\end_inset
+
+ sobre 
+\begin_inset Formula $K$
+\end_inset
+
+ y 
+\begin_inset Formula $[M:K]=|I\times J|=|I||J|=[M:L][L:K]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Así, si 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ tiene grado finito y primo, no hay ningún cuerpo intermedio entre ellos.
+ En efecto, sea 
+\begin_inset Formula $E$
+\end_inset
+
+ un cuerpo con 
+\begin_inset Formula $K\subseteq E\subseteq L$
+\end_inset
+
+, como 
+\begin_inset Formula $[L:K]=[L:E][E:K]$
+\end_inset
+
+ es primo, bien 
+\begin_inset Formula $[L:E]=1$
+\end_inset
+
+ o 
+\begin_inset Formula $[E:K]=1$
+\end_inset
+
+, luego 
+\begin_inset Formula $E\in\{K,L\}$
+\end_inset
+
+.
+ En particular no hay ningún cuerpo entre 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Extensiones generadas y admisibles
+\end_layout
+
+\begin_layout Standard
+Dado un conjunto 
+\begin_inset Formula ${\cal C}$
+\end_inset
+
+, la unión 
+\begin_inset Formula $\bigcup{\cal C}$
+\end_inset
+
+ es una 
+\series bold
+unión dirigida
+\series default
+ si para 
+\begin_inset Formula $A,B\in{\cal C}$
+\end_inset
+
+ existe 
+\begin_inset Formula $C\in{\cal C}$
+\end_inset
+
+ con 
+\begin_inset Formula $A,B\subseteq C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dados una extensión de cuerpos 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ y un 
+\begin_inset Formula $S\subseteq L$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $K[S]$
+\end_inset
+
+ al conjunto de expresiones polinómicas de elementos de 
+\begin_inset Formula $S$
+\end_inset
+
+ con coeficientes en 
+\begin_inset Formula $K$
+\end_inset
+
+, es decir, la unión dirigida 
+\begin_inset Formula $\bigcup_{\{\alpha_{1},\dots,\alpha_{k}\}\subseteq S}K[\alpha_{1},\dots,\alpha_{k}]$
+\end_inset
+
+, que es el menor subanillo de 
+\begin_inset Formula $L$
+\end_inset
+
+ que contiene a 
+\begin_inset Formula $K\cup S$
+\end_inset
+
+, es decir, la intersección de todos estos subanillos.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+En efecto, todo subanillo de 
+\begin_inset Formula $L$
+\end_inset
+
+ que contenga a 
+\begin_inset Formula $K\cup S$
+\end_inset
+
+ contendrá a los 
+\begin_inset Formula $K[\alpha_{1},\dots,\alpha_{k}]$
+\end_inset
+
+ con 
+\begin_inset Formula $\{\alpha_{1},\dots,\alpha_{k}\}\in S$
+\end_inset
+
+, 
+\begin_inset Formula $1\in K[S]$
+\end_inset
+
+ y claramente 
+\begin_inset Formula $K[S]$
+\end_inset
+
+ es cerrado por restas y productos.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Sean 
+\begin_inset Formula $a:=\sum_{i\in I}a_{i}\alpha_{1}^{i_{1}}\cdots\alpha_{p}^{i_{p}},b:=\sum_{j\in J}b_{i}\beta_{1}^{j_{1}}\cdots\beta_{q}^{i_{q}}\in K(S)$
+\end_inset
+
+, con 
+\begin_inset Formula $\alpha_{1},\dots,\alpha_{p},\beta_{1},\dots,\beta_{q}\in S$
+\end_inset
+
+, 
+\begin_inset Formula $I\subseteq\mathbb{N}^{p}$
+\end_inset
+
+ y 
+\begin_inset Formula $J\subseteq\mathbb{N}^{q}$
+\end_inset
+
+ finitos y 
+\begin_inset Formula $a_{i},b_{j}\in S$
+\end_inset
+
+ para 
+\begin_inset Formula $i\in I$
+\end_inset
+
+ y 
+\begin_inset Formula $j\in J$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $a-b=\sum_{i\in I}a_{i}\alpha_{1}^{i_{1}}\cdots\alpha_{p}^{i_{p}}-\sum_{j\in J}b_{i}\beta_{1}^{j_{1}}\cdots\beta_{q}^{j_{q}}\in K[\alpha_{1},\dots,\alpha_{p},\beta_{1},\dots,\beta_{q}]\subseteq S$
+\end_inset
+
+ y 
+\begin_inset Formula $ab=\sum_{(i,j)\in I\times J}a_{i}b_{j}\alpha_{1}^{i_{1}}\cdots\alpha_{p}^{i_{p}}\beta_{1}^{j_{1}}\cdots\beta_{q}^{j_{q}}\in K[\alpha_{1},\dots,\alpha_{p},\beta_{1},\dots,\beta_{q}]\subseteq S$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $K[S]$
+\end_inset
+
+ es un dominio
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+, pues es un subanillo del cuerpo 
+\begin_inset Formula $L$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\begin_inset Formula $K(S)$
+\end_inset
+
+ al cuerpo de fracciones de 
+\begin_inset Formula $K(S)$
+\end_inset
+
+, que es la unión dirigida 
+\begin_inset Formula $\bigcup_{\{\alpha_{1},\dots,\alpha_{k}\}\subseteq S}K(\alpha_{1},\dots,\alpha_{k})$
+\end_inset
+
+, donde 
+\begin_inset Formula $K(\alpha_{1},\dots,\alpha_{k})$
+\end_inset
+
+ es el cuerpo de fracciones de 
+\begin_inset Formula $K[\alpha_{1},\dots,\alpha_{k}]$
+\end_inset
+
+.
+ 
+\begin_inset Formula $K(S)$
+\end_inset
+
+ es el menor subcuerpo de 
+\begin_inset Formula $L$
+\end_inset
+
+ que contiene a 
+\begin_inset Formula $K\cup S$
+\end_inset
+
+, es decir, la intersección de todos ellos.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+En efecto, 
+\begin_inset Formula $K(S)$
+\end_inset
+
+ es un cuerpo de fracciones y todo subcuerpo que contenga a 
+\begin_inset Formula $K\cup S$
+\end_inset
+
+ contendrá a 
+\begin_inset Formula $K[S]$
+\end_inset
+
+ y por tanto a 
+\begin_inset Formula $K(S)$
+\end_inset
+
+, aplicando la propiedad universal del cuerpo de fracciones a la inclusión
+ 
+\begin_inset Formula $K[S]\to L$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ Claramente 
+\begin_inset Formula $K(S)=K[S]$
+\end_inset
+
+ si y solo si 
+\begin_inset Formula $K[S]$
+\end_inset
+
+ es un cuerpo.
+\end_layout
+
+\begin_layout Standard
+Dos extensiones 
+\begin_inset Formula $K\subseteq E_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $K\subseteq E_{2}$
+\end_inset
+
+ son 
+\series bold
+admisibles
+\series default
+ si 
+\begin_inset Formula $E_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $E_{2}$
+\end_inset
+
+ son subcuerpos de un mismo cuerpo 
+\begin_inset Formula $L$
+\end_inset
+
+, y 
+\begin_inset Formula $E_{1}\cap E_{2}$
+\end_inset
+
+ es un cuerpo.
+ Llamamos 
+\series bold
+compuesto
+\series default
+ de 
+\begin_inset Formula $E_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $E_{2}$
+\end_inset
+
+ a 
+\begin_inset Formula $K(E_{1}\cup E_{2})=E_{1}(E_{2})=E_{2}(E_{1})$
+\end_inset
+
+, de modo que tenemos las extensiones 
+\begin_inset Formula 
+\[
+K\subseteq E_{1}\cap E_{2}\subseteq E_{1},E_{2}\subseteq E_{1}E_{2}\subseteq L.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sean 
+\begin_inset Formula $p,q\in\mathbb{N}$
+\end_inset
+
+ primos, 
+\begin_inset Formula $\mathbb{Q}\subseteq\mathbb{Q}[\sqrt{p}]$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbb{Q}\subseteq\mathbb{Q}[\sqrt{q}]$
+\end_inset
+
+ son admisibles y
+\begin_inset Formula 
+\[
+\mathbb{Q}[\sqrt{p}]\mathbb{Q}[\sqrt{q}]=\{a+b\sqrt{p}+c\sqrt{q}+d\sqrt{pq}\}_{a,b,c,d\in\mathbb{Q}}=\mathbb{Q}(\sqrt{p}+\sqrt{q}).
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO Hay que hacer mierdas de irreducibles para que salga bien, a.pdf::29.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Grupos de Galois
+\end_layout
+
+\begin_layout Standard
+Dadas 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ y 
+\begin_inset Formula $K\subseteq L'$
+\end_inset
+
+, un 
+\series bold
+
+\begin_inset Formula $K$
+\end_inset
+
+-encaje
+\series default
+ o 
+\series bold
+
+\begin_inset Formula $K$
+\end_inset
+
+-homomorfismo
+\series default
+ es un homomorfismo de anillos 
+\begin_inset Formula $\sigma:L\to L'$
+\end_inset
+
+ con 
+\begin_inset Formula $\sigma|_{K}=1_{K}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ es 
+\begin_inset Formula $K$
+\end_inset
+
+-lineal e inyectivo.
+ En efecto, sean 
+\begin_inset Formula $r\in K$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha,\beta\in L$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma(\alpha+\beta)=\sigma(\alpha)+\sigma(\beta)$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma(r\alpha)=\sigma(r)\sigma(\alpha)=r\sigma(\alpha)$
+\end_inset
+
+, y 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ es inyectivo como todo homomorfismo que parte de un cuerpo.
+ Si además 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ es suprayectivo, es un 
+\series bold
+
+\begin_inset Formula $K$
+\end_inset
+
+-isomorfismo
+\series default
+ y 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ y 
+\begin_inset Formula $K\subseteq L'$
+\end_inset
+
+ son extensiones 
+\series bold
+
+\begin_inset Formula $K$
+\end_inset
+
+-isomorfas
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ y 
+\begin_inset Formula $K\subseteq L'$
+\end_inset
+
+ son extensiones finitas y 
+\begin_inset Formula $\sigma:L\to L'$
+\end_inset
+
+ es un 
+\begin_inset Formula $K$
+\end_inset
+
+-encaje, entonces 
+\begin_inset Formula $[L:K]\mid[L':K]$
+\end_inset
+
+, con igualdad si y solo si 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ es un 
+\begin_inset Formula $K$
+\end_inset
+
+-isomorfismo.
+ En efecto, 
+\begin_inset Formula $K=\sigma(K)\subseteq\sigma(L)\subseteq L'$
+\end_inset
+
+ y se tiene 
+\begin_inset Formula $[\sigma(L):K]\mid[L':K]$
+\end_inset
+
+, con igualdad si y solo si 
+\begin_inset Formula $[L':\sigma(L)]=1$
+\end_inset
+
+, si y solo si 
+\begin_inset Formula $L'=\sigma(L)$
+\end_inset
+
+, y 
+\begin_inset Formula $[L:K]=[\sigma(L):K]$
+\end_inset
+
+ porque 
+\begin_inset Formula $\sigma:L\to\sigma(L)$
+\end_inset
+
+ es un isomorfismo de espacios vectoriales.
+\end_layout
+
+\begin_layout Standard
+Así, dos extensiones finitas 
+\begin_inset Formula $K$
+\end_inset
+
+-isomorfas tienen el mismo grado.
+ El recíproco no es cierto.
+ Por ejemplo, 
+\begin_inset Formula $[\mathbb{Q}(i):\mathbb{Q}]=[\mathbb{Q}(\sqrt{2}):\mathbb{Q}]=2$
+\end_inset
+
+, pero si hubiese un 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+-isomorfismo 
+\begin_inset Formula $\sigma:\mathbb{Q}(i)\to\mathbb{Q}(\sqrt{2})$
+\end_inset
+
+ sería 
+\begin_inset Formula $\sigma(i)\in\mathbb{Q}(\sqrt{2})\subseteq\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma(i)^{2}=\sigma(i^{2})=\sigma(-1)=-1\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+
+\begin_inset Formula $K$
+\end_inset
+
+-automorfismo
+\series default
+ de una extensión 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ es un 
+\begin_inset Formula $K$
+\end_inset
+
+-isomorfismo 
+\begin_inset Formula $L\to L$
+\end_inset
+
+.
+ El conjunto de todos los 
+\begin_inset Formula $K$
+\end_inset
+
+-automorfismos en 
+\begin_inset Formula $L$
+\end_inset
+
+ es un grupo con la composición de aplicaciones y con elemento neutro 
+\begin_inset Formula $1_{L}$
+\end_inset
+
+, llamado 
+\series bold
+grupo de Galois
+\series default
+ de 
+\begin_inset Formula $L$
+\end_inset
+
+ sobre 
+\begin_inset Formula $K$
+\end_inset
+
+ o de la extensión 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+, y denotado 
+\begin_inset Formula $\text{Gal}(L/K)$
+\end_inset
+
+ o 
+\begin_inset Formula $\text{Aut}_{K}(L)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{Gal}(K/K)=\{1_{L}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{Gal}(\mathbb{C}/\mathbb{R})=\{1_{L},(z\mapsto\overline{z})\}\cong C_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $\sigma\in\text{Gal}(\mathbb{C}/\mathbb{R})$
+\end_inset
+
+, como 
+\begin_inset Formula $(1,i)$
+\end_inset
+
+ es base de 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ sobre 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma(1)=1$
+\end_inset
+
+, basta ver cómo actúa 
+\begin_inset Formula $\sigma(i)$
+\end_inset
+
+, pero 
+\begin_inset Formula $\sigma(i)^{2}=\sigma(i^{2})=\sigma(-1)=-1$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\sigma(i)\in\{\pm i\}$
+\end_inset
+
+, de modo que o bien 
+\begin_inset Formula $\sigma(i)=i$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma=1_{L}$
+\end_inset
+
+ o 
+\begin_inset Formula $\sigma(i)=-i$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ es la conjugación.
+ Finalmente, el único grupo de 2 elementos es 
+\begin_inset Formula $C_{2}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\text{Gal}(\mathbb{C}/\mathbb{R})\cong C_{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{GyA}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $D$
+\end_inset
+
+ es un DIP y 
+\begin_inset Formula $a\in D\setminus(D^{*}\cup\{0\})$
+\end_inset
+
+, 
+\begin_inset Formula $a$
+\end_inset
+
+ es irreducible si y solo si 
+\begin_inset Formula $(a)$
+\end_inset
+
+ es un ideal maximal, si y solo si 
+\begin_inset Formula $\frac{A}{(a)}$
+\end_inset
+
+ es un cuerpo
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Kronecker:
+\series default
+ Sean 
+\begin_inset Formula $K$
+\end_inset
+
+ un cuerpo y 
+\begin_inset Formula $f\in K[X]\setminus K$
+\end_inset
+
+, existe una extensión 
+\begin_inset Formula $L$
+\end_inset
+
+ de 
+\begin_inset Formula $K$
+\end_inset
+
+ en la que 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene una raíz.
+ Si 
+\begin_inset Formula $g$
+\end_inset
+
+ es un factor irreducible de 
+\begin_inset Formula $f$
+\end_inset
+
+, la extensión podría ser 
+\begin_inset Formula $K[X]/(g)$
+\end_inset
+
+ y una raíz es 
+\begin_inset Formula $X+(g)$
+\end_inset
+
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Para esto se usa el transporte de estructuras.
+ Sea 
+\begin_inset Formula $\varphi:K\to(L_{0}:=K[X]/(g))$
+\end_inset
+
+ el homomorfismo 
+\begin_inset Formula $\varphi(a):=a+(g)$
+\end_inset
+
+, definimos 
+\begin_inset Formula $L:=K\amalg(L_{0}\setminus\varphi(K))$
+\end_inset
+
+ y las operaciones en 
+\begin_inset Formula $L$
+\end_inset
+
+ 
+\begin_inset Formula $a+b:=\psi^{-1}(\psi(a)+\psi(b))$
+\end_inset
+
+ y 
+\begin_inset Formula $ab:=(\psi(a)\psi(b))$
+\end_inset
+
+, donde 
+\begin_inset Formula $\psi:L\to L_{0}$
+\end_inset
+
+ viene dado por 
+\begin_inset Formula $\psi(a):=\varphi(a)$
+\end_inset
+
+ para 
+\begin_inset Formula $a\in K$
+\end_inset
+
+ y 
+\begin_inset Formula $\psi(a):=a$
+\end_inset
+
+ para 
+\begin_inset Formula $a\in L_{0}\setminus\varphi(K)$
+\end_inset
+
+.
+ Esto nos da una 
+\begin_inset Quotes cld
+\end_inset
+
+copia
+\begin_inset Quotes crd
+\end_inset
+
+ de 
+\begin_inset Formula $L_{0}$
+\end_inset
+
+ que es una extensión de 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+Demostración:
+\series default
+ Como 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ es un DFU y 
+\begin_inset Formula $f\notin K$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene un factor irreducible 
+\begin_inset Formula $g$
+\end_inset
+
+ y las raíces de 
+\begin_inset Formula $g$
+\end_inset
+
+ lo serán de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ Al ser 
+\begin_inset Formula $g$
+\end_inset
+
+ irreducible en el DIP 
+\begin_inset Formula $K[X]$
+\end_inset
+
+, 
+\begin_inset Formula $L:=K[X]/(g)$
+\end_inset
+
+ es un cuerpo.
+ Como la inclusión 
+\begin_inset Formula $i:K\to K[X]$
+\end_inset
+
+ y la proyección 
+\begin_inset Formula $[\cdot]:K[X]\to L$
+\end_inset
+
+ son homomorfismos y 
+\begin_inset Formula $[\cdot]\circ i$
+\end_inset
+
+ es inyectivo por ser 
+\begin_inset Formula $K$
+\end_inset
+
+ un cuerpo, podemos identificar 
+\begin_inset Formula $a\in K$
+\end_inset
+
+ con 
+\begin_inset Formula $[i(a)]\in L$
+\end_inset
+
+ y 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+, de modo que, usando la evaluación 
+\begin_inset Formula $S_{\alpha}:K[X]\to L$
+\end_inset
+
+ y que 
+\begin_inset Formula $[\cdot]$
+\end_inset
+
+ es un homomorfismo, 
+\begin_inset Formula 
+\[
+S_{\alpha}(g)=g(\alpha)=g([X])=\sum_{i}g_{i}[X]^{i}=\left[\sum_{i}g_{i}X^{i}\right]=[g]=[0].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por inducción, dados un cuerpo 
+\begin_inset Formula $K$
+\end_inset
+
+ y 
+\begin_inset Formula $f\in K[X]\setminus K$
+\end_inset
+
+, existe una extensión 
+\begin_inset Formula $L$
+\end_inset
+
+ de 
+\begin_inset Formula $K$
+\end_inset
+
+ en la que 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene todas sus raíces.
+\end_layout
+
+\begin_layout Section
+Extensiones algebraicas
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ una extensión y 
+\begin_inset Formula $\alpha\in L$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es algebraico sobre 
+\begin_inset Formula $K$
+\end_inset
+
+, también lo es sobre cualquier cuerpo entre 
+\begin_inset Formula $K$
+\end_inset
+
+ y 
+\begin_inset Formula $L$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Un 
+\begin_inset Formula $f\in K[X]\setminus0$
+\end_inset
+
+ con 
+\begin_inset Formula $f(\alpha)=0$
+\end_inset
+
+ sirve igual en el cuerpo intermedio.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es trascendente sobre 
+\begin_inset Formula $K$
+\end_inset
+
+ si y solo si 
+\begin_inset Formula $\{\alpha^{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+ es linealmente independiente sobre 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Entonces 
+\begin_inset Formula $K[X]\cong K[\alpha]$
+\end_inset
+
+ por el isomorfismo de evaluación, que al ser un 
+\begin_inset Formula $K$
+\end_inset
+
+-encaje es 
+\begin_inset Formula $K$
+\end_inset
+
+-lineal, y como 
+\begin_inset Formula $\{X^{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+ es linealmente independiente sobre 
+\begin_inset Formula $K$
+\end_inset
+
+, 
+\begin_inset Formula $\{\alpha^{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+ también lo es.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ fuera algebraico, existe 
+\begin_inset Formula $f\in K[X]\setminus0$
+\end_inset
+
+ con 
+\begin_inset Formula $f(\alpha)=\sum_{i}f_{i}\alpha^{i}=0$
+\end_inset
+
+ y esta es una dependencia lineal.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+a1::CUARENTAYDOS
 \end_layout
 
 \end_inset
