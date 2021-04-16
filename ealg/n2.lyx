@@ -1304,6 +1304,46 @@ Así, dos extensiones finitas
 \end_layout
 
 \begin_layout Standard
+Los 
+\begin_inset Formula $K$
+\end_inset
+
+-encajes llevan raíces de 
+\begin_inset Formula $f\in K[X]$
+\end_inset
+
+ a raíces de 
+\begin_inset Formula $f$
+\end_inset
+
+, pues dados un 
+\begin_inset Formula $K$
+\end_inset
+
+-encaje 
+\begin_inset Formula $\sigma:L\to L'$
+\end_inset
+
+ y una raíz 
+\begin_inset Formula $\alpha\in L$
+\end_inset
+
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+f(\sigma(\alpha))={\textstyle \sum_{i}}f_{i}\sigma(\alpha)^{i}={\textstyle \sum_{i}}\sigma(f_{i})\sigma(\alpha)^{i}=\sigma\left({\textstyle \sum_{i}}f_{i}\alpha^{i}\right)=\sigma(f(\alpha))=\sigma(0)=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Un 
 \series bold
 
@@ -1446,6 +1486,43 @@ Sea
 
 \end_deeper
 \begin_layout Standard
+Extensiones 
+\begin_inset Formula $K$
+\end_inset
+
+-isomorfas de 
+\begin_inset Formula $K$
+\end_inset
+
+ tienen grupos de Galois isomorfos.
+ En efecto, sea 
+\begin_inset Formula $\sigma:L\to L'$
+\end_inset
+
+ un 
+\begin_inset Formula $K$
+\end_inset
+
+-isomorfismo, 
+\begin_inset Formula $\hat{\sigma}:\text{Gal}(L/K)\to\text{Gal}(L'/K)$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\hat{\sigma}(\tau):=\sigma\circ\tau\circ\sigma^{-1}$
+\end_inset
+
+ es un isomorfismo de grupos, dado que 
+\begin_inset Formula $\hat{\sigma}(1_{L})=\sigma\circ\sigma^{-1}=1_{L'}$
+\end_inset
+
+ y 
+\begin_inset Formula $\hat{\sigma}(\tau)\hat{\sigma}(\rho)=\sigma\circ\tau\circ\sigma^{-1}\circ\sigma\circ\rho\circ\sigma^{-1}=\hat{\sigma}(\tau\rho)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -1482,7 +1559,11 @@ Si
 \begin_inset Formula $\frac{A}{(a)}$
 \end_inset
 
- es un cuerpo
+ es un cuerpo, si y solo si 
+\begin_inset Formula $\frac{A}{(a)}$
+\end_inset
+
+ es un dominio.
 \end_layout
 
 \begin_layout Standard
@@ -1872,11 +1953,1214 @@ Si
 
 \end_deeper
 \begin_layout Enumerate
+Si 
+\begin_inset Formula $\alpha\in K$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es algebraico sobre 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Es raíz de 
+\begin_inset Formula $X-\alpha\in K[X]$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $m\in\mathbb{Q}^{\geq0}$
+\end_inset
+
+, 
+\begin_inset Formula $\pm\sqrt{m}\in\mathbb{R}$
+\end_inset
+
+ son algebraicos sobre 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Son raíces de 
+\begin_inset Formula $X^{2}-p\in\mathbb{Q}[X]$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $n\in\mathbb{N}^{*}$
+\end_inset
+
+ y 
+\begin_inset Formula $\omega:=e^{2\pi i/n}\in\mathbb{C}$
+\end_inset
+
+, 
+\begin_inset Formula $\omega,\omega^{2},\dots,\omega^{n}$
+\end_inset
+
+ son algebraicos sobre 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Son raíces de 
+\begin_inset Formula $X^{n}-1\in\mathbb{Q}[X]$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $e,\pi\in\mathbb{R}$
+\end_inset
+
+ son trascendentes sobre 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una extensión 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ es 
+\series bold
+algebraica
+\series default
+ si todo elemento de 
+\begin_inset Formula $L$
+\end_inset
+
+ es algebraico sobre 
+\begin_inset Formula $K$
+\end_inset
+
+, y es 
+\series bold
+trascendente
+\series default
+ en otro caso.
+\end_layout
+
+\begin_layout Enumerate
+Toda extensión finita es algebraica.
+ En particular 
+\begin_inset Formula $\mathbb{R}\subseteq\mathbb{C}$
+\end_inset
+
+ es algebraica.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ finita, si hubiera un 
+\begin_inset Formula $\alpha\in L$
+\end_inset
+
+ trascendente, 
+\begin_inset Formula $\{\alpha^{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+ sería linealmente independiente y la extensión sería infinita.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $K\subseteq K(X)$
+\end_inset
+
+ es trascendente.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\{X^{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+ es trascendente sobre 
+\begin_inset Formula $K$
+\end_inset
+
+, luego 
+\begin_inset Formula $X$
+\end_inset
+
+ es trascendente.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{Q}\subseteq\mathbb{R}$
+\end_inset
+
+ es trascendente.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\pi$
+\end_inset
+
+ es trascendente.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Extensiones simples
+\end_layout
+
+\begin_layout Standard
+Una extensión 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ es 
+\series bold
+simple
+\series default
+ si existe 
+\begin_inset Formula $\alpha\in L$
+\end_inset
+
+ con 
+\begin_inset Formula $L=K(\alpha)$
+\end_inset
+
+.
+ La extensión dada por el teorema de Kronecker es simple.
+ En efecto, sean 
+\begin_inset Formula $f\in K[X]\setminus K$
+\end_inset
+
+, 
+\begin_inset Formula $L=K[X]/I$
+\end_inset
+
+ el cuerpo dado por el teorema de Kronecker para 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha:=[X]=X+I\in L$
+\end_inset
+
+ la raíz, para 
+\begin_inset Formula $[p]\in L$
+\end_inset
+
+ es 
+\begin_inset Formula $p(\alpha)=p([X])=\sum_{i}p_{i}[X]^{i}=\left[\sum_{i}p_{i}X^{i}\right]=[p]$
+\end_inset
+
+, luego 
+\begin_inset Formula $L=K[\alpha]$
+\end_inset
+
+ y, como 
+\begin_inset Formula $L$
+\end_inset
+
+ es un cuerpo, 
+\begin_inset Formula $K[\alpha]=K(\alpha)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dados una extensión 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ y un 
+\begin_inset Formula $\alpha\in L$
+\end_inset
+
+ trascendente, entonces 
+\begin_inset Formula $K(\alpha)\cong K(X)$
+\end_inset
+
+, y en particular 
+\begin_inset Formula $K\subseteq K(\alpha)$
+\end_inset
+
+ es infinita.
+ En efecto, como 
+\begin_inset Formula $K[X]\cong K[\alpha]$
+\end_inset
+
+, sus cuerpos de fracciones también son isomorfos.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ una extensión y 
+\begin_inset Formula $\alpha\in L$
+\end_inset
+
+ algebraico:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es raíz de un único polinomio mónico e irreducible en 
+\begin_inset Formula $f\in K[X]$
+\end_inset
+
+, el 
+\series bold
+polinomio irreducible de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ sobre 
+\begin_inset Formula $K$
+\end_inset
+
+
+\series default
+, 
+\begin_inset Formula $\text{Irr}(\alpha,K)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $S_{\alpha}:K[X]\to K[\alpha]$
+\end_inset
+
+ tiene núcleo no nulo, y como 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ es un DIP, existe 
+\begin_inset Formula $f\in K[X]\setminus0$
+\end_inset
+
+ con 
+\begin_inset Formula $\ker(\varphi_{\alpha})=(f)$
+\end_inset
+
+, que podemos tomar mónico.
+ Como 
+\begin_inset Formula $K[X]/(f)\cong K[\alpha]$
+\end_inset
+
+ es un dominio siendo 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ un DIP, 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible.
+ Si 
+\begin_inset Formula $g\in K[X]$
+\end_inset
+
+ es un irreducible mónico con raíz 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, como 
+\begin_inset Formula $g\in\ker(S_{\alpha})=(f)$
+\end_inset
+
+, 
+\begin_inset Formula $f\mid g$
+\end_inset
+
+.
+ Como ambos son irreducibles, son asociados, pero al ser ambos mónicos deben
+ ser iguales.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $K[\alpha]$
+\end_inset
+
+ es un cuerpo.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Como 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ es DIP, 
+\begin_inset Formula $K[X]/(f)$
+\end_inset
+
+ es un cuerpo si y solo si es un dominio, pero 
+\begin_inset Formula $K[X]/(f)\cong K[\alpha]$
+\end_inset
+
+ que es un dominio.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\forall g\in K[X],(g(\alpha)=0\iff f\mid g)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $g(\alpha)=0\iff g\in\ker(S_{\alpha})=(f)\iff f\mid g$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Sea 
+\begin_inset Formula $n:=\text{gr}f$
+\end_inset
+
+, 
+\begin_inset Formula $[K(\alpha):K]=n$
+\end_inset
+
+ y 
+\begin_inset Formula $(\alpha^{i})_{i=0}^{n-1}$
+\end_inset
+
+ es base de 
+\begin_inset Formula $K(\alpha)$
+\end_inset
+
+ sobre 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $(\alpha^{i})_{i=0}^{n-1}$
+\end_inset
+
+ no fuera linealmente independiente, existiría 
+\begin_inset Formula $(a_{0},\dots,a_{n-1})\neq0$
+\end_inset
+
+ con 
+\begin_inset Formula $\sum_{i=0}^{n-1}a_{i}\alpha^{i}=0$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $g:=\sum_{i=0}^{n-1}a_{i}X^{i}\in K[X]\setminus0$
+\end_inset
+
+ tendría a 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ como raíz y por tanto 
+\begin_inset Formula $f\mid g$
+\end_inset
+
+, lo que contradice que 
+\begin_inset Formula $\text{gr}g<\text{gr}f\#$
+\end_inset
+
+.
+ Para ver que 
+\begin_inset Formula $(\alpha^{i})_{i=0}^{n-1}$
+\end_inset
+
+ es un conjunto generador, los elementos de 
+\begin_inset Formula $K[\alpha]$
+\end_inset
+
+ son de la forma 
+\begin_inset Formula $h(\alpha)$
+\end_inset
+
+ para 
+\begin_inset Formula $h\in K[X]$
+\end_inset
+
+, y dividiendo 
+\begin_inset Formula $h$
+\end_inset
+
+ entre 
+\begin_inset Formula $f$
+\end_inset
+
+ con resto tenemos 
+\begin_inset Formula $h=fq+r$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $q,r\in K[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{gr}r<\text{gr}f=n$
+\end_inset
+
+, luego 
+\begin_inset Formula $h(\alpha)=f(\alpha)q(\alpha)+r(\alpha)=r(\alpha)=\sum_{i=0}^{n-1}r_{i}\alpha^{i}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $z\in\mathbb{C}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\text{Irr}(z,\mathbb{R})=\begin{cases}
+X-z, & z\in\mathbb{R};\\
+X^{2}-2\text{Re}zX+|z|^{2}, & z\notin\mathbb{R}.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $z\in\mathbb{R}$
+\end_inset
+
+, esto es claro.
+ En otro caso 
+\begin_inset Formula $(X-z)(X-\overline{z})=X^{2}-2\text{Re}zX+|z|^{2}$
+\end_inset
+
+ es irreducible en 
+\begin_inset Formula $\mathbb{R}[X]$
+\end_inset
+
+ (discriminante negativo), y es mónico, luego es 
+\begin_inset Formula $\text{Irr}(z,\mathbb{R})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $m\in\mathbb{Q}$
+\end_inset
+
+ no es un cuadrado de racional, 
+\begin_inset Formula $\text{Irr}(\sqrt{m},\mathbb{Q})=X^{2}-m$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbb{Q}[\sqrt{m}]$
+\end_inset
+
+ es un cuerpo con 
+\begin_inset Formula $[\mathbb{Q}[\sqrt{m}]:\mathbb{Q}]=2$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Las raíces de 
+\begin_inset Formula $X^{2}-m$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ son 
+\begin_inset Formula $\pm\sqrt{m}\notin\mathbb{Q}$
+\end_inset
+
+, luego este el irreducible.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $p\in\mathbb{N}$
+\end_inset
+
+ es primo y 
+\begin_inset Formula $\xi:=e^{2\pi i/p}$
+\end_inset
+
+, 
+\begin_inset Formula $\text{Irr}(\xi,\mathbb{Q})=X^{p-1}+X^{p-2}+\dots+X+1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ una extensión, un 
+\begin_inset Formula $\alpha\in L$
+\end_inset
+
+ es algebraico sobre 
+\begin_inset Formula $K$
+\end_inset
+
+ si y solo si 
+\begin_inset Formula $K\subseteq K(\alpha)$
+\end_inset
+
+ es finita, si y solo si 
+\begin_inset Formula $K[\alpha]$
+\end_inset
+
+ es un cuerpo.
+\begin_inset Note Comment
+status open
+
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ 
+\begin_inset Formula $[K(\alpha):K]=\text{gr}\text{Irr}(\alpha,K)<\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies1]$
+\end_inset
+
+ Entonces 
+\begin_inset Formula $K\subseteq K(\alpha)$
+\end_inset
+
+ es algebraica, luego en particular 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es algebraico.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies3]$
+\end_inset
+
+ Visto.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies1]$
+\end_inset
+
+ Entonces 
+\begin_inset Formula $\alpha^{-1}\in K[\alpha]$
+\end_inset
+
+ y existe 
+\begin_inset Formula $h\in K[X]\setminus0$
+\end_inset
+
+ con 
+\begin_inset Formula $h(\alpha)=\alpha^{-1}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es raíz de 
+\begin_inset Formula $h(X)X-1\in K[X]\setminus0$
+\end_inset
+
+ y es pues algebraico.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $K$
+\end_inset
+
+ un cuerpo y 
+\begin_inset Formula $f\in K[X]\setminus0$
+\end_inset
+
+ con raíz 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ en alguna extensión de 
+\begin_inset Formula $K$
+\end_inset
+
+, 
+\begin_inset Formula $[K(\alpha):K]\leq\text{gr}f$
+\end_inset
+
+, con igualdad si y solo si 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible sobre 
+\begin_inset Formula $K$
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+, pues como 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es raíz de 
+\begin_inset Formula $f$
+\end_inset
+
+, es algebraico, y si 
+\begin_inset Formula $d:=\text{Irr}(\alpha,K)$
+\end_inset
+
+, 
+\begin_inset Formula $d\mid f$
+\end_inset
+
+ y 
+\begin_inset Formula $[K(\alpha):K]=\text{gr}d\leq\text{gr}f$
+\end_inset
+
+, con igualdad si y solo si 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible sobre 
+\begin_inset Formula $K$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $K$
+\end_inset
+
+ un cuerpo, 
+\begin_inset Formula $f\in K[X]$
+\end_inset
+
+ irreducible en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ con una raíz 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma:K\to K'$
+\end_inset
+
+ un isomorfismo de cuerpos y 
+\begin_inset Formula $f':=\sigma(f)$
+\end_inset
+
+ con una raíz 
+\begin_inset Formula $\alpha'$
+\end_inset
+
+, existe un isomorfismo 
+\begin_inset Formula $\hat{\sigma}:K(\alpha)\to K'(\alpha')$
+\end_inset
+
+ con 
+\begin_inset Formula $\hat{\sigma}|_{K}=\sigma$
+\end_inset
+
+ y 
+\begin_inset Formula $\hat{\sigma}(\alpha)=\alpha'$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $r$
+\end_inset
+
+ el coeficiente principal de 
+\begin_inset Formula $f$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f=r\text{Irr}(\alpha,K)$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $f'=\sigma(r)\text{Irr}(\alpha',K')$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $K(\alpha)=K[\alpha]$
+\end_inset
+
+ por ser 
+\begin_inset Formula $K[\alpha]$
+\end_inset
+
+ un cuerpo, sus elementos son de la forma 
+\begin_inset Formula $g(\alpha)$
+\end_inset
+
+ con 
+\begin_inset Formula $g\in K[X]$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $\hat{\sigma}(g(\alpha)):=\sigma(g)(\alpha')$
+\end_inset
+
+, 
+\begin_inset Formula $\hat{\sigma}$
+\end_inset
+
+ está bien definido, pues si 
+\begin_inset Formula $g(\alpha)=h(\alpha)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $(g-h)(\alpha)=0$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $f\mid r^{-1}f=\text{Irr}(\alpha,k)\mid g-h$
+\end_inset
+
+, luego 
+\begin_inset Formula $f'=\sigma(f)\mid\sigma(g-h)$
+\end_inset
+
+ y, como 
+\begin_inset Formula $f'(\alpha')=0$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma(g)(\alpha')-\sigma(h)(\alpha')=\sigma(g-h)(\alpha')=0$
+\end_inset
+
+.
+ Entonces para 
+\begin_inset Formula $r\in K$
+\end_inset
+
+ es 
+\begin_inset Formula $\hat{\sigma}(r)=\sigma(r)$
+\end_inset
+
+ y 
+\begin_inset Formula $\hat{\sigma}(\alpha)=\sigma(X)(\alpha')=\alpha'$
+\end_inset
+
+; para 
+\begin_inset Formula $g(\alpha),h(\alpha)\in K[\alpha]$
+\end_inset
+
+ cualesquiera, 
+\begin_inset Formula 
+\[
+\hat{\sigma}(g(\alpha))+\hat{\sigma}(h(\alpha))=\sigma(g)(\alpha')+\sigma(h)(\alpha')=\sigma(g+h)(\alpha')=\hat{\sigma}((g+h)(\alpha))=\hat{\sigma}(g(\alpha)+h(\alpha)),
+\]
+
+\end_inset
+
+y análogamente 
+\begin_inset Formula $\hat{\sigma}(g(\alpha))=\hat{\sigma}(h(\alpha))$
+\end_inset
+
+, luego 
+\begin_inset Formula $\hat{\sigma}$
+\end_inset
+
+ es un homomorfismo, y es biyectivo porque 
+\begin_inset Formula $\hat{\sigma}^{-1}$
+\end_inset
+
+ se construye de forma similar a partir de 
+\begin_inset Formula $\sigma^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ una extensión, 
+\begin_inset Formula $\alpha,\beta\in L$
+\end_inset
+
+ algebraicos sobre 
+\begin_inset Formula $K$
+\end_inset
+
+ son 
+\series bold
+
+\begin_inset Formula $K$
+\end_inset
+
+-conjugados
+\series default
+ si son raíces de un mismo irreducible sobre 
+\begin_inset Formula $K$
+\end_inset
+
+, si y solo si 
+\begin_inset Formula $\text{Irr}(\alpha,K)=\text{Irr}(\beta,K)$
+\end_inset
+
+, si y solo si existe un 
+\begin_inset Formula $K$
+\end_inset
+
+-isomorfismo 
+\begin_inset Formula $\sigma:K(\alpha)\to K(\beta)$
+\end_inset
+
+ con 
+\begin_inset Formula $\sigma(\alpha)=\beta$
+\end_inset
+
+, si y solo si existe un 
+\begin_inset Formula $K$
+\end_inset
+
+-encaje 
+\begin_inset Formula $\sigma:K(\alpha)\to K(\beta)$
+\end_inset
+
+ con 
+\begin_inset Formula $\sigma(\alpha)=\beta$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $\text{Gal}(K(\alpha)/K)\cong\text{Gal}(K(\beta)/K)$
+\end_inset
+
+ como grupos.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $f$
+\end_inset
+
+ dicho irreducible con coeficiente principal 
+\begin_inset Formula $r$
+\end_inset
+
+, por unicidad es 
+\begin_inset Formula $r^{-1}f=\text{Irr}(\alpha,K)=\text{Irr}(\beta,K)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies1]$
+\end_inset
+
+ Obvio.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies3]$
+\end_inset
+
+ Aplicando lo anterior a dicho irreducible y al automorfismo identidad,
+ existe un isomorfismo 
+\begin_inset Formula $\sigma:K(\alpha)\to K(\beta)$
+\end_inset
+
+ con 
+\begin_inset Formula $\sigma|_{K}=1_{K}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma(\alpha)=\beta$
+\end_inset
+
+.
+ Además sabemos que extensiones de 
+\begin_inset Formula $K$
+\end_inset
+
+ 
+\begin_inset Formula $K$
+\end_inset
+
+-isomorfas tienen grupos de Galois isomorfos.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies4]$
+\end_inset
+
+ Obvio.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $4\implies2]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $f:=\text{Irr}(\alpha,K)$
+\end_inset
+
+, sabemos que al ser 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ raíz de 
+\begin_inset Formula $f$
+\end_inset
+
+, también lo es 
+\begin_inset Formula $\sigma(\alpha)=\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f\in K[X]$
+\end_inset
+
+ es irreducible de grado 
+\begin_inset Formula $n$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es raíz de 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene 
+\begin_inset Formula $m$
+\end_inset
+
+ raíces en 
+\begin_inset Formula $K(\alpha)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $|\text{Gal}(K(\alpha)/K)|=m$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Un 
+\begin_inset Formula $K$
+\end_inset
+
+-automorfismo 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ en 
+\begin_inset Formula $K(\alpha)$
+\end_inset
+
+ queda determinado por 
+\begin_inset Formula $\sigma(\alpha)$
+\end_inset
+
+, y sabemos que 
+\begin_inset Formula $\sigma(\alpha)$
+\end_inset
+
+ debe ser raíz de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ Además, por lo anterior, si 
+\begin_inset Formula $\beta$
+\end_inset
+
+ es otra raíz de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $K(\alpha)$
+\end_inset
+
+, existe un 
+\begin_inset Formula $K$
+\end_inset
+
+-isomorfismo 
+\begin_inset Formula $\sigma:K(\alpha)\to K(\beta)$
+\end_inset
+
+ con 
+\begin_inset Formula $\sigma(\alpha)=\beta$
+\end_inset
+
+, pero el 
+\begin_inset Formula $K$
+\end_inset
+
+-isomorfismo implica que 
+\begin_inset Formula $[K(\alpha):K]=[K(\beta):K]$
+\end_inset
+
+ y, como 
+\begin_inset Formula $K(\beta)\subseteq K(\alpha)$
+\end_inset
+
+, 
+\begin_inset Formula $[K(\alpha):K(\beta)]=1$
+\end_inset
+
+ y 
+\begin_inset Formula $K(\beta)=K(\alpha)$
+\end_inset
+
+, luego este 
+\begin_inset Formula $\sigma\in\text{Gal}(K(\alpha)/K)$
+\end_inset
+
+.
+ Por tanto hay biyección entre 
+\begin_inset Formula $\text{Gal}(K(\alpha)/K)$
+\end_inset
+
+ y las 
+\begin_inset Formula $m$
+\end_inset
+
+ raíces de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $K(\alpha)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-a1::CUARENTAYDOS
+a1::46, C2.35
 \end_layout
 
 \end_inset
