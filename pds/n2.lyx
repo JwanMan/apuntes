@@ -325,7 +325,7 @@ Validación:
 \end_layout
 
 \begin_layout Section
-Casos de uso
+Casos de uso y actores
 \end_layout
 
 \begin_layout Standard
@@ -352,8 +352,6 @@ s.
  Los casos de uso son fáciles de comprender y validar por los usuarios y
  pueden guiar el proceso de desarrollo, ayudando a la planificación y el
  desarrollo incrementales y el diseño de la interfaz de usuario.
- Tradicionalmente se usan con programación orientada a objetos, pero esto
- no es necesario.
 \end_layout
 
 \begin_layout Standard
@@ -366,80 +364,9 @@ os u otros sistemas) al interactuar con el sistema, sin formar parte de
  este.
  Los casos de uso los inicia un actor.
  Un usuario puede asumir distintos roles.
+ Puede haber actores que especialicen a otros, heredando sus roles.
  Un actor puede intervenir en varios casos de uso y varios actores pueden
  intervenir en el mismo.
-\end_layout
-
-\begin_layout Standard
-En UML, los 
-\series bold
-diagramas de casos de uso
-\series default
- representan los casos de uso del sistema como elipses con el nombre del
- caso de uso, que generalmente empiezan por un infinitivo, conectados por
- 
-\series bold
-asociaciones
-\series default
- a los actores involucrados, como en la figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:usecase"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset External
-	template VectorGraphics
-	filename n2.1.svg
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:usecase"
-
-\end_inset
-
-Diagrama de casos de uso.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Un cuadrado rodeando un conjunto de casos de uso, y posiblemente etiquetado,
- representa los límites del sistema.
- Puede haber actores que especialicen a otros, heredando sus roles, lo que
- se representa como en los diagramas de clases.
 \end_layout
 
 \begin_layout Standard
@@ -454,10 +381,7 @@ secundario
 \series default
  si no es primario, sino que el sistema los necesita para satisfacer el
  objetivo.
- El actor primario se suele representar a la izquierda del caso de uso.
- Los secundarios no suelen aparecer, pero de hacerlo suelen estar a la derecha.
- Cuando un caso de uso se inicia automáticamente, su actor primario es un
- actor 
+ Cuando un caso de uso se inicia automáticamente, su actor primario es 
 \begin_inset Quotes fld
 \end_inset
 
@@ -474,6 +398,802 @@ Tiempo
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+Normalmente los sistemas tienen casos de uso de inicialización, pero no
+ se suelen representar estos ni los casos de uso CRUD (acceso y manipulación
+ de datos simple).
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Como excepción, sí se representa que una junta vecinal pueda consultar los
+ katas registrados en una aplicación de artes marciales.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Granularidad
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+proceso de negocio elemental
+\series default
+ es una tarea realizada por una persona en un lugar determinado, en un tiempo
+ no muy largo (de unos segundos a un par de horas), con un cierto objetivo,
+ y que añade un valor para el negocio y deja los datos en un estado consistente.
+\end_layout
+
+\begin_layout Standard
+La granularidad de los casos de uso puede ser:
+\end_layout
+
+\begin_layout Itemize
+De 
+\series bold
+organización
+\series default
+ en 
+\series bold
+casos de uso del negocio
+\series default
+, formados por procesos de negocio elementales, que definen objetivos estratégic
+os de la empresa de mucho valor.
+\end_layout
+
+\begin_layout Itemize
+De 
+\series bold
+sistema
+\series default
+ u 
+\series bold
+objetivos del usuario
+\series default
+ en 
+\series bold
+casos de uso
+\series default
+ (
+\series bold
+del sistema software
+\series default
+), que representan funcionalidades, tareas de usuarios o procesos de negocio
+ elementales.
+ Es lo que usaremos.
+\end_layout
+
+\begin_layout Itemize
+De 
+\series bold
+subfunciones
+\series default
+, o pasos en las descripciones de casos de uso del sistema.
+ No representan objetivos.
+\end_layout
+
+\begin_layout Section
+Descripción
+\end_layout
+
+\begin_layout Standard
+Los casos de uso tienen secuencias de interacciones, 
+\series bold
+instancias
+\series default
+, 
+\series bold
+alternativas
+\series default
+ o 
+\series bold
+escenarios
+\series default
+, que llevan al 
+\series bold
+éxito
+\series default
+ si se satisface el objetivo del actor primario o al 
+\series bold
+fracaso
+\series default
+ si no.
+\end_layout
+
+\begin_layout Standard
+Los casos de uso tienen un 
+\series bold
+flujo 
+\series default
+o 
+\series bold
+escenario principal
+\series default
+ o 
+\series bold
+básico
+\series default
+, que conduce al éxito, y pueden tener 
+\series bold
+flujos alternativos
+\series default
+ o 
+\series bold
+excepcionales
+\series default
+ o 
+\series bold
+escenarios secundarios
+\series default
+, y se pueden representar con:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Descripción breve
+\series default
+: nombre del caso de uso, actores involucrados indicando cuál es el primario
+ o 
+\series bold
+iniciador
+\series default
+, y un párrafo en lenguaje natural.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Descripción informal
+\series default
+: descripción en lenguaje natural del flujo principal y de cada flujo excepciona
+l.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Descripción completa
+\series default
+ o 
+\series bold
+expandida
+\series default
+, mediante una plantilla.
+\end_layout
+
+\begin_layout Standard
+Un flujo de eventos se puede representar como:
+\end_layout
+
+\begin_layout Enumerate
+Texto estructurado informal.
+\end_layout
+
+\begin_layout Enumerate
+Texto estructurado formal, con precondiciones (que deben cumplirse antes
+ de poder ejecutarse el flujo) y postcondiciones (que pasan a cumplirse
+ al terminar).
+\end_layout
+
+\begin_layout Enumerate
+Notaciones gráficas, como diagramas de secuencia o de estados.
+\end_layout
+
+\begin_layout Standard
+La especificación de casos de uso debe ser comprensible para un usuario
+ no experto para que este pueda validarla, y debe indicar el inicio y el
+ final, los actores, los objetos que intervienen, el flujo principal y los
+ flujos excepcionales.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO Diapo 52
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algunas plantillas son:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Plantilla de Coleman.
+
+\series default
+ Las partes entre corchetes son opcionales.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Caso
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+uso Identificador e historia de revisiones.
+\end_layout
+
+\begin_layout Description
+Descripción Objetivo a conseguir.
+\end_layout
+
+\begin_layout Description
+Actores Lista de actores, primario y secundarios.
+\end_layout
+
+\begin_layout Description
+Asunciones Precondiciones del caso de uso.
+\end_layout
+
+\begin_layout Description
+Pasos Lista de interacciones entre los actores y el sistema para alcanzar
+ el objetivo.
+\end_layout
+
+\begin_layout Description
+[Variaciones] Lista de variaciones en los pasos que llevan a escenarios
+ alternativos, con lo que ocurre para que se ejecute la variación y la lista
+ de pasos a partir de ahí.
+\end_layout
+
+\begin_layout Description
+[No
+\begin_inset space ~
+\end_inset
+
+funcional] Requisitos no funcionales asociados.
+\end_layout
+
+\begin_layout Description
+[Cuestiones] Lista dinámica de cuestiones por resolver.
+\end_layout
+
+\begin_layout Standard
+Las listas de pasos pueden contener pasos con subpasos, y el texto del paso
+ puede ser algo como 
+\begin_inset Quotes cld
+\end_inset
+
+REPETIR
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+EN PARALELO
+\begin_inset Quotes crd
+\end_inset
+
+, etc.
+ indicando cómo deben ejecutarse los subpasos.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Plantilla de Cockburn.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Sistema El que implementará el caso de uso.
+\end_layout
+
+\begin_layout Description
+Actor
+\begin_inset space ~
+\end_inset
+
+principal
+\end_layout
+
+\begin_layout Description
+Objetivo
+\end_layout
+
+\begin_layout Standard
+Lista de pasos.
+\end_layout
+
+\begin_layout Description
+Extensiones Flujos alternativos, como las 
+\begin_inset Quotes cld
+\end_inset
+
+Variaciones
+\begin_inset Quotes crd
+\end_inset
+
+ de la plantilla de Coleman.
+\end_layout
+
+\begin_layout Description
+Variaciones Lista de conceptos que pueden concretarse de varias formas,
+ con el nombre del concepto y una lista de las formas a soportar.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Plantilla de Larman.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Actor
+\begin_inset space ~
+\end_inset
+
+principal
+\end_layout
+
+\begin_layout Description
+Personas
+\begin_inset space ~
+\end_inset
+
+involucradas
+\begin_inset space ~
+\end_inset
+
+e
+\begin_inset space ~
+\end_inset
+
+intereses Lista con los tipos de personas u organizaciones, actores o no,
+ con intereses en la transacción, y lo que quieren conseguir con ella.
+\end_layout
+
+\begin_layout Description
+Precondiciones
+\end_layout
+
+\begin_layout Description
+Postcondiciones
+\end_layout
+
+\begin_layout Description
+Escenario
+\begin_inset space ~
+\end_inset
+
+principal
+\end_layout
+
+\begin_layout Description
+Extensiones
+\end_layout
+
+\begin_layout Description
+Requisitos
+\begin_inset space ~
+\end_inset
+
+especiales No funcionales.
+\end_layout
+
+\begin_layout Description
+Tecnología
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+variaciones
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+datos Lista de tecnologías que se usan en el caso de uso con sus formas
+ concretas a usar.
+\end_layout
+
+\begin_layout Description
+Frecuencia Con la que se ejecuta.
+\end_layout
+
+\begin_layout Description
+Cuestiones
+\begin_inset space ~
+\end_inset
+
+abiertas
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Limitaciones
+\end_layout
+
+\begin_layout Standard
+No toda la funcionalidad se puede asignar a un solo caso de uso, por lo
+ que se asigna a un requisito funcional o una 
+\series bold
+característica del sistema
+\series default
+ (
+\series bold
+\emph on
+\lang english
+system feature
+\series default
+\emph default
+\lang spanish
+), servicio observable externamente proporcionado por el sistema que satisface
+ una necesidad de un interesado, que se expresa como declaración breve.
+ Es deseable no tener más de 10.
+\end_layout
+
+\begin_layout Standard
+Hay sistemas, como los servidores de protocolos de Internet, que no tienen
+ escenarios de interacción ricos, por lo que puede ser preferible usar caracterí
+sticas a casos de uso.
+\end_layout
+
+\begin_layout Standard
+Las operaciones CRUD son numerosas, rutinarias y sin escenarios ricos asociados.
+ Generalmente se indican como requisitos funcionales en la Especificación
+ Complementaria, sobre todo las consultas dado que no cambian el estado
+ del sistema, pero a veces son importantes en el dominio de la aplicación
+ y se añaden como casos de uso.
+ En tal caso se puede indicar un solo caso de uso 
+\begin_inset Quotes cld
+\end_inset
+
+gestionar objeto
+\begin_inset Quotes crd
+\end_inset
+
+, que agrupa todas las operaciones CRUD sobre un tipo de objeto de negocio,
+ o uno por operación a representar, según el contexto.
+\end_layout
+
+\begin_layout Section
+Colaboraciones
+\end_layout
+
+\begin_layout Standard
+Un caso de uso se implementa a través de una 
+\series bold
+colaboración
+\series default
+, una interacción entre objetos software para realizar un comportamiento
+ deseado, con una 
+\series bold
+parte estática
+\series default
+ formada por diagramas de clases y una 
+\series bold
+parte dinámica
+\series default
+ formada por diagramas de secuencia o de colaboración.
+ El objetivo es encontrar el conjunto mínimo de colaboraciones, bien estructurad
+as, que satisfagan el comportamiento de todos los casos de uso.
+\end_layout
+
+\begin_layout Section
+Diagramas de casos de uso
+\end_layout
+
+\begin_layout Standard
+Son diagramas UML que dan una visión general de los casos de uso del sistema,
+ aunque lo importante de los casos de uso sigue siendo su descripción textual.
+ Los casos de uso se representan como elipses con el nombre del caso de
+ uso, que generalmente empieza por un infinitivo, conectados por 
+\series bold
+asociaciones
+\series default
+ a los actores involucrados, representados por monigotes.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset External
+	template VectorGraphics
+	filename n2.1.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un cuadrado rodeando un conjunto de casos de uso, y posiblemente etiquetado,
+ representa los límites del sistema.
+ La herencia de actores se representa como en los diagramas de clases, normalmen
+te con el actor 
+\begin_inset Quotes cld
+\end_inset
+
+padre
+\begin_inset Quotes crd
+\end_inset
+
+ arriba.
+\end_layout
+
+\begin_layout Standard
+El actor primario se suele representar a la izquierda del caso de uso.
+ Los secundarios no suelen aparecer, pero de hacerlo suelen estar a la derecha.
+\end_layout
+
+\begin_layout Standard
+Una elipse punteada representa una colaboración, o el subsistema correspondiente
+, y se conecta con una 
+\series bold
+realización
+\series default
+ (una flecha como la de herencia pero punteada) con un caso de uso.
+\end_layout
+
+\begin_layout Standard
+Hay 3 tipos de relación entre casos de uso:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Generalización:
+\series default
+ Un caso de uso hereda el significado de otro y lo concreta.
+ Se representa como la herencia de clases.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Inclusión:
+\series default
+ Un caso de uso incorpora el comportamiento del otro dentro de su secuencia,
+ para evitar repetirlo.
+ Flecha punteada al otro con 
+\emph on
+
+\begin_inset Quotes cld
+\end_inset
+
+
+\lang english
+include
+\lang spanish
+
+\begin_inset Quotes crd
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Extensión:
+\series default
+ Un caso de uso tiene el comportamiento de otro, con pasos adicionales en
+ 
+\series bold
+puntos de extensión
+\series default
+ especificados por el otro, para modelar una parte opcional o uno o varios
+ subflujos que se ejecutan bajo ciertas condiciones.
+ Flecha punteada al otro con 
+\emph on
+
+\begin_inset Quotes cld
+\end_inset
+
+
+\lang english
+extend
+\lang spanish
+
+\begin_inset Quotes crd
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Un caso de uso puede especificar sus puntos de extensión con una línea horizonta
+l debajo de su nombre, 
+\emph on
+\lang english
+extension points
+\emph default
+\lang spanish
+ y la lista de puntos.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset External
+	template VectorGraphics
+	filename n2.3.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Obtención de casos de uso
+\end_layout
+
+\begin_layout Standard
+Un caso de uso es 
+\series bold
+esencial
+\series default
+ si es neutro respecto a tecnología y diseño, y es 
+\series bold
+real
+\series default
+ si describe el proceso según su diseño actual, teniendo en cuenta la tecnología
+ de E/S usada.
+ Se debe empezar especificando casos de uso esenciales y, durante el desarrollo,
+ si es preciso, añadir detalles hasta convertirlos en casos de uso reales.
+\end_layout
+
+\begin_layout Standard
+Para obtener los casos de uso, identificamos los usuarios del sistema y
+ los roles relevantes que asumen.
+ Entonces identificamos las formas de interactuar con el sistema de cada
+ rol y creamos un caso de uso por forma.
+ Finalmente estructuramos los casos de uso y los revisamos y validamos con
+ el usuario.
+\end_layout
+
+\begin_layout Standard
+Para esto debemos establecer los objetivos del proyecto, definir bien los
+ límites del sistema y llevar cuidado con la ambigüedad y con contradicciones
+ entre casos de uso, sin preocuparse demasiado por la notación.
+\end_layout
+
+\begin_layout Standard
+Los casos de uso no deben estar ligados a elementos concretos de la interfaz
+ de usuario o incluir detalles sobre estos.
+ Se debe llevar mucho cuidado de no abusar de relaciones de inclusión y
+ extensión de casos de uso, y no hacer descomposiciones funcionales de requisito
+s.
+ Se puede evitar la extensión sustituyéndola por una inclusión o incluyendo
+ toda la funcionalidad en el escenario alternativo.
+\end_layout
+
+\begin_layout Standard
+Lo importante de los casos de uso no es el diagrama sino la descripción
+ textual.
+\end_layout
+
+\begin_layout Standard
+Cada empresa de desarrollo de software debería tener un manual sobre utilización
+ de casos de uso, indicando, al menos:
+\end_layout
+
+\begin_layout Itemize
+Forma de identificación.
+\end_layout
+
+\begin_layout Itemize
+Granularidad, por ejemplo la de los casos CRUD.
+ En clase diremos de juntar los casos de creación y consulta de datos en
+ uno de gestionar, salvo si los casos separados son relevantes, pero luego
+ crearemos un caso de uso 
+\begin_inset Quotes cld
+\end_inset
+
+Consultar katas
+\begin_inset Quotes crd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Herramientas para la gestión, como procesadores de textos o 
+\series bold
+herramientas de gestión de requisitos
+\series default
+ o 
+\series bold
+\lang english
+CARE
+\series default
+\lang spanish
+ (
+\emph on
+\lang english
+Computer-Aided Requirements Engineering
+\emph default
+\lang spanish
+).
+\end_layout
+
+\begin_layout Itemize
+Plantillas seleccionadas.
+\end_layout
+
+\begin_layout Itemize
+Trazabilidad con otros artefactos del desarrollo: tipos de trazas y herramientas.
+\end_layout
+
+\begin_layout Itemize
+Normas de estilo en los diagramas.
+\end_layout
+
+\begin_layout Section
+Especificación por casos de uso
+\end_layout
+
+\begin_layout Standard
+El comportamiento requerido del sistema es conjunto completo de sus casos
+ de uso.
+ Una SRS puede estar formada por un diagrama de casos de uso del sistema
+ software, un modelo conceptual del dominio y, para cada caso de uso, una
+ descripción textual mediante una plantilla y descripciones de las interfaces
+ de usuario, más una sección de requisitos no funcionales.
+\end_layout
+
+\begin_layout Standard
+Los casos de uso ofrecen un medio sistemático, sencillo e intuitivo para
+ capturar los requisitos funcionales de un sistema; dirigen el proceso de
+ desarrollo, y fomentan la trazabilidad entre modelos.
+\end_layout
+
+\begin_layout Standard
+Actualmente no hay consenso sobre el uso de casos de uso para capturar requisito
+s y guiar el modelado.
+ Hay confusión sobre cómo usarlos y los métodos ágiles no los promueven.
+\end_layout
+
+\begin_layout Standard
+Tradicionalmente se usan con programación orientada a objetos, pero esto
+ no es necesario, y no es adecuado porque los casos de uso favorecen un
+ enfoque funcional, se centran en las secuencias de acciones y se basan
+ en los escenarios actuales del sistema
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+¿Por qué eso lo hace inadecuado? ¿Qué tiene que ver?
+\end_layout
+
+\end_inset
+
+.
+ Así, aunque los casos de uso son útiles para validación, de usarse para
+ desarrollo orientado a objetos debe hacerlo un equipo experto.
 \end_layout
 
 \end_body
