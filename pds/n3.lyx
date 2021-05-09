@@ -1,0 +1,889 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+El 
+\series bold
+modelado conceptual
+\series default
+ o 
+\series bold
+del dominio
+\series default
+ representa el vocabulario del dominio, que está formado por elementos del
+ mundo real, no necesariamente físicos, como ideas, conceptos y objetos,
+ y no por elementos software como clases, bases de datos, ventanas, métodos,
+ etc.
+\end_layout
+
+\begin_layout Standard
+Es un diccionario visual de las abstracciones relevantes sobre el dominio,
+ ignorando detalles sin interés, para comunicarse con los clientes y usuarios,
+ y se representa con diagramas de clases.
+\end_layout
+
+\begin_layout Standard
+La primera iteración es muy simple, y luego se va refinando.
+\end_layout
+
+\begin_layout Section
+Clases conceptuales
+\end_layout
+
+\begin_layout Standard
+Representan entidades y conceptos mediante un 
+\series bold
+símbolo
+\series default
+ (palabra o imagen) que representa a la clase; una definición o 
+\series bold
+intensión
+\series default
+, y un conjunto de ejemplos a los que se aplica o 
+\series bold
+extensión
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+En UML, se representan como clases.
+ Los nombres de clases y asociaciones usan 
+\emph on
+\lang english
+CamelCase
+\emph default
+\lang spanish
+ y van en singular, y los nombres de atributos y operaciones van en 
+\emph on
+\lang english
+lowerCamelCase
+\emph default
+\lang spanish
+.
+ Todos los nombres del modelo deben ser distintos.
+\end_layout
+
+\begin_layout Standard
+Se pueden incluir sistemas externos, actores o partes del sistema, aunque
+ el último caso requiere más atención en la traducción al diseño.
+ Los conceptos 
+\begin_inset Quotes cld
+\end_inset
+
+raíz
+\begin_inset Quotes crd
+\end_inset
+
+, de los que solo hay una instancia en el dominio a considerar, se añaden
+ solo si son útiles para entender el dominio y están relacionados con lo
+ más relevante, pero nunca se añade un concepto 
+\begin_inset Quotes cld
+\end_inset
+
+Sistema
+\begin_inset Quotes crd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Los informes, como recibos de compra, se añaden como conceptos si tienen
+ información que no está en otros sitios o si tienen identidad propia que
+ permite hacer otras operaciones con ellos aparte de consultarlos.
+ Los catálogos solo se incluyen si proporcionan un servicio no trivial accesible
+ desde todo el sistema.
+\end_layout
+
+\begin_layout Standard
+Podemos obtener clases conceptuales de los conceptos usados en los casos
+ de uso o, si se hace modelado del negocio,
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+No se ha definido todavía.
+\end_layout
+
+\end_inset
+
+ de la información de entrada y salida de las actividades del diagrama de
+ proceso.
+ De la especificación del diccionario
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+¿Qué diccionario? Bueno, yo lo pongo.
+\end_layout
+
+\end_inset
+
+ se pueden obtener atributos, relaciones y restricciones.
+ No añadimos conceptos que no estén en el dominio.
+\end_layout
+
+\begin_layout Standard
+Podemos usar una lista de categorías de clases para hacer una identificación
+ inicial y luego refinarla de forma iterativa.
+ Consideramos especialmente los conceptos de los que se guarda información,
+ que dan servicio a otros conceptos o que tienen atributos múltiples, y
+ las entidades externas o dispositivos que consumen o generan información.
+ Es preferible que sobren clases a que falten.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+enfoque lingüístico
+\series default
+ consiste en:
+\end_layout
+
+\begin_layout Enumerate
+Identificar candidatos a conceptos mediante heurísticas.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Por ejemplo, los nombres comunes y frases nominales son conceptos, los nombres
+ propios son instancias de conceptos, los adjetivos que acompañan a nombre
+ son valores de atributos, las enumeraciones de nombres pueden ser subclases
+ de una misma clase, y las formas verbales como 
+\begin_inset Quotes cld
+\end_inset
+
+es un tipo de
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+forma parte de
+\begin_inset Quotes crd
+\end_inset
+
+, etc.
+ identifican relaciones.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Encajar los candidatos en categorías de una lista.
+\end_layout
+
+\begin_layout Enumerate
+Identificar sinónimos, homónimos y polisemias, y actualizar el diccionario
+ de datos en consecuencia.
+\end_layout
+
+\begin_layout Enumerate
+Eliminar conceptos sobre la implementación o sin relación con otros.
+\end_layout
+
+\begin_layout Standard
+Esto da problemas por la ambigüedad y la imprecisión del lenguaje.
+\end_layout
+
+\begin_layout Standard
+A veces queremos representar especificaciones de conceptos como conceptos
+ (modelos de coches, libros sin indicar el ejemplar, etc.).
+ Entonces podemos modelar las instancias de esos modelos o no con otro concepto
+ (coche, libro, etc.), y lo hacemos o no según la importancia y si las instancias
+ tienen identidad propia.
+\end_layout
+
+\begin_layout Section
+Relaciones
+\end_layout
+
+\begin_layout Standard
+Las clases conceptuales se relacionan de forma física o lógica.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+asociación
+\series default
+ es una relación entre dos o más clases conceptuales.
+ Se incluyen las asociaciones cuyos elementos el sistema deba mantener durante
+ algún tiempo, y se excluyen las que son suficientemente momentáneas para
+ que el sistema no tenga que guardarlas, las irrelevantes para la especificación
+, las orientadas a la implementación y las derivables a partir de otras.
+\end_layout
+
+\begin_layout Standard
+Ejemplos son 
+\begin_inset Quotes cld
+\end_inset
+
+ser parte física/lógica de
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+estar físicamente/lógicamente contenida en
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+ser descripción/línea de transacción/informe de
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+ser registrado en
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+ser miembro de
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+ser parte organizacional de
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+usar
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+comunicar con
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+estar relacionado con
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+ser una transacción relacionada con otra
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+estar al lado de
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+ser propiedad de
+\begin_inset Quotes crd
+\end_inset
+
+ o 
+\begin_inset Quotes cld
+\end_inset
+
+ser evento relacionado con
+\begin_inset Quotes crd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dada una asociación 
+\begin_inset Formula $R$
+\end_inset
+
+ entre las clases 
+\begin_inset Formula $C_{1},\dots,C_{n}$
+\end_inset
+
+, la multiplicidad de una posición 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+ de 
+\begin_inset Formula $R$
+\end_inset
+
+ es el conjunto de posibles valores de 
+\begin_inset Formula $|\{a_{i}\in C_{i}:(a_{1},\dots,a_{n})\in R\}|$
+\end_inset
+
+ para cada 
+\begin_inset Formula $a_{1},\dots,a_{i-1},a_{i+1},\dots,a_{n}$
+\end_inset
+
+ fijos en cada estado válido del sistema.
+ La multiplicidad representa el estado actual, y si hace falta un histórico,
+ este se especifica de otra forma.
+\end_layout
+
+\begin_layout Standard
+En UML, las asociaciones binarias se representan como una asociación sin
+ navegabilidad, y el resto como un rombo conectado con una línea por posición
+ a la clase correspondiente, posiblemente con multiplicidad y nombre de
+ atributo en el lado de la clase.
+ Generalmente podemos convertir las asociaciones no binarias en varias asociacio
+nes binarias añadiendo una clase para la relación, y esto es lo más recomendable.
+\end_layout
+
+\begin_layout Standard
+El nombre de atributo indica el rol de la posición en la asociación.
+ Una asociación es 
+\series bold
+reflexiva
+\series default
+ si involucra a una clase en más de una posición, en cuyo caso las posiciones
+ referentes a la misma clase que otras posiciones deben indicar el rol.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+clase asociativa
+\series default
+ es una que indica datos adicionales sobre una asociación, a la que se une
+ con una línea punteada.
+ Es fácil confundir una asociación entre dos clases 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ con clase asociativa 
+\begin_inset Formula $C$
+\end_inset
+
+ con una asociación entre 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $C$
+\end_inset
+
+ y otra entre 
+\begin_inset Formula $C$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Encontrar clases conceptuales es más importante que encontrar asociaciones
+ y demasiadas asociaciones dificultan la comprensión de los diagramas.
+ Por otra parte, el exceso o falta de asociaciones puede dificultar la implement
+ación, por lo que nos centramos en las asociaciones en las que una parte
+ necesita conocer a la otra.
+\end_layout
+
+\begin_layout Standard
+Generalmente añadimos multiplicidades siempre, así como flechas con la dirección
+ de lectura del nombre de relación, y roles solo cuando hace falta.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset External
+	template VectorGraphics
+	filename n3.1.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Evitamos asociaciones derivadas o redundantes.
+\end_layout
+
+\begin_layout Section
+Agregaciones
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{TDS}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Agregación
+\series default
+: Asociación en que un objeto [es miembro de un grupo, componente físico
+ de otro objeto o está contenido en un contenedor, y hay propiedades y operacion
+es que se propagan del todo a las partes][...].
+ [...] En la referencia de la parte al todo se asume multiplicidad 1.
+ [...]
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Composición
+\series default
+: Agregación en que cada parte pertenece a un único agregado y si se elimina
+ un agregado se eliminan todas sus partes.
+ [...] La multiplicidad [del][...] agregado es siempre 1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solo usamos composición cuando hay una restricción para la existencia de
+ las partes, tiene sentido que el creador de las partes en la implementación
+ sea el agregado y las operaciones del agregado se propagan con frecuencia
+ a las partes.
+ Ante la duda es mejor usar asociaciones normales.
+\end_layout
+
+\begin_layout Section
+Herencia
+\end_layout
+
+\begin_layout Standard
+Una clase conceptual 
+\begin_inset Formula $A$
+\end_inset
+
+ 
+\series bold
+hereda
+\series default
+ de otra 
+\begin_inset Formula $B$
+\end_inset
+
+ si todo concepto que cumple la definición de 
+\begin_inset Formula $A$
+\end_inset
+
+ cumple la de 
+\begin_inset Formula $B$
+\end_inset
+
+, formando una relación de orden parcial.
+ La herencia se representa como la de clases (excluyendo la reflexiva y
+ la transitiva) y permite gestionar la complejidad cuando varios conceptos
+ tienen una definición consistente pero uno es más concreto.
+\end_layout
+
+\begin_layout Standard
+Podemos usar herencia mediante:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Generalización
+\series default
+, abstrayendo conceptos parecidos en uno más general al que llevar las caracterí
+sticas comunes, cuando hay conceptos con atributos y asociaciones comunes
+ que son variaciones de un concepto similar.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Una clase conceptual es 
+\series bold
+abstracta
+\series default
+ si toda instancia de esa clase lo es de alguna subclase suya, lo que indicamos
+ poniendo el nombre de la clase en cursiva.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Especialización
+\series default
+, descomponiendo un concepto en subtipos con características propias, cuando
+ distintas instancias tienen distintas propiedades y asociaciones, no solo
+ en valor.
+\end_layout
+
+\begin_layout Standard
+Bajo una clase con subclases podemos añadir un texto de la forma 
+\family sans
+\lang english
+{
+\family default
+[
+\family sans
+disjoint
+\family default
+|
+\family sans
+overlapping
+\family default
+]
+\family sans
+, 
+\family default
+[
+\family sans
+complete
+\family default
+|
+\family sans
+incomplete
+\family default
+]
+\family sans
+}
+\family default
+\lang spanish
+ para restringir la jerarquía, donde 
+\emph on
+\lang english
+disjoint
+\emph default
+\lang spanish
+ indica que las subclases representadas son disjuntas dos a dos y 
+\emph on
+\lang english
+complete
+\emph default
+\lang spanish
+ indica que todo elemento de la clase lo es de alguna de las subclases represent
+adas.
+\end_layout
+
+\begin_layout Standard
+El estado de un objeto no es un subtipo de su concepto, aunque si es importante
+ se puede modelar como subtipo de otro concepto con el que el primero se
+ asocia.
+\end_layout
+
+\begin_layout Section
+Atributos
+\end_layout
+
+\begin_layout Standard
+Son propiedades relevantes de los conceptos cuyos valores no tienen identidad.
+ Se añaden a las clases con formato 
+\begin_inset Quotes cld
+\end_inset
+
+
+\family sans
+- 
+\family default
+[
+\family sans
+/
+\family default
+]
+\family sans
+\emph on
+nombre
+\family default
+\emph default
+[
+\family sans
+: 
+\emph on
+tipo
+\family default
+\emph default
+][
+\family sans
+[
+\emph on
+multiplicidad
+\emph default
+]
+\family default
+][
+\family sans
+ = 
+\emph on
+valorInicial
+\family default
+\emph default
+]
+\begin_inset Quotes crd
+\end_inset
+
+, donde 
+\family sans
+\emph on
+multiplicidad
+\family default
+\emph default
+ por defecto es 1 y 
+\family sans
+/
+\family default
+ indica que el atributo es derivado de otros valores (por defecto no lo
+ es).
+ Las partes opcionales no se añaden si no es necesario.
+ Los atributos derivados solo se incluyen si son importantes, y se pueden
+ almacenar o no.
+\end_layout
+
+\begin_layout Standard
+Una propiedad sin identidad puede modelarse como una clase si está formada
+ por varias partes (como nombre y apellidos o cantidad y unidad), tiene
+ operaciones no triviales (como validación), tiene otros atributos secundarios
+ o es una abstracción de varios tipos.
+ Una propiedad en un 
+\begin_inset Quotes cld
+\end_inset
+
+dominio
+\begin_inset Quotes crd
+\end_inset
+
+, o conjunto de valores predeterminado, se representa como atributo o concepto
+ según su importancia en el contexto del sistema.
+\end_layout
+
+\begin_layout Standard
+No usamos atributos como claves ajenas.
+ Si un atributo puede ser un concepto por tener 
+\begin_inset Quotes cld
+\end_inset
+
+identidad propia
+\begin_inset Quotes crd
+\end_inset
+
+, lo representamos como concepto.
+\end_layout
+
+\begin_layout Section
+Restricciones
+\end_layout
+
+\begin_layout Standard
+Si son importantes, podemos añadir restricciones en el dominio mediante
+ notas o explícitamente en los elementos.
+ Algunas están predefinidas:
+\end_layout
+
+\begin_layout Itemize
+Una etiqueta 
+\family sans
+{ordered}
+\family default
+ en una posición 
+\begin_inset Formula $i$
+\end_inset
+
+ de una relación indica que, fijadas instancias en el resto de posiciones,
+ las de 
+\begin_inset Formula $i$
+\end_inset
+
+ que se asocian con el resto están bien ordenadas por un orden que forma
+ parte de la relación.
+\end_layout
+
+\begin_layout Itemize
+Una flecha etiquetada con 
+\family sans
+{xor}
+\family default
+ de una asociación a otra que comparten una única clase en una única posición
+ cada una indica que las instancias de dicha clase se relacionan con una
+ o con otra, y no con ambas.
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es una asociación entre clases 
+\begin_inset Formula $A_{1},\dots,A_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ lo es entre 
+\begin_inset Formula $B_{1},\dots,B_{n}$
+\end_inset
+
+ y cada 
+\begin_inset Formula $B_{i}$
+\end_inset
+
+ hereda de 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+, una etiqueta 
+\family sans
+{subsets 
+\begin_inset Formula $A$
+\end_inset
+
+}
+\family default
+ en 
+\begin_inset Formula $B$
+\end_inset
+
+ indica que siempre es 
+\begin_inset Formula $B\subseteq A$
+\end_inset
+
+.
+ Esta estructura es preferible a tener una sola asociación con una clase
+ asociativa.
+\end_layout
+
+\end_body
+\end_document
