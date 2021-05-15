@@ -1,0 +1,26 @@
+@startuml
+'skinparam conditionStyle diamond
+	|Cliente|
+		start
+		:Solicitar producto;
+	|Ventas|
+		:Procesar pedido;
+if () then ([No disponible])
+		:Notificar problema al cliente;
+		stop
+else ([Disponible])
+	|Almacén|
+		:Enviar pedido;
+endif
+fork
+	|Cliente|
+		:Recibir producto;
+fork again
+	|Ventas|
+		:Facturar cliente;
+end fork
+	|Cliente|
+		:Pagar factura;
+		stop
+@enduml
+
