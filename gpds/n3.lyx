@@ -81,10 +81,6 @@ algorithm2e
 \begin_body
 
 \begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
 Un 
 \series bold
 objeto
@@ -101,7 +97,7 @@ estado
  es una situación en que se puede encontrar un objeto.
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 Un 
 \series bold
 requisito
@@ -109,13 +105,9 @@ requisito
  es una declaración muy específica, precisa y sin ambigüedad de una o más
  necesidades particulares a satisfacer por un producto, junto a sus limitaciones
  y condiciones.
- Define un objeto, función o estado; limita o controla las acciones asociadas
- a uno, o define relaciones entre objetos, funciones y estados.
-\end_layout
-
-\end_inset
-
-
+ Según Alan Davis, un requisito define un objeto, función o estado; limita
+ o controla las acciones asociadas a uno, o define relaciones entre objetos,
+ funciones y estados.
 \end_layout
 
 \begin_layout Standard
@@ -132,10 +124,6 @@ parte interesada
  ingeniero de requisitos, analista o programador.
 \end_layout
 
-\begin_layout Section
-Ingeniería de requisitos
-\end_layout
-
 \begin_layout Standard
 La 
 \series bold
@@ -144,16 +132,38 @@ ingeniería de requisitos
  es la parte de la ingeniería de software que comprende las actividades
  de desarrollo relacionadas con la gestión y definición de requisitos para
  sistemas software, mediando los dominios de adquisidor y proveedor.
- Se le suele dedicar el 
+ Sus objetivos son:
+\end_layout
+
+\begin_layout Enumerate
+Alcanzar un acuerdo entre clientes, desarrolladores y usuarios sobre lo
+ que hay que desarrollar.
+\end_layout
+
+\begin_layout Enumerate
+Ser la base para el diseño de software.
+\end_layout
+
+\begin_layout Enumerate
+Permitir la verificación y validación de los productos obtenidos.
+\end_layout
+
+\begin_layout Enumerate
+Orientar a potenciales clientes sobre la definición de los productos mediante
+ catálogos de requisitos alternativos.
+\end_layout
+
+\begin_layout Standard
+Se le suele dedicar el 
 \begin_inset Formula $\unit[10]{\%}$
 \end_inset
 
  del esfuerzo de un proyecto, aunque dedicar más esfuerzo disminuye el tiempo
- total del proyecto.
+ total del proyecto según estudios como los del informe SERENA.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Greyedout
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
@@ -167,8 +177,8 @@ n, el modelado y la comunicación, y si quiere hacerse, debe justificarse
 
 \end_layout
 
-\begin_layout Standard
-Consta de:
+\begin_layout Section
+Fases
 \end_layout
 
 \begin_layout Enumerate
@@ -256,8 +266,15 @@ validan
 \series bold
 verifica
 \series default
- la corrección interna y externa de los modelos.
- Se hacen prototipos, inspecciones y revisiones.
+ la corrección interna y externa de los modelos, usando prototipos, inspecciones
+ y revisiones.
+ Una 
+\series bold
+revisión de requisitos
+\series default
+ es un proceso en que se presentan requisitos a partes interesadas para
+ su aprobación o retroalimentación, o bien es un grupo de revisores que
+ buscan errores, contradicciones, descripciones ambiguas, etc.
 \end_layout
 
 \begin_layout Enumerate
@@ -302,6 +319,32 @@ Análisis de requisitos
 \end_layout
 
 \begin_layout Standard
+El ISO/IEC/IEEE 24765:2017 lo define como un 
+\begin_inset Quotes cld
+\end_inset
+
+proceso de estudio de las necesidades del usuario para llegar a una definición
+ de los requisitos del sistema, hardware o software
+\begin_inset Quotes crd
+\end_inset
+
+ o un 
+\begin_inset Quotes cld
+\end_inset
+
+proceso de estudio y perfeccionamiento de los requisitos del sistema, hardware
+ o software
+\begin_inset Quotes crd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 \begin_inset Note Greyedout
 status open
 
@@ -317,13 +360,9 @@ to de estos requisitos; la investigación de los requisitos de usuario para
  Forma parte de la fase de definición del sistema software.
 \end_layout
 
-\begin_layout Plain Layout
-Muchos proyectos software no dan los resultados esperados, se retrasan,
- exceden el presupuesto o terminan llenos de errores, y muchas veces la
- causa es un mal análisis de requisitos.
- Esto es porque en general los clientes o usuarios no tienen realmente claro
- qué quieren o cuál es el problema que quieren resolver, y por una mala
- estimación del tiempo y coste del proyecto.
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -332,7 +371,20 @@ Muchos proyectos software no dan los resultados esperados, se retrasan,
 \end_layout
 
 \begin_layout Standard
-Los errores relacionados con requisitos son los más caros de corregir.
+Según 
+\lang english
+Robert Glass
+\lang spanish
+, las principales causas de fracaso de proyectos de software son la inestabilida
+d de los requisitos, pues en general los clientes o usuarios no tienen realmente
+ claro qué quieren o qué problema que quieren resolver, y una mala estimación
+ de el tiempo y el coste del proyecto.
+\end_layout
+
+\begin_layout Standard
+Los errores en las primeras fases del desarrollo son más caros de corregir
+ porque pasa más tiempo hasta terminar las fases y obtener retroalimentación,
+ siendo los más caros los errores en los requisitos.
  Algunos son:
 \end_layout
 
@@ -355,50 +407,22 @@ No detectar a tiempo ambigüedades entre requisitos.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-Según 
-\emph on
-\lang english
-Standish Group
-\emph default
-\lang spanish
-, creadora de los informes 
-\lang english
-CHAOS
-\lang spanish
-, en 1995, las empresas y agencias del gobierno en Estados Unidos gastaron
- 81000 millones de dólares en proyectos de software fallidos.
+El cohete europeo Ariane 5 explotó debido a un desbordamiento al convertir
+ un valor en coma flotante de doble precisión a un entero de 16 bits con
+ signo, como resultado de mantener un requisito de software del Ariane 4
+ que no era necesario en el 5, relacionado con la velocidad horizontal y
+ el ángulo de ataque detectados por un sensor de vuelo.
 \end_layout
 
-\begin_layout Plain Layout
-Una 
-\series bold
-revisión de requisitos
-\series default
- es una reunión en la que se presentan los requisitos de un elemento de
- hardware, software o sistema a algunas partes interesadas para obtener
- información o aprobación.
- Forma parte de la 
-\series bold
-validación de requisitos
-\series default
-.
-\end_layout
-
-\begin_layout Plain Layout
-El análisis de requisitos permite alcanzar un acuerdo entre clientes, productore
-s de software y usuarios sobre lo que hay que producir; proporciona la base
- para el diseño; sirve de soporte para la verificación y validación de los
- productos, y orienta a potenciales clientes sobre la definición de los
- productos, creando a veces catálogos de requisitos alternativos para elegir.
-\end_layout
-
+\begin_layout Standard
+La NASA perdió el contacto con el Mars Polar Lander 10 minutos antes de
+ su aterrizaje previsto debido a que el software malinterpretó señales que
+ debía ignorar y creyó que uno de los brazos de la sonda había tocado suelo
+ cuando estaba a 
+\begin_inset Formula $\unit[40]{m}$
 \end_inset
 
-
+ de altura.
 \end_layout
 
 \begin_layout Section
