@@ -1,0 +1,700 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una vez hecho el diseño preliminar, refinamos iterativamente el modelo de
+ clases del diseño y las colaboraciones considerando los requisitos no funcional
+es y las restricciones del entorno hasta obtener un diseño adecuado para
+ pasar a la implementación.
+\end_layout
+
+\begin_layout Standard
+Se define la arquitectura del sistema; se concretan estructuras de datos
+ y patrones de diseño, y se diseñan la interfaz de usuario, el manejo de
+ la persistencia y la distribución.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Section
+Arquitectura en capas
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{TDS}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dividir una aplicación en 
+\series bold
+capas
+\series default
+ que reúnen clases relacionadas con un mismo aspecto del sistema evita el
+ acoplamiento[...].
+ [...] 
+\series bold
+Arquitectura en 
+\series default
+[...] 5 capas:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Presentación
+\series default
+: Muestra ventanas o similares, genera informes [...].
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Aplicación
+\series default
+: Mantiene una sesión, gestiona peticiones [...] y coordina las transiciones
+ entre ventanas o similares.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Dominio
+\series default
+ o 
+\series bold
+negocio
+\series default
+: [...] Implementa [...] reglas de negocio.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Servicios técnicos
+\series default
+: Persistencia [...] y otros servicios [...].
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Base
+\series default
+: Bibliotecas y utilidades genéricas.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+arquitectura en 3 capas
+\series default
+ tiene capas de presentación, dominio y persistencia.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Paquetes
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+paquete
+\series default
+ es un elemento organizativo con elementos de cualquier tipo.
+ Debe tener un conjunto de elementos equilibrado y ser cohesivo y poco acoplado
+ con otros paquetes.
+ Los paquetes se pueden anidar.
+\end_layout
+
+\begin_layout Standard
+Los paquetes se representan en UML con un rectángulo con una solapa que
+ sobresale de la parte izquierda del borde superior, dividido horizontalmente
+ en dos partes: el nombre del paquete y, opcionalmente, una lista de objetos,
+ uno por línea, con un indicador de visibilidad como el de los atributos
+ de clases.
+\end_layout
+
+\begin_layout Standard
+Un paquete anidado puede ver todo lo de sus paquetes padres.
+ Cuando un paquete 
+\series bold
+importa
+\series default
+ otro, lo que se indica con una flecha de uno a otro con estereotipo 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+import
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+, puede usar sus elementos públicos.
+ La importación no es transitiva.
+\end_layout
+
+\begin_layout Standard
+Los paquetes permiten agrupar elementos, normalmente del mismo tipo, para
+ manejarlos en conjunto.
+\end_layout
+
+\begin_layout Section
+Modelo de componentes
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+componente
+\series default
+ es una parte lógica, modular, autocontenida y reemplazable de un sistema
+ que conforma un conjunto de interfaces y proporciona su implementación.
+ Modela artefactos como ejecutables, bibliotecas, archivos o documentos.
+ Tipos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Productos del trabajo:
+\series default
+ Resultado directo del desarrollo.
+ Código fuente, ficheros de datos, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De despliegue:
+\series default
+ Necesarios y suficientes para formar un sistema.
+ Ejecutables compilados, bibliotecas dinámicas, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De ejecución:
+\series default
+ Se crean durante la ejecución, como los objetos COM.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+El equivalente en software libre es GObject, usado sobre todo en GNOME.
+ En Linux la comunicación entre componentes se hace a través de D-Bus, con
+ bibliotecas para GObject, Qt y lenguajes de alto nivel con introspección.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+diagrama de componentes
+\series default
+ UML permite modelar ejecutables y bibliotecas, código fuente o una API.
+ Los componentes se representan como en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:component"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template VectorGraphics
+	filename n6.1.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:component"
+
+\end_inset
+
+Ejemplo de diagrama de componentes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se puede representar una dependencia de un componente en otro con una flecha
+ del uno al otro, o bien se pueden añadir interfaces a los componentes conectánd
+olos a un círculo pequeño etiquetado con el nombre de la interfaz y hacer
+ que otros componentes usen esa interfaz conectándolos a un arco de circunferenc
+ia que rodea al círculo o añadiendo una flecha punteada hacia el círculo
+ posiblemente etiquetada con 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+use
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+.
+ Incluso se puede añadir el arco sin conectarlo con nada, etiquetado con
+ el nombre de la interfaz, para indicar que 
+\begin_inset Quotes cld
+\end_inset
+
+alguien
+\begin_inset Quotes crd
+\end_inset
+
+ tiene que proporcionarle esa interfaz.
+\end_layout
+
+\begin_layout Standard
+Los componentes pueden tener estereotipos como 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+artifact
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+, 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+component
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+, 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+input
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+, 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+service
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+, 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+user interaction
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+, etc.
+\end_layout
+
+\begin_layout Section
+Diagrama de despliegue
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+nodo
+\series default
+ es un recurso que existe en tiempo de ejecución y en el que se ejecutan
+ los componentes.
+ Puede ser un 
+\series bold
+nodo dispositivo
+\series default
+, un recurso computacional físico con memoria y capacidad de procesamiento,
+ o un 
+\series bold
+nodo entorno de ejecución
+\series default
+, un recurso software que se ejecuta en otro nodo y puede albergar otros
+ elementos software, como es el caso de un sistema operativo, un gestor
+ de bases de datos o un navegador web.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+diagrama de despliegue
+\series default
+ muestra la configuración de los nodos que participan en la ejecución y
+ de los componentes en los nodos.
+ Los nodos se representan como objetos pero 
+\begin_inset Quotes cld
+\end_inset
+
+en relieve
+\begin_inset Quotes crd
+\end_inset
+
+, con estereotipos como 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+web server cluster
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+, 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+servlet container
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+, etc., con unos dentro de otros y con componentes dentro de los nodos.
+ Los componentes admiten varias notaciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template VectorGraphics
+	filename n6.2.svg
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Si alguien está leyendo esto y encuentra una forma de acortar la línea 
+\begin_inset Quotes cld
+\end_inset
+
+SQL
+\begin_inset Quotes crd
+\end_inset
+
+, por favor que contacte conmigo o contribuya.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:deployment"
+
+\end_inset
+
+Ejemplo de diagrama de despliegue.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los nodos y componentes se pueden comunicar mediante líneas, posiblemente
+ etiquetadas con la forma de comunicación.
+ Esto se muestra en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:deployment"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Los componentes se pueden represar con cualquiera de las notaciones de
+ las figuras 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:component"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:deployment"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Más allá del diseño
+\end_layout
+
+\begin_layout Standard
+Tras el diseño, se hace la implementación y las actividades V&V (Verificación
+ y Validación).
+ En la 
+\series bold
+verificación
+\series default
+ o 
+\series bold
+prueba
+\series default
+ se comprueba si el software funciona bien, y en la 
+\series bold
+validación
+\series default
+ se comprueba con el usuario si el software que se está construyendo es
+ el correcto.
+\end_layout
+
+\begin_layout Standard
+La programación 
+\series bold
+
+\begin_inset Quotes cld
+\end_inset
+
+prueba primero
+\begin_inset Quotes crd
+\end_inset
+
+
+\series default
+ consiste en escribir código de prueba antes de escribir la implementación,
+ para luego escribir el código que satisface las pruebas.
+ Tiene la ventaja de que las pruebas se escriben; el programador queda satisfech
+o y grita 
+\begin_inset Quotes cld
+\end_inset
+
+¡He superado la prueba!
+\begin_inset Quotes crd
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Fuente: Apuntes de la asignatura.
+ El grito de entusiasmo puede variar según el programador.
+\end_layout
+
+\end_inset
+
+; se verifica la corrección, y no hay miedo a los cambios.
+\end_layout
+
+\begin_layout Standard
+La validación la hace el usuario comprobando, para cada caso de uso, que
+ el sistema muestra el comportamiento esperado, considerando el escenario
+ principal, los excepcionales y los requisitos no funcionales.
+\end_layout
+
+\end_body
+\end_document

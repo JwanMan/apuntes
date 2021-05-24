@@ -1,0 +1,1901 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+El análisis estudia lo que hay que hacer, no cómo hacerlo, y enfatiza la
+ investigación del problema para llegar a unos requisitos que deben cumplir
+ las soluciones.
+ El diseño traduce esto en una representación del software, una solución
+ conceptual que satisface los requisitos.
+ Mientras que el análisis orientado a objetos estudia un problema o un sistema
+ según los conceptos del dominio, como clases conceptuales, asociaciones
+ y cambios de estado, el diseño orientado a objetos especifica una solución
+ según conceptos del software como clases, atributos, métodos y colaboraciones.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+diseño preliminar
+\series default
+ es una visión ideal del sistema obtenida a partir de los modelos de caso
+ de uso y del dominio, que define los subsistemas del software mediante
+ paquetes sin tener en cuenta restricciones tecnológicas ni requisitos no
+ funcionales.
+ Esta se refina en un modelo del diseño completo añadiendo aspectos relacionados
+ con la plataforma tecnológica concreta, patrones de diseño y requisitos
+ no funcionales como los de rendimiento y uso de memoria.
+\end_layout
+
+\begin_layout Section
+Diagrama de secuencia del sistema (DSS)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO Cada evento da lugar a una operación, que se puede describir mediante
+ un 
+\series bold
+contrato
+\series default
+ especificado con una plantilla.
+ Crear una 
+\series bold
+colaboración
+\series default
+ por operación y crear el 
+\series bold
+modelo de clases del diseño
+\series default
+ a partir del modelo del dominio conforme se definen las operaciones.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es un diagrama de secuencia UML que muestra los eventos generados por un
+ actor durante un escenario de un caso de uso y las posibles comunicaciones
+ con sistemas externos.
+\end_layout
+
+\begin_layout Standard
+Los sistemas se tratan como cajas negras, teniendo claros sus límites, y
+ se representan como objetos.
+ El actor se nombra como objetos y se representan con un monigote.
+ No se suele indicar el nombre del objeto.
+\end_layout
+
+\begin_layout Standard
+Normalmente se hace un DSS para el escenario principal de un caso de uso
+ y uno para cada escenario alternativo o frecuente, y se elige que el sistema
+ sea el propio software.
+\end_layout
+
+\begin_layout Standard
+Cuando el caso de uso se inicia automáticamente, lo inicia un actor de tipo
+ Sistema.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO Resto del FAQ.
+\end_layout
+
+\end_inset
+
+ Los argumentos de los mensajes deben ser valores primitivos, no colecciones
+ (salvo cadenas de caracteres, consideradas primitivas) ni objetos del dominio.
+ Para referirse a objetos del dominio se usan identificadores.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template VectorGraphics
+	filename n5.1.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+DSS de una interacción iniciada automáticamente.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Contratos
+\end_layout
+
+\begin_layout Standard
+Cada evento en un DSS da lugar a una operación a implementar.
+ Un 
+\series bold
+contrato
+\series default
+ describe una operación mediante:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Precondiciones
+\series default
+, condiciones que se deben cumplir para poder ejecutar la operación.
+ Generalmente, la declaración del contrato ya restringe los valores que
+ pueden tomar los argumentos mediante tipos.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Postcondiciones
+\series default
+, valores devueltos si los hay y cambios en el dominio resultantes de ejecutar
+ la operación.
+ Los cambios se suelen indicar como creación y eliminación de objetos con
+ ciertos atributos, creación y eliminación de asociaciones y modificación
+ de atributos, y entendiendo que lo que no se especifica queda constante.
+\end_layout
+
+\begin_layout Standard
+Los contratos sirven cuando hay mucha complejidad y se necesita precisión,
+ o cuando la operación no están clara, pero normalmente no hacen falta ya
+ que la mayoría de detalles se pueden inferir obviamente de los casos de
+ uso.
+\end_layout
+
+\begin_layout Standard
+Una posible plantilla es:
+\end_layout
+
+\begin_layout Description
+Nombre 
+\family sans
+\emph on
+nombre_operación
+\emph default
+(
+\family default
+[
+\family sans
+\emph on
+argumento
+\emph default
+: 
+\emph on
+Tipo
+\emph default
+, 
+\family default
+...]
+\family sans
+)
+\end_layout
+
+\begin_layout Description
+Referencias
+\begin_inset space ~
+\end_inset
+
+cruzadas Opcional, lista de casos de uso en los que puede darse la operación.
+\end_layout
+
+\begin_layout Description
+Precondiciones Suposiciones relevantes.
+ Se pueden nombrar objetos con notación matemática informal y luego usarlos
+ en las postcondiciones.
+\end_layout
+
+\begin_layout Description
+Postcondiciones Cambios en el dominio, con predicados como 
+\begin_inset Quotes cld
+\end_inset
+
+se ha creado un objeto tal
+\begin_inset Quotes crd
+\end_inset
+
+ o similares.
+\end_layout
+
+\begin_layout Section
+Patrones 
+\lang english
+GRASP
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{TDS}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los objetos de una clase conocen sus datos privados y realizan acciones
+ sobre ellos, como cálculos o creación de otros objetos, y para ello pueden
+ iniciar acciones en otros objetos y coordinarlas.
+ Los 
+\series bold
+patrones 
+\lang english
+GRASP
+\series default
+\lang spanish
+ ayudan a [...] distribuir responsabilidades entre las clases [...].
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{TDS}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-1em}
+\backslash
+paragraph{Bajo acoplamiento}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+[...] Hay acoplamiento entre las clases 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ si 
+\begin_inset Formula $A$
+\end_inset
+
+ posee un atributo de tipo 
+\begin_inset Formula $B$
+\end_inset
+
+, tiene un método con algún parámetro o valor de retorno de tipo 
+\begin_inset Formula $B$
+\end_inset
+
+, es subclase directa o indirecta de 
+\begin_inset Formula $B$
+\end_inset
+
+ o implementa la interfaz 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Reducir el acoplamiento favorece la reutilización, la comprensión y el
+ mantenimiento del código.
+\end_layout
+
+\begin_layout Paragraph
+Alta cohesión
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+cohesión
+\series default
+ es el grado de relación entre los elementos de un mismo módulo, como los
+ métodos de una clase, las clases de un paquete, etc.
+ Aumentarla favorece la reutilización, la comprensión y el mantenimiento
+ del código.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tipos de cohesión, de mayor a menor:
+\end_layout
+
+\begin_layout Description
+Funcional Se hace una sola función.
+\end_layout
+
+\begin_layout Description
+Secuencial La salida de una tarea sirve como entrada a la siguiente.
+\end_layout
+
+\begin_layout Description
+Comunicacional Las actividades comparten datos.
+\end_layout
+
+\begin_layout Description
+Procedural Actividades distintas en las que el flujo de ejecución va de
+ una a la siguiente.
+\end_layout
+
+\begin_layout Description
+Temporal Actividades distintas relacionadas por el tiempo.
+\end_layout
+
+\begin_layout Description
+Lógica Actividades de la misma categoría lógica.
+\end_layout
+
+\begin_layout Description
+Coincidental
+\begin_inset space ~
+\end_inset
+
+o
+\begin_inset space ~
+\end_inset
+
+casual Actividades distintas sin relaciones significativas entre ellas.]
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{TDS}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-1em}
+\backslash
+paragraph{Experto [...]}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se asigna una responsabilidad a la clase que tiene la información necesaria
+ para cumplirla.
+ Las responsabilidades se distribuyen de forma homogénea, evitando crear
+ 
+\series bold
+clases dios
+\series default
+ [...].
+ [...]
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+principio 
+\begin_inset Quotes cld
+\end_inset
+
+no hables con extraños
+\begin_inset Quotes crd
+\end_inset
+
+
+\series default
+ desaconseja enviar mensajes a objetos obtenidos de forma indirecta (a través
+ de mensajes a otros objetos) [...].
+\end_layout
+
+\begin_layout Paragraph
+Creador
+\end_layout
+
+\begin_layout Standard
+Una clase 
+\begin_inset Formula $A$
+\end_inset
+
+ tiene la responsabilidad de crear instancias de 
+\begin_inset Formula $B$
+\end_inset
+
+ si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un agregado de instancias de 
+\begin_inset Formula $B$
+\end_inset
+
+, contiene o registra instancias de 
+\begin_inset Formula $B$
+\end_inset
+
+, hace un uso específico de instancias de 
+\begin_inset Formula $B$
+\end_inset
+
+ o proporciona los datos necesarios para inicializar un objeto de 
+\begin_inset Formula $B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Controlador
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+separación modelo-vista
+\series default
+ consiste en que las clases del modelo o dominio no conozcan a las de la
+ vista [...][y las de la vista no incluyan ninguna lógica de negocio], lo que
+ favorece la cohesión, permite desarrollar la vista y el dominio en paralelo
+ y permite conectar otras vistas al modelo, incluso simultáneamente, y ejecutar
+ el modelo en un proceso independiente a la capa de presentación.
+\end_layout
+
+\begin_layout Standard
+Una forma de conseguir esto es con un 
+\series bold
+controlador
+\series default
+, una clase [...] intermediaria entre el [...] modelo y la vista, ofreciendo a
+ la vista una interfaz simplificada del dominio para realizar ciertas tareas
+ relacionadas de forma independiente a posibles cambios en el dominio.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+controlador fachada
+\series default
+ no tiene estado y simplemente expone operaciones.
+ A veces esto resulta en controladores 
+\begin_inset Quotes cld
+\end_inset
+
+saturados
+\begin_inset Quotes crd
+\end_inset
+
+ y debemos usar un 
+\series bold
+controlador caso de uso
+\series default
+, que se dedica a las operaciones de un solo caso de uso y puede tener estado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{TDS}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-1em}
+\backslash
+paragraph{Polimorfismo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cuando se requiere una misma funcionalidad de varias clases o clases no
+ previstas, se define una interfaz [o superclase] que provea esa funcionalidad
+ y se usan objetos de la interfaz [o superclase], facilitando añadir nuevas
+ alternativas.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Se programa 
+\series bold
+hacia la interfaz
+\series default
+, evitando declarar variables de clases concretas y usando patrones de creación
+ para conseguir un sistema basado en interfaces y no en implementaciones
+ concretas.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Indirección
+\end_layout
+
+\begin_layout Standard
+Cuando no sea deseable un acoplamiento directo entre dos clases, crear una
+ clase intermediaria que proporcione una interfaz más adecuada a cada parte.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Teorema Fundamental de la Ingeniería de Software: Todo problema se puede
+ solucionar con un nivel más de indirección, salvo el problema de demasiados
+ niveles de indirección.
+\end_layout
+
+\end_inset
+
+ [Muchos patrones de diseño GoF, como adaptador, fachada o mediador, usan
+ indirección.]
+\end_layout
+
+\begin_layout Paragraph
+Variaciones protegidas
+\end_layout
+
+\begin_layout Standard
+Proteger a elementos del código de las variaciones de otros [...], por ejemplo
+ mediante interfaces.
+ [Es un principio fundamental y se puede usar, por ejemplo, para lectura
+ de datos de fuentes externas o búsqueda de servicios.][...]
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Principio de ocultación de la información
+\series default
+ [...].
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Principio abierto-cerrado
+\series default
+ [...].
+\end_layout
+
+\begin_layout Paragraph
+Servicios [o fabricaciones puras]
+\end_layout
+
+\begin_layout Standard
+Encapsulan un proceso o transformación en el dominio que no es una responsabilid
+ad natural de otra clase.
+ No tienen estado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algunos servicios aparecen en patrones de diseño, como pueden ser:
+\end_layout
+
+\begin_layout Itemize
+Fábricas, para crear objetos complejos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Repositorios
+\series default
+ o catálogos, fachadas a una colección de objetos con identidad con métodos
+ para buscar, guardar y borrar objetos, usadas para evitar el acoplamiento
+ de las clases de dominio con la base de datos concreta.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se puede definir un repositorio por concepto o uno genérico (con plantillas),
+ y la definición de las interfaces de los repositorios, pero no sus implementaci
+ones, forman parte de la capa de dominio.
+\end_layout
+
+\begin_layout Standard
+En esta asignatura, el acceso a los repositorios se hace solo desde el controlad
+or y los repositorios no crean los objetos.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Servicios de dominio
+\series default
+, que encapsulan reglas de negocio que afectan a varios conceptos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Servicios de aplicación
+\series default
+, que encapsulan operaciones como accesos al exterior.
+\end_layout
+
+\begin_layout Standard
+Si se abusa de los servicios, se crea un diseño centrado en procesos o funciones
+ y no en objetos,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+La conclusión lógica de esto es que hay que abusar de los servicios para
+ así favorecer la programación funcional.
+\end_layout
+
+\end_inset
+
+ por lo que hay que vigilar si hay fabricaciones puras con un único método.
+\end_layout
+
+\begin_layout Section
+Colaboraciones
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+colaboración
+\series default
+ es una secuencia de intercambios de mensajes para implementar una operación,
+ expresada con un diagrama UML de interacción.
+ El diseño de colaboraciones es la parte más difícil del análisis y diseño
+ orientado a objetos y es el punto de partida para la programación.
+\end_layout
+
+\begin_layout Standard
+Hay dos tipos de diagramas de interacción: los diagramas de secuencia, centrados
+ en la cronología de los mensajes, y los de colaboración o comunicación,
+ centrados en la organización estructural de los objetos.
+\end_layout
+
+\begin_layout Standard
+En los de colaboración, podemos indicar la cronología mediante numeración
+ secuencial o jerárquica.
+ También podemos mezclar ambas numeraciones, usando la secuencial en general
+ por ser más sencilla y la jerárquica en caso de ambigüedad, como al indicar
+ el interior de bucles y operaciones condicionales.
+ En diagramas de secuencia se puede hacer esto, pero la ambigüedad ya la
+ resuelven las líneas de activación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{TDS}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tipos de mensaje:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Simple
+\series default
+: 
+\family sans
+\emph on
+método
+\emph default
+(
+\family default
+[
+\family sans
+\emph on
+argumento
+\emph default
+, 
+\family default
+...]
+\family sans
+)
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De asignación
+\series default
+: 
+\family sans
+\emph on
+variable
+\emph default
+ := 
+\emph on
+método
+\emph default
+(
+\family default
+[
+\family sans
+\emph on
+argumento
+\emph default
+, 
+\family default
+...]
+\family sans
+)
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De creación
+\series default
+: 
+\family sans
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+create
+\begin_inset Quotes crd
+\end_inset
+
+
+\family default
+\lang spanish
+[[
+\family sans
+(
+\emph on
+argumento
+\emph default
+, 
+\family default
+...
+\family sans
+)
+\family default
+]].
+ [...]
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De destrucción
+\series default
+: 
+\family sans
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+destroy
+\begin_inset Quotes crd
+\end_inset
+
+
+\family default
+\lang spanish
+.
+ [...][No lo usaremos ya que Java tiene recolección de basura.]
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De condición
+\series default
+: 
+\family sans
+[
+\emph on
+condición
+\emph default
+] 
+\emph on
+mensaje
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De iteración
+\series default
+: 
+\family sans
+*
+\emph on
+mensaje
+\family default
+\emph default
+, 
+\family sans
+[
+\emph on
+multiplicidad
+\emph default
+]
+\emph on
+mensaje
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En esta asignatura las colaboraciones consisten en programar en UML, por
+ lo que añadimos una sintaxis para la iteración, 
+\family sans
+[* 
+\emph on
+var
+\emph default
+ 
+\lang english
+IN
+\lang spanish
+ 
+\emph on
+colección
+\emph default
+ 
+\family default
+[(
+\family sans
+\lang english
+WHILE
+\family default
+\lang spanish
+|
+\family sans
+\lang english
+UNTIL
+\family default
+\lang spanish
+) 
+\family sans
+\emph on
+condición
+\family default
+\emph default
+]
+\family sans
+] 
+\emph on
+mensaje
+\family default
+\emph default
+.
+ Realmente te puedes inventar la sintaxis siempre que se entienda.
+\end_layout
+
+\begin_layout Standard
+Además, se pueden añadir notas en UML a los objetos para aclarar lo que
+ ocurre entre mensajes en una interacción (llamadas a métodos estáticos,
+ asignaciones de atributos, etc.).
+\end_layout
+
+\begin_layout Standard
+Los objetos se representan con su tipo, pudiendo usar añadir el nombre como
+ aclaración o si tenemos que referirnos a estos en otra parte.
+ Si solo hace falta que el objeto cumpla cierta interfaz, aun cuando este
+ reciba un mensaje 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+create
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+, el objeto es el del tipo interfaz, y se añade encima el estereotipo 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+interface
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+.
+\end_layout
+
+\begin_layout Standard
+Se puede simplificar inventando operaciones de conveniencia en las clases
+ e interfaces de Java, pero cuando un objeto se crea, este debe inicializar
+ sus atributos y por tanto crear un objeto por atributo no primitivo cuyo
+ valor no venga dado al constructor.
+\end_layout
+
+\begin_layout Standard
+Para diseñar una colaboración, primero escogemos un controlador de acuerdo
+ al contexto de la operación en el sistema.
+ Este recupera de los repositorios los objetos correspondientes a los identifica
+dores; delega la tarea según el patrón experto o el creador, y si hace falta
+ guarda los objetos creados.
+\end_layout
+
+\begin_layout Standard
+El creador será una clase conectada en el modelo de dominio a la clase de
+ la instancia a crear o, si ninguna de las clases conectadas es apropiada,
+ el propio controlador.
+\end_layout
+
+\begin_layout Standard
+En el inicio de la aplicación, se suele crear un objeto de dominio inicial
+ que se encarga de crear los objetos de dominio que dependen de él.
+\end_layout
+
+\begin_layout Section
+Modelo de clases de diseño
+\end_layout
+
+\begin_layout Standard
+Un diagrama de clases puede ser conceptual (de conceptos), 
+\series bold
+de especificación
+\series default
+ (de tipos que representan la Interfaz
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Está en mayúsculas para indicar que se trata de una interfaz en el sentido
+ de una serie de estructuras y funciones a implementar, no necesariamente
+ a través de una interfaz Java.
+\end_layout
+
+\end_inset
+
+) o 
+\series bold
+de implementación
+\series default
+ (que representa las clases tal como se implementan).
+\end_layout
+
+\begin_layout Standard
+El modelo de clases del diseño es de especificación y se crea a partir del
+ modelo conceptual y las colaboraciones.
+ Para empezar, se toma el diagrama de clases conceptual, usando los nombres
+ de las clases del dominio para reducir el salto entre problema y solución,
+ y se añaden las clases y los métodos usados en las colaboraciones y los
+ atributos usados en los contratos.
+ Puede haber conceptos en el modelo conceptual que no aparezcan en el de
+ diseño.
+\end_layout
+
+\begin_layout Standard
+Los atributos de las clases de diseño tienen tipo y el 
+\begin_inset Quotes cld
+\end_inset
+
+
+\family sans
+-
+\family default
+
+\begin_inset Quotes crd
+\end_inset
+
+ inicial se cambia por su 
+\series bold
+visibilidad
+\series default
+, 
+\family sans
+-
+\family default
+ para privada, 
+\family sans
+#
+\family default
+ para protegida, 
+\family sans
++
+\family default
+ para pública y 
+\family sans
+~
+\family default
+ para nivel de paquete.
+ También pueden tener propiedades indicadas al final con 
+\family sans
+{
+\emph on
+propiedad
+\emph default
+}
+\family default
+, como 
+\family sans
+{readOnly}
+\family default
+ o 
+\family sans
+{addOnly}
+\family default
+.
+ Los atributos de clase van subrayados, y los calculados se almacenan.
+\end_layout
+
+\begin_layout Standard
+Las clases tienen operaciones con formato [
+\family sans
+\emph on
+visibilidad
+\family default
+\emph default
+] 
+\family sans
+nombre(
+\family default
+[
+\family sans
+\emph on
+parámetro
+\emph default
+: 
+\emph on
+Tipo
+\emph default
+,
+\family default
+ ...]
+\family sans
+)
+\family default
+[
+\family sans
+: TipoDevuelto
+\family default
+] (
+\family sans
+{
+\emph on
+propiedad
+\emph default
+}
+\family default
+)*, y propiedades como 
+\family sans
+{isQuery}
+\family default
+, 
+\family sans
+{sequential}
+\family default
+ o 
+\family sans
+{concurrent}
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Un objeto 
+\begin_inset Formula $B$
+\end_inset
+
+ es 
+\series bold
+visible
+\series default
+ por uno 
+\begin_inset Formula $A$
+\end_inset
+
+ si 
+\begin_inset Formula $B$
+\end_inset
+
+ es un atributo de 
+\begin_inset Formula $A$
+\end_inset
+
+, un parámetro de un mensaje recibido por 
+\begin_inset Formula $A$
+\end_inset
+
+, un valor devuelto por una llamada hecha por 
+\begin_inset Formula $A$
+\end_inset
+
+ o accesible globalmente.
+ Para que 
+\begin_inset Formula $A$
+\end_inset
+
+ envíe un mensaje a 
+\begin_inset Formula $B$
+\end_inset
+
+, 
+\begin_inset Formula $B$
+\end_inset
+
+ debe ser visible por 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ envía un mensaje a 
+\begin_inset Formula $B$
+\end_inset
+
+, crea una instancia de 
+\begin_inset Formula $B$
+\end_inset
+
+ o necesita una conexión con 
+\begin_inset Formula $B$
+\end_inset
+
+, 
+\begin_inset Formula $A$
+\end_inset
+
+ tiene 
+\series bold
+navegabilidad
+\series default
+ con 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Las asociaciones tienen navegabilidad si, a través de ellas, los objetos
+ de una clase tienen navegabilidad con los de la otra pero no al revés,
+ lo que se indica con una punta de flecha en el extremo de la asociación
+ al que se navega desde el otro.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+dependencia
+\series default
+ indica que los cambios en la definición de una clase 
+\begin_inset Formula $B$
+\end_inset
+
+ pueden afectar a la implementación de 
+\begin_inset Formula $A$
+\end_inset
+
+, lo que se indica con una flecha punteada de 
+\begin_inset Formula $A$
+\end_inset
+
+ a 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Solo se indican las dependencias importantes, y nunca si la visibilidad
+ es de atributo.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+asociación cualificada
+\series default
+ es una en que una de las partes accede a la otra a través de un diccionario
+ o similar.
+ Se indica situando un rectángulo entre la parte que accede así a la otra
+ y su extremo de la asociación, sin espacio.
+ El nombre de la clave, como parámetro, está dentro del rectángulo, y el
+ valor es de la otra parte.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+interfaz
+\series default
+ es un conjunto de operaciones que caracteriza el comportamiento de un elemento.
+ Se define como una clase con estereotipo 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+interface
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+ o con un pequeño círculo con el nombre de la interfaz.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+En el segundo caso, una línea que conecta una clase con la interfaz indica
+ que la clase implementa la interfaz, y una línea que conecta una clase
+ con un arco de circunferencia que rodea el círculo indica una dependencia
+ de la clase en la interfaz.
+\end_layout
+
+\begin_layout Plain Layout
+En 
+\emph on
+\lang english
+Unified Process
+\emph default
+\lang spanish
+ podemos distinguir entre:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Objetos entidad
+\series default
+ o de dominio (
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+entity
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+), con un círculo tachado, igual que se tacha un caso de uso al indicar
+ que es de negocio.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Objetos control
+\series default
+ o controladores (
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+control
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+), con un círculo con una flecha a la izquierda en su parte superior.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Objetos frontera
+\series default
+ o interfaces de usuario (
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+boundary
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+), con un círculo unido a la izquierda por un segmento corto horizontal
+ a uno vertical.
+\end_layout
+
+\begin_layout Plain Layout
+En todos los casos el nombre de la clase va debajo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se puede, pero no se suele, indicar que una clase lanza una excepción añadiendo
+ una dependencia con estereotipo 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+send
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+ de esta clase a una con estereotipo 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+exception
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+.
+\end_layout
+
+\begin_layout Section
+Diagramas de estados
+\end_layout
+
+\begin_layout Standard
+Complementan el modelo de datos y el funcional con una máquina de estados
+ determinista que describe el comportamiento de las instancias de una clase.
+\end_layout
+
+\begin_layout Standard
+Una transición entre estados se indica con una flecha entre los estados
+ etiquetada con 
+\family sans
+\emph on
+evento
+\emph default
+ 
+\family default
+[
+\family sans
+[
+\emph on
+condición
+\emph default
+]
+\family default
+]
+\family sans
+ 
+\family default
+[
+\family sans
+/ 
+\emph on
+acción
+\family default
+\emph default
+], donde la 
+\family sans
+\emph on
+acción
+\family default
+\emph default
+ es una expresión de código o un envío de mensaje de la forma 
+\family sans
+^
+\emph on
+otro_objeto
+\emph default
+.
+\emph on
+mensaje
+\emph default
+(
+\family default
+[
+\family sans
+\emph on
+argumento
+\emph default
+, 
+\family default
+...]
+\family sans
+)
+\family default
+.
+ Las transiciones son atómicas y consisten en que se recibe el evento y
+ se ejecuta la acción correspondiente si la hay, mientras se cambia de estado.
+\end_layout
+
+\begin_layout Standard
+Un estado se representa con un rectángulo redondeados con el nombre del
+ estado, seguido opcionalmente por una o más de:
+\end_layout
+
+\begin_layout Itemize
+Acciones de entrada, 
+\family sans
+\series bold
+entry
+\series default
+ / 
+\emph on
+acción
+\family default
+\emph default
+, y de salida, 
+\family sans
+\series bold
+exit
+\series default
+ / 
+\emph on
+acción
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+Transiciones internas, indicadas solo con la etiqueta, que no cambian el
+ estado.
+\end_layout
+
+\begin_layout Itemize
+Subestados, con un diagrama de estados dentro del estado.
+ Si aparece, el estado es 
+\series bold
+compuesto
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+Actividades, en segundo plano, 
+\family sans
+\series bold
+do
+\series default
+ / 
+\emph on
+acción
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+Eventos diferidos, 
+\family sans
+\emph on
+evento
+\emph default
+ / 
+\series bold
+defer
+\family default
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Tipos de evento:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Llamada:
+\series default
+ Se recibe un mensaje, 
+\family sans
+\emph on
+método
+\emph default
+(
+\family default
+[
+\family sans
+\emph on
+parámetro
+\emph default
+, 
+\family default
+...]
+\family sans
+)
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Señal:
+\series default
+ Se recibe una señal asíncrona, 
+\family sans
+\emph on
+señal
+\emph default
+(
+\family default
+[
+\family sans
+\emph on
+parámetro
+\emph default
+, 
+\family default
+...]
+\family sans
+)
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Tiempo:
+\series default
+ Pasa un tiempo absoluto o desde que se produjo un evento, normalmente la
+ última transición del objeto, 
+\family sans
+\lang english
+after
+\lang spanish
+ (
+\emph on
+tiempo_o_duración
+\emph default
+)
+\family default
+, 
+\family sans
+\lang english
+after
+\lang spanish
+ 
+\emph on
+duración
+\emph default
+ desde 
+\emph on
+algo
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Cambio:
+\series default
+ Se cumple una condición, 
+\family sans
+\lang english
+when
+\lang spanish
+ (
+\emph on
+condición
+\emph default
+)
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Los diagramas de estados tienen un 
+\series bold
+estado inicial
+\series default
+, único si no contamos subestados, un pseudoestado que se representa como
+ en los diagramas de actividades y que tiene una única transición, saliente,
+ con etiqueta opcional 
+\family sans
+/
+\emph on
+acción
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Los estados compuestos tienen dentro un 
+\series bold
+estado final
+\series default
+, representado como en los diagramas de actividades y único si no contamos
+ subestados de estados compuestos del subdiagrama, aunque puede representarse
+ varias veces.
+ No tiene transiciones salientes, y al entrar el objeto es susceptible de
+ las transiciones salientes del estado compuesto.
+ El diagrama principal puede tener un estado final, y al llegar a este se
+ destruye el objeto.
+\end_layout
+
+\begin_layout Standard
+Un estado compuesto puede tener, en vez transiciones salientes normales,
+ una única transición saliente sin evento, que se ejecuta al llegar a su
+ estado final.
+\end_layout
+
+\begin_layout Standard
+Un diagrama de estados se puede usar para un caso de uso, una clase conceptual
+ o de diseño o incluso un sistema completo.
+\end_layout
+
+\end_body
+\end_document

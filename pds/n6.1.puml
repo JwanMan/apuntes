@@ -1,0 +1,14 @@
+@startuml
+left to right direction
+component Bot <<executable>>
+component GraphicsMagick
+component telebot
+component libcurl
+() HTTP
+
+GraphicsMagick -0)- Bot : MagickWand
+Bot -(0- telebot : TelegramAPI
+telebot ..> HTTP : <<use>>
+libcurl - HTTP
+Bot ..> HTTP : <<use>>
+@enduml

@@ -83,5 +83,12 @@
 \def\eoffsets{\end{center}}
 
 % Notices
-\def\sremember#1{\begin{center}\begin{tabular}{|p{0.9\textwidth}|}\multicolumn{1}{p{0.9\textwidth}}{{\kern-.3em\small {[}#1{]}}}\tabularnewline\hline\kern-1ex}
-\def\eremember{\tabularnewline\hline\end{tabular}\par\end{center}\vspace{.3em}}
+\def\sremember#1{%
+	\vspace{-1ex}\begin{center}\begin{tabular}{|p{0.9\textwidth}|}%
+	\multicolumn{1}{p{0.9\textwidth}}{{\kern-.3em\small {[}#1{]}}}%
+		\tabularnewline\hline\nobreak\vspace{-1ex}
+}
+\def\eremember{%
+	\nobreak\vspace{-1em}\tabularnewline\hline%
+	\end{tabular}\par\end{center}\vspace{.3em}%
+}

@@ -1,0 +1,21 @@
+@startuml
+left to right direction
+node ": GenericPC" as PC <<client workstation>> {
+  node ": WebBrowser" as Browser <<browser>> {
+    rectangle WebClient <<artifact>>
+  }
+}
+
+node ": Raspberry Pi 4" as Server <<server>> {
+  node ": Raspbian" as Raspbian <<OS>> {
+    node ": PostgreSQL 12" as DB <<database>>
+    node ": Apache 2" as Apache <<web server>>
+    artifact ": MusicManager" as Manager <<artifact>>
+  }
+}
+
+Browser -- Apache : HTTPS
+WebClient -- Manager : DASH
+Apache - Manager : FastCGI
+Manager -- DB : SQL
+@enduml
