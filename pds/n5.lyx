@@ -114,33 +114,6 @@ Diagrama de secuencia del sistema (DSS)
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO Cada evento da lugar a una operación, que se puede describir mediante
- un 
-\series bold
-contrato
-\series default
- especificado con una plantilla.
- Crear una 
-\series bold
-colaboración
-\series default
- por operación y crear el 
-\series bold
-modelo de clases del diseño
-\series default
- a partir del modelo del dominio conforme se definen las operaciones.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Es un diagrama de secuencia UML que muestra los eventos generados por un
  actor durante un escenario de un caso de uso y las posibles comunicaciones
  con sistemas externos.
@@ -161,17 +134,17 @@ Normalmente se hace un DSS para el escenario principal de un caso de uso
 
 \begin_layout Standard
 Cuando el caso de uso se inicia automáticamente, lo inicia un actor de tipo
- Sistema.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO Resto del FAQ.
-\end_layout
+ Sistema, como en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:dss-system"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
+.
  Los argumentos de los mensajes deben ser valores primitivos, no colecciones
  (salvo cadenas de caracteres, consideradas primitivas) ni objetos del dominio.
  Para referirse a objetos del dominio se usan identificadores.
@@ -200,6 +173,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:dss-system"
+
+\end_inset
+
 DSS de una interacción iniciada automáticamente.
 \end_layout
 
@@ -498,7 +477,7 @@ o
 \begin_inset space ~
 \end_inset
 
-casual Actividades distintas sin relaciones significativas entre ellas.]
+casual Actividades distintas sin relaciones significativas entre ellas.
 \end_layout
 
 \begin_layout Standard
@@ -728,13 +707,14 @@ Indirección
 \begin_layout Standard
 Cuando no sea deseable un acoplamiento directo entre dos clases, crear una
  clase intermediaria que proporcione una interfaz más adecuada a cada parte.
-\begin_inset Foot
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-Teorema Fundamental de la Ingeniería de Software: Todo problema se puede
- solucionar con un nivel más de indirección, salvo el problema de demasiados
- niveles de indirección.
+
+
+\backslash
+footnotemark{}
 \end_layout
 
 \end_inset
@@ -789,6 +769,35 @@ status open
 
 \backslash
 eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotetext{
+\end_layout
+
+\end_inset
+
+Teorema Fundamental de la Ingeniería de Software: Todo problema se puede
+ solucionar con un nivel más de indirección, salvo el problema de demasiados
+ niveles de indirección.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
 \end_layout
 
 \end_inset
@@ -1230,8 +1239,22 @@ El modelo de clases del diseño es de especificación y se crea a partir del
  de las clases del dominio para reducir el salto entre problema y solución,
  y se añaden las clases y los métodos usados en las colaboraciones y los
  atributos usados en los contratos.
- Puede haber conceptos en el modelo conceptual que no aparezcan en el de
+\end_layout
+
+\begin_layout Standard
+Puede haber conceptos en el modelo conceptual que no aparezcan en el de
  diseño.
+ Por ejemplo, los actores de los casos de uso suelen aparecer en el modelo
+ conceptual, pero solo hay que añadirlos al dominio si incluyen información
+ relevante, no simplemente credenciales de inicio de sesión, que no aparecen
+ en el diagrama de especificación.
+ Hay que sospechar de las clases que solo contengan métodos y no atributos,
+ o al revés, salvo que sean el resultado de aplicar algún patrón de diseño
+ o 
+\lang english
+GRASP
+\lang spanish
+.
 \end_layout
 
 \begin_layout Standard
@@ -1278,12 +1301,30 @@ propiedad
 \family default
 , como 
 \family sans
-{readOnly}
+\lang english
+{read
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\family sans
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+Only}
 \family default
+\lang spanish
  o 
 \family sans
+\lang english
 {addOnly}
 \family default
+\lang spanish
 .
  Los atributos de clase van subrayados, y los calculados se almacenan.
 \end_layout
@@ -1328,16 +1369,22 @@ propiedad
 \family default
 )*, y propiedades como 
 \family sans
+\lang english
 {isQuery}
 \family default
+\lang spanish
 , 
 \family sans
+\lang english
 {sequential}
 \family default
+\lang spanish
  o 
 \family sans
+\lang english
 {concurrent}
 \family default
+\lang spanish
 .
 \end_layout
 
@@ -1684,8 +1731,10 @@ Un estado se representa con un rectángulo redondeados con el nombre del
 Acciones de entrada, 
 \family sans
 \series bold
+\lang english
 entry
 \series default
+\lang spanish
  / 
 \emph on
 acción
@@ -1694,8 +1743,10 @@ acción
 , y de salida, 
 \family sans
 \series bold
+\lang english
 exit
 \series default
+\lang spanish
  / 
 \emph on
 acción
@@ -1722,8 +1773,10 @@ compuesto
 Actividades, en segundo plano, 
 \family sans
 \series bold
+\lang english
 do
 \series default
+\lang spanish
  / 
 \emph on
 acción
@@ -1740,9 +1793,11 @@ evento
 \emph default
  / 
 \series bold
+\lang english
 defer
 \family default
 \series default
+\lang spanish
 .
 \end_layout
 

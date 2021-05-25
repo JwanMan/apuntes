@@ -1,0 +1,750 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+método de desarrollo de software
+\series default
+ es un conjunto de procedimientos, técnicas, herramientas y soporte documental
+ para ayudar a los desarrolladores a producir nuevo software.
+ Está formado por un modelo de ciclo de vida con fases, etapas y actividades
+ en cada etapa; procedimientos y heurísticas (recomendaciones) sobre cómo
+ ejecutar las tareas; técnicas gráficas o textuales como casos de uso o
+ diagramas, y herramientas CASE a utilizar.
+\end_layout
+
+\begin_layout Standard
+Mientras un ciclo de vida indica qué hay que hacer, un método indica cómo
+ hacerlo, basándose en modelos gráficos y su uso para la especificación
+ y el diseño, y puede acomodar distintos ciclos de vida.
+\end_layout
+
+\begin_layout Standard
+Podemos describir un método indicando la notación utilizada en los modelos,
+ las reglas o restricciones aplicables a los modelos, las recomendaciones
+ que caracterizan buenas prácticas de diseño y las guías en el proceso,
+ descripciones de las actividades a seguir para desarrollar los modelos
+ del sistema y la organización de estas actividades.
+\end_layout
+
+\begin_layout Standard
+Un bueno método ayuda a conseguir sistemas de mayor calidad.
+ No hay un método universal o ideal, sino que estos son aplicables a distintas
+ áreas y están condicionados por el tamaño y la estructura de la organización
+ y el tipo de aplicaciones, y organizaciones distintas usarán distintos
+ métodos o, en todo caso, variaciones del mismo.
+\end_layout
+
+\begin_layout Section
+Tipos de métodos
+\end_layout
+
+\begin_layout Standard
+Según el tipo de sistema, de gestión o en tiempo real.
+ Según el nivel de formalidad, informal, semiformal o formal (con métodos
+ formales).
+\end_layout
+
+\begin_layout Standard
+Según el enfoque:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Estructurados:
+\series default
+ Anteriores a la orientación a objetos.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Orientados a procesos:
+\series default
+ Centrados en los procesos ejecutados.
+ Análisis estructurado, Análisis estructurado moderno y MÉTRICA.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Orientados a datos:
+\series default
+ se centran en las entradas y salidas.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Orientados a objetos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Basados en componentes
+\series default
+, una evolución de los métodos orientados a objetos hacia sistemas abiertos
+ y distribuidos basados en servicios.
+\end_layout
+
+\begin_layout Standard
+Según la planificación:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Prescriptivos:
+\series default
+ Intentan planificar y predecir en detalle las actividades y la asignación
+ de recursos en un intervalo largo de tiempo, como todo el proyecto.
+ Suelen ser en cascada.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Adaptables:
+\series default
+ Para dominios no predecibles.
+ Aceptan el cambio.
+ Suelen ser iterativos.
+\end_layout
+
+\begin_layout Standard
+Según la carga de trabajo:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Pesados
+\series default
+, 
+\series bold
+burocráticos
+\series default
+ o 
+\series bold
+monolíticos:
+\series default
+ Lo habitual en los 80 y principios de los 90, a partir de experiencia en
+ desarrollo de sistemas grandes y críticos.
+ Son prescriptivos y rígidos y generan muchos artefactos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Ligeros:
+\series default
+ Evitan la sobrecarga en planificación, diseño y documentación.
+\end_layout
+
+\begin_layout Section
+Métodos ágiles
+\end_layout
+
+\begin_layout Standard
+Métodos ligeros y adaptables, como XP (
+\emph on
+\lang english
+eXtreme Programming
+\emph default
+\lang spanish
+) y Scrum, surgidos a finales de los 90 para evitar la sobrecarga de trabajo
+ de los métodos pesados al hacer software de gestión de tamaño medio o pequeño.
+\end_layout
+
+\begin_layout Standard
+Son iterativos, con el cliente evaluando las iteraciones; asumen el cambio,
+ y buscan mantener la simplicidad en el software y en el proceso, y sacar
+ partido a las destrezas de los miembros del equipo de desarrollo.
+\end_layout
+
+\begin_layout Standard
+La documentación se reduce al mínimo y en vez de casos de uso se usan 
+\series bold
+historias de usuario
+\series default
+, de la forma 
+\begin_inset Quotes cld
+\end_inset
+
+como 
+\emph on
+rol
+\emph default
+, quiero que el sistema 
+\emph on
+haga una funcionalidad
+\emph default
+ para obtener 
+\emph on
+un beneficio
+\emph default
+
+\begin_inset Quotes crd
+\end_inset
+
+, que se suelen complementar con pruebas de aceptación del usuario.
+\end_layout
+
+\begin_layout Standard
+Son útiles para software de gestión con requisitos que cambian rápidamente.
+ No lo son en desarrollo a gran escala con equipos de desarrollo en sitios
+ distintos, ni en sistemas críticos en lo que hace falta un análisis detallado
+ de los requisitos para comprender las implicaciones de seguridad informática
+ (
+\emph on
+\lang english
+security
+\emph default
+\lang spanish
+) y humana (
+\emph on
+\lang english
+safety
+\emph default
+\lang spanish
+).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Scrum
+\series default
+ es un marco para el desarrollo ágil que supone la existencia de caos.
+ Tiene 3 fases:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Inicio.
+
+\series default
+ Se planifica una versión del software a construir con una estimación inicial
+ de tiempo y costo.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Fase iterativa
+\series default
+ en 
+\series bold
+\emph on
+\lang english
+sprints
+\series default
+\emph default
+\lang spanish
+, iteraciones de paso fijo (unos 15 días) con objetivos establecidos al
+ inicio y durante el cual no se introducen cambios.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Cierre.
+
+\series default
+ Se preparan la versión del software a instalar, la documentación final
+ y los entornos.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+desarrollo 
+\emph on
+lean
+\series default
+\emph default
+ es aun más flexible que el ágil, y su principal método es 
+\series bold
+Kanban
+\series default
+.
+ En este la estimación es opcional; las iteraciones son de tiempo fijo pero
+ con posibilidad de expandirlo si no se terminan las tareas y de introducir
+ nuevas tareas una vez empezada la iteración, y no es obligatorio terminar
+ una tarea en una iteración.
+\end_layout
+
+\begin_layout Section
+Proceso unificado
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+UP
+\series default
+\lang spanish
+, 
+\emph on
+\lang english
+Unified Process
+\emph default
+\lang spanish
+, es un marco de método orientado a objetos basado en UML, con 4 fases:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Inicio.
+
+\series default
+ Se define el alcance del proyecto.
+ Se hace análisis de negocio, considerando objetivos y características del
+ producto, alternativas y riesgos, para decidir la viabilidad y dar una
+ estimación imprecisa del coste.
+ Se crea una visión aproximada del producto.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Elaboración.
+
+\series default
+ Visión refinada e implementación iterativa del núcleo de la arquitectura
+ y resolución de los riesgos más elevados.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Construcción.
+
+\series default
+ Implementación iterativa de los requisitos que quedan, de menor riesgo.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Transición.
+
+\series default
+ Pruebas beta y despliegue.
+\end_layout
+
+\begin_layout Standard
+Las fases de inicio y fin son las más cortas, siendo la construcción la
+ más larga y la que requiere de más desarrolladores.
+ Cada fase es iterativa y cada iteración se divide en 
+\series bold
+disciplinas
+\series default
+: modelado del negocio, requisitos, análisis y diseño, codificación, y prueba,
+ junto con administración del proyecto y gestión de configuración y cambio.
+\end_layout
+
+\begin_layout Standard
+En las primeras iteraciones se da la mayor parte del tiempo al modelado
+ del negocio y los requisitos, y en las últimas se dedica la mayor parte
+ al despliegue.
+\end_layout
+
+\begin_layout Standard
+Cada disciplina, del modelado de negocio al despliegue, produce modelos,
+ como de casos de uso de negocio, de objetos de negocio, de casos de uso,
+ de diseño, de implementación (el código fuente) y de prueba (el resultado
+ de los 
+\emph on
+\lang english
+tests
+\emph default
+\lang spanish
+).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+RUP
+\series default
+ (
+\emph on
+\lang english
+Rational Unified Process
+\emph default
+\lang spanish
+) es una instancia pesada de 
+\lang english
+UP
+\lang spanish
+.
+\end_layout
+
+\begin_layout Section
+Método de Larman
+\end_layout
+
+\begin_layout Standard
+Es una instancia ágil de 
+\lang english
+UP
+\lang spanish
+ dirigida por casos de uso.
+ Respecto a las fases:
+\end_layout
+
+\begin_layout Enumerate
+El inicio dura una o dos semanas como mucho.
+ Se hacen los primeros talleres de requisitos, se escriben casos de uso
+ en formato breve, se crea un prototipo desechable de interfaz de usuario
+ para validar los requisitos y se planifica la primera iteración del desarrollo.
+\end_layout
+
+\begin_layout Enumerate
+Aunque no es parte del método de Larman, se puede añadir tras el inicio
+ una fase de modelado de negocio, donde se usan diagramas de proceso y otros
+ medios y se refinan la identificación de objetivos de usuario y casos de
+ uso y la especificación complementaria.
+\end_layout
+
+\begin_layout Enumerate
+En la elaboración y la construcción, las iteraciones duran entre 2 y 8 semanas,
+ y en ellas se identifican, describen e implementan los casos de uso de
+ mayor prioridad según el nivel de riesgo y la importancia para el negocio.
+\end_layout
+
+\begin_layout Standard
+Las disciplinas son las siguientes y se hacen en orden en el desarrollo:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Modelado de requisitos
+\series default
+, con modelos de caso de uso y de clases conceptuales.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Diseño preliminar.
+
+\series default
+ Se crea un DSS para cada caso de uso y, para cada operación de cada DSS,
+ un contrato si se considera importante y una colaboración.
+ Junto a las colaboraciones se crea un diagrama de clases de especificación.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Diseño completo.
+
+\series default
+ Se resuelven los problemas de diseño relacionados con la arquitectura del
+ sistema, la división y distribución en paquetes, la interfaz de usuario,
+ la plataforma, el rendimiento, la base de datos, la red, las estructuras
+ de datos y los patrones de diseño a usar, nuevas clases y colaboraciones,
+ etc.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Implementación y pruebas
+\series default
+, tanto unitarias como de integración.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Validación
+\series default
+ con clientes y usuarios.
+\end_layout
+
+\begin_layout Section
+Métrica 3
+\end_layout
+
+\begin_layout Standard
+MÉTRICA es una metodología de planificación, desarrollo y mantenimiento
+ de sistemas de información promovida por el Consejo Superior de Administración
+ Electrónica del Gobierno de España para su uso en las administraciones
+ públicas.
+\end_layout
+
+\begin_layout Standard
+Es muy prescriptiva, y establece una jerarquía formada, de arriba a abajo,
+ por la Administración Central del Estado, la Administración Autonómica,
+ la Administración Local y el resto de empresas e instituciones.
+\end_layout
+
+\begin_layout Standard
+Tiene versiones 1, 2, 2.1 y 3, con la 1 creada por la consultora ERITEL y
+ la 2.1 por la Universidad Carlos III.
+\end_layout
+
+\begin_layout Standard
+Métrica 3 incorpora los paradigmas orientado a objetos y cliente-servidor,
+ y se basa en UML y descomposición funcional.
+ Está influenciado por métodos de Reino Unido y Francia, y sus componentes
+ más usados son el Plan de General de Garantía de Calidad y la parte de
+ seguridad, MAGERIT.
+ Se estructura en:
+\end_layout
+
+\begin_layout Itemize
+Planificación de Sistemas de Información.
+\end_layout
+
+\begin_layout Itemize
+Desarrollo de Sistemas de Información.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Estudio de Viabilidad del Sistema.
+\end_layout
+
+\begin_layout Itemize
+Análisis del Sistema de Información.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Actividades: Definición del sistema; Establecimiento de requisitos; Identificaci
+ón de subsistemas de análisis; para orientado a objetos, Análisis de casos
+ de uso o Análisis de clases; para estructurado, Elaboración del modelo
+ de datos o Elaboración del modelo de procesos; etc.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Diseño del Sistema de Información.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Actividades: Definición de la arquitectura del sistema; Diseño de la Arquitectur
+a de Soporte; para orientado a objetos, Diseño de casos de uso reales o
+ Diseño de clases; etc.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Construcción del Sistema de Información.
+\end_layout
+
+\begin_layout Itemize
+Implantación y Aceptación del Sistema.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Mantenimiento de Sistemas de Información.
+\end_layout
+
+\begin_layout Section
+Herramientas CASE
+\end_layout
+
+\begin_layout Standard
+Asisten y automatizan partes del proceso de desarrollo de software a lo
+ largo de su ciclo de vida, incluyendo gestión, desarrollo y mantenimiento.
+ Suelen estar formadas por un repositorio, un meta-modelo y un generador
+ de informes.
+\end_layout
+
+\begin_layout Standard
+Según el grado de integración, tenemos:
+\end_layout
+
+\begin_layout Description
+
+\emph on
+\lang english
+Tool
+\begin_inset space ~
+\end_inset
+
+kits
+\emph default
+\lang spanish
+ Conjunto de programas que automatizan algún proceso, con poca integración.
+\end_layout
+
+\begin_layout Description
+
+\emph on
+\lang english
+Workbenches
+\emph default
+\lang spanish
+ Conjunto de programas que comparten repositorio e interfaz de usuario y
+ automatizan más de una fase del ciclo de vida.
+\end_layout
+
+\begin_layout Description
+Entornos
+\begin_inset space ~
+\end_inset
+
+IPSE 
+\emph on
+\lang english
+Integrated Project Support Environment
+\emph default
+\lang spanish
+, que cubren todo el ciclo de vida y tienen integración alta.
+\end_layout
+
+\begin_layout Standard
+Según los procesos que abortan, tenemos:
+\end_layout
+
+\begin_layout Description
+CASE
+\begin_inset space ~
+\end_inset
+
+frontales Análisis y diseño, como el software privativo Astah
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+El equivalente libre, mucho mejor, es PlantUML.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+CASE
+\begin_inset space ~
+\end_inset
+
+dorsales Implementación, pruebas y mantenimiento, como 
+\lang english
+Maven
+\lang spanish
+ o 
+\lang english
+Git
+\lang spanish
+.
+\end_layout
+
+\begin_layout Description
+ICASE 
+\series bold
+\emph on
+\lang english
+Integrated CASE
+\series default
+\emph default
+\lang spanish
+, contemplan todo el ciclo de desarrollo, como el software privativo 
+\lang english
+Enterprise Architect
+\lang spanish
+.
+\end_layout
+
+\end_body
+\end_document
