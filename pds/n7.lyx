@@ -1,0 +1,434 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+La transformación del diseño al código es sencilla, transformado los elementos
+ y asociaciones de cada clase empezando por las que tienen menos dependencias
+ en otras que no se han implementado todavía.
+\end_layout
+
+\begin_layout Standard
+Para la persistencia hay varios tipos de bases de datos:
+\end_layout
+
+\begin_layout Enumerate
+Ficheros planos.
+\end_layout
+
+\begin_layout Enumerate
+Jerárquicas.
+\end_layout
+
+\begin_layout Enumerate
+Orientadas a objetos, no extendidas ni maduras.
+\end_layout
+
+\begin_layout Enumerate
+Relacionales.
+\end_layout
+
+\begin_layout Enumerate
+Objeto-relacionales, con elementos de orientación a objetos que se traducen
+ a SQL.
+\end_layout
+
+\begin_layout Standard
+Lo normal es usar bases de datos relacionales SQL, ya que la tecnología
+ es muy madura y aceptada, tiene una base formal fuerte y aparece mucho
+ en sistemas heredados, aunque tiene menos capacidad de modelado que las
+ bases de datos orientadas a objetos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes cld
+\end_inset
+
+El diseño orientado a objetos no debe dirigir el diseño de la base de datos
+ ni al revés
+\begin_inset Quotes crd
+\end_inset
+
+.
+ Veamos cómo dirigir el diseño de la base de datos a partir de un modelo
+ de clases del diseño orientado a objetos.
+\end_layout
+
+\begin_layout Standard
+Representamos un modelo relacional con un diagrama de clases creando una
+ clase con estereotipo 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+Table
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+ por cada tabla con un atributo por columna, sin métodos ni asociaciones.
+ Un atributo puede tener estereotipos que se escriben delante de la visibilidad:
+ 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+PK
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+ si la columna está en la clave primaria, 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+FK
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+ si está en una clave ajena y 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+NULL
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+ o 
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+NOT NULL
+\begin_inset Quotes crd
+\end_inset
+
+
+\lang spanish
+ para indicar opcionalmente si puede valer nulo o no.
+ Si una columna es 
+\family typewriter
+\lang english
+UNIQUE
+\family default
+\lang spanish
+, se añade una nota con la palabra 
+\lang english
+UNIQUE
+\lang spanish
+ desde la columna.
+\end_layout
+
+\begin_layout Standard
+Primero creamos una tabla por cada clase persistente, con una columna por
+ atributo
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+O varias, si el atributo es compuesto.
+\end_layout
+
+\end_inset
+
+ y una columna 
+\family sans
+\lang english
+
+\begin_inset Quotes cld
+\end_inset
+
+PK
+\begin_inset Quotes crd
+\end_inset
+
+ - id
+\family default
+\lang spanish
+, de modo que cada objeto va en una fila.
+\end_layout
+
+\begin_layout Standard
+Para mapear una asociación entre dos clases 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Si es 1 a 1, juntamos 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ en la misma tabla, o si los conceptos son importantes, creamos una clave
+ ajena de una a otra.
+\end_layout
+
+\begin_layout Itemize
+Si es 1 a muchos, añadimos una clave ajena de 
+\begin_inset Formula $B$
+\end_inset
+
+ a 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ También podemos crear una tabla cuyas columnas son una clave ajena a 
+\begin_inset Formula $A$
+\end_inset
+
+ y otra a 
+\begin_inset Formula $B$
+\end_inset
+
+ que es 
+\lang english
+UNIQUE
+\lang spanish
+, con ambas en la clave primaria.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Lo lógico sería que la clave primaria fuera la referencia a 
+\begin_inset Formula $B$
+\end_inset
+
+ que para eso es 
+\lang english
+UNIQUE
+\lang spanish
+; con este diseño la clave primaria no es una clave porque no es minimal.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Si es muchos a muchos se crea una tabla cuyas columnas son una clave ajena
+ a 
+\begin_inset Formula $A$
+\end_inset
+
+ y otra a 
+\begin_inset Formula $B$
+\end_inset
+
+, con ambas en la clave primaria.
+\end_layout
+
+\begin_layout Standard
+Una multiplicidad 0..1 se puede contar como 1, y una * o 1..* cuenta como muchos.
+ Las asociaciones 
+\begin_inset Formula $n$
+\end_inset
+
+-arias con 
+\begin_inset Formula $n>2$
+\end_inset
+
+ se pueden mapear como de muchos a muchos.
+\end_layout
+
+\begin_layout Standard
+Una generalización se puede mapear con:
+\end_layout
+
+\begin_layout Enumerate
+Una única tabla con las columnas de la superclase y las que añade cada subclase.
+ Si las subclases son disjuntas, se añade un 
+\series bold
+atributo discriminante
+\series default
+ con el tipo, y en otro caso se añade una columna booleana por cada subclase
+ que indica si el atributo es de la subclase.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Con esto no hacen falta reuniones para recuperar los elementos, pero se
+ almacenan nulos y es difícil mantener la consistencia de los atributos
+ de distintas subclases y gestionar asociaciones en que participa una subclase
+ específica.
+ Esto es apropiado si las subclases se diferencian poco en sus atributos
+ y hay consultas polimórficas, en las que se requieren los datos de las
+ subclases.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Una tabla por subclase cuya clave primaria referencia a la de la superclase.
+ El almacenamiento es eficiente
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Cuando no hay muchos atributos en las subclases es más eficiente una única
+ tabla, ya que las claves primarias y los índices de las tablas de las subclases
+ pueden superar el tamaño de los nulos si los nulos ocupan poco espacio.
+\end_layout
+
+\end_inset
+
+ y es fácil crear una nueva subclase o asociaciones con subclases, pero
+ hacen falta muchas operaciones para recuperar o almacenar objetos.
+ Esto es útil cuando hay muchas subclases distintas y se necesita polimorfismo.
+\end_layout
+
+\begin_layout Enumerate
+Una tabla por subclase con los atributos de la superclase, que no se representa
+ aparte.
+ La clave primaria es compartida.
+ Esto es eficiente para recuperar datos de una única subclase o almacenar
+ datos, pero necesita reuniones para algunas consultas y no permite representar
+ generalizaciones incompletas.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Además, muchas bases de datos permiten generar automáticamente el ID de
+ los objetos al insertarlos a una tabla, pero no si este tiene que ser único
+ entre varias tablas.
+\end_layout
+
+\end_inset
+
+ Esto es apropiado si no hacen falta consultas polimórficas, sino que solo
+ se accede a las subclases.
+\end_layout
+
+\begin_layout Standard
+El acceso a los datos de la base de datos depende del tipo de almacenamiento
+ y la fuente de datos, por lo que puede ser conveniente separar la lógica
+ de negocio de la de acceso a datos.
+ El 
+\series bold
+patrón DAO
+\series default
+ encapsula los accesos a la fuente de datos y expone una interfaz simple
+ para recuperar y almacenar objetos ocultando detalles de implementación.
+\end_layout
+
+\begin_layout Standard
+Para cada clase de dominio, se crea una interfaz DAO con operaciones de
+ búsqueda por criterios (al menos por ID) y de inserción, con una implementación
+ por sistema de base de datos.
+ Entonces se crea una fábrica 
+\emph on
+\lang english
+singleton
+\emph default
+\lang spanish
+, con una subclase para cada tipo de bases de datos, que permite acceder
+ al DAO de cada clase de dominio en la base de datos usada.
+ Esto aporta bajo acoplamiento.
+\end_layout
+
+\end_body
+\end_document
