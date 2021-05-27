@@ -137,7 +137,187 @@ Validación
 \end_layout
 
 \begin_layout Standard
-Puede estructurarse como:
+Los requisitos se pueden definir mediante:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Lenguaje natural.
+
+\series default
+ Si el texto es preciso, es lo más fácil de entender, pero si la especificación
+ es grande o compleja puede no ser manejable.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Texto y técnicas
+\series default
+ intuitivas o formales, como diagramas, lenguajes de descripción de diseños
+ o especificaciones lógicas formales.
+ Es lo ideal para sistemas de tamaño medio o grande.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Solo técnicas.
+
+\series default
+ Difícil de entender y rastrear.
+\end_layout
+
+\begin_layout Section
+Estándares
+\end_layout
+
+\begin_layout Standard
+La NASA, la ESA y el Departamento de Defensa de EE.UU.
+ tienen sus propios estándares para especificación de requisitos, pero los
+ más usados son:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+\lang english
+IEEE Std.
+ 830:1998, Recommended Practice for Software Engineering Requirements Specificat
+ion
+\emph default
+.
+ IEEE Computer Society (1998)
+\lang spanish
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Es una revisión del 830:1993 adaptada a ISO/IEC 12207, Procesos del Ciclo
+ de Vida del Software.
+\end_layout
+
+\end_inset
+
+ Describe el contenido y las cualidades de un buen documento de SRS y presenta
+ modelos para organizar requisitos específicos.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\emph on
+\lang english
+ISO/IEC/IEEE 29148:2018, Systems and software engineering—Life cycle processes—R
+equirements engineering
+\emph default
+\lang spanish
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Suplanta al anterior
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+y armoniza IEEE 830, IEEE 1223, ISO/IEC 12207, IEEE 24765 (Vocabulario),
+ ISO/IEC TR 19759 (SWEBOK) y otros
+\end_layout
+
+\end_inset
+
+.
+ Incluye otros procesos y actividades relacionados con la ingeniería de
+ requisitos, no solo la SRS, como la SyRS y la especificación de requisitos
+ de 
+\emph on
+\lang english
+stakeholders
+\emph default
+\lang spanish
+ (StRS).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Según estos estándares, la SRS debe incluir:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Funcionalidad
+\series default
+ del software.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Interfaces externas
+\series default
+ con el usuario, el hardware y otras aplicaciones.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Rendimiento:
+\series default
+ Velocidad, disponibilidad, tiempo de recuperación tras una caída del sistema,
+ etc.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Atributos
+\series default
+ de portabilidad, corrección, mantenimiento, seguridad, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Restricciones de diseño:
+\series default
+ Políticas sobre estándares, lenguajes de programación, entornos operativos,
+ límites de recursos, etc.
+\end_layout
+
+\begin_layout Standard
+Según el IEEE 830, la SRS no deben incluir el coste, los plazos de entrega,
+ procesos de seguimiento, métodos de desarrollo, procedimientos generales
+ de aseguramiento de calidad, criterios generales de validación y verificación
+ ni procedimientos generales de aceptación.
+ Tampoco se incluye el diseño.
+\end_layout
+
+\begin_layout Section
+Estructura
+\end_layout
+
+\begin_layout Standard
+El tipo y número de documentos de requisitos, su organización y preparación
+ y la forma de definir interrelaciones o jerarquías entre los requisitos
+ deben estar claras desde el principio del proyecto.
+ Se recomienda convertir esto en una norma en la organización, aunque con
+ posibilidad de variación de un proyecto a otro según las características
+ de cada uno.
+\end_layout
+
+\begin_layout Standard
+Un documento de requisitos puede estructurarse como:
 \end_layout
 
 \begin_layout Enumerate
@@ -211,11 +391,247 @@ SRS.
 \end_layout
 
 \begin_layout Standard
-El tipo y número de documentos de requisitos, la organización y preparación
- de estos y la forma de definir interrelaciones o jerarquías entre los requisito
-s deben estar claras desde el principio del proyecto, y aunque pueden variar
- de un proyecto a otro según las características de cada uno, es preferible
- que se conviertan en una norma.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El IEEE 830 define la siguiente estructura para el SRS:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+bgroup
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*{
+\backslash
+theenumi}{
+\backslash
+arabic{enumi}} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*{
+\backslash
+theenumii}{
+\backslash
+theenumi.
+\backslash
+arabic{enumii}} 
+\backslash
+renewcommand*{
+\backslash
+theenumiii}{
+\backslash
+theenumii.
+\backslash
+arabic{enumiii}} 
+\backslash
+renewcommand*{
+\backslash
+theenumiv}{
+\backslash
+theenumiii.
+\backslash
+arabic{enumiv}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*{
+\backslash
+labelenumi}{
+\backslash
+theenumi.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*{
+\backslash
+labelenumii}{
+\backslash
+theenumii.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*{
+\backslash
+labelenumiii}{
+\backslash
+theenumiii.} 
+\backslash
+renewcommand*{
+\backslash
+labelenumiv}{
+\backslash
+theenumiv.} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Tabla de Contenidos
+\end_layout
+
+\begin_layout Enumerate
+Introducción
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Objetivo
+\end_layout
+
+\begin_layout Enumerate
+Ámbito
+\end_layout
+
+\begin_layout Enumerate
+Definiciones, siglas y abreviaturas
+\end_layout
+
+\begin_layout Enumerate
+Referencias
+\end_layout
+
+\begin_layout Enumerate
+Contenido 
+\emph on
+(explicación del contenido y organización del documento)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Descripción general
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Perspectiva del producto
+\end_layout
+
+\begin_layout Enumerate
+Funciones del producto
+\end_layout
+
+\begin_layout Enumerate
+Características del usuario
+\end_layout
+
+\begin_layout Enumerate
+Limitaciones generales
+\end_layout
+
+\begin_layout Enumerate
+Supuestos y dependencias
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Requisitos específicos
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Apéndices
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Índice
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+egroup
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -301,8 +717,72 @@ De
 
 producto
 \series default
- Refinamiento de los requisitos de cliente en lenguaje próximo a los desarrollad
-ores para guiar el diseño del sistema.
+ Refinamiento de los requisitos de cliente en lenguaje próximo a los de
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+sa
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+rro
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+lla
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+do
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+res para guiar el diseño del sistema.
 \end_layout
 
 \begin_layout Description
@@ -367,66 +847,484 @@ técnicos Afectan a la adquisición o el desarrollo del sistema pero no son
  propiedades de este.
 \end_layout
 
+\begin_layout Section
+Propiedades de los requisitos
+\end_layout
+
 \begin_layout Standard
-Los requisitos se pueden definir mediante:
+Un requisito puede ser:
 \end_layout
 
 \begin_layout Itemize
 
 \series bold
-Lenguaje natural.
-
+Necesario
 \series default
- Si el texto es preciso, es lo más fácil de entender, pero si la especificación
- es grande o compleja puede no ser manejable.
+ si define una capacidad o característica esencial, aplicable en la actualidad
+ y no obsoleta, de modo que su eliminación produce una deficiencia que no
+ puede ser compensada por otras capacidades del producto.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Los requisitos que puedan tener capacidad o solo son aplicables en fechas
+ concretas deben ser claramente identificados.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Independiente
+\series default
+ (
+\series bold
+de la implementación
+\series default
+) si no establece restricciones innecesarias sobre el diseño arquitectural.
 \end_layout
 
 \begin_layout Itemize
 
 \series bold
-Texto y técnicas
+Preciso
 \series default
- intuitivas o formales, como diagramas, lenguajes de descripción de diseños
- o especificaciones lógicas formales.
- Es lo ideal para sistemas de tamaño medio o grande.
+, 
+\series bold
+inequívoco
+\series default
+ o 
+\series bold
+no ambiguo
+\series default
+ si admite una única interpretación.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+La mayoría de defectos en los requisitos se deben a la ambigüedad del lenguaje,
+ que puede surgir en la definición de nuevos requisitos, la incorporación
+ de nuevas necesidades y los cambios en los requisitos durante el desarrollo.
+\end_layout
+
+\begin_layout Standard
+Para evitar esto debemos usar el lenguaje de forma precisa, pudiendo usar
+ plantillas o estructuras fijas de lenguaje o técnicas de descripción rigurosas
+ y estructuradas.
+ Para resolver una ambigüedad existente, pedimos el significado correcto
+ a quienes escribieron el requisito.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Consistente
+\series default
+ si no entra en conflicto con otros requisitos.
 \end_layout
 
 \begin_layout Itemize
 
 \series bold
-Solo técnicas.
-
+Completo
 \series default
- Difícil de entender y rastrear.
+ si no necesita ampliarse para describir suficientemente la capacidad o
+ característica requerida.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Singular
+\series default
+ si no es des componible en varios requisitos y no usa conjunciones.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Factible
+\series default
+ si es técnicamente alcanzable, no requiere grandes avances tecnológicos
+ y cumple con las restricciones del proyecto con un riesgo aceptable.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Verificable
+\series default
+ si hay una forma efectiva en tiempo y coste de determinar si el sistema
+ satisface el requisito en grado suficiente para convencer a las partes
+ relevantes.
+\end_layout
+
+\begin_layout Standard
+Los requisitos se pueden relacionar por:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Trazabilidad inclusiva:
+\series default
+ Un requisito destino depende de uno origen, de modo que si desaparece el
+ origen, el destino no tiene sentido y debe desaparecer.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Jerarquía
+\series default
+ o 
+\series bold
+refinamiento:
+\series default
+ Un requisito padre es explicado con más detalle por sus hijos.
+ Es un caso de trazabilidad inclusiva.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Exclusión:
+\series default
+ La elección de un requisito impide la de otro incompatible.
+\end_layout
+
+\begin_layout Standard
+Un requisito es 
+\series bold
+trazable hacia arriba
+\series default
+ si enlaza a su fuente u origen, como una descripción documentada de una
+ necesidad de 
+\emph on
+\lang english
+stakeholder
+\emph default
+\lang spanish
+, un requisito de nivel superior, un plan de negocio, etc.; 
+\series bold
+trazable hacia abajo
+\series default
+ si enlaza a requisitos de nivel inferior más refinados o a otros artefactos
+ resultantes de añadir el requisito, y 
+\series bold
+trazable
+\series default
+ si lo es hacia arriba y hacia abajo.
 \end_layout
 
 \begin_layout Section
-Estándares
+Meta-información
 \end_layout
 
 \begin_layout Standard
-La NASA, la ESA y el Departamento de Defensa de EE.UU.
- tienen sus propios estándares para especificación de requisitos, pero los
- más usados son:
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-IEEE Std.
- 830-1998
-\begin_inset Note Note
+Las SRS suelen incluir, junto con los requisitos, meta-información sobre
+ estos, en forma de atributos.
+ El método VOLERE incluye, entre otros los siguientes atributos de cada
+ requisito:
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-\series bold
-diapo 28
+Esto junta LO32 (recordar al menos 7 atributos posibles) y LO33 (recordar
+ al menos 5 atributos de VOLERE).
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Identificador de requisito
+\series default
+, único en todo el proyecto incluso entre requisitos bo
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+rra
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+dos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Tipo de requisito
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Razón
+\series default
+ o justificación.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Fuente
+\series default
+, trazabilidad hacia arriba.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Satisfacción del cliente
+\series default
+ si el requisito se implementa, del 1 al 5.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Insatisfacción del cliente
+\series default
+ si el requisito no se implementa, del 1 al 5.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Dependencias
+\series default
+, trazabilidad hacia abajo.
+\end_layout
+
+\begin_layout Section
+Propiedades de las SRS
+\end_layout
+
+\begin_layout Standard
+Un documento o grupo de requisitos puede ser:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Completo
+\series default
+ si incluye todos los requisitos que los 
+\emph on
+\lang english
+stakeholders
+\emph default
+\lang spanish
+ esperan haber cumplido en la versión correspondiente del sistema o parte
+ del sistema.
+ Cuando un requisito o subgrupo no está completo, lo indicamos con una etiqueta
+ como 
+\series bold
+\lang english
+TBD
+\series default
+\lang spanish
+ (
+\series bold
+\emph on
+\lang english
+To Be Determined
+\series default
+\emph default
+\lang spanish
+).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Consistente
+\series default
+ si no contiene requisitos excluyentes ni duplicados, no se usan varios
+ términos para el mismo concepto y su satisfacción no entra en conflicto
+ con la de otro documento previamente aprobado.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Alcanzable
+\series default
+ si se puede construir un sistema que satisfaga los requisitos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Asequible
+\series default
+ si se puede construir dicho sistema dentro del coste, la planificación,
+ la tecnología disponible y la ley.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Limitado
+\series default
+ si no extiende el alcance de la solución más de los necesario para satisfacer
+ las necesidades de los usuarios.
+\end_layout
+
+\begin_layout Standard
+Según el IEEE 29148, un documento o grupo de requisitos debe ser completo,
+ consistente, asequible y limitado, y sus requisitos deben ser necesarios,
+ independientes de la implementación, no ambiguos, consistentes, completos,
+ singulares, factibles, trazables y verificables.
+\end_layout
+
+\begin_layout Standard
+El no cumplimiento de alguna propiedad indica posibles problemas en los
+ requisitos.
+ Se puede crear una 
+\series bold
+lista de comprobación
+\series default
+ con propiedades de requisitos y de grupos de requisitos para asegurarse
+ en la 
+\series bold
+revisión de requisitos
+\series default
+ de que estas se cumplen.
+\end_layout
+
+\begin_layout Section
+Gestión del cambio
+\end_layout
+
+\begin_layout Standard
+En el desarrollo o el mantenimiento, se puede cambiar el documento de requisitos
+ rellenando una 
+\series bold
+plantilla de solicitud de cambio
+\series default
+ y enviándola al 
+\series bold
+grupo de gestión de cambios
+\series default
+, un grupo idealmente de entre 3 y 5 personas, normalmente responsables
+ de la construcción del documento de requisitos, que se encarga de estudiar
+ los posibles cambios.
+\end_layout
+
+\begin_layout Standard
+Una plantilla podría contener como campos 
+\begin_inset Quotes cld
+\end_inset
+
+Petición de cambio
+\begin_inset Quotes crd
+\end_inset
+
+ (nombre del proyecto afectado), 
+\begin_inset Quotes cld
+\end_inset
+
+Identificador del requisito afectado
+\begin_inset Quotes crd
+\end_inset
+
+ (documento y código), 
+\begin_inset Quotes cld
+\end_inset
+
+Nombre asignado al cambio
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+Descripción
+\begin_inset Quotes crd
+\end_inset
+
+ (del cambio), 
+\begin_inset Quotes cld
+\end_inset
+
+Pedido por
+\begin_inset Quotes crd
+\end_inset
+
+ (nombre y cargo) y 
+\begin_inset Quotes cld
+\end_inset
+
+Justificación
+\begin_inset Quotes crd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Problemas
+\end_layout
+
+\begin_layout Standard
+Manejar documentos de requisitos puede ser complicado por la gran cantidad
+ de requisitos, aunque esto se puede mitigar con 
+\series bold
+herramientas 
+\lang english
+CARE
+\series default
+\lang spanish
+ (
+\emph on
+\lang english
+Computer-Aided Requirements Engineering
+\emph default
+\lang spanish
+) y obviando requisitos obvios, pues no hay que especificar absolutamente
+ todo.
+\end_layout
+
+\begin_layout Standard
+El nivel de detalle en que debemos expresar los requisitos depende del nivel
+ de abstracción en que nos encontremos, es decir, de si los requisitos son
+ de empresa, de usuario o de software, por lo que es importante la trazabilidad
+ para ligar niveles de abstracción.
+\end_layout
+
+\begin_layout Standard
+Finalmente, está el problema de que a veces un requisito pertenece a varias
+ categorías y puede ser asignado a una o más secciones del documento de
+ requisitos.
+ Una solución es usar referencias cruzadas.
 \end_layout
 
 \end_body
