@@ -94,6 +94,10 @@ dos en el proceso, el entorno de operación, el entorno de la organización,
 \end_layout
 
 \begin_layout Section
+Técnicas intuitivas
+\end_layout
+
+\begin_layout Subsection
 Entrevistas
 \end_layout
 
@@ -162,7 +166,13 @@ Se puede preguntar sobre detalles específicos, sobre la visión de futuro
  solución mínimamente aceptable y sobre otras fuentes de información.
 \end_layout
 
-\begin_layout Section
+\begin_layout Standard
+Al haber pocas personas con mucha información sobre el sistema a construir,
+ la relación es más personal y directa, pero se requiere mucho tiempo y
+ es más difícil detectar errores ya que solo en analista revisa los resultados.
+\end_layout
+
+\begin_layout Subsection
 
 \lang english
 FAST
@@ -239,17 +249,551 @@ Joint Application Development
 \lang english
 FAST
 \lang spanish
- que
+ que, basándose en que quien mejor conoce un trabajo es quien lo desempeña,
+ quien mejor conoce las posibilidades del software es el equipo de desarrollo
+ y los sistemas de información y procesos de negocio trascienden las fronteras
+ de un único departamento o sección, busca que los participantes en los
+ grupos que diseñan los sistemas trabajen de igual a igual.
+\end_layout
+
+\begin_layout Standard
+Se hacen reuniones grupales entre usuarios y analistas en 2–4 días, con
+ 2 horas por reunión, con ayudas visuales para mejorar la comunicación y
+ trabajando directamente sobre el documento de requisitos a generar.
+ Se empieza con un documento de trabajo y se discute hasta aprobar el documento
+ de requisitos al final.
+\end_layout
+
+\begin_layout Standard
+La participación de los usuarios con los JAD es mayor que con las entrevistas,
+ la satisfacción es mayor y se ahorra tiempo, pero los JAD son más difíciles
+ de llevar a la práctica ya que hace falta más organización para gestionar
+ reuniones de más personas, entre 5 y 25.
+\end_layout
+
+\begin_layout Subsection
+Casos de uso
+\end_layout
+
+\begin_layout Standard
+Son descripciones genéricas de uso de un sistema por parte de un actor para
+ conseguir resultados u objetivos, y representan parte de, uno o varios
+ requisitos funcionales.
+ Se representan como en PDS.
+\end_layout
+
+\begin_layout Standard
+Pueden usarse como ayuda para descubrir requisitos que luego se convertirán
+ en requisitos textuales.
+ Los documentos de requisitos pueden contener diagramas de casos de uso
+ como descripción gráfica complementaria, y debe documentarse la trazabilidad
+ entre requisitos y casos de uso.
+\end_layout
+
+\begin_layout Standard
+Los casos de uso pueden dirigir el desarrollo, expresándose en términos
+ de un modelo de objetos del dominio para luego estructurarse con un modelo
+ de análisis y realizarse en un modelo de diseño, que se implementa en un
+ modelo de implementación (código) que se prueba en un modelo de pruebas
+ (
+\emph on
+\lang english
+tests
+\emph default
+\lang spanish
+).
+\end_layout
+
+\begin_layout Subsection
+Historias de usuario
+\end_layout
+
+\begin_layout Standard
+Son descripciones en jerga de usuario de objetos de alto nivel de la organizació
+n o el cliente, normalmente formadas por 3 frases escritas por el usuario,
+ y tienen pruebas de aceptación asociadas.
+\end_layout
+
+\begin_layout Subsection
+Escenarios
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+escenario
+\series default
+ o 
+\series bold
+instancia de caso de uso
+\series default
+ es una secuencia específica de acciones e interacciones concretas entre
+ los actores y el sistema.
+ Consta de:
+\end_layout
+
+\begin_layout Enumerate
+Descripción de lo que el sistema y los usuarios esperan al principio del
+ escenario.
+\end_layout
+
+\begin_layout Enumerate
+Descripción del flujo normal de eventos en el escenario.
+\end_layout
+
+\begin_layout Enumerate
+Descripción de lo que puede fallar y cómo se maneja esto.
+\end_layout
+
+\begin_layout Enumerate
+Información de otras actividades que pueden ocurrir a la vez.
+\end_layout
+
+\begin_layout Enumerate
+Descripción del estado del sistema cuando el escenario termina.
+\end_layout
+
+\begin_layout Standard
+Un caso de uso puede definirse como un conjunto de escenarios de éxito y
+ fallos relacionados en los que los actores usan un sistema para alcanzar
+ un mismo objetivo o resultado.
+\end_layout
+
+\begin_layout Section
+Técnicas formales
+\end_layout
+
+\begin_layout Standard
+El ISO/IEC/IEEE 24765:2017 define 
+\series bold
+especificación formal
+\series default
+ como:
+\end_layout
+
+\begin_layout Enumerate
+Especificación usada para probar matemáticamente la validez de una implementació
+n o derivar matemáticamente la implementación.
+\end_layout
+
+\begin_layout Enumerate
+Especificación escrita en una notación formal, a menudo para ser usada en
+ pruebas de corrección.
+\end_layout
+
+\begin_layout Enumerate
+Especificación escrita y aprobada de acuerdo con algunos estándares establecidos.
+\end_layout
+
+\begin_layout Standard
+Los 
+\series bold
+modos
+\series default
+ o 
+\series bold
+niveles de aplicación
+\series default
+ de las especificaciones formales se refieren a que estas se pueden aplicar
+ o no para generar ejecutables, y para demostrar propiedades, manualmente
+ o con pruebas generadas automáticamente.
+\end_layout
+
+\begin_layout Subsection
+Notaciones formales
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+notación formal
+\series default
+ está formada por:
+\end_layout
+
+\begin_layout Enumerate
+Una 
+\series bold
+sintaxis
+\series default
+, un método de decisión de la corrección gramatical de sus representaciones.
+\end_layout
+
+\begin_layout Enumerate
+Una 
+\series bold
+semántica
+\series default
+, una serie de reglas para interpretar las representaciones de forma precisa
+ y significativa en el dominio considerado.
+\end_layout
+
+\begin_layout Enumerate
+Una 
+\series bold
+teoría de prueba
+\series default
+, una serie de reglas para inferir información útil a partir de la especificació
+n.
+\end_layout
+
+\begin_layout Standard
+Hay dos enfoques principales para notaciones formales:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Algebraico:
+\series default
+ Se describe el sistema en función de operaciones y sus relaciones.
+ Las interfaces se suelen describir en las siguientes secciones:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Introducción,
+\series default
+ con los 
+\series bold
+\emph on
+\lang english
+sorts
+\series default
+\emph default
+\lang spanish
+ o nombres de tipos de la entidad que se está especificando.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Descripción
+\series default
+ informal de las operaciones.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Signatura,
+\series default
+ sintaxis de la interfaz para el tipo de datos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Axiomas,
+\series default
+ que caracterizan la semántica de las operaciones.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Basado en modelos:
+\series default
+ Se construye un modelo del sistema mediante construcciones matemáticas,
+ y se definen las operaciones según cómo modifican el estado del sistema.
+\end_layout
+
+\begin_layout Standard
+También diferenciamos entre notaciones formales secuenciales y concurrentes.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Z
+\series default
+ es una notación formal secuencial basada en modelos, formada por:
+\end_layout
+
+\begin_layout Itemize
+Una notación para 
+\series bold
+esquemas
+\series default
+, formada por:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nombre del esquema.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Signatura
+\series default
+, con líneas en formato 
+\family sans
+\emph on
+atributo
+\family default
+\emph default
+[
+\family sans
+, 
+\family default
+...]
+\family sans
+: 
+\emph on
+Tipo
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Predicado
+\series default
+, con líneas que especifican invariantes entre los atributos.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Una notación para 
+\series bold
+operaciones
+\series default
+ sobre los esquemas.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Maude
+\series default
+ es una notación formal algebraica y concurrente que soporta módulos funcionales
+, de sistema y orientados a objetos.
+ Puede usarse para especificar aplicaciones y sistemas generales.
+\end_layout
+
+\begin_layout Subsection
+Métodos formales
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+técnica formal
+\series default
+ es una que usa especificaciones formales, y un 
+\series bold
+método formal
+\series default
+ es una técnica formal con un procedimiento de uso.
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
+Skip diapo 33
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Según Hall, los principales 
+\series bold
+mitos
+\series default
+ sobre los métodos formales son que:
+\end_layout
+
+\begin_layout Enumerate
+Pueden garantizar que el software sea perfecto.
+\end_layout
+
+\begin_layout Enumerate
+Tratan sobre pruebas de programas.
+\end_layout
+
+\begin_layout Enumerate
+Solo son útiles para sistemas de seguridad crítica.
+\end_layout
+
+\begin_layout Enumerate
+Requieren matemáticos muy entrenados en su uso.
+\end_layout
+
+\begin_layout Enumerate
+Incrementan el coste de desarrollo.
+\end_layout
+
+\begin_layout Enumerate
+Son inaceptables para el usuario.
+\end_layout
+
+\begin_layout Enumerate
+No se usan en la práctica.
+\end_layout
+
+\begin_layout Standard
+Las técnicas formales introducen rigor en la documentación, evitando la
+ ambigüedad al usarse como contrato entre clientes y proveedores, y ayudan
+ a comprender propiedades del software a construir.
+ Además, facilitan la implementación, que se puede hacer automáticamente,
+ y la prueba, que puede ser formal.
+\end_layout
+
+\begin_layout Standard
+Por otro lado, muchas veces el aspecto más crítico no es la calidad sino
+ la rapidez en sacar el producto al mercado, y las técnicas formales son
+ difíciles de aplicar y sistemas grandes y no son apropiadas para especificar
+ interfaces de usuario o interacciones entre usuarios.
+\end_layout
+
+\begin_layout Standard
+Los métodos formales se usan en sistemas críticos, sistemas reproducidos
+ muchas veces, sistemas empotrados en hardware, sistemas de alta calidad
+ por requerimientos comerciales y sistemas que va a usar mucha gente.
+\end_layout
+
+\begin_layout Section
+Herramientas 
+\lang english
+CARE
+\end_layout
+
+\begin_layout Standard
+Las 
+\series bold
+herramientas 
+\lang english
+CARE
+\series default
+\lang spanish
+ (
+\emph on
+\lang english
+Computer-Aided Requirements Engineering
+\emph default
+\lang spanish
+) son herramientas que facilitan la definición, la organización, el almacenamien
+to y la gestión de los requisitos.
+ Suelen incluir:
+\end_layout
+
+\begin_layout Itemize
+Informes de alto nivel sobre los requisitos.
+\end_layout
+
+\begin_layout Itemize
+Plantillas para realizar la documentación del proyecto.
+\end_layout
+
+\begin_layout Itemize
+Integración con otras herramientas.
+\end_layout
+
+\begin_layout Itemize
+Importación y exportación de requisitos, por ejemplo con el formato 
+\lang english
+ReqIF
+\lang spanish
+ estandarizado por la 
+\lang english
+OMG
+\lang spanish
+, un estándar que los apuntes dicen falsamente que es de facto.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Tienen una definición de 
+\begin_inset Quotes cld
+\end_inset
+
+de facto
+\begin_inset Quotes crd
+\end_inset
+
+ distinta a la definición estándar de facto (la que todo el mundo entiende)
+ y de jure (la de la RAE, que es la misma).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algunas herramientas 
+\lang english
+CARE
+\lang spanish
+ son:
+\end_layout
+
+\begin_layout Itemize
+El software privativo 
+\lang english
+ReqView
+\lang spanish
+.
+\end_layout
+
+\begin_layout Itemize
+El software privativo 
+\lang english
+DOORS
+\lang spanish
+.
+\end_layout
+
+\begin_layout Itemize
+El software privativo 
+\lang english
+Borland Caliber-RM
+\lang spanish
+.
+\end_layout
+
+\begin_layout Itemize
+El software privativo 
+\lang english
+TRC Systems Engineering Suite
+\lang spanish
+, que usa heurísticas para valorar la corrección, consistencia y completitud
+ de los requisitos y ayudar a su calidad y soporta reutilización de requisitos
+ con un motor de búsqueda semántico.
+\end_layout
+
+\begin_layout Itemize
+El software privativo 
+\lang english
+Prover
+\lang spanish
+, basado en técnicas formales, que permite probar la seguridad de un sistema
+ y otras propiedades matemáticamente.
+\end_layout
+
+\begin_layout Standard
+Algunas herramientas permiten añadir 
+\emph on
+\lang english
+plug-ins
+\emph default
+\lang spanish
+ o 
+\emph on
+\lang english
+add-ins
+\emph default
+\lang spanish
+ que aumentan su funcionalidad o las conectan con otras herramientas.
 \end_layout
 
 \end_body
