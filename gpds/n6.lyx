@@ -314,16 +314,715 @@ viewpoints
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+Un punto de vista se considera como un receptor de servicios del sistema
+ y un emisor de datos e información de control.
+ Los servicios, similares a casos de uso, se describen con requisitos funcionale
+s y las restricciones con requisitos no funcionales.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+VORD
+\series default
+\lang spanish
+ (
+\emph on
+\lang english
+Viewpoint-Oriented Requirements Definition
+\emph default
+\lang spanish
+) es una técnica basada en puntos de vista con las siguientes actividades:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Identificación de puntos de vista.
+
+\series default
+ Se descubren los puntos de vista que reciben servicios y se identifican
+ los servicios proporcionados a cada uno.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Estructuración de puntos de vista.
+
+\series default
+ Se agrupan puntos de vista relacionados en una jerarquía.
+ Los servicios comunes se proporcionan a niveles más altos de la jerarquía.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Por ejemplo, en un banco, solo los clientes registrados pueden sacar dinero,
+ pero tanto estos como los clientes casuales pueden querer pagar recibos,
+ por lo que este último servicio se trasladaría a un punto de vista 
+\begin_inset Quotes cld
+\end_inset
+
+cliente
+\begin_inset Quotes crd
+\end_inset
+
+ del que heredan 
+\begin_inset Quotes cld
+\end_inset
+
+cliente registrado
+\begin_inset Quotes crd
+\end_inset
+
+ y 
+\begin_inset Quotes cld
+\end_inset
+
+cliente casual
+\begin_inset Quotes crd
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Documentación de puntos de vista.
+
+\series default
+ Se refina la descripción de los puntos de vista y servicios identificados.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Mapeo entre puntos de vista y sistema.
+
+\series default
+ Se transforma el análisis de los puntos de vista en un diseño.
+\end_layout
+
+\begin_layout Standard
+Tras cada fase se puede volver a cualquiera de las anteriores si hay un
+ error.
+ Un punto de vista se puede definir como sigue:
+\end_layout
+
+\begin_layout Description
+Referencia Nombre del rol.
+\end_layout
+
+\begin_layout Description
+Atributos Lista de atributos relevantes del agente al interactuar con el
+ sistema.
+\end_layout
+
+\begin_layout Description
+Eventos Lista de acciones que puede iniciar en el sistema, similar a las
+ operaciones de los DSS.
+\end_layout
+
+\begin_layout Description
+Servicios Lista de referencias a los servicios que usa.
+\end_layout
+
+\begin_layout Description
+Subpuntos
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+vista Lista de puntos de vista subordinados en la jerarquía.
+\end_layout
+
+\begin_layout Standard
+Un servicio se puede definir con la siguiente plantilla:
+\end_layout
+
+\begin_layout Description
+Referencia Nombre del servicio.
+\end_layout
+
+\begin_layout Description
+Razón Objetivo conseguido al implementarlo.
+\end_layout
+
+\begin_layout Description
+Especificación En qué consiste y cómo se usa.
+\end_layout
+
+\begin_layout Description
+Puntos
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+vista Lista de referencias a los puntos de vista que lo usan.
+\end_layout
+
+\begin_layout Description
+Requisitos
+\begin_inset space ~
+\end_inset
+
+no
+\begin_inset space ~
+\end_inset
+
+funcionales
+\end_layout
+
+\begin_layout Description
+Proveedor
+\end_layout
+
+\begin_layout Standard
+Otras técnicas basadas en puntos de vista son 
+\series bold
+\lang english
+VOSE
+\series default
+\lang spanish
+ (
+\emph on
+\lang english
+Viewpoint-Oriented Software Engineering
+\emph default
+\lang spanish
+) y 
+\lang english
+PREview
+\lang spanish
+.
+\end_layout
+
+\begin_layout Section
+Reutilización de requisitos
+\end_layout
+
+\begin_layout Standard
+Reutilizar requisitos puede mejorar la calidad, la productividad y, al evitar
+ trabajo, la sostenibilidad medioambiental.
+ Es ventajoso entre aplicaciones de un mismo dominio, pues muchos requisitos
+ expresan restricciones sobre el sistema o su operación derivadas del dominio
+ de aplicación.
+\end_layout
+
+\begin_layout Standard
+También lo es en requisitos relacionados con el estilo de presentación de
+ la información, evitando re-diseñar la presentación de la aplicación y
+ dando un estilo consistente, y en requisitos relacionados con políticas
+ de empresa o normas legales, como políticas de seguridad, leyes de proyección
+ de datos, etc.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+SIREN
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+\lang english
+SImple REuse of requiremeNts
+\emph default
+\lang spanish
+
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-a6::13, a3f::7.
+Se ve que esto lo diseñó un cani.
+\end_layout
+
+\end_inset
+
+ es un método práctico y sencillo de reutilización de requisitos compatible
+ con estándares ISW y técnicas usadas en la industria, basado en requisitos
+ en lenguaje natural con un conjunto mínimo de atributos y un modelo de
+ trazabilidad.
+ Introduce el concepto de 
+\series bold
+repositorio
+\series default
+ de requisitos, una colección de 
+\series bold
+catálogos de requisitos reutilizables
+\series default
+ por tema.
+ Existen herramientas de soporte para 
+\lang english
+SIREN
+\lang spanish
+ como el software privativo 
+\lang english
+SirenTool
+\lang spanish
+ o Pantalasa.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+SIREN
+\lang spanish
+ se puede usar 
+\series bold
+p
+\series default
+ara reutilización (
+\series bold
+SIRENp
+\series default
+), creando requisitos para su uso posterior, o 
+\series bold
+c
+\series default
+on reutilización, generalizando requisitos de proyectos una vez estos se
+ validan (
+\series bold
+SIRENc
+\series default
+).
+ En SIRENc:
+\end_layout
+
+\begin_layout Enumerate
+Se seleccionan requisitos añadiendo requisitos del catálogo a plantillas
+ vacías, o a la iteración anterior del análisis de requisitos.
+\end_layout
+
+\begin_layout Enumerate
+Se integran y negocian requisitos resultado de un análisis de requisitos.
+\end_layout
+
+\begin_layout Enumerate
+Los requisitos se documentan y validan.
+\end_layout
+
+\begin_layout Enumerate
+El resultado se usa para mejorar el repositorio, para las siguientes fases
+ del desarrollo y para los siguientes incrementos del sistema.
+\end_layout
+
+\begin_layout Standard
+Una 
+\begin_inset Quotes cld
+\end_inset
+
+jerarquía
+\begin_inset Quotes crd
+\end_inset
+
+ para el documento de requisitos con SIRENc puede tener una SyRS según el
+ IEEE 1233 y el 12207.1, una 
+\series bold
+\lang english
+SyTS
+\series default
+\lang spanish
+ (
+\emph on
+\lang english
+System Test Specification
+\emph default
+\lang spanish
+, especificación de pruebas del sistema), una STS, un SRS según IEEE 830
+ y una 
+\series bold
+\lang english
+IRS
+\series default
+\lang spanish
+ (
+\emph on
+\lang english
+Interface Requirement Specification
+\emph default
+\lang spanish
+, especificación de requisitos de interfaz) según el IEEE 830.
+\end_layout
+
+\begin_layout Standard
+Los requisitos 
+\lang english
+SIREN
+\lang spanish
+ pueden estar 
+\series bold
+parametrizados
+\series default
+, con partes entre corchetes como por ejemplo 
+\begin_inset Quotes cld
+\end_inset
+
+[n, n >= 6]
+\begin_inset Quotes crd
+\end_inset
+
+ para indicar un número 
+\begin_inset Formula $n\geq6$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Otros métodos
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+patrón de requisitos
+\series default
+ es un requisito escrito a muy alto nivel de abstracción, muy genérico y
+ relativamente fácil de adaptar.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+análisis de dominio
+\series default
+ consiste en investigar, capturar y especificar conocimiento genérico sobre
+ alguna tarea específica.
+ No se enfoca a un solo proyecto, sino que busca definiciones generales
+ que puedan ser reutilizadas en muchos proyectos.
+\end_layout
+
+\begin_layout Subsection
+Uso de reutilización
+\end_layout
+
+\begin_layout Standard
+Las técnicas de reutilización pueden constituir de por sí un proceso de
+ ingeniería de requisitos o ser integradas con otras técnicas.
+\end_layout
+
+\begin_layout Standard
+En 2012, Chernak hizo un estudio sobre el uso de reutilización de requisitos.
+\end_layout
+
+\begin_layout Standard
+Según este, las estrategias de ingeniería de requisitos más usadas son las
+ tradicionales, seguidas por las dirigidas por casos de uso y las ágiles.
+ De estas, las que usan tradicionales son las que más usan reutilización
+ y las que usan ágiles las que menos.
+\end_layout
+
+\begin_layout Standard
+Los obstáculos más importantes a la reutilización eran que los requisitos
+ desarrollados en versiones anteriores eran incompletos, o incluso inexistentes
+ o no disponibles, y no se podían reutilizar; que estaban pobremente estructurad
+os y era difícil identificar cuáles podían reutilizarse, y que no se mantenían
+ actualizados.
+\end_layout
+
+\begin_layout Standard
+Los principales beneficios de la reutilización identificados fueron la reducción
+ del tiempo de puesta en el mercado y la del coste de desarrollo.
+\end_layout
+
+\begin_layout Section
+Objetivos de desarrollo sostenible
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Incluidos con calzador y sin ninguna maña por los profesores de la asignatura.
+ ¡Disfrute!
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+El manifiesto de Karlskrona considera las siguientes dimensiones en la ingenierí
+a de software:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Individual.
+
+\series default
+ Bienestar físico y mental de las personas, educación, respeto a uno mismo,
+ habilidades, movilidad, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Social.
+
+\series default
+ Comunidades sociales y los factores que erosionan la confianza en la sociedad.
+ Incluye igualdad social, justicia, empleo, democracia, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Económica.
+
+\series default
+ Activos y valor añadido.
+ Incluye creación de riqueza, prosperidad, rentabilidad, inversión, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Técnica.
+
+\series default
+ Longevidad de la información, los sistemas y la infraestructura y su evolución
+ y adaptación a cambios del entorno.
+ Incluye mantenimiento, innovación, obsolescencia, integridad de los datos,
+ etc.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Medioambiental.
+
+\series default
+ Efectos a largo plazo de las actividades humanas en la naturaleza.
+ Incluye ecosistemas, recursos naturales, cambio climático, producción de
+ alimentos, agua, contaminación, desperdicio, etc.
+\end_layout
+
+\begin_layout Standard
+Considera que solo se tienen en cuenta los requisitos técnicos y se deberían
+ considerar todos.
+ Distinguimos entre 
+\series bold
+\emph on
+\lang english
+Green in IT
+\series default
+\emph default
+\lang spanish
+, o el uso de buenas prácticas para el desarrollo sostenible de software,
+ y 
+\series bold
+\emph on
+\lang english
+Green by IT
+\series default
+\emph default
+\lang spanish
+, o la inclusión de requisitos sostenibles, por ejemplo en un catálogo de
+ requisitos.
+\end_layout
+
+\begin_layout Section
+Enfoque i*
+\end_layout
+
+\begin_layout Standard
+A diferencia de otros métodos, este tiene una fase previa a la especificación
+ de requisitos, en la que se indica cómo el sistema debe satisfacer los
+ objetivos de la organización, qué alternativas puede haber, cuáles de esas
+ alternativas afectan a varios implicados y cómo se podrían resolver los
+ intereses de los implicados identificando posibles conflictos entre ellos.
+ Forma parte del estándar internacional ITU-T Z.151, 
+\emph on
+\lang english
+User Requirements Notation
+\emph default
+\lang spanish
+ (
+\series bold
+\lang english
+URN
+\series default
+\lang spanish
+), de 2008.
+\end_layout
+
+\begin_layout Standard
+El i* define dos modelos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Modelo de dependencia estratégica
+\series default
+ (
+\series bold
+\lang english
+SD
+\series default
+\lang spanish
+, 
+\emph on
+\lang english
+Strategic Dependency
+\emph default
+\lang spanish
+).
+ Modela dependencia entre actores debidas a metas, metas suaves, tareas
+ o recursos, dando una visión global del sistema.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Modelo de razonamiento estratégico
+\series default
+ (
+\series bold
+\lang english
+SR
+\series default
+\lang spanish
+, 
+\emph on
+\lang english
+Strategic Rationale
+\emph default
+\lang spanish
+).
+ Modela el razonamiento estratégico interno de un actor.
+\end_layout
+
+\begin_layout Standard
+Un diagrama 
+\lang english
+SR
+\lang spanish
+ está formado por regiones del plano que representan actores y contienen
+ un círculo con el nombre del actor, y también pueden contener otros elementos
+ con su nombre dentro.
+\end_layout
+
+\begin_layout Standard
+Estos elementos son metas, representadas con un rectángulo redondeado; metas
+ suaves, como si a una meta le hubiera caído un objeto grande encima y la
+ hubiera deformado; tareas, como un hexágono regular en horizontal tras
+ alargar sus lados horizontales, y recursos, representados con rectángulos.
+ Pueden estar dentro de un actor o fuera.
+\end_layout
+
+\begin_layout Standard
+Una flecha de una tarea a una meta con la punta de flecha en medio de la
+ línea es un enlace de medios a fines, y si la punta de flecha tiene volumen
+ y la flecha termina en una meta suave, es un enlace de contribución a meta
+ suave.
+\end_layout
+
+\begin_layout Standard
+Una línea de una tarea a otro elemento de cualquier tipo (salvo actor) y
+ con un pequeño segmento cruzado en el lado de la tarea es un enlace de
+ descomposición de tarea, y la tarea se descompone en los elementos que
+ parten de esta por enlaces de este tipo.
+ Un diagrama 
+\lang english
+SD
+\lang spanish
+ es similar pero sin mostrar los objetivos y tareas internos de los actores.
+\end_layout
+
+\begin_layout Section
+MAGERIT
+\end_layout
+
+\begin_layout Standard
+Es un método formal usado en la Administración Pública española para investigar
+ los riesgos de seguridad de sistemas y recomendar medidas apropiadas para
+ controlar estos riesgos.
+\end_layout
+
+\begin_layout Standard
+Sus objetivos son concienciar a los responsables de los sistemas de información
+ de la existencia de riesgos y la necesidad de atajarlos a tiempo y ofrecer
+ un método sistemático para analizar tales riesgos, ayudando a descubrir
+ y planificar las medidas oportunas para controlar los riesgos y preparando
+ a la organización para procesos de evaluación, auditoría, certificación
+ o acreditación.
+\end_layout
+
+\begin_layout Standard
+En el Ciclo de Gestión de la Seguridad, se crea una Política de Seguridad
+ de los Sistemas de Información y una Organización de Seguridad de los Sistemas
+ de Información, a partir de los que se hace un Análisis y Gestión de Riesgos
+ con MAGERIT y, como resultado, se crea un Plan de Seguridad de los Sistema
+ de Información, que se somete a Implantación y Seguimiento.
+\end_layout
+
+\begin_layout Standard
+Los elementos de MAGERIT son:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Activos:
+\series default
+ recursos del sistema o relacionados con este.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Amenazas:
+\series default
+ eventos que pueden desencadenar un incidente.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Vulnerabilidades:
+\series default
+ Estimación de la exposición efectiva de un activo a una amenaza.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Impacto:
+\series default
+ Consecuencia que tiene la ocurrencia de una amenaza sobre un activo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Riesgo:
+\series default
+ Estimación del grado de exposición a que se dé una amenaza.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Salvaguarda:
+\series default
+ Procedimiento o mecanismo tecnológico para reducir el riesgo.
+\end_layout
+
+\begin_layout Standard
+La versión 3 de MAGERIT incluye el software privativo PILAR.
 \end_layout
 
 \end_body
