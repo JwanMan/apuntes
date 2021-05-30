@@ -540,12 +540,22 @@ IBM
 \begin_layout Standard
 Mide el tamaño de la funcionalidad de un producto software desde el punto
  de vista del usuario, como una caja negra en la que introducir y consultar
- datos y recibir información, y permite medir el esfuerzo, la duración y
- el presupuesto requeridos para llevar a cabo el proyecto.
+ datos y recibir información
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+, y permite medir el esfuerzo, la duración y el presupuesto requeridos para
+ llevar a cabo el proyecto
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-Pasos para la estimación:
+Pasos:
 \end_layout
 
 \begin_layout Enumerate
@@ -740,24 +750,19 @@ status open
 \end_deeper
 \begin_layout Enumerate
 Calcular el esfuerzo.
+ Se estiman las líneas de código y las horas por punto función según el
+ entorno y el lenguaje y con esto se calculan las líneas de código y horas.
 \end_layout
 
 \begin_layout Enumerate
 Calcular la duración del proyecto.
+ Se divide el número de horas para una sola persona entre el número de personas
+ y el resultado se divide entre las horas dedicadas al mes.
 \end_layout
 
 \begin_layout Enumerate
 Calcular el presupuesto del proyecto.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO p8::73
-\end_layout
-
-\end_inset
-
-
+ Depende del esfuerzo estimado, los sueldos y otros costes de operación.
 \end_layout
 
 \begin_layout Standard
@@ -1883,7 +1888,27 @@ Factores de complejidad de los componentes para calcular los puntos función.
 \end_layout
 
 \begin_layout Standard
+Hay al menos 6 estándares ISO basados en puntos función.
+\end_layout
 
+\begin_layout Subsection
+Puntos de caso de uso
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+UCP
+\series default
+ (
+\emph on
+\lang english
+Use Case Point
+\emph default
+\lang spanish
+) es una unidad de medida basada en el punto función pero adaptada a casos
+ de uso, facilitando la estimación en empresas o proyectos que usan casos
+ de uso.
 \end_layout
 
 \begin_layout Section
@@ -1968,7 +1993,7 @@ Estimación de la planificación.
 Estimación del costo.
 
 \series default
- Sumar el costo de los recursos según el tiempo que se vayan a emplear.
+ Sumar el costo de los recursos según el tiempo de uso.
 \end_layout
 
 \begin_layout Enumerate
@@ -2091,16 +2116,8 @@ parámetros
  del proyecto actual para estimar los costes del proyecto con un modelo
  matemático más o menos complejo.
  Los modelos paramétricos de estimación de software suelen ser complejos,
- con muchas variables, como ocurre con 
-\series bold
-COCOMO
-\series default
- y 
-\series bold
-COCOMO II
-\series default
-, y son más fiables cuando son escalables, los parámetros son fácilmente
- cuantificables y la información histórica es más exacta.
+ con muchas variables, y son más fiables cuando son escalables, los parámetros
+ son fácilmente cuantificables y la información histórica es más exacta.
 \end_layout
 
 \begin_layout Standard
@@ -2166,6 +2183,109 @@ factores de complejidad y tamaño
  En esta se completan dos cuestionarios, uno sobre la fase de diseño y otro
  sobre la de implementación, sobre distintos aspectos, y se asigna peso
  a las respuestas de cada participante según su experiencia.
+\end_layout
+
+\begin_layout Standard
+Los puntos función y puntos por casos de uso pueden usarse para estimar
+ ya que se pueden determinar antes de escribir el código.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+COCOMO
+\series default
+ (
+\emph on
+\lang english
+COnstruction COst MOdel
+\emph default
+\lang spanish
+) es un modelo paramétrico desarrollado por Barry Boehm y publicado en 1981.
+ 
+\series bold
+COCOMO II
+\series default
+ es una revisión de COCOMO de 1995 que contempla infraestructura, generadores
+ de aplicaciones, aplicaciones con componentes y sistemas integrados, además
+ de aplicaciones desarrolladas por usuarios finales que no precisan estimación
+ del tiempo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Incluye 3 modelos: 
+\series bold
+composición de aplicaciones
+\series default
+ (
+\series bold
+ACM
+\series default
+, 
+\emph on
+\lang english
+Application Composition Model
+\emph default
+\lang spanish
+), 
+\series bold
+diseño temprano
+\series default
+ (
+\series bold
+EDM
+\series default
+, 
+\emph on
+\lang english
+Early Design Model
+\emph default
+\lang spanish
+) y 
+\series bold
+pos-arquitectura
+\series default
+ (
+\series bold
+PAM
+\series default
+, 
+\emph on
+\lang english
+Post-Architecture Model
+\emph default
+\lang spanish
+).
+ De todos los tipos de productos salvo el último, en las aplicaciones con
+ componentes se usa ACM para estimar el tamaño en puntos objeto, mientras
+ que para el resto se usa ACM durante el prototipado, EDM para las primeras
+ etapas del desarrollo y PAM en la etapa de desarrollo, con estimaciones
+ en puntos función y/o líneas de código fuente.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
