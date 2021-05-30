@@ -1,0 +1,1260 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{tikz}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+La mayoría de proyectos informáticos empiezan con una discordancia entre
+ las prestaciones deseadas y los recursos disponible, y se debe moldear
+ el conjunto de recursos y/o el de prestaciones para que concuerden.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+planificación
+\series default
+ busca suministrar una estructura que permita al director hacer estimaciones
+ razonables de recursos, coste y agendas mediante dos actividades principales:
+ definir el alcance del proyecto y estimar los recursos requeridos para
+ llevar a cabo el desarrollo.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+modelo de programación
+\series default
+ es una representación del plan que incluye duración, dependencias y otras
+ restricciones.
+ De este se obtiene un 
+\series bold
+cronograma
+\series default
+, que representa actividades con fechas planificadas y recursos.
+ Una 
+\series bold
+línea base
+\series default
+ es una instancia del cronograma usada para planificar el proyecto.
+\end_layout
+
+\begin_layout Section
+PMBOK
+\end_layout
+
+\begin_layout Standard
+El área de conocimiento Gestión del Cronograma del Proyecto incluye los
+ procesos:
+\end_layout
+
+\begin_layout Itemize
+De planificación:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Planificar la Gestión del Cronograma.
+
+\series default
+ Establecer políticas, procedimientos y documentación para planificar, desarroll
+ar, gestionar, ejecutar y controlar el cronograma.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Definir las Actividades.
+
+\series default
+ Identificar las acciones específicas a realizar para elaborar los entregables.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Secuenciar las Actividades.
+
+\series default
+ Identificar y documentar las relaciones entre las actividades.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Estimar la Duración de las Actividades.
+
+\series default
+ Aproximar la cantidad de periodos de trabajo necesarios para terminar cada
+ actividad con los recursos estimados.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Desarrollar el Cronograma.
+
+\series default
+ Analizar la duración de las actividades, sus requisitos de recursos y las
+ restricciones de cronograma para crear el cronograma.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+De monitoreo y control:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+6.
+\end_layout
+
+\end_inset
+
+
+\series bold
+Controlar el cronograma.
+
+\series default
+ Seguir el estado del proyecto para actualizar su avance y gestionar cambios
+ a la línea base del cronograma.
+ Actividades:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Determinar el estado actual del cronograma.
+\end_layout
+
+\begin_layout Enumerate
+Influir sobre los factores que cambian el cronograma.
+\end_layout
+
+\begin_layout Enumerate
+Determinar que el cronograma del proyecto ha cambiado.
+\end_layout
+
+\begin_layout Enumerate
+Gestionar los cambios reales a medida que suceden.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section
+Método de diagramación por precedencia
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+PDM
+\series default
+ (
+\emph on
+\lang english
+Precedence Diagram Method
+\emph default
+\lang spanish
+) es una técnica para construir un modelo de programación basada en diagramas
+ de grafo dirigido cuyos nodos son actividades y cuyas flechas son dependencias
+ entre actividades.
+ Una dependencia de 
+\begin_inset Formula $A$
+\end_inset
+
+ a 
+\begin_inset Formula $B$
+\end_inset
+
+ indica que hasta que no empieza o termina 
+\begin_inset Formula $A$
+\end_inset
+
+ no puede empezar o terminar 
+\begin_inset Formula $B$
+\end_inset
+
+, lo que nos da 4 tipos de dependencias:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Final a inicio:
+\series default
+ Lo más común.
+ Hasta que no se ensambla el hardware no se puede desplegar el software.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Final a final:
+\series default
+ Hasta que no termine el desarrollo no puede terminar la documentación.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Inicio a inicio:
+\series default
+ Hasta que no empiece el desarrollo no pueden empezar las pruebas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Inicio a final:
+\series default
+ Hasta que no empiece a mantenerse el nuevo sistema no se puede retirar
+ el anterior.
+\end_layout
+
+\begin_layout Standard
+Normalmente una flecha se une a la parte izquierda o derecha de un nodo
+ según si ese lado de la dependencia es de inicio o fin, respectivamente.
+\end_layout
+
+\begin_layout Section
+Desarrollo del cronograma
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+método de la ruta crítica
+\series default
+ o 
+\series bold
+CPM
+\series default
+ (
+\emph on
+\lang english
+Critical Path Method
+\emph default
+\lang spanish
+) estima la duración mínima del proyecto sin tener en cuenta las limitaciones
+ de recursos, calculando para cada actividad:
+\end_layout
+
+\begin_layout Itemize
+El 
+\series bold
+inicio más pronto
+\series default
+ (
+\begin_inset Formula $IP$
+\end_inset
+
+) y la 
+\series bold
+terminación más pronta
+\series default
+ (
+\begin_inset Formula $TP$
+\end_inset
+
+), las fechas más tempranas en las que el proyecto puede empezar y terminar
+ según las dependencias.
+ 
+\begin_inset Formula $TP$
+\end_inset
+
+ resulta de añadir a 
+\begin_inset Formula $IP$
+\end_inset
+
+ la duración de la actividad.
+\end_layout
+
+\begin_layout Itemize
+El 
+\series bold
+inicio más tardío
+\series default
+ (
+\begin_inset Formula $IT$
+\end_inset
+
+) y la 
+\series bold
+terminación más tardía
+\series default
+ (
+\begin_inset Formula $TT$
+\end_inset
+
+), las fechas más posteriores en que el proyecto puede empezar y terminar
+ sin retrasarlo respecto a su duración mínima.
+\end_layout
+
+\begin_layout Standard
+Para la precedencia de actividades usa un diagrama 
+\series bold
+AOA
+\series default
+ (
+\emph on
+\lang english
+Activity On Arrow
+\emph default
+\lang spanish
+), que representa los hitos de comienzo y fin de tareas como nodos las actividad
+es como flechas, o líneas de izquierda a derecha, de un nodo origen a un
+ nodo fin, con una relación de fin a inicio de las actividades entrantes
+ a un nodo a las salientes.
+\end_layout
+
+\begin_layout Standard
+Los ejes se etiquetan con su nombre, identificación y duración, por ejemplo
+ con una línea encima para el nombre, otra para una letra de identificación,
+ otra con su numeración jerárquica en el WBS entre paréntesis y una línea
+ debajo con la duración.
+\end_layout
+
+\begin_layout Standard
+Los nodos tienen el siguiente aspecto:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (0,0) circle[radius=1]
+\end_layout
+
+\begin_layout Plain Layout
+
+      (-0.7071067811865476,-0.7071067811865476) --
+\end_layout
+
+\begin_layout Plain Layout
+
+        (0.7071067811865476,0.7071067811865476)
+\end_layout
+
+\begin_layout Plain Layout
+
+      (-0.7071067811865476,0.7071067811865476) --
+\end_layout
+
+\begin_layout Plain Layout
+
+        (0.7071067811865476,-0.7071067811865476)
+\end_layout
+
+\begin_layout Plain Layout
+
+      (0,0.5) node{$ID$} (-0.5,0) node{$IP$}
+\end_layout
+
+\begin_layout Plain Layout
+
+      (0,-0.5) node{$H$} (0.5,0) node{$TT$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hay un único nodo de inicio (sin arcos entrantes) y un único nodo de final
+ (sin arcos salientes).
+\end_layout
+
+\begin_layout Standard
+Pasos:
+\end_layout
+
+\begin_layout Enumerate
+Se crea un AOA, rellenando de los nodos solo el campo 
+\begin_inset Formula $ID$
+\end_inset
+
+ con un identificador numérico secuencial en orden topológico del nodo de
+ inicio al de final.
+\end_layout
+
+\begin_layout Enumerate
+El campo 
+\begin_inset Formula $IP$
+\end_inset
+
+ es el 
+\begin_inset Formula $IP$
+\end_inset
+
+ de los arcos salientes, cuyo 
+\begin_inset Formula $TP$
+\end_inset
+
+ es la suma del 
+\begin_inset Formula $IP$
+\end_inset
+
+ más su duración.
+ En orden, el 
+\begin_inset Formula $IP$
+\end_inset
+
+ del primer nodo se rellena con 0 y el del resto con el máximo 
+\begin_inset Formula $TP$
+\end_inset
+
+ de los arcos entrantes.
+\end_layout
+
+\begin_layout Enumerate
+El campo 
+\begin_inset Formula $TT$
+\end_inset
+
+ es el 
+\begin_inset Formula $TT$
+\end_inset
+
+ de los arcos entrantes, cuyo 
+\begin_inset Formula $IT$
+\end_inset
+
+ resulta de restar al 
+\begin_inset Formula $TT$
+\end_inset
+
+ su duración.
+ En orden inverso, el 
+\begin_inset Formula $TT$
+\end_inset
+
+ del primer nodo se rellena con su 
+\begin_inset Formula $IP$
+\end_inset
+
+ y el del resto con el mínimo 
+\begin_inset Formula $IT$
+\end_inset
+
+ de los arcos salientes.
+\end_layout
+
+\begin_layout Enumerate
+El campo 
+\begin_inset Formula $H$
+\end_inset
+
+ de cada nodo se rellena con su 
+\series bold
+holgura
+\series default
+, 
+\begin_inset Formula $H=TT-IP$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Entonces el 
+\series bold
+camino crítico
+\series default
+ está formado por los hitos con holgura 0 y las tareas entre ellos, que
+ son las tareas que no pueden retrasarse para que el proyecto no se demore.
+\end_layout
+
+\begin_layout Standard
+A veces se usan 
+\series bold
+tareas ficticias
+\series default
+ o 
+\series bold
+\emph on
+\lang english
+dummy
+\series default
+\emph default
+\lang spanish
+, tareas de duración 0 sin nombre ni identificación que se añaden para establece
+r precedencias en el orden de otras cuando estas no se pueden establecer
+ de otra forma, y que pueden variar las fechas y el camino crítico.
+\end_layout
+
+\begin_layout Standard
+Otras formas de representar el cronograma:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Diagrama de barras
+\series default
+ o 
+\series bold
+de Gantt.
+
+\series default
+ De los más usados.
+ Proporcionan información sobre el calendario.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Diagrama de hitos,
+\series default
+ como uno de Gantt pero que solo identifican el inicio o el fin programado
+ de los entregables más importantes y las interfaces externas clave.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+PERT
+\series default
+ (
+\emph on
+\lang english
+Program/Project Evaluation and Review Technique
+\emph default
+\lang spanish
+), similar a CPM pero estimando la duración de una tarea según una ponderación
+ estadística entre 3 valores: pesimista, realista y optimista.
+\end_layout
+
+\begin_layout Standard
+PERT o CPM se usan cuando el proyecto es muy crítico, de alto riesgo o incertidu
+mbre, con participación de muchas personas u organizaciones, técnicamente
+ complejo o con actividades dispersas geográficamente.
+ Si tiene menos de 20 actividades se aconseja usar técnicas más sencillas
+ como los diagramas de Gantt o de hitos, y si tiene más de 100 sucesos hay
+ que usar una herramienta de gestión de proyectos.
+\end_layout
+
+\begin_layout Section
+Evaluación económica
+\end_layout
+
+\begin_layout Standard
+El coste para el cliente es la suma del precio que se ofrece al cliente
+ y el presupuesto de lo que aporta y lo que contrata directamente el cliente
+ según su valoración.
+\end_layout
+
+\begin_layout Standard
+La preparación del presupuesto de costes consiste en sumar los costes estimados
+ de actividades individuales o paquetes de trabajo para establecer una línea
+ base de coste.
+ Incluye dos tipos de costes:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Costes directos,
+\series default
+ generados para beneficio exclusivo del proyecto.
+ Salarios, software adquirido específicamente, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Costes indirectos,
+\series default
+ generales de la organización pero asignados en parte al proyecto.
+ Electricidad, teléfono, personal administrativo, alta dirección que dedica
+ parte del tiempo al proyecto, etc.
+\end_layout
+
+\begin_layout Standard
+Un posible desglose puede ser:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+bgroup
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*{
+\backslash
+theenumi}{
+\backslash
+arabic{enumi}} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*{
+\backslash
+theenumii}{
+\backslash
+theenumi.
+\backslash
+arabic{enumii}} 
+\backslash
+renewcommand*{
+\backslash
+theenumiii}{
+\backslash
+theenumii.
+\backslash
+arabic{enumiii}} 
+\backslash
+renewcommand*{
+\backslash
+theenumiv}{
+\backslash
+theenumiii.
+\backslash
+arabic{enumiv}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*{
+\backslash
+labelenumi}{
+\backslash
+theenumi.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*{
+\backslash
+labelenumii}{
+\backslash
+theenumii.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand*{
+\backslash
+labelenumiii}{
+\backslash
+theenumiii.} 
+\backslash
+renewcommand*{
+\backslash
+labelenumiv}{
+\backslash
+theenumiv.} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Software
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Software de base
+\end_layout
+
+\begin_layout Enumerate
+Sistemas de gestión de bases de datos
+\end_layout
+
+\begin_layout Enumerate
+Software de comunicaciones
+\end_layout
+
+\begin_layout Enumerate
+Software de desarrollo
+\end_layout
+
+\begin_layout Enumerate
+Software de aplicaciones
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Estándar
+\end_layout
+
+\begin_layout Enumerate
+Adaptado
+\end_layout
+
+\begin_layout Enumerate
+A medida
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Mantenimiento de software existente
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Hardware
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+...
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Comunicaciones
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+...
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Personal
+\end_layout
+
+\begin_layout Enumerate
+...
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+egroup
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Memoria del proyecto
+\end_layout
+
+\begin_layout Standard
+Organizamos los documentos de lo general a lo particular.
+ Como estos sirven de base para realizar el sistema, la ordenación interna
+ de cada uno debe amoldarse a la señalada en la planificación temporal de
+ trabajos.
+ Cada documento debe ser completo en sí mismo, y se divide en tantas partes
+ o capítulos como contratistas, suministradores, empresas de servicio, unidades
+ de servicios, departamentos, etc.
+ se prevea que han de ejecutar los trabajos.
+ Estas partes deben tener sentido en sí mismas y en relación con el conjunto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una posible propuesta para los capítulos de un proyecto:
+\end_layout
+
+\begin_layout Enumerate
+Introducción.
+ Objeto, antecedentes y bases.
+\end_layout
+
+\begin_layout Enumerate
+El sistema de información en la situación actual.
+ Estado de su informatización.
+\end_layout
+
+\begin_layout Enumerate
+Estudio y selección de alternativas.
+ Viabilidad del proyecto.
+\end_layout
+
+\begin_layout Enumerate
+Ingeniería de la alternativa seleccionada.
+ Uno o varios capítulos de estudio técnico.
+\end_layout
+
+\begin_layout Enumerate
+Ingeniería de calidad.
+\end_layout
+
+\begin_layout Enumerate
+Programación temporal de la ejecución del proyecto y de la puesta en servicio
+ del sistema.
+\end_layout
+
+\begin_layout Enumerate
+Normas para la explotación del nuevo sistema.
+\end_layout
+
+\begin_layout Enumerate
+Presupuesto y estudio económico y financiero.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Anejos a la memoria.
+\end_layout
+
+\begin_layout Section
+Seguimiento y control
+\end_layout
+
+\begin_layout Standard
+Un proceso está 
+\series bold
+bajo control
+\series default
+ si se están alcanzando los hitos a tiempo y con los recursos y la calidad
+ estimados y sigue siendo económicamente aceptable, y está 
+\series bold
+fuera de control
+\series default
+ en otro caso.
+ El objetivo del seguimiento es determinar si el proyecto está o no bajo
+ control.
+\end_layout
+
+\begin_layout Standard
+PMBOK define los siguientes procesos en el grupo de monitoreo y control,
+ que tratan de asegurar que el trabajo real va de acuerdo al plan, obteniendo
+ información del avance del proyecto, comparándola con metas y planes, revelando
+ cuándo y dónde existen desviaciones y poniendo en marcha acciones correctoras.
+\end_layout
+
+\begin_layout Itemize
+Monitorear y controlar el trabajo del proyecto.
+\end_layout
+
+\begin_layout Itemize
+Realizar el 
+\series bold
+control integrado de cambios
+\series default
+.
+ Se hace desde el inicio del proyecto hasta su conclusión para gestionar
+ las solicitudes de cambio una vez se han definido las líneas base.
+ Pasos:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Revisar todas las solicitudes de cambio.
+\end_layout
+
+\begin_layout Enumerate
+Aprobar y gestionar cambios a entregables, documentos del proyecto y al
+ plan para la dirección del proyecto.
+\end_layout
+
+\begin_layout Enumerate
+Comunicar las decisiones.
+\end_layout
+
+\begin_layout Standard
+Las solicitudes pueden incluir 
+\series bold
+acciones correctivas
+\series default
+ para re-alinear el desempeño de trabajo con el plan y 
+\series bold
+acciones preventivas
+\series default
+ para que el desempeño futuro se esté alineado con el plan.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Validar el alcance.
+\end_layout
+
+\begin_layout Itemize
+Controlar el alcance.
+\end_layout
+
+\begin_layout Itemize
+Controlar el cronograma.
+\end_layout
+
+\begin_layout Itemize
+Controlar los costos.
+\end_layout
+
+\begin_layout Itemize
+Controlar la calidad.
+\end_layout
+
+\begin_layout Itemize
+Controlar los recursos.
+\end_layout
+
+\begin_layout Itemize
+Monitorear las comunicaciones.
+\end_layout
+
+\begin_layout Itemize
+Monitorear los riesgos.
+\end_layout
+
+\begin_layout Itemize
+Controlar las adquisiciones.
+\end_layout
+
+\begin_layout Itemize
+Monitorear la implicación de los interesados.
+\end_layout
+
+\begin_layout Standard
+Las principales acciones a realizar para gestionar una crisis en un proyecto
+ son:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Anuncio y publicidad general del problema.
+
+\series default
+ Se comunica a todos el problema para que interioricen la situación y ayuden
+ sin reservas, pues si se enteran de este informalmente pensarán que está
+ controlado.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Re-asignación de responsabilidades y autoridad.
+
+\series default
+ Se reasignan recursos, paralizando algunas tareas y asignando sus empleados
+ y recursos a otras, cuidando de aclarar las responsabilidades y definir
+ quién puede tomar decisiones sobre qué.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Actualizar la información de situación.
+
+\series default
+ Planificar reuniones para que los implicados alineen trabajos hacia la
+ solución, trabajando en grupo para obtener soluciones más creativas, y
+ dejar constancia de lo intentado para evitar volver a cometer el mismo
+ error.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Relajar restricciones sobre recursos.
+
+\series default
+ Los recursos suelen ser limitados por estar compartidos con otros proyectos,
+ así que se hacen excepciones permitiendo el uso de equipos más rápidos,
+ aumentando el soporte administrativo, etc.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Poner al personal a trabajar al máximo.
+
+\series default
+ Que los trabajadores trabajen tanto como puedan, que tengan los móviles
+ siempre encendidos para facilitar la comunicación, suprimir reuniones de
+ departamento, aplazar cursillos, etc.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Comprar y formar a esclavos del África subsahariana, añadir carteles de
+ 
+\begin_inset Quotes cld
+\end_inset
+
+El gran hermano te vigila
+\begin_inset Quotes crd
+\end_inset
+
+, etc.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Establecer la fecha de finalización de la crisis.
+
+\series default
+ Marcar un plazo razonable, de no más de 30 días, para que termine la crisis,
+ y replantearse la viabilidad del proyecto si se sobrepasa el límite ya
+ que la gente no puede vivir con tanto estrés tanto tiempo.
+\end_layout
+
+\begin_layout Standard
+En la recuperación tras la crisis:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Eliminar al personal innecesario.
+\series default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+No en el sentido de matarlos sino en el de quitarles su medio de vida.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Re-planificar el proyecto tras la crisis.
+
+\series default
+ Determinar cómo esta ha afectado al cronograma, el coste, el alcance, etc.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Realizar un estudio 
+\emph on
+post mortem
+\emph default
+ de la crisis.
+
+\series default
+ Examinar qué fue mal, identificar problemas sistemáticos que podrían evitarse
+ y documentar lo aprendido.
+\end_layout
+
+\begin_layout Section
+Cierre del proyecto
+\end_layout
+
+\begin_layout Standard
+En PMBOK, el principal proceso del grupo de procesos de cierre es 
+\begin_inset Quotes cld
+\end_inset
+
+Cerrar el proyecto o fase
+\begin_inset Quotes crd
+\end_inset
+
+, que termina todas las actividades del proyecto, fase o contrato y aborda
+ también el cierre anticipado del proyecto.
+ Actividades:
+\end_layout
+
+\begin_layout Itemize
+Medir la satisfacción de los interesados.
+\end_layout
+
+\begin_layout Itemize
+Confirmar la entrega y aceptación formal del entregables por el cliente.
+\end_layout
+
+\begin_layout Itemize
+Transferir resultado a la siguiente fase, producción u operaciones.
+\end_layout
+
+\begin_layout Itemize
+Liberar recursos.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+En C, esto se hace con 
+\family typewriter
+\lang english
+free
+\lang spanish
+(recurso)
+\family default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Actualizar el registro de lecciones aprendidas, analizando y documentando
+ las razones si un proyecto se da por terminado antes de completarse.
+\end_layout
+
+\end_body
+\end_document
