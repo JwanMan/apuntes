@@ -1,0 +1,968 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Dada una superficie regular 
+\begin_inset Formula $S$
+\end_inset
+
+, un 
+\series bold
+segmento de curva diferenciable
+\series default
+ en 
+\begin_inset Formula $S$
+\end_inset
+
+ es una función 
+\begin_inset Formula $\alpha:[a,b]\to S$
+\end_inset
+
+ para la que existen 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ y una curva diferenciable (no necesariamente regular) 
+\begin_inset Formula $\beta:(a-\varepsilon,b+\varepsilon)\to S$
+\end_inset
+
+ de modo que 
+\begin_inset Formula $\beta|_{[a,b]}=\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+segmento de curva diferenciable a trozos
+\series default
+ en 
+\begin_inset Formula $S$
+\end_inset
+
+ es una función continua 
+\begin_inset Formula $\alpha:[a,b]\to S$
+\end_inset
+
+ para la que existe una partición 
+\begin_inset Formula $a=t_{0}<\dots<t_{k}=b$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $i\in\{1,\dots,k\}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{i}:=\alpha|_{[t_{i-1},t_{i}]}$
+\end_inset
+
+ es un segmento de curva diferenciable.
+ Entonces, para 
+\begin_inset Formula $i\in\{1,\dots,k-1\}$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $\alpha'_{-}(t_{i})=\lim_{t\to t_{i}^{-}}\alpha'(t)=\alpha'_{i}(t_{i})$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha'_{+}(t_{i})=\lim_{t\to t_{i}^{+}}\alpha'(t)=\alpha'_{i+1}(t_{i})$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $\alpha(t_{i})$
+\end_inset
+
+ es un 
+\series bold
+vértice
+\series default
+ de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ si 
+\begin_inset Formula $\alpha'_{-}(t_{i})\neq\alpha'_{+}(t_{i})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Distancia
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $S$
+\end_inset
+
+ es una superficie regular conexa, dados 
+\begin_inset Formula $p,q\in S$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $\Omega(p,q)$
+\end_inset
+
+ al conjunto de segmentos de curvas diferenciables a trozos 
+\begin_inset Formula $\alpha:[a,b]\to S$
+\end_inset
+
+ con 
+\begin_inset Formula $\alpha(a)=p$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha(b)=q$
+\end_inset
+
+, que no es vacío, y llamamos 
+\series bold
+distancia intrínseca
+\series default
+ en 
+\begin_inset Formula $S$
+\end_inset
+
+ a la 
+\begin_inset Formula $d:S\times S\to\mathbb{R}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+d(p,q):=\inf_{\alpha\in\Omega(p,q)}L(\alpha),
+\]
+
+\end_inset
+
+siendo 
+\begin_inset Formula $L(\alpha)$
+\end_inset
+
+ la longitud de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, que es una distancia.
+ Además, 
+\begin_inset Formula $\Vert p-q\Vert\leq d(p,q)$
+\end_inset
+
+ para 
+\begin_inset Formula $p,q\in S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Primero hay que ver que está bien definida, es decir, que para 
+\begin_inset Formula $p,q\in S$
+\end_inset
+
+, 
+\begin_inset Formula $\{L(\alpha)\}_{\alpha\in\Omega(p,q)}$
+\end_inset
+
+ tiene ínfimo.
+ 
+\end_layout
+
+\begin_layout Standard
+Primero vemos que 
+\begin_inset Formula $A:=\{q\in S:\Omega(p,q)\neq\emptyset\}=S$
+\end_inset
+
+ viendo que es abierto, cerrado y no vacío.
+ La curva constante en 
+\begin_inset Formula $p$
+\end_inset
+
+ está en 
+\begin_inset Formula $\Omega(p,p)$
+\end_inset
+
+, luego 
+\begin_inset Formula $p\in A\neq\emptyset$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Para ver que 
+\begin_inset Formula $A$
+\end_inset
+
+ es abierto, sea 
+\begin_inset Formula $q\in A$
+\end_inset
+
+, existe 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $D(q,\varepsilon)$
+\end_inset
+
+ es un entorno normal de 
+\begin_inset Formula $q$
+\end_inset
+
+, de modo que si 
+\begin_inset Formula $\alpha\in\Omega(p,q)$
+\end_inset
+
+, para 
+\begin_inset Formula $q'\in D(q,\varepsilon)$
+\end_inset
+
+, sea 
+\begin_inset Formula $\gamma_{q'}$
+\end_inset
+
+ el segmento de geodésica que une 
+\begin_inset Formula $q$
+\end_inset
+
+ con 
+\begin_inset Formula $q'$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\alpha\wedge\gamma_{q'}\in\Omega(p,q')$
+\end_inset
+
+, 
+\begin_inset Formula $q'\in A$
+\end_inset
+
+ y, como 
+\begin_inset Formula $q'$
+\end_inset
+
+ es arbitrario, 
+\begin_inset Formula $D(q,\varepsilon)\subseteq A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Para ver que 
+\begin_inset Formula $A$
+\end_inset
+
+ es cerrado, vemos que 
+\begin_inset Formula $A^{\complement}=S\setminus A$
+\end_inset
+
+ es abierto.
+ Sea 
+\begin_inset Formula $q\in A^{\complement}$
+\end_inset
+
+ y 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $D(q,\varepsilon)$
+\end_inset
+
+ es un entorno normal de 
+\begin_inset Formula $q$
+\end_inset
+
+, entonces 
+\begin_inset Formula $D(q,\varepsilon)\subseteq A^{\complement}$
+\end_inset
+
+, pues si hubiera 
+\begin_inset Formula $q'\in D(q,\varepsilon)\cap A$
+\end_inset
+
+, sea 
+\begin_inset Formula $\beta\in\Omega(p,q')$
+\end_inset
+
+ y 
+\begin_inset Formula $\gamma_{q'}$
+\end_inset
+
+ el segmento de geodésica que une 
+\begin_inset Formula $q$
+\end_inset
+
+ con 
+\begin_inset Formula $q'$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\beta\wedge\overline{\gamma_{q'}}\in\Omega(p,q)\#$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $A$
+\end_inset
+
+ es abierto, cerrado y no vacío en el conexo 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $A=S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Con esto, como 
+\begin_inset Formula $\Omega(p,q)\neq\emptyset$
+\end_inset
+
+ y 
+\begin_inset Formula $\{L(\alpha)\}_{\alpha\in\Omega(p,q)}$
+\end_inset
+
+ está acotado inferiormente por 0, el ínfimo existe.
+ Queda ver que 
+\begin_inset Formula $d$
+\end_inset
+
+ es una distancia.
+ Sean 
+\begin_inset Formula $p,q,r\in S$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $d(p,q)\geq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $d(p,q)=0\iff p=q$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Por la desigualdad de Cauchy-Schwarz, sean 
+\begin_inset Formula $\alpha:[a,b]\to S$
+\end_inset
+
+ en 
+\begin_inset Formula $\Omega(p,q)$
+\end_inset
+
+ y 
+\begin_inset Formula $v:=\frac{\overrightarrow{q-p}}{\Vert\overrightarrow{q-p}\Vert}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\begin{align*}
+\Vert p-q\Vert & =\langle q-p,v\rangle=\langle q,v\rangle-\langle p,v\rangle=\langle\alpha(b),v\rangle-\langle\alpha(a),v\rangle=\\
+ & =\int_{a}^{b}\langle\alpha'(t),v\rangle dt\leq\int_{a}^{b}|\langle\alpha'(t),v\rangle|dt=\int_{a}^{b}\Vert\alpha'(t)\Vert dt=L(\alpha),
+\end{align*}
+
+\end_inset
+
+y tomando el ínfimo, 
+\begin_inset Formula $\Vert p-q\Vert\leq\inf_{\alpha\in\Omega(p,q)}L(\alpha)=d(p,q)=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $p=q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Basta tomar la curva constante, de longitud 0.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $d(p,q)=d(q,p)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\Omega(q,p)=\{\overline{\alpha}\}_{\alpha\in\Omega(p,q)}$
+\end_inset
+
+, pero 
+\begin_inset Formula $L(\overline{\alpha})=L(\alpha)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $d(p,q)\leq d(p,r)+d(r,q)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $\alpha\in\Omega(p,r)$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta\in\Omega(r,q)$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha\wedge\beta\in\Omega(p,q)$
+\end_inset
+
+, luego
+\begin_inset Formula 
+\[
+d(p,q)=\inf_{\gamma\in\Omega(p,q)}L(\gamma)\leq L(\alpha\wedge\beta)=L(\alpha)+L(\beta).
+\]
+
+\end_inset
+
+Entonces 
+\begin_inset Formula $d(p,q)-L(\beta)\leq L(\alpha)$
+\end_inset
+
+ y tomando el ínfimo 
+\begin_inset Formula $d(p,q)-L(\beta)\leq d(p,r)$
+\end_inset
+
+, luego 
+\begin_inset Formula $d(p,q)-d(p,r)\leq L(\beta)$
+\end_inset
+
+ y tomando el ínfimo 
+\begin_inset Formula $d(p,q)-d(p,r)\leq d(r,q)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Propiedades
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $S$
+\end_inset
+
+ una superficie regular conexa y 
+\begin_inset Formula $p\in S$
+\end_inset
+
+ y 
+\begin_inset Formula $r>0$
+\end_inset
+
+ con 
+\begin_inset Formula ${\cal D}(0_{p},r)\subseteq{\cal D}_{p}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $D(p,r)\subseteq B_{d}(p,r)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $q\in D(p,r)=\exp_{p}({\cal D}(0_{p},r))$
+\end_inset
+
+, existe 
+\begin_inset Formula $v\in{\cal D}(0_{p},r)$
+\end_inset
+
+, no necesariamente único, con 
+\begin_inset Formula $q=\exp_{p}(v)$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $\gamma:[0,1]\to D(p,r)$
+\end_inset
+
+ el segmento de geodésica radial de 
+\begin_inset Formula $p$
+\end_inset
+
+ a 
+\begin_inset Formula $q$
+\end_inset
+
+, como 
+\begin_inset Formula $\gamma\in\Omega(p,q)$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+d(p,q)\leq L(\gamma)=\int_{0}^{1}\Vert\gamma'(t)\Vert dt=\Vert\gamma'(0)\Vert=\Vert v\Vert<r,
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $q\in B_{d}(p,r)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $r\in(0,\delta)$
+\end_inset
+
+, 
+\begin_inset Formula $D(p,r)$
+\end_inset
+
+ es un entorno normal de 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Existe un entorno 
+\begin_inset Formula ${\cal U}$
+\end_inset
+
+ estrellado respecto al 0 con 
+\begin_inset Formula $\exp_{p}:{\cal U}\to(V:=\exp_{p}({\cal U}))$
+\end_inset
+
+ difeomorfismo, luego existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ con 
+\begin_inset Formula ${\cal D}(0,\delta)\subseteq{\cal U}$
+\end_inset
+
+ y, para 
+\begin_inset Formula $r<\delta$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal D}(0,r)\subseteq{\cal U}$
+\end_inset
+
+ y 
+\begin_inset Formula $\exp_{p}:{\cal D}(0,r)\to D(0,r)$
+\end_inset
+
+ es un difeomorfismo.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $D(p,r)$
+\end_inset
+
+ es normal, 
+\begin_inset Formula $D(p,r)=B_{d}(p,r)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Queremos ver que 
+\begin_inset Formula $B_{d}(p,r)\subseteq D(p,r)$
+\end_inset
+
+.
+ Supongamos que esto no ocurre, con lo que existe 
+\begin_inset Formula $q\in B_{d}(p,r)\setminus D(p,r)$
+\end_inset
+
+.
+ Entonces, para 
+\begin_inset Formula $\alpha:[a,b]\to S$
+\end_inset
+
+ en 
+\begin_inset Formula $\Omega(p,q)$
+\end_inset
+
+ y 
+\begin_inset Formula $r^{*}\in(0,r)$
+\end_inset
+
+, como 
+\begin_inset Formula $q\notin D(p,r^{*})$
+\end_inset
+
+, existe 
+\begin_inset Formula $t^{*}:=\inf\{t\in[a,b]:\alpha(t)\notin D(p,r^{*})\}$
+\end_inset
+
+, pero 
+\begin_inset Formula $t\neq a$
+\end_inset
+
+, por tanto 
+\begin_inset Formula $t>a$
+\end_inset
+
+, existe una sucesión creciente 
+\begin_inset Formula $\{t_{n}\}_{n}\subseteq(a,t)$
+\end_inset
+
+ que tiende a 
+\begin_inset Formula $t$
+\end_inset
+
+ y, por continuidad, 
+\begin_inset Formula 
+\[
+p^{*}:=\alpha(t^{*})=\lim_{n}\alpha(t_{n})\in\overline{D(p,r^{*})},
+\]
+
+\end_inset
+
+de modo que 
+\begin_inset Formula $p^{*}\in\partial D(p,r^{*})=S(p,r^{*})$
+\end_inset
+
+.
+ Entonces existe 
+\begin_inset Formula $v^{*}\in{\cal S}(0,r)$
+\end_inset
+
+ con 
+\begin_inset Formula $p^{*}=\exp_{p}(v^{*})$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert v^{*}\Vert=r^{*}$
+\end_inset
+
+.
+ Con esto, 
+\begin_inset Formula $L(\alpha)\geq L(\alpha|_{[a,t^{*}]})\geq L(\gamma_{p^{*}})=\Vert v^{*}\Vert=r^{*}$
+\end_inset
+
+, pero como 
+\begin_inset Formula $\alpha\in\Omega(p,q)$
+\end_inset
+
+ es arbitrario, 
+\begin_inset Formula $d(p,q)\geq r^{*}$
+\end_inset
+
+, y como 
+\begin_inset Formula $r^{*}\in(0,r)$
+\end_inset
+
+ es arbitrario, 
+\begin_inset Formula $d(p,q)\geq r\#$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+La topología inducida en 
+\begin_inset Formula $S$
+\end_inset
+
+ por la usual en 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+ coincide con la inducida por la distancia intrínseca en 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula ${\cal T}_{S}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal T}_{d}$
+\end_inset
+
+ respectivamente estas topologías: 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\subseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $A\in{\cal T}_{S}$
+\end_inset
+
+ y 
+\begin_inset Formula $p\in A$
+\end_inset
+
+, existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ con 
+\begin_inset Formula $B_{d_{\mathbb{R}^{3}}}(p,\delta)\cap S\subseteq A$
+\end_inset
+
+, pero para 
+\begin_inset Formula $q\in B_{d}(p,\delta)$
+\end_inset
+
+ es 
+\begin_inset Formula $\Vert p-q\Vert\leq d(p,q)<\delta$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $q\in B_{d_{\mathbb{R}^{3}}}(p,\delta)\cap S\subseteq A$
+\end_inset
+
+, luego 
+\begin_inset Formula $B_{d}(p,\delta)\subseteq A$
+\end_inset
+
+ y, como 
+\begin_inset Formula $p$
+\end_inset
+
+ es arbitrario, 
+\begin_inset Formula $A\in{\cal T}_{d}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\supseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $A\in{\cal T}_{d}$
+\end_inset
+
+ y 
+\begin_inset Formula $p\in A$
+\end_inset
+
+, existe 
+\begin_inset Formula $\delta_{p}>0$
+\end_inset
+
+ con 
+\begin_inset Formula $B_{d}(p,\delta_{p})\subseteq A$
+\end_inset
+
+, y haciendo 
+\begin_inset Formula $\delta$
+\end_inset
+
+ suficientemente pequeño, 
+\begin_inset Formula $D(p,\delta_{p})$
+\end_inset
+
+ es normal e igual a 
+\begin_inset Formula $B_{d}(p,\delta_{p})$
+\end_inset
+
+, pero 
+\begin_inset Formula $D(p,\delta_{p})$
+\end_inset
+
+ es abierto en 
+\begin_inset Formula ${\cal T}_{S}$
+\end_inset
+
+ ya que 
+\begin_inset Formula $\exp_{p}:{\cal D}(0_{p},\delta_{p})\to D(p,\delta_{p})$
+\end_inset
+
+ es un difeomorfismo, de modo que 
+\begin_inset Formula $A=\bigcup_{p\in A}D(p,\delta_{p})\in{\cal T}_{S}$
+\end_inset
+
+ por ser unión de abiertos.
+\end_layout
+
+\end_body
+\end_document
