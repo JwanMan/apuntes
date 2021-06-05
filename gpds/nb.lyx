@@ -1,0 +1,606 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{tikz}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Son útiles para software de gestión o de tamaño pequeño o medio con requisitos
+ que cambian rápidamente.
+ No lo son en desarrollo de software a gran escala con equipos de desarrollo
+ en sitios distintos e interacciones complejas con otros sistemas hardware
+ y software, ni en sistemas críticos en los que hace falta un análisis detallado
+ de los requisitos para comprender las implicaciones de seguridad informática
+ y humana.
+\end_layout
+
+\begin_layout Standard
+Cuando se aplica un método pesado a una aplicación pequeña o mediana, la
+ sobrecarga de trabajo domina el desarrollo, dedicando más tiempo a cómo
+ se desarrollará el sistema que a la programación y la prueba, y re-diseñando
+ y re-documentando cada vez que se cambia un requisito, por lo que a finales
+ de los 90 surgen métodos ágiles, iterativos e incrementales, que atienden
+ más al software que al diseño y la documentación.
+\end_layout
+
+\begin_layout Standard
+Según el 
+\series bold
+manifiesto ágil
+\series default
+, las principales características de los métodos ágiles son la implicación
+ del cliente en el desarrollo; la entrega incremental, en la que el cliente
+ especifica los requisitos a incluir en cada incremento; el enfoque en las
+ personas del equipo para sacar partido a las destrezas de cada una permitiéndol
+es usar su forma de trabajo; asumir el cambio, diseñando el sistema para
+ acomodar los cambios, y mantener la simplicidad, tanto en el software como
+ en el proceso de desarrollo, eliminando activamente la complejidad donde
+ sea posible.
+\end_layout
+
+\begin_layout Standard
+La documentación se reduce al mínimo y no necesita ser perfecta, y se reduce
+ la especificación de requisitos.
+\end_layout
+
+\begin_layout Standard
+Los métodos ágiles mejoran la sostenibilidad medioambiental ya que, como
+ la reutilización, mejoran la calidad y la productividad, y además hay menos
+ documentación, más adaptación a los cambios, mejor comunicación con el
+ equipo, menos trabajo, más satisfacción de desarrolladores y clientes,
+ y todo eso es bueno para el medio ambiente porque sí.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+En Scrum, las historias de usuario tiene un ID numérico, un título, una
+ descripción, un valor de estimación, una prioridad y una lista de dependencias
+ en otras historias, en tanto que la historia no tiene sentido si no se
+ consideran las otras.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algunos métodos ágiles son XP, Crystal, FDD y el Modelado Ágil de Ambler.
+\end_layout
+
+\begin_layout Section
+Historias de usuario
+\end_layout
+
+\begin_layout Standard
+Son descripciones en jerga de usuario de objetos de alto nivel de la organizació
+n o el cliente, normalmente formadas por 3 frases escritas por el usuario
+ (
+\begin_inset Quotes cld
+\end_inset
+
+como 
+\emph on
+rol
+\emph default
+, quiero que el sistema haga 
+\emph on
+cierta funcionalidad
+\emph default
+ para obtener 
+\emph on
+cierto beneficio
+\emph default
+
+\begin_inset Quotes crd
+\end_inset
+
+), y tienen pruebas de aceptación asociadas.
+\end_layout
+
+\begin_layout Standard
+Se descomponen en 
+\series bold
+tareas
+\series default
+ a realizar para implementar la historia y se agrupan en 
+\series bold
+temas
+\series default
+, categorías de historias de usuario dentro del proyecto con una 
+\series bold
+\emph on
+\lang english
+epic
+\series default
+\emph default
+\lang spanish
+ asociada, una historia de usuario general de alto nivel, sin pruebas de
+ aceptación.
+\end_layout
+
+\begin_layout Standard
+Son la forma normal de especificar requisitos en los métodos ágiles, y suelen
+ describir requisitos funcionales.
+ Los no funcionales se pueden escribir como tareas si afectan claramente
+ a alguna historia o se pueden reconvertir a historias de usuario.
+\end_layout
+
+\begin_layout Standard
+Las buenas historias de usuario son independientes, negociables, valiosas,
+ estimables, pequeñas y verificables (
+\series bold
+\lang english
+INVEST
+\series default
+: 
+\emph on
+Independent, Negotiable, Valuable, Estimable, Small & Testable
+\emph default
+\lang spanish
+).
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+hoja de ruta
+\series default
+ (
+\series bold
+\emph on
+\lang english
+roadmap
+\series default
+\emph default
+\lang spanish
+) es un plan de alto nivel que describe cómo va a ir evolucionando el producto,
+ con al menos versiones del producto, fechas previstas de lanzamiento y
+ funcionalidad.
+\end_layout
+
+\begin_layout Section
+SCRUM
+\end_layout
+
+\begin_layout Standard
+Es un modelo de referencia que define un conjunto de prácticas y roles y
+ puede tomarse como punto de partida para definir el proceso de desarrollo.
+ En inglés significa 
+\begin_inset Quotes cld
+\end_inset
+
+melé
+\begin_inset Quotes crd
+\end_inset
+
+, una táctica de rugby en la que los miembros del equipo se apelotonan.
+\end_layout
+
+\begin_layout Standard
+El marco de trabajo lo forman:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Equipos Scrum
+\series default
+ multifuncionales, autogestionados y responsables de todo, formados por:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Un 
+\emph on
+\lang english
+product owner
+\emph default
+\lang spanish
+, cliente o representante del mismo que define el valor del producto desde
+ el punto de vista del negocio.
+\end_layout
+
+\begin_layout Itemize
+Un 
+\emph on
+\lang english
+scrum master
+\emph default
+\lang spanish
+, que asegura un correcto seguimiento de Scrum eliminando obstáculos y protegien
+do al equipo.
+ Es interlocutor con entidades externas, pero no es el líder del equipo.
+\end_layout
+
+\begin_layout Itemize
+Desarrolladores, responsables de entregar incrementos de producto terminados.
+ Lo ideal es que sean entre 3 y 9.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Eventos
+\series default
+ del proceso.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Artefactos.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\emph on
+\lang english
+Product backlog
+\emph default
+\lang spanish
+:
+\series default
+ Relación dinámica de requisitos, no demasiado detallados al principio,
+ con descripción, priorización, tamaño y valor.
+ Lo gestiona el 
+\emph on
+\lang english
+product owner
+\emph default
+\lang spanish
+ según las necesidades planteadas por clientes y usuarios, pudiendo agregar
+ requisitos en cualquier momento para acomodar cambios.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Puede contener historias de usuario, casos de uso, descomposiciones de requisito
+s, incidencias detectadas, posibles mejoras, realimentación procedente de
+ un incremento, etc.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Reglas
+\series default
+ que relacionan los eventos, roles y artefactos y gobiernan la interacción
+ entre ellos.
+\end_layout
+
+\begin_layout Standard
+Fases:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Planificación
+\series default
+ de la versión del software a construir.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Fase iterativa
+\series default
+, con varios 
+\emph on
+\lang english
+sprints
+\emph default
+\lang spanish
+ o iteraciones.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Cierre:
+\series default
+ preparación de la versión del software que se va a instalar y la documentación
+ final.
+\end_layout
+
+\begin_layout Standard
+Un 
+\emph on
+\lang english
+sprint
+\emph default
+\lang spanish
+ es un bloque de tiempo de un mes o menos en el que se crea un incremento
+ de producto terminado, utilizable y potencialmente desplegable.
+ Es de tamaño fijo, aunque se puede acabar antes si se logran los objetivos,
+ que se establecen al principio el mismo y no se cambian a mitad.
+ Aunque no es lo normal, se puede cancelar un 
+\emph on
+sprint
+\emph default
+ si los objetivos quedan obsoletos.
+ Cada 
+\emph on
+\lang english
+sprint
+\emph default
+\lang spanish
+ comienza inmediatamente después del anterior y contiene:
+\end_layout
+
+\begin_layout Itemize
+Planificación (
+\emph on
+\lang english
+sprint planning
+\emph default
+\lang spanish
+).
+ Reunión de todo el equipo al inicio del 
+\emph on
+\lang english
+sprint
+\emph default
+\lang spanish
+, de una jornada (8 horas) para un 
+\emph on
+\lang english
+sprint
+\emph default
+\lang spanish
+ de un mes.
+ Con el 
+\emph on
+product backlog
+\emph default
+, se establece qué puede entregarse en el incremento y cómo se conseguirá
+ hacer el trabajo para implementarlo, y se crea un 
+\emph on
+sprint backlog
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+Reuniones diarias (
+\emph on
+\lang english
+daily scrum
+\emph default
+\lang spanish
+).
+ Los desarrolladores y el 
+\emph on
+\lang english
+scrum master
+\emph default
+\lang spanish
+ se reúnen durante no más de 15 minutos para actualizar la lista del 
+\emph on
+\lang english
+sprint
+\emph default
+\lang spanish
+.
+ Cada miembro explica qué hizo el día anterior para ayudar a lograr el objetivo,
+ qué hará ese día y si ve algún impedimento para lograr el objetivo.
+\end_layout
+
+\begin_layout Itemize
+Trabajo de desarrollo.
+\end_layout
+
+\begin_layout Itemize
+Revisión (
+\emph on
+\lang english
+sprint review
+\emph default
+\lang spanish
+).
+ Reunión de todo el equipo al final del 
+\emph on
+\lang english
+sprint
+\emph default
+\lang spanish
+, de media jornada para un 
+\emph on
+\lang english
+sprint
+\emph default
+\lang spanish
+ de un mes, en la que se presenta el incremento, se plantean sugerencias,
+ se revisan los problemas que aparecieron y cómo se resolvieron y se establece
+ qué ha de cambiar para dar más valor al producto.
+ Está orientada al producto y al cliente.
+\end_layout
+
+\begin_layout Itemize
+Retrospectiva (
+\emph on
+\lang english
+sprint retrospective
+\emph default
+\lang spanish
+).
+ Reunión de todo el equipo al final, de unas 3 horas para un 
+\emph on
+\lang english
+sprint
+\emph default
+\lang spanish
+ de un mes, donde se revisa cómo fue el último 
+\emph on
+\lang english
+sprint
+\emph default
+\lang spanish
+, se identifican y ordenan los elementos más importantes que salieron bien
+ y las posibles mejoras y se crea un plan para implementar las mejoras.
+ Está orientada al proceso y al equipo.
+\end_layout
+
+\begin_layout Standard
+La prioridad de los elementos del 
+\emph on
+\lang english
+product backlog
+\emph default
+\lang spanish
+ refleja el valor
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+No necesariamente económico.
+\end_layout
+
+\end_inset
+
+ que tiene para el negocio, o el riesgo del elemento para atacarlo de forma
+ temprana.
+ La 
+\series bold
+técnica 
+\lang english
+MoSCoW
+\series default
+\lang spanish
+ establece 4 niveles de prioridad: 
+\emph on
+\lang english
+MOst vital
+\emph default
+\lang spanish
+/
+\emph on
+\lang english
+must have
+\emph default
+\lang spanish
+, 
+\emph on
+\lang english
+Should have
+\emph default
+\lang spanish
+, 
+\emph on
+\lang english
+COuld have
+\emph default
+\lang spanish
+ y 
+\emph on
+\lang english
+Won't have
+\emph default
+\lang spanish
+.
+\end_layout
+
+\begin_layout Standard
+La estimación de tamaño de los elementos
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+a11::50
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
