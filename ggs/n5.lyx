@@ -1,0 +1,1360 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Dada una superficie regular 
+\begin_inset Formula $S$
+\end_inset
+
+, un entorno 
+\begin_inset Formula $W\subseteq S$
+\end_inset
+
+ de 
+\begin_inset Formula $p\in S$
+\end_inset
+
+ es 
+\series bold
+convexo
+\series default
+ si es normal en todos sus puntos.
+ Todo 
+\begin_inset Formula $p\in S$
+\end_inset
+
+ tiene un entorno convexo.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $V$
+\end_inset
+
+ un entorno normal de 
+\begin_inset Formula $p_{0}\in S$
+\end_inset
+
+, para cada 
+\begin_inset Formula $p\in V$
+\end_inset
+
+, el segmento de geodésica radial 
+\begin_inset Formula $\gamma_{p}:[0,1]\to V$
+\end_inset
+
+ es el único segmento de geodésica contenido en 
+\begin_inset Formula $V$
+\end_inset
+
+ con 
+\begin_inset Formula $\gamma_{p}(0)=p_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $\gamma_{p}(1)=p$
+\end_inset
+
+, salvo reparametrizaciones.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $\alpha:[a,b]\to V$
+\end_inset
+
+ un segmento de geodésica que une 
+\begin_inset Formula $p_{0}$
+\end_inset
+
+ a 
+\begin_inset Formula $p$
+\end_inset
+
+, por reparametrización afín podemos suponer que 
+\begin_inset Formula $\alpha:[0,1]\to V$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $w:=\alpha'(0)$
+\end_inset
+
+, la geodésica maximal 
+\begin_inset Formula $\gamma_{w}:I_{w}\to S$
+\end_inset
+
+ debe cumplir 
+\begin_inset Formula $[0,1]=\text{Dom}\alpha\subseteq I_{w}$
+\end_inset
+
+, luego 
+\begin_inset Formula $1\in I_{w}$
+\end_inset
+
+, 
+\begin_inset Formula $w\in{\cal D}_{p}$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha(t)=\gamma_{w}(t)=\exp_{p_{0}}(tw)$
+\end_inset
+
+ para 
+\begin_inset Formula $t\in[0,1]$
+\end_inset
+
+.
+ Por otro lado, 
+\begin_inset Formula $\gamma_{p}(t)=\exp_{p_{0}}(tv_{p})$
+\end_inset
+
+, y queda probar que 
+\begin_inset Formula $w=v_{p}$
+\end_inset
+
+.
+ Se tiene 
+\begin_inset Formula $\exp_{p_{0}}(w)=\gamma_{w}(1)=\alpha(1)=p=\gamma_{p}(1)=\exp_{p_{0}}(v_{p})$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula ${\cal U}$
+\end_inset
+
+ un entorno de 
+\begin_inset Formula $0_{p_{0}}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\exp_{p_{0}}:{\cal U}\to V$
+\end_inset
+
+ es un difeomorfismo, basta ver que 
+\begin_inset Formula $w\in{\cal U}$
+\end_inset
+
+, pues entonces, como 
+\begin_inset Formula $v_{p}\in{\cal U}$
+\end_inset
+
+, por el difeomorfismo 
+\begin_inset Formula $w=v_{p}$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $\tilde{\alpha}(t):=(\exp_{p_{0}}|_{{\cal U}})^{-1}(\alpha(t))\in{\cal U}$
+\end_inset
+
+ y 
+\begin_inset Formula $A:=\{t\in[0,1]:\tilde{\alpha}(t)=tw\}$
+\end_inset
+
+, queremos ver que 
+\begin_inset Formula $A=[0,1]$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $\tilde{\alpha}(0)=(\exp_{p_{0}}|_{{\cal U}})^{-1}(p)=0=0w$
+\end_inset
+
+, 
+\begin_inset Formula $0\in A$
+\end_inset
+
+, y 
+\begin_inset Formula $A=(t\mapsto\tilde{\alpha}(t)-tw)^{-1}(\{0\})$
+\end_inset
+
+ es cerrado.
+ Ahora bien, para 
+\begin_inset Formula $t_{0}\in A$
+\end_inset
+
+, 
+\begin_inset Formula $t_{0}w=\tilde{\alpha}(t_{0})\in{\cal U}$
+\end_inset
+
+ y, como 
+\begin_inset Formula ${\cal U}$
+\end_inset
+
+ es abierto, existe 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $t\in B(t_{0},\varepsilon)$
+\end_inset
+
+ es 
+\begin_inset Formula $tw\in{\cal U}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\alpha(t)=\exp_{p_{0}}(tw)=\exp_{p_{0}}(\tilde{\alpha}(t))$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $A$
+\end_inset
+
+ es abierto, cerrado y no vacío, 
+\begin_inset Formula $A=[0,1]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $\gamma:[0,b)\to S$
+\end_inset
+
+ un segmento de geodésica para el que existe 
+\begin_inset Formula $\lim_{t\to b^{-}}\gamma(t)=p$
+\end_inset
+
+, existe 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ para el que 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ se puede extender a una geodésica 
+\begin_inset Formula $\gamma:[0,b+\varepsilon)\to S$
+\end_inset
+
+ con 
+\begin_inset Formula $\gamma(b)=p$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Existen un entorno convexo 
+\begin_inset Formula $W$
+\end_inset
+
+ de 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in[0,b)$
+\end_inset
+
+ de modo que 
+\begin_inset Formula $\gamma(t)\in W$
+\end_inset
+
+ para todo 
+\begin_inset Formula $t\in[a,b)$
+\end_inset
+
+.
+ Dado segmento de geodésica 
+\begin_inset Formula $\gamma_{p}:[0,1]\to W$
+\end_inset
+
+ que une 
+\begin_inset Formula $\gamma(a)$
+\end_inset
+
+ a 
+\begin_inset Formula $p$
+\end_inset
+
+, para 
+\begin_inset Formula $t\in[a,b)$
+\end_inset
+
+, 
+\begin_inset Formula $\gamma|_{[a,t]}$
+\end_inset
+
+ es una reparametrización de 
+\begin_inset Formula $\gamma_{p}|_{[0,\frac{t-a}{b-a}]}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\gamma|_{[a,b)}$
+\end_inset
+
+ es reparametrización de 
+\begin_inset Formula $\gamma_{p}|_{[0,1)}$
+\end_inset
+
+ y, como 
+\begin_inset Formula $\gamma_{p}$
+\end_inset
+
+ se existe a un segmento de geodésica 
+\begin_inset Formula $\gamma_{p}:[0,1+\varepsilon)\to W$
+\end_inset
+
+ para un 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, podemos usar la reparametrización afín para extender 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ como 
+\begin_inset Formula $\gamma:[0,b+\frac{\varepsilon}{b-a})\to S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Si 
+\begin_inset Formula $S$
+\end_inset
+
+ es conexa y geodésicamente completa en un 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, entonces para todo 
+\begin_inset Formula $q\in S$
+\end_inset
+
+ existe un segmento de geodésica minimizante que une 
+\begin_inset Formula $p$
+\end_inset
+
+ a 
+\begin_inset Formula $q$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $p,q\in S$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha\in\Omega(p,q)$
+\end_inset
+
+ es 
+\series bold
+minimizante
+\series default
+ o 
+\series bold
+realiza la distancia
+\series default
+ entre 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $q$
+\end_inset
+
+ si 
+\begin_inset Formula $d(p,q)=L(\alpha)$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\alpha:[a,b]\to S$
+\end_inset
+
+ realiza la distancia entre 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $q$
+\end_inset
+
+, existe una partición 
+\begin_inset Formula $a=t_{0}<\dots<t_{n}=b$
+\end_inset
+
+ y un cubrimiento 
+\begin_inset Formula $\{W_{i}\}_{i=0}^{n}$
+\end_inset
+
+ de 
+\begin_inset Formula $\alpha([a,b])$
+\end_inset
+
+ por entornos convexos de forma que, para 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{i}:=\alpha|_{[t_{i-1},t_{i}]}$
+\end_inset
+
+ es diferenciable e 
+\begin_inset Formula $\text{Im}\alpha_{i}\subseteq W_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Todo segmento de curva minimizante es una reparametrización de un segmento
+ de geodésica, y en particular no tiene vértices.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $\alpha:[a,b]\to S$
+\end_inset
+
+ un segmento de curva minimizante y 
+\begin_inset Formula $a=t_{0}<\dots<t_{n}=b$
+\end_inset
+
+ y 
+\begin_inset Formula $\{W_{i}\}_{i=0}^{n}$
+\end_inset
+
+ un cubrimiento de 
+\begin_inset Formula $\alpha([a,b])$
+\end_inset
+
+ por entornos convexos con cada 
+\begin_inset Formula $\alpha_{i}:=\alpha|_{[t_{i-1},t_{i}]}$
+\end_inset
+
+ diferenciable con imagen en 
+\begin_inset Formula $W_{i}$
+\end_inset
+
+, como cada 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ es minimizante entre 
+\begin_inset Formula $\alpha(t_{i-1})$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha(t_{i})$
+\end_inset
+
+, 
+\begin_inset Formula $L(\alpha_{i})=d(\alpha(t_{i-1}),\alpha(t_{i}))$
+\end_inset
+
+, pero 
+\begin_inset Formula $\text{Im}\alpha_{i}\subseteq W_{i}$
+\end_inset
+
+, luego viendo 
+\begin_inset Formula $W_{i}$
+\end_inset
+
+ como entorno normal de 
+\begin_inset Formula $\alpha(t_{i-1})$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ es una reparametrización de un segmento de geodésica radial de 
+\begin_inset Formula $\alpha(t_{i-1})$
+\end_inset
+
+ a 
+\begin_inset Formula $\alpha(t_{i})$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es una concatenación de geodésicas potenciales.
+ Además, por continuidad, si 
+\begin_inset Formula $i<n$
+\end_inset
+
+, existe 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ con 
+\begin_inset Formula $\alpha([t_{i-1},t_{i}+\varepsilon])\subseteq W$
+\end_inset
+
+ y por tanto un segmento de geodésica radial 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ en 
+\begin_inset Formula $W$
+\end_inset
+
+ de 
+\begin_inset Formula $\alpha(t_{i-1})$
+\end_inset
+
+ a 
+\begin_inset Formula $\alpha(t_{i}+\varepsilon)$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $\alpha|_{[t_{i-1},t_{i}+\varepsilon]}$
+\end_inset
+
+ es minimizante, por unicidad es una reparametrización de 
+\begin_inset Formula $\gamma$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es 
+\begin_inset Formula ${\cal C}^{\infty}$
+\end_inset
+
+ en 
+\begin_inset Formula $t_{i}$
+\end_inset
+
+ y reparametriza una misma geodésica en todo punto.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $S$
+\end_inset
+
+ es conexa y geodésicamente completa en un 
+\begin_inset Formula $p_{0}\in S$
+\end_inset
+
+, entonces para todo 
+\begin_inset Formula $p\in S$
+\end_inset
+
+ existe un segmento de geodésica minimizante que une 
+\begin_inset Formula $p_{0}$
+\end_inset
+
+ a 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{TEM}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un espacio topológico 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ es 
+\series bold
+de Hausdorff
+\series default
+ o 
+\begin_inset Formula $T_{2}$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall p,q\in X,p\neq q;\exists U\in{\cal E}(p),V\in{\cal E}(q):U\cap V=\emptyset$
+\end_inset
+
+.
+ [...] Todo espacio metrizable es [...] 
+\begin_inset Formula $T_{2}$
+\end_inset
+
+ [...].
+ [...]
+\end_layout
+
+\begin_layout Standard
+Todo [...] compacto [...] de un espacio [...] Hausdorff [...] es cerrado.
+ [...]
+\end_layout
+
+\begin_layout Standard
+Todo [...] compacto 
+\begin_inset Formula $K$
+\end_inset
+
+ de un espacio métrico 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ es acotado.
+ 
+\series bold
+Demostración:
+\series default
+ Dado 
+\begin_inset Formula $a\in X$
+\end_inset
+
+, para todo 
+\begin_inset Formula $x\in K$
+\end_inset
+
+ existe un 
+\begin_inset Formula $n_{x}\in\mathbb{N}$
+\end_inset
+
+ con 
+\begin_inset Formula $d(x,a)<n_{x}$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $\{B(a;n)\}_{n=1}^{\infty}$
+\end_inset
+
+ es un recubrimiento abierto de 
+\begin_inset Formula $K$
+\end_inset
+
+ del que podemos extraer un subrecubrimiento finito 
+\begin_inset Formula $\{B(a;n_{1}),\dots,B(a;n_{r})\}$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $K\subseteq B(a;n_{1})\cup\dots\cup B(a;n_{r})=B(a;\max\{n_{1},\dots,n_{r}\})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un espacio métrico 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ cumple la 
+\series bold
+propiedad de Heine-Borel
+\series default
+ si para 
+\begin_inset Formula $A\subseteq S$
+\end_inset
+
+, 
+\begin_inset Formula $A$
+\end_inset
+
+ es compacto si y sólo si es cerrado y acotado con la distancia 
+\begin_inset Formula $d$
+\end_inset
+
+.
+ Todo espacio métrico que cumple esta propiedad es completo.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $\{p_{n}\}_{n}\subseteq X$
+\end_inset
+
+ una sucesión de Cauchy y 
+\begin_inset Formula $A:=\{p_{n}\}_{n}$
+\end_inset
+
+ su conjunto de puntos, para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe 
+\begin_inset Formula $N>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall n,m\geq N,d(p_{n},p_{m})<\varepsilon$
+\end_inset
+
+.
+ Dados 
+\begin_inset Formula $p\in X$
+\end_inset
+
+ y 
+\begin_inset Formula $n\geq N$
+\end_inset
+
+, 
+\begin_inset Formula $d(p,p_{n})\leq d(p,p_{N})+d(p_{N},p_{n})\leq d(p,p_{N})+\varepsilon$
+\end_inset
+
+, y dado 
+\begin_inset Formula $r_{0}>d(p,p_{N})+\varepsilon$
+\end_inset
+
+, 
+\begin_inset Formula $d(p,p_{n})<r_{0}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $n\geq N$
+\end_inset
+
+.
+ Tomando 
+\begin_inset Formula $r:=\max\{r_{0},d(p,p_{1}),\dots,d(p,p_{N-1})\}$
+\end_inset
+
+, es 
+\begin_inset Formula $d(p,p_{n})<r$
+\end_inset
+
+ para todo 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, luego 
+\begin_inset Formula $A$
+\end_inset
+
+ es acotado.
+ Por tanto 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+ es cerrado y acotado, con lo que 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+ es compacto por la propiedad de Heine-Borel y, como 
+\begin_inset Formula $\{p_{n}\}_{n}\subseteq\overline{A}$
+\end_inset
+
+, existe una subsucesión convergente de 
+\begin_inset Formula $(p_{n})_{n}$
+\end_inset
+
+, pero al ser de Cauchy con una subsucesión convergente, es convergente.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Hopf-Rinow:
+\series default
+ Dada una superficie regular conexa 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $(S,d)$
+\end_inset
+
+ es un espacio métrico completo si y sólo si 
+\begin_inset Formula $S$
+\end_inset
+
+ es geodésicamente completa, si y sólo si existe un 
+\begin_inset Formula $p_{0}\in S$
+\end_inset
+
+ en el que 
+\begin_inset Formula $S$
+\end_inset
+
+ es geodésicamente completa, si y sólo si 
+\begin_inset Formula $(S,d)$
+\end_inset
+
+ cumple la propiedad de Heine-Borel, en cuyo caso diremos que 
+\begin_inset Formula $S$
+\end_inset
+
+ es 
+\series bold
+completa
+\series default
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Supongamos que 
+\begin_inset Formula $S$
+\end_inset
+
+ no es geodésicamente completa, con lo que existen 
+\begin_inset Formula $p_{0}\in S$
+\end_inset
+
+ y 
+\begin_inset Formula $v\in T_{p_{0}}S$
+\end_inset
+
+ tales que 
+\begin_inset Formula $\gamma:=\gamma_{v}$
+\end_inset
+
+ no está definida en todo 
+\begin_inset Formula $t\in\mathbb{R}$
+\end_inset
+
+.
+ Podemos suponer que existe 
+\begin_inset Formula $b>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ está definida en 
+\begin_inset Formula $[0,b)$
+\end_inset
+
+ y no se puede extender más allá de 
+\begin_inset Formula $b$
+\end_inset
+
+, pues si 
+\begin_inset Formula $I_{v}$
+\end_inset
+
+ solo estuviera acotado inferiormente, cambiamos 
+\begin_inset Formula $v$
+\end_inset
+
+ por 
+\begin_inset Formula $-v$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $\{t_{n}\}_{n}\subseteq[0,b)$
+\end_inset
+
+ una sucesión con 
+\begin_inset Formula $\lim_{n}t_{n}=b$
+\end_inset
+
+, como 
+\begin_inset Formula $(t_{n})_{n}$
+\end_inset
+
+ es de convergente es de Cauchy, luego para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe 
+\begin_inset Formula $n_{0}>0$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n,m\geq n_{0}$
+\end_inset
+
+ es 
+\begin_inset Formula $|t_{m}-t_{n}|<\varepsilon$
+\end_inset
+
+.
+ Ahora bien,
+\begin_inset Formula 
+\[
+d(\gamma(t_{n}),\gamma(t_{m}))\leq L_{t_{n}}^{t_{m}}(\gamma|_{[t_{n},t_{m}]})=\left|\int_{t_{n}}^{t_{m}}\Vert\gamma'(t)\Vert dt\right|=|t_{m}-t_{n}|\Vert\gamma'(0)\Vert=|t_{m}-t_{n}|\Vert v\Vert,
+\]
+
+\end_inset
+
+luego si 
+\begin_inset Formula $n,m\geq n_{0}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $d(\gamma(t_{n}),\gamma(t_{m}))\leq\Vert v\Vert\varepsilon$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $(\gamma(t_{n}))_{n}$
+\end_inset
+
+ es de Cauchy en 
+\begin_inset Formula $(S,d)$
+\end_inset
+
+ y, como 
+\begin_inset Formula $(S,d)$
+\end_inset
+
+ es completo, 
+\begin_inset Formula $(\gamma(t_{n}))_{n}$
+\end_inset
+
+ es convergente, luego existe 
+\begin_inset Formula $p\in S$
+\end_inset
+
+ con 
+\begin_inset Formula $p=\lim_{n}\gamma(t_{n})$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $\{t_{n}\}_{n}$
+\end_inset
+
+ es arbitrario, si 
+\begin_inset Formula $\{s_{n}\}_{n}\subseteq[0,b)$
+\end_inset
+
+ es otra sucesión con 
+\begin_inset Formula $\lim_{n}s_{n}=b$
+\end_inset
+
+, existe 
+\begin_inset Formula $p'\in S$
+\end_inset
+
+ con 
+\begin_inset Formula $p'=\lim_{n}\gamma(s_{n})\in S$
+\end_inset
+
+, y como 
+\begin_inset Formula 
+\[
+0\leq d(\gamma(s_{n}),\gamma(t_{n}))\leq L_{s_{n}}^{t_{n}}(\gamma)=\Vert v\Vert|t_{n}-s_{n}|,
+\]
+
+\end_inset
+
+cuando 
+\begin_inset Formula $n\to\infty$
+\end_inset
+
+, 
+\begin_inset Formula $|t_{n}-s_{n}|\to0$
+\end_inset
+
+ y 
+\begin_inset Formula $d(p',p)=0$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $p'=p$
+\end_inset
+
+ y, como esto se cumple para cualquier 
+\begin_inset Formula $\{s_{n}\}_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\lim_{t\to b^{-}}\gamma(t)=p$
+\end_inset
+
+.
+ Por tanto existe 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ se puede extender a una geodésica 
+\begin_inset Formula $\gamma:[0,b+\varepsilon)\to S\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies3]$
+\end_inset
+
+ Obvio.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies4]$
+\end_inset
+
+ Como 
+\begin_inset Formula $S$
+\end_inset
+
+ es geodésicamente completa en 
+\begin_inset Formula $p_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\exp_{p_{0}}$
+\end_inset
+
+ está definida en todo 
+\begin_inset Formula $T_{p_{0}}S$
+\end_inset
+
+, y queremos ver que, para 
+\begin_inset Formula $A\subseteq S$
+\end_inset
+
+, 
+\begin_inset Formula $A$
+\end_inset
+
+ es compacto si y sólo si es cerrado y acotado.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es compacto, es cerrado por estar en un espacio Hausdorff y acotado por
+ estar en uno métrico.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Como 
+\begin_inset Formula $A$
+\end_inset
+
+ es acotado, existe 
+\begin_inset Formula $M>0$
+\end_inset
+
+ con 
+\begin_inset Formula $A\subseteq B_{d}(p_{0},M)$
+\end_inset
+
+, y como 
+\begin_inset Formula $S$
+\end_inset
+
+ es conexa y geodésicamente completa en 
+\begin_inset Formula $p_{0}$
+\end_inset
+
+, para 
+\begin_inset Formula $p\in A$
+\end_inset
+
+ existe un segmento de geodésica minimizante 
+\begin_inset Formula $\gamma:[0,a]\to S$
+\end_inset
+
+ que une 
+\begin_inset Formula $p_{0}$
+\end_inset
+
+ a 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $v:=\gamma'(0)$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+M>d(p_{0},p)=L_{0}^{a}(\gamma)=\int_{0}^{a}\Vert\gamma'(t)\Vert dt=a\Vert\gamma'(0)\Vert=a\Vert v\Vert,
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $av\in{\cal D}(0,M)$
+\end_inset
+
+ y 
+\begin_inset Formula $p=\gamma(a)=\exp_{p_{0}}(av)\in\exp_{p_{0}}({\cal D}(0,M))\subseteq\exp_{p_{0}}(\overline{{\cal D}(0,M)})$
+\end_inset
+
+.
+ Pero 
+\begin_inset Formula $\exp_{p_{0}}(\overline{{\cal D}(0,M)})$
+\end_inset
+
+ es compacto en 
+\begin_inset Formula $S$
+\end_inset
+
+ por serlo 
+\begin_inset Formula $\overline{{\cal D}(0,M)}$
+\end_inset
+
+ en 
+\begin_inset Formula $T_{p_{0}}S$
+\end_inset
+
+ y por ser 
+\begin_inset Formula $\exp_{p_{0}}$
+\end_inset
+
+ continua, luego 
+\begin_inset Formula $A\subseteq\exp_{p_{0}}(\overline{{\cal D}(0,M)})$
+\end_inset
+
+ es un cerrado dentro de un compacto y por tanto un compacto.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+\begin_inset Formula $4\implies1]$
+\end_inset
+
+ Visto para todo espacio métrico.
+\end_layout
+
+\begin_layout Standard
+Así, si una superficie regular conexa 
+\begin_inset Formula $S$
+\end_inset
+
+ es completa, dos puntos 
+\begin_inset Formula $p,q\in S$
+\end_inset
+
+ se pueden unir con un segmento de geodésica minimizante, no necesariamente
+ único.
+ Todo espacio métrico compacto es completo, pues sus subespacios cerrados
+ y acotados, por ser cerrados, son compactos, cumpliendo la propiedad de
+ Heine-Borel.
+ En particular toda superficie regular, conexa y compacta es completa.
+\end_layout
+
+\begin_layout Standard
+Toda superficie regular conexa y cerrada en 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+ es completa.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $S$
+\end_inset
+
+ esta superficie, dada una sucesión de Cauchy 
+\begin_inset Formula $\{p_{n}\}_{n}\subseteq S$
+\end_inset
+
+, como 
+\begin_inset Formula $\Vert p_{n}-p_{m}\Vert\leq d(p_{n},p_{m})$
+\end_inset
+
+ para 
+\begin_inset Formula $n,m\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $(p_{n})_{n}$
+\end_inset
+
+ también es una sucesión de Cauchy en 
+\begin_inset Formula $(\mathbb{R}^{3},\Vert\cdot\Vert)$
+\end_inset
+
+, pero este espacio es completo y por tanto 
+\begin_inset Formula $(p_{n})_{n}$
+\end_inset
+
+ converge en 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+ a un 
+\begin_inset Formula $p\in\mathbb{R}^{3}$
+\end_inset
+
+.
+ Pero como 
+\begin_inset Formula $S$
+\end_inset
+
+ es cerrada y 
+\begin_inset Formula $\{p_{n}\}_{n}\subseteq S$
+\end_inset
+
+, el límite 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, luego la sucesión converge también en 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
