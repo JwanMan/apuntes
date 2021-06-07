@@ -1,0 +1,503 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una 
+\series bold
+región
+\series default
+ de una superficie regular 
+\begin_inset Formula $S$
+\end_inset
+
+ es un 
+\begin_inset Formula $R\subseteq S$
+\end_inset
+
+ abierto, conexo y 
+\series bold
+relativamente compacto
+\series default
+, es decir, con clausura compacta.
+ Si existe una parametrización 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ de 
+\begin_inset Formula $S$
+\end_inset
+
+ con 
+\begin_inset Formula $R\subseteq X(U)$
+\end_inset
+
+ y 
+\begin_inset Formula $f:R\to\mathbb{R}$
+\end_inset
+
+ es continua, la 
+\series bold
+integral
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ sobre 
+\begin_inset Formula $R$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\int_{R}f\,dS=\iint_{X^{-1}(R)}(f\circ X)\left\Vert \frac{\partial X}{\partial u}\wedge\frac{\partial X}{\partial v}\right\Vert =\iint_{X^{-1}(R)}(f\circ X)\sqrt{EG-F^{2}}.
+\]
+
+\end_inset
+
+Esta no depende de la parametrización.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ y 
+\begin_inset Formula $(\overline{U},\overline{X})$
+\end_inset
+
+ parametrizaciones de 
+\begin_inset Formula $S$
+\end_inset
+
+ con 
+\begin_inset Formula $R\subseteq X(U)\cap\overline{X}(\overline{U})$
+\end_inset
+
+, 
+\begin_inset Formula $h:=\overline{X}^{-1}\circ X$
+\end_inset
+
+ la reparametrización y 
+\begin_inset Formula $h(u,v)=:(\overline{u}(u,v),\overline{v}(u,v))$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $X=\overline{X}\circ h$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial X}{\partial u} & =\frac{\partial\overline{X}}{\partial\overline{u}}\frac{\partial\overline{u}}{\partial u}+\frac{\partial\overline{X}}{\partial\overline{v}}\frac{\partial\overline{v}}{\partial u}, & \frac{\partial X}{\partial v} & =\frac{\partial\overline{X}}{\partial\overline{u}}\frac{\partial\overline{u}}{\partial v}+\frac{\partial\overline{X}}{\partial\overline{v}}\frac{\partial\overline{v}}{\partial v},
+\end{align*}
+
+\end_inset
+
+con las derivadas de 
+\begin_inset Formula $\overline{X}$
+\end_inset
+
+ evaluadas en 
+\begin_inset Formula $h(u,v)$
+\end_inset
+
+ y el resto en 
+\begin_inset Formula $(u,v)$
+\end_inset
+
+, luego
+\begin_inset Formula 
+\[
+\left(\frac{\partial X}{\partial u}\wedge\frac{\partial X}{\partial v}\right)=\frac{\partial\overline{X}}{\partial\overline{u}}\frac{\partial\overline{u}}{\partial u}\wedge\frac{\partial\overline{X}}{\partial\overline{v}}\frac{\partial\overline{v}}{\partial v}+\frac{\partial\overline{X}}{\partial\overline{v}}\frac{\partial\overline{v}}{\partial u}\wedge\frac{\partial\overline{X}}{\partial\overline{u}}\frac{\partial\overline{u}}{\partial v}=\left(\frac{\partial\overline{u}}{\partial u}\frac{\partial\overline{v}}{\partial v}-\frac{\partial\overline{u}}{\partial v}\frac{\partial\overline{v}}{\partial u}\right)\left(\frac{\partial\overline{X}}{\partial\overline{u}}\wedge\frac{\partial\overline{X}}{\partial\overline{v}}\right),
+\]
+
+\end_inset
+
+pero 
+\begin_inset Formula $\frac{\partial\overline{u}}{\partial u}\frac{\partial\overline{v}}{\partial v}-\frac{\partial\overline{u}}{\partial v}\frac{\partial\overline{v}}{\partial u}=\det(Jh)$
+\end_inset
+
+, luego
+\begin_inset Formula 
+\begin{multline*}
+\iint_{X^{-1}(R)}(f\circ X)\left\Vert \frac{\partial X}{\partial u}\wedge\frac{\partial X}{\partial v}\right\Vert =\iint_{X^{-1}(R)}(f\circ X)|\det(Jh)|\left\Vert \frac{\partial\overline{X}}{\partial\overline{u}}\wedge\frac{\partial\overline{X}}{\partial\overline{v}}\right\Vert =\\
+=\iint_{h(X^{-1}(R))=\overline{X}^{-1}(R)}(f\circ X)\left\Vert \frac{\partial\overline{X}}{\partial\overline{u}}\wedge\frac{\partial\overline{X}}{\partial\overline{v}}\right\Vert .
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+área
+\series default
+ de una región 
+\begin_inset Formula $R$
+\end_inset
+
+ contenida en la imagen de una parametrización de 
+\begin_inset Formula $S$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+A(R):=\int_{R}dS.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $R$
+\end_inset
+
+ no está contenida en la imagen de una parametrización, es posible extender
+ las definiciones de área y de integral de una función con soporte compacto
+ sobre 
+\begin_inset Formula $R$
+\end_inset
+
+ usando particiones diferenciables de la unidad.
+ 
+\end_layout
+
+\begin_layout Standard
+Dada una función 
+\begin_inset Formula $\phi:S_{1}\to S_{2}$
+\end_inset
+
+ entre superficies regulares, definimos 
+\begin_inset Formula $\det(d\phi):S_{1}\to\mathbb{R}$
+\end_inset
+
+ como 
+\begin_inset Formula $\det(d\phi)(p):=\det(J\phi_{p})$
+\end_inset
+
+.
+ El 
+\series bold
+soporte
+\series default
+ de una función 
+\begin_inset Formula $f:D\to\mathbb{R}$
+\end_inset
+
+ es 
+\begin_inset Formula $\text{sop}f:=\{x\in D:f(x)\neq0\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema del cambio de variable:
+\series default
+ Si 
+\begin_inset Formula $\phi:S_{1}\to S_{2}$
+\end_inset
+
+ es un difeomorfismo entre superficies regulares conexas y orientadas y
+ 
+\begin_inset Formula $f:S_{2}\to\mathbb{R}$
+\end_inset
+
+ es continua con soporte compacto, entonces
+\begin_inset Formula 
+\[
+\int_{S_{2}}f\,dS_{2}=\int_{S_{1}}(f\circ\phi)|\det(d\phi)|dS_{1}=\pm\int_{S_{1}}(f\circ\phi)\det(d\phi)dS_{1}.
+\]
+
+\end_inset
+
+
+\series bold
+Demostración
+\series default
+ cuando una sola parametrización cubre toda la superficie
+\series bold
+:
+\series default
+ Sea 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ una parametrización de 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $(U,\overline{X}:=\phi\circ X)$
+\end_inset
+
+ una parametrización de 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial\overline{X}}{\partial u} & =d\phi_{X(u,v)}\left(\frac{\partial X}{\partial u}\right), & \frac{\partial\overline{X}}{\partial v} & =d\phi_{X(u,v)}\left(\frac{\partial X}{\partial v}\right),
+\end{align*}
+
+\end_inset
+
+luego
+\begin_inset Formula 
+\[
+\left\Vert \frac{\partial\overline{X}}{\partial u}\wedge\frac{\partial\overline{X}}{\partial v}\right\Vert =\left\Vert J\phi_{X(u,v)}\frac{\partial X}{\partial u}\wedge J\phi_{X(u,v)}\frac{\partial X}{\partial v}\right\Vert =|J\theta_{X(u,v)}|\left\Vert \frac{\partial X}{\partial u}\wedge\frac{\partial X}{\partial v}\right\Vert ,
+\]
+
+\end_inset
+
+de modo que
+\begin_inset Formula 
+\begin{align*}
+\int_{S_{2}}f\,dS_{2} & =\iint_{\overline{X}^{-1}(S_{2})}(f\circ\overline{X})\left\Vert \frac{\partial\overline{X}}{\partial u}\wedge\frac{\partial\overline{X}}{\partial v}\right\Vert \\
+ & =\iint_{X^{-1}(\phi^{-1}(S_{2}))}(f\circ\overline{X})|\det(d\phi_{X})|\left\Vert \frac{\partial X}{\partial u}\wedge\frac{\partial X}{\partial v}\right\Vert \\
+ & =\iint_{X^{-1}(S_{1})}(f\circ\phi\circ X)|\det(d\phi_{X})|\left\Vert \frac{\partial X}{\partial u}\wedge\frac{\partial X}{\partial v}\right\Vert =\int_{S_{1}}(f\circ\phi)|\det(d\phi)|dS_{2}.
+\end{align*}
+
+\end_inset
+
+Para la última igualdad, como 
+\begin_inset Formula $\phi$
+\end_inset
+
+ es un difeomorfismo, 
+\begin_inset Formula $\det(d\phi_{X(u,v)})$
+\end_inset
+
+ no se anula y no cambia de signo.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $S$
+\end_inset
+
+ es una superficie regular orientada por 
+\begin_inset Formula $N:S\to\mathbb{S}^{2}$
+\end_inset
+
+, 
+\begin_inset Formula $p\in S$
+\end_inset
+
+ cumple 
+\begin_inset Formula $K(p)\neq0$
+\end_inset
+
+ y 
+\begin_inset Formula $R$
+\end_inset
+
+ es una región de 
+\begin_inset Formula $S$
+\end_inset
+
+ con 
+\begin_inset Formula $p\in R$
+\end_inset
+
+ tal que 
+\begin_inset Formula $N:R\to N(R)$
+\end_inset
+
+ es un difeomorfismo, entonces el área de 
+\begin_inset Formula $N(R)\subseteq\mathbb{S}^{2}$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+A(N(R))=\int_{R}|K|dS,
+\]
+
+\end_inset
+
+y
+\begin_inset Formula 
+\[
+|K(p)|=\lim_{\varepsilon\to0}\frac{A(N(B(p,\varepsilon)))}{A(B(p,\varepsilon))}.
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Por el teorema del cambio de variable para 
+\begin_inset Formula $f(p)\equiv1$
+\end_inset
+
+, como 
+\begin_inset Formula $\det(dN_{p})=-\det(dA_{p})=-K(p)$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+A(N(R))=\int_{N(R)}d\mathbb{S}^{2}=\int_{R}|\det(dN_{p})|dS=\int_{R}|K|dS.
+\]
+
+\end_inset
+
+Ahora bien, por continuidad, 
+\begin_inset Formula $K\neq0$
+\end_inset
+
+ en un entorno 
+\begin_inset Formula $V$
+\end_inset
+
+ de 
+\begin_inset Formula $p$
+\end_inset
+
+, luego 
+\begin_inset Formula $\det(dN_{q})\neq0$
+\end_inset
+
+ para 
+\begin_inset Formula $q\in V$
+\end_inset
+
+, 
+\begin_inset Formula $N|_{V}$
+\end_inset
+
+ es un difeomorfismo y existe un 
+\begin_inset Formula $\varepsilon_{0}$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $\varepsilon\in(0,\varepsilon_{0}]$
+\end_inset
+
+, 
+\begin_inset Formula $B(p,\varepsilon)\subseteq V$
+\end_inset
+
+ y por tanto
+\begin_inset Formula 
+\[
+A(N(B(p,\varepsilon)))=\int_{B(p,\varepsilon)}|K|dS=|K(p_{\varepsilon})|\int_{B(p,\varepsilon)}dS=|K(p_{\varepsilon})|A(B(p,\varepsilon)),
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $p_{\varepsilon}\in B(p,\varepsilon)$
+\end_inset
+
+ se obtiene del teorema del punto medio.
+ Despejando 
+\begin_inset Formula $|K(p_{\varepsilon})|$
+\end_inset
+
+ y tomando límites cuando 
+\begin_inset Formula $\varepsilon\to0$
+\end_inset
+
+ se obtiene el resultado.
+\end_layout
+
+\end_body
+\end_document
