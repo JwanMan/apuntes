@@ -1,0 +1,615 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una superficie regular 
+\begin_inset Formula $S$
+\end_inset
+
+ es 
+\series bold
+minimal
+\series default
+ si su curvatura media 
+\begin_inset Formula $H\equiv0$
+\end_inset
+
+.
+ Entonces, para 
+\begin_inset Formula $p\in S$
+\end_inset
+
+, 
+\begin_inset Formula $K(p)\leq0$
+\end_inset
+
+, con igualdad si y sólo si 
+\begin_inset Formula $p$
+\end_inset
+
+ es 
+\series bold
+totalmente geodésico
+\series default
+, es decir, 
+\begin_inset Formula $A_{p}=0$
+\end_inset
+
+.
+ En efecto, por el vídeo de 3Blue1Brown
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+\lang english
+A quick trick for computing eigenvalues
+\emph default
+\lang spanish
+ (
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.youtube.com/watch?v=e50Bj7jn9IQ
+\end_layout
+
+\end_inset
+
+).
+ También puedes usar la forma tradicional si quieres, pero perderías la
+ oportunidad de usar el minuto 4:48.
+\end_layout
+
+\end_inset
+
+, las curvaturas principales de 
+\begin_inset Formula $S$
+\end_inset
+
+ en 
+\begin_inset Formula $p$
+\end_inset
+
+ son 
+\begin_inset Formula $\{\lambda_{1},\lambda_{2}\}=\{H(p)\pm\sqrt{H(p)^{2}-K(p)}\}=\{\pm\sqrt{-K(p)}\}$
+\end_inset
+
+, pero 
+\begin_inset Formula $A_{p}$
+\end_inset
+
+ es autoadjunto y por tanto diagonalizable en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\sqrt{-K(p)}\in\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $K(p)\leq0$
+\end_inset
+
+, y 
+\begin_inset Formula $K(p)=0\iff\lambda_{1}=\lambda_{2}=0\iff A_{p}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Toda superficie compacta tiene un punto esférico, por lo que no existen
+ superficies minimales compactas.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $S\subseteq\mathbb{R}^{3}$
+\end_inset
+
+ una superficie regular y 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ una parametrización de 
+\begin_inset Formula $S$
+\end_inset
+
+, una 
+\series bold
+variación
+\series default
+ de 
+\begin_inset Formula $X$
+\end_inset
+
+ es una función diferenciable 
+\begin_inset Formula $\Phi:U\times(-\varepsilon,\varepsilon)\to\mathbb{R}^{3}$
+\end_inset
+
+ tal que, llamando 
+\begin_inset Formula $\Phi_{t}(q):=\Phi(q,t)$
+\end_inset
+
+, 
+\begin_inset Formula $\Phi_{0}=X$
+\end_inset
+
+ y, para 
+\begin_inset Formula $t\in(-\varepsilon,\varepsilon)$
+\end_inset
+
+, 
+\begin_inset Formula $(U,\Phi_{t})$
+\end_inset
+
+ es una parametrización.
+ Para 
+\begin_inset Formula $((u,v),t)\in U\times(-\varepsilon,\varepsilon)$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\left(\frac{\partial\Phi_{t}}{\partial u}\wedge\frac{\partial\Phi_{t}}{\partial v}\right)(u,v)\neq0,
+\]
+
+\end_inset
+
+pues 
+\begin_inset Formula $(d\Phi_{t})_{(u,v)}$
+\end_inset
+
+ es un isomorfismo lineal.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+campo variacional
+\series default
+ de 
+\begin_inset Formula $X$
+\end_inset
+
+ es 
+\begin_inset Formula $\xi:U\to\mathbb{R}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+\xi(u,v):=\frac{\partial\Phi}{\partial t}(u,v,0).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dada una parametrización 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ y 
+\begin_inset Formula $\varphi:U\to\mathbb{R}$
+\end_inset
+
+ diferenciable, la 
+\series bold
+variación normal de 
+\begin_inset Formula $X$
+\end_inset
+
+ determinada por 
+\begin_inset Formula $\varphi$
+\end_inset
+
+
+\series default
+ es una variación 
+\begin_inset Formula $\Phi:U\times(-\varepsilon,\varepsilon)\to\mathbb{R}^{3}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+\Phi(u,v,t)=X(u,v)+t\varphi(u,v)N(X(u,v)),
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula 
+\[
+N(X(u,v))=\frac{\frac{\partial X}{\partial u}\wedge\frac{\partial X}{\partial v}}{\left\Vert \frac{\partial X}{\partial u}\wedge\frac{\partial X}{\partial v}\right\Vert }(u,v)
+\]
+
+\end_inset
+
+y 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ es lo suficientemente pequeño para que cada 
+\begin_inset Formula $\Phi_{t}$
+\end_inset
+
+ sea una parametrización.
+ Si 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ tiene soporte compacto, dicho 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ existe.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Demostración
+\series default
+ parcial
+\series bold
+:
+\series default
+ Para 
+\begin_inset Formula $(u,v)\notin\text{sop}\varphi$
+\end_inset
+
+ no hay problema.
+ Para 
+\begin_inset Formula $(u,v)\in\text{sop}\varphi$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\left\Vert \frac{\partial\Phi_{0}}{\partial u}\wedge\frac{\partial\Phi_{0}}{\partial v}\right\Vert ^{2}=\left\Vert \frac{\partial X}{\partial u}\wedge\frac{\partial X}{\partial v}\right\Vert ^{2}>0,
+\]
+
+\end_inset
+
+y por continuidad existe 
+\begin_inset Formula $\varepsilon_{u,v}>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\left\Vert \frac{\partial\Phi_{t}}{\partial u}\wedge\frac{\partial\Phi_{t}}{\partial v}\right\Vert ^{2}>0$
+\end_inset
+
+ para 
+\begin_inset Formula $t\in(-\varepsilon_{u,v},\varepsilon_{u,v})$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $\text{sop}\varphi$
+\end_inset
+
+ es compacto, habría que ver que 
+\begin_inset Formula $\varepsilon_{u,v}$
+\end_inset
+
+ depende continuamente de 
+\begin_inset Formula $(u,v)$
+\end_inset
+
+ y entonces tomaríamos 
+\begin_inset Formula $\varepsilon:=\min_{(u,v)\in\text{sop}\varphi}\varepsilon_{u,v}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $R$
+\end_inset
+
+ una región de 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ una parametrización de 
+\begin_inset Formula $S$
+\end_inset
+
+ con 
+\begin_inset Formula $\overline{R}\subseteq X(U)$
+\end_inset
+
+, 
+\begin_inset Formula $\Phi:U\times(-\varepsilon,\varepsilon)\to\mathbb{R}^{3}$
+\end_inset
+
+ una variación de 
+\begin_inset Formula $X$
+\end_inset
+
+ y 
+\begin_inset Formula $A(t):=A(R_{t}):=A(\Phi_{t}(X^{-1}(R)))$
+\end_inset
+
+, entonces 
+\begin_inset Formula $A$
+\end_inset
+
+ es diferenciable en un entorno de 
+\begin_inset Formula $t=0$
+\end_inset
+
+ con
+\begin_inset Formula 
+\[
+A'(t)=\iint_{X^{-1}(R)}\frac{\partial}{\partial t}\left\Vert \frac{\partial\Phi_{t}}{\partial u}\wedge\frac{\partial\Phi_{t}}{\partial v}\right\Vert (u,v)\,du\,dv.
+\]
+
+\end_inset
+
+
+\series bold
+Primera fórmula de variación del área:
+\series default
+ En estas condiciones, si 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ es la variación normal de 
+\begin_inset Formula $X$
+\end_inset
+
+ dada por cierta 
+\begin_inset Formula $\varphi:U\to\mathbb{R}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+A'(0)=-2\int_{R}(\varphi\circ X^{-1})H\,dS.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, una superficie regular 
+\begin_inset Formula $S$
+\end_inset
+
+ es minimal si y sólo si para toda parametrización 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ de 
+\begin_inset Formula $S$
+\end_inset
+
+, región 
+\begin_inset Formula $R$
+\end_inset
+
+ de 
+\begin_inset Formula $S$
+\end_inset
+
+ con 
+\begin_inset Formula $\overline{R}\subseteq X(U)$
+\end_inset
+
+ y variación normal de 
+\begin_inset Formula $X$
+\end_inset
+
+ es 
+\begin_inset Formula $A'(0)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $H\equiv0$
+\end_inset
+
+ y, por la primera fórmula de variación del área, 
+\begin_inset Formula $A'(0)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Demostramos el contrarrecíproco.
+ Si 
+\begin_inset Formula $S$
+\end_inset
+
+ no es minimal, sea 
+\begin_inset Formula $p_{0}\in S$
+\end_inset
+
+ con 
+\begin_inset Formula $H(p_{0})\neq0$
+\end_inset
+
+, si 
+\begin_inset Formula $H(p_{0})>0$
+\end_inset
+
+, existe un 
+\begin_inset Formula $V\in{\cal E}(p_{0})$
+\end_inset
+
+ con 
+\begin_inset Formula $H(V)>0$
+\end_inset
+
+ y, dada una parametrización 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ con 
+\begin_inset Formula $X(U)\subseteq V$
+\end_inset
+
+, existe una bola cerrada 
+\begin_inset Formula $\overline{R}\subseteq X(U)$
+\end_inset
+
+ cuyo interior 
+\begin_inset Formula $R$
+\end_inset
+
+ es una región, de modo que llamando 
+\begin_inset Formula $\varphi:=H\circ X:R\to\mathbb{R}$
+\end_inset
+
+, como 
+\begin_inset Formula $\varphi\circ X^{-1}=H$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+A'(0)=-2\int_{R}H^{2}dS<0\#.
+\]
+
+\end_inset
+
+Para 
+\begin_inset Formula $H(p_{0})<0$
+\end_inset
+
+ es análogo.
+\end_layout
+
+\end_body
+\end_document
