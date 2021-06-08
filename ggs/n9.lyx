@@ -601,15 +601,23 @@ Teorema de rotación de las tangentes
 \end_layout
 
 \begin_layout Standard
-Sean 
+Sea 
 \begin_inset Formula $S$
 \end_inset
 
- una superficie regular y 
+ una superficie regular, un 
+\series bold
+polígono curvado
+\series default
+ es la imagen 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ de un segmento de curva 
 \begin_inset Formula $\alpha:[0,\ell]\to S$
 \end_inset
 
- un segmento de curva regular a trozos p.p.a.
+ regular a trozos p.p.a.
  (en cada trozo) 
 \series bold
 cerrado
@@ -618,7 +626,7 @@ cerrado
 \begin_inset Formula $\alpha(0)=\alpha(\ell)$
 \end_inset
 
-), 
+) y 
 \series bold
 simple
 \series default
@@ -626,7 +634,8 @@ simple
 \begin_inset Formula $(\forall s,s'\in[0,\ell],(\alpha(s)=\alpha(s')\implies s=s'\lor\{s,s'\}=\{0,\ell\})$
 \end_inset
 
-) y cuya traza 
+).
+ Si 
 \begin_inset Formula $\Gamma$
 \end_inset
 
@@ -638,7 +647,7 @@ simple
 \begin_inset Formula $S$
 \end_inset
 
- simplemente conexa, entonces la parametrización 
+ simplemente conexa, 
 \begin_inset Formula $\alpha$
 \end_inset
 
@@ -667,7 +676,23 @@ positivamente orientada
 \end_layout
 
 \begin_layout Standard
-La 
+Sea 
+\begin_inset Formula $0=s_{0}<\dots<s_{k}=\ell$
+\end_inset
+
+ una partición en la que los 
+\begin_inset Formula $\alpha(s_{i})$
+\end_inset
+
+ con 
+\begin_inset Formula $i\in\{1,\dots,k-1\}$
+\end_inset
+
+ son los vértices de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, la 
 \series bold
 velocidad que llega
 \series default
@@ -808,7 +833,7 @@ Teorema de rotación de las tangentes:
 \end_layout
 
 \begin_layout Section
-Teorema de Gauss-Bonnet local
+Teorema de Gauss-Bonnet
 \end_layout
 
 \begin_layout Standard
@@ -864,7 +889,7 @@ Versión local del teorema de Gauss-Bonnet:
 \begin_inset Formula $(U,X)$
 \end_inset
 
- una parametrización ortogonal de 
+ una parametrización ortogonal positiva de 
 \begin_inset Formula $S$
 \end_inset
 
@@ -910,6 +935,211 @@ Versión local del teorema de Gauss-Bonnet:
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{TS}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $T$
+\end_inset
+
+ es un complejo simplicial 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional con 
+\begin_inset Formula $i_{k}$
+\end_inset
+
+ 
+\begin_inset Formula $k$
+\end_inset
+
+-símplices para cada 
+\begin_inset Formula $k\in\{0,\dots,n\}$
+\end_inset
+
+, el 
+\series bold
+número
+\series default
+ o 
+\series bold
+característica de Euler
+\series default
+ de 
+\begin_inset Formula $T$
+\end_inset
+
+ es 
+\begin_inset Formula $\chi(T):=i_{0}-i_{1}+\dots+(-1)^{n}i_{n}$
+\end_inset
+
+.
+ [...] El 
+\series bold
+número de Euler
+\series default
+ [o 
+\series bold
+característica de Euler-Poincaré
+\series default
+] de un espacio triangulable 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $\chi(X)$
+\end_inset
+
+, es el de cualquier complejo simplicial cuyo poliedro es homeomorfo a 
+\begin_inset Formula $X$
+\end_inset
+
+, y es un invariante topológico.
+ [...]
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+género
+\series default
+ de una superficie compacta 
+\begin_inset Formula $M$
+\end_inset
+
+, o el número de 
+\series bold
+agujeros
+\series default
+, es
+\begin_inset Formula 
+\[
+g(M):=\begin{cases}
+\frac{1}{2}(2-\chi(M)), & M\text{ orientable};\\
+2-\chi(M), & M\text{ no orientable}.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tenemos 
+\begin_inset Formula $g(\mathbb{S}^{2})=0$
+\end_inset
+
+, [...] si 
+\begin_inset Formula $T_{1},\dots,T_{n}$
+\end_inset
+
+ son toros, 
+\begin_inset Formula $g(T_{1}\sharp\dots\sharp T_{n})=n$
+\end_inset
+
+ [...].
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Versión global del teorema de Gauss-Bonnet:
+\series default
+ Sean 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ una parametrización ortogonal positiva de una superficie orientada 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $R\subseteq X(U)$
+\end_inset
+
+ una región de 
+\begin_inset Formula $S$
+\end_inset
+
+ cuya frontera es la unión disjunta de los 
+\series bold
+polígonos curvados
+\series default
+ 
+\begin_inset Formula $\Gamma_{1},\dots,\Gamma_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{i}:[0,\ell_{i}]\to S$
+\end_inset
+
+ una parametrización positivamente orientada de 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $\varepsilon_{i1},\dots,\varepsilon_{ik_{i}}$
+\end_inset
+
+ los ángulos exteriores de los vértices de 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ (incluyendo 
+\begin_inset Formula $\alpha_{i}(0)$
+\end_inset
+
+), entonces
+\begin_inset Formula 
+\[
+\int_{R}K\,dS+\sum_{i=1}^{n}\int_{\Gamma_{i}}\kappa_{g}^{\alpha_{i}}ds+\sum_{i=1}^{n}\sum_{j=1}^{k_{i}}\varepsilon_{i}=2\pi{\cal X}(R),
+\]
+
+\end_inset
+
+siendo 
+\begin_inset Formula ${\cal X}(R)$
+\end_inset
+
+ el número de Euler de 
+\begin_inset Formula $R$
+\end_inset
+
+.
 \end_layout
 
 \end_body
