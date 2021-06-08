@@ -1,0 +1,916 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Teorema de Liouville
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $f,g:I\to\mathbb{R}$
+\end_inset
+
+ diferenciables con 
+\begin_inset Formula $f^{2}+g^{2}\equiv1$
+\end_inset
+
+, 
+\begin_inset Formula $t_{0}\in I$
+\end_inset
+
+ y 
+\begin_inset Formula $\theta_{0}\in\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $f(t_{0})=\cos\theta_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $g(t_{0})=\sin\theta_{0}$
+\end_inset
+
+, entonces existe una única función diferenciable 
+\begin_inset Formula $\theta:I\to\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $\theta(t_{0})=\theta_{0}$
+\end_inset
+
+ y, para todo 
+\begin_inset Formula $t\in I$
+\end_inset
+
+, 
+\begin_inset Formula $f(t)=\cos\theta(t)$
+\end_inset
+
+ y 
+\begin_inset Formula $g(t)=\sin\theta(t)$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea
+\begin_inset Formula 
+\[
+\theta(t):=\theta_{0}+\int_{t_{0}}^{t}(f(u)g'(u)-f'(u)g(u))du,
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\theta$
+\end_inset
+
+ es derivable una vez por el teorema fundamental del cálculo y su derivada
+ es 
+\begin_inset Formula ${\cal C}^{\infty}$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\theta$
+\end_inset
+
+ es diferenciable.
+ Sea 
+\begin_inset Formula $h:I\to\mathbb{R}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $h(t):=(f(t)-\cos\theta(t))^{2}+(g(t)-\sin\theta(t))^{2}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $h(t_{0})=0$
+\end_inset
+
+ y
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{2}h'= & (f-\cos\theta)(f'+\theta'\sin\theta)+(g-\sin\theta)(g'-\theta'\cos\theta)\\
+= & (f-\cos\theta)(f'+(fg'-f'g)\sin\theta)+(g-\sin\theta)(g'-(fg'-f'g)\cos\theta)\\
+= & ff'+f(fg'-f'g)\sin\theta-f'\cos\theta-(fg'-f'g)\sin\theta\cos\theta+\\
+ & +gg'-g'\sin\theta-g(fg'-f'g)\cos\theta+(fg'-f'g)\sin\theta\cos\theta,
+\end{align*}
+
+\end_inset
+
+pero derivando 
+\begin_inset Formula $f^{2}+g^{2}=1$
+\end_inset
+
+ queda 
+\begin_inset Formula $2ff'+2gg'=0$
+\end_inset
+
+, 
+\begin_inset Formula $ff'+gg'=0$
+\end_inset
+
+, luego
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{2}h(t) & =(f(fg'-f'g)-g')\sin\theta+(-f'-g(fg'-f'g))\cos\theta\\
+ & =(g'(f^{2}-1)-ff'g)\sin\theta+(f'(-1+g^{2})-fgg')\cos\theta\\
+ & =(g^{2}g'-ff'g)\sin\theta+(f^{2}f'-fgg')\cos\theta\\
+ & =g(gg'-ff')\sin\theta+f(ff'-gg')\cos\theta=0.
+\end{align*}
+
+\end_inset
+
+Para la unicidad, sea 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ otra función que cumple las condiciones, 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ se diferencia de 
+\begin_inset Formula $\theta$
+\end_inset
+
+ en cada punto en un múltiplo de 
+\begin_inset Formula $2\pi$
+\end_inset
+
+, pero como 
+\begin_inset Formula $\hat{\theta}-\theta$
+\end_inset
+
+ es continua con dominio conexo, su rango debe ser conexo y estar en la
+ componente conexa de 
+\begin_inset Formula $\{2k\pi\}_{k\in\mathbb{Z}}$
+\end_inset
+
+ en la que está 
+\begin_inset Formula $(\hat{\theta}-\theta)(t_{0})=0$
+\end_inset
+
+, que es 
+\begin_inset Formula $\{0\}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\hat{\theta}=\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $S$
+\end_inset
+
+ una superficie regular orientada por 
+\begin_inset Formula $N$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha:I\to S$
+\end_inset
+
+ una curva regular, 
+\begin_inset Formula $e_{1},e_{2},V\in\mathfrak{X}(\alpha)$
+\end_inset
+
+ unitarios con 
+\begin_inset Formula $e_{2}(t)=Je_{1}(t)=N(\alpha(t))\wedge e_{1}(t)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $t\in I$
+\end_inset
+
+, entonces 
+\begin_inset Formula $(e_{1}(t),e_{2}(t))$
+\end_inset
+
+ es una base ortonormal de 
+\begin_inset Formula $T_{\alpha(t)}S$
+\end_inset
+
+ y existe 
+\begin_inset Formula $\theta(t)$
+\end_inset
+
+ diferenciable tal que 
+\begin_inset Formula $V=\cos\theta e_{1}+\sin\theta e_{2}$
+\end_inset
+
+, y decimos que 
+\begin_inset Formula $\theta$
+\end_inset
+
+ es el 
+\series bold
+ángulo de rotación
+\series default
+ de 
+\begin_inset Formula $V$
+\end_inset
+
+ respecto a 
+\begin_inset Formula $e_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La curvatura geodésica de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ (no necesariamente p.p.a.) es
+\begin_inset Formula 
+\[
+\kappa_{g}^{\alpha}(s)=\frac{\langle\alpha''(u),J\alpha'(u)\rangle}{\Vert\alpha'(u)\Vert^{3}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Liouville:
+\series default
+ Sean 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ una parametrización ortogonal de 
+\begin_inset Formula $S$
+\end_inset
+
+ con primera forma fundamental 
+\begin_inset Formula $E,F,G$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha:I\to X(U)$
+\end_inset
+
+ una curva regular p.p.a.
+ con curvatura geodésica 
+\begin_inset Formula $\kappa_{g}$
+\end_inset
+
+, 
+\begin_inset Formula $\tilde{\alpha}:=(u,v):=X^{-1}\circ\alpha:I\to U$
+\end_inset
+
+, 
+\begin_inset Formula $e_{1}:I\to\mathbb{R}^{3}$
+\end_inset
+
+ dado por
+\begin_inset Formula 
+\[
+e_{1}(s):=\frac{1}{\sqrt{E(\tilde{\alpha}(s))}}X_{u}(\tilde{\alpha}(s)),
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\theta:I\to\mathbb{R}$
+\end_inset
+
+ el ángulo de rotación de 
+\begin_inset Formula $\alpha'$
+\end_inset
+
+ respecto a 
+\begin_inset Formula $e_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{v}(u):=\beta_{u}(v):=X(u,v)$
+\end_inset
+
+, 
+\begin_inset Formula $(\kappa_{g})_{1}(u,v)$
+\end_inset
+
+ la curvatura geodésica de 
+\begin_inset Formula $\alpha_{v}$
+\end_inset
+
+ en 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $(\kappa_{g})_{2}(u,v)$
+\end_inset
+
+ la de 
+\begin_inset Formula $\beta_{u}$
+\end_inset
+
+ en 
+\begin_inset Formula $v$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\kappa_{g}=\theta'+\frac{1}{2\sqrt{EG}}\left(-u'E_{v}(\tilde{\alpha})+v'G_{u}(\tilde{\alpha})\right)=\theta'+(\kappa_{g})_{1}(\tilde{\alpha})\cos\theta+(\kappa_{g})_{2}(\tilde{\alpha})\sin\theta.
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ En efecto, 
+\begin_inset Formula $e_{1}$
+\end_inset
+
+ es tangente y unitario, ya que
+\begin_inset Formula 
+\begin{align*}
+e_{1}(s) & =\frac{X_{u}}{\Vert X_{u}\Vert}(\tilde{\alpha}(s)).
+\end{align*}
+
+\end_inset
+
+Entonces 
+\begin_inset Formula $e_{2}(s):=Je_{1}(s)$
+\end_inset
+
+ es también tangente y unitario y ortogonal a 
+\begin_inset Formula $\frac{\partial X}{\partial u}$
+\end_inset
+
+, luego
+\begin_inset Formula 
+\[
+e_{2}(s)=\frac{X_{v}}{\Vert X_{v}\Vert}(\tilde{\alpha}(s))=\frac{1}{\sqrt{G(\tilde{\alpha}(s))}}X_{v}(\tilde{\alpha}(s)).
+\]
+
+\end_inset
+
+Con esto,
+\begin_inset Formula 
+\begin{align*}
+\left\langle \frac{De_{1}}{ds},e_{1}\right\rangle  & =\langle e_{1}',e_{1}\rangle=\frac{1}{2}\frac{d}{ds}\langle e_{1},e_{1}\rangle=0,\\
+\left\langle \frac{De_{1}}{ds},e_{2}\right\rangle  & =\langle e_{1}',e_{2}\rangle=\frac{d}{ds}\langle e_{1},e_{2}\rangle-\langle e_{1},e_{2}'\rangle=-\langle e_{1},e_{2}'\rangle=-\left\langle \frac{De_{2}}{ds},e_{1}\right\rangle ,\\
+\left\langle \frac{De_{2}}{ds},e_{2}\right\rangle  & =\frac{1}{2}\frac{d}{ds}\langle e_{2},e_{2}\rangle=0,
+\end{align*}
+
+\end_inset
+
+luego si 
+\begin_inset Formula $\omega:=\langle e_{1}',e_{2}\rangle=-\langle e_{1},e_{2}'\rangle$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{De_{1}}{ds}(s) & =\left\langle \frac{De_{1}}{ds},e_{1}\right\rangle e_{1}+\left\langle \frac{De_{2}}{ds},e_{2}\right\rangle e_{2}=\omega(s)e_{2}(s), & \frac{De_{2}}{ds}(s) & =-\omega(s)e_{1}(s).
+\end{align*}
+
+\end_inset
+
+Por tanto, como 
+\begin_inset Formula $\alpha'=\cos\theta e_{1}+\sin\theta e_{2}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+\frac{D\alpha'}{ds} & =-\theta'\sin\theta e_{1}+\cos\theta\omega e_{2}+\theta'\cos\theta e_{2}-\sin\theta\omega e_{1}=(\theta'+\omega)(\cos\theta e_{2}-\sin\theta e_{1})\\
+ & =(\theta'+\omega)J\alpha'(s).
+\end{align*}
+
+\end_inset
+
+Por otro lado, 
+\begin_inset Formula $\frac{D\alpha'}{ds}(s)=\kappa_{g}(s)J\alpha'(s)$
+\end_inset
+
+, luego 
+\begin_inset Formula $\kappa_{g}(s)=\theta'(s)+\omega(s)$
+\end_inset
+
+.
+ Derivando la fórmula de 
+\begin_inset Formula $e_{1}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+e_{1}'=\frac{d}{ds}\left(\frac{1}{\sqrt{E}}\right)X_{u}(\tilde{\alpha})+\frac{1}{\sqrt{E}}\left(u'X_{uu}(\tilde{\alpha})+v'X_{uv}(\tilde{\alpha})\right).
+\]
+
+\end_inset
+
+Entonces, como 
+\begin_inset Formula $X_{uu}(\tilde{\alpha})=\Gamma_{11}^{1}X_{u}+\Gamma_{11}^{2}X_{v}+eN$
+\end_inset
+
+ y 
+\begin_inset Formula $X_{uv}=\Gamma_{12}^{1}X_{u}+\Gamma_{12}^{2}X_{v}+fN$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+\omega & =\langle e_{1}',e_{2}\rangle=\frac{1}{\sqrt{EG}}\left\langle u'({\textstyle \Gamma_{11}^{1}X_{u}+\Gamma_{11}^{2}X_{v}+eN)}+v'({\textstyle \Gamma_{12}^{2}X_{u}+\Gamma_{12}^{2}X_{v}+fN}),X_{v}\right\rangle \\
+ & =\frac{1}{\sqrt{EG}}(u'\Gamma_{11}^{2}G+v'\Gamma_{12}^{2}G),
+\end{align*}
+
+\end_inset
+
+pero como
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{11}^{2} & =\frac{-F\frac{E_{u}}{2}+EF_{u}-E\frac{E_{v}}{2}}{EG-F^{2}}=-\frac{E\frac{E_{v}}{2}}{EG}=-\frac{E_{v}}{2G}, & \Gamma_{12}^{2} & =\frac{-F\frac{E_{v}}{2}+E\frac{G_{u}}{2}}{EG-F^{2}}=\frac{E\frac{G_{u}}{2}}{EG}=\frac{G_{u}}{2G},
+\end{align*}
+
+\end_inset
+
+queda 
+\begin_inset Formula 
+\[
+\omega=\frac{1}{2\sqrt{EG}}(-u'E_{v}+v'G_{u}),
+\]
+
+\end_inset
+
+ la primera expresión.
+ Por otro lado, 
+\begin_inset Formula 
+\begin{align*}
+\alpha'_{v}(u) & =X_{u}, & J\alpha'_{v}(u) & =N\wedge X_{u}=\Vert X_{u}\Vert\frac{X_{v}}{\Vert X_{v}\Vert}=\sqrt{\frac{E}{G}}X_{v}, & \alpha''_{v}(u) & =X_{uu},\\
+\beta'_{u}(v) & =X_{v}, & J\beta'_{u}(v) & =N\wedge X_{v}=-\Vert X_{v}\Vert\frac{X_{u}}{\Vert X_{u}\Vert}=-\sqrt{\frac{G}{E}}X_{u}, & \beta''_{u}(v) & =X_{vv},
+\end{align*}
+
+\end_inset
+
+y como
+\begin_inset Formula 
+\[
+\Gamma_{22}^{1}=\frac{G(F_{v}-\frac{G_{u}}{2})-F\frac{G_{v}}{2}}{EG-F^{2}}=\frac{-G\frac{G_{u}}{2}}{EG}=-\frac{G_{u}}{2E},
+\]
+
+\end_inset
+
+queda
+\begin_inset Formula 
+\begin{align*}
+(\kappa_{g})_{1}(u,v) & =\frac{\langle\alpha''_{v}(u),J\alpha'_{v}(u)\rangle}{\Vert\alpha'_{v}(u)\Vert^{3}}=\frac{\langle\Gamma_{11}^{1}X_{u}+\Gamma_{11}^{2}X_{v}+eN,\sqrt{\frac{E}{G}}X_{v}\rangle}{\Vert X_{u}\Vert^{3}}=\sqrt{\frac{E}{G}}\frac{\Gamma_{11}^{2}G}{E\sqrt{E}}=-\frac{E_{v}}{2E\sqrt{G}},\\
+(\kappa_{g})_{2}(u,v) & =\frac{\langle\beta''_{u}(v),J\beta'_{u}(v)\rangle}{\Vert\beta'_{u}(v)\Vert^{3}}=\frac{\langle\Gamma_{22}^{1}X_{u}+\Gamma_{22}^{2}X_{v}+gN,-\sqrt{\frac{G}{E}}X_{u}\rangle}{\Vert X_{v}\Vert^{3}}=-\sqrt{\frac{G}{E}}\frac{\Gamma_{22}^{1}E}{G\sqrt{G}}=\frac{G_{u}}{2G\sqrt{E}}.
+\end{align*}
+
+\end_inset
+
+Con esto, 
+\begin_inset Formula $E_{v}=-2E\sqrt{G}(\kappa_{g})_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $G_{u}=2G\sqrt{E}(\kappa_{g})_{2}$
+\end_inset
+
+, luego
+\begin_inset Formula 
+\[
+\kappa_{g}=\theta'+\frac{1}{2\sqrt{EG}}\left(u'2E\sqrt{G}(\kappa_{g})_{1}+v'2G\sqrt{E}(\kappa_{g})_{2}\right)=\theta'+u'\sqrt{E}(\kappa_{g})_{1}+\sqrt{G}v'(\kappa_{g})_{2},
+\]
+
+\end_inset
+
+y queda ver que 
+\begin_inset Formula $u'\sqrt{E}=\cos\theta$
+\end_inset
+
+ y 
+\begin_inset Formula $v'\sqrt{G}=\sin\theta$
+\end_inset
+
+, pero
+\begin_inset Formula 
+\begin{align*}
+\alpha' & =(X\circ\tilde{\alpha})'=u'X_{u}+v'X_{v}\\
+ & =\cos\theta e_{1}+\sin\theta e_{2}=\cos\theta\frac{1}{\sqrt{E}}X_{u}+\sin\theta\frac{1}{\sqrt{G}}X_{v},
+\end{align*}
+
+\end_inset
+
+y usando que 
+\begin_inset Formula $(X_{u},X_{v})$
+\end_inset
+
+ es base despejamos y se obtiene el resultado.
+\end_layout
+
+\begin_layout Section
+Teorema de rotación de las tangentes
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $S$
+\end_inset
+
+ una superficie regular y 
+\begin_inset Formula $\alpha:[0,\ell]\to S$
+\end_inset
+
+ un segmento de curva regular a trozos p.p.a.
+ (en cada trozo) 
+\series bold
+cerrado
+\series default
+ (
+\begin_inset Formula $\alpha(0)=\alpha(\ell)$
+\end_inset
+
+), 
+\series bold
+simple
+\series default
+ 
+\begin_inset Formula $(\forall s,s'\in[0,\ell],(\alpha(s)=\alpha(s')\implies s=s'\lor\{s,s'\}=\{0,\ell\})$
+\end_inset
+
+) y cuya traza 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ es la frontera de una región 
+\begin_inset Formula $R$
+\end_inset
+
+ de 
+\begin_inset Formula $S$
+\end_inset
+
+ simplemente conexa, entonces la parametrización 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ está 
+\series bold
+positivamente orientada
+\series default
+ si, para 
+\begin_inset Formula $s\in[0,\ell]$
+\end_inset
+
+ que no sea un vértice, 
+\begin_inset Formula $J\alpha'(s)$
+\end_inset
+
+ apunta al interior de 
+\begin_inset Formula $R$
+\end_inset
+
+ (
+\begin_inset Formula $\exists\delta>0:\forall t\in(0,\delta),\alpha(s)+tJ\alpha'(s)\in R$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+velocidad que llega
+\series default
+ a un vértice 
+\begin_inset Formula $\alpha(s_{i})$
+\end_inset
+
+ es 
+\begin_inset Formula $\alpha'_{-}(s_{i})$
+\end_inset
+
+, que en 
+\begin_inset Formula $\alpha(\ell)$
+\end_inset
+
+ es 
+\begin_inset Formula $\alpha'_{-}(\ell):=\lim_{s\to\ell^{-}}\alpha'(s)$
+\end_inset
+
+, y la 
+\series bold
+velocidad que sale
+\series default
+ es 
+\begin_inset Formula $\alpha'_{+}(s_{i})$
+\end_inset
+
+, que en 
+\begin_inset Formula $\alpha(0)$
+\end_inset
+
+ es 
+\begin_inset Formula $\alpha'_{+}(0)=\lim_{s\to0^{+}}\alpha'(s)$
+\end_inset
+
+.
+ El 
+\series bold
+ángulo exterior
+\series default
+ en un 
+\begin_inset Formula $\alpha(s_{i})$
+\end_inset
+
+ es el único 
+\begin_inset Formula $\theta\in(-\pi,\pi]$
+\end_inset
+
+ tal que 
+\begin_inset Formula 
+\[
+\alpha'_{+}(s_{i})=\cos\theta\alpha'_{-}(s_{i})=\sin\theta J\alpha'_{-}(s_{i}),
+\]
+
+\end_inset
+
+ que en 
+\begin_inset Formula $\alpha(0)=\alpha(\ell)$
+\end_inset
+
+ es el que cumple 
+\begin_inset Formula $\alpha'_{+}(0)=\cos\theta\alpha'_{-}(\ell)+\sin\theta J\alpha'_{-}(\ell)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de rotación de las tangentes:
+\series default
+ Sean 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ una parametrización ortogonal de una superficie 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha:[0,\ell]\to X(U)$
+\end_inset
+
+ una parametrización positivamente orientada de la frontera 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ de una región 
+\begin_inset Formula $R$
+\end_inset
+
+ de 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $0=s_{0}<\dots<s_{k}=\ell$
+\end_inset
+
+ una partición en la que los 
+\begin_inset Formula $\alpha(s_{i})$
+\end_inset
+
+ son los vértices de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, 
+\begin_inset Formula $\varepsilon_{i}$
+\end_inset
+
+ el ángulo exterior de 
+\begin_inset Formula $\alpha(s_{i})$
+\end_inset
+
+ y 
+\begin_inset Formula $\theta_{i}$
+\end_inset
+
+ el ángulo de rotación de la velocidad de 
+\begin_inset Formula $\alpha_{i}:=\alpha|_{[s_{i-1},s_{i}]}$
+\end_inset
+
+ respecto a 
+\begin_inset Formula $e_{1}(s):=X_{u}(X^{-1}(\alpha(s)))/\sqrt{E(s)}$
+\end_inset
+
+, entonces
+\begin_inset Formula 
+\[
+\sum_{i=1}^{k}(\theta_{i}(s_{i})-\theta_{i}(s_{i-1}))+\sum_{i=1}^{k}\varepsilon_{i}=2\pi.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Teorema de Gauss-Bonnet local
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Green:
+\series default
+ Sea 
+\begin_inset Formula $\tilde{\alpha}:=(u,v):[0,\ell]\to\mathbb{R}^{2}$
+\end_inset
+
+ una parametrización positivamente orientada de la frontera de un 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{2}$
+\end_inset
+
+ acotado y 
+\begin_inset Formula $P,Q:\overline{\Omega}\to\mathbb{R}$
+\end_inset
+
+ diferenciables,
+\begin_inset Formula 
+\[
+\iint_{\Omega}\left(\frac{\partial Q}{\partial u}-\frac{\partial P}{\partial v}\right)du\,dv=\int_{\partial\Omega}(P(\tilde{\alpha})u'+Q(\tilde{\alpha})v')ds:=\sum_{i=1}^{k}\int_{s_{i-1}}^{s_{i}}(P(\tilde{\alpha})u'+Q(\tilde{\alpha})v')ds,
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $0=s_{0}<\dots<s_{k}=\ell$
+\end_inset
+
+ es una partición de 
+\begin_inset Formula $[0,\ell]$
+\end_inset
+
+ tal que los 
+\begin_inset Formula $\alpha(s_{i})$
+\end_inset
+
+ son los vértices de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Versión local del teorema de Gauss-Bonnet:
+\series default
+ Sean 
+\begin_inset Formula $(U,X)$
+\end_inset
+
+ una parametrización ortogonal de 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha:[0,\ell]\to X(U)$
+\end_inset
+
+ una parametrización positivamente orientada de la frontera de una región
+ 
+\begin_inset Formula $R$
+\end_inset
+
+ de 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $0=s_{0}<\dots<s_{k}=\ell$
+\end_inset
+
+ una partición en la que los 
+\begin_inset Formula $\alpha(s_{i})$
+\end_inset
+
+ son los vértices de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $\varepsilon_{i}$
+\end_inset
+
+ el ángulo exterior de 
+\begin_inset Formula $\alpha(s_{i})$
+\end_inset
+
+, entonces 
+\begin_inset Formula 
+\[
+\int_{R}K\,dS+\int_{\partial R}\kappa_{g}ds+\sum_{i=1}^{k}\varepsilon_{i}=2\pi.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
