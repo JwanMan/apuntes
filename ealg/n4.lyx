@@ -444,6 +444,10 @@ En efecto, las raíces de
 
 \end_layout
 
+\begin_layout Section
+Cuerpos de descomposición de conjuntos finitos
+\end_layout
+
 \begin_layout Standard
 Si 
 \begin_inset Formula $K$
@@ -451,6 +455,10 @@ Si
 
  es un cuerpo y 
 \begin_inset Formula $f\in K[X]\setminus0$
+\end_inset
+
+ tiene grado 
+\begin_inset Formula $n$
 \end_inset
 
 , existe un cuerpo de descomposición 
@@ -466,16 +474,147 @@ Si
 \end_inset
 
  y 
-\begin_inset Formula $[L:K]\leq n!$
+\begin_inset Formula $[L:K]\mid n!$
 \end_inset
 
 .
- Esta cota no es mejorable
-\begin_inset Note Comment
-status open
+ 
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $n=0$
+\end_inset
 
-\begin_layout Plain Layout
-; por ejemplo, las raíces de 
+, 
+\begin_inset Formula $f\in K$
+\end_inset
+
+ y 
+\begin_inset Formula $L=K$
+\end_inset
+
+, luego 
+\begin_inset Formula $[L:K]=1=0!$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $n>0$
+\end_inset
+
+ y supongamos esto probado para 
+\begin_inset Formula $\text{gr}f<n$
+\end_inset
+
+.
+ Por el teorema de Kronecker existe una extensión 
+\begin_inset Formula $L$
+\end_inset
+
+ de 
+\begin_inset Formula $K$
+\end_inset
+
+ en la que 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene todas sus raíces, y podemos suponer 
+\begin_inset Formula $L=K(\alpha_{1},\dots,\alpha_{n})$
+\end_inset
+
+, siendo 
+\begin_inset Formula $\alpha_{1},\dots,\alpha_{n}$
+\end_inset
+
+ las raíces, posiblemente repetidas, de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es irreducible, 
+\begin_inset Formula $f=\text{Irr}(\alpha_{1},K)$
+\end_inset
+
+ y 
+\begin_inset Formula $[K(\alpha_{1}):K]=n$
+\end_inset
+
+, y como
+\begin_inset Formula 
+\[
+[L:K(\alpha_{1})]=[K(\alpha_{1})(\alpha_{2},\dots,\alpha_{n}):K(\alpha_{1})]\mid(n-1)!
+\]
+
+\end_inset
+
+por hipótesis de inducción, entonces 
+\begin_inset Formula $[L:K]=[L:K(\alpha_{1})][K(\alpha_{1}):K]\mid n!$
+\end_inset
+
+.
+ Si no es irreducible, sean 
+\begin_inset Formula $g,h\in K[X]\setminus K$
+\end_inset
+
+ con 
+\begin_inset Formula $f=gh$
+\end_inset
+
+ y 
+\begin_inset Formula $m:=\text{gr}g$
+\end_inset
+
+, podemos suponer que 
+\begin_inset Formula $\alpha_{1},\dots,\alpha_{m}$
+\end_inset
+
+ son las raíces de 
+\begin_inset Formula $g$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha_{m+1},\dots,\alpha_{n}$
+\end_inset
+
+ son las de 
+\begin_inset Formula $h$
+\end_inset
+
+, luego como, por hipótesis de inducción,
+\begin_inset Formula 
+\[
+[L:K(\alpha_{1},\dots,\alpha_{m})]=[K(\alpha_{1},\dots,\alpha_{m})(\alpha_{m+1},\dots,\alpha_{n}):K(\alpha_{1},\dots,\alpha_{m})]\mid m!
+\]
+
+\end_inset
+
+y 
+\begin_inset Formula $[K(\alpha_{1},\dots,\alpha_{m}):K]\mid(n-m)!$
+\end_inset
+
+, entonces 
+\begin_inset Formula $[L:K]\mid m!(n-m)!$
+\end_inset
+
+, pero 
+\begin_inset Formula $\binom{n}{m}=\frac{n!}{m!(n-m)!}\in\mathbb{Z}$
+\end_inset
+
+, luego 
+\begin_inset Formula $[L:K]\mid m!(n-m)!\mid n!$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Esta cota no es mejorable; por ejemplo, las raíces de 
 \begin_inset Formula $X^{3}-2$
 \end_inset
 
@@ -527,12 +666,259 @@ status open
 \begin_inset Formula $[\mathbb{Q}(\alpha,\omega):\mathbb{Q}]=[\mathbb{Q}(\alpha,\omega):\mathbb{Q}(\alpha)][\mathbb{Q}(\alpha):\mathbb{Q}]=2\cdot3=6$
 \end_inset
 
+.
+\end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sean 
+\begin_inset Formula $\sigma:K\to K'$
+\end_inset
+
+ un isomorfismo de cuerpos que induce un isomorfismo 
+\begin_inset Formula $\sigma:K[X]\to K'[X]$
+\end_inset
+
+, 
+\begin_inset Formula $f\in K[X]\setminus0$
+\end_inset
+
+ y 
+\begin_inset Formula $f':=\sigma(f)$
+\end_inset
+
+, si 
+\begin_inset Formula $L$
+\end_inset
+
+ es un cuerpo de descomposición de 
+\begin_inset Formula $f$
+\end_inset
+
+ sobre 
+\begin_inset Formula $K$
+\end_inset
+
+ y 
+\begin_inset Formula $L'$
+\end_inset
+
+ es uno de 
+\begin_inset Formula $f'$
+\end_inset
+
+ sobre 
+\begin_inset Formula $L$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ se extiende a un isomorfismo 
+\begin_inset Formula $\hat{\sigma}:L\to L'$
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+, y en particular cualesquiera dos cuerpos de descomposición de 
+\begin_inset Formula $f$
+\end_inset
+
+ sobre 
+\begin_inset Formula $K$
+\end_inset
+
+ son 
+\begin_inset Formula $K$
+\end_inset
+
+-isomorfos
 \end_layout
 
 \end_inset
 
 .
+ 
+\series bold
+Demostración:
+\series default
+ Hacemos inducción en 
+\begin_inset Formula $n:=\text{gr}f=\text{gr}f'$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $n=0$
+\end_inset
+
+ es 
+\begin_inset Formula $L=K$
+\end_inset
+
+ y 
+\begin_inset Formula $L'=K'$
+\end_inset
+
+ y tomamos 
+\begin_inset Formula $\hat{\sigma}=\sigma$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $n>0$
+\end_inset
+
+, sea 
+\begin_inset Formula $g$
+\end_inset
+
+ un divisor irreducible de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+, como todas las raíces de 
+\begin_inset Formula $g$
+\end_inset
+
+ lo son de 
+\begin_inset Formula $f$
+\end_inset
+
+ y por tanto están en 
+\begin_inset Formula $L$
+\end_inset
+
+, existe una raíz 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ de 
+\begin_inset Formula $g$
+\end_inset
+
+ en 
+\begin_inset Formula $L$
+\end_inset
+
+, y como 
+\begin_inset Formula $g':=\sigma(g)$
+\end_inset
+
+ es un divisor irreducible de 
+\begin_inset Formula $f'$
+\end_inset
+
+ en 
+\begin_inset Formula $K'[X]$
+\end_inset
+
+, tendrá una raíz 
+\begin_inset Formula $\alpha'$
+\end_inset
+
+ en 
+\begin_inset Formula $L'$
+\end_inset
+
+.
+ Con esto tenemos un isomorfismo 
+\begin_inset Formula $\overline{\sigma}:K(\alpha)\to K'(\alpha')$
+\end_inset
+
+ con 
+\begin_inset Formula $\overline{\sigma}|_{K}=\sigma$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{\sigma}(\alpha)=\alpha'$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $f=(X-\alpha)h$
+\end_inset
+
+ para cierto 
+\begin_inset Formula $h\in K(\alpha)[X]$
+\end_inset
+
+ de grado 
+\begin_inset Formula $n-1$
+\end_inset
+
+ y, como 
+\begin_inset Formula $L$
+\end_inset
+
+ es un cuerpo de descomposición de 
+\begin_inset Formula $h$
+\end_inset
+
+ sobre 
+\begin_inset Formula $K(\alpha)$
+\end_inset
+
+, 
+\begin_inset Formula $f'=\sigma(f)=\sigma((X-\alpha)h)=(X-\alpha')h'$
+\end_inset
+
+ con 
+\begin_inset Formula $h':=\overline{\sigma}(h)$
+\end_inset
+
+, luego 
+\begin_inset Formula $L'$
+\end_inset
+
+ es un cuerpo de descomposición de 
+\begin_inset Formula $h'$
+\end_inset
+
+ sobre 
+\begin_inset Formula $K(\alpha')$
+\end_inset
+
+ de grado 
+\begin_inset Formula $n-1$
+\end_inset
+
+ y, por hipótesis de inducción, 
+\begin_inset Formula $\overline{\sigma}$
+\end_inset
+
+, y por tanto 
+\begin_inset Formula $\sigma$
+\end_inset
+
+, se extiende a un isomorfismo 
+\begin_inset Formula $\hat{\sigma}:L\to L'$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -609,6 +995,30 @@ grupo de Galois
 .
 \end_layout
 
+\begin_layout Standard
+Para el polinomio ciclotómico 
+\begin_inset Formula $\Phi_{p}$
+\end_inset
+
+ con 
+\begin_inset Formula $p$
+\end_inset
+
+ primo, sea 
+\begin_inset Formula $\xi:=e^{2\pi i/p}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+G_{\Phi_{p}}=\text{Gal}(\mathbb{Q}(\xi)/\mathbb{Q})\cong\mathbb{Z}_{p}^{*}\cong\mathbb{Z}_{p-1}.
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Clausura algebraica
 \end_layout
@@ -623,52 +1033,731 @@ Un cuerpo
 algebraicamente cerrado
 \series default
  si todo 
-\begin_inset Formula $f\in K[X]\setminus0$
+\begin_inset Formula $f\in K[X]\setminus K$
 \end_inset
 
  tiene una raíz en 
 \begin_inset Formula $K$
 \end_inset
 
-.
- Una extensión 
-\begin_inset Formula $L$
+, si y sólo si todo irreducible de 
+\begin_inset Formula $K[X]$
 \end_inset
 
- de un cuerpo 
+ es de grado 1, si y sólo si todo 
+\begin_inset Formula $f\in K[X]\setminus0$
+\end_inset
+
+ se descompone completamente en 
 \begin_inset Formula $K$
 \end_inset
 
- es una 
-\series bold
-clausura algebraica
-\series default
+, si y sólo si existe un subcuerpo 
+\begin_inset Formula $K_{0}$
+\end_inset
+
  de 
 \begin_inset Formula $K$
 \end_inset
 
- si 
-\begin_inset Formula $K\subseteq L$
+ tal que 
+\begin_inset Formula $K_{0}\subseteq K$
 \end_inset
 
- es algebraica y 
-\begin_inset Formula $L$
+ es algebraica y todo 
+\begin_inset Formula $f\in K_{0}[X]\setminus0$
 \end_inset
 
- es algebraicamente cerrado.
- Todo cuerpo tiene una clausura algebraica.
-\end_layout
-
-\begin_layout Standard
-El cuerpo de descomposición sobre un cuerpo 
+ se descompone completamente en 
 \begin_inset Formula $K$
 \end_inset
 
- de un 
-\begin_inset Formula ${\cal P}\subseteq K[X]$
+, si y sólo si 
+\begin_inset Formula $K$
 \end_inset
 
- es único salvo isomorfismos.
+ no admite extensiones algebraicas propias.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Todo 
+\begin_inset Formula $f\in K[X]$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{gr}f\geq2$
+\end_inset
+
+ tiene una raíz y por tanto no es irreducible.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies3]$
+\end_inset
+
+ 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ es un DFU.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies4]$
+\end_inset
+
+ Tomamos 
+\begin_inset Formula $K_{0}=K$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $4\implies5]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ una extensión algebraica y queremos ver que 
+\begin_inset Formula $K=L$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $K_{0}\subseteq K\subseteq L$
+\end_inset
+
+ son algebraicas, 
+\begin_inset Formula $K_{0}\subseteq L$
+\end_inset
+
+ también, luego para 
+\begin_inset Formula $\alpha\in L$
+\end_inset
+
+ existe 
+\begin_inset Formula $\text{Irr}(\alpha,K_{0})$
+\end_inset
+
+ y se descompone completamente en 
+\begin_inset Formula $K$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\alpha\in K$
+\end_inset
+
+ y 
+\begin_inset Formula $L\subseteq K$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $5\implies1]$
+\end_inset
+
+ Para 
+\begin_inset Formula $f\in K[X]\setminus K$
+\end_inset
+
+, por el teorema de Kronecker existe una extensión algebraica 
+\begin_inset Formula $L$
+\end_inset
+
+ de 
+\begin_inset Formula $K$
+\end_inset
+
+ en la que 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene una raíz 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, pero esta no puede ser propia, luego 
+\begin_inset Formula $L=K$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha\in K$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Así:
+\end_layout
+
+\begin_layout Enumerate
+Ningún cuerpo finito es algebraicamente cerrado.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $K$
+\end_inset
+
+ un cuerpo finito, si hubiera una cantidad finita de irreducibles mónicos
+ en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+, su producto más 1 sería un irreducible distinto a todos ellos
+\begin_inset Formula $\#$
+\end_inset
+
+, luego en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ hay infinitos irreducibles mónicos y por tanto los hay de grado mayor que
+ 1.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Ser algebraicamente cerrado se conserva por isomorfismos.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Los anillos de polinomios también son isomorfos y ser irreducible se conserva.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Una 
+\series bold
+clausura algebraica
+\series default
+ de un cuerpo 
+\begin_inset Formula $K$
+\end_inset
+
+ es una extensión 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ algebraica con 
+\begin_inset Formula $L$
+\end_inset
+
+ algebraicamente cerrado.
+ Si 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ es una extensión con 
+\begin_inset Formula $L$
+\end_inset
+
+ algebraicamente cerrado, 
+\begin_inset Formula $\overline{K}_{L}$
+\end_inset
+
+ es una clausura algebraica de 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ En efecto, 
+\begin_inset Formula $K\subseteq\overline{K}_{L}$
+\end_inset
+
+ es algebraica y, para 
+\begin_inset Formula $f\in\overline{K}_{L}[X]\setminus\overline{K}_{L}$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene una raíz 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ en 
+\begin_inset Formula $L$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es algebraico sobre 
+\begin_inset Formula $\overline{K}_{L}$
+\end_inset
+
+ y, como 
+\begin_inset Formula $K\subseteq\overline{K}_{L}\subseteq\overline{K}_{L}(\alpha)$
+\end_inset
+
+ son extensiones algebraicas, 
+\begin_inset Formula $K\subseteq\overline{K}_{L}(\alpha)$
+\end_inset
+
+ también y por tanto 
+\begin_inset Formula $\overline{K}_{L}(\alpha)\subseteq\overline{K}_{L}$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha\in\overline{K}_{L}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\overline{K}_{L}$
+\end_inset
+
+ es algebraicamente cerrado.
+\end_layout
+
+\begin_layout Standard
+Así, 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ es una clausura algebraica de 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ y, por lo anterior, el cuerpo 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+ de los números algebraicos es una clausura algebraica de 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, todo cuerpo tiene una clausura algebraica.
+ Si 
+\begin_inset Formula $K$
+\end_inset
+
+ es un cuerpo y 
+\begin_inset Formula ${\cal P}\subseteq K[X]\setminus0$
+\end_inset
+
+, toda clausura algebraica 
+\begin_inset Formula $\overline{K}$
+\end_inset
+
+ de 
+\begin_inset Formula $K$
+\end_inset
+
+ contiene un único cuerpo de descomposición de 
+\begin_inset Formula ${\cal P}$
+\end_inset
+
+, 
+\begin_inset Formula $K(\{\alpha\in\overline{K}:\exists f\in{\cal P}:f(\alpha)=0\})$
+\end_inset
+
+, por lo que existe un cuerpo de descomposición de 
+\begin_inset Formula ${\cal P}$
+\end_inset
+
+ sobre 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ es una extensión algebraica, todo homomorfismo de cuerpos 
+\begin_inset Formula $\sigma:K\to M$
+\end_inset
+
+ con 
+\begin_inset Formula $M$
+\end_inset
+
+ algebraicamente cerrado se extiende a un homomorfismo 
+\begin_inset Formula $\overline{\sigma}:L\to M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dada una extensión 
+\begin_inset Formula $K\subseteq M$
+\end_inset
+
+, 
+\begin_inset Formula $M$
+\end_inset
+
+ es una clausura algebraica de 
+\begin_inset Formula $K$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $K\subseteq M$
+\end_inset
+
+ es algebraica y toda extensión algebraica 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ admite un 
+\begin_inset Formula $K$
+\end_inset
+
+-homomorfismo 
+\begin_inset Formula $\sigma:L\to M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Por lo anterior, como 
+\begin_inset Formula $M$
+\end_inset
+
+ es algebraicamente cerrado, la inclusión 
+\begin_inset Formula $i:K\hookrightarrow M$
+\end_inset
+
+ se extiende a un homomorfismo 
+\begin_inset Formula $\overline{\imath}:L\to M$
+\end_inset
+
+, que es un 
+\begin_inset Formula $K$
+\end_inset
+
+-homomorfismo.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $\overline{K}$
+\end_inset
+
+ una clausura algebraica de 
+\begin_inset Formula $K$
+\end_inset
+
+, existe un 
+\begin_inset Formula $K$
+\end_inset
+
+-homomorfismo 
+\begin_inset Formula $\sigma:\overline{K}\to M$
+\end_inset
+
+, luego 
+\begin_inset Formula $\sigma(\overline{K})$
+\end_inset
+
+ es algebraicamente cerrado por ser isomorfo a 
+\begin_inset Formula $\overline{K}$
+\end_inset
+
+ y, como 
+\begin_inset Formula $\sigma(\overline{K})\subseteq M$
+\end_inset
+
+ es algebraica y 
+\begin_inset Formula $\sigma(\overline{K})$
+\end_inset
+
+ no admite extensiones algebraicas propias, 
+\begin_inset Formula $\sigma(\overline{K})=M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Unicidad
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\sigma:K\to K'$
+\end_inset
+
+ un isomorfismo de cuerpos y 
+\begin_inset Formula $M$
+\end_inset
+
+ y 
+\begin_inset Formula $M'$
+\end_inset
+
+ clausuras algebraicas respectivas de 
+\begin_inset Formula $K$
+\end_inset
+
+ y 
+\begin_inset Formula $K'$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ se extiende a un isomorfismo 
+\begin_inset Formula $\overline{\sigma}:M\to M'$
+\end_inset
+
+, pues si 
+\begin_inset Formula $u:K'\hookrightarrow M'$
+\end_inset
+
+ es la inclusión, 
+\begin_inset Formula $u\circ\sigma:K\to M'$
+\end_inset
+
+ se extiende a un homomorfismo 
+\begin_inset Formula $\overline{\sigma}:M\to M'$
+\end_inset
+
+.
+ En particular dos clausuras algebraicas de 
+\begin_inset Formula $K$
+\end_inset
+
+ son 
+\begin_inset Formula $K$
+\end_inset
+
+-isomorfas, tomando 
+\begin_inset Formula $\sigma=1_{K}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\sigma:K\to K'$
+\end_inset
+
+ un isomorfismo de cuerpos, 
+\begin_inset Formula $L$
+\end_inset
+
+ un cuerpo de descomposición de 
+\begin_inset Formula ${\cal P}\subseteq K[X]\setminus0$
+\end_inset
+
+ sobre 
+\begin_inset Formula $K$
+\end_inset
+
+ y 
+\begin_inset Formula $L'$
+\end_inset
+
+ uno de 
+\begin_inset Formula ${\cal P}':=\sigma({\cal P})$
+\end_inset
+
+ sobre 
+\begin_inset Formula $K$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ se extiende a un isomorfismo 
+\begin_inset Formula $\overline{\sigma}:L\to L'$
+\end_inset
+
+, y en particular dos cuerpos de descomposición de 
+\begin_inset Formula ${\cal P}$
+\end_inset
+
+ sobre 
+\begin_inset Formula $K$
+\end_inset
+
+ son 
+\begin_inset Formula $K$
+\end_inset
+
+-isomorfos.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $\overline{L}$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{L'}$
+\end_inset
+
+ son clausuras algebraicas respectivas de 
+\begin_inset Formula $L$
+\end_inset
+
+ y 
+\begin_inset Formula $L'$
+\end_inset
+
+, lo son de 
+\begin_inset Formula $K$
+\end_inset
+
+ y 
+\begin_inset Formula $K'$
+\end_inset
+
+ por ser 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ y 
+\begin_inset Formula $K'\subseteq L'$
+\end_inset
+
+ algebraicas, y por lo anterior 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ se extiende a un isomorfismo 
+\begin_inset Formula $\overline{\sigma}:\overline{L}\to\overline{L'}$
+\end_inset
+
+.
+ Tenemos 
+\begin_inset Formula $L=K(S:=\{\alpha\in\overline{L}:\alpha\text{ es raíz de un }f\in{\cal P}\})$
+\end_inset
+
+ y 
+\begin_inset Formula $L':=K(S':=\{\alpha'\in\overline{L'}:\alpha'\text{ es raíz de un }f'\in{\cal P}'\})$
+\end_inset
+
+, pero si un 
+\begin_inset Formula $\alpha\in S$
+\end_inset
+
+ es raíz de un 
+\begin_inset Formula $f\in{\cal P}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\overline{\sigma}(\alpha)\in\overline{L'}$
+\end_inset
+
+ es raíz de 
+\begin_inset Formula $\overline{\sigma}(f)=\sigma(f)\in\sigma({\cal P})={\cal P}'$
+\end_inset
+
+, luego 
+\begin_inset Formula $\overline{\sigma}(\alpha)\in S'$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{\sigma}(S)\subseteq S'$
+\end_inset
+
+.
+ Usando 
+\begin_inset Formula $\overline{\sigma}^{-1}$
+\end_inset
+
+ se obtiene el otro contenido, luego 
+\begin_inset Formula $\overline{\sigma}(L)=\overline{\sigma}(K(S))=\overline{\sigma}(K)(\overline{\sigma}(S))=K'(S')=L'$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{\sigma}|_{L}:L\to L'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dada una extensión de cuerpos 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+, 
+\begin_inset Formula $L$
+\end_inset
+
+ es la clausura algebraica de 
+\begin_inset Formula $K$
+\end_inset
+
+ si y sólo si es el cuerpo de descomposición sobre 
+\begin_inset Formula $K$
+\end_inset
+
+ de 
+\begin_inset Formula $K[X]\setminus0$
+\end_inset
+
+, si y sólo si es el cuerpo de descomposición sobre 
+\begin_inset Formula $K$
+\end_inset
+
+ de todos los irreducibles de 
+\begin_inset Formula $K[X]$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -696,11 +1785,6 @@ Dado un anillo
 \series bold
 homomorfismo de Frobenius
 \series default
-
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
 , pues conserva el 1, 
 \begin_inset Formula $h(ab)=(ab)^{p}=a^{p}b^{p}$
 \end_inset
@@ -723,11 +1807,6 @@ status open
 
  entre algo que no es múltiplo de 
 \begin_inset Formula $p$
-\end_inset
-
-
-\end_layout
-
 \end_inset
 
 .
@@ -995,13 +2074,6 @@ Para
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Con esto:
 \end_layout
 
@@ -1229,5 +2301,147 @@ Dada una extensión de cuerpos finitos
 .
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+Como 
+\begin_inset Formula $L$
+\end_inset
+
+ es finito, 
+\begin_inset Formula $L^{*}$
+\end_inset
+
+ es cíclico y existe 
+\begin_inset Formula $\alpha\in L^{*}$
+\end_inset
+
+ con 
+\begin_inset Formula $L^{*}=\langle\alpha\rangle$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $L=L^{*}\cup\{0\}=K(\alpha)$
+\end_inset
+
+.
+ Como los elementos de 
+\begin_inset Formula $L$
+\end_inset
+
+ son las raíces de 
+\begin_inset Formula $f:=X^{p^{n}}-X$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ es raíz de 
+\begin_inset Formula $f$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\text{Irr}(\alpha,K)\mid f$
+\end_inset
+
+ y las 
+\begin_inset Formula $m$
+\end_inset
+
+ raíces de 
+\begin_inset Formula $\text{Irr}(\alpha,K)$
+\end_inset
+
+ lo son de 
+\begin_inset Formula $f$
+\end_inset
+
+ y están en 
+\begin_inset Formula $m$
+\end_inset
+
+.
+ Además estas raíces son distintas ya que 
+\begin_inset Formula $f$
+\end_inset
+
+ no tiene raíces múltiples, y como 
+\begin_inset Formula $\text{Irr}(\alpha,K)$
+\end_inset
+
+ tiene 
+\begin_inset Formula $m$
+\end_inset
+
+ raíces en 
+\begin_inset Formula $L=K(\alpha)$
+\end_inset
+
+, 
+\begin_inset Formula $|\text{Gal}(K(\alpha)/K)|=m$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $K$
+\end_inset
+
+ es finito, en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ existen polinomios irreducibles de cualquier grado 
+\begin_inset Formula $m\geq1$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $K=:\mathbb{F}_{p^{n}}$
+\end_inset
+
+ y 
+\begin_inset Formula $L:=\mathbb{F}_{p^{nm}}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ y, por lo anterior, existe 
+\begin_inset Formula $\alpha\in L$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\text{Irr}(\alpha,K)$
+\end_inset
+
+ tiene 
+\begin_inset Formula $m$
+\end_inset
+
+ raíces distintas en 
+\begin_inset Formula $L$
+\end_inset
+
+ y es un irreducible de grado 
+\begin_inset Formula $m$
+\end_inset
+
+ en 
+\begin_inset Formula $K[X]$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
 \end_body
 \end_document
