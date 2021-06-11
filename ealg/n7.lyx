@@ -1,0 +1,1618 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\text{Gal}(K(X)/K)=\bigg\{\sigma\,\Big\vert\,\exists a,b,c,d\in K:\bigg(ad-bc\neq0\land\sigma(X)=\frac{aX+b}{cX+d}\bigg)\bigg\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conexión de Galois
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ una extensión de cuerpos, 
+\begin_inset Formula $G:=\text{Gal}(L/K)$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+ el conjunto de cuerpos intermedios de 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+ el conjunto de subgrupos de 
+\begin_inset Formula $G$
+\end_inset
+
+, llamamos 
+\series bold
+correspondencia
+\series default
+ o 
+\series bold
+conexión de Galois
+\series default
+ asicada a 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ al par 
+\begin_inset Formula $(f:{\cal F}\to{\cal H},g:{\cal H}\to{\cal F})$
+\end_inset
+
+ dado por
+\begin_inset Formula 
+\begin{align*}
+f(F):=F' & :=\{\sigma\in G:\forall\alpha\in F,\sigma(\alpha)=\alpha\}=\text{Gal}(L/F),\\
+g(H):=H' & :=\{\alpha\in L:\forall\sigma\in H,\sigma(\alpha)=\alpha\}=\bigcap_{\sigma\in H}\text{Fix}\sigma.
+\end{align*}
+
+\end_inset
+
+En particular, para 
+\begin_inset Formula $\beta\in L$
+\end_inset
+
+, 
+\begin_inset Formula $K(\beta)'=\{\sigma\in G:\sigma(\beta)=\beta\}$
+\end_inset
+
+, y para 
+\begin_inset Formula $\tau\in G$
+\end_inset
+
+, 
+\begin_inset Formula $\langle\tau\rangle'=\text{Fix}\tau$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Propiedades: Sean 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+, 
+\begin_inset Formula $G:=\text{Gal}(L/K)$
+\end_inset
+
+, 
+\begin_inset Formula $F,F_{1},F_{2}$
+\end_inset
+
+ cuerpos intermedios de 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ y 
+\begin_inset Formula $H,H_{1},H_{2}$
+\end_inset
+
+ subcuerpos de 
+\begin_inset Formula $G$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $L'=\{1_{G}\}$
+\end_inset
+
+, 
+\begin_inset Formula $\{1_{G}\}'=L$
+\end_inset
+
+ y 
+\begin_inset Formula $K'=G$
+\end_inset
+
+, pero en general no es 
+\begin_inset Formula $G'=K$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $L'=\text{Gal}(L/L)=1$
+\end_inset
+
+, 
+\begin_inset Formula $1'=\text{Fix}1_{G}=L$
+\end_inset
+
+ y 
+\begin_inset Formula $K'=\text{Gal}(L/K)=G$
+\end_inset
+
+, pero si la extensión es 
+\begin_inset Formula $\mathbb{Q}\subseteq\mathbb{Q}(\sqrt[3]{2})$
+\end_inset
+
+, como 
+\begin_inset Formula $\sqrt[3]{2}$
+\end_inset
+
+ es la única raíz de 
+\begin_inset Formula $X^{3}-2$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{Q}(\sqrt[3]{2})$
+\end_inset
+
+, debe ser 
+\begin_inset Formula $\sigma(\sqrt[3]{2})=\sqrt[3]{2}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $\sigma\in G$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $G=1$
+\end_inset
+
+, y 
+\begin_inset Formula $G'=1'=\mathbb{Q}(\sqrt[3]{2})\neq\mathbb{Q}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $F_{1}\subseteq F_{2}\implies F_{2}'\subseteq F_{1}'$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Si 
+\begin_inset Formula $\sigma\in F_{2}'$
+\end_inset
+
+, todo 
+\begin_inset Formula $\alpha\in F_{1}\subseteq F_{2}$
+\end_inset
+
+ cumple 
+\begin_inset Formula $\sigma(\alpha)=\alpha$
+\end_inset
+
+, luego 
+\begin_inset Formula $\sigma\in F_{1}'$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $H_{1}\subseteq H_{2}\implies H_{2}'\subseteq H_{1}'$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Si 
+\begin_inset Formula $\alpha\in H_{2}'$
+\end_inset
+
+, para 
+\begin_inset Formula $\sigma\in H_{1}\subseteq H_{2}$
+\end_inset
+
+ es 
+\begin_inset Formula $\sigma(\alpha)=\alpha$
+\end_inset
+
+, luego 
+\begin_inset Formula $\alpha\in H_{1}'$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $F\subseteq F''$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $F''=\bigcap_{\sigma\in\text{Gal}(L/F)}\text{Fix}\sigma$
+\end_inset
+
+, pero 
+\begin_inset Formula $\alpha\in F\implies\forall\sigma\in\text{Gal}(L/F),\alpha\in\text{Fix}\sigma\iff\alpha\in F''$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $H\subseteq H''$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $H''=\text{Gal}(L/\bigcap_{\sigma\in H}\text{Fix}\sigma)$
+\end_inset
+
+, pero para 
+\begin_inset Formula $\tau\in H$
+\end_inset
+
+, 
+\begin_inset Formula $\bigcap_{\sigma\in H}\text{Fix}\sigma\subseteq\text{Fix}\tau\implies\text{Gal}(L/\text{Fix}\tau)\subseteq H''$
+\end_inset
+
+ y 
+\begin_inset Formula $\tau\in\text{Gal}(L/\text{Fix}\tau)$
+\end_inset
+
+, luego 
+\begin_inset Formula $\tau\in H''$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $F'=F'''$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $F'\subseteq(F')''$
+\end_inset
+
+, y como 
+\begin_inset Formula $F\subseteq F''$
+\end_inset
+
+, 
+\begin_inset Formula $(F'')'\subseteq F'$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $H'=H'''$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $H'\subseteq(H')''$
+\end_inset
+
+, y como 
+\begin_inset Formula $H\subseteq H''$
+\end_inset
+
+, 
+\begin_inset Formula $(H'')'\subseteq H'$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ una extensión con retículo de cuerpos intermedios 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+ y 
+\begin_inset Formula $G:=\text{Gal}(L/K)$
+\end_inset
+
+ con retículo de subgrupos 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+, un 
+\begin_inset Formula $F\in{\cal F}$
+\end_inset
+
+ es 
+\series bold
+cerrado
+\series default
+ si 
+\begin_inset Formula $F=F''$
+\end_inset
+
+, si y sólo si existe 
+\begin_inset Formula $H\in{\cal H}$
+\end_inset
+
+ con 
+\begin_inset Formula $F=H'$
+\end_inset
+
+, y un 
+\begin_inset Formula $H\in{\cal H}$
+\end_inset
+
+ es 
+\series bold
+cerrado
+\series default
+ si 
+\begin_inset Formula $H=H''$
+\end_inset
+
+, si y sólo si existe 
+\begin_inset Formula $F\in{\cal F}$
+\end_inset
+
+ con 
+\begin_inset Formula $H=F'$
+\end_inset
+
+.
+ Así, la conexión de Galois induce biyecciones inversas una de la otra,
+ que invierten las inclusiones, entre el conjunto de cuerpos cerrados en
+ 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+ y el de subgrupos cerrados en 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{GyA}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+, definimos la relación de equivalencia en 
+\begin_inset Formula $G$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a\equiv_{i}b\bmod H:\iff a^{-1}b\in H;
+\]
+
+\end_inset
+
+la clase de equivalencia de 
+\begin_inset Formula $a\in G$
+\end_inset
+
+, llamada 
+\series bold
+clase lateral módulo 
+\begin_inset Formula $H$
+\end_inset
+
+ por la izquierda
+\series default
+, es 
+\begin_inset Formula $aH=\{ah\}_{h\in H}$
+\end_inset
+
+, y llamamos 
+\begin_inset Formula $G/H:=G/(\equiv_{i}\bmod\ H)$
+\end_inset
+
+.
+ [...] Llamamos 
+\series bold
+índice
+\series default
+ de 
+\begin_inset Formula $H$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ a 
+\begin_inset Formula $[G:H]:=|G/H|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+[...] Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un grupo finito y 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+, 
+\begin_inset Formula $|G|=|H|[G:H]$
+\end_inset
+
+.
+ [...]
+\end_layout
+
+\begin_layout Standard
+Un subgrupo 
+\begin_inset Formula $N\leq G$
+\end_inset
+
+ es 
+\series bold
+normal
+\series default
+ si [...] 
+\begin_inset Formula $\forall x\in G,Nx=xN$
+\end_inset
+
+, [...] escribimos 
+\begin_inset Formula $N\unlhd G$
+\end_inset
+
+, y si además es propio, escribimos 
+\begin_inset Formula $N\lhd G$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $H\leq J\leq G$
+\end_inset
+
+ son grupos, 
+\begin_inset Formula $G/H$
+\end_inset
+
+ es un grupo si y sólo si 
+\begin_inset Formula $H\unlhd G$
+\end_inset
+
+, y 
+\begin_inset Formula $[G:J][J:H]=[G:H]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ una extensión con grupo de Galois 
+\begin_inset Formula $G$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Dada una torre 
+\begin_inset Formula $K\subseteq E\subseteq F\subseteq L$
+\end_inset
+
+, si 
+\begin_inset Formula $[F:E]$
+\end_inset
+
+ es finito, 
+\begin_inset Formula $[E':F']\leq[F:E]$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Hacemos inducción sobre 
+\begin_inset Formula $n:=[F:E]$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $n=1$
+\end_inset
+
+, 
+\begin_inset Formula $E=F$
+\end_inset
+
+ y es trivial.
+ Si 
+\begin_inset Formula $n>1$
+\end_inset
+
+, sea 
+\begin_inset Formula $\alpha\in F\setminus E$
+\end_inset
+
+, entonces 
+\begin_inset Formula $1<s:=[E(\alpha):E]\leq[F:E]=n$
+\end_inset
+
+, luego 
+\begin_inset Formula $[F:E(\alpha)]=n/s<n$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $s<n$
+\end_inset
+
+, por la hipótesis de inducción, 
+\begin_inset Formula $[E':F']=[E':E(\alpha)'][E(\alpha)':F']\leq s\cdot\frac{n}{s}=n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En otro caso, 
+\begin_inset Formula $[F:E(\alpha)]=1$
+\end_inset
+
+ y 
+\begin_inset Formula $F=E(\alpha)$
+\end_inset
+
+, luego 
+\begin_inset Formula $f:=\text{Irr}(\alpha,E)$
+\end_inset
+
+ tiene grado 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $R$
+\end_inset
+
+ el conjunto de raíces de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $L$
+\end_inset
+
+, como cada 
+\begin_inset Formula $\sigma\in E'$
+\end_inset
+
+ fija los elementos de 
+\begin_inset Formula $E$
+\end_inset
+
+ y lleva 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ a un elemento de 
+\begin_inset Formula $R$
+\end_inset
+
+, podemos definir 
+\begin_inset Formula $f:E'/F'\to R$
+\end_inset
+
+ como 
+\begin_inset Formula $f(\sigma F'):=\sigma(\alpha)$
+\end_inset
+
+, y esto está bien definido y es inyectivo ya que
+\begin_inset Formula 
+\[
+\sigma F'=\tau F'\iff\tau^{-1}\sigma\in F'=E(\alpha)'\iff(\tau^{-1}\sigma)(\alpha)=\alpha\iff\sigma(\alpha)=\tau(\alpha),
+\]
+
+\end_inset
+
+por ser 
+\begin_inset Formula $\tau$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ biyectivos, luego 
+\begin_inset Formula $[E':F']\leq|R|\leq n=[F:E]$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $H\subseteq J$
+\end_inset
+
+ son subgrupos de 
+\begin_inset Formula $G$
+\end_inset
+
+ y 
+\begin_inset Formula $[J:H]$
+\end_inset
+
+ es finito, 
+\begin_inset Formula $[H':J']\leq[J:H]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, sean 
+\begin_inset Formula $K\subseteq E\subseteq F\subseteq L$
+\end_inset
+
+ una torre de extensiones, 
+\begin_inset Formula $G:=\text{Gal}(L/K)$
+\end_inset
+
+ y 
+\begin_inset Formula $H\subseteq J$
+\end_inset
+
+ subgrupos de 
+\begin_inset Formula $G$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es cerrado y 
+\begin_inset Formula $[F:E]$
+\end_inset
+
+ es finito, entonces 
+\begin_inset Formula $F$
+\end_inset
+
+ es cerrado y 
+\begin_inset Formula $[E':F']=[F:E]$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $[F:E]\geq[E':F']\geq[F'':E'']=[F'':E]=[F'':F][F:E]\geq[F:E]$
+\end_inset
+
+, lo que da la igualdad, y como entonces 
+\begin_inset Formula $[F'':F]=1$
+\end_inset
+
+, 
+\begin_inset Formula $F=F''$
+\end_inset
+
+ es cerrado.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $H$
+\end_inset
+
+ es cerrado y 
+\begin_inset Formula $[J:H]$
+\end_inset
+
+ es finito, 
+\begin_inset Formula $J$
+\end_inset
+
+ es cerrado y 
+\begin_inset Formula $[H':J']=[J:H]$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Análogo.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Todo subgrupo finito de 
+\begin_inset Formula $G$
+\end_inset
+
+ es cerrado.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $J$
+\end_inset
+
+ tal subgrupo, como 
+\begin_inset Formula $1$
+\end_inset
+
+ es cerrado 
+\begin_inset Formula $[J:1]$
+\end_inset
+
+ es finito, 
+\begin_inset Formula $J$
+\end_inset
+
+ es cerrado.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Extensiones de Galois
+\end_layout
+
+\begin_layout Standard
+Una extensión 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ con grupo de Galois 
+\begin_inset Formula $G$
+\end_inset
+
+ es 
+\series bold
+de Galois
+\series default
+ si 
+\begin_inset Formula $K$
+\end_inset
+
+ es cerrado, es decir, si 
+\begin_inset Formula $K=G'$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $G'\subseteq K$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\forall\alpha\in L,(\forall\sigma\in G,\sigma(\alpha)=\alpha\implies\alpha\in K)$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\forall\alpha\in L\setminus K,\exists\sigma\in G:\sigma(\alpha)\neq\alpha$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $G=\langle\tau\rangle$
+\end_inset
+
+, 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ es de Galois si y sólo si 
+\begin_inset Formula $\forall\alpha\in L,(\tau(\alpha)=\alpha\implies\alpha\in K)$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\forall\alpha\in L\setminus K,\tau(\alpha)\neq\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+Las extensiones propias 
+\begin_inset Formula $K\subsetneq L$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{Gal}(L/K)$
+\end_inset
+
+ trivial no son de Galois.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\text{Gal}(L/K)'=1'=L\neq K$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{R}\subseteq\mathbb{C}$
+\end_inset
+
+ es de Galois.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ es la conjugación, 
+\begin_inset Formula $\text{Gal}(\mathbb{C}/\mathbb{R})=\langle\sigma\rangle$
+\end_inset
+
+, pero 
+\begin_inset Formula $\sigma(\alpha)=\alpha\implies\alpha\in\mathbb{R}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ una extensión y 
+\begin_inset Formula $F$
+\end_inset
+
+ un cuerpo intermedio cerrado, 
+\begin_inset Formula $F\subseteq L$
+\end_inset
+
+ es de Galois, pues 
+\begin_inset Formula $F=F''=\text{Gal}(L/F)'$
+\end_inset
+
+.
+ En particular 
+\begin_inset Formula $\text{Gal}(L/K)'\subseteq L$
+\end_inset
+
+ es de Galois, pues 
+\begin_inset Formula $\text{Gal}(L/K)'=\text{Gal}(L/K)'''$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, una extensión es algebraica y de Galois si y sólo si es normal y separable.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ la extensión, queremos ver que si un irreducible mónico 
+\begin_inset Formula $f\in K[X]$
+\end_inset
+
+ tiene una raíz 
+\begin_inset Formula $\alpha\in L$
+\end_inset
+
+ entonces tiene 
+\begin_inset Formula $n:=\text{gr}f$
+\end_inset
+
+ raíces distintas en 
+\begin_inset Formula $L$
+\end_inset
+
+.
+ Sean entonces 
+\begin_inset Formula $\alpha=\alpha_{1},\dots,\alpha_{r}$
+\end_inset
+
+ las raíces distintas de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $L$
+\end_inset
+
+ con 
+\begin_inset Formula $r\leq n$
+\end_inset
+
+ y 
+\begin_inset Formula $g:=(X-\alpha_{1})\cdots(X-\alpha_{r})\in L[X]$
+\end_inset
+
+, cada 
+\begin_inset Formula $\sigma\in G:=\text{Gal}(L/K)$
+\end_inset
+
+ permuta las raíces de 
+\begin_inset Formula $f$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\sigma(g)=g$
+\end_inset
+
+, luego los coeficientes de 
+\begin_inset Formula $g$
+\end_inset
+
+ quedan fijos y están en 
+\begin_inset Formula $G'=K$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $g\in K[X]$
+\end_inset
+
+, 
+\begin_inset Formula $f\mid g$
+\end_inset
+
+ y 
+\begin_inset Formula $n=\text{gr}f\leq\text{gr}g=r$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Como es normal es algebraica, y hay que ver que, para 
+\begin_inset Formula $\alpha\in L\setminus K$
+\end_inset
+
+, existe 
+\begin_inset Formula $\sigma\in\text{Gal}(L/K)$
+\end_inset
+
+ con 
+\begin_inset Formula $\sigma(\alpha)\neq\alpha$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $f:=\text{Irr}(\alpha,K)$
+\end_inset
+
+, como 
+\begin_inset Formula $\alpha\notin K$
+\end_inset
+
+, 
+\begin_inset Formula $n:=\text{gr}f>1$
+\end_inset
+
+, pero por la hipótesis, 
+\begin_inset Formula $f$
+\end_inset
+
+ tiene 
+\begin_inset Formula $n$
+\end_inset
+
+ raíces distintas en 
+\begin_inset Formula $L$
+\end_inset
+
+ y en particular tiene una raíz 
+\begin_inset Formula $\beta\neq\alpha$
+\end_inset
+
+, luego hay un 
+\begin_inset Formula $K$
+\end_inset
+
+-isomorfismo 
+\begin_inset Formula $\sigma:K(\alpha)\to K(\beta)$
+\end_inset
+
+ con 
+\begin_inset Formula $\sigma(\alpha)=\beta$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ es normal, 
+\begin_inset Formula $L$
+\end_inset
+
+ es el cuerpo de descomposición de cierto 
+\begin_inset Formula ${\cal P}\subseteq K[X]\setminus0$
+\end_inset
+
+ sobre 
+\begin_inset Formula $K$
+\end_inset
+
+ y por tanto sobre 
+\begin_inset Formula $K(\alpha)$
+\end_inset
+
+ y 
+\begin_inset Formula $K(\beta)$
+\end_inset
+
+, por lo que se extiende a un 
+\begin_inset Formula $K$
+\end_inset
+
+-automorfismo 
+\begin_inset Formula $\overline{\sigma}:L\to L$
+\end_inset
+
+ con 
+\begin_inset Formula $\sigma(\alpha)=\beta\neq\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Así:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Quotes cld
+\end_inset
+
+Ser una extensión algebraica de Galois
+\begin_inset Quotes crd
+\end_inset
+
+ es estable por levantamientos.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $K$
+\end_inset
+
+ es perfecto, 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ es algebraica y de Galois si y sólo si es normal, y es finita y de Galois
+ si y sólo si 
+\begin_inset Formula $L$
+\end_inset
+
+ es el cuerpo de descomposición sobre 
+\begin_inset Formula $K$
+\end_inset
+
+ de un polinomio de 
+\begin_inset Formula $K[X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Toda extensión ciclotómica 
+\begin_inset Formula $K\subseteq F$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{car}K\nmid[F:K]$
+\end_inset
+
+ es finita y de Galois.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ es separable con clausura normal 
+\begin_inset Formula $N$
+\end_inset
+
+, 
+\begin_inset Formula $K\subseteq N$
+\end_inset
+
+ es de Galois.
+\end_layout
+
+\begin_layout Section
+Teoremas fundamentales
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Primer Teorema Fundamental de la Teoría de Galois:
+\series default
+ Si 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ es finita y de Galois con grupo de Galois 
+\begin_inset Formula $G$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $|G|=[L:K]$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Como 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ es finita y 
+\begin_inset Formula $K$
+\end_inset
+
+ es cerrado, 
+\begin_inset Formula $[L:K]=[K':L']=[G:1]=|G|$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Todos los cuerpos intermedios entre 
+\begin_inset Formula $K$
+\end_inset
+
+ y 
+\begin_inset Formula $L$
+\end_inset
+
+ y todos los subgrupos de 
+\begin_inset Formula $G$
+\end_inset
+
+ son cerrados.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $F$
+\end_inset
+
+ un cuerpo intermedio, 
+\begin_inset Formula $K\subseteq F$
+\end_inset
+
+ es finita por serlo 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ y 
+\begin_inset Formula $K$
+\end_inset
+
+ es cerrado, luego 
+\begin_inset Formula $F$
+\end_inset
+
+ es cerrado.
+ Si 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+, 
+\begin_inset Formula $[H:1]$
+\end_inset
+
+ es finito por serlo 
+\begin_inset Formula $[G:1]$
+\end_inset
+
+, luego 
+\begin_inset Formula $H$
+\end_inset
+
+ es cerrado.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $X\subseteq Y$
+\end_inset
+
+ son cuerpos intermedios o subgrupos, 
+\begin_inset Formula $[X':Y']=[Y:X]$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Por lo anterior, 
+\begin_inset Formula $X$
+\end_inset
+
+ es cerrado e 
+\begin_inset Formula $[Y:X]$
+\end_inset
+
+ es finito.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+La correspondencia de Galois establece biyecciones inversas una de la otra,
+ que invierten las inclusiones, entre el conjunto de cuerpos intermedios
+ de 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ y el de subgrupos de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Estas se dan entre los cerrados, pero ahora todos son cerrados.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Una extensión finita 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+ es de Galois si y sólo si 
+\begin_inset Formula $|\text{Gal}(L/K)|=[L:K]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Por el teorema.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $G:=\text{Gal}(L/K)$
+\end_inset
+
+ y 
+\begin_inset Formula $K_{0}:=G'$
+\end_inset
+
+, 
+\begin_inset Formula $K_{0}\subseteq L$
+\end_inset
+
+ es finita por serlo 
+\begin_inset Formula $K\subseteq L$
+\end_inset
+
+, y es de Galois con 
+\begin_inset Formula $\text{Gal}(L/K_{0})=K_{0}'=G$
+\end_inset
+
+, luego por el teorema es 
+\begin_inset Formula $|G|=[L:K_{0}]$
+\end_inset
+
+, pero 
+\begin_inset Formula $|G|=[L:K]=[L:K_{0}][K_{0}:K]$
+\end_inset
+
+, luego 
+\begin_inset Formula $[K_{0}:K]=1$
+\end_inset
+
+ y 
+\begin_inset Formula $K=K_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $K\subseteq L_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $K\subseteq L_{2}$
+\end_inset
+
+ extensiones finitas y de Galois admisibles, 
+\begin_inset Formula $K\subseteq L_{1}L_{2}$
+\end_inset
+
+ es finita y de Galois y 
+\begin_inset Formula $\varphi:\text{Gal}(L_{1}L_{2}/K)\to\text{Gal}(L_{1}/K)\times\text{Gal}(L_{2}/K)$
+\end_inset
+
+ dado por 
+\begin_inset Formula $\varphi(\sigma):=(\sigma|_{L_{1}},\sigma|_{L_{2}})$
+\end_inset
+
+ es un homomorfismo inyectivo de grupos, que es biyectivo si 
+\begin_inset Formula $L_{1}\cap L_{2}=K$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_body
+\end_document
