@@ -115,8 +115,7 @@ frame problem
 \series bold
 cualificación
 \series default
- es qué necesita la regla que se cumpla para poder ejecutable, y el de la
- 
+ es qué debe cumplirse para poder ejecutar una regla, y el de la 
 \series bold
 ramificación
 \series default
@@ -244,8 +243,8 @@ En el caso de reglas tipo STRIPS, aplicar una regla hacia atrás genera un
  Para obtenerlo, unificamos un subconjunto de los literales del objetivo
  con la fórmula de adición, aplicamos el unificador a todo el objetivo y
  la regla y tomamos la conjunción de la fórmula de precondición de la regla
- con la regresión de los literales del objetivo que no aparecen en el subconjunt
-o unificado.
+ con la regresión de los literales del objetivo que no están en el subconjunto
+ de literales que se unificó con la regla de adición.
  La 
 \series bold
 regresión
@@ -271,10 +270,20 @@ Pila de objetivos
 
 \begin_layout Standard
 STRIPS usa una planificación lineal mediante una pila de subobjetivos con
- el algoritmo 
+ el Algoritmo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:strips"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ o 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:stripshit"
 plural "false"
 caps "false"
 noprefix "false"
@@ -432,7 +441,7 @@ cdots l_n$
 
 	} 
 \backslash
-uEnOtroCaso{
+EnOtroCaso{
 \end_layout
 
 \begin_layout Plain Layout
@@ -504,6 +513,217 @@ Método de planificación de STRIPS.
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+estado:=estado-inicial; plan:=[ ]; pila:=[ ];
+\end_layout
+
+\begin_layout Plain Layout
+apilar objetivo en pila;
+\end_layout
+
+\begin_layout Plain Layout
+repetir hasta que pila esté vacía
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+si el objetivo en la cima de la pila se empareja con descripción del estado
+ entonces
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+quitar de la pila y aplicar la sustitución a las expresiones que están debajo
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+sino, si el objetivo en la cima de pila es conjunción de objetivos entonces
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+seleccionar un orden de los sub-objetivos y apilarlos en pila
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+sino, si resueltos todos los sub-objetivos pero no resuelto objetivo entonces
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+reconsiderar objetivo compuesto y apilarlos en la pila
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+sino, si la cima de pila es un objetivo simple 
+\begin_inset Quotes cld
+\end_inset
+
+sg
+\begin_inset Quotes crd
+\end_inset
+
+ entonces
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+elegir operador 
+\begin_inset Quotes cld
+\end_inset
+
+OP
+\begin_inset Quotes crd
+\end_inset
+
+ cuya lista de adición se empareja con 
+\begin_inset Quotes cld
+\end_inset
+
+sg
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+reemplazar el objetivo 
+\begin_inset Quotes cld
+\end_inset
+
+sg
+\begin_inset Quotes crd
+\end_inset
+
+ con el operador 
+\begin_inset Quotes cld
+\end_inset
+
+OP
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+apilar precondiciones de 
+\begin_inset Quotes cld
+\end_inset
+
+OP
+\begin_inset Quotes crd
+\end_inset
+
+ en pila
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+sino, si la cima de la pila es un operador 
+\begin_inset Quotes cld
+\end_inset
+
+OP
+\begin_inset Quotes crd
+\end_inset
+
+ entoncces
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+estado:=aplicar(OP,estado); plan=[plan;OP]
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:stripshit"
+
+\end_inset
+
+Versión de mierda del algoritmo STRIPS que aparece en las diapositivas y
+ por la que pueden preguntar.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Planificación de orden parcial
 \end_layout
@@ -551,7 +771,7 @@ Cuando una acción
 \end_inset
 
  o de otro ancestro que no aparezca en la lista de supresión de otra acción
- posterior en el camino, pero si el motivo que vaya antes es que 
+ posterior en el camino, pero si el motivo de que vaya antes es que 
 \begin_inset Formula $B$
 \end_inset
 

@@ -82,8 +82,8 @@ algorithm2e
 
 \begin_layout Standard
 Los algoritmos de búsqueda que veremos operan sobre un grafo o árbol de
- búsqueda, esto es, un grafo dirigido o árbol que representa un espacio
- de estados o una reducción (en cuyo caso sería un árbol o grafo Y-O).
+ búsqueda, un grafo dirigido o árbol que representa un espacio de estados
+ o una reducción (en cuyo caso sería un árbol o grafo Y-O).
  En cada nodo, además de almacenar el estado, almacenamos el nodo padre
  y la acción que se ha aplicado a este para obtener el nodo, lo que describe
  un camino.
@@ -105,11 +105,11 @@ El entorno es
 \series bold
 observable
 \series default
- si siempre conocemos todo el estado, 
+ si siempre conocemos todo el estado; 
 \series bold
 determinista
 \series default
- si sabemos el resultado de cualquier secuencia de acciones desde un estado,
+ si sabemos el resultado de cualquier secuencia de acciones desde un estado;
  
 \series bold
 estático
@@ -152,15 +152,15 @@ Podemos representar un problema de búsqueda en un espacio de estados como
 \begin_inset Formula $v$
 \end_inset
 
-; un estado inicial 
+; 
 \begin_inset Formula $s\in V$
 \end_inset
 
-, y un conjunto computable de estados finales 
+ es un estado inicial, y 
 \begin_inset Formula $F\subseteq V$
 \end_inset
 
-.
+ es un conjunto computable de estados finales.
  Entonces una solución es un camino de 
 \begin_inset Formula $s$
 \end_inset
@@ -470,6 +470,10 @@ Primero en profundidad con profundidad iterativa
 \begin_inset Formula $O(b^{d})$
 \end_inset
 
+ para 
+\begin_inset Formula $d>1$
+\end_inset
+
  y en espacio 
 \begin_inset Formula $O(bd)$
 \end_inset
@@ -499,7 +503,8 @@ Suponemos
 \begin_inset Formula $\omega(A)\subseteq\mathbb{R}^{\geq0}$
 \end_inset
 
-.Una 
+.
+ Una 
 \series bold
 función heurística
 \series default
@@ -507,7 +512,7 @@ función heurística
 \begin_inset Formula $h:V\to\mathbb{R}^{\geq0}$
 \end_inset
 
- estima el menor peso de un camino de un nodo dado a un nodo objetivo de
+ estima el menor peso de un camino de un nodo dado a un nodo objetivo, de
  forma que 
 \begin_inset Formula $h(F)=\{0\}$
 \end_inset
@@ -560,9 +565,9 @@ voraz
 \series default
  o 
 \series bold
-primero el mejor
+primero el mejor:
 \series default
-: 
+ 
 \begin_inset Formula $f(P)=h(\text{final}(P))$
 \end_inset
 
@@ -581,9 +586,9 @@ primero el mejor
 \begin_layout Itemize
 
 \series bold
-A*
+A*:
 \series default
-: 
+ 
 \begin_inset Formula $f(P)=\omega(P)+h(\text{final}(P))$
 \end_inset
 
@@ -604,12 +609,8 @@ admisible
 \series bold
 optimista
 \series default
- si, para 
-\begin_inset Formula $v\in V$
-\end_inset
-
-, 
-\begin_inset Formula $h(v)\leq\min\omega({\cal P}_{v,F})$
+ si 
+\begin_inset Formula $\forall v\in V,h(v)\leq\min\omega({\cal P}_{v,F})$
 \end_inset
 
 , y es 
@@ -657,7 +658,7 @@ Demostración:
  cumple 
 \begin_inset Formula 
 \[
-f(R)=\omega(R)+h(\text{final}(R))\leq\omega(R)+\min\omega({\cal P}_{\text{final}(R),F})\overset{S\in{\cal P}_{\text{final}(R),F}}{\leq}\omega(P)=c,
+f(R)=\omega(R)+h(\text{final}(R))\leq\omega(R)+\min\omega({\cal P}_{\text{final}(R),F})\overset{S\in{\cal P}_{\text{final}(R),F}}{\leq}\omega(RS)=c,
 \]
 
 \end_inset
@@ -676,15 +677,18 @@ f(R)=\omega(R)+h(\text{final}(R))\leq\omega(R)+\min\omega({\cal P}_{\text{final}
 \end_inset
 
  cumple 
-\begin_inset Formula $\omega(Q)\leq f(Q)\leq c$
+\begin_inset Formula $\omega(Q)\leq\omega(Q)+h(\text{final}(Q))=f(Q)\leq c$
 \end_inset
 
  y tiene pues longitud máxima 
 \begin_inset Formula $c/p$
 \end_inset
 
-, luego hay una cantidad finita de nodos así y el algoritmo siempre llega
- a una solución con coste 
+, luego hay una cantidad finita de caminos con 
+\begin_inset Formula $f(Q)\leq c$
+\end_inset
+
+ y el algoritmo siempre llega a una solución con coste 
 \begin_inset Formula $c$
 \end_inset
 
@@ -788,7 +792,7 @@ Si
 \end_inset
 
  es 
-\begin_inset Formula $f(P_{j})=\omega(P_{j})+h(v_{j})=\omega(P_{i})+\omega(v_{i}\cdots v_{j})+h(v_{j})\geq\omega(P_{i})+h(v_{i})=f(P_{i})$
+\begin_inset Formula $f(P_{i})=\omega(P_{i})+h(v_{i})\leq\omega(P_{i})+\omega(v_{i}\cdots v_{j})+h(v_{j})=\omega(P_{j})+h(v_{j})=f(P_{j})$
 \end_inset
 
 .
@@ -802,7 +806,7 @@ Métodos limitados en memoria
 Cuando A* es óptimo, es el método óptimo más eficiente en tiempo, pero en
  general usa una frontera de tamaño exponencial y se queda pronto sin espacio.
  Algunos métodos usan menos espacio sin sacrificar optimalidad y completitud
- a cambio de un mayor coste de ejecución:
+ a cambio de un mayor tiempo de ejecución:
 \end_layout
 
 \begin_layout Standard
@@ -996,7 +1000,7 @@ lSSi{$
 \backslash
 text{
 \backslash
-rm fallo}(t):=r$}{$b
+rm fallo}(t):=r$}{$f_b
 \backslash
 gets t$}
 \end_layout
@@ -1136,8 +1140,8 @@ Concretamente se elimina el nodo más antiguo dentro de los de mayor valor
 
 .
  Esto se hace así para evitar entrar en un bucle cuando todos los nodos
- tienen el valor, y funciona si hay más de un nodo, pero si solo hay un
- nodo esto significa que el camino solución está ocupando toda la memoria
+ tienen el mismo valor, y funciona si hay más de un nodo, pero si solo hay
+ un nodo esto significa que el camino solución está ocupando toda la memoria
  y no es representable en memoria.
 \end_layout
 
@@ -1194,23 +1198,28 @@ Podemos representar un problema de reducción como una tupla
 \begin_inset Formula $(V,A,\omega,s)$
 \end_inset
 
- donde 
+, donde 
 \begin_inset Formula $(V,A)$
 \end_inset
 
- es un grafo YO acíclico con 
-\begin_inset Formula $\{(u,S):u\in V\}$
+ es un grafo Y/O acíclico con 
+\begin_inset Formula $V$
 \end_inset
 
- finito y recursivamente enumerable a partir de 
+ contable y tanto 
+\begin_inset Formula $\{S\subseteq V:(u,S)\in V\}$
+\end_inset
+
+ como cada uno de sus elementos finito y recursivamente enumerable a partir
+ de 
 \begin_inset Formula $u$
 \end_inset
 
-, 
+; 
 \begin_inset Formula $\omega:A\to\mathbb{R}^{\geq0}$
 \end_inset
 
- es una función de coste y 
+ es una función de coste, y 
 \begin_inset Formula $s\in V$
 \end_inset
 
@@ -1279,7 +1288,7 @@ noprefix "false"
 \end_inset
 
 , que va expandiendo nodos y eliminando nodos resolubles e irresolubles
- de la frontera hasta que el nodo inicial sea de uno de los dos tipos.
+ de la frontera hasta clasificar el nodo inicial.
 \end_layout
 
 \begin_layout Standard
@@ -1298,7 +1307,7 @@ status open
 \backslash
 Entrada{Problema de reducción $(V,A,
 \backslash
-omega,s)$.}
+omega,s)$ con $s$ no primitivo.}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1320,7 +1329,7 @@ gets
 \backslash
 }$
 \backslash
-;
+tcp*{Caminos frontera}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1331,7 +1340,7 @@ gets
 \backslash
 emptyset$
 \backslash
-;
+tcp*{Nodos irresolubles}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1342,7 +1351,99 @@ gets
 \backslash
 emptyset$
 \backslash
+tcp*{Nodos resolubles y su hiperarco siguiente}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwFunction{Resolucion}{{}resolución}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SetKwProg{Func}{función}{}{fin}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Func{
+\backslash
+Resolucion{$R,s$}}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$N
+\backslash
+gets R(s)$
+\backslash
 ;
+\end_layout
+
+\begin_layout Plain Layout
+
+	$(V_0,A_0)
+\backslash
+gets(
+\backslash
+{s
+\backslash
+},
+\backslash
+{(s,N)
+\backslash
+})$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lPara{$n
+\backslash
+in N$}{$(V_n,A_n)
+\backslash
+gets
+\backslash
+text{
+\backslash
+Resolucion{
+\backslash
+ensuremath{R,n}}}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Devolver $(V_0
+\backslash
+cup
+\backslash
+bigcup_{n
+\backslash
+in N}V_n,A_0
+\backslash
+cup
+\backslash
+bigcup_{n
+\backslash
+in N}A_n)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1380,6 +1481,8 @@ subseteq V:(u_n,S)
 in A
 \backslash
 }$
+\backslash
+;
 \end_layout
 
 \begin_layout Plain Layout
@@ -1404,7 +1507,9 @@ emptyset$}{
 
 		$i
 \backslash
-gets n$;
+gets n$
+\backslash
+;
 \end_layout
 
 \begin_layout Plain Layout
@@ -1464,13 +1569,30 @@ gets i-1$
 
 	
 \backslash
-Para{$v
+SSi{$
+\backslash
+exists v
 \backslash
 in N:(v,
 \backslash
 emptyset)
 \backslash
 in A$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lPara{$v
+\backslash
+in N:(v,
+\backslash
+emptyset)
+\backslash
+in A$}{añadir $(v,
+\backslash
+emptyset)$ a $R$}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1486,18 +1608,22 @@ gets n$
 
 		
 \backslash
-Repetir{$
+Mientras{$
 \backslash
-forall(u_i,S)
+exists(u_i,S)
 \backslash
-in A,S
+in A:S
 \backslash
-nsubseteq R$}{
+subseteq
+\backslash
+text{
+\backslash
+rm Dom}R$}{
 \end_layout
 
 \begin_layout Plain Layout
 
-			Añadir $u_i$ a $R$
+			Añadir $(u_i,S)$ a $R$
 \backslash
 ;
 \end_layout
@@ -1507,44 +1633,10 @@ nsubseteq R$}{
 			
 \backslash
 lSSi{$i=0$}{
-\end_layout
-
-\begin_layout Plain Layout
-
-				$A'
 \backslash
-gets
+Devolver
 \backslash
-{
-\backslash
-text{todos los hiperarcos del camino }P
-\backslash
-}$
-\backslash
-;
-\end_layout
-
-\begin_layout Plain Layout
-
-				$V'
-\backslash
-gets
-\backslash
-text{vértices referenciados por }A'$
-\backslash
-;
-\end_layout
-
-\begin_layout Plain Layout
-
-				
-\backslash
-Devolver{$(V',A')$}
-\end_layout
-
-\begin_layout Plain Layout
-
-			}
+Resolucion{$R,s$}}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1563,7 +1655,9 @@ gets i-1$
 
 \begin_layout Plain Layout
 
-		Borrar de $F$ los nodos que contienen un vértice de $R$
+		Borrar de $F$ los nodos que contienen un vértice de $
+\backslash
+text{Dom}R$
 \backslash
 ;
 \end_layout
@@ -1605,6 +1699,12 @@ name "alg:search-generic-yo"
 \end_inset
 
 Algoritmo genérico de búsqueda en árboles Y/O.
+ En la versión de clase, 
+\begin_inset Formula $R$
+\end_inset
+
+ no guarda el hiperarco siguiente de los nodos y la solución se extrae pues
+ por arte de magia.
 \end_layout
 
 \end_inset
@@ -1642,7 +1742,7 @@ Primero en profundidad
 \series bold
 De profundidad limitada
 \series default
-: Como la búsqueda en profundidad pero con un límite de profundidad.
+: Como primero en profundidad pero con límite de profundidad.
 \end_layout
 
 \begin_layout Subsection
@@ -1654,7 +1754,7 @@ Usamos una función heurística
 \begin_inset Formula $h:V\to\mathbb{R}^{\geq0}$
 \end_inset
 
- que estima el coste mínimo de una solución a partir de un grafo.
+ que estima el coste mínimo de una solución a partir de un nodo.
  Si 
 \begin_inset Formula $h$
 \end_inset
@@ -1713,7 +1813,69 @@ emptyset$.}
 
 \begin_layout Plain Layout
 
+
+\backslash
+SetKwFunction{Resolucion}{{}resolución}
+\end_layout
+
+\begin_layout Plain Layout
+
 $R
+\backslash
+gets
+\backslash
+{s
+\backslash
+}$
+\backslash
+tcp*{Por resolver}
+\end_layout
+
+\begin_layout Plain Layout
+
+$C
+\backslash
+gets
+\backslash
+emptyset$
+\backslash
+tcp*{Completados}
+\end_layout
+
+\begin_layout Plain Layout
+
+$w_s
+\backslash
+gets h(s)$
+\backslash
+tcp*{Coste estimado}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SSi{$(s,
+\backslash
+emptyset)
+\backslash
+in A$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	$b_s
+\backslash
+gets
+\backslash
+emptyset$
+\backslash
+tcp*{Conector siguiente}
+\end_layout
+
+\begin_layout Plain Layout
+
+	$C
 \backslash
 gets
 \backslash
@@ -1726,48 +1888,7 @@ gets
 
 \begin_layout Plain Layout
 
-$C
-\backslash
-gets
-\backslash
-emptyset$
-\backslash
-;
-\end_layout
-
-\begin_layout Plain Layout
-
-$w_s
-\backslash
-gets h(s)$
-\backslash
-;
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-lPara{$v
-\backslash
-in V$}{$b_s
-\backslash
-gets
-\backslash
-emptyset$}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-lSSi{$s$ es primitiva}{$C
-\backslash
-gets
-\backslash
-{s
-\backslash
-}$}
+}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1778,7 +1899,7 @@ Mientras{$s
 \backslash
 notin C
 \backslash
-land c_s
+land w_s
 \backslash
 leq F$}{
 \end_layout
@@ -1787,9 +1908,11 @@ leq F$}{
 
 	Tomar $n
 \backslash
-in R$ con $b_n=
+in R
 \backslash
-emptyset$
+setminus
+\backslash
+text{Dom}b$
 \backslash
 ;
 \end_layout
@@ -1806,7 +1929,9 @@ in{
 \backslash
 cal P}(V):(n,S)
 \backslash
-in A$
+in A
+\backslash
+}$
 \backslash
 ;
 \end_layout
@@ -1856,15 +1981,18 @@ uSSi{$u$ es primitiva}{
 
 \begin_layout Plain Layout
 
-				$C
+				$b_u
 \backslash
-gets C
+gets
 \backslash
-cup
+emptyset$
 \backslash
-{u
-\backslash
-}$
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+				Añadir $u$ a $C$
 \backslash
 ;
 \end_layout
@@ -1903,15 +2031,7 @@ gets h(u)$
 
 \begin_layout Plain Layout
 
-			$R
-\backslash
-gets R
-\backslash
-cup
-\backslash
-{u
-\backslash
-}$
+			Añadir $u$ a $R$
 \backslash
 ;
 \end_layout
@@ -1928,22 +2048,22 @@ cup
 
 \begin_layout Plain Layout
 
-	$P
+	$M
 \backslash
 gets
 \backslash
-{u
+{n
 \backslash
 }$
 \backslash
-;
+tcp*{Modificados}
 \end_layout
 
 \begin_layout Plain Layout
 
 	
 \backslash
-Mientras{$P
+Mientras{$M
 \backslash
 neq
 \backslash
@@ -1954,22 +2074,22 @@ emptyset$}{
 
 		Tomar $u
 \backslash
-in P$ y sacarlo de $P$
+in M$ sin sucesores en $M$ y sacarlo de $M$
 \backslash
 ;
 \end_layout
 
 \begin_layout Plain Layout
 
-		Tomar el $S:(u,S)
+		Tomar el $S$ con $(u,S)
 \backslash
-in A$ con mínimo $
+in A$ de menor $
 \backslash
 omega(u,S)+
 \backslash
 sum_{v
 \backslash
-in S}c_v$
+in S}w_v$
 \backslash
 ;
 \end_layout
@@ -1984,7 +2104,7 @@ omega(u,S)+
 \backslash
 sum_{v
 \backslash
-in S}c_v$
+in S}w_v$
 \backslash
 ;
 \end_layout
@@ -2004,20 +2124,16 @@ gets S$
 \backslash
 lSSi{$S
 \backslash
-subseteq C$}{$C
-\backslash
-gets C
-\backslash
-cup
-\backslash
-{Pu
-\backslash
-}$}
+subseteq C$}{añadir $u$ a $C$}
 \end_layout
 
 \begin_layout Plain Layout
 
-		Añadir a $P$ los antecesores $v$ con $u
+		Añadir a $M$ los $v
+\backslash
+in
+\backslash
+text{Dom}b$ con $u
 \backslash
 in b_v$
 \backslash
@@ -2038,9 +2154,9 @@ in b_v$
 
 
 \backslash
-Devolver un grafo que contenga el nodo $s$, el conector $b_s$, los sucesores
- $(n_i)_i$ de $b_s$, sus conectores $b_{n_i}$, etc., de forma recursiva hasta
- llegar a primitivas
+Devolver 
+\backslash
+Resolucion{$b,s$}
 \backslash
 ;
 \end_layout
@@ -2075,16 +2191,16 @@ Método YO*.
 
 \begin_layout Standard
 Para modelar procesos físicos en los que un subproblema puede tener que
- resolverse dos o más veces, se pueden modificar el método YO* para trabajar
+ resolverse dos o más veces, se puede modificar el método YO* para trabajar
  con grafos que tengan ciclos, contando el coste de resolverlos varias veces,
  pero esto no es apropiado para problemas con procesos de resolución distintos.
  
 \end_layout
 
 \begin_layout Standard
-Además, estamos suponiendo que la resolución de un subproblema no afecta
- a la de otro, pero en muchos problemas sí que afecta, por lo que en vez
- de esto se usan métodos de planificación.
+Además, hemos supuesto que la resolución de un subproblema no afecta a la
+ de otro, pero en muchos problemas sí que afecta, por lo que en vez de esto
+ se usan métodos de planificación.
 \end_layout
 
 \begin_layout Section
@@ -2100,20 +2216,11 @@ Si un problema tiene solución a profundidad
 \begin_inset Formula $N$
 \end_inset
 
- nodos (no se cuenta el nodo inicial), el 
+ nodos (sin contar el nodo inicial), el 
 \series bold
 factor de ramificación eficaz
 \series default
- es el que un árbol con igual número de hijos en cada nodo tendría que tener
- para que hubiera 
-\begin_inset Formula $N+1$
-\end_inset
-
- nodos con altura máxima 
-\begin_inset Formula $d$
-\end_inset
-
-, un 
+ es un 
 \begin_inset Formula $b^{*}\in\mathbb{R}^{\geq0}$
 \end_inset
 
@@ -2121,8 +2228,27 @@ factor de ramificación eficaz
 \begin_inset Formula $N=b^{*}+(b^{*})^{2}+\dots+(b^{*})^{d}$
 \end_inset
 
+, ya que cuando 
+\begin_inset Formula $b^{*}\in\mathbb{N}$
+\end_inset
+
+, un árbol de altura 
+\begin_inset Formula $d$
+\end_inset
+
+ con 
+\begin_inset Formula $b^{*}$
+\end_inset
+
+ hijos en cada nodo de nivel menor que 
+\begin_inset Formula $d$
+\end_inset
+
+ tiene tamaño 
+\begin_inset Formula $N+1$
+\end_inset
+
 .
- 
 \end_layout
 
 \begin_layout Standard
@@ -2135,13 +2261,13 @@ Una buena heurística debería producir valores de
 \end_inset
 
 .
- Una forma de obtener 
+ Podemos estimar un 
 \begin_inset Formula $b^{*}$
 \end_inset
 
- es generar y resolver muchos problemas del mismo tipo con el método a usar,
- comparando por ejemplo con BFS o búsqueda en profundidad iterativa para
- tener un caso base.
+ medio generando y resolviendo muchos problemas del mismo tipo con el método
+ a usar, comparando por ejemplo con BFS o búsqueda en profundidad iterativa
+ para tener un caso base.
 \end_layout
 
 \begin_layout Standard
@@ -2201,7 +2327,7 @@ problema 8-puzzle
 
 , dejando una casilla libre; como transiciones el movimiento a la casilla
  libre de una pieza adyacente vertical u horizontalmente, con coste 1, y
- el estado final es uno en que, al concatenar las filas, aparecen los números
+ como estado final uno en que, al concatenar las filas, aparecen los números
  del 1 al 8 en orden, con la casilla libre al principio o al final según
  el modo de juego.
 \end_layout
@@ -2239,7 +2365,7 @@ problema relajado
 \end_inset
 
  y 
-\begin_inset Formula $\omega'|_{V}=\omega$
+\begin_inset Formula $\omega'|_{A}=\omega$
 \end_inset
 
 , con lo que el coste de una solución óptima en el problema relajado es

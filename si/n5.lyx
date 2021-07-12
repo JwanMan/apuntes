@@ -88,13 +88,13 @@ El
 \series bold
 conocimiento
 \series default
- consiste en descripciones declarativas explícitas formadas por conceptos
+ consiste en descripciones declarativas explícitas, formadas por conceptos
  y relaciones entre los conceptos específicos a un dominio de aplicación,
- y en métodos genéricos de resolución de problemas, formados por 
+ junto con métodos genéricos de resolución de problemas, formados por 
 \series bold
 técnicas de razonamiento
 \series default
- que usan las relaciones entre conceptos para inferir conclusiones y una
+, que usan las relaciones entre conceptos para inferir conclusiones, y una
  estructura de control para aplicar las técnicas.
  Por ejemplo, se puede representar el conocimiento por cláusulas de lógica
  de predicados de primer orden, y entonces una técnica de razonamiento es
@@ -252,7 +252,7 @@ recuperación
  Muchas veces se selecciona un módulo completo, y se usa meta-conocimiento
  para elegir el siguiente módulo a cargar.
  Si hay varios métodos de resolución, se puede usar meta-conocimiento para
- usar el más apropiado.
+ elegir el más apropiado.
 \end_layout
 
 \begin_layout Standard
@@ -292,7 +292,7 @@ redundante
 \series default
  si se representa el mismo de varias formas, lo que permite una aplicación
  más efectiva porque algunas formas de conocimiento son más adecuadas para
- ciertos casos que otras pero aumenta el volumen de datos.
+ ciertos casos que otras, pero aumenta el volumen de datos.
 \end_layout
 
 \begin_layout Section
@@ -379,7 +379,7 @@ Una
 base de conocimiento
 \series default
  con las reglas del dominio.
- La ejecución de una acción puede modificar de la base de hechos, normalmente
+ La ejecución de una acción puede modificar la base de hechos, normalmente
  añadiendo hechos inferidos.
 \end_layout
 
@@ -397,9 +397,8 @@ red de inferencia
 \end_layout
 
 \begin_layout Standard
-Un hecho que sea se representa como una flecha que va hacia la entrada de
- las reglas que lo tengan como antecedente, posiblemente dividiéndose en
- el camino.
+Un hecho se representa como una flecha que va hacia la entrada de las reglas
+ que lo tengan como antecedente, posiblemente dividiéndose en el camino.
  Si el hecho es resultado del consecuente de una única regla, la flecha
  parte del consecuente; si lo es de varias reglas, parte de un rectángulo
  y se dibujan flechas de dichas reglas al rectángulo, y si no lo es de ninguna
@@ -628,9 +627,9 @@ monótona
 
 .
  Las lógicas clásicas son monótonas, pero la monotonía no es apropiada cuando
- el conocimiento es incompleto, pues puede que haya que hacer suposiciones
- por defecto que puedan invalidarse cuando se tenga más conocimiento, ni
- cuando el mundo es cambiante.
+ el conocimiento es incompleto o el mundo es cambiante, pues puede que haya
+ que hacer suposiciones por defecto que puedan invalidarse cuando se tenga
+ más conocimiento.
 \end_layout
 
 \begin_layout Standard
@@ -790,8 +789,8 @@ Factores de certeza
 Para razonar con hechos con fiabilidad o precisión limitada o sobre los
  que no estamos seguros, se suele incorporar la incertidumbre a una lógica
  que no la incluye.
- Esto se suele hacer con probabilidades y redes bayesianas, basadas probabilidad
- condicionada e independencia de sucesos.
+ Esto se suele hacer con probabilidades y redes bayesianas, basadas en probabili
+dad condicionada e independencia de sucesos.
 \end_layout
 
 \begin_layout Standard
@@ -885,7 +884,7 @@ Con esto, cada regla
 \begin_inset Formula $h\to e$
 \end_inset
 
- lleva un factor de certeza asociado 
+ lleva asociado un factor de certeza 
 \begin_inset Formula $\text{FC}(h,e)$
 \end_inset
 
@@ -893,7 +892,7 @@ Con esto, cada regla
 \begin_inset Formula $h$
 \end_inset
 
- en la base de hechos lleva un factor de certeza 
+ en la base de hechos lleva asociado un factor de certeza 
 \begin_inset Formula $\text{FC}(h,\bot)$
 \end_inset
 
@@ -902,25 +901,6 @@ Con esto, cada regla
 \end_inset
 
  es la situación particular, y las reglas son:
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-En las diapositivas, las dos primeras reglas aparecen como 
-\begin_inset Formula $\text{FC}(h,e_{1}\land e_{2})=\min\{\text{FC}(h,e_{1}),\text{FC}(h,e_{2})\}$
-\end_inset
-
- y 
-\begin_inset Formula $\text{FC}(h,e_{1}\lor e_{2})=\max\{\text{FC}(h,e_{1}),\text{FC}(h,e_{2})\}$
-\end_inset
-
-, pero esto tendría menos sentido aún que las reglas que realmente usamos,
- que son las que se muestran.
-\end_layout
-
-\end_inset
-
-
 \begin_inset Formula 
 \begin{align*}
 \text{FC}(h_{1}\land h_{2},e) & =\min\{\text{FC}(h_{1},e),\text{FC}(h_{2},e)\},\\
@@ -935,10 +915,49 @@ En las diapositivas, las dos primeras reglas aparecen como
 
 \end_inset
 
-Las dos primeras se usan para evaluar el factor de certeza de antecedentes
- de reglas; la tercera para obtener el factor de certeza del consecuente
- de una regla sabiendo el de su antecedente y la cuarta para combinar factores
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+En las diapositivas, las dos primeras reglas aparecen como 
+\begin_inset Formula $\text{FC}(h,e_{1}\land e_{2})=\min\{\text{FC}(h,e_{1}),\text{FC}(h,e_{2})\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{FC}(h,e_{1}\lor e_{2})=\max\{\text{FC}(h,e_{1}),\text{FC}(h,e_{2})\}$
+\end_inset
+
+, lo que tiene aún menos sentido que las reglas que realmente usamos, que
+ son las que se muestran.
+ Las dos primeras reglas se usan para evaluar el factor de certeza de antecedent
+es de reglas; la tercera para obtener el factor de certeza del consecuente
+ de una regla sabiendo el de su antecedente, y la cuarta para combinar factores
  de certeza obtenidos por distintas reglas.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

@@ -279,10 +279,7 @@ matriz de costos
  Entonces el estimador de coste de una mala clasificación es 
 \begin_inset Formula 
 \[
-\sum_{i=1}^{n}\sum_{\begin{subarray}{c}
-j=1\\
-j\neq i
-\end{subarray}}^{n}a_{ij}c_{ij}.
+\sum_{i=1}^{n}\sum_{j=1}^{n}a_{ij}c_{ij}.
 \]
 
 \end_inset
@@ -356,7 +353,7 @@ Resolución de problemas
 \end_layout
 
 \begin_layout Standard
-Un programa para resolver problemas puede recordar la estructura del programa
+Un programa para resolver problemas puede recordar la estructura del problema
  que ha resuelto, los métodos usados para resolverlo y su solución, generalizar
  la experiencia y usarla para resolver problemas similares.
 \end_layout
@@ -442,7 +439,8 @@ Si
 \begin_inset Formula $D\subseteq{\cal P}(I)$
 \end_inset
 
- un conjunto finito de elementos de la base de datos, el 
+ un conjunto finito de descripciones de elementos de la base de datos, el
+ 
 \series bold
 soporte
 \series default
@@ -466,12 +464,8 @@ precisión
 \begin_inset Quotes cld
 \end_inset
 
-si 
-\begin_inset Formula $X$
-\end_inset
 
- entonces 
-\begin_inset Formula $Y$
+\begin_inset Formula $X\Rightarrow Y$
 \end_inset
 
 
@@ -495,20 +489,43 @@ cobertura
 \end_inset
 
 .
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Las diapositivas usan la notación de mierda 
+ Las diapositivas usan la notación de mierda 
 \begin_inset Formula $|X|:=|\{e\in D:X\subseteq e\}|$
 \end_inset
 
 .
+ 
 \end_layout
+
+\begin_layout Standard
+Para obtener reglas con buenos valores de soporte y confianza, primero ejecutamo
+s el algoritmo a priori (algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:a-priori"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
- 
+) para obtener un conjunto 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ de conjuntos de ítems frecuentes y luego tomamos las reglas 
+\begin_inset Formula $r\in\bigcup_{L\in{\cal L}}\{X\Rightarrow L\setminus X\}_{X\subseteq L}$
+\end_inset
+
+ con 
+\begin_inset Formula $c(r)\geq p$
+\end_inset
+
+, donde 
+\begin_inset Formula $p$
+\end_inset
+
+ es la precisión mínima.
 \end_layout
 
 \begin_layout Standard
@@ -565,7 +582,7 @@ gets
 \backslash
 }_{i
 \backslash
-in D,s(
+in I,s(
 \backslash
 {i
 \backslash
@@ -739,37 +756,6 @@ Algoritmo a priori.
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Para obtener reglas con buenos valores de soporte y confianza, primero ejecutamo
-s el algoritmo a priori (algoritmo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:a-priori"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-) para obtener los conjuntos de ítems frecuentes en 
-\begin_inset Formula ${\cal L}$
-\end_inset
-
- y luego tomamos las reglas 
-\begin_inset Formula $r\in\bigcup_{L\in{\cal L}}\{X\Rightarrow L\setminus X\}_{X\subseteq L}$
-\end_inset
-
- con 
-\begin_inset Formula $c(r)\geq p$
-\end_inset
-
-, donde 
-\begin_inset Formula $p$
-\end_inset
-
- es la precisión mínima.
 \end_layout
 
 \end_body

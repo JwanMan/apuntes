@@ -251,7 +251,8 @@ antecesor
 \series bold
 resoluble
 \series default
- si es antecesor de un hiperarco cuyos sucesores son todos resolubles.
+ si es antecesor de un hiperarco cuyos sucesores son todos resolubles, siendo
+ el caso base el antecesor de un hiperarco sin sucesores.
 \end_layout
 
 \begin_layout Standard
@@ -267,20 +268,36 @@ Y-O
 \begin_inset Formula $u\in V$
 \end_inset
 
-, 
-\begin_inset Formula $\{S\subseteq V:(u,S)\in A\}$
+, sea 
+\begin_inset Formula $N:=\{S\subseteq V:(u,S)\in A\}$
 \end_inset
 
- es unipuntual o todos sus hiperarcos tienen un único sucesor.
- Si es unipuntual con al menos dos sucesores, es un nodo 
+, 
+\begin_inset Formula $\bigcup N$
+\end_inset
+
+ es finito y, bien 
+\begin_inset Formula $N$
+\end_inset
+
+ es unipuntual, bien todos sus elementos son unipuntuales.
+ Si es unipuntual con al menos dos sucesores, 
+\begin_inset Formula $u$
+\end_inset
+
+ es un nodo 
 \series bold
 Y
 \series default
-; si tiene algún hiperarco con un único sucesor, es un nodo 
+; si tiene al menos dos hiperarcos es un nodo 
 \series bold
 O
 \series default
-, y de lo contrario es un 
+, y si 
+\begin_inset Formula $\bigcup N=\emptyset$
+\end_inset
+
+, es un 
 \series bold
 terminal
 \series default
@@ -288,9 +305,11 @@ terminal
 \series bold
 primitiva
 \series default
- si es antecesor de un hiperarco sin sucesores.
+ si es resoluble, si y sólo si es antecesor de un hiperarco sin sucesores.
+ No se consideran nodos con un único sucesor.
  Así, un nodo es resoluble si es una primitiva, es de tipo Y con todos sus
- sucesores resolubles o es de tipo O con algún sucesor resoluble.
+ sucesores resolubles, es de tipo O con algún sucesor resoluble o tiene
+ un único sucesor y este es resoluble.
  Un 
 \series bold
 árbol Y/O
@@ -304,7 +323,7 @@ primitiva
 
 \end_deeper
 \begin_layout Standard
-El método a elegir depende de características como:
+El método a elegir depende de características del problema como:
 \end_layout
 
 \begin_layout Itemize
@@ -320,7 +339,7 @@ Si es
 \series bold
 recuperable
 \series default
-, esto es, se pueden deshacer las operaciones una vez ejecutadas, o es 
+ (se pueden deshacer las operaciones una vez ejecutadas) o es 
 \series bold
 irrecuperable
 \series default
@@ -333,8 +352,8 @@ Si es obvio si una cierta solución es suficientemente buena para ser aceptada
 \end_layout
 
 \begin_layout Itemize
-Si el conocimiento base es consistente; si es necesario tener mucho o solo
- ayuda a restringir la búsqueda.
+Si el conocimiento base es consistente, y si es necesario tener mucho o
+ este solo ayuda a restringir la búsqueda.
 \end_layout
 
 \begin_layout Standard
@@ -381,7 +400,7 @@ top-down
 \lang spanish
  si parte de la situación final y aplica operadores al revés hasta llegar
  a la situación inicial.
- También existen estrategias de búsqueda bidireccionales.
+ También hay estrategias de búsqueda bidireccionales.
 \end_layout
 
 \begin_layout Standard
@@ -391,8 +410,7 @@ emparejamiento
 \series default
  consiste en determinar los operadores aplicables a una cierta situación,
  comprobando sus precondiciones.
- A veces esto puede acarrear otra búsqueda si las precondiciones contienen
- variables.
+ Esto puede acarrear otra búsqueda si las precondiciones contienen variables.
 \end_layout
 
 \begin_layout Standard
@@ -417,7 +435,7 @@ técnica heurística
 función heurística
 \series default
 , que estima lo próximo que se encuentra un estado o subproblema a un estado
- final o problema primitivo y se usa para decidir el operador a tomar.
+ final o problema primitivo, y que se usa para decidir el operador a tomar.
 \end_layout
 
 \begin_layout Standard
@@ -433,8 +451,8 @@ backtracking
 \emph default
 \lang spanish
  sobre el grafo o el árbol de representación.
- En general esto es lento, pero es un método universal y se puede combinar
- con técnicas heurísticas.
+ Esto suele ser lento, pero es un método universal y se puede combinar con
+ técnicas heurísticas.
 \end_layout
 
 \end_body
