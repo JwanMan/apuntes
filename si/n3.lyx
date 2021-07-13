@@ -832,9 +832,7 @@ omega,s,F)$.}
 
 
 \backslash
-Salida{Camino solución o $
-\backslash
-emptyset$.}
+Salida{Camino solución o fallo.}
 \end_layout
 
 \begin_layout Plain Layout
@@ -857,7 +855,7 @@ SetKwProg{Func}{función}{}{fin}
 \backslash
 Func{
 \backslash
-RBFS{$(P,f_0),f_{
+RBFS{$P,f_{
 \backslash
 text{limit}}$}}{
 \end_layout
@@ -924,7 +922,7 @@ max
 \backslash
 {
 \backslash
-omega(Pv)+h(v), f_0
+omega(Pv)+h(v), f_u
 \backslash
 }$}
 \end_layout
@@ -958,21 +956,9 @@ Devolver fallo($f_b$)}
 
 \begin_layout Plain Layout
 
-		Elegir el menor $a
+%		Elegir el menor $a
 \backslash
-in
-\backslash
-{f_v
-\backslash
-}_{v
-\backslash
-in N
-\backslash
-setminus
-\backslash
-{b
-\backslash
-}}$
+in$
 \backslash
 ;
 \end_layout
@@ -987,7 +973,29 @@ text{
 \backslash
 RBFS{
 \backslash
-ensuremath{(Pb, f_b),a}}}$
+ensuremath{Pb,
+\backslash
+min(
+\backslash
+{f_v
+\backslash
+}_{v
+\backslash
+in N
+\backslash
+setminus
+\backslash
+{b
+\backslash
+}}
+\backslash
+cup
+\backslash
+{f_{
+\backslash
+text{limit}}
+\backslash
+})}}}$
 \backslash
 ;
 \end_layout
@@ -1026,9 +1034,18 @@ Devolver $r$
 
 \begin_layout Plain Layout
 
+$f_s
+\backslash
+gets h(s)$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
-RBFS{$((s),h(s)),+
+RBFS{$(s),+
 \backslash
 infty$}
 \backslash
