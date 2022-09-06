@@ -1,0 +1,2365 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+alfabeto
+\series default
+ 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ es un conjunto finito de 
+\series bold
+símbolos
+\series default
+.
+ Una 
+\series bold
+cadena
+\series default
+ en 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ es un elemento de 
+\begin_inset Formula ${\cal U}_{\Sigma}\coloneqq\Sigma^{*}:=\bigcup_{n\in\mathbb{N}}\Sigma^{n}$
+\end_inset
+
+, que solemos escribir como 
+\begin_inset Formula $u_{1}\cdots u_{n}\coloneqq(u_{1},\dots,u_{n})$
+\end_inset
+
+.
+ Dadas dos cadenas 
+\begin_inset Formula $u,v\in\Sigma^{*}$
+\end_inset
+
+, llamamos 
+\series bold
+concatenación
+\series default
+ de 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ a 
+\begin_inset Formula $u\cdot v\coloneqq u_{1}\cdots u_{|u|}v_{1}\cdots v_{|v|}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\Sigma^{*}$
+\end_inset
+
+ es un monoide con la concatenación de cadenas.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+lenguaje
+\series default
+ sobre 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ es un 
+\begin_inset Formula $L\subseteq\Sigma^{*}$
+\end_inset
+
+.
+ La 
+\series bold
+concatenación
+\series default
+ de dos lenguajes 
+\begin_inset Formula $L_{1},L_{2}\subseteq\Sigma^{*}$
+\end_inset
+
+ es 
+\begin_inset Formula $L_{1}\cdot L_{2}\coloneqq\{uv\}_{u\in L_{1},v\in L_{2}}$
+\end_inset
+
+.
+ 
+\begin_inset Formula ${\cal P}(\Sigma^{*})$
+\end_inset
+
+ es un monoide con la concatenación de lenguajes.
+ La 
+\series bold
+clausura
+\series default
+ o 
+\series bold
+\emph on
+\lang english
+Kleene star
+\series default
+\emph default
+\lang spanish
+ de un lenguaje 
+\begin_inset Formula $L$
+\end_inset
+
+ es 
+\begin_inset Formula $L^{*}\coloneqq\bigcup_{n\in\mathbb{N}}L^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+autómata finito determinista
+\series default
+ (
+\series bold
+DFA
+\series default
+, 
+\emph on
+\lang english
+Deterministic Finite Automaton
+\emph default
+\lang spanish
+) es una tupla 
+\begin_inset Formula $(Q,\Sigma,\delta,q_{0},F)$
+\end_inset
+
+ formada por un conjunto finito de 
+\series bold
+estados
+\series default
+ 
+\begin_inset Formula $Q$
+\end_inset
+
+, un alfabeto 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+, una 
+\series bold
+función de transición
+\series default
+ 
+\begin_inset Formula $\delta:Q\times\Sigma\to Q$
+\end_inset
+
+, un 
+\series bold
+estado inicial
+\series default
+ 
+\begin_inset Formula $q_{0}\in Q$
+\end_inset
+
+ y un conjunto de 
+\series bold
+estados finales
+\series default
+ o 
+\series bold
+de aceptación
+\series default
+ 
+\begin_inset Formula $F\subseteq Q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+autómata finito no determinista
+\series default
+ (
+\series bold
+NFA
+\series default
+, 
+\emph on
+\lang english
+Nondeterministic Finite Automaton
+\emph default
+\lang spanish
+) es una tupla 
+\begin_inset Formula $(Q,\Sigma,\delta,q_{0},F)$
+\end_inset
+
+ formada por un conjunto finito de 
+\series bold
+estados
+\series default
+ 
+\begin_inset Formula $Q$
+\end_inset
+
+, un alfabeto 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+, una 
+\series bold
+función de transición
+\series default
+ 
+\begin_inset Formula $\delta:Q\times(\Sigma_{\epsilon}\coloneqq\Sigma^{1}\cup\{\epsilon\})\to{\cal P}(Q)$
+\end_inset
+
+, un 
+\series bold
+estado inicial
+\series default
+ 
+\begin_inset Formula $q_{0}\in Q$
+\end_inset
+
+ y un conjunto de 
+\series bold
+estados finales
+\series default
+ o 
+\series bold
+de aceptación
+\series default
+ 
+\begin_inset Formula $F\subseteq Q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un NFA 
+\begin_inset Formula $(Q,\Sigma,\delta,q_{0},F)$
+\end_inset
+
+ 
+\series bold
+acepta
+\series default
+ una cadena 
+\begin_inset Formula $w\in\Sigma^{*}$
+\end_inset
+
+ si existen 
+\begin_inset Formula $m\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $(y_{1},\dots,y_{m})\in(\Sigma_{\epsilon})^{m}$
+\end_inset
+
+ y 
+\begin_inset Formula $(r_{0},\dots,r_{m})\in Q^{m+1}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $r_{0}=q_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $r_{m}\in F$
+\end_inset
+
+ y, para 
+\begin_inset Formula $i\in\{0,\dots,m-1\}$
+\end_inset
+
+, 
+\begin_inset Formula $r_{i+1}\in\delta(r_{i},y_{i+1})$
+\end_inset
+
+.
+ Un DFA 
+\begin_inset Formula $(Q,\Sigma,\delta,q_{0},F)$
+\end_inset
+
+ 
+\series bold
+acepta
+\series default
+ una cadena 
+\begin_inset Formula $w\in\Sigma^{*}$
+\end_inset
+
+ si el NFA 
+\begin_inset Formula $(Q,\Sigma,\delta',q_{0},F)$
+\end_inset
+
+ lo acepta, donde 
+\begin_inset Formula $\delta'$
+\end_inset
+
+ viene dado por 
+\begin_inset Formula $\delta'(q,a)\coloneqq\{\delta(q,a)\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\delta'(q,\emptyset)\coloneqq\emptyset$
+\end_inset
+
+ para 
+\begin_inset Formula $q\in Q$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in\Sigma$
+\end_inset
+
+.
+ El 
+\series bold
+lenguaje aceptado
+\series default
+ por un DFA o NFA 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+, 
+\begin_inset Formula $L({\cal A})$
+\end_inset
+
+, es el conjunto de cadenas aceptadas por 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\begin_inset Formula ${\cal L}_{\text{DFA}}$
+\end_inset
+
+ a la clase de lenguajes aceptados por algún DFA, y 
+\begin_inset Formula ${\cal L}_{\text{NFA}}$
+\end_inset
+
+ a la de lenguajes aceptados por algún NFA.
+ Como 
+\series bold
+teorema
+\series default
+, 
+\begin_inset Formula ${\cal L}_{\text{DFA}}={\cal L}_{\text{NFA}}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\subseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Trivial.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\supseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula ${\cal A}\coloneqq(Q,\Sigma,\delta,q_{0},F)$
+\end_inset
+
+ un NFA, 
+\begin_inset Formula $Q'\coloneqq{\cal P}(Q)$
+\end_inset
+
+ y 
+\begin_inset Formula $F'\coloneqq\{r\in Q':r\cap F\neq\emptyset\}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $r\in Q'$
+\end_inset
+
+, decimos que 
+\begin_inset Formula $q\in Q$
+\end_inset
+
+ es alcanzable desde 
+\begin_inset Formula $r$
+\end_inset
+
+ si existen 
+\begin_inset Formula $m\in\mathbb{N}$
+\end_inset
+
+ y una secuencia 
+\begin_inset Formula $(q_{0},\dots,q_{m})$
+\end_inset
+
+ de elementos de 
+\begin_inset Formula $Q$
+\end_inset
+
+ tal que 
+\begin_inset Formula $q_{0}\in r$
+\end_inset
+
+, 
+\begin_inset Formula $q_{m}=q$
+\end_inset
+
+ y, para 
+\begin_inset Formula $i\in\{0,\dots,m-1\}$
+\end_inset
+
+, 
+\begin_inset Formula $q_{i+1}\in\delta(q_{i},\varepsilon)$
+\end_inset
+
+.
+ Llamamos entonces 
+\begin_inset Formula $E(r)$
+\end_inset
+
+ al conjunto de elementos de 
+\begin_inset Formula $Q$
+\end_inset
+
+ alcanzables desde 
+\begin_inset Formula $r$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $r\subseteq E(r)$
+\end_inset
+
+, y definimos 
+\begin_inset Formula $\delta':Q'\times\Sigma\to Q'$
+\end_inset
+
+ como
+\begin_inset Formula 
+\[
+\delta'(r,a)\coloneqq\bigcup_{q\in r}E(\delta(q,a)).
+\]
+
+\end_inset
+
+Dado el DFA 
+\begin_inset Formula ${\cal A}'\coloneqq(Q',\Sigma,\delta',E(q_{0}),)$
+\end_inset
+
+, queremos ver 
+\begin_inset Formula $L({\cal A}')=L({\cal A})$
+\end_inset
+
+.
+ Llamamos 
+\begin_inset Formula ${\cal A}_{q}$
+\end_inset
+
+ a un NFA como 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+ pero con estado inicial 
+\begin_inset Formula $q$
+\end_inset
+
+, y 
+\begin_inset Formula ${\cal A}'_{r}$
+\end_inset
+
+ a un DFA como 
+\begin_inset Formula ${\cal A}'$
+\end_inset
+
+ pero con estado inicial 
+\begin_inset Formula $r$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\subseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $w=w_{1}\cdots w_{n}\in L({\cal A}')$
+\end_inset
+
+, existen 
+\begin_inset Formula $r_{0},\dots,r_{n}\in Q'$
+\end_inset
+
+ con 
+\begin_inset Formula $\delta'(r_{i},w_{i})=r_{i+1}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $r_{0}=E(q_{0})$
+\end_inset
+
+ y 
+\begin_inset Formula $r_{n}\in F'$
+\end_inset
+
+, y queremos probar que para cada 
+\begin_inset Formula $i$
+\end_inset
+
+ existe un 
+\begin_inset Formula $q_{i}\in r_{i}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $w_{i+1}\cdots w_{n}\in L({\cal A}_{q_{i}})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Plain Layout
+Para 
+\begin_inset Formula $i=n$
+\end_inset
+
+, tomamos 
+\begin_inset Formula $q_{n}\in r_{n}\cap F$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda\in L({\cal A}_{q_{n}})$
+\end_inset
+
+.
+ Probado esto para un 
+\begin_inset Formula $i\geq1$
+\end_inset
+
+, para 
+\begin_inset Formula $i-1$
+\end_inset
+
+, 
+\begin_inset Formula $q_{i}\in\delta'(r_{i-1},w_{i})$
+\end_inset
+
+ y por tanto existe un 
+\begin_inset Formula $q_{i-1}\in r_{i-1}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $q_{i}\in E(\delta(q_{i-1},w_{i}))$
+\end_inset
+
+.
+ Así, existen 
+\begin_inset Formula $s_{0},\dots,s_{l}\in Q$
+\end_inset
+
+ con 
+\begin_inset Formula $s_{0}\in\delta(q_{i-1},w_{i})$
+\end_inset
+
+, 
+\begin_inset Formula $s_{l}=q_{i}$
+\end_inset
+
+ y cada 
+\begin_inset Formula $s_{j+1}\in\delta(s_{j},\epsilon)$
+\end_inset
+
+, pero por hipótesis de inducción, existen 
+\begin_inset Formula $a_{1},\dots,a_{k}\in\Sigma_{\epsilon}$
+\end_inset
+
+ y 
+\begin_inset Formula $p_{0},\dots,p_{k}\in Q$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{1}\cdots a_{k}=w_{i+1}\cdots w_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $p_{0}=q_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $p_{k}\in F$
+\end_inset
+
+ y cada 
+\begin_inset Formula $p_{k+1}\in\delta(p_{k},a_{k+1})$
+\end_inset
+
+, de modo que las secuencias 
+\begin_inset Formula $q_{i-1},s_{0},\dots,s_{l}=p_{0},\dots,p_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $w_{i},\overbrace{\epsilon,\dots,\epsilon}^{l},a_{1},\dots,a_{k}$
+\end_inset
+
+ prueban que 
+\begin_inset Formula $w_{i}\cdots w_{n}\in L({\cal A}_{q_{i-1}})$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $w\in L({\cal A}_{q_{0}})$
+\end_inset
+
+ y, añadiendo transiciones 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ como antes del estado inicial al 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+ obtenido, vemos que 
+\begin_inset Formula $w\in L({\cal A})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\supseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $w=w_{1}\cdots w_{n}\in L({\cal A})$
+\end_inset
+
+, existen 
+\begin_inset Formula $y_{1},\dots,y_{m}\in\Sigma_{\epsilon}$
+\end_inset
+
+ y 
+\begin_inset Formula $q_{0},\dots,q_{m}\in Q$
+\end_inset
+
+ con 
+\begin_inset Formula $y_{1}\cdots y_{m}=w$
+\end_inset
+
+, 
+\begin_inset Formula $q_{m}\in F$
+\end_inset
+
+ y cada 
+\begin_inset Formula $q_{j+1}=\delta(q_{j},y_{j+1})$
+\end_inset
+
+.
+ Tomamos la subsecuencia 
+\begin_inset Formula $y_{p_{1}},\dots,y_{p_{n}}=w_{1},\dots,w_{n}$
+\end_inset
+
+ y queremos ver que, si 
+\begin_inset Formula $p_{n+1}\coloneqq m+1$
+\end_inset
+
+ y 
+\begin_inset Formula $(r_{0},\dots,r_{n})$
+\end_inset
+
+ es la secuencia de elementos de 
+\begin_inset Formula $Q'$
+\end_inset
+
+ con 
+\begin_inset Formula $r_{0}=q'_{0}$
+\end_inset
+
+ y cada 
+\begin_inset Formula $r_{i+1}=\delta(r_{i},w_{i+1})$
+\end_inset
+
+, entonces 
+\begin_inset Formula $q_{p_{i+1}-1}\in r_{i}$
+\end_inset
+
+ y en particular 
+\begin_inset Formula $q_{m}\in r_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $r_{n}\in F$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $i=0$
+\end_inset
+
+, 
+\begin_inset Formula $q_{0},\dots,q_{p_{1}-1}$
+\end_inset
+
+ cumple que cada 
+\begin_inset Formula $q_{j+1}\in\delta(q_{j},\epsilon)$
+\end_inset
+
+, luego 
+\begin_inset Formula $q_{p_{1}-1}\in E(q_{0})=q'_{0}=r_{0}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $0<i\leq m$
+\end_inset
+
+, probado esto para 
+\begin_inset Formula $i-1$
+\end_inset
+
+ (
+\begin_inset Formula $q_{p_{i}-1}\in r_{i-1}$
+\end_inset
+
+), entonces 
+\begin_inset Formula $E(\delta(q_{p_{i}-1},w_{i}))\subseteq\delta'(r_{i-1},w_{i})=r_{i}$
+\end_inset
+
+, pero 
+\begin_inset Formula $q_{p_{i}}\in\delta(q_{p_{i-1}},y_{p_{i}}=w_{i})$
+\end_inset
+
+, luego 
+\begin_inset Formula $E(q_{p_{i}})\subseteq E(\delta(q_{p_{i-1}},w_{i})\subseteq r_{i}$
+\end_inset
+
+ y, como claramente 
+\begin_inset Formula $q_{p_{i+1}-1}\in E(q_{p_{i}})$
+\end_inset
+
+, 
+\begin_inset Formula $q_{p_{i+1}-1}\in r_{i}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para dibujar un NFA 
+\begin_inset Formula $(Q,\Sigma,\delta,q_{0},F)$
+\end_inset
+
+, dibujamos un círculo para cada 
+\begin_inset Formula $q\in Q$
+\end_inset
+
+ con su etiqueta dentro, o un círculo doble si 
+\begin_inset Formula $q\in F$
+\end_inset
+
+, una flecha que señala a 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+ y, para cada 
+\begin_inset Formula $q\in Q$
+\end_inset
+
+, 
+\begin_inset Formula $a\in\Sigma_{\epsilon}$
+\end_inset
+
+ y 
+\begin_inset Formula $q'\in\delta(q,a)$
+\end_inset
+
+, una flecha del círculo 
+\begin_inset Formula $q$
+\end_inset
+
+ al 
+\begin_inset Formula $q'$
+\end_inset
+
+ etiquetada con 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ Para dibujar un DFA, dibujamos su NFA equivalente.
+ Además, si en el DFA existe un 
+\begin_inset Formula $e\in Q\setminus F$
+\end_inset
+
+ (estado de error) tal que para todo 
+\begin_inset Formula $a\in\Sigma$
+\end_inset
+
+ es 
+\begin_inset Formula $\delta(e,a)=e$
+\end_inset
+
+, podemos no dibujar 
+\begin_inset Formula $e$
+\end_inset
+
+ ni las flechas que van a parar a 
+\begin_inset Formula $e$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Las 
+\series bold
+operaciones regulares
+\series default
+ son la unión, la concatenación y la clausura de lenguajes.
+ Una 
+\series bold
+expresión regular
+\series default
+ sobre el alfabeto 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ es una de la forma 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+, 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+, 
+\begin_inset Formula $a$
+\end_inset
+
+ para un 
+\begin_inset Formula $a\in\Sigma$
+\end_inset
+
+, 
+\begin_inset Formula $r_{1}\mid r_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $r_{1}r_{2}$
+\end_inset
+
+ o 
+\begin_inset Formula $r_{1}^{*}$
+\end_inset
+
+, donde 
+\begin_inset Formula $r_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $r_{2}$
+\end_inset
+
+ son expresiones regulares y las operaciones, de mayor a menor prioridad,
+ son 
+\begin_inset Formula $r_{1}^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $r_{1}r_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $r_{1}\mid r_{2}$
+\end_inset
+
+, y se usan paréntesis para desambiguar la prioridad.
+ Un 
+\series bold
+lenguaje regular
+\series default
+ es uno representado por una expresión regular, donde 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+ y 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ se representan a sí mismos, 
+\begin_inset Formula $a$
+\end_inset
+
+ representa 
+\begin_inset Formula $\{a\}$
+\end_inset
+
+, 
+\begin_inset Formula $r_{1}\mid r_{2}$
+\end_inset
+
+ representa la unión de los lenguajes correspondientes, 
+\begin_inset Formula $r_{1}r_{2}$
+\end_inset
+
+ la concatenación y 
+\begin_inset Formula $r_{1}^{*}$
+\end_inset
+
+ la clausura.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\begin_inset Formula ${\cal L}_{\text{ER}}$
+\end_inset
+
+ o 
+\begin_inset Formula ${\cal REG}$
+\end_inset
+
+ a la clase de lenguajes regulares, y se tiene 
+\begin_inset Formula ${\cal L}_{\text{ER}}={\cal L}_{\text{NFA}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\subseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\emptyset$
+\end_inset
+
+ es el lenguaje de
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset External
+	template VectorGraphics
+	filename n1.1.dot
+	scale 40
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ es el lenguaje de
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset External
+	template VectorGraphics
+	filename n1.2.dot
+	scale 40
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a$
+\end_inset
+
+ es el lenguaje de
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset External
+	template VectorGraphics
+	filename n1.3.dot
+	scale 40
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dados dos lenguajes regulares 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ con NFAs respectivos 
+\begin_inset Formula $(Q_{1},\Sigma,\delta_{1},q_{1},F_{1})$
+\end_inset
+
+ y 
+\begin_inset Formula $(Q_{2},\Sigma,\delta_{2},q_{2},F_{2})$
+\end_inset
+
+, sea 
+\begin_inset Formula $q_{0}\notin Q_{1}\cup Q_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $L_{1}\cup L_{2}$
+\end_inset
+
+ es aceptado por 
+\begin_inset Formula $(Q_{1}\sqcup Q_{2}\sqcup\{q_{0}\},\Sigma,\delta,q_{0},F_{1}\cup F_{2})$
+\end_inset
+
+, donde
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\epsilon$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $q_{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\emptyset$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\{q_{1},q_{2}\}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta_{1}(q,a)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta_{2}(q,a)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $L_{1}L_{2}$
+\end_inset
+
+ es aceptado por 
+\begin_inset Formula $(Q_{1}\sqcup Q_{2},\Sigma,\delta,q_{1},F_{2})$
+\end_inset
+
+, con 
+\begin_inset Formula $\delta$
+\end_inset
+
+ dada por
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\epsilon$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q_{1}\setminus F_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta_{1}(q,a)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $F_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta_{1}(q,a)\cup\{q_{2}\}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta_{2}(q,a)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $L_{1}^{*}$
+\end_inset
+
+ es aceptado por 
+\begin_inset Formula $(Q_{1}\sqcup\{q_{0}\},\Sigma,\delta,q_{0},\{q_{0}\})$
+\end_inset
+
+, con 
+\begin_inset Formula $\delta$
+\end_inset
+
+ dada por
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\epsilon$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $q_{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\emptyset$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\{q_{1}\}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q_{1}\setminus F_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta_{1}(q,a)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $F_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta_{1}(q,a)\cup\{q_{0}\}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\supseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dado un NFA 
+\begin_inset Formula ${\cal A}\coloneqq(Q\coloneqq\{q_{1},\dots,q_{n-1}\},\Sigma,\delta,q_{1},F)$
+\end_inset
+
+, queremos construir una expresión regular que acepte el mismo lenguaje
+ que 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+.
+ Para ello consideramos tuplas de la forma 
+\begin_inset Formula $(Q,\Sigma,\delta,q_{0},q_{\text{F}})$
+\end_inset
+
+, donde 
+\begin_inset Formula $Q$
+\end_inset
+
+ es un conjunto finito, 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ es un alfabeto, 
+\begin_inset Formula $q_{0},q_{\text{F}}\in Q$
+\end_inset
+
+, 
+\begin_inset Formula $q_{0}\neq q_{\text{F}}$
+\end_inset
+
+ y 
+\begin_inset Formula $\delta:(Q\setminus\{q_{\text{F}}\})\times(Q\setminus\{q_{0}\})\to{\cal R}$
+\end_inset
+
+, siendo 
+\begin_inset Formula ${\cal R}$
+\end_inset
+
+ el conjunto de expresiones regulares sobre 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+, y decimos que esta tupla acepta una cadena 
+\begin_inset Formula $w\in\Sigma^{*}$
+\end_inset
+
+ si existe una secuencia de cadenas 
+\begin_inset Formula $y_{1},\dots,y_{m}\in\Sigma^{*}$
+\end_inset
+
+ y una de estados 
+\begin_inset Formula $r_{0},\dots,r_{m}\in Q$
+\end_inset
+
+ con 
+\begin_inset Formula $w=y_{1}\cdots y_{m}$
+\end_inset
+
+, 
+\begin_inset Formula $r_{0}=q_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $r_{m}=q_{\text{F}}$
+\end_inset
+
+ y, para cada 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $\delta(r_{i},r_{i+1})$
+\end_inset
+
+ acepta 
+\begin_inset Formula $y_{i+1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Plain Layout
+Sean 
+\begin_inset Formula $q_{0},q_{\text{F}}$
+\end_inset
+
+ distintos, empezamos con 
+\begin_inset Formula $(Q\sqcup\{q_{0},q_{\text{F}}\},\Sigma,\delta',q_{0},q_{\text{F}})$
+\end_inset
+
+, donde
+\begin_inset Formula 
+\[
+\delta'(q,r)\coloneqq\begin{cases}
+\epsilon, & (q,r)=(q_{0},q_{1})\lor(q\in F\land r=q_{\text{F}});\\
+a_{1}\mid\dots\mid a_{k}, & \{a\in\Sigma:r\in\delta(q,a)\}=\{a_{1},\dots,a_{k}\}\neq\emptyset;\\
+\emptyset, & \text{en otro caso}.
+\end{cases}
+\]
+
+\end_inset
+
+Es fácil ver que esta tupla acepta las mismas cadenas que 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+, y vamos a ir transformándola, llegando en cada paso a una tupla que acepta
+ el mismo lenguaje pero con un estado menos, hasta llegar a una de 2 estados,
+ que será de la forma 
+\begin_inset Formula $(\{q_{0},q_{\text{F}}\},\Sigma,\delta_{\text{F}},q_{0},q_{\text{F}})$
+\end_inset
+
+ y aceptará las mismas cadenas que 
+\begin_inset Formula $\delta_{\text{F}}(q_{0},q_{\text{F}})\in{\cal R}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Sea la tupla 
+\begin_inset Formula ${\cal A}_{k}\coloneqq(Q_{k},\Sigma,\delta_{k},q_{0},q_{\text{F}})$
+\end_inset
+
+ con 
+\begin_inset Formula $|Q_{k}|>2$
+\end_inset
+
+ y sea 
+\begin_inset Formula $q_{\text{R}}\in Q_{k}\setminus\{q_{0},q_{\text{F}}\}$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal A}_{k+1}\coloneqq(Q_{k+1},\Sigma,\delta_{k+1},q_{0},q_{\text{F}})$
+\end_inset
+
+ dada por 
+\begin_inset Formula $Q_{k+1}\coloneqq Q_{k}$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+\delta_{k+1}(q,r)\coloneqq(\delta_{k}(q,q_{\text{R}}))(\delta_{k}(q_{\text{R}},q_{\text{R}}))^{*}(\delta_{k}(q_{\text{R}},r))\mid\delta_{k}(q,r)
+\]
+
+\end_inset
+
+acepta el mismo lenguaje que 
+\begin_inset Formula ${\cal A}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+En efecto, si 
+\begin_inset Formula ${\cal A}_{k}$
+\end_inset
+
+ acepta 
+\begin_inset Formula $w$
+\end_inset
+
+, existen 
+\begin_inset Formula $y_{1},\dots,y_{m}\in\Sigma^{*}$
+\end_inset
+
+ y 
+\begin_inset Formula $r_{0},\dots,r_{m}\in Q_{k}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $r_{0}=q_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $r_{m}=q_{\text{F}}$
+\end_inset
+
+, 
+\begin_inset Formula $w=y_{1}\cdots y_{m}$
+\end_inset
+
+ y cada 
+\begin_inset Formula $\delta_{k}(r_{i},r_{i+1})$
+\end_inset
+
+ acepta 
+\begin_inset Formula $y_{i+1}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $r_{0},\dots,r_{m}\neq q_{\text{F}}$
+\end_inset
+
+, esta secuencia sirve para 
+\begin_inset Formula ${\cal A}_{k+1}$
+\end_inset
+
+, pues cada 
+\begin_inset Formula $\delta_{k+1}(r_{i},r_{i+1})=\cdots\mid\delta_{k}(r_{i},r_{i+1})$
+\end_inset
+
+.
+ En otro caso, sean 
+\begin_inset Formula $0<p\leq q<m$
+\end_inset
+
+ tales que 
+\begin_inset Formula $r_{p},\dots,r_{q}=q_{\text{R}}$
+\end_inset
+
+ y 
+\begin_inset Formula $r_{p-1},r_{q+1}\neq q_{\text{R}}$
+\end_inset
+
+, sean 
+\begin_inset Formula $e_{1}\coloneqq\delta_{k}(r_{p-1},q_{\text{R}})$
+\end_inset
+
+, 
+\begin_inset Formula $e_{2}\coloneqq\delta_{k}(q_{\text{R}},q_{\text{R}})$
+\end_inset
+
+ y 
+\begin_inset Formula $e_{3}\coloneqq\delta_{k}(q_{\text{R}},r_{q+1})$
+\end_inset
+
+, 
+\begin_inset Formula $y_{p}\cdots y_{q+1}$
+\end_inset
+
+ es aceptada por 
+\begin_inset Formula $e_{1}e_{2}\cdots e_{2}e_{3}$
+\end_inset
+
+ y por tanto por 
+\begin_inset Formula $e_{1}e_{2}^{*}e_{3}$
+\end_inset
+
+ y por 
+\begin_inset Formula $\delta_{k+1}(r_{p-1},r_{q+1})=e_{1}e_{2}^{*}e_{3}\mid\cdots$
+\end_inset
+
+, luego basta eliminar 
+\begin_inset Formula $r_{p},\dots,r_{q}$
+\end_inset
+
+ y sustituir 
+\begin_inset Formula $y_{p},\dots,y_{q+1}$
+\end_inset
+
+ por su concatenación.
+\end_layout
+
+\begin_layout Plain Layout
+Recíprocamente, si 
+\begin_inset Formula ${\cal A}_{k+1}$
+\end_inset
+
+ acepta 
+\begin_inset Formula $w$
+\end_inset
+
+, existen 
+\begin_inset Formula $y_{1},\dots,y_{m}\in\Sigma^{*}$
+\end_inset
+
+ y 
+\begin_inset Formula $r_{0},\dots,r_{m}\in Q_{k+1}$
+\end_inset
+
+ con 
+\begin_inset Formula $r_{0}=q_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $r_{m}=q_{\text{F}}$
+\end_inset
+
+, 
+\begin_inset Formula $w=y_{1}\cdots y_{m}$
+\end_inset
+
+ y cada 
+\begin_inset Formula $\delta_{k+1}(r_{i},r_{i+1})$
+\end_inset
+
+ acepta 
+\begin_inset Formula $y_{i+1}$
+\end_inset
+
+.
+ Entonces, por definición de 
+\begin_inset Formula $\delta_{k+1}$
+\end_inset
+
+, bien 
+\begin_inset Formula $\delta_{k}(r_{i},r_{i+1})$
+\end_inset
+
+ acepta 
+\begin_inset Formula $y_{i+1}$
+\end_inset
+
+, bien la acepta 
+\begin_inset Formula $(\delta_{k}(r_{i},q_{\text{R}}))(\delta_{k}(q_{\text{R}},q_{\text{R}}))^{*}(\delta_{k}(q_{\text{R}},r_{i+1}))$
+\end_inset
+
+, con lo que existen 
+\begin_inset Formula $z_{0},\dots,z_{p}$
+\end_inset
+
+ (
+\begin_inset Formula $p>0$
+\end_inset
+
+) con 
+\begin_inset Formula $z_{0}\cdots z_{p}=y_{i+1}$
+\end_inset
+
+, 
+\begin_inset Formula $z_{0}$
+\end_inset
+
+ aceptada por 
+\begin_inset Formula $\delta_{k}(r_{i},q_{\text{R}})$
+\end_inset
+
+, 
+\begin_inset Formula $z_{1},\dots,z_{p-1}$
+\end_inset
+
+ aceptadas por 
+\begin_inset Formula $\delta_{k}(q_{\text{R}},q_{\text{R}})$
+\end_inset
+
+ y 
+\begin_inset Formula $z_{p}$
+\end_inset
+
+ aceptada por 
+\begin_inset Formula $\delta_{k}(q_{\text{R}},r_{i+1})$
+\end_inset
+
+ y basta cambiar 
+\begin_inset Formula $y_{i+1}$
+\end_inset
+
+ por 
+\begin_inset Formula $z_{0},\dots,z_{p}$
+\end_inset
+
+ en la secuencia e insertar 
+\begin_inset Formula $q_{\text{R}}$
+\end_inset
+
+ 
+\begin_inset Formula $p$
+\end_inset
+
+ veces entre 
+\begin_inset Formula $r_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $r_{i+1}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Formula ${\cal REG}$
+\end_inset
+
+ está cerrado bajo unión, concatenación, clausura, complemento, intersección
+ y diferencia.
+ 
+\series bold
+Demostración:
+\series default
+ Los 3 primeros son por definición.
+ Si el DFA 
+\begin_inset Formula $(Q,\Sigma,\delta,q_{0},F)$
+\end_inset
+
+ acepta el lenguaje 
+\begin_inset Formula $L$
+\end_inset
+
+, el DFA 
+\begin_inset Formula $(Q,\Sigma,\delta,q_{0},Q\setminus F)$
+\end_inset
+
+ acepta 
+\begin_inset Formula $\overline{L}=\Sigma^{*}\setminus L$
+\end_inset
+
+, pues para cada cadena 
+\begin_inset Formula $w$
+\end_inset
+
+ solo hay una secuencia de estados 
+\begin_inset Formula $\{r_{0},\dots,r_{m}\}\subseteq Q$
+\end_inset
+
+ con 
+\begin_inset Formula $r_{0}=q_{0}$
+\end_inset
+
+ y cada 
+\begin_inset Formula $r_{i+1}=\delta(r_{i},w_{i+1})$
+\end_inset
+
+ y 
+\begin_inset Formula $w$
+\end_inset
+
+ se acepta si y sólo si 
+\begin_inset Formula $r_{m}$
+\end_inset
+
+ es final.
+ Finalmente, 
+\begin_inset Formula $L\cap M=\overline{\overline{L}\cap\overline{M}}$
+\end_inset
+
+ y 
+\begin_inset Formula $L\setminus M=L\cap\overline{M}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Lema del bombeo
+\series default
+, 
+\series bold
+LBLR
+\series default
+ o 
+\series bold
+\emph on
+\lang english
+pumping lemma
+\emph default
+\lang spanish
+:
+\series default
+ para 
+\begin_inset Formula $L\in{\cal REG}$
+\end_inset
+
+, existe 
+\begin_inset Formula $p\in\mathbb{N}$
+\end_inset
+
+, la 
+\series bold
+\emph on
+\lang english
+pumping length
+\series default
+\emph default
+\lang spanish
+, tal que toda 
+\begin_inset Formula $w\in L$
+\end_inset
+
+ con 
+\begin_inset Formula $|w|\geq p$
+\end_inset
+
+ puede ser dividida como 
+\begin_inset Formula $w=xyz$
+\end_inset
+
+ con 
+\begin_inset Formula $|y|>0$
+\end_inset
+
+ y 
+\begin_inset Formula $|xy|\leq p$
+\end_inset
+
+ de modo que 
+\begin_inset Formula $xy^{k}z\in L$
+\end_inset
+
+ para todo 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $(Q,\Sigma,\delta,q_{0},F)$
+\end_inset
+
+ un DFA que acepta 
+\begin_inset Formula $L$
+\end_inset
+
+, 
+\begin_inset Formula $p\coloneqq|Q|$
+\end_inset
+
+, 
+\begin_inset Formula $w\in L$
+\end_inset
+
+ con 
+\begin_inset Formula $|w|\geq p$
+\end_inset
+
+ y 
+\begin_inset Formula $\{q_{0},\dots,q_{n}\}\subseteq Q$
+\end_inset
+
+ con cada 
+\begin_inset Formula $q_{i+1}=\delta(q_{i},w_{i+1})$
+\end_inset
+
+, como 
+\begin_inset Formula $\{q_{0},\dots,q_{p}\}\subseteq Q$
+\end_inset
+
+, existen 
+\begin_inset Formula $i,j\in\{0,\dots,p\}$
+\end_inset
+
+ con 
+\begin_inset Formula $i<j$
+\end_inset
+
+ y 
+\begin_inset Formula $q_{i}=q_{j}$
+\end_inset
+
+.
+ Sean entonces 
+\begin_inset Formula $x\coloneqq w_{1}\cdots w_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $y\coloneqq w_{i+1}\cdots w_{j}$
+\end_inset
+
+ y 
+\begin_inset Formula $z\coloneqq w_{j+1}\cdots w_{n}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $w=xyz$
+\end_inset
+
+, 
+\begin_inset Formula $|y|\geq0$
+\end_inset
+
+, 
+\begin_inset Formula $|xy|=j\leq p$
+\end_inset
+
+ y, para 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+, el DFA acepta 
+\begin_inset Formula $xy^{k}z$
+\end_inset
+
+ con la secuencia de estados 
+\begin_inset Formula $q_{0}\cdots q_{i}(q_{i+1}\cdots q_{j})^{k}q_{i+1}\cdots q_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El lenguaje 
+\begin_inset Formula $\{0^{n}1^{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+ no es regular.
+ 
+\series bold
+Demostración:
+\series default
+ Supongamos que lo sea y sean 
+\begin_inset Formula $L$
+\end_inset
+
+ el lenguaje, 
+\begin_inset Formula $p\in\mathbb{N}$
+\end_inset
+
+ una 
+\emph on
+\lang english
+pumping length
+\emph default
+\lang spanish
+ de 
+\begin_inset Formula $L$
+\end_inset
+
+, 
+\begin_inset Formula $w\coloneqq0^{p}1^{p}$
+\end_inset
+
+ y 
+\begin_inset Formula $w\eqqcolon xyz$
+\end_inset
+
+ una división dada por el lema del bombeo.
+ Si 
+\begin_inset Formula $y=0^{k}$
+\end_inset
+
+, 
+\begin_inset Formula $xy^{2k}z\notin L$
+\end_inset
+
+ porque tiene más 0s que 1s; análogamente, si 
+\begin_inset Formula $y=1^{k}$
+\end_inset
+
+, 
+\begin_inset Formula $xy^{2k}z\notin L$
+\end_inset
+
+, y si 
+\begin_inset Formula $y=0^{k}1^{l}$
+\end_inset
+
+ con 
+\begin_inset Formula $k,l>0$
+\end_inset
+
+, 
+\begin_inset Formula $xyyz\notin L$
+\end_inset
+
+ porque tiene un 1 seguido de un 
+\begin_inset Formula $0\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Los autómatas sencillos son demasiado sencillos como para teorizar sobre
+ lo computable o no computable debido a su falta de memoria.
+\end_layout
+
+\end_body
+\end_document
