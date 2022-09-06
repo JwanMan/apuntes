@@ -31,10 +31,15 @@ Se incluyen las siguientes asignaturas:
   * `ga`: Grupos y Anillos.
   * `ts`: Topología de Superficies.
   * `fvc`: Funciones de Variable Compleja (falta la primera parte).
+  * `gcs`: Geometría de Curvas y Superficies.
+  * `ggs`: Geometría Global de Superficies.
+  * `graf`: Grafos y Optimización Discreta.
+  * `mne`: Métodos Numéricos de las Ecuaciones Diferenciales.
+  * `ealg`: Ecuaciones algebraicas.
 * De informática:
   * `fc`: Fundamentos de Computadores.
   * `ip`: Introducción a la Programación.
-  * `logic`: Fundamentos Lógicos de la Informática.
+  * `fli`: Fundamentos Lógicos de la Informática.
   * `etc`: Estructura y Tecnología de Computadores.
   * `ffi`: Fundamentos Físicos de la Informática.
   * `tp`: Tecnología de la Programación.
@@ -49,21 +54,24 @@ Se incluyen las siguientes asignaturas:
   * `cc`: Compiladores.
   * `ar`: Ampliación de Redes (sólo PDF).
   * `st`: Servicios Telemáticos.
-
-Próximamente:
   * `aoc`: Arquitectura y Organización de Computadores.
-  * `gcs`: Geometría de Curvas y Superficies.
-  * `graf`: Grafos y Optimización Discreta.
-  * `mne`: Métodos Numéricos de las Ecuaciones Diferenciales.
   * `si`: Sistemas Inteligentes.
   * `tds`: Tecnologías de Desarrollo de Software.
+  * `pds`: Procesos de Desarrollo de Software.
+  * `gpds`: Gestión de Proyectos de Desarrollo de Software.
+* En progreso:
+  * `ac`: Álgebra Conmutativa.
+  * `af`: Análisis Funcional.
+  * `dsi`: Desarrollo de Sistemas Inteligentes.
+  * `mc`: Modelos de Computación.
+  * `pia`: Programación para la IA.
 
 ## Venta benéfica
 Si está en Murcia, puede comprar versiones impresas de los apuntes (ver imagen)
 por un mínimo de 5 euros la asignatura o 19 euros por 6 asignaturas, y **el 100% 
 de los beneficios** se destina a
-[Project Elea](https://projectelea.org/about-us/), un grupo de voluntarios que
-trabajan con los residentes del campo de refugiados de Eleonas, Grecia, para
+**[Project Elea](https://projectelea.org/about-us/)**, un grupo de voluntarios
+que trabajan con los residentes del campo de refugiados de Eleonas, Grecia, para
 mejorar los estándares de vida y el bienestar comunitario de estas personas que
 han perdido todo a causa de la guerra.
 
