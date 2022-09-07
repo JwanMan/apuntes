@@ -1,0 +1,2021 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\usepackage[x11names, svgnames, rgb]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+autómata de pila
+\series default
+ 
+\series bold
+con aceptación por estado final
+\series default
+ (
+\series bold
+PDA
+\series default
+, 
+\series bold
+\emph on
+\lang english
+Push Down Automaton
+\series default
+\emph default
+\lang spanish
+) es una tupla 
+\begin_inset Formula $(Q,\Sigma,\Gamma,\delta,A_{0},q_{0},F)$
+\end_inset
+
+ formada por un conjunto finito de 
+\series bold
+estados
+\series default
+ 
+\begin_inset Formula $Q$
+\end_inset
+
+, un alfabeto 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+, un alfabeto de 
+\series bold
+símbolos de la pila
+\series default
+ 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+, una 
+\series bold
+función de transición
+\series default
+ 
+\begin_inset Formula $\delta:Q\times\Sigma_{\epsilon}\times\Gamma_{\epsilon}\to{\cal P}(Q\times\Gamma_{\epsilon})$
+\end_inset
+
+, un 
+\series bold
+símbolo inicial de la pila
+\series default
+ 
+\begin_inset Formula $A_{0}$
+\end_inset
+
+, un 
+\series bold
+estado inicial
+\series default
+ 
+\begin_inset Formula $q_{0}\in Q$
+\end_inset
+
+ y un conjunto de 
+\series bold
+estados finales
+\series default
+ o 
+\series bold
+de aceptación
+\series default
+ 
+\begin_inset Formula $F\subseteq Q$
+\end_inset
+
+.
+ Un 
+\series bold
+autómata de pila con aceptación a pila vacía
+\series default
+ (
+\series bold
+PDA
+\begin_inset Formula $^{\text{\textbf{v}}}$
+\end_inset
+
+
+\series default
+) es una tupla 
+\begin_inset Formula $(Q,\Sigma,\Gamma,\delta,A_{0},q_{0},F)$
+\end_inset
+
+ similar a un PDA pero sin 
+\begin_inset Formula $F$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para representar un PDA, dibujamos un círculo por cada estado, o un doble
+ círculo si el estado es final, y por cada par de estados 
+\begin_inset Formula $(q,r)$
+\end_inset
+
+, si existe 
+\begin_inset Formula $(a,x,y)$
+\end_inset
+
+ con 
+\begin_inset Formula $(r,y)\in\delta(q,a,x)$
+\end_inset
+
+, dibujamos una flecha de 
+\begin_inset Formula $q$
+\end_inset
+
+ a 
+\begin_inset Formula $r$
+\end_inset
+
+ etiquetada con, por cada 
+\begin_inset Formula $(a,x,y)$
+\end_inset
+
+ con 
+\begin_inset Formula $(r,y)\in\delta(q,a,x)$
+\end_inset
+
+, una línea 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $a,x\to y$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado un autómata de pila, una posición es una tupla 
+\begin_inset Formula $(q,\gamma,w)\in Q\times\Gamma^{*}\times\Sigma^{*}$
+\end_inset
+
+.
+ Una 
+\series bold
+acción
+\series default
+ (
+\series bold
+no determinista
+\series default
+) es un par de posiciones de la forma 
+\begin_inset Formula $((q,\gamma b,aw),(r,\gamma c,w))$
+\end_inset
+
+, donde 
+\begin_inset Formula $q,r\in Q$
+\end_inset
+
+, 
+\begin_inset Formula $\gamma\in\Gamma^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $b,c\in\Gamma_{\epsilon}$
+\end_inset
+
+, 
+\begin_inset Formula $w\in\Sigma^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $a\in\Sigma_{\epsilon}$
+\end_inset
+
+ y 
+\begin_inset Formula $(r,c)\in\delta(q,a,b)$
+\end_inset
+
+.
+ Se representa como 
+\begin_inset Formula $q\to^{a,b\to c}r$
+\end_inset
+
+ o en 
+\series bold
+formato funcional
+\series default
+ como 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $(q,a,b)=(r,c)$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Una secuencia de posiciones 
+\begin_inset Formula $(s_{0},\dots,s_{k})$
+\end_inset
+
+ en la que cada 
+\begin_inset Formula $(s_{i},s_{i+1})$
+\end_inset
+
+ es una acción se representa como una secuencia de acciones encadenadas,
+ en la que el estado final de una acción y el inicial de la siguiente se
+ representan como el mismo (
+\begin_inset Formula $q_{1}\to^{a_{1},b_{1}\to c_{1}}q_{2}\to^{a_{2},b_{2}\to c_{2}}\dots$
+\end_inset
+
+).
+ Un PDA acepta una cadena 
+\begin_inset Formula $w$
+\end_inset
+
+ si existe una secuencia de posiciones que empieza por 
+\begin_inset Formula $(q_{0},A_{0},w)$
+\end_inset
+
+ y termina por 
+\begin_inset Formula $(q,\epsilon,\epsilon)$
+\end_inset
+
+ con 
+\begin_inset Formula $q\in Q$
+\end_inset
+
+ en el caso de un PDA con aceptación a pila vacía o por 
+\begin_inset Formula $(q,\gamma,\epsilon)$
+\end_inset
+
+ con 
+\begin_inset Formula $q\in F$
+\end_inset
+
+ y 
+\begin_inset Formula $\gamma\in\Gamma^{*}$
+\end_inset
+
+ en el caso de un PDA con aceptación por estado final.
+\end_layout
+
+\begin_layout Standard
+Podemos suponer que una transición añade o elimina más de un elemento de
+ la pila (
+\begin_inset Formula $\delta:Q\times\Sigma_{\epsilon}\times\Gamma^{*})\to{\cal P}(Q\times\Gamma^{*})$
+\end_inset
+
+), lo que equivale a añadir algunos estados intermedios en la transición.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+autómata de pila determinista
+\series default
+ (
+\series bold
+PDAD
+\series default
+) es uno en el que, para cada 
+\begin_inset Formula $q\in Q$
+\end_inset
+
+, 
+\begin_inset Formula $a\in\Sigma$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in\Gamma$
+\end_inset
+
+, uno de entre 
+\begin_inset Formula $\delta(q,a,x)$
+\end_inset
+
+, 
+\begin_inset Formula $\delta(q,a,\epsilon)$
+\end_inset
+
+, 
+\begin_inset Formula $\delta(q,\epsilon,x)$
+\end_inset
+
+ y 
+\begin_inset Formula $\delta(q,\epsilon,\epsilon)$
+\end_inset
+
+ es unipuntual y el resto son vacíos.
+ En una representación de un PDAD, si existen 
+\begin_inset Formula $q\in Q$
+\end_inset
+
+, 
+\begin_inset Formula $a\in\Sigma$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in\Gamma$
+\end_inset
+
+ tales que no hay ninguna flecha saliente de 
+\begin_inset Formula $q$
+\end_inset
+
+ con una línea de la forma 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $a,x\to y$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $a,\epsilon\to y$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $\epsilon,x\to y$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+ o 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $\epsilon,\epsilon\to y$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+ para algún 
+\begin_inset Formula $y\in\Gamma_{\epsilon}$
+\end_inset
+
+, se entiende que existe un estado adicional 
+\begin_inset Formula $q_{\text{E}}$
+\end_inset
+
+ no final no representado con transiciones 
+\begin_inset Formula $\delta(q_{\text{E}},b,\epsilon)=\{(q_{\text{E}},\epsilon)\}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $b\in\Sigma$
+\end_inset
+
+ y una transición 
+\begin_inset Formula $\delta(q,a,x)=\{(q_{\text{E}},\epsilon)\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\begin_inset Formula $L({\cal A})$
+\end_inset
+
+ al lenguaje aceptado por un PDA 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal L}_{\text{PDA}}$
+\end_inset
+
+ a la clase de lenguajes aceptados por algún PDA, 
+\begin_inset Formula ${\cal L}_{\text{PDA}^{\text{v}}}$
+\end_inset
+
+ a la de lenguajes aceptados por algún PDA
+\begin_inset Formula $^{\text{v}}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal L}_{\text{PDAD}}$
+\end_inset
+
+ a la de lenguajes aceptados por algún PDAD.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+gramática libre de contexto
+\series default
+ (
+\series bold
+GLC
+\series default
+) es una tupla 
+\begin_inset Formula $(V,\Sigma,{\cal R},S)$
+\end_inset
+
+, donde 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ es un alfabeto de 
+\series bold
+símbolos terminales
+\series default
+, 
+\begin_inset Formula $V$
+\end_inset
+
+ es un alfabeto de 
+\series bold
+variables
+\series default
+ disjunto de 
+\begin_inset Formula $V$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal R}$
+\end_inset
+
+ es un conjunto finito de 
+\series bold
+reglas de producción
+\series default
+, pares 
+\begin_inset Formula $(S,w)\in V\times(V\dot{\cup}\Sigma)^{*}$
+\end_inset
+
+ representados como 
+\begin_inset Formula $S\to w$
+\end_inset
+
+, y 
+\begin_inset Formula $S\in V$
+\end_inset
+
+ es la 
+\series bold
+variable inicial
+\series default
+.
+ Se puede representar con una línea por cada variable 
+\begin_inset Formula $T\in V$
+\end_inset
+
+, empezando por la variable 
+\begin_inset Formula $S$
+\end_inset
+
+, de la forma 
+\begin_inset Formula $T\to w_{1}\mid\dots\mid w_{n}$
+\end_inset
+
+, donde 
+\begin_inset Formula $\{w_{1},\dots,w_{n}\}=\{w:(T,w)\in V\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dadas 
+\begin_inset Formula $v,w,x\in(V\cup\Sigma)^{*}$
+\end_inset
+
+ y 
+\begin_inset Formula $R\in V$
+\end_inset
+
+, escribimos 
+\begin_inset Formula $vRw\Rightarrow vxw$
+\end_inset
+
+ si 
+\begin_inset Formula $(R\to x)\in{\cal R}$
+\end_inset
+
+, y 
+\begin_inset Formula $v\Rightarrow^{*}w$
+\end_inset
+
+ si 
+\begin_inset Formula $v=w$
+\end_inset
+
+ o existe 
+\begin_inset Formula $x\in(V\cup\Sigma)^{*}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $v\Rightarrow x\Rightarrow^{*}w$
+\end_inset
+
+.
+ Una 
+\series bold
+derivación
+\series default
+ es una secuencia 
+\begin_inset Formula $\{v_{1},\dots,v_{n}\}\subseteq(V\cup\Sigma)^{*}$
+\end_inset
+
+ tal que para cada 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $v_{i}\Rightarrow v_{i+1}$
+\end_inset
+
+.
+ El 
+\series bold
+lenguaje generado
+\series default
+ por una GLC 
+\begin_inset Formula $G=(V,\Sigma,{\cal R},S)$
+\end_inset
+
+ es 
+\begin_inset Formula $L(G)\coloneqq\{w\in\Sigma^{*}:S\Rightarrow^{*}w\}$
+\end_inset
+
+.
+ Un lenguaje es 
+\series bold
+libre de contexto
+\series default
+ si es generado por una GLC, y llamamos 
+\begin_inset Formula ${\cal CF}$
+\end_inset
+
+ o 
+\begin_inset Formula ${\cal L}_{\text{GCF}}$
+\end_inset
+
+ a la clase de los lenguajes libres de contexto.
+\end_layout
+
+\begin_layout Standard
+Dada una GLC 
+\begin_inset Formula $G\coloneqq(V,\Sigma,{\cal R},S)$
+\end_inset
+
+, un 
+\series bold
+árbol de derivación
+\series default
+ de 
+\begin_inset Formula $w\in L(G)$
+\end_inset
+
+ en es un árbol ordenado construido usando como raíz 
+\begin_inset Formula $S$
+\end_inset
+
+ y añadiendo, para cada paso 
+\begin_inset Formula $uRv\Rightarrow uxv$
+\end_inset
+
+ en la derivación de 
+\begin_inset Formula $S$
+\end_inset
+
+, aristas de 
+\begin_inset Formula $R$
+\end_inset
+
+ a cada símbolo de 
+\begin_inset Formula $x$
+\end_inset
+
+, distinguiendo cada símbolo en la cadena de otros símbolos iguales.
+ Una 
+\series bold
+derivación por la izquierda
+\series default
+ es una derivación en la que, en cada paso 
+\begin_inset Formula $uRv\Rightarrow uxv$
+\end_inset
+
+, 
+\begin_inset Formula $u\in\Sigma^{*}$
+\end_inset
+
+.
+ Toda 
+\begin_inset Formula $w\in L(G)$
+\end_inset
+
+ admite una derivación por la izquierda, que se obtiene recorriendo un árbol
+ de derivación de 
+\begin_inset Formula $w$
+\end_inset
+
+ en preorden y expandiendo cada variable que se encuentre.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, 
+\begin_inset Formula ${\cal REG}\subsetneq{\cal L}_{\text{PDAD}}\subsetneq{\cal L}_{\text{PDA}}={\cal L}_{\text{PDA}^{\text{v}}}={\cal CF}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Nótese que sólo probamos 
+\begin_inset Formula ${\cal REG}\subsetneq{\cal L}_{\text{PDAD}}\subseteq{\cal L}_{\text{PDA}}={\cal L}_{\text{PDA}^{\text{v}}}\subseteq{\cal L}_{\text{GCF}}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\subseteq2]$
+\end_inset
+
+ El DFA 
+\begin_inset Formula $(Q,\Sigma,\delta,q_{0},F)$
+\end_inset
+
+ equivale al PDAD 
+\begin_inset Formula $(Q,\Sigma,\{\$\},\delta',\$,q_{0},F)$
+\end_inset
+
+ con 
+\begin_inset Formula 
+\[
+\delta'(q,a,x)=\begin{cases}
+\{(\delta(q,a),\epsilon)\}, & a\in\Gamma\land x=\epsilon;\\
+\emptyset, & \text{en otro caso}.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\nsubseteq1]$
+\end_inset
+
+ 
+\begin_inset Formula $L=\{0^{n}c1^{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+ no es un lenguaje regular.
+ Si lo fuera, tendría una 
+\emph on
+\lang english
+pumping length
+\emph default
+\lang spanish
+ 
+\begin_inset Formula $p\in\mathbb{N}$
+\end_inset
+
+ y 
+\begin_inset Formula $w\coloneqq0^{p}c1^{p}\in L$
+\end_inset
+
+ tendría una descomposición 
+\begin_inset Formula $w\eqqcolon xyz$
+\end_inset
+
+ en las condiciones del lema del bombeo, y como 
+\begin_inset Formula $|xy|\leq p$
+\end_inset
+
+, debe ser 
+\begin_inset Formula $y=0^{k}$
+\end_inset
+
+ para un cierto 
+\begin_inset Formula $k>0$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $xy^{2}z$
+\end_inset
+
+ tiene más 0s que 1s y por tanto 
+\begin_inset Formula $w\notin L\#$
+\end_inset
+
+.
+ Sin embargo, 
+\begin_inset Formula $L$
+\end_inset
+
+, es reconocido por el 
+\size small
+PDAD
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[>=latex,line join=bevel,scale=0.6]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{n2.1.tex} % dot -Txdot n2.1.dot | dot2tex --codeonly >n2.1.tex
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+\begin_inset Formula $2\subseteq3]$
+\end_inset
+
+ Por definición.
+\begin_inset Note Comment
+status open
+
+\begin_layout Description
+\begin_inset Formula $3\subseteq4]$
+\end_inset
+
+ Dado un PDA 
+\begin_inset Formula ${\cal A}=(Q,\Sigma,\Gamma,\delta,A_{0},q_{0},F)$
+\end_inset
+
+, el PDA
+\begin_inset Formula $^{\text{v}}$
+\end_inset
+
+ dado por 
+\begin_inset Formula ${\cal A}'\coloneqq(Q\sqcup\{q_{\text{s}}\}\sqcup\{q_{\text{e}}\},\Sigma,\Gamma\sqcup\{\$\},\delta',\$,q_{\text{s}})$
+\end_inset
+
+ con
+\begin_inset Formula 
+\[
+\delta'(q,a,x)\coloneqq\begin{cases}
+\{(q_{0},A_{0})\}, & q=q_{\text{s}}\land a=x=\epsilon;\\
+\delta(q,a,x)\cup\{(q_{\text{e}},\epsilon)\}, & q\in F\land a,x=\epsilon;\\
+\delta(q,a,x), & q\in Q\land\neg(q\in F\land a,x=\epsilon);\\
+\{(q_{\text{e}},\epsilon)\}, & q=q_{\text{e}}\land a=\epsilon\land x\neq\epsilon;\\
+\emptyset, & \text{en otro caso},
+\end{cases}
+\]
+
+\end_inset
+
+acepta el mismo lenguaje.
+ En efecto, si 
+\begin_inset Formula $s_{0}\cdots s_{k}$
+\end_inset
+
+ es una secuencia de posiciones para aceptar una cadena 
+\begin_inset Formula $w$
+\end_inset
+
+ en 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+ y 
+\begin_inset Formula $s_{k}\eqqcolon(q,x_{0}\cdots x_{n},\epsilon)$
+\end_inset
+
+, 
+\begin_inset Formula $(q_{\text{s}},\$,w)s_{0}\cdots s_{k}(q_{\text{e}},x_{0}\cdots x_{n},\epsilon)(q_{\text{e}},x_{0}\cdots x_{n-1},\epsilon)\cdots(q_{\text{e}},\epsilon,\epsilon)$
+\end_inset
+
+ es una secuencia para aceptar 
+\begin_inset Formula $w$
+\end_inset
+
+ en 
+\begin_inset Formula ${\cal A}'$
+\end_inset
+
+ (añadiendo un 
+\begin_inset Formula $\$$
+\end_inset
+
+ al fondo de la pila en 
+\begin_inset Formula $s_{0}\cdots s_{k}$
+\end_inset
+
+), y recíprocamente, si 
+\begin_inset Formula $s_{0}\cdots s_{k}$
+\end_inset
+
+ es una secuencia para aceptar una cadena 
+\begin_inset Formula $w$
+\end_inset
+
+ en 
+\begin_inset Formula ${\cal A}'$
+\end_inset
+
+, necesariamente 
+\begin_inset Formula $s_{1}=(q_{0},\$A_{0},\epsilon)$
+\end_inset
+
+ y 
+\begin_inset Formula $s_{k}$
+\end_inset
+
+ tiene que tener estado 
+\begin_inset Formula $q_{\text{e}}$
+\end_inset
+
+, pues este es el único estado en que se elimina 
+\begin_inset Formula $\$$
+\end_inset
+
+, de modo que existe 
+\begin_inset Formula $j$
+\end_inset
+
+ tal que 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ tiene un cierto estado 
+\begin_inset Formula $q\in F$
+\end_inset
+
+ y 
+\begin_inset Formula $s_{j+1},\dots,s_{k}$
+\end_inset
+
+ tienen estado 
+\begin_inset Formula $q_{\text{e}}$
+\end_inset
+
+, y además 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ tiene cadena 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ ya 
+\begin_inset Formula $s_{k}$
+\end_inset
+
+ tiene cadena 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ y no se elimina ningún caracter después de 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+, y como además no es posible salir de 
+\begin_inset Formula $Q$
+\end_inset
+
+ y volver a entrar, 
+\begin_inset Formula $s_{1}\cdots s_{j}$
+\end_inset
+
+ es una secuencia para aceptar 
+\begin_inset Formula $w$
+\end_inset
+
+ en 
+\begin_inset Formula ${\cal A}'$
+\end_inset
+
+ (quitando el 
+\begin_inset Formula $\$$
+\end_inset
+
+ al fondo de la pila en cada posición).
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $4\subseteq3]$
+\end_inset
+
+ Dado un PDA
+\begin_inset Formula $^{\text{v}}$
+\end_inset
+
+ 
+\begin_inset Formula ${\cal A}'\coloneqq(Q,\Sigma,\Gamma,\delta,A_{0},q_{0})$
+\end_inset
+
+, el PDA dado por 
+\begin_inset Formula ${\cal A}\coloneqq(Q\sqcup\{q_{\text{s}}\}\sqcup\{q_{\text{e}}\},\Sigma,\Gamma\sqcup\{\$\},\delta',\$,q_{\text{s}},\{q_{\text{e}}\})$
+\end_inset
+
+ con
+\begin_inset Formula 
+\[
+\delta'(q,a,x)\coloneqq\begin{cases}
+\{(q_{0},A_{0})\}, & (q,a,x)=(q_{\text{s}},\epsilon,\epsilon);\\
+\delta(q,a,x), & q\in Q\land x\neq\$;\\
+\{(q_{\text{e}},\epsilon)\}, & q\in Q\land a=\epsilon\land x=\$;\\
+\emptyset, & \text{en otro caso}.
+\end{cases}
+\]
+
+\end_inset
+
+En efecto, si 
+\begin_inset Formula $s_{0}\cdots s_{k}$
+\end_inset
+
+ es una secuencia de posiciones para aceptar una cadena 
+\begin_inset Formula $w$
+\end_inset
+
+ en 
+\begin_inset Formula ${\cal A}'$
+\end_inset
+
+, 
+\begin_inset Formula $(q_{\text{s}},\$,w)s_{0}\cdots s_{k}(q_{\text{e}},\epsilon,\epsilon)$
+\end_inset
+
+ es una secuencia para aceptarla en 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+ (añadiendo 
+\begin_inset Formula $\$$
+\end_inset
+
+ al fondo de la pila en 
+\begin_inset Formula $s_{0}\cdots s_{k}$
+\end_inset
+
+), y recíprocamente, si 
+\begin_inset Formula $s_{0}\cdots s_{k}$
+\end_inset
+
+ es una secuencia para aceptar 
+\begin_inset Formula $w$
+\end_inset
+
+ en 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+, necesariamente 
+\begin_inset Formula $s_{1}=(q_{0},\$A_{0},\epsilon)$
+\end_inset
+
+, 
+\begin_inset Formula $s_{k}$
+\end_inset
+
+ tiene estado 
+\begin_inset Formula $q_{\text{e}}$
+\end_inset
+
+ y 
+\begin_inset Formula $s_{k-1}=(q,\$,\epsilon)$
+\end_inset
+
+ para algún 
+\begin_inset Formula $q\in Q$
+\end_inset
+
+, pues una transición 
+\begin_inset Formula $\epsilon,\$\to\epsilon$
+\end_inset
+
+ es la única forma de llegar a 
+\begin_inset Formula $q_{\text{e}}$
+\end_inset
+
+ y en ningún otro momento se añade ni se quita 
+\begin_inset Formula $\$$
+\end_inset
+
+, y como además no es posible salir de 
+\begin_inset Formula $Q$
+\end_inset
+
+ y volver a entrar, 
+\begin_inset Formula $s_{1}\cdots s_{k-1}$
+\end_inset
+
+ es una secuencia para aceptar 
+\begin_inset Formula $w$
+\end_inset
+
+ en 
+\begin_inset Formula ${\cal A}'$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $5\subseteq3]$
+\end_inset
+
+ Dada una GLC 
+\begin_inset Formula $G=(V,\Sigma,{\cal R},S)$
+\end_inset
+
+, el PDA 
+\begin_inset Formula ${\cal A}\coloneqq(\{s,l,e\},\Sigma,V\sqcup\Sigma\sqcup\{A_{0}\},\delta,A_{0},e)$
+\end_inset
+
+ con 
+\begin_inset Formula 
+\[
+\delta(q,a,x)\coloneqq\begin{cases}
+(l,A_{0}S), & (q,a,x)=(s,\epsilon,A_{0});\\
+\{(l,w^{\text{R}})\}_{(x,w)\in{\cal R}}, & (q,a)=(l,\epsilon)\land x\in V;\\
+\{(l,\epsilon)\}, & q=l\land a=x;\\
+\{(e,\epsilon)\}, & (q,a,x)=(l,\epsilon,A_{0})
+\end{cases}
+\]
+
+\end_inset
+
+cumple 
+\begin_inset Formula $L(G)=L({\cal A})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\subseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $w\in L(G)$
+\end_inset
+
+, para construir la secuencia de acciones que prueba que 
+\begin_inset Formula $w\in L({\cal A})$
+\end_inset
+
+, empezamos con 
+\begin_inset Formula $s\to^{\epsilon,A_{0}\to A_{0}S}l$
+\end_inset
+
+ y, para cada nodo de un árbol de derivación de 
+\begin_inset Formula $w$
+\end_inset
+
+ en preorden, si el nodo es un 
+\begin_inset Formula $A\in V$
+\end_inset
+
+ con hijos 
+\begin_inset Formula $w_{1},\dots,w_{n}$
+\end_inset
+
+, añadimos 
+\begin_inset Formula $l\to^{\epsilon,A\to w_{n}\cdots w_{1}}l$
+\end_inset
+
+, y si es un 
+\begin_inset Formula $a\in\Sigma$
+\end_inset
+
+, añadimos 
+\begin_inset Formula $l\to^{a,a\to\epsilon}l$
+\end_inset
+
+, y finalmente añadimos 
+\begin_inset Formula $l\to^{\epsilon,A_{0}\to\epsilon}$
+\end_inset
+
+.
+ Para ver que esto es válido, si el símbolo en la cima de la pila es el
+ siguiente a recorrer del árbol, si este símbolo es del alfabeto, el resultado
+ es que se acepta y se elimina de la pila; si es una variable y los hijos
+ son todos del alfabeto, el resultado es que se acepta la subcadena correspondie
+nte y se elimina el símbolo de la pila, y por inducción sobre la altura
+ del subárbol, esto ocurre con todo símbolo, de modo que al terminar de
+ procesar el árbol se pasa de 
+\begin_inset Formula $(l,A_{0}S,w)$
+\end_inset
+
+ a 
+\begin_inset Formula $(l,A_{0},\epsilon)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\supseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $w=w_{1}\cdots w_{n}\in L({\cal A})$
+\end_inset
+
+ y una secuencia de acciones 
+\begin_inset Formula $s\to l\to\dots\to l\to e$
+\end_inset
+
+, basta ver que, en cada posición 
+\begin_inset Formula $(l,A_{0}\gamma,w_{k+1}\cdots w_{n})$
+\end_inset
+
+ es 
+\begin_inset Formula $S\Rightarrow^{*}w_{1}\cdots w_{k}\gamma^{\text{R}}$
+\end_inset
+
+, pues claramente todas las posiciones en el estado 
+\begin_inset Formula $l$
+\end_inset
+
+ tienen 
+\begin_inset Formula $A_{0}$
+\end_inset
+
+ al fondo y la última posición de esta forma es necesariamente 
+\begin_inset Formula $(l,A_{0},\epsilon)$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $S\Rightarrow^{*}w$
+\end_inset
+
+.
+ Para la primera posición, 
+\begin_inset Formula $(l,A_{0}S,w)$
+\end_inset
+
+, 
+\begin_inset Formula $k=0$
+\end_inset
+
+ y obviamente 
+\begin_inset Formula $S\Rightarrow^{*}S$
+\end_inset
+
+.
+ Para el resto, por inducción, si la anterior posición era 
+\begin_inset Formula $(l,A_{0}\gamma a,w_{k+1}\cdots w_{n})$
+\end_inset
+
+ con 
+\begin_inset Formula $a\in\Gamma$
+\end_inset
+
+, necesariamente 
+\begin_inset Formula $w_{k+1}=a$
+\end_inset
+
+ y la actual es 
+\begin_inset Formula $(l,A_{0}\gamma,w_{k+2}\cdots w_{n})$
+\end_inset
+
+, pero por hipótesis de inducción 
+\begin_inset Formula $S\Rightarrow^{*}w_{1}\cdots w_{k}a\gamma^{\text{R}}=w_{1}\cdots w_{k}w_{k+1}\gamma^{\text{R}}$
+\end_inset
+
+.
+ Por otro lado, si la anterior era 
+\begin_inset Formula $(l,A_{0}\gamma A,w_{k+1}\cdots w_{n})$
+\end_inset
+
+ con 
+\begin_inset Formula $A\in V$
+\end_inset
+
+, la actual es 
+\begin_inset Formula $(l,A_{0}\gamma v^{\text{R}},w_{k+1}\cdots w_{n})$
+\end_inset
+
+ con 
+\begin_inset Formula $(A\to v)\in{\cal R}$
+\end_inset
+
+ y se cumple 
+\begin_inset Formula $S\Rightarrow^{*}w_{1}\cdots w_{k}A\gamma^{\text{R}}\Rightarrow w_{1}\cdots w_{k}v\gamma^{\text{R}}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\series bold
+Lema del bombeo
+\series default
+ (
+\series bold
+\emph on
+pumping lemma
+\series default
+\emph default
+): Si 
+\begin_inset Formula $L\in{\cal CF}$
+\end_inset
+
+, existe 
+\begin_inset Formula $p\in\mathbb{N}$
+\end_inset
+
+ tal que toda 
+\begin_inset Formula $w\in L$
+\end_inset
+
+ con 
+\begin_inset Formula $|w|\geq p$
+\end_inset
+
+ admite una descomposición 
+\begin_inset Formula $w=uvxyz$
+\end_inset
+
+ con 
+\begin_inset Formula $|vy|>0$
+\end_inset
+
+ y 
+\begin_inset Formula $|vxy|\leq p$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $uv^{n}xy^{n}z\in L$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $G=(V,\Sigma,{\cal R},S)$
+\end_inset
+
+ una GLC para 
+\begin_inset Formula $L$
+\end_inset
+
+ y 
+\begin_inset Formula $b\coloneqq\max_{(A\to v)\in{\cal R}}|v|$
+\end_inset
+
+, en cualquier árbol de derivación por 
+\begin_inset Formula $G$
+\end_inset
+
+, ningún nodo tiene más de 
+\begin_inset Formula $b$
+\end_inset
+
+ hijos, con lo que si un árbol tiene altura 
+\begin_inset Formula $h$
+\end_inset
+
+, hay no más de 
+\begin_inset Formula $b^{h}$
+\end_inset
+
+ nodos a distancia 
+\begin_inset Formula $h$
+\end_inset
+
+ de la raíz y por tanto la cadena tiene longitud máxima 
+\begin_inset Formula $b^{h}$
+\end_inset
+
+, y por contrarrecíproco, una cadena con longitud 
+\begin_inset Formula $b^{h}+1$
+\end_inset
+
+ o más tiene altura al menos 
+\begin_inset Formula $h+1$
+\end_inset
+
+.
+ Sean entonces 
+\begin_inset Formula $p\coloneqq b^{|V|+1}$
+\end_inset
+
+ y 
+\begin_inset Formula $w\in L$
+\end_inset
+
+ con 
+\begin_inset Formula $|w|\geq p$
+\end_inset
+
+, tomamos un árbol de derivación 
+\begin_inset Formula $\tau$
+\end_inset
+
+ de 
+\begin_inset Formula $w$
+\end_inset
+
+ con número de nodos mínimo, cuya altura sera al menos 
+\begin_inset Formula $|V|+1$
+\end_inset
+
+ ya que 
+\begin_inset Formula $|w|\geq b^{|V|+1}\geq b^{|V|}+1$
+\end_inset
+
+.
+ Un camino de longitud máxima de la raíz a una hoja tendrá al menos 
+\begin_inset Formula $|V|+2$
+\end_inset
+
+ nodos, de los que a lo sumo 1 será terminal y el resto variables.
+ Así, de entre las 
+\begin_inset Formula $|V|+1$
+\end_inset
+
+ variables inferiores (más lejanas a la raíz), habrá una variable 
+\begin_inset Formula $R$
+\end_inset
+
+ repetida, y llamamos 
+\begin_inset Formula $x$
+\end_inset
+
+ a la subcadena generada por la 
+\begin_inset Formula $R$
+\end_inset
+
+ inferior, 
+\begin_inset Formula $vxy$
+\end_inset
+
+ a la generada por la superior y 
+\begin_inset Formula $uvxyz$
+\end_inset
+
+ a 
+\begin_inset Formula $w$
+\end_inset
+
+ (
+\begin_inset Formula $S\Rightarrow^{*}uRz\Rightarrow^{*}uvRyz\Rightarrow^{*}uvxyz$
+\end_inset
+
+).
+ Sustituyendo el subárbol de la inferior por el de la superior obtenemos
+ 
+\begin_inset Formula $uv^{2}xy^{2}z\in L$
+\end_inset
+
+, y repitiendo obtenemos 
+\begin_inset Formula $uv^{n}xy^{n}z\in L$
+\end_inset
+
+ para 
+\begin_inset Formula $n>1$
+\end_inset
+
+, mientras que sustituyendo el de la superior por el de la inferior obtenemos
+ 
+\begin_inset Formula $uxz\in L$
+\end_inset
+
+.
+ Para ver que 
+\begin_inset Formula $|vy|>0$
+\end_inset
+
+, si fuera 
+\begin_inset Formula $|vy|=0$
+\end_inset
+
+ sería 
+\begin_inset Formula $vxy=x$
+\end_inset
+
+ y sustituyendo el subárbol de la 
+\begin_inset Formula $R$
+\end_inset
+
+ superior por el de la inferior obtendríamos un árbol de derivación de 
+\begin_inset Formula $w$
+\end_inset
+
+ con menos nodos que 
+\begin_inset Formula $\tau\#$
+\end_inset
+
+.
+ Finalmente, como el 
+\begin_inset Formula $R$
+\end_inset
+
+ superior está entre las 
+\begin_inset Formula $|V|+1$
+\end_inset
+
+ variables inferiores, la altura de su subárbol es como mucho 
+\begin_inset Formula $|V|+1$
+\end_inset
+
+ y 
+\begin_inset Formula $|vxy|\leq b^{|V|+1}=p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El lenguaje 
+\begin_inset Formula $\{a^{n}b^{n}c^{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+ no es libre de contexto.
+ 
+\series bold
+Demostración:
+\series default
+ Si lo fuera, tendría una longitud de bombeo 
+\begin_inset Formula $p$
+\end_inset
+
+ por el lema anterior.
+ Sean 
+\begin_inset Formula $w\coloneqq a^{p}b^{p}c^{p}$
+\end_inset
+
+ y 
+\begin_inset Formula $uvxyz\coloneqq w$
+\end_inset
+
+ una descomposición en las condiciones de dicho lema.
+ Si o 
+\begin_inset Formula $v$
+\end_inset
+
+ o 
+\begin_inset Formula $y$
+\end_inset
+
+ contuviera más de un tipo de símbolo, 
+\begin_inset Formula $uv^{2}xy^{2}z\in L$
+\end_inset
+
+ contendría símbolos en orden incorrecto
+\begin_inset Formula $\#$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $v$
+\end_inset
+
+ e 
+\begin_inset Formula $y$
+\end_inset
+
+ contienen cada una un sólo tipo de símbolo y, como al menos una de las
+ 2 no es vacía y hay un tipo de símbolo no contenido en ninguna, 
+\begin_inset Formula $uv^{2}xy^{2}z\in L$
+\end_inset
+
+ no contiene el mismo número de cada tipo
+\begin_inset Formula $\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $L_{1},L_{2}\in{\cal CF}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $L_{1}\cup L_{2}\in{\cal CF}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Dadas gramáticas 
+\begin_inset Formula $(V_{1},\Sigma_{1},{\cal R}_{1},S_{1})$
+\end_inset
+
+ y 
+\begin_inset Formula $(V_{2},\Sigma_{2},{\cal R}_{2},S_{2})$
+\end_inset
+
+ que generan respectivamente 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+, la gramática 
+\begin_inset Formula $G\coloneqq(V_{1}\sqcup V_{2}\sqcup\{S\},\Sigma_{1}\cup\Sigma_{2},{\cal R}_{1}\cup{\cal R}_{2}\cup\{S\to S_{1},S\to S_{2}\},S)$
+\end_inset
+
+ genera 
+\begin_inset Formula $L_{1}\cup L_{2}$
+\end_inset
+
+.
+ En efecto, si 
+\begin_inset Formula $w\in L(G)$
+\end_inset
+
+, 
+\begin_inset Formula $S\Rightarrow S_{1}\Rightarrow^{*}w$
+\end_inset
+
+ o 
+\begin_inset Formula $S\Rightarrow S_{2}\Rightarrow^{*}w$
+\end_inset
+
+, y si 
+\begin_inset Formula $w\in L_{1}\cup L_{2}$
+\end_inset
+
+, por ejemplo 
+\begin_inset Formula $w\in L_{1}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $S\Rightarrow S_{1}\Rightarrow^{*}w$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $L_{1}L_{2}\in{\cal CF}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+La gramática 
+\begin_inset Formula $G\coloneqq(V_{1}\sqcup V_{2}\sqcup\{S\},\Sigma_{1}\cup\Sigma_{2},{\cal R}_{1}\cup{\cal R}_{2}\cup\{S\to S_{1}S_{2}\},S)$
+\end_inset
+
+ genera 
+\begin_inset Formula $L_{1}L_{2}$
+\end_inset
+
+.
+ En efecto, si 
+\begin_inset Formula $w\in L(G)$
+\end_inset
+
+, de la raíz del árbol de derivación parte un nodo 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ y uno 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+, mostrando que 
+\begin_inset Formula $S_{1}\Rightarrow^{*}u$
+\end_inset
+
+ y 
+\begin_inset Formula $S_{2}\Rightarrow^{*}v$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $u$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ con 
+\begin_inset Formula $uv=w$
+\end_inset
+
+, y si 
+\begin_inset Formula $w\in L_{1}L_{2}$
+\end_inset
+
+, sean 
+\begin_inset Formula $uv=w$
+\end_inset
+
+ con 
+\begin_inset Formula $u\in L_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $v\in L_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $S\Rightarrow S_{1}S_{2}\Rightarrow^{*}uS_{2}\Rightarrow^{*}uv=w$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $L_{1}^{*}\in{\cal CF}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+La gramática 
+\begin_inset Formula $G\coloneqq(V_{1}\sqcup\{S\},\Sigma_{1},{\cal R}_{1}\cup\{S\to S_{1}S,S\to\epsilon\},S)$
+\end_inset
+
+ genera 
+\begin_inset Formula $L_{1}^{*}$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $w\in L(G)$
+\end_inset
+
+, por inducción en la altura 
+\begin_inset Formula $h$
+\end_inset
+
+ de un árbol de derivación de 
+\begin_inset Formula $w$
+\end_inset
+
+, si 
+\begin_inset Formula $h=0$
+\end_inset
+
+ la derivación es 
+\begin_inset Formula $S\Rightarrow\epsilon$
+\end_inset
+
+, luego 
+\begin_inset Formula $w=\epsilon\in L_{1}^{*}$
+\end_inset
+
+, y para 
+\begin_inset Formula $h>0$
+\end_inset
+
+, el primer paso es 
+\begin_inset Formula $S\Rightarrow^{*}S_{1}S$
+\end_inset
+
+, pero el subárbol de este último nodo 
+\begin_inset Formula $S$
+\end_inset
+
+ tiene altura 
+\begin_inset Formula $h-1$
+\end_inset
+
+ y por tanto genera un 
+\begin_inset Formula $v\in L_{1}^{*}$
+\end_inset
+
+, y como el nodo 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ genera un 
+\begin_inset Formula $u\in L_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $w=uv\in L_{1}L_{1}^{*}=L_{1}^{*}$
+\end_inset
+
+.
+ Recíprocamente, para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, podemos hacer 
+\begin_inset Formula $S\Rightarrow S_{1}S\Rightarrow S_{1}^{2}S\Rightarrow\dots\Rightarrow S_{1}^{n}S\Rightarrow S_{1}^{n}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $L(G)\supseteq L_{1}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+En general 
+\begin_inset Formula $L_{1}\cap L_{2}\notin{\cal CF}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $L_{1}\coloneqq\{a^{n}b^{n}c^{m}\}_{n,m\in\mathbb{N}}$
+\end_inset
+
+ y 
+\begin_inset Formula $L_{2}\coloneqq\{a^{m}b^{n}c^{n}\}_{n,m\in\mathbb{N}}$
+\end_inset
+
+ son libres de contexto, pues vienen dados respectivamente por
+\begin_inset Formula 
+\begin{eqnarray*}
+\begin{array}{rl}
+S & \to AB\\
+A & \to aAb\mid\epsilon\\
+B & \to cB\mid\epsilon
+\end{array} & \text{ y } & \begin{array}{rl}
+S & \to AB\\
+A & \to aA\mid\epsilon\\
+B & \to bBc\mid\epsilon
+\end{array}
+\end{eqnarray*}
+
+\end_inset
+
+pero 
+\begin_inset Formula $L_{1}\cap L_{2}=\{a^{n}b^{n}c^{n}\}_{n\in\mathbb{N}}\notin{\cal CF}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+En general 
+\begin_inset Formula $\overline{L_{1}}\notin{\cal CF}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si lo fuera, sería siempre 
+\begin_inset Formula $L_{1}\cap L_{2}=\overline{\overline{L_{1}}\cup\overline{L_{2}}}\in{\cal CF}\#$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+En general 
+\begin_inset Formula $L_{1}\setminus L_{2}\notin{\cal CF}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si lo fuera, como 
+\begin_inset Formula $\Sigma^{*}\in{\cal CF}$
+\end_inset
+
+ sería siempre 
+\begin_inset Formula $\overline{L_{1}}=\Sigma^{*}\setminus L_{1}\in{\cal CF}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los autómatas de pila no son un buen modelo de computación, pues esperaríamos
+ que un ordenador pudiera reconocer si una cadena está en 
+\begin_inset Formula $\{a^{n}b^{n}c^{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+ o no y un autómata de pila no puede.
+\end_layout
+
+\end_body
+\end_document
