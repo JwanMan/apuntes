@@ -84,10 +84,6 @@
 
 \begin_body
 
-\begin_layout Section
-Historia
-\end_layout
-
 \begin_layout Standard
 En 1928, David Hilbert planteó el 
 \series bold
@@ -141,62 +137,38 @@ máquinas de Turing
  la memoria.
 \end_layout
 
-\begin_layout Standard
-Church además probó que el cálculo 
-\begin_inset Formula $\lambda$
-\end_inset
-
- es equivalente a las 
-\series bold
-funciones recursivas
-\series default
-, propuestas por Kurt Gödel en 1931, y Turing, cuyo artículo salió después,
- probó que las 
-\emph on
-\lang english
-computing machines
-\emph default
-\lang spanish
- son equivalentes al cálculo 
-\begin_inset Formula $\lambda$
-\end_inset
-
-, en el sentido de que las mismas funciones se pueden expresar en los 3
- formalismos.
- Esto llevó a la 
-\series bold
-tesis de Church-Turing
-\series default
-, que afirma que esta definición de algoritmo se corresponde con la noción
- intuitiva, o la máquina de Turing es el modelo de computación más expresivo
- posible y todos los modelos suficientemente expresivos son equivalentes
- a este.
-\end_layout
-
-\begin_layout Standard
-Posteriormente aparecieron otras definiciones formales de algoritmo, como
- las 
-\series bold
-funciones parciales
-\series default
-, las 
-\series bold
-máquinas con infinitos registros
-\series default
- o el 
-\series bold
-lenguaje S
-\series default
- (simple), todas equivalentes a las máquinas de Turing.
- Un lenguaje de programación es 
-\series bold
-Turing completo
-\series default
- si es equivalente a las máquinas de Turing.
-\end_layout
-
 \begin_layout Section
-Definiciones
+Máquinas de Turing
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+modelo de computación
+\series default
+ 
+\begin_inset Formula $\text{MOD}$
+\end_inset
+
+ es una clase de autómatas en la que cada uno tiene asociado un alfabeto
+ 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ y dos conjuntos disjuntos 
+\begin_inset Formula $L_{\text{A}},L_{\text{R}}\in\Sigma^{*}$
+\end_inset
+
+ de cadenas que 
+\series bold
+acepta
+\series default
+ y que 
+\series bold
+rechaza
+\series default
+, respectivamente.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -530,16 +502,1632 @@ Una versión equivalente termina solo cuando la configuración no lleva a
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+Es común describir una MT de forma algorítmica, con instrucciones de más
+ alto nivel, pudiendo usar una instrucción de alto nivel si se puede implementar
+ en una MT.
+ Son instrucciones de alto nivel:
+\end_layout
+
+\begin_layout Enumerate
+Una secuencia de instrucciones.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para terminar una instrucción, se establece el estado al de inicio de la
+ siguiente.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Moverse sin escribir.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se escribe lo mismo que se leyó.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Escribir un símbolo y quedarse en la misma posición.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Escribir y moverse a la derecha, luego moverse incondicionalmente a la izquierda.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Ejecutar una u otra instrucción, o ninguna, según el símbolo leído.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para estos símbolos, se mueve al inicio de la instrucción correspondiente,
+ que termina en el inicio de la siguiente.
+ Para los que no se hace ninguna, se pasa directamente al inicio de la siguiente.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Ejecutar una u otra instrucción según el símbolo leído y los 
+\begin_inset Formula $n$
+\end_inset
+
+ anteriores para cierto 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se mueve 
+\begin_inset Formula $n$
+\end_inset
+
+ veces a la izquierda.
+ Si se lee 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+, se mueve a la derecha y se pasa a un cierto estado 
+\begin_inset Formula $\overline{x_{1}}$
+\end_inset
+
+, desde el que si se lee 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+, se mueve a la derecha y se pasa a 
+\begin_inset Formula $\overline{x_{1}x_{2}}$
+\end_inset
+
+, etc., hasta llegar a la posición inicial en el estado 
+\begin_inset Formula $\overline{x_{1}\cdots x_{n}}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Ejecutar una instrucción mientras el símbolo leído cumpla una condición.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para estos símbolos, pasar a la instrucción, que termina volviendo a la
+ comprobación.
+ Para el resto, pasar a la siguiente.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Detectar el límite izquierdo de la cinta.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se añade un nuevo estado inicial 
+\begin_inset Formula $q_{\text{i}}$
+\end_inset
+
+ y el símbolo 
+\begin_inset Formula $\$$
+\end_inset
+
+ al alfabeto de la cinta.
+ Desde 
+\begin_inset Formula $q_{\text{i}}$
+\end_inset
+
+ se escribe 
+\begin_inset Formula $\$$
+\end_inset
+
+ y, en bucle, se mueve a la derecha y se escribe el símbolo en la posición
+ anterior, hasta que este sea B.
+ Entonces se va moviendo a la izquierda hasta encontrar 
+\begin_inset Formula $\$$
+\end_inset
+
+, y luego una posición a la derecha y se pasa a 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+.
+ Esto mueve la cadena una posición a la derecha y escribe 
+\begin_inset Formula $\$$
+\end_inset
+
+ al principio, de modo que detectar el límite izquierdo de la cinta es detectar
+ 
+\begin_inset Formula $\$$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Volver al principio de la cinta.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Una vez hecho lo anterior, ir a la izquierda hasta que se lea 
+\begin_inset Formula $\$$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Recorrer una cadena detectando una de cada 
+\begin_inset Formula $n\in\mathbb{N}^{*}$
+\end_inset
+
+ apariciones de un cierto símbolo.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se usan 
+\begin_inset Formula $n$
+\end_inset
+
+ estados en ciclo.
+ Mientras no se lea B, se pasa al estado siguiente si se lee el símbolo
+ o al mismo en otro caso, y se mueve a la derecha.
+ En el último estado, antes de hacer esto, si se detecta el símbolo se hace
+ la acción a realizar cada 
+\begin_inset Formula $n$
+\end_inset
+
+ apariciones.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Ejecutar una instrucción u otra según el número de apariciones de cierto
+ símbolo módulo un 
+\begin_inset Formula $n\in\mathbb{N}^{*}$
+\end_inset
+
+ fijo.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se hace un ciclo como el anterior y, cuando se lee B, se ejecuta una u otra
+ instrucción según el estado.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Contar el número de apariciones de un cierto símbolo hasta un límite 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se usan los estados 
+\begin_inset Formula $c_{0},\dots,c_{n}$
+\end_inset
+
+ en ciclo.
+ En 
+\begin_inset Formula $c_{i}$
+\end_inset
+
+, si se lee B, se realiza la acción para 
+\begin_inset Formula $i$
+\end_inset
+
+ apariciones; si se lee el símbolo, se pasa a 
+\begin_inset Formula $c_{i+1}$
+\end_inset
+
+ y se mueve a la derecha o, si 
+\begin_inset Formula $i=n$
+\end_inset
+
+, se ejecuta la acción para más de 
+\begin_inset Formula $n$
+\end_inset
+
+ apariciones; en otro caso se mueve a la derecha.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Tesis de Church-Turing
+\end_layout
+
+\begin_layout Standard
+Un modelo de computación 
+\begin_inset Formula $\text{MOD}$
+\end_inset
+
+ 
+\series bold
+decide
+\series default
+ un lenguaje 
+\begin_inset Formula $L$
+\end_inset
+
+ si existe un 
+\begin_inset Formula ${\cal M}\in\text{MOD}$
+\end_inset
+
+ con 
+\begin_inset Formula $L_{\text{A}}=L$
+\end_inset
+
+ y 
+\begin_inset Formula $L_{\text{R}}=\overline{L}$
+\end_inset
+
+, y 
+\series bold
+enumera
+\series default
+ 
+\begin_inset Formula $L$
+\end_inset
+
+ si existe un 
+\begin_inset Formula ${\cal M}\in\text{MOD}$
+\end_inset
+
+ con 
+\begin_inset Formula $L_{\text{R}}=\overline{L}$
+\end_inset
+
+.
+ Claramente 
+\begin_inset Formula $\text{MOD}$
+\end_inset
+
+ enumera todas las cadenas que decide.
+\end_layout
+
+\begin_layout Standard
+Dados dos modelos de computación 
+\begin_inset Formula $\text{MOD}_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{MOD}_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\text{MOD}_{1}$
+\end_inset
+
+ es 
+\series bold
+menos expresivo
+\series default
+ que 
+\begin_inset Formula $\text{MOD}_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\text{MOD}_{1}\preceq\text{MOD}_{2}$
+\end_inset
+
+, si 
+\begin_inset Formula $\text{MOD}_{2}$
+\end_inset
+
+ enumera todo lenguaje enumerado por 
+\begin_inset Formula $\text{MOD}_{1}$
+\end_inset
+
+ y decide todo lenguaje decidido por 
+\begin_inset Formula $\text{MOD}_{1}$
+\end_inset
+
+; 
+\series bold
+equivalente
+\series default
+ a 
+\begin_inset Formula $\text{MOD}_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\text{MOD}_{1}\equiv\text{MOD}_{2}$
+\end_inset
+
+, si 
+\begin_inset Formula $\text{MOD}_{1}\preceq\text{MOD}_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{MOD}_{2}\preceq\text{MOD}_{1}$
+\end_inset
+
+, y 
+\series bold
+estrictamente menos expresivo
+\series default
+ que 
+\begin_inset Formula $\text{MOD}_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\text{MOD}_{1}\prec\text{MOD}_{2}$
+\end_inset
+
+, si 
+\begin_inset Formula $\text{MOD}_{1}\preceq\text{MOD}_{2}$
+\end_inset
+
+ pero 
+\begin_inset Formula $\text{MOD}_{2}\npreceq\text{MOD}_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Son equivalentes a 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Las 
+\series bold
+máquinas de Turing con 
+\emph on
+\lang english
+stay
+\series default
+\emph default
+\lang spanish
+ (
+\begin_inset Formula $\text{SMT}$
+\end_inset
+
+), como las 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ pero con función de transición de la forma 
+\begin_inset Formula $\delta:Q\times\Gamma\to Q\times\Gamma\times\{\text{L},\text{R},\text{S}\}$
+\end_inset
+
+, donde S corresponde a no moverse en la cinta, es decir, si 
+\begin_inset Formula $q,r\in Q$
+\end_inset
+
+, 
+\begin_inset Formula $a,b\in\Gamma$
+\end_inset
+
+, 
+\begin_inset Formula $u\in\Gamma^{*}$
+\end_inset
+
+ y 
+\begin_inset Formula $v\in\Gamma^{\mathbb{N}}$
+\end_inset
+
+, 
+\begin_inset Formula $uqav$
+\end_inset
+
+ lleva a 
+\begin_inset Formula $urbv$
+\end_inset
+
+ si 
+\begin_inset Formula $\delta(q,a)=(r,b,\text{S})$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Claramente 
+\begin_inset Formula $\text{MT}\subseteq\text{SMT}$
+\end_inset
+
+, y toda 
+\begin_inset Formula $\text{SMT}$
+\end_inset
+
+ se puede convertir en una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ sustituyendo una transición con S con una que primero se mueve a la derecha
+ y luego a la izquierda.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Las 
+\series bold
+máquinas de Turing con 
+\emph on
+\lang english
+return
+\series default
+\emph default
+\lang spanish
+ (
+\begin_inset Formula $\text{RMT}$
+\end_inset
+
+), como las 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ pero con función de transición de la forma 
+\begin_inset Formula $\delta:Q\times\Gamma\to Q\times\Gamma\times\{\text{E},\text{R}\}$
+\end_inset
+
+, donde E corresponde a volver al principio de la cinta, es decir, si 
+\begin_inset Formula $q,r\in Q$
+\end_inset
+
+, 
+\begin_inset Formula $a,b\in\Gamma$
+\end_inset
+
+, 
+\begin_inset Formula $u\in\Gamma^{*}$
+\end_inset
+
+ y 
+\begin_inset Formula $v\in\Gamma^{\mathbb{N}}$
+\end_inset
+
+, 
+\begin_inset Formula $uqav$
+\end_inset
+
+ lleva a 
+\begin_inset Formula $rubv$
+\end_inset
+
+ si 
+\begin_inset Formula $\delta(q,a)=(r,u,\text{E})$
+\end_inset
+
+.
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-diapo 15
+Sabemos que en las 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ es posible volver al principio de la cinta.
+ Para lo contrario, añadimos símbolos 
+\begin_inset Formula $\#$
+\end_inset
+
+ y 
+\begin_inset Formula $\$$
+\end_inset
+
+ al alfabeto de la cinta de modo que, para simular una transición 
+\begin_inset Formula $\delta(q,a)=(r,b,\text{L})$
+\end_inset
+
+, primero guardamos 
+\begin_inset Formula $a$
+\end_inset
+
+ como parte del estado (añadiendo 
+\begin_inset Formula $|\Gamma|$
+\end_inset
+
+ estados), lo cambiamos por 
+\begin_inset Formula $\#$
+\end_inset
+
+ y vamos al principio.
+ Si en el principio leemos 
+\begin_inset Formula $\#$
+\end_inset
+
+, rechazamos (no podemos ir a la izquierda); si en la posición 1 leemos
+ 
+\begin_inset Formula $\#$
+\end_inset
+
+, lo cambiamos por el valor guardado, vamos al principio de la cinta y pasamos
+ a 
+\begin_inset Formula $r$
+\end_inset
+
+; en otro caso, vamos al principio de la cinta, guardamos el símbolo leído
+ en el estado, lo cambiamos por 
+\begin_inset Formula $\$$
+\end_inset
+
+ volviendo al principio de la cinta y ejecutamos lo siguiente en bucle:
+ moverse hasta encontrar 
+\begin_inset Formula $\$$
+\end_inset
+
+, moverse 2 posiciones a la derecha, y entonces, si se lee 
+\begin_inset Formula $\#$
+\end_inset
+
+, cambiarlo por el valor guardado y volver al principio, moverse hasta encontrar
+ 
+\begin_inset Formula $\$$
+\end_inset
+
+, cambiarlo por el valor guardado y moverse a la derecha pasando a 
+\begin_inset Formula $r$
+\end_inset
+
+, y en otro caso volver al principio, moverse hasta encontrar 
+\begin_inset Formula $\$$
+\end_inset
+
+, cambiarlo por el valor guardado y moverse a la derecha, guardar el valor
+ en esa posición y cambiarlo por 
+\begin_inset Formula $\$$
+\end_inset
+
+ volviendo al principio.
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Enumerate
+Las 
+\series bold
+máquinas de Turing multicinta
+\series default
+, 
+\begin_inset Formula $k\text{-MT}$
+\end_inset
+
+ para cierto 
+\begin_inset Formula $k\in\mathbb{N}^{*}$
+\end_inset
+
+, como las 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ pero con función de transición 
+\begin_inset Formula $\delta:Q\times\Gamma^{k}\to Q\times(\Gamma\times\{\text{L},\text{R}\})^{k}$
+\end_inset
+
+ y configuraciones en 
+\begin_inset Formula $Q\times(\Gamma^{\mathbb{N}}\times\mathbb{N})^{k}$
+\end_inset
+
+, de modo que hay 
+\begin_inset Formula $k$
+\end_inset
+
+ cintas cada una con su propio lector independiente y en cada transición
+ se puede escribir y mover en cada una de las cintas.
+ La configuración inicial para una entrada 
+\begin_inset Formula $w\in\Sigma^{*}$
+\end_inset
+
+ es 
+\begin_inset Formula $(q_{0},w\text{B}\cdots,(\text{B}\cdots)^{k-1})$
+\end_inset
+
+.
+ Definiendo 
+\begin_inset Formula $\nu:(\Gamma^{\mathbb{N}}\times\mathbb{N})\times(\Gamma\times\{\text{L},\text{R}\})\to\Gamma^{\mathbb{N}}\times\mathbb{N}$
+\end_inset
+
+ de forma que, para 
+\begin_inset Formula $a,b\in\Gamma$
+\end_inset
+
+, 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $u\in\Gamma^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $v\in\Gamma^{\mathbb{N}}$
+\end_inset
+
+, 
+\begin_inset Formula $\nu((uav,n),(b,\text{R}))=(ubv,n+1)$
+\end_inset
+
+ y, si 
+\begin_inset Formula $n>0$
+\end_inset
+
+, 
+\begin_inset Formula $\nu((uav,n),(b,\text{L}))=(ubv,n-1)$
+\end_inset
+
+, una configuración 
+\begin_inset Formula $(q,(u_{1},n_{1}),\dots,(u_{k},n_{k}))$
+\end_inset
+
+ lleva a otra 
+\begin_inset Formula $(r,(v_{1},m_{1}),\dots,(v_{k},m_{k}))$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\delta(q,u_{1n_{1}},u_{2n_{2}},\dots,u_{kn_{k}})=(r,t_{1},\dots,t_{k})$
+\end_inset
+
+ y 
+\begin_inset Formula $(v_{i},m_{i})=\nu((u_{i},n_{i}),t_{i})$
+\end_inset
+
+ para cada 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Claramente una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ puede ser simulada por una 
+\begin_inset Formula $k\text{-MT}$
+\end_inset
+
+ que en todas las cintas salvo la primera simplemente se mueve a la derecha.
+ Una 
+\begin_inset Formula $k\text{-MT}$
+\end_inset
+
+ 
+\begin_inset Formula $(Q,\Sigma,\Gamma,\delta,q_{0},q_{\text{F}})$
+\end_inset
+
+ puede ser simulada por una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ con alfabeto de la cinta 
+\begin_inset Formula $\Gamma\sqcup\Gamma\sqcup\{\#\}$
+\end_inset
+
+, donde un símbolo 
+\begin_inset Formula $x$
+\end_inset
+
+ del segundo 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ lo representamos por 
+\begin_inset Formula $\dot{x}$
+\end_inset
+
+.
+ La idea es que cada cinta con contenido 
+\begin_inset Formula $u\text{B}\cdots$
+\end_inset
+
+ se representa por 
+\begin_inset Formula $\#u$
+\end_inset
+
+ pero sustituyendo el símbolo 
+\begin_inset Formula $x$
+\end_inset
+
+ apuntado en esa cinta por 
+\begin_inset Formula $\dot{x}$
+\end_inset
+
+.
+ Al inicio, la 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ sustituye la entrada 
+\begin_inset Formula $w$
+\end_inset
+
+ por 
+\begin_inset Formula $\#w(\#\dot{\text{B}})^{k-1}$
+\end_inset
+
+, vuelve al principio y pasa a 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+.
+ En un estado 
+\begin_inset Formula $q\in Q$
+\end_inset
+
+, hace lo siguiente:
+\end_layout
+
+\begin_layout Enumerate
+Ir al principio e ir moviéndose a la derecha guardando en el estado las
+ 
+\begin_inset Formula $k$
+\end_inset
+
+ primeras apariciones de símbolos del segundo 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+, 
+\begin_inset Formula $\dot{a}_{1},\dots,\dot{a}_{k}$
+\end_inset
+
+, volviendo al principio al llegar a la 
+\begin_inset Formula $k$
+\end_inset
+
+-ésima.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\delta(q,a_{1},\dots,a_{k})=(r,(s_{1},d_{1}),\dots,(s_{k},d_{k}))$
+\end_inset
+
+, para 
+\begin_inset Formula $i$
+\end_inset
+
+ de 1 a 
+\begin_inset Formula $k$
+\end_inset
+
+: Mientras no se lea 
+\begin_inset Formula $\#$
+\end_inset
+
+, ir a la derecha.
+ Mientras no se lea 
+\begin_inset Formula $\dot{a}_{i}$
+\end_inset
+
+, ir a la derecha.
+ Cambiar 
+\begin_inset Formula $\dot{a}_{i}$
+\end_inset
+
+ por 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $d_{i}=\text{L}$
+\end_inset
+
+, ir a la izquierda, y si 
+\begin_inset Formula $d_{i}=\text{R}$
+\end_inset
+
+, ir a la derecha.
+ Leer 
+\begin_inset Formula $x$
+\end_inset
+
+ y cambiarlo por 
+\begin_inset Formula $\dot{x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Pasar al estado 
+\begin_inset Formula $r$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Las 
+\series bold
+máquinas de Turing no deterministas
+\series default
+ (
+\begin_inset Formula $\text{MTND}$
+\end_inset
+
+), como las máquinas de Turing pero con función de transición 
+\begin_inset Formula $\delta:Q\times\Gamma\to{\cal P}(Q\times\Gamma\times\{L,R\})$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $a,b,c\in\Gamma$
+\end_inset
+
+, 
+\begin_inset Formula $u,v\in\Gamma^{*}$
+\end_inset
+
+ y 
+\begin_inset Formula $q,r\in Q$
+\end_inset
+
+, la configuración 
+\begin_inset Formula $uaqbv$
+\end_inset
+
+ lleva a 
+\begin_inset Formula $uqacv$
+\end_inset
+
+ si 
+\begin_inset Formula $(q,c,\text{L})\in\delta(q,b)$
+\end_inset
+
+, y la configuración 
+\begin_inset Formula $uqbv$
+\end_inset
+
+ lleva a 
+\begin_inset Formula $ucqv$
+\end_inset
+
+ si 
+\begin_inset Formula $(q,c,r)\in\delta(q,c)$
+\end_inset
+
+.
+ La 
+\begin_inset Formula $\text{MTND}$
+\end_inset
+
+ acepta una cadena 
+\begin_inset Formula $w$
+\end_inset
+
+ si, de todas las secuencias de configuraciones que empiezan con la configuració
+n inicial para dicha cadena y cada configuración de la secuencia lleva a
+ la siguiente, existe una finita que acaba en 
+\begin_inset Formula $q_{\text{F}}$
+\end_inset
+
+, y la rechaza si toda secuencia de este tipo es finita y no acaba en 
+\begin_inset Formula $q_{\text{F}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Toda 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ es equivalente a una 
+\begin_inset Formula $\text{MTND}$
+\end_inset
+
+ con función de transición 
+\begin_inset Formula $\delta'$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\delta'(q,a)=\{n\}$
+\end_inset
+
+ si 
+\begin_inset Formula $(q,a)\in D$
+\end_inset
+
+ y 
+\begin_inset Formula $\delta(q,a)=n$
+\end_inset
+
+ y 
+\begin_inset Formula $\delta'(q,a)=\emptyset$
+\end_inset
+
+ si 
+\begin_inset Formula $(q,a)\notin D$
+\end_inset
+
+.
+ Para el recíproco, consideramos una 
+\begin_inset Formula $\text{MTND}$
+\end_inset
+
+ 
+\begin_inset Formula $(Q,\Sigma,\Gamma,\delta,q_{0},q_{\text{F}})$
+\end_inset
+
+ e intentamos convertirla en una 3-MT, que guardará la entrada en la cinta
+ 1, simulará la 
+\begin_inset Formula $\text{MTND}$
+\end_inset
+
+ en la cinta 2 recorriendo en anchura el árbol de posibilidades y guardará
+ en la cinta 3 el camino actual en dicho árbol.
+ Sea 
+\begin_inset Formula $b\coloneqq\max_{q\in Q}^{a\in\Gamma}|\delta(q,a)|$
+\end_inset
+
+, el alfabeto de la cinta será 
+\begin_inset Formula $\Gamma\sqcup\{p_{1},\dots,p_{b}\}\sqcup\{\$,\#\}$
+\end_inset
+
+, y hará lo siguiente:
+\end_layout
+
+\begin_layout Enumerate
+Escribir 
+\begin_inset Formula $\$p_{1}$
+\end_inset
+
+ en la cinta 3 y guardar 
+\begin_inset Formula $c\gets\text{FALSE}$
+\end_inset
+
+en el estado del 3-MT.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:begin-step"
+
+\end_inset
+
+Copiar la cinta 1 en la cinta 2, escribiendo 
+\begin_inset Formula $\#$
+\end_inset
+
+ tras el final de la cadena, y volver al principio en ambas, usando 
+\begin_inset Formula $\$$
+\end_inset
+
+ como marca de inicio.
+ Guardar 
+\begin_inset Formula $q\gets q_{0}$
+\end_inset
+
+ en el estado del 3-MT.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $q=q_{\text{F}}$
+\end_inset
+
+, aceptar.
+ Leer 
+\begin_inset Formula $a$
+\end_inset
+
+ de la cinta 2 y 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ de la 3.
+ Si 
+\begin_inset Formula $a=\#$
+\end_inset
+
+, 
+\begin_inset Formula $a\coloneqq\text{B}$
+\end_inset
+
+, escribir B, ir a la derecha, escribir 
+\begin_inset Formula $\#$
+\end_inset
+
+ e ir a la izquierda.
+ Si 
+\begin_inset Formula $p_{i}=\text{B}$
+\end_inset
+
+, hacer 
+\begin_inset Formula $c\gets\text{TRUE}$
+\end_inset
+
+ (indicando que existe una rama por la que se puede seguir si se da un paso
+ más), moverse a la izquierda en la cinta 3 e ir al paso 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:next-step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $i>|\delta(q,a)|$
+\end_inset
+
+, escribir B y moverse a la izquierda en la cinta 3 e ir al paso 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:next-step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $i\leq|\delta(q,a)|$
+\end_inset
+
+, sea 
+\begin_inset Formula $(r,b,d)$
+\end_inset
+
+ el 
+\begin_inset Formula $i$
+\end_inset
+
+-ésimo elemento de 
+\begin_inset Formula $\delta(q,a)$
+\end_inset
+
+, escribir 
+\begin_inset Formula $b$
+\end_inset
+
+ en la cinta 2, moverla en la dirección 
+\begin_inset Formula $d$
+\end_inset
+
+, guardar 
+\begin_inset Formula $q\coloneqq r$
+\end_inset
+
+ y, si se lee 
+\begin_inset Formula $\$$
+\end_inset
+
+, ir al paso 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:next-step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, y si no mover la cinta 3 a la derecha y repetir este paso.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:next-step"
+
+\end_inset
+
+Si en la cinta 3 se lee 
+\begin_inset Formula $p_{b}$
+\end_inset
+
+, escribir B, moverse a la izquierda y repetir este paso.
+ Si se lee 
+\begin_inset Formula $\$$
+\end_inset
+
+, si 
+\begin_inset Formula $c=\text{TRUE}$
+\end_inset
+
+, hacer 
+\begin_inset Formula $c\gets\text{FALSE}$
+\end_inset
+
+, ir a la izquierda y escribir 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+ hasta que se lea B, sobrescribiendo la primera B, y si 
+\begin_inset Formula $c=\text{FALSE}$
+\end_inset
+
+, rechazar.
+ Si se lee 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ con 
+\begin_inset Formula $i<b$
+\end_inset
+
+, cambiar por 
+\begin_inset Formula $p_{i+1}$
+\end_inset
+
+.
+ Volver al principio de la cinta (sin contar 
+\begin_inset Formula $\$$
+\end_inset
+
+) e ir al paso 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:begin-step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+En su artículo sobre el cálculo 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, Church probó que este es equivalente a las 
+\series bold
+funciones recursivas
+\series default
+, propuestas por 
+\lang ngerman
+Kurt Gödel
+\lang spanish
+ en 1931, y Turing, cuyo artículo salió después, probó que las 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ son equivalentes al cálculo 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ Esto llevó a la 
+\series bold
+tesis de Church-Turing
+\series default
+, que afirma que esta definición de algoritmo se corresponde con la noción
+ intuitiva, o la máquina de Turing es el modelo de computación más expresivo
+ posible y todos los modelos suficientemente expresivos son equivalentes
+ a este.
+\end_layout
+
+\begin_layout Standard
+Posteriormente aparecieron otras definiciones formales de algoritmo, como
+ las 
+\series bold
+funciones parciales
+\series default
+, las 
+\series bold
+máquinas con infinitos registros
+\series default
+ o el 
+\series bold
+lenguaje S
+\series default
+ (simple), todas equivalentes a las máquinas de Turing.
+ Un lenguaje de programación es 
+\series bold
+Turing completo
+\series default
+ si es equivalente a las máquinas de Turing.
+\end_layout
+
+\begin_layout Section
+Lenguajes decidibles y enumerables
+\end_layout
+
+\begin_layout Standard
+Un lenguaje es 
+\series bold
+decidible
+\series default
+ o 
+\series bold
+recursivo
+\series default
+ si lo decide 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+, y es 
+\series bold
+Turing-reconocible
+\series default
+, 
+\series bold
+recursivamente enumerable
+\series default
+ o 
+\series bold
+enumerado
+\series default
+ si lo enumera 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+.
+ Llamamos 
+\begin_inset Formula ${\cal DEC}$
+\end_inset
+
+ a la clase de lenguajes decidibles y 
+\begin_inset Formula ${\cal RE}$
+\end_inset
+
+ a la de lenguajes recursivamente numerables.
+\end_layout
+
+\begin_layout Standard
+Algunos lenguajes decidibles:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\{0^{2^{n}}\}_{n\in\mathbb{N}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si se lee B, rechazar (longitud 0).
+ En bucle:
+\end_layout
+
+\begin_layout Enumerate
+Si solo hay un 0, se acepta.
+ Se vuelve al principio.
+\end_layout
+
+\begin_layout Enumerate
+Si 0 aparece un número de veces impar, rechazar.
+\end_layout
+
+\begin_layout Enumerate
+Marcar con 
+\begin_inset Formula $\#$
+\end_inset
+
+ uno de cada 2 ceros, reduciendo el número de ceros a la mitad.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\{a^{n}b^{n}c^{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se va leyendo la cadena de izquierda a derecha y, si hay una 
+\begin_inset Formula $a$
+\end_inset
+
+ después de una 
+\begin_inset Formula $b$
+\end_inset
+
+ o 
+\begin_inset Formula $c$
+\end_inset
+
+ o una 
+\begin_inset Formula $b$
+\end_inset
+
+ después de una 
+\begin_inset Formula $c$
+\end_inset
+
+, se rechaza.
+ Se vuelve al principio.
+ En bucle, primero se comprueba si hay alguna 
+\begin_inset Formula $a$
+\end_inset
+
+, 
+\begin_inset Formula $b$
+\end_inset
+
+ o 
+\begin_inset Formula $c$
+\end_inset
+
+, aceptando si no hay ninguno, se vuelve al principio de la cinta, se marca
+ con 
+\begin_inset Formula $\#$
+\end_inset
+
+ la primera 
+\begin_inset Formula $a$
+\end_inset
+
+, luego la primera 
+\begin_inset Formula $b$
+\end_inset
+
+ y luego la primera 
+\begin_inset Formula $c$
+\end_inset
+
+, rechazando si alguna de las 3 no existe, y se vuelve al principio.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Dados 
+\begin_inset Formula $L_{1},L_{2}\in{\cal DEC}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $L_{1}\cup L_{2}\in{\cal DEC}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $(Q_{1},\Sigma,\Gamma_{1},\delta_{1},q_{01},q_{\text{F}1})$
+\end_inset
+
+ y 
+\begin_inset Formula $(Q_{2},\Sigma,\Gamma_{2},\delta_{2},q_{02},q_{\text{F}2})$
+\end_inset
+
+ 
+\begin_inset Formula $\text{MTs}$
+\end_inset
+
+ que deciden 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+, respectivamente, 
+\begin_inset Formula $(Q_{1}\sqcup Q_{2}\sqcup\{q_{0}\}\sqcup\{q_{\text{F}}\},\Sigma,\Gamma_{1}\cup\Gamma_{2},\delta',q_{0},q_{\text{F}})$
+\end_inset
+
+ con las transiciones de 
+\begin_inset Formula $\delta_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\delta_{2}$
+\end_inset
+
+ más una de 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+ a 
+\begin_inset Formula $q_{01}$
+\end_inset
+
+ y 
+\begin_inset Formula $q_{02}$
+\end_inset
+
+ de forma no determinista y una de 
+\begin_inset Formula $q_{\text{F}1}$
+\end_inset
+
+ y otra de 
+\begin_inset Formula $q_{\text{F}2}$
+\end_inset
+
+ a 
+\begin_inset Formula $q_{\text{F}}$
+\end_inset
+
+ decide 
+\begin_inset Formula $L_{1}\cup L_{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $L_{1}L_{2}\in{\cal DEC}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Hacemos una 2-MT que, para cada posición en la cadena de la cinta 1 y la
+ primera B en esta, marcando la posición actual de algún modo, copia la
+ subcadena desde el principio a la posición anterior a la actual en la cinta
+ 2, ejecuta una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ que reconoce 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ en dicha cinta y, si acepta, hace lo propio con una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ que reconoce 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ y la subcadena que empieza en la posición actual y termina al final, usando
+ 
+\begin_inset Formula $\#$
+\end_inset
+
+ como en la demostración de equivalencia de las 
+\begin_inset Formula $\text{MTND}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $L_{1}^{*}\in{\cal DEC}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $L_{1}\cap L_{2}\in{\cal DEC}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\overline{L_{1}}\in{\cal DEC}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $L_{1}\setminus L_{2}\in{\cal DEC}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, 
+\begin_inset Formula ${\cal CF}\subsetneq{\cal DEC}\subsetneq{\cal RE}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\subseteq2]$
+\end_inset
+
+ Un DFA lo puede simular una 
+\begin_inset Formula $2\text{-MT}$
+\end_inset
+
+ usando la cinta 1 para leer de la cadena y la cinta 2 para la pila.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\nsubseteq1]$
+\end_inset
+
+ 
+\begin_inset Formula $\{a^{n}b^{n}c^{n}\}_{n\in\mathbb{N}}\in{\cal DEC}\setminus{\cal CF}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\subseteq3]$
+\end_inset
+
+ Trivial.
+\end_layout
+
+\begin_layout Section
+Algoritmos
+\end_layout
+
+\begin_layout Standard
+Las máquinas de Turing y mecanismos generales no solo permiten reconocer
+ cadenas, sino ejecutar algoritmos en general.
+ La entrada siempre es una cadena, por lo que para que otro tipo de objeto
+ actúe de entrada hay que representarla como una cadena y la máquina de
+ Turing debe decodificar esta representación.
+ Dado un objeto 
+\begin_inset Formula $O$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $\langle O\rangle$
+\end_inset
+
+ a la cadena que codifica 
+\begin_inset Formula $O$
+\end_inset
+
+, y dados objetos 
+\begin_inset Formula $O_{1},\dots,O_{n}$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $\langle O_{1},\dots,O_{n}\rangle$
+\end_inset
+
+ a la cadena que codifica 
+\begin_inset Formula $(O_{1},\dots,O_{n})$
+\end_inset
+
+, en cierta representación.
+ La 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ comprobará la entrada y rechazará si no tiene un formato válido.
+ La salida podría escribirla como cadena al principio de la cinta.
 \end_layout
 
 \end_body
