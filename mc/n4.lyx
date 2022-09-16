@@ -1,0 +1,1175 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Podemos describir máquinas de Turing con un pseudocódigo como el siguiente:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{align*}
+\text{<<stmts>>}\to & \text{<<stmt-elem>>}\mid\text{<<stmt-elem>>}\text{<<stmts>>}\\
+\text{<<stmt-elem>>}\to & \text{<<maybe-label>>}\text{<<stmt>>}\mathtt{;}\\
+\text{<<maybe-label>>}\to & \text{<<label>>}\mathtt{:}\mid\\
+\text{<<stmt>>}\to & \mathtt{left}\text{<<tape>>}\mid\mathtt{right}\text{<<tape>>}\mid\mathtt{return}\text{<<tape>>}\mid\mathtt{accept}\mid\mathtt{reject}\mid\\
+ & \mid\mathtt{write}\text{<<expr>>}\text{<<tape>>}\mid\text{<<varname>>}\gets\text{<<expr>>}\mid\\
+ & \mid\mathtt{if}\text{<<cond>>}\text{<<braced>>}\mid\mathtt{while}\text{<<cond>>}\text{<<braced>>}\mid\\
+ & \mid\mathtt{goto}\text{<<label>>}\mid\mathtt{choose}\text{<<braced-exprs>>}\\
+\text{<<tape>>}\to & \text{<<tape-name>>}\mid\\
+\text{<<braced>>}\to & \mathtt{\{}\text{<<stmts>>}\mathtt{\}}\\
+\text{<<braced-exprs>>}\to & \text{<<braced>>}\mid\text{<<braced>>}\mathtt{,}\text{<<braced-exprs>>}
+\end{align*}
+
+\end_inset
+
+Aquí, 
+\family typewriter
+choose
+\family default
+ ejecuta una de las opciones de forma no determinista, 
+\begin_inset Quotes cld
+\end_inset
+
+tape
+\begin_inset Quotes crd
+\end_inset
+
+ por defecto se refiere a la cinta 1, y y 
+\begin_inset Quotes cld
+\end_inset
+
+expr
+\begin_inset Quotes crd
+\end_inset
+
+ y 
+\begin_inset Quotes cld
+\end_inset
+
+cond
+\begin_inset Quotes crd
+\end_inset
+
+ se refieren, respectivamente, a expresiones que se refieren a un símbolo
+ y proposiciones lógicas en función de las variables y de 
+\begin_inset Formula $*=*_{1},*_{2},\dots,*_{k}$
+\end_inset
+
+, los símbolos en la posición actual de cada cinta.
+\end_layout
+
+\begin_layout Plain Layout
+Se puede programar una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ para que simule a otras.
+ Para ello, 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Simulación
+\end_layout
+
+\begin_layout Standard
+Consideremos un lenguaje de programación 
+\begin_inset Quotes cld
+\end_inset
+
+Micro LISP
+\begin_inset Quotes crd
+\end_inset
+
+ cuya gramática es la siguiente:
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\text{<<expr>>}\to & (\text{<<name>>}=\text{<<expr>>}\mathtt{.})^{*}\text{<<expr1>>}\\
+\text{<<expr1>>}\to & \mathtt{fn}\mathtt{(}\text{<<name>>}^{*}\mathtt{)}\text{<<expr>>}\mid\text{<<expr2>>}\\
+\text{<<expr2>>}\to & \text{<<name>>}\mid\text{<<literal>>}\mid\text{<<expr2>>}\mathtt{(}(\text{<<expr>>}(\mathtt{,}\text{<<expr>>})^{*})?\mathtt{)}\mid\\
+ & \mid\mathtt{(}\text{<<expr>>}\mathtt{->}\text{<<expr>>}(\text{;}\text{<<expr>>}\mathtt{->}\text{<<expr>>})^{*}\mathtt{)}\mid\\
+ & \mid\mathtt{\{}\text{<<expr>>}(\mathtt{;}\text{<<expr>>})^{*}\mathtt{\}}\\
+\text{<<literal>>}\to & \text{<<atom>>}\mid\mathtt{[}\text{<<literal>>}^{*}(.\text{<<literal>>})?\mathtt{]}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Note: better if functions are not in pairs
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\begin_inset Quotes cld
+\end_inset
+
+atom
+\begin_inset Quotes crd
+\end_inset
+
+ es un símbolo en una estructura del lenguaje, representado con letras mayúscula
+s; 
+\begin_inset Formula $\mathtt{[}a\mathtt{.}b\mathtt{]}$
+\end_inset
+
+ representa un par 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+, donde 
+\begin_inset Formula $a$
+\end_inset
+
+ y 
+\begin_inset Formula $b$
+\end_inset
+
+ son átomos u otros pares, 
+\begin_inset Formula $\mathtt{[}a_{1}\cdots a_{n-1}\text{.}a_{n}\mathtt{]}$
+\end_inset
+
+ equivale a 
+\begin_inset Formula $\mathtt{[}a_{1}\mathtt{[}a_{2}\mathtt{[}\cdots\mathtt{[}a_{n-1}\mathtt{.}a_{n}\mathtt{]}\cdots\mathtt{]]]}$
+\end_inset
+
+, y si se omite 
+\begin_inset Formula $\mathtt{.}a_{n}$
+\end_inset
+
+ se entiende que 
+\begin_inset Formula $a_{n}=\mathtt{NIL}$
+\end_inset
+
+.
+ Hay una pila de variables y un 
+\begin_inset Quotes cld
+\end_inset
+
+name
+\begin_inset Quotes crd
+\end_inset
+
+ representa la variable con dicho nombre más arriba de la pila, y se representa
+ con letras minúsculas.
+ Una expresión 
+\begin_inset Formula $\mathtt{fn(}n_{1}\cdots n_{k}\mathtt{)}{\cal E}$
+\end_inset
+
+ es una función 
+\begin_inset Formula $f$
+\end_inset
+
+ que, al ejecutarse con 
+\begin_inset Formula $f(e_{1},\dots,e_{k})$
+\end_inset
+
+, evalúa 
+\begin_inset Formula $e_{1},\dots,e_{k}$
+\end_inset
+
+ para obtener 
+\begin_inset Formula $v_{1},\dots,v_{k}$
+\end_inset
+
+ y evalúa 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ con las variables 
+\begin_inset Formula $n_{1}=e_{1},\dots,n_{k}=e_{k}$
+\end_inset
+
+ en la pila.
+ Una expresión 
+\begin_inset Formula $n\mathtt{=}{\cal E}\mathtt{.}{\cal F}$
+\end_inset
+
+ evalúa 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ para obtener 
+\begin_inset Formula $v$
+\end_inset
+
+ y ejecuta 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+ con 
+\begin_inset Formula $n=v$
+\end_inset
+
+ en la pila.
+ La expresión 
+\begin_inset Formula $\mathtt{(}p_{1}\to e_{1},\dots,p_{n}\to e_{n}\mathtt{)}$
+\end_inset
+
+ evalúa 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+, si esto devuelve algo distinto de 
+\begin_inset Formula $\mathtt{NIL}$
+\end_inset
+
+, evalúa 
+\begin_inset Formula $e_{1}$
+\end_inset
+
+ y devuelve el resultado, en otro caso evalúa 
+\begin_inset Formula $p_{2}$
+\end_inset
+
+, etc., y si todos los 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ evalúan a 
+\begin_inset Formula $\mathtt{NIL}$
+\end_inset
+
+, devuelve 
+\begin_inset Formula $\mathtt{NIL}$
+\end_inset
+
+.
+ Finalmente, 
+\begin_inset Formula $\mathtt{\{}e_{1};\dots;e_{n}\mathtt{\}}$
+\end_inset
+
+ devuelve el resultado de evaluar uno de los 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+ de forma no determinista para que la evaluación de la expresión principal
+ no devuelva 
+\begin_inset Formula $\mathtt{NIL}$
+\end_inset
+
+ si esto es posible.
+\end_layout
+
+\begin_layout Standard
+Existen 4 funciones primitivas: 
+\family typewriter
+car
+\family default
+, que toma un par 
+\begin_inset Formula $\mathtt{[}a\mathtt{.}b\mathtt{]}$
+\end_inset
+
+ y devuelve 
+\begin_inset Formula $a$
+\end_inset
+
+, 
+\family typewriter
+cdr
+\family default
+, que toma un par 
+\begin_inset Formula $\mathtt{[}a\mathtt{.}b\mathtt{]}$
+\end_inset
+
+ y devuelve 
+\begin_inset Formula $b$
+\end_inset
+
+, 
+\family typewriter
+cons
+\family default
+, que toma átomos o pares 
+\begin_inset Formula $a$
+\end_inset
+
+ y 
+\begin_inset Formula $b$
+\end_inset
+
+ y devuelve 
+\begin_inset Formula $\mathtt{[}a\mathtt{.}b\mathtt{]}$
+\end_inset
+
+, 
+\family typewriter
+atom
+\family default
+, que devuelve 
+\begin_inset Formula $\mathtt{NIL}$
+\end_inset
+
+ si su parámetro es un par o 
+\begin_inset Formula $\mathtt{T}$
+\end_inset
+
+ si era un átomo, y 
+\family typewriter
+eq
+\family default
+, que recibe 2 átomos y devuelve 
+\begin_inset Formula $\mathtt{T}$
+\end_inset
+
+ si son el mismo o 
+\begin_inset Formula $\mathtt{NIL}$
+\end_inset
+
+ si no.
+ Añadimos las funciones 
+\family typewriter
+accept
+\family default
+ que acepta y 
+\family typewriter
+reject
+\family default
+ que rechaza.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+La idea es construir un simulador de máquina de Turing con esto.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un programa recibe una entrada 
+\family typewriter
+input
+\family default
+, una cadena dada por una lista de átomos, que acepta si devuelve algo distinto
+ de 
+\begin_inset Formula $\mathtt{NIL}$
+\end_inset
+
+ y rechaza si devuelve 
+\begin_inset Formula $\mathtt{NIL}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{MicroLisp}\equiv\text{MT}$
+\end_inset
+
+, y existe una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ que reconoce 
+\begin_inset Formula $K\coloneqq\{\langle{\cal A},w\rangle:\text{la MT \ensuremath{{\cal A}} acepta \ensuremath{w}}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\preceq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+El alfabeto de la cinta es el de la entrada más los nombres de las variables,
+ los de los átomos, un símbolo por cada aparición en el programa de una
+ evaluación de una función, uno por cada función, tantos símbolos 
+\begin_inset Formula $s_{1},\dots,s_{n}$
+\end_inset
+
+ como el máximo de argumentos a una función y los símbolos 
+\begin_inset Formula $\$,\#,\mathcircumflex,s_{0}$
+\end_inset
+
+.
+ Los átomos y funciones se representan por sí mismos, un par 
+\begin_inset Formula $\mathtt{[}a\mathtt{.}b\mathtt{]}$
+\end_inset
+
+ por 
+\begin_inset Formula $\mathcircumflex ab$
+\end_inset
+
+, una función por el símbolo que la representa seguido de los nombres de
+ las variables, y una asignación de variable 
+\begin_inset Formula $n=u$
+\end_inset
+
+ por 
+\begin_inset Formula $nu\#$
+\end_inset
+
+.
+ Al principio se cambia la entrada 
+\begin_inset Formula $w_{1},\dots,w_{n}$
+\end_inset
+
+ por 
+\begin_inset Formula $\$\mathtt{input}\mathcircumflex w_{1}\mathcircumflex w_{2}\cdots\mathcircumflex w_{n}\mathtt{NIL}\#$
+\end_inset
+
+.
+ Para evaluar un nombre 
+\begin_inset Formula $n$
+\end_inset
+
+, estando al final de la pila, se va hacia la izquierda hasta encontrar
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ y se va copiando al final, por ejemplo usando una cinta 2 auxiliar, hasta
+ encontrar 
+\begin_inset Formula $\#$
+\end_inset
+
+.
+ Para evaluar una asignación 
+\begin_inset Formula $n=e;f$
+\end_inset
+
+, primero se evalúa 
+\begin_inset Formula $e$
+\end_inset
+
+, lo que consiste en dejar el resultado al final de la pila (cinta 1), luego
+ se va a la izquierda hasta encontrar el último 
+\begin_inset Formula $\#$
+\end_inset
+
+ (el más a la derecha) y se inserta 
+\begin_inset Formula $n$
+\end_inset
+
+ justo detrás de 
+\begin_inset Formula $\#$
+\end_inset
+
+ y 
+\begin_inset Formula $\#$
+\end_inset
+
+ al final de la cinta; entonces se evalúa 
+\begin_inset Formula $f$
+\end_inset
+
+, se va a la izquierda hasta encontrar el último 
+\begin_inset Formula $\#$
+\end_inset
+
+ y se copia de ahí hasta el final (usando la cinta 2) sobre los símbolos
+ desde el anterior 
+\begin_inset Formula $n$
+\end_inset
+
+ en adelante, borrando el resto de después si queda algo.
+ Para evaluar una llamada a función 
+\begin_inset Formula $f(e_{1},\dots,e_{n})$
+\end_inset
+
+, se añade a la pila el símbolo 
+\begin_inset Formula $c_{i}$
+\end_inset
+
+ que se refiere a la aparición concreta de llamada a función, se hace 
+\begin_inset Formula $s_{0}\mathtt{=}f\mathtt{.}s_{1}\mathtt{=}e_{1}\mathtt{.}\cdots s_{n}\mathtt{=}e_{n}\mathtt{.}$
+\end_inset
+
+, se va a la izquierda hasta encontrar 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+, se va un paso a la derecha para leer el nombre de la primera variable,
+ se va a la derecha hasta encontrar 
+\begin_inset Formula $s_{1}$
+\end_inset
+
+ que se cambia por dicho nombre, y se repite dicho proceso con el resto
+ de variables.
+ Entonces se evalúa el cuerpo de la función y se copia el resultado usando
+ la cinta 2 a la posición donde estaba 
+\begin_inset Formula $c_{i}$
+\end_inset
+
+ en adelante, borrando los símbolos que sobran, y 
+\begin_inset Formula $c_{i}$
+\end_inset
+
+ se usa para determinar la instrucción siguiente.
+ Para evaluar 
+\begin_inset Formula $(p_{1}\to e_{1};\dots;p_{n}\to e_{n})$
+\end_inset
+
+, se evalúa 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+, se va a la izquierda hasta el último 
+\begin_inset Formula $\#$
+\end_inset
+
+, se va 1 a la derecha y, si se lee 
+\begin_inset Formula $\mathtt{NIL}$
+\end_inset
+
+, se hace lo mismo con 
+\begin_inset Formula $p_{2}$
+\end_inset
+
+, y así hasta 
+\begin_inset Formula $p_{n}$
+\end_inset
+
+ que simplemente dejaría estar el 
+\begin_inset Formula $\mathtt{NIL}$
+\end_inset
+
+ en este caso, y de lo contrario se borra la expresión y se evalúa el 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+ correspondiente.
+ Para 
+\begin_inset Formula $\mathtt{\{}e_{1}\mathtt{,}\dots\mathtt{,}e_{n}\mathtt{\}}$
+\end_inset
+
+, se usa una transición no determinista.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Respecto a las funciones primitivas, estas bien podrían usar 
+\begin_inset Formula $s_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $s_{2}$
+\end_inset
+
+ como los nombres de parámetros.
+ Entonces 
+\family typewriter
+cons
+\family default
+ escribe 
+\begin_inset Formula $\mathcircumflex$
+\end_inset
+
+, copia lo de detrás de 
+\begin_inset Formula $s_{1}$
+\end_inset
+
+ y copia lo de detrás de 
+\begin_inset Formula $s_{2}$
+\end_inset
+
+.
+ Por su parte, 
+\family typewriter
+car
+\family default
+ va a 
+\begin_inset Formula $c_{1}$
+\end_inset
+
+ y empieza a copiar a la cinta 2, pero cada vez que encuentra 
+\begin_inset Formula $\mathcircumflex$
+\end_inset
+
+ añade 
+\begin_inset Formula $($
+\end_inset
+
+ al final de la cinta 3, cada vez que encuentra un átomo, si en la cinta
+ 3 el último símbolo era 
+\begin_inset Formula $($
+\end_inset
+
+, lo cambia por 
+\begin_inset Formula $\#$
+\end_inset
+
+, y si era 
+\begin_inset Formula $\#$
+\end_inset
+
+, lo cambia por B y va a la derecha, cambiando ese símbolo también por B
+ si era 
+\begin_inset Formula $\#$
+\end_inset
+
+, etc., y se para de copiar cuando la cinta solo contiene un 
+\begin_inset Formula $\#$
+\end_inset
+
+.
+ Entonces copia la cinta 2 al final de la 1.
+ Por su parte, 
+\family typewriter
+cdr
+\family default
+ hace esto mismo sin copiar, y cuando la cinta 3 solo contiene un 
+\begin_inset Formula $\#$
+\end_inset
+
+, empieza a encontrar hasta ver un 
+\begin_inset Formula $\#$
+\end_inset
+
+ en la cinta 1.
+ Por su parte, 
+\family typewriter
+atom
+\family default
+ comprueba el símbolo detrás de 
+\begin_inset Formula $s_{1}$
+\end_inset
+
+ y añade 
+\begin_inset Formula $\mathtt{T}$
+\end_inset
+
+ o 
+\begin_inset Formula $\mathtt{NIL}$
+\end_inset
+
+ al final de la cinta 1 según si lee un átomo o 
+\begin_inset Formula $\mathcircumflex$
+\end_inset
+
+, y 
+\family typewriter
+eq
+\family default
+ añade 
+\begin_inset Formula $\mathtt{T}$
+\end_inset
+
+ o 
+\begin_inset Formula $\mathtt{NIL}$
+\end_inset
+
+ en función de si los símbolos, ambos átomos, son iguales.
+ En cualquier caso se rechaza si el argumento no era del tipo esperado.
+ Las definiciones de 
+\family typewriter
+accept
+\family default
+ y 
+\family typewriter
+reject
+\family default
+ son triviales.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\succeq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para representar una máquina de Turing y una cadena arbitraria, como los
+ alfabetos pueden contener una cantidad arbitraria de símbolos y estados
+ y nuestro programa solo un número limitado de átomos, se denotan los símbolos
+ como átomos o pares.
+ La expresión de una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ con transiciones 
+\begin_inset Formula $(q_{i},a_{i})\to(r_{i},b_{i},d_{i})$
+\end_inset
+
+ será 
+\begin_inset Formula $(q_{i}a_{i}r_{i}b_{i}d_{i})_{i=1}^{n}\mathtt{|}w$
+\end_inset
+
+, donde cada símbolo o estado se representa como una serie de símbolos acabada
+ en 
+\family typewriter
+.
+\family default
+, el símbolo inicial es 
+\family typewriter
+Q0
+\family default
+, el final es 
+\family typewriter
+QF
+\family default
+, el símbolo blanco es 
+\family typewriter
+BLANK
+\family default
+ y los 
+\begin_inset Formula $d_{i}$
+\end_inset
+
+ son 
+\family typewriter
+L
+\family default
+ o 
+\family typewriter
+R
+\family default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+not = fn(x) (x -> NIL, T -> T).
+\end_layout
+
+\begin_layout Plain Layout
+
+equal = fn(a,b) (atom(a) -> (atom(b) -> eq(a,b), T -> NIL);
+\end_layout
+
+\begin_layout Plain Layout
+
+                 T -> (atom(b) -> NIL;
+\end_layout
+
+\begin_layout Plain Layout
+
+                       equal(car(a),car(b)) -> NIL;
+\end_layout
+
+\begin_layout Plain Layout
+
+                       T -> equal(cdr(a),cdr(b)))).
+\end_layout
+
+\begin_layout Plain Layout
+
+member = fn(x, list)
+\end_layout
+
+\begin_layout Plain Layout
+
+    (equal(list, NIL) -> NIL;
+\end_layout
+
+\begin_layout Plain Layout
+
+     equal(car(list), x) -> list;
+\end_layout
+
+\begin_layout Plain Layout
+
+     T -> member(x, cdr(list))).
+\end_layout
+
+\begin_layout Plain Layout
+
+list2 = fn(a,b) cons(a, cons(b, NIL)).
+\end_layout
+
+\begin_layout Plain Layout
+
+list3 = fn(a,b,c) cons(a, cons(b, cons(c, NIL))).
+\end_layout
+
+\begin_layout Plain Layout
+
+assoc(list, key) =
+\end_layout
+
+\begin_layout Plain Layout
+
+    (equal(list, NIL) -> NIL;
+\end_layout
+
+\begin_layout Plain Layout
+
+     equal(car(car(list)), key) -> cdr(car(list));
+\end_layout
+
+\begin_layout Plain Layout
+
+     T -> assoc(cdr(list), key)).
+\end_layout
+
+\begin_layout Plain Layout
+
+divide-input = fn(s)
+\end_layout
+
+\begin_layout Plain Layout
+
+    (eq(car(s), |) -> cons(NIL, cdr(s));
+\end_layout
+
+\begin_layout Plain Layout
+
+     T -> let rest = divide-input(cdr(s)).
+\end_layout
+
+\begin_layout Plain Layout
+
+          cons(cons(car(s), car(rest)), cdr(rest))).
+\end_layout
+
+\begin_layout Plain Layout
+
+parse = fn(s)
+\end_layout
+
+\begin_layout Plain Layout
+
+    (atom(s) -> NIL;
+\end_layout
+
+\begin_layout Plain Layout
+
+     T -> next = parse-transition(s).
+\end_layout
+
+\begin_layout Plain Layout
+
+          cons(car(next), parse(cdr(next))).
+\end_layout
+
+\begin_layout Plain Layout
+
+parse-transition = fn(s)
+\end_layout
+
+\begin_layout Plain Layout
+
+    state0 = parse-data(s).
+\end_layout
+
+\begin_layout Plain Layout
+
+    sym0 = parse-data(cdr(state0)).
+\end_layout
+
+\begin_layout Plain Layout
+
+    statef = parse-data(cdr(sym0)).
+\end_layout
+
+\begin_layout Plain Layout
+
+    symf = parse-data(cdr(statef)).
+\end_layout
+
+\begin_layout Plain Layout
+
+    dir = cdr(symf).
+\end_layout
+
+\begin_layout Plain Layout
+
+    (member(dir, [L R]) ->
+\end_layout
+
+\begin_layout Plain Layout
+
+       cons(cons(list2(car(state0), car(sym0)),
+\end_layout
+
+\begin_layout Plain Layout
+
+                 list3(car(statef), car(symf), car(dir))),
+\end_layout
+
+\begin_layout Plain Layout
+
+            cdr(dir));
+\end_layout
+
+\begin_layout Plain Layout
+
+     T -> reject()).
+\end_layout
+
+\begin_layout Plain Layout
+
+parse-data(s) = fn(s)
+\end_layout
+
+\begin_layout Plain Layout
+
+    (eq(car(s), .) -> cons(NIL, cdr(s));
+\end_layout
+
+\begin_layout Plain Layout
+
+     T -> next = parse-data(cdr(s)).
+\end_layout
+
+\begin_layout Plain Layout
+
+          cons(cons(car(s), car(next)), cdr(next))).
+\end_layout
+
+\begin_layout Plain Layout
+
+car-member(list, x) = fn(s)
+\end_layout
+
+\begin_layout Plain Layout
+
+    (equal(list, NIL) -> NIL;
+\end_layout
+
+\begin_layout Plain Layout
+
+     equal(car(car(list)), x) -> T;
+\end_layout
+
+\begin_layout Plain Layout
+
+     T -> car-member(cdr(list), x)).
+\end_layout
+
+\begin_layout Plain Layout
+
+has-dupes = fn(machine)
+\end_layout
+
+\begin_layout Plain Layout
+
+    (equal(machine, NIL) -> NIL;
+\end_layout
+
+\begin_layout Plain Layout
+
+     car-member(cdr(machine), car(car(machine))) -> T;
+\end_layout
+
+\begin_layout Plain Layout
+
+     T -> has-dupes(cdr(machine))).
+\end_layout
+
+\begin_layout Plain Layout
+
+sim = fn(state, before, after)
+\end_layout
+
+\begin_layout Plain Layout
+
+    after = (equal(after, NIL) -> cons(BLANK, NIL), T -> after)
+\end_layout
+
+\begin_layout Plain Layout
+
+    (equal(state, [QF]) -> accept();
+\end_layout
+
+\begin_layout Plain Layout
+
+     T -> trans = assoc(machine, list2(state, car(after))).
+\end_layout
+
+\begin_layout Plain Layout
+
+          next = car(trans).
+\end_layout
+
+\begin_layout Plain Layout
+
+          write = car(cdr(trans)).
+\end_layout
+
+\begin_layout Plain Layout
+
+          dir = car(cdr(cdr(trans))).
+\end_layout
+
+\begin_layout Plain Layout
+
+          (eq(dir, L) ->
+\end_layout
+
+\begin_layout Plain Layout
+
+             sim(next,
+\end_layout
+
+\begin_layout Plain Layout
+
+                 cdr(before), 
+\end_layout
+
+\begin_layout Plain Layout
+
+                 cons(car(before), cons(write, cdr(after))));
+\end_layout
+
+\begin_layout Plain Layout
+
+           eq(dir, R) ->
+\end_layout
+
+\begin_layout Plain Layout
+
+             sim(next, cons(write, before), cdr(after)))).
+\end_layout
+
+\begin_layout Plain Layout
+
+decoded = divide-input(input).
+\end_layout
+
+\begin_layout Plain Layout
+
+machine = parse(car(decoded)).
+\end_layout
+
+\begin_layout Plain Layout
+
+(has-dupes(machine) -> reject();
+\end_layout
+
+\begin_layout Plain Layout
+
+ T -> sim([Q0], NIL, cdr(decoded))
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_body
+\end_document
