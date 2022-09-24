@@ -155,11 +155,11 @@ Se puede programar una
 
 \end_layout
 
-\begin_layout Section
-Simulación
-\end_layout
-
 \begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 Consideremos un lenguaje de programación 
 \begin_inset Quotes cld
 \end_inset
@@ -169,16 +169,6 @@ Micro LISP
 \end_inset
 
  cuya gramática es la siguiente:
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO
-\end_layout
-
-\end_inset
-
-
 \begin_inset Formula 
 \begin{align*}
 \text{<<expr>>}\to & (\text{<<name>>}=\text{<<expr>>}\mathtt{.})^{*}\text{<<expr1>>}\\
@@ -192,19 +182,9 @@ TODO
 \end_inset
 
 
-\begin_inset Note Note
-status open
+\end_layout
 
 \begin_layout Plain Layout
-Note: better if functions are not in pairs
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Un 
 \begin_inset Quotes cld
 \end_inset
@@ -356,7 +336,7 @@ name
  si esto es posible.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Existen 4 funciones primitivas: 
 \family typewriter
 car
@@ -422,7 +402,7 @@ eq
 \end_inset
 
  si no.
- Añadimos las funciones 
+ Por conveniencia añadimos las funciones 
 \family typewriter
 accept
 \family default
@@ -433,20 +413,7 @@ reject
  que rechaza.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Comment
-status open
-
 \begin_layout Plain Layout
-La idea es construir un simulador de máquina de Turing con esto.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Un programa recibe una entrada 
 \family typewriter
 input
@@ -463,7 +430,7 @@ input
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula $\text{MicroLisp}\equiv\text{MT}$
 \end_inset
 
@@ -657,7 +624,7 @@ El alfabeto de la cinta es el de la entrada más los nombres de las variables,
 \end_layout
 
 \begin_deeper
-\begin_layout Standard
+\begin_layout Plain Layout
 Respecto a las funciones primitivas, estas bien podrían usar 
 \begin_inset Formula $s_{1}$
 \end_inset
@@ -845,7 +812,7 @@ R
 \end_layout
 
 \begin_deeper
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset listings
 inline false
 status open
@@ -1171,5 +1138,1780 @@ machine = parse(car(decoded)).
 \end_layout
 
 \end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+En cálculo 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, definimos 
+\begin_inset Formula $\mathtt{!}x\coloneqq\mathtt{if\ }x\mathtt{\ then\ false\ else\ true}$
+\end_inset
+
+, 
+\begin_inset Formula $x\,\mathtt{\&\&}\,y\coloneqq\mathtt{and}\,x\,y$
+\end_inset
+
+ y 
+\begin_inset Formula $x\,\mathtt{||}\,y\coloneqq\mathtt{or}\,x\,y$
+\end_inset
+
+, y añadimos lo siguiente a la biblioteca estándar:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+let (|>) x f = f x  (* asociativa por la izquierda *)
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec (==) s1 s2 =
+\end_layout
+
+\begin_layout Plain Layout
+
+    if iszero s1 && iszero s2 then true
+\end_layout
+
+\begin_layout Plain Layout
+
+    else if !iszero(s1) && !iszero(s2) then pre(s1) == pre(s2)
+\end_layout
+
+\begin_layout Plain Layout
+
+    else false
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec (<=) s1 s2 =
+\end_layout
+
+\begin_layout Plain Layout
+
+    if iszero s1 then true
+\end_layout
+
+\begin_layout Plain Layout
+
+    else if iszero s2 then false
+\end_layout
+
+\begin_layout Plain Layout
+
+    else pre(s1) <= pre(s2)
+\end_layout
+
+\begin_layout Plain Layout
+
+let some x = fun n s -> s x  (* optional = none | some _ *)
+\end_layout
+
+\begin_layout Plain Layout
+
+let none = fun n s -> n
+\end_layout
+
+\begin_layout Plain Layout
+
+let cons x y = fun e p -> p x y  (* list = nil | cons _ _ *)
+\end_layout
+
+\begin_layout Plain Layout
+
+let null x = x true (fun _ _-> false)
+\end_layout
+
+\begin_layout Plain Layout
+
+let car x = x false (fun a _ -> a)
+\end_layout
+
+\begin_layout Plain Layout
+
+let cdr x = x false (fun _ b -> b)
+\end_layout
+
+\begin_layout Plain Layout
+
+let paireq (a1, b1) (a2, b2) = a1 == b1 && a2 == b2
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec range a b = if a <= b then cons a (range (a+1) b) else nil
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec length list = if null list then 0 else 1 + length (cdr list)
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec take n list =
+\end_layout
+
+\begin_layout Plain Layout
+
+    if null list || iszero n then nil
+\end_layout
+
+\begin_layout Plain Layout
+
+    else cons (car list) (take (pred n) (cdr list))
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec drop n list =
+\end_layout
+
+\begin_layout Plain Layout
+
+    if iszero n then list
+\end_layout
+
+\begin_layout Plain Layout
+
+    else list nil (fun _ rest -> drop (pred n) rest)
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec assoc eq alist key =
+\end_layout
+
+\begin_layout Plain Layout
+
+    alist none
+\end_layout
+
+\begin_layout Plain Layout
+
+          (fun (k, v) rest -> if eq k key then some v
+\end_layout
+
+\begin_layout Plain Layout
+
+                              else assoc eq rest key)
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec any f list =
+\end_layout
+
+\begin_layout Plain Layout
+
+    list false (fun e rest -> if f e then true else any f rest)
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec contains eq v = any (eq v)
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec append list1 list2 =
+\end_layout
+
+\begin_layout Plain Layout
+
+    list1 list2 (fun x xs -> cons x (append xs list2))
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec filter f list =
+\end_layout
+
+\begin_layout Plain Layout
+
+    list nil (fun x xs -> if f x then cons x (filter f xs)
+\end_layout
+
+\begin_layout Plain Layout
+
+                          else filter f xs)
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec map f list =
+\end_layout
+
+\begin_layout Plain Layout
+
+    list nil (fun x xs -> cons (f x) (map f list))
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec flatten list = list nil (fun x xs -> append x (flatten xs))
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec sort leq list =  (* Haskell 
+\begin_inset Quotes cld
+\end_inset
+
+quick
+\begin_inset Quotes crd
+\end_inset
+
+sort *)
+\end_layout
+
+\begin_layout Plain Layout
+
+    list nil
+\end_layout
+
+\begin_layout Plain Layout
+
+         (fun h t ->
+\end_layout
+
+\begin_layout Plain Layout
+
+            append (filter (fun x -> leq x h) t)
+\end_layout
+
+\begin_layout Plain Layout
+
+                   (cons h (filter (fun x -> !(leq x h)) t)))
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec set-union leq set1 set2 =
+\end_layout
+
+\begin_layout Plain Layout
+
+    set1 set2 (fun x xs ->
+\end_layout
+
+\begin_layout Plain Layout
+
+    set2 set1 (fun y ys ->
+\end_layout
+
+\begin_layout Plain Layout
+
+        if leq x y
+\end_layout
+
+\begin_layout Plain Layout
+
+        then if leq y x then cons x (set-union xs ys) 
+\end_layout
+
+\begin_layout Plain Layout
+
+             else cons x (set-union xs set2)
+\end_layout
+
+\begin_layout Plain Layout
+
+        else cons y (set-union set1 ys)
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec set-intersection leq set1 set2 =
+\end_layout
+
+\begin_layout Plain Layout
+
+    set1 nil (fun x xs ->
+\end_layout
+
+\begin_layout Plain Layout
+
+    set2 nil (fun x xs ->
+\end_layout
+
+\begin_layout Plain Layout
+
+        if leq x y
+\end_layout
+
+\begin_layout Plain Layout
+
+        then if leq y x then cons x (set-intersection xs ys)
+\end_layout
+
+\begin_layout Plain Layout
+
+             else set-intersection xs set2
+\end_layout
+
+\begin_layout Plain Layout
+
+        else set-intersection set1 ys
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Definimos una lista 
+\begin_inset Formula $x_{1},\dots,x_{n}$
+\end_inset
+
+ como 
+\begin_inset Formula $\mathtt{cons}\,x_{1}(\mathtt{cons}\,x_{2}(\dots(\mathtt{cons}\,x_{n}\,\mathtt{nil})))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Las máquinas de Turing son equivalentes al cálculo 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ con orden de evaluación normal.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\preceq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Representamos los símbolos y estados de una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ como números de Church, donde el 0 representa el símbolo blanco.
+ Una máquina de Turing se representa como una lista de elementos de la forma
+ 
+\begin_inset Formula $((q_{1},s_{1}),(q_{2},s_{2},d))$
+\end_inset
+
+ que representan transiciones 
+\begin_inset Formula $q_{1}\to^{s_{1}\to s_{2};d}q_{2}$
+\end_inset
+
+, donde 
+\begin_inset Formula $d=0$
+\end_inset
+
+ para 
+\begin_inset Formula $\text{L}$
+\end_inset
+
+ y 
+\begin_inset Formula $d=1$
+\end_inset
+
+ para 
+\begin_inset Formula $\text{R}$
+\end_inset
+
+.
+ Una cadena se representa como una lista de símbolos distintos de 0.
+ La siguiente expresión tiene como entrada una tupla formada por una máquina,
+ una cadena, el estado inicial y el estado final, y como salida 
+\begin_inset Formula $\mathtt{true}$
+\end_inset
+
+ si la máquina acepta o 
+\begin_inset Formula $\mathtt{false}$
+\end_inset
+
+ si rechaza:
+\end_layout
+
+\begin_deeper
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+let rec simulate m prev next st final =
+\end_layout
+
+\begin_layout Plain Layout
+
+    if st == final then true else
+\end_layout
+
+\begin_layout Plain Layout
+
+    let next' = null next (cons 0 null) next in
+\end_layout
+
+\begin_layout Plain Layout
+
+    assoc paireq m (st, car next')
+\end_layout
+
+\begin_layout Plain Layout
+
+         false
+\end_layout
+
+\begin_layout Plain Layout
+
+         (fun (q2, s2, d) ->
+\end_layout
+
+\begin_layout Plain Layout
+
+              (if iszero d
+\end_layout
+
+\begin_layout Plain Layout
+
+               then if null left then false
+\end_layout
+
+\begin_layout Plain Layout
+
+                    else simulate m (cdr prev) (cons (car prev) next')
+\end_layout
+
+\begin_layout Plain Layout
+
+               else simulate m (cons (car next') prev) (cdr next'))
+\end_layout
+
+\begin_layout Plain Layout
+
+                 q2 final) in
+\end_layout
+
+\begin_layout Plain Layout
+
+fun (m, input, q0, qf) -> simulate m nil input q0 qf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\succeq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+El alfabeto de entrada es 
+\begin_inset Formula $\Sigma=\{\lambda,\mathcircumflex,a,.\}$
+\end_inset
+
+, y representamos un término como
+\begin_inset Formula 
+\begin{align*}
+\text{<<term>>} & \to\text{<<variable>>}\mid\lambda\text{<<variable>>}\text{<<term>>}\mid\mathcircumflex\text{<<term>>}\text{<<term>>}\\
+\text{<<variable>>} & \to.\mid a\text{<<variable>>}
+\end{align*}
+
+\end_inset
+
+Esto es una gramática libre de contexto, por lo que puede ser validada por
+ una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+.
+ Usamos la cinta 1 para almacenar la expresión actual.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Plain Layout
+Para recorrer un término, añadimos 
+\begin_inset Formula $\#$
+\end_inset
+
+ a la cinta 2 y entonces, en bucle, si encontramos 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ o 
+\begin_inset Formula $\mathcircumflex$
+\end_inset
+
+ en la 1, añadimos 
+\begin_inset Formula $($
+\end_inset
+
+ a la cinta 2 y avanzamos en la 1; si encontramos 
+\begin_inset Formula $a$
+\end_inset
+
+, avanzamos en la 1, y si encontramos 
+\begin_inset Formula $.$
+\end_inset
+
+, en la cinta 2, primero mientras se lea 
+\begin_inset Formula $|$
+\end_inset
+
+, se escribe 
+\begin_inset Formula $\text{B}$
+\end_inset
+
+ y se retrocede, luego si encuentra 
+\begin_inset Formula $($
+\end_inset
+
+ se cambia por 
+\begin_inset Formula $|$
+\end_inset
+
+, y si se encuentra 
+\begin_inset Formula $\#$
+\end_inset
+
+ se termina el bucle.
+\end_layout
+
+\begin_layout Plain Layout
+Al inicio de la máquina y tras verificar que la entrada es correcta, se
+ recorre el término y cada variable se copia a la cinta 6 sin copiar el
+ 
+\begin_inset Formula $.$
+\end_inset
+
+, y sobrescribiendo la escritura anterior.
+ Entonces, para crear una nueva variable, se añade una 
+\begin_inset Formula $a$
+\end_inset
+
+ al final de la cinta 
+\begin_inset Formula $a$
+\end_inset
+
+ y esta es la nueva variable, más un punto.
+\end_layout
+
+\begin_layout Plain Layout
+Para sustituir un término por otro, se recorre el término borrándolo (sustituyén
+dolo por Bs), se copia el resto de la cadena a la cinta 3 borrándola, se
+ retrocede en la 1 mientras se lea 
+\begin_inset Formula $\text{B}$
+\end_inset
+
+, y se copia el nuevo término a la cinta 1 seguido del contenido de la 3,
+ que se borra de la 3.
+\end_layout
+
+\begin_layout Plain Layout
+Para hacer una sustitución 
+\begin_inset Formula $[N/x]$
+\end_inset
+
+ en el término de la cinta 1 al que apunta su cursor, se copia 
+\begin_inset Formula $\#N$
+\end_inset
+
+ a la cinta 4 y 
+\begin_inset Formula $\#x$
+\end_inset
+
+ a la 5 y se recorre el término, pero cada vez que se encuentra 
+\begin_inset Formula $a$
+\end_inset
+
+ o 
+\begin_inset Formula $.$
+\end_inset
+
+, se compara el contenido con el de la cinta 5 y, si son iguales, se sustituye
+ la secuencia de 
+\begin_inset Formula $a$
+\end_inset
+
+s seguida de 
+\begin_inset Formula $.$
+\end_inset
+
+ por 
+\begin_inset Formula $N$
+\end_inset
+
+ (nótese que el añadir 
+\begin_inset Formula $\#$
+\end_inset
+
+ al principio de recorrer un término permite recorrer con 
+\emph on
+\lang english
+nesting
+\emph default
+\lang spanish
+, aunque al terminar el recorrido hay que ajustar lo que había antes de
+ 
+\begin_inset Formula $\#$
+\end_inset
+
+ como si se encontrara un 
+\begin_inset Formula $.$
+\end_inset
+
+).
+ Cada vez que se encuentra 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, se compara el siguiente símbolo con 
+\begin_inset Formula $x$
+\end_inset
+
+ y, si coinciden, se recorre el término 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ sin hacer nada, y de lo contrario se marca la 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ especialmente (como 
+\begin_inset Formula $\hat{\lambda}$
+\end_inset
+
+, que se recorre igual que 
+\begin_inset Formula $\lambda$
+\end_inset
+
+), se crea una nueva variable 
+\begin_inset Formula $z$
+\end_inset
+
+, se hace la sustitución 
+\begin_inset Formula $z/y$
+\end_inset
+
+, donde 
+\begin_inset Formula $z$
+\end_inset
+
+ es la variable ligada por 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, se vuelve a la aparición de 
+\begin_inset Formula $\hat{\lambda}$
+\end_inset
+
+, se cambia por 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ y se sigue recorriendo (se vuelve a recorrer el cuerpo de 
+\begin_inset Formula $\lambda$
+\end_inset
+
+).
+ Acabado el recorrido, en las cintas 4 y 5 se borra hasta encontrar 
+\begin_inset Formula $\#$
+\end_inset
+
+ y, si este símbolo no estaba al principio, significa que estábamos dentro
+ de otra sustitución y por tanto seguimos con la sustitución exterior.
+\end_layout
+
+\begin_layout Plain Layout
+Para la evaluación, en bucle, se va al principio de la cinta, se busca una
+ aparición de 
+\begin_inset Formula $\mathcircumflex\lambda$
+\end_inset
+
+, se marca 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ especialmente, se copia 
+\begin_inset Formula $\#$
+\end_inset
+
+ y la variable ligada a la cinta 5 a la vez que se borra de la 1 (desplazando
+ lo que había detrás a la izquierda tras el recorrido), se recorre el cuerpo
+ de la abstracción, se copia 
+\begin_inset Formula $\#$
+\end_inset
+
+ y el siguiente término a la cinta 4, a la vez que se borra de la 1 (desplazando
+ el resto), se vuelve al caracter 
+\begin_inset Formula $\hat{\lambda}$
+\end_inset
+
+, se borra dicho caracter y el 
+\begin_inset Formula $\mathcircumflex$
+\end_inset
+
+ a su izquierda (desplazando el resto) y, posicionándose al principio del
+ cuerpo de la abstracción, se hace la sustitución.
+\end_layout
+
+\begin_layout Plain Layout
+Se termina cuando no se encuentra 
+\begin_inset Formula $\mathcircumflex\lambda$
+\end_inset
+
+, y entonces se hacen 
+\begin_inset Formula $\eta$
+\end_inset
+
+-reducciones.
+ Para ello, cada vez que se encuentra 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, se marca especialmente, se copia la variable ligada a otro lado y, si
+ el cuerpo empieza por 
+\begin_inset Formula $\mathcircumflex$
+\end_inset
+
+, se recorre el primer término de la aplicación y, si el segundo término
+ es una variable, se compara con la variable ligada y, si son iguales, se
+ borra dicha variable, se vuelve a 
+\begin_inset Formula $\hat{\lambda}$
+\end_inset
+
+ y se borra la variable ligada.
+ Si alguna de estas comprobaciones falla se cambia la 
+\begin_inset Formula $\hat{\lambda}$
+\end_inset
+
+ por 
+\begin_inset Formula $\dot{\lambda}$
+\end_inset
+
+.
+ Esto se repite hasta que no quedan más 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, y entonces se rechaza si y sólo si el resultado es 
+\begin_inset Formula $\mathtt{false}$
+\end_inset
+
+, esto es, si cumple la gramática
+\begin_inset Formula 
+\begin{align*}
+\text{<<false>>} & \to\lambda\text{<<variable>>}\lambda\text{<<recur>>}.\\
+\text{<<recur>>} & \to a\text{<<recur>>}a\mid.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lenguajes decidibles
+\end_layout
+
+\begin_layout Standard
+Algunos lenguajes decidibles son:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{Acc}^{\text{DFA}}\coloneqq\{\langle{\cal A},w\rangle:\text{el DFA \ensuremath{{\cal A}} acepta la cadena \ensuremath{w}}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Hay que simular 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+ con entrada 
+\begin_inset Formula $w$
+\end_inset
+
+.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+La entrada del término 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ es 
+\begin_inset Formula $(\delta,q_{0},F,w)$
+\end_inset
+
+, donde 
+\begin_inset Formula $\delta$
+\end_inset
+
+ es una lista de transiciones 
+\begin_inset Formula $q\overset{\lambda}{\to}r$
+\end_inset
+
+ representada como 
+\begin_inset Formula $((q,\lambda),r)$
+\end_inset
+
+, 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+ es el estado inicial, 
+\begin_inset Formula $F$
+\end_inset
+
+ es una lista de estados finales y 
+\begin_inset Formula $w$
+\end_inset
+
+ una lista de caracteres de entrada.
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+let rec sim m w q =
+\end_layout
+
+\begin_layout Plain Layout
+
+    w (some q) (fun c rest ->
+\end_layout
+
+\begin_layout Plain Layout
+
+                  assoc paireq (q, c) none (sim m w)) in
+\end_layout
+
+\begin_layout Plain Layout
+
+fun m q0 finals w -> contains (==) (sim m w q0) finals
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{Acc}^{\text{NFA}}\coloneqq\{\langle{\cal A},w\rangle:\text{el NFA \ensuremath{{\cal A}} acepta la cadena \ensuremath{w}}\}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+La entrada es de la forma 
+\begin_inset Formula $(Q,\Sigma,\delta,q_{0},F)$
+\end_inset
+
+, donde 
+\begin_inset Formula $Q$
+\end_inset
+
+ es el número de estados (de 0 a 
+\begin_inset Formula $Q-1$
+\end_inset
+
+), 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ el de símbolos (de 
+\begin_inset Formula $1$
+\end_inset
+
+ a 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+, usando 0 para el 
+\begin_inset Quotes cld
+\end_inset
+
+símbolo
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+), y 
+\begin_inset Formula $\delta$
+\end_inset
+
+, 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $F$
+\end_inset
+
+ son como antes salvo que en una transición 
+\begin_inset Formula $((q,\lambda),r)$
+\end_inset
+
+, 
+\begin_inset Formula $r$
+\end_inset
+
+ es una lista de estados.
+ La salida es un DFA equivalente.
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+let rec set-flatten set-list =
+\end_layout
+
+\begin_layout Plain Layout
+
+    set-list nil (fun s rest ->
+\end_layout
+
+\begin_layout Plain Layout
+
+                    set-union (<=) (sort s) (set-flatten rest)) in
+\end_layout
+
+\begin_layout Plain Layout
+
+let set-add elem set = set-union (<=) set (cons elem nil) in
+\end_layout
+
+\begin_layout Plain Layout
+
+let difference set mset = filter (fun x -> !contains (==) x mset) set
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec reachable m acc qs =
+\end_layout
+
+\begin_layout Plain Layout
+
+    qs acc (fun q qrest ->
+\end_layout
+
+\begin_layout Plain Layout
+
+      let next = assoc paireq m (q,0) nil sort in
+\end_layout
+
+\begin_layout Plain Layout
+
+      let new-acc = set-add q acc in
+\end_layout
+
+\begin_layout Plain Layout
+
+      reachable m new-acc
+\end_layout
+
+\begin_layout Plain Layout
+
+                  (difference (set-union (<=) qrest next) new-acc)) in
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec parts q =
+\end_layout
+
+\begin_layout Plain Layout
+
+    q nil (fun x xs ->
+\end_layout
+
+\begin_layout Plain Layout
+
+             let prev = parts xs in
+\end_layout
+
+\begin_layout Plain Layout
+
+             set-union prev (map (set-add x) prev)) in
+\end_layout
+
+\begin_layout Plain Layout
+
+let transition m r a =
+\end_layout
+
+\begin_layout Plain Layout
+
+    r |> map (fun q -> reachable m nil (cons q nil))
+\end_layout
+
+\begin_layout Plain Layout
+
+      |> set-flatten in
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec qnum r = r 0 (fun q qs -> 2^q + qnum qs)
+\end_layout
+
+\begin_layout Plain Layout
+
+fun (states, syms, m, r0, finals) ->
+\end_layout
+
+\begin_layout Plain Layout
+
+    let trans = parts (range 0 (states-1))
+\end_layout
+
+\begin_layout Plain Layout
+
+        |> map (fun r -> map (fun a -> (r,a)) (range 1 syms))
+\end_layout
+
+\begin_layout Plain Layout
+
+        |> flatten
+\end_layout
+
+\begin_layout Plain Layout
+
+        |> map (fun (r, a) ->
+\end_layout
+
+\begin_layout Plain Layout
+
+                 ((qnum r, a), map qnum (transition m r a))) in
+\end_layout
+
+\begin_layout Plain Layout
+
+    let q0 = qnum (reachable m nil r0) in
+\end_layout
+
+\begin_layout Plain Layout
+
+    let finals = parts (range 0 (states-1))
+\end_layout
+
+\begin_layout Plain Layout
+
+        |> filter (fun r -> !null (sort finals |> set-intersection r))
+\end_layout
+
+\begin_layout Plain Layout
+
+        |> map qnum in
+\end_layout
+
+\begin_layout Plain Layout
+
+    (trans, q0, finals)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{Acc}^{\text{PDA}}\coloneqq\{\langle{\cal A},w\rangle:\text{el PDA \ensuremath{{\cal A}} acepta la cadena \ensuremath{w}}\}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Quotes cld
+\end_inset
+
+Es inmediato probar que
+\begin_inset Quotes crd
+\end_inset
+
+, salvo que la forma inmediata no necesariamente termina si 
+\begin_inset Formula $w\notin L({\cal A})$
+\end_inset
+
+ y la forma correcta de demostrar esto requiere convertir el PDA en una
+ gramática libre de contexto por un procedimiento que no hemos visto por
+ ser 
+\begin_inset Quotes cld
+\end_inset
+
+demasiado complicado
+\begin_inset Quotes crd
+\end_inset
+
+ y luego convertir esa gramática a 
+\begin_inset Quotes cld
+\end_inset
+
+forma normal de Chomsky
+\begin_inset Quotes crd
+\end_inset
+
+, que tampoco.
+ Ver teoremas 2.20 y 4.7 en el libro de referencia.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{Empty}^{\text{DFA}}\coloneqq\{\langle{\cal A}\rangle:\text{el DFA }{\cal A}\text{ no acepta ninguna cadena}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Hay que comprobar si existe algún camino del estado inicial a algún estado
+ final.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\langle{\cal A}\rangle$
+\end_inset
+
+ es una tupla 
+\begin_inset Formula $(\delta,q_{0},F)$
+\end_inset
+
+ como en el principio.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+let rec states-from m q =
+\end_layout
+
+\begin_layout Plain Layout
+
+    m nil (fun ((q1, a), q2) qs ->
+\end_layout
+
+\begin_layout Plain Layout
+
+             if q == q1 then cons q2 (states-from qs q)
+\end_layout
+
+\begin_layout Plain Layout
+
+             else states-from qs q) in
+\end_layout
+
+\begin_layout Plain Layout
+
+let rec anystring m finals acc qs =
+\end_layout
+
+\begin_layout Plain Layout
+
+    qs nil (fun q qrest ->
+\end_layout
+
+\begin_layout Plain Layout
+
+      if contains q acc then false
+\end_layout
+
+\begin_layout Plain Layout
+
+      else if contains q finals then true
+\end_layout
+
+\begin_layout Plain Layout
+
+      else states-from m q
+\end_layout
+
+\begin_layout Plain Layout
+
+           |> sort 
+\end_layout
+
+\begin_layout Plain Layout
+
+           |> set-union qrest
+\end_layout
+
+\begin_layout Plain Layout
+
+           |> filter (fun x -> !(contains x acc))
+\end_layout
+
+\begin_layout Plain Layout
+
+           |> anystring m finals (cons q acc) in
+\end_layout
+
+\begin_layout Plain Layout
+
+fun (trans, q0, finals) -> anystring trans finals nil (cons q0 nil)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{Empty}^{\text{NFA}}\coloneqq\{\langle{\cal A}\rangle:\text{el NFA }{\cal A}\text{ no acepta ninguna cadena}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Análogo.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{Empty}^{\text{PDA}}\coloneqq\{\langle{\cal A}\rangle:\text{el PDA }{\cal A}\text{ no acepta ninguna cadena}\}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Quotes cld
+\end_inset
+
+Análogo
+\begin_inset Quotes crd
+\end_inset
+
+, salvo que de nuevo la versión análoga puede no terminar y el libro aboga
+ por convertir el PDA a una gramática libre de contexto.
+ Ver teoremas 2.20 y 4.8.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $L\in{\cal DEC}$
+\end_inset
+
+, 
+\begin_inset Formula $L^{*}\in{\cal DEC}$
+\end_inset
+
+.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+En efecto, sea 
+\begin_inset Formula $F$
+\end_inset
+
+ un término 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ que decide 
+\begin_inset Formula $L$
+\end_inset
+
+ representando cadenas como listas de elementos, 
+\begin_inset Formula $F'\coloneqq{\bf Y}(\lambda f.\lambda w.\mathtt{null}\,w\mathtt{\ ||\ any}\,(\lambda n.F(\mathtt{take}\,n\,w)\mathtt{\ \&\&\ }f(\mathtt{drop}\,n\,w))(\mathtt{range}\,1(\mathtt{length\,}w))$
+\end_inset
+
+ decide 
+\begin_inset Formula $L^{*}$
+\end_inset
+
+, y si 
+\begin_inset Formula $F$
+\end_inset
+
+ enumera 
+\begin_inset Formula $L$
+\end_inset
+
+, 
+\begin_inset Formula $F'$
+\end_inset
+
+ enumera 
+\begin_inset Formula $L^{*}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+La máquina de Turing universal
+\end_layout
+
+\begin_layout Standard
+La clase de las máquinas de Turing es numerable, y en particular lo es el
+ conjunto de lenguajes recursivamente enumerables.
+ 
+\series bold
+Demostración:
+\series default
+ hay infinitas máquinas de Turing, todas se pueden expresar como cadenas
+ sobre un mismo alfabeto (describiendo los estados y símbolos como cadenas
+ de ciertos símbolos con un terminador) y el conjunto de estas cadenas es
+ numerable.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+numeración de Gödel
+\series default
+ es una asociación inyectiva de las cadenas de un cierto alfabeto a los
+ números naturales, para lo cual se asigna un natural positivo 
+\begin_inset Formula $m_{s}$
+\end_inset
+
+ a cada símbolo 
+\begin_inset Formula $s$
+\end_inset
+
+ del alfabeto y, si 
+\begin_inset Formula $p_{1},p_{2},\dots$
+\end_inset
+
+ es la secuencia de todos los primos, una cadena 
+\begin_inset Formula $w_{1}\cdots w_{n}$
+\end_inset
+
+ se representa como 
+\begin_inset Formula $p_{1}^{m_{w_{1}}}\cdots p_{n}^{m_{w_{n}}}$
+\end_inset
+
+.
+ Esta permite codificar proposiciones lógicas o máquinas de Turing como
+ naturales.
+ La codificación y decodificación son 
+\series bold
+computables
+\series default
+, es decir existe una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ que siempre termina y que puede codificar y decodificar números de Gödel.
+\end_layout
+
+\begin_layout Standard
+Todo conjunto 
+\begin_inset Formula $A$
+\end_inset
+
+ cumple 
+\begin_inset Formula $|A|<|{\cal P}(A)|$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Claramente 
+\begin_inset Formula $|A|\leq|{\cal P}(A)|$
+\end_inset
+
+, pero si hubiera una biyección 
+\begin_inset Formula $f:A\to{\cal P}(A)$
+\end_inset
+
+, sea 
+\begin_inset Formula $B\coloneqq\{x\in A:x\notin f(x)\}$
+\end_inset
+
+, existe 
+\begin_inset Formula $y\in A$
+\end_inset
+
+ con 
+\begin_inset Formula $f(y)=B$
+\end_inset
+
+, pero si 
+\begin_inset Formula $y\in B$
+\end_inset
+
+, 
+\begin_inset Formula $y\notin f(y)=B\#$
+\end_inset
+
+, y si 
+\begin_inset Formula $y\notin B$
+\end_inset
+
+, 
+\begin_inset Formula $y\in f(y)=B\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Existen lenguajes no recursivamente enumerables, pues el conjunto lenguajes
+ sobre un alfabeto 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ no vacío, 
+\begin_inset Formula ${\cal P}(\Sigma^{*})$
+\end_inset
+
+, es no numerable y el conjunto de lenguajes recursivamente enumerables
+ sobre 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ es a lo más numerable.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\cal REG}$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal CF}$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal DEC}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal RE}$
+\end_inset
+
+ no son cerrados para subconjuntos, pues si 
+\begin_inset Formula $L\coloneqq0^{*}\in{\cal REG}\subseteq{\cal CF}\subseteq{\cal DEC}\subseteq{\cal RE}$
+\end_inset
+
+, 
+\begin_inset Formula $L$
+\end_inset
+
+ es numerable y por tanto 
+\begin_inset Formula ${\cal P}(L)$
+\end_inset
+
+ no lo es, pero como 
+\begin_inset Formula ${\cal RE}$
+\end_inset
+
+ es numerable existe 
+\begin_inset Formula $L'\in{\cal P}(L)\setminus{\cal RE}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Existe una 
+\series bold
+máquina de Turing universal
+\series default
+ 
+\begin_inset Formula ${\cal U}$
+\end_inset
+
+ que permite simular cualquier máquina de Turing, recibiendo una máquina
+ de Turing 
+\begin_inset Formula ${\cal M}$
+\end_inset
+
+ y una cadena 
+\begin_inset Formula $w$
+\end_inset
+
+ y aceptando si 
+\begin_inset Formula ${\cal M}$
+\end_inset
+
+ acepta 
+\begin_inset Formula $w$
+\end_inset
+
+, rechazando si 
+\begin_inset Formula ${\cal M}$
+\end_inset
+
+ rechaza 
+\begin_inset Formula $w$
+\end_inset
+
+ y no terminando en otro caso
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+, pues basta que la 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ que vimos que simula cualquier término 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ simule el término 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ que vimos que simula cualquier 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+K\coloneqq\{\langle{\cal M},w\rangle:\text{la MT }{\cal M}\text{ acepta con entrada }w\}\in{\cal RE}\setminus{\cal DEC}.
+\]
+
+\end_inset
+
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $K\in{\cal RE}$
+\end_inset
+
+ por ser el lenguaje enumerado por 
+\begin_inset Formula ${\cal U}$
+\end_inset
+
+.
+ Si fuera 
+\begin_inset Formula $K\in{\cal DEC}$
+\end_inset
+
+, sea 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+ una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ que decide 
+\begin_inset Formula $K$
+\end_inset
+
+, existe 
+\begin_inset Formula ${\cal D}$
+\end_inset
+
+ que decide 
+\begin_inset Formula $\{\langle{\cal M}\rangle:{\cal H}\text{ rechaza }\langle{\cal M},\langle{\cal M}\rangle\rangle\}$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula ${\cal D}$
+\end_inset
+
+ acepta 
+\begin_inset Formula ${\cal D}$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+ rechaza 
+\begin_inset Formula $\langle{\cal D},\langle{\cal D}\rangle\rangle$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula ${\cal D}$
+\end_inset
+
+ no acepta 
+\begin_inset Formula $\langle{\cal D}\rangle\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para un lenguaje 
+\begin_inset Formula $L\subseteq\Sigma^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $L,\overline{L}\in{\cal RE}\implies L,\overline{L}\in{\cal DEC}$
+\end_inset
+
+, pues se puede crear una máquina que, dada su entrada, simule progresivamente
+ pasos de máquinas que enumeren 
+\begin_inset Formula $L$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{L}$
+\end_inset
+
+ hasta que una termine y aceptar o rechazar según cuál termine.
+\end_layout
+
+\begin_layout Standard
+Así, 
+\begin_inset Formula ${\cal RE}$
+\end_inset
+
+ no es cerrado para el complemento, pues 
+\begin_inset Formula $K\in{\cal RE}$
+\end_inset
+
+ y si fuera 
+\begin_inset Formula $\overline{K}\in{\cal RE}$
+\end_inset
+
+ sería 
+\begin_inset Formula $K\in{\cal DEC}\#$
+\end_inset
+
+.
+ Tampoco lo es para la diferencia, pues de serlo lo sería para el complemento
+ ya que 
+\begin_inset Formula $\Sigma^{*}\in{\cal RE}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un lenguaje es 
+\series bold
+co-recursivamente enumerable
+\series default
+ si su complementario es recursivamente enumerable, y llamamos 
+\begin_inset Formula $\text{CO-\ensuremath{{\cal RE}}}$
+\end_inset
+
+ a la clase de lenguajes co-recursivamente enumerables.
+ En particular 
+\begin_inset Formula ${\cal DEC}={\cal RE}\cap\text{CO-}{\cal RE}$
+\end_inset
+
+.
+ Un lenguaje es 
+\series bold
+altamente indecidible
+\series default
+ si no es 
+\begin_inset Formula ${\cal RE}$
+\end_inset
+
+ ni 
+\begin_inset Formula $\text{CO-}{\cal RE}$
+\end_inset
+
+.
+\end_layout
+
 \end_body
 \end_document

@@ -2087,6 +2087,138 @@ teorema
  Trivial.
 \end_layout
 
+\begin_layout Standard
+Sean 
+\begin_inset Formula $L_{1},L_{2}\in{\cal RE}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $L_{1}\cup L_{2}\in{\cal RE}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Tomamos una 
+\begin_inset Formula $\text{MTND}$
+\end_inset
+
+ que al inicio, de forma no determinista, se quede donde está ejecute una
+ 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ que enumere 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ o una que ejecute 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $L_{1}\cap L_{2}\in{\cal RE}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula ${\cal M}_{1}$
+\end_inset
+
+ una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ que enumera 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal M}_{2}$
+\end_inset
+
+ una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ que enumera 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+, se ejecutan 
+\begin_inset Formula ${\cal M}_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal M}_{2}$
+\end_inset
+
+ a la vez sobre dos copias de la entrada (alternándolas), aceptando cuando
+ ambas hayan aceptado y rechazando si una termina.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $L_{1}L_{2}\in{\cal RE}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Similar al caso decidible pero haciendo todas las simulaciones en paralelo:
+ primero 1 paso de cada una sobre una copia de la subcadena correspondiente,
+ luego 2 pasos, 3, etc., aceptando si, para alguna división de la cadena
+ de entrada, las dos máquinas aceptan.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $L_{1}^{*}\in{\cal RE}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $L_{1}^{*}=\{\lambda\}\cup(L_{1}\setminus\{\lambda\})^{*}$
+\end_inset
+
+, por lo que si la entrada es 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ aceptamos y, en otro caso, hacemos como en el caso anterior pero iterando
+ sobre todas las particiones de la entrada con un número arbitrario de subcadena
+s y cada subcadena no vacía.
+ Para ello en la cinta 2 se itera sobre 
+\begin_inset Formula $\#\{N,\#\}^{n-1}$
+\end_inset
+
+, donde 
+\begin_inset Formula $\#$
+\end_inset
+
+ indica el principio de una subcadena a considerar, y aceptando cuando todas
+ las subcadenas de la misma partición han aceptado.
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Algoritmos
 \end_layout
