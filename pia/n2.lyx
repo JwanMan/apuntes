@@ -1,0 +1,817 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+sistema formal
+\series default
+ está formado por:
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\series bold
+lenguaje formal
+\series default
+, con una serie de 
+\series bold
+símbolos
+\series default
+ y 
+\series bold
+reglas sintácticas
+\series default
+ para combinarlos obteniendo 
+\series bold
+fórmulas
+\series default
+.
+\end_layout
+
+\begin_layout Enumerate
+Una serie de 
+\series bold
+reglas de inferencia
+\series default
+, formadas por 0 o más juicios en el antecedente (arriba) y uno en el precedente
+ (abajo).
+ Los juicios son expresiones de la forma 
+\begin_inset Formula $\Gamma\vdash f$
+\end_inset
+
+, que indican que la fórmula 
+\begin_inset Formula $f$
+\end_inset
+
+ se deriva de las fórmulas en 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+, donde 
+\begin_inset Formula $f$
+\end_inset
+
+ puede contener símbolos que indican entidades de cierto tipo en el lenguaje
+ (subcadenas con ciertas restricciones) y el mismo símbolo representa la
+ misma entidad en toda la regla.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+teorema
+\series default
+ es una fórmula 
+\begin_inset Formula $f$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\vdash f$
+\end_inset
+
+ se puede obtener aplicando una cantidad finita de reglas de inferencia.
+ Un 
+\series bold
+axioma
+\series default
+ es un teorema que se obtiene aplicando una sola regla de inferencia.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+cálculo lambda
+\series default
+ es un sistema formal diseñado por Alonzo Church y Stephen Kleen en los
+ años 30
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Los del siglo XX.
+\end_layout
+
+\end_inset
+
+ para investigar la definición de funciones computables, aplicación de funciones
+ y recursividad.
+ Es el precursor de lenguajes funcionales como Lisp, ML y Haskell, y puede
+ expresar cualquier función computable.
+\end_layout
+
+\begin_layout Standard
+El alfabeto del lenguaje está formado por la 
+\series bold
+igualdad
+\series default
+ 
+\begin_inset Formula $=$
+\end_inset
+
+, la 
+\series bold
+reducción
+\series default
+ 
+\begin_inset Formula $\to$
+\end_inset
+
+, los 
+\series bold
+símbolos impropios
+\series default
+ 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, 
+\begin_inset Formula $.$
+\end_inset
+
+, 
+\begin_inset Formula $($
+\end_inset
+
+ y 
+\begin_inset Formula $)$
+\end_inset
+
+, y símbolos para representar una cantidad infinita de variables.
+ Un 
+\series bold
+término
+\series default
+ es una variable, una 
+\series bold
+aplicación
+\series default
+ 
+\begin_inset Formula $(M\,N)$
+\end_inset
+
+, donde 
+\begin_inset Formula $M$
+\end_inset
+
+ y 
+\begin_inset Formula $N$
+\end_inset
+
+ son términos, o una 
+\series bold
+abstracción
+\series default
+ 
+\begin_inset Formula $(\lambda x.M)$
+\end_inset
+
+, donde 
+\begin_inset Formula $x$
+\end_inset
+
+ es una variable llamada 
+\series bold
+variable ligada
+\series default
+ y 
+\begin_inset Formula $M$
+\end_inset
+
+ es un término llamado 
+\series bold
+cuerpo
+\series default
+.
+ Una fórmula es una expresión 
+\begin_inset Formula $M=N$
+\end_inset
+
+ o 
+\begin_inset Formula $M\to N$
+\end_inset
+
+, donde 
+\begin_inset Formula $M$
+\end_inset
+
+ y 
+\begin_inset Formula $N$
+\end_inset
+
+ son términos.
+ Dos términos 
+\begin_inset Formula $M$
+\end_inset
+
+ y 
+\begin_inset Formula $N$
+\end_inset
+
+ son 
+\series bold
+idénticos
+\series default
+, 
+\begin_inset Formula $M\equiv N$
+\end_inset
+
+, si tienen la misma expresión.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $x$
+\end_inset
+
+ es una variable y 
+\begin_inset Formula $M$
+\end_inset
+
+ y 
+\begin_inset Formula $N$
+\end_inset
+
+ son términos, definimos el conjunto de 
+\series bold
+variables libres
+\series default
+ de un término como
+\begin_inset Formula 
+\begin{align*}
+\text{FV}(x) & \coloneqq\{x\}, & \text{FV}(M\,N) & \coloneqq\text{FV}(M)\cup\text{FV}(N), & \text{FV}(\lambda x.M) & \coloneqq\text{FV}(M)\setminus\{x\},
+\end{align*}
+
+\end_inset
+
+y el conjunto de 
+\series bold
+variables ligadas
+\series default
+ como 
+\begin_inset Formula 
+\begin{align*}
+\text{BV}(x) & \coloneqq\emptyset, & \text{BV}(M\,N) & \coloneqq\text{BV}(M)\cup\text{BV}(N), & \text{BV}(\lambda x.M) & \coloneqq\text{BV}(M)\cup\{x\}.
+\end{align*}
+
+\end_inset
+
+Estos conjuntos no contienen variables sino apariciones de variables en
+ la expresión, y en sus definiciones para una abstracción, el término 
+\begin_inset Formula $\{x\}$
+\end_inset
+
+ se refiere a todas las apariciones de 
+\begin_inset Formula $x$
+\end_inset
+
+ en 
+\begin_inset Formula $M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $M$
+\end_inset
+
+, 
+\begin_inset Formula $N$
+\end_inset
+
+ y 
+\begin_inset Formula $P$
+\end_inset
+
+ términos y 
+\begin_inset Formula $x$
+\end_inset
+
+ e 
+\begin_inset Formula $y$
+\end_inset
+
+ variables distintas, definimos la 
+\series bold
+sustitución
+\series default
+ de un término en otro como
+\begin_inset Formula 
+\begin{align*}
+x[N/x] & \coloneqq N,\\
+y[N/x] & \coloneqq y,\\
+(M\,P)[N/x] & \coloneqq(M[N/x])(P[N/x]),\\
+(\lambda x.M)[N/x] & \coloneqq\lambda x.M,\\
+(\lambda y.M)[N/x] & \coloneqq\lambda z.(M[z/y][N/x]),
+\end{align*}
+
+\end_inset
+
+donde 
+\begin_inset Formula $z$
+\end_inset
+
+ es una variable cualquiera que no está en 
+\begin_inset Formula $\text{FV}(M)\cup\text{FV}(N)$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $y\notin\text{FV}(N)$
+\end_inset
+
+ o 
+\begin_inset Formula $x\notin\text{FV}(M)$
+\end_inset
+
+, la última regla se puede simplificar como 
+\begin_inset Formula $(\lambda y.M)[N/x]=\lambda y.(M[N/x])$
+\end_inset
+
+ y esta sustitución es 
+\series bold
+válida
+\series default
+ o 
+\series bold
+segura
+\series default
+, pero si no es así, al aplicar la versión simplificada se dice que se produce
+ 
+\series bold
+captura de variables
+\series default
+, en la que una variable libre en 
+\begin_inset Formula $N$
+\end_inset
+
+ pasa a estar ligada en 
+\begin_inset Formula $(\lambda y.M)[N/x]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Las reglas de inferencia son las siguientes, donde 
+\begin_inset Formula $M$
+\end_inset
+
+, 
+\begin_inset Formula $N$
+\end_inset
+
+, 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $T$
+\end_inset
+
+ y 
+\begin_inset Formula $U$
+\end_inset
+
+ son términos y 
+\begin_inset Formula $x$
+\end_inset
+
+ e 
+\begin_inset Formula $y$
+\end_inset
+
+ son variables.
+\begin_inset Formula 
+\begin{align*}
+\alpha\text{-conversión: } & \frac{\{y\notin\text{FV}(M)\}}{\Gamma\vdash(\lambda x.M)\to(\lambda y.M[y/x])} &  &  &  & \frac{\Gamma\vdash S\to T}{\Gamma\vdash(U\,S)\to(U\,T)}\\
+\beta\text{-conversión: } & \frac{}{\Gamma\vdash((\lambda x.M)\,N)\to M[N/x]} &  &  &  & \frac{\Gamma\vdash S\to T}{\Gamma\vdash\lambda x.S\to\lambda x.T}\\
+\eta\text{-conversión: } & \frac{\{x\notin\text{FV}(M)\}}{\Gamma\vdash(\lambda x.(M\,x))\to M} &  &  &  & \frac{\Gamma\vdash S\to T}{\Gamma\vdash S=T}\\
+ & \frac{}{\Gamma\vdash T\to T} &  &  &  & \frac{\Gamma\vdash S=T}{\Gamma\vdash T=S}\\
+ & \frac{\Gamma\vdash S\to T\ \ \Gamma\vdash T\to U}{S\to U} &  &  &  & \frac{\Gamma\vdash S=T\ \ \Gamma\vdash T=U}{\Gamma\vdash S=U}\\
+ & \frac{\Gamma\vdash S\to T}{\Gamma\vdash(S\,U)\to(T\,U)}
+\end{align*}
+
+\end_inset
+
+Las 
+\series bold
+conversiones
+\series default
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, 
+\begin_inset Formula $\beta$
+\end_inset
+
+ y 
+\begin_inset Formula $\eta$
+\end_inset
+
+ también se llaman 
+\series bold
+reducciones
+\series default
+.
+ El resto de reglas dicen que las reducciones se pueden aplicar a subtérminos,
+ que la reducibilidad es reflexiva y transitiva, y que dos términos son
+ iguales si se pueden conectar por una cadena finita de reducciones hacia
+ un lado u otro.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+cálculo lambda puro
+\series default
+ es el que se ha descrito, pudiendo definir términos comunes para abreviar
+ pero sin constantes predefinidas.
+ El 
+\series bold
+cálculo lambda impuro
+\series default
+ permite también constantes predefinidas sin definir estas como términos,
+ como números o funciones sobre estos.
+\end_layout
+
+\begin_layout Standard
+Para reducir el uso de paréntesis, consideramos que la aplicación tiene
+ máxima prioridad y es asociativa por la izquierda, la abstracción se extiende
+ lo más lejos posible y 
+\begin_inset Formula $\to$
+\end_inset
+
+ y 
+\begin_inset Formula $=$
+\end_inset
+
+ tienen el máximo alcance.
+ Además, si 
+\begin_inset Formula $x_{1},\dots,x_{n}$
+\end_inset
+
+ son variables y 
+\begin_inset Formula $M$
+\end_inset
+
+ es un término, la sintaxis 
+\begin_inset Formula $\lambda x_{1}\,x_{2}\,\dots\,x_{n}.M$
+\end_inset
+
+ equivale a 
+\begin_inset Formula $\lambda x_{1}.\lambda x_{2}.\dots\lambda x_{n}.M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+La igualdad es 
+\series bold
+extensional
+\series default
+, de modo que si dos funciones son iguales, dan el mismo resultado para
+ todos los parámetros.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Poner esto cuando se defina 
+\begin_inset Quotes cld
+\end_inset
+
+dar el mismo resultado
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+radical
+\series default
+ o 
+\series bold
+\emph on
+redex
+\series default
+\emph default
+ es un término de la forma 
+\begin_inset Formula $(\lambda x.U)T$
+\end_inset
+
+, y su 
+\series bold
+contrato
+\series default
+ es 
+\begin_inset Formula $U[T/x]$
+\end_inset
+
+.
+ Un término 
+\begin_inset Formula $M$
+\end_inset
+
+ es 
+\series bold
+normal
+\series default
+ si no contiene ningún radical, y es 
+\series bold
+normalizable
+\series default
+ si existe un término normal 
+\begin_inset Formula $N$
+\end_inset
+
+ tal que 
+\begin_inset Formula $M\to N$
+\end_inset
+
+, en cuyo caso se puede llegar a una por una cadena de 
+\begin_inset Formula $\beta$
+\end_inset
+
+-reducciones en el término o subtérminos.
+ El objetivo principal al manipular una expresión lambda es reducirla a
+ su forma normal, lo que corresponde a la idea de fin de cálculo en la programac
+ión convencional.
+ Hay expresiones no normalizables, como 
+\begin_inset Formula $(\lambda x.xx)\lambda x.xx$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+estrategia de evaluación
+\series default
+ indica el orden en que aplicar 
+\begin_inset Formula $\beta$
+\end_inset
+
+-reducciones para tratar de llegar a la forma normal.
+ Algunas son:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Orden normal:
+\series default
+ Se reduce primero el radical más exterior más a la izquierda, que para
+ un término 
+\begin_inset Formula $(\lambda x.S)T$
+\end_inset
+
+ es el propio término, para otra aplicación 
+\begin_inset Formula $S\,T$
+\end_inset
+
+ es el de 
+\begin_inset Formula $S$
+\end_inset
+
+ si tiene alguno o el de 
+\begin_inset Formula $T$
+\end_inset
+
+ en otro caso, y para 
+\begin_inset Formula $\lambda x.S$
+\end_inset
+
+ es el de 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Es lo que usan los lenguajes perezosos como Haskell, aunque con optimizaciones.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Orden aplicativo:
+\series default
+ Se reduce primero el radical más interior más a la izquierda, que se define
+ como el radical exterior más a la izquierda salvo que, para un término
+ 
+\begin_inset Formula $(\lambda x.S)T$
+\end_inset
+
+, primero se reduce el primero de 
+\begin_inset Formula $S$
+\end_inset
+
+ si tiene alguno, o el primero de 
+\begin_inset Formula $T$
+\end_inset
+
+ si tiene alguno y 
+\begin_inset Formula $S$
+\end_inset
+
+ no.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Es lo que usan la mayoría de lenguajes de programación, salvo que no se
+ reduce el interior de una expresión lambda y en algunos no se garantiza
+ que la evaluación de parámetros se haga de izquierda a derecha.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teoremas de Church-Rosser:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Propiedad del diamante:
+\series default
+ Si 
+\begin_inset Formula $S\to T_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $S\to T_{2}$
+\end_inset
+
+, existe 
+\begin_inset Formula $U$
+\end_inset
+
+ tal que 
+\begin_inset Formula $T_{1}\to U$
+\end_inset
+
+ y 
+\begin_inset Formula $T_{2}\to U$
+\end_inset
+
+.
+ Además, la forma normal de un término a la que se llega por 
+\begin_inset Formula $\beta$
+\end_inset
+
+-reducciones es única salvo 
+\begin_inset Formula $\alpha$
+\end_inset
+
+-conversiones.
+\end_layout
+
+\begin_layout Enumerate
+Si un término es normalizable, se puede llegar a su forma normal por el
+ orden de reducción normal.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+combinador
+\series default
+ o 
+\series bold
+término cerrado
+\series default
+ es un término sin variables libres.
+ Los más simples son 
+\begin_inset Formula ${\bf I}\coloneqq\lambda x.x$
+\end_inset
+
+, 
+\begin_inset Formula ${\bf K}\coloneqq\lambda x\,y.x$
+\end_inset
+
+ y 
+\begin_inset Formula ${\bf S}\coloneqq\lambda f\,g\,x.f\,x\,(g\,x)$
+\end_inset
+
+.
+ Todo término tiene un equivalente con las mismas variables libres y sin
+ abstracciones usando solo estos 3 combinadores.
+\end_layout
+
+\end_body
+\end_document
