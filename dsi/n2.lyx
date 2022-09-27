@@ -1,0 +1,739 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una 
+\series bold
+metodología
+\series default
+ es una teoría general sobre cómo desarrollar cierto tipo de trabajo que
+ integra una serie de técnicas y métodos comprensibles.
+ Desde los 90 ha ido creciendo el interés en tener una metodología estructurada
+ para acelerar el desarrollo de ontologías, la reutilización y el uso en
+ distintas aplicaciones.
+ La primera 
+\emph on
+\lang english
+workshop
+\emph default
+\lang spanish
+ de ingeniería ontológica se celebró en el 
+\lang english
+ECAI
+\lang spanish
+ de 1997, y se continuó en en el 
+\emph on
+\lang english
+AAAI Spring Symposium
+\emph default
+\lang spanish
+.
+ Desde entonces la mayoría de conferencias internacionales sobre el tema
+ incluyen aspectos metodológicos de desarrollo de ontologías.
+\end_layout
+
+\begin_layout Standard
+La ingeniería ontológica engloba:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Re-ingeniería:
+\series default
+ reutilización de ontologías expresadas en formalismos distintos.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Aprendizaje:
+\series default
+ Métodos automáticos para desarrollar o poblar ontologías.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Alineación:
+\series default
+ Enlace de ontologías sobre un mismo dominio manteniendo las originales.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Fusión:
+\series default
+ Creación de una única ontología a partir de varias.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Desarrollo distribuido y colaborativo:
+\series default
+ Definición de protocolos para añadir y consensuar conocimiento nuevo.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Evaluación:
+\series default
+ Control de calidad del producto.
+\end_layout
+
+\begin_layout Standard
+No hay una única forma correcta de modelar un dominio, pues la mejor solución
+ en general depende de la aplicación y las extensiones previstas, y debemos
+ preguntarnos para qué la vamos a usar, cómo de detallada debe ser, qué
+ alternativa funcionará mejor en la aplicación, cuál será más intuitiva,
+ extensible y mantenible, etc., y después hay que evaluar esta versión inicial,
+ depurarla y consensuarla con expertos.
+ Los conceptos de una ontología deben ser cercanos a los objetos físicos
+ y lógicos y las relaciones del dominio, y generalmente se corresponden
+ con sustantivos o verbos que lo describen.
+\end_layout
+
+\begin_layout Standard
+Una metodología permite desarrollar eficientemente ontologías complejas
+ consistentes de forma distribuida.
+ Una de ellas es 
+\series bold
+desarrollo de ontologías 101
+\series default
+, con los siguientes pasos:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Determinar el dominio y alcance de la ontología.
+
+\series default
+ Determinar qué dominio cubrirá, para qué la usaremos, a qué tipo de preguntas
+ deberá responder y quién las usará y mantendrá.
+ Esto puede variar durante el desarrollo, y una forma de determinar el alcance
+ es elaborar un conjunto de 
+\series bold
+preguntas de competencia
+\series default
+ que la ontología debe poder responder.
+ Este no tiene que ser exhaustivo, y se puede usar al final para control
+ de calidad.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Considerar la reutilización de ontologías existentes.
+
+\series default
+ Si hay otras ontologías sobre nuestro dominio para otras aplicaciones,
+ como las de Ontolingua, las ontologías DAML, las de Protegé y muchas otras
+ disponibles en la web, estas se pueden reutilizar.
+ De hecho podríamos tener que usarlas si queremos que nuestra aplicación
+ interactúe con otras que usen alguna de estas ontologías.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:ont-enu-terms"
+
+\end_inset
+
+
+\series bold
+Enumerar los términos importantes.
+
+\series default
+ Escribir los términos que queremos usar para hacer enunciados o dar explicacion
+es al usuario.
+ No hay que preocuparse por cubrir todos los términos, ni por sus relaciones,
+ propiedades o si estos son clases o atributos.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Definir las clases y su jerarquía.
+
+\series default
+ Podemos usar un enfoque 
+\series bold
+descendente
+\series default
+ (
+\series bold
+\emph on
+top-down
+\series default
+\emph default
+), en el que se empieza definiendo conceptos más generales para luego ir
+ especializándolos; 
+\series bold
+ascendente
+\series default
+ (
+\series bold
+\emph on
+bottom-up
+\series default
+\emph default
+), en que se empieza con las clases más específicas para luego ir agrupándolas,
+ o lo que es más común, 
+\series bold
+combinado
+\series default
+, en que se empieza por los conceptos más relevantes para luego especializarlos
+ y generalizarlos según convenga, ya que los conceptos más descriptivos
+ suelen ser los intermedios.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+El enfoque depende de la visión que el desarrollador tenga del dominio,
+ y en cualquier caso las clases iniciales se toman de los conceptos del
+ paso 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:ont-enu-terms"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ que tengan existencia independiente, que corresponden a predicados unarios
+ sobre objetos, no predicados binarios, y entonces estos se organizan taxonómica
+mente.
+\end_layout
+
+\begin_layout Standard
+Hay muchas jerarquías válidas para el mismo dominio según el uso que se
+ vaya a dar a la ontología.
+ Recomendaciones:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Asegurar que la jerarquía es correcta,
+\series default
+ de modo que toda instancia de una subclase lo es de su superclase, de forma
+ transitiva.
+ Las jerarquías de clases pueden variar según el dominio evoluciona y mantenerla
+s es complejo.
+ El nombre de una clase puede cambiar al cambiar la terminología siempre
+ que la clase represente el mismo concepto, y los sinónimos de un concepto
+ no representan clases distintas.
+ Se deben evitar los bucles en la jerarquía, que equivalen a decir que las
+ clases en el bucle son equivalentes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Analizar las clases hermanas,
+\series default
+ subclases directas de la misma clase.
+ Todas deben tener el mismo nivel de generalidad, salvo en el nivel superior.
+ No hay reglas sobre cuántas clases directas puede tener una clase, pero
+ si una clase tiene solo una subclase directa, puede haber un problema en
+ el modelado o la ontología puede ser incompleta, y si tiene más de 12 puede
+ haber que definir categorías intermedias, aunque si no hay clases naturales
+ para agrupar estos conceptos no hace falta crear clases ficticias.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Considerar herencia múltiple.
+
+\series default
+ La mayoría de sistemas de representación la permiten, pero debe usarse
+ con cuidado.
+ La subclase hereda los atributos y facetas de todas sus superclases.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Introducir subclases.
+
+\series default
+ Se hace sólo si hay algo que podemos decir de ella que no podamos decir
+ de la superclase.
+ En general las subclases tienen propiedades o restricciones que la superclase
+ no tiene o participan en relaciones en que la superclase no participa.
+ En la práctica las subclases deben añadir nuevos atributos respecto a la
+ superclase, nuevos valores para un atributo o sustituir algunas facetas
+ de los atributos heredados
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Crear nuevas clases que no introducen nuevas propiedades puede ser útil
+ para modelar diferencias entre conceptos aunque no se vaya modelar la distinció
+n en sí, facilitar la definición del nivel de generalidad de cada término
+ y mejorar la exploración y la navegación.
+ No se debería crear una subclase para cada restricción adicional, sino
+ que se busca un equilibrio en que se crear clases útiles para organizar
+ la jerarquía sin crear demasiadas clases.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Diferenciar entre clase y atributo.
+
+\series default
+ En general, si una distinción es importante en el dominio y pensamos en
+ objetos con distintos valores de esta como de distintos tipos, o si los
+ conceptos con distintos valores de esta se vuelven restricciones para atributos
+ o relaciones de otras clases, la distinción se representa mediante subclases,
+ y en otro caso se usa un atributo.
+ Si la distinción entre clases se hace por propiedades extrínsecas a los
+ conceptos y no intrínsecas, como suele ser el caso de números, colores,
+ ubicaciones, etc., las instancias tendrán que cambiar de subclase a menudo,
+ lo que no debería ocurrir, por lo que estas distinciones se representan
+ con atributos.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Diferenciar entre clase e instancia.
+
+\series default
+ El nivel más bajo de granularidad depende del alcance de la ontología.
+ Las instancias son los conceptos más específicos representados, y a veces
+ pueden desplazarse al conjunto de clases, por ejemplo cuando forman una
+ jerarquía natural, en cuyo caso puede ser útil definir clases abstractas.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Limitar el alcance.
+
+\series default
+ La ontología no debe ni puede contener toda la información del dominio.
+ No se debe especializar o generalizar más de lo requerido por la aplicación,
+ como mucho un nivel adicional a cada lado, y no debe contener todas las
+ posibles propiedades de las clases y distinciones posibles en la jerarquía.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Considerar clases disjuntas.
+
+\series default
+ Algunos sistemas de representación permiten definir clases disjuntas, de
+ modo que ninguna instancia puede ser miembro de ambas.
+ Estas facilitan validar la ontología.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Definir los atributos de las clases.
+
+\series default
+ La mayoría de los términos que queden del paso 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:ont-enu-terms"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ serán propiedades de clase, y hay que indicar qué clase es descrita por
+ cada propiedad.
+ Los propiedades pueden ser intrínsecas, extrínsecas o relaciones con otros
+ individuos.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Definir las facetas de los atributos.
+
+\series default
+ Algunas son:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Cardinalidad.
+
+\series default
+ Algunos sistemas sólo permiten indicar si esta es simple o múltiple, mientras
+ que otros permiten indicar máximo y mínimo y a veces se puede indicar un
+ mínimo de 0 para señalar un atributo como opcional.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Tipo de valor.
+
+\series default
+ 
+\family typewriter
+\lang english
+String
+\family default
+\lang spanish
+, 
+\family typewriter
+\lang english
+Number
+\family default
+\lang spanish
+ (
+\family typewriter
+\lang english
+Float
+\family default
+\lang spanish
+ o 
+\family typewriter
+\lang english
+Integer
+\family default
+\lang spanish
+), 
+\family typewriter
+\lang english
+Boolean
+\family default
+\lang spanish
+, 
+\family typewriter
+\lang english
+Enumerated
+\family default
+\lang spanish
+ con una lista de valores admitidos, 
+\family typewriter
+\lang english
+Instance
+\family default
+\lang spanish
+ para instancias de otros individuos, en cuyo caso el atributo representa
+ una relación.
+ En Protegé-2000 los enumerados se definen como instancias de tipo 
+\family typewriter
+\lang english
+Symbol
+\family default
+\lang spanish
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Dominio.
+
+\series default
+ Conjunto de clases descritas por el atributo.
+ En Protegé-2000 no hay que definirlo por separado.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Rango.
+
+\series default
+ Conjunto de clases al que pueden pertenecer las instancias si el atributo
+ es de tipo 
+\family typewriter
+\lang english
+Instance
+\family default
+\lang spanish
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Valor por defecto.
+\end_layout
+
+\begin_layout Standard
+Al definir el dominio o rango, se deben usar las clases más genéricas posibles,
+ pero no demasiado genéricas, pues todas las clases en el dominio deben
+ poder incluir un valor para el atributo y todas las del rango deben ser
+ posibles valores de este.
+ Si una lista de clases en el dominio o rango incluye una clase, no debería
+ incluir ninguna de sus subclases; si incluye todas las subclases de una
+ clase pero no dicha clase, debería contener dicha clase y no las subclases,
+ y si solo contiene algunas de las subclases, podría ser más apropiado que
+ contuviera dicha clase.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+atributo
+\series default
+ o 
+\series bold
+\emph on
+\lang english
+slot
+\emph default
+\lang spanish
+ inverso
+\series default
+ es uno de tipo 
+\family typewriter
+\lang english
+Instance
+\family default
+\lang spanish
+ que define la relación inversa a otro de tipo 
+\family typewriter
+\lang english
+Instance
+\family default
+\lang spanish
+, es decir, existe una relación 
+\begin_inset Formula $R\subseteq A\times B$
+\end_inset
+
+ tal que esta es 
+\begin_inset Formula $\{(b,a)\}_{(a,b)\in R}\subseteq B\times A$
+\end_inset
+
+.
+ Es redundante, pero es necesario desde el punto de vista de modelado del
+ conocimiento.
+ Algunos sistemas de adquisición de conocimiento pueden rellenar automáticamente
+ los 
+\emph on
+\lang english
+slots
+\emph default
+\lang spanish
+ inversos para asegurar la consistencia.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Crear instancias.
+
+\series default
+ Se elige una clase, se crea una instancia de ella y se rellenan los valores
+ de los atributos, repitiendo el proceso hasta completar lo suficiente la
+ base de conocimiento.
+\end_layout
+
+\begin_layout Standard
+Debemos elegir un convenio para nombrar los conceptos y adherirnos a él
+ estrictamente.
+ Este dependerá de características del sistema de representación como si
+ soporta más de un espacio de nombres para las clases, atributos e instancias,
+ si diferencia entre mayúsculas o minúsculas o qué delimitadores se permiten.
+\end_layout
+
+\begin_layout Standard
+Protegé-2000 tiene un único espacio de nombres, distingue entre mayúsculas
+ y minúsculas y permite espacios, barras bajas y guiones.
+ Así, cuando el nombre de un concepto tiene varias palabras, podemos separarlas
+ por espacios, escribirlas juntas con mayúscula al principio de cada una,
+ o separarlas con un guion o barra baja.
+ Lo más intuitivo es usar espacios, pero hay que tener cuidado al importar
+ otras ontologías.
+\end_layout
+
+\begin_layout Standard
+Para nombres de conceptos es más intuitivo usar el plural porque las clases
+ representan colecciones de objetos.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Mentira.
+ Es más intuitivo el singular porque 
+\begin_inset Quotes cld
+\end_inset
+
+telediarios es-un programas
+\begin_inset Quotes crd
+\end_inset
+
+ no tiene el más mínimo sentido y usando el singular por defecto es más
+ fácil razonar sobre la cardinalidad de las relaciones.
+\end_layout
+
+\end_inset
+
+ Ninguna opción es mejor que otra, pero hay que ser consistente con la elección.
+ Algunos sistemas solicitan a los usuarios declarar la opción por adelantado.
+\end_layout
+
+\begin_layout Standard
+Para los atributos, algunas metodologías sugieren usar prefijos y sufijos
+ como 
+\begin_inset Quotes cld
+\end_inset
+
+tiene-
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+-de
+\begin_inset Quotes crd
+\end_inset
+
+ o 
+\begin_inset Quotes cld
+\end_inset
+
+-por
+\begin_inset Quotes crd
+\end_inset
+
+, según algún convenio, para distinguir atributos y clases a cambio de tener
+ nombres de atributos más largos.
+\end_layout
+
+\begin_layout Standard
+No se recomienda usar cadenas como 
+\begin_inset Quotes cld
+\end_inset
+
+clase
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+propiedad
+\begin_inset Quotes crd
+\end_inset
+
+ o 
+\begin_inset Quotes cld
+\end_inset
+
+
+\emph on
+\lang english
+slot
+\emph default
+\lang spanish
+
+\begin_inset Quotes crd
+\end_inset
+
+ en los nombres de clases y propiedades, ni abreviar nombres de conceptos.
+ En los nombres de subclases directas, o todos tienen el nombre de la superclase
+ o ninguna lo tiene.
+\end_layout
+
+\end_body
+\end_document
