@@ -1,0 +1,556 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Definimos
+\begin_inset Formula 
+\begin{align*}
+\mathtt{true} & \coloneqq\lambda x\,y.x,\\
+\mathtt{false} & \coloneqq\lambda x\,y.y,\\
+\mathtt{cond} & \coloneqq\lambda i\,t\,e.i\,t\,e=\lambda x.x,\\
+\mathtt{and} & \coloneqq\lambda x\,y.x\,y\,\mathtt{false},\\
+\mathtt{or} & \coloneqq\lambda x\,y.x\,\mathtt{true}\,y=\lambda x.x\,\mathtt{true},
+\end{align*}
+
+\end_inset
+
+y escribimos 
+\begin_inset Formula $\mathtt{if}\,i\,\mathtt{then}\,t\,\mathtt{else}\,e\coloneqq\mathtt{cond}\,i\,t\,e$
+\end_inset
+
+, así como 
+\begin_inset Formula $a\land b\coloneqq\mathtt{and}\,a\,b$
+\end_inset
+
+, 
+\begin_inset Formula $a\lor b\coloneqq\mathtt{or}\,a\,b$
+\end_inset
+
+ y 
+\begin_inset Formula $\neg a\coloneqq a\,\mathtt{false}\,\mathtt{true}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado un tipo de dato 
+\begin_inset Formula $(X_{11}\times\dots\times X_{1k_{1}})\sqcup\dots\sqcup(X_{m1}\times\dots\times X_{mk_{m}})$
+\end_inset
+
+, podemos representar 
+\begin_inset Formula $(x_{1},\dots,x_{k_{i}})\in X_{i1}\times\dots\times X_{ik_{i}}$
+\end_inset
+
+ como 
+\begin_inset Formula $\lambda f_{1}\,\cdots\,f_{m}.f_{i}\,x_{1}\,\dots\,x_{k_{i}}$
+\end_inset
+
+.
+ Así se definen los pares ordenados:
+\begin_inset Formula 
+\begin{align*}
+(E_{1},E_{2}) & \coloneqq\lambda f.f\,E_{1}\,E_{2}.
+\end{align*}
+
+\end_inset
+
+Podemos acceder a los miembros con los 
+\series bold
+destructores
+\series default
+
+\begin_inset Formula 
+\begin{align*}
+\mathtt{fst} & \coloneqq\lambda p.p\,\mathtt{true},\\
+\mathtt{snd} & \coloneqq\lambda p.p\,\mathtt{false}.
+\end{align*}
+
+\end_inset
+
+Representamos una tupla de 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+ elementos como
+\begin_inset Formula 
+\[
+(E_{1},\dots,E_{n})\coloneqq(E_{1},(E_{2},\cdots(E_{n-1},E_{n})\cdots)),
+\]
+
+\end_inset
+
+y las 
+\series bold
+proyecciones
+\series default
+
+\begin_inset Formula 
+\begin{align*}
+(p)_{1} & \coloneqq\mathtt{fst}\,p,\\
+(p)_{n} & \coloneqq\mathtt{snd}^{n-1}\,p,\\
+(p)_{i} & \coloneqq\mathtt{fst}(\mathtt{snd}^{i-1}\,p), & 2 & \leq i<n,
+\end{align*}
+
+\end_inset
+
+donde 
+\begin_inset Formula $f^{0}\coloneqq\lambda x.x$
+\end_inset
+
+ y, para 
+\begin_inset Formula $n>0$
+\end_inset
+
+, 
+\begin_inset Formula $f^{n}\coloneqq\lambda x.f(f^{n-1}\,x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+\mathtt{CURRY}_{n}f & \coloneqq\lambda x_{1}\,\cdots\,x_{n}.f(x_{1},\dots,x_{n}),\\
+\mathtt{UNCURRY}_{n}f & \coloneqq\lambda p.g\,(p)_{1}\,\cdots\,(p)_{n},
+\end{align*}
+
+\end_inset
+
+y escribimos 
+\begin_inset Formula $\lambda(x_{1},\dots,x_{n}).T\coloneqq\mathtt{UNCURRY}_{n}(\lambda x_{1}\,\cdots\,x_{n}.T)$
+\end_inset
+
+.
+ La 
+\series bold
+
+\begin_inset Formula $\beta$
+\end_inset
+
+-conversión generalizada
+\series default
+ afirma que 
+\begin_inset Formula $(\lambda(x_{1},\dots,x_{n}).T[x_{1},\dots,x_{n}])(t_{1},\dots,t_{n})=T[t_{1},\dots,t_{n}]$
+\end_inset
+
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Y lo hace pese a que no hemos definido las sustituciones con varias variables,
+ qué curioso.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Representamos 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ con el 
+\series bold
+número
+\series default
+ o 
+\series bold
+entero de Church
+\series default
+ 
+\begin_inset Formula $n\coloneqq\lambda f.f^{n}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\mathtt{succ} & \coloneqq\lambda n\,f\,x.n\,f(f\,x)=\lambda n\,f\,x.f(n\,f\,x),\\
+\mathtt{iszero} & \coloneqq\lambda n.n(\lambda x.\mathtt{false})\mathtt{true},\\
+(+) & \coloneqq\lambda m\,n\,f\,x.m\,f(n\,f\,x),\\
+(\cdot) & \coloneqq\lambda m\,n\,f.m(n\,f),\\
+(\mathcircumflex) & \coloneqq\lambda m\,n.n\,m,
+\end{align*}
+
+\end_inset
+
+y escribimos 
+\begin_inset Formula $a+b\coloneqq(+)a\,b$
+\end_inset
+
+, 
+\begin_inset Formula $a\cdot b\coloneqq(\cdot)a\,b$
+\end_inset
+
+ y 
+\begin_inset Formula $a^{b}\coloneqq(\mathcircumflex)a\,b$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+Igual que 
+\begin_inset Formula $\text{\texttt{succ}}$
+\end_inset
+
+ es la función sucesor, la función predecesor es 
+\begin_inset Formula 
+\begin{align*}
+\mathtt{pred} & \coloneqq\lambda n\,f\,x.\mathtt{snd}(n(\lambda p.(\mathtt{false},\mathtt{fst}\,p(\mathtt{snd}\,p)(f(\mathtt{snd}\,p))))(\mathtt{true},x)),
+\end{align*}
+
+\end_inset
+
+que cumple 
+\begin_inset Formula $\mathtt{pred}\,0=0$
+\end_inset
+
+ y, para 
+\begin_inset Formula $n>0$
+\end_inset
+
+, 
+\begin_inset Formula $\mathtt{pred}\,n=n-1$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+En efecto, sea 
+\begin_inset Formula $\mathtt{pref}\coloneqq\lambda p.(\mathtt{false},\mathtt{fst}\,p\,(\mathtt{snd}\,p)\,(f\,(\mathtt{snd}\,p)))$
+\end_inset
+
+, 
+\begin_inset Formula $\mathtt{pref}\,(\mathtt{true},x)=(\mathtt{false},x)$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathtt{pref}(\mathtt{false},x)=(\mathtt{false},f\,x)$
+\end_inset
+
+, luego 
+\begin_inset Formula $0\,\mathtt{pre}\,(\mathtt{true},x)=(\mathtt{true},x)$
+\end_inset
+
+, 
+\begin_inset Formula $1\,\mathtt{pre}(\mathtt{true},x)=(\mathtt{false},x)$
+\end_inset
+
+ y por inducción, para 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+, 
+\begin_inset Formula $(\mathtt{succ}\,n)\,\mathtt{pre}\,(\mathtt{true},x)=\mathtt{pre}\,(n\,\mathtt{pre}(\mathtt{true},x))=\mathtt{pre}(\mathtt{false},f^{n-1}x)=(\mathtt{false},f^{n}x)$
+\end_inset
+
+, luego 
+\begin_inset Formula $\mathtt{pred}\,0\,f\,x=x$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathtt{pred}\,n\,f\,x=f^{n-1}x$
+\end_inset
+
+ para 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para iterar en cálculo 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ se usan funciones recursivas, pero como las funciones no tienen nombre,
+ hace falta algún mecanismo para que una función se llame a sí misma sin
+ tener que usar su nombre.
+ 
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+punto fijo
+\series default
+ de una función 
+\begin_inset Formula $f$
+\end_inset
+
+ es una función 
+\begin_inset Formula $F$
+\end_inset
+
+ tal que 
+\begin_inset Formula $F=f\,F$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+combinador paradójico
+\series default
+, 
+\series bold
+de punto fijo
+\series default
+ u 
+\series bold
+operador de búsqueda del punto fijo
+\series default
+ a un combinador 
+\series bold
+Y
+\series default
+ tal que, para toda función 
+\begin_inset Formula $f$
+\end_inset
+
+, 
+\begin_inset Formula ${\bf Y}\,f$
+\end_inset
+
+ es un punto fijo de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ El primero lo encontró Curry,
+\begin_inset Formula 
+\begin{align*}
+{\bf Y} & \coloneqq\lambda g.(\lambda x.g(x\,x))(\lambda x.g(x\,x)),
+\end{align*}
+
+\end_inset
+
+pues 
+\begin_inset Formula ${\bf Y}f=(\lambda x.f(x\,x))(\lambda x.f(x\,x))=f((\lambda x.f(x\,x))(\lambda x.f(x\,x)))=f({\bf Y}f)$
+\end_inset
+
+.
+ Con este podemos crear funciones recursivas, pues si 
+\begin_inset Formula $f=\lambda F\,x.E$
+\end_inset
+
+, 
+\begin_inset Formula ${\bf Y}\,f=\lambda x.(f({\bf Y}\,f)x)=\lambda x.E[{\bf Y}\,f/F]$
+\end_inset
+
+.
+ Por ejemplo,
+\begin_inset Formula 
+\begin{align*}
+\mathtt{factorial} & \coloneqq{\bf Y}(\lambda f\,x.\mathtt{iszero}\,x\,1(x\cdot f(\mathtt{pred}\,x))).
+\end{align*}
+
+\end_inset
+
+ El nombre de combinador paradójico tiene que ver con la paradoja de Russell,
+ en tanto que si 
+\begin_inset Formula $R\coloneqq\lambda x.\neg(x\,x)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $R\,R=\neg(R\,R)$
+\end_inset
+
+ e 
+\begin_inset Formula ${\bf Y}(\lambda f\,x.\neg(f\,x))E$
+\end_inset
+
+ no es normalizable para ningún 
+\begin_inset Formula $E$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Escribimos
+\begin_inset Formula 
+\begin{align*}
+\mathtt{let\ }x=E\mathtt{\ in\ }T & \coloneqq(\lambda x.T)E,
+\end{align*}
+
+\end_inset
+
+y permitimos las 
+\series bold
+ligaduras paralelas
+\series default
+
+\begin_inset Formula 
+\begin{align*}
+\mathtt{let\ }x_{1}=E_{1}\mathtt{\ and\ }\cdots\mathtt{\ and\ }x_{n}=E_{n}\mathtt{\ in\ }T & \coloneqq(\lambda(x_{1},\dots,x_{n}).T)(E_{1},\dots,E_{n}).
+\end{align*}
+
+\end_inset
+
+Una ligadura 
+\begin_inset Formula $x=E$
+\end_inset
+
+ se puede sustituir por 
+\begin_inset Formula $x\,b_{1}\,\dots\,b_{n}=E\equiv x=\lambda b_{1}\,\dots\,b_{n}.E$
+\end_inset
+
+, por 
+\begin_inset Formula $\mathtt{rec\ }x=E\equiv x={\bf Y}(\lambda x.E)$
+\end_inset
+
+ o por 
+\begin_inset Formula $\mathtt{rec\ }x\,b_{1}\,\dots\,b_{n}=E\equiv x={\bf Y}(\lambda x\,b_{1}\,\dots\,b_{n}.E)$
+\end_inset
+
+, donde los 
+\begin_inset Formula $b_{i}$
+\end_inset
+
+ son símbolos o tuplas de símbolos.
+ Finalmente, 
+\begin_inset Formula $E\mathtt{\ where\ }\text{<<bindings>>}$
+\end_inset
+
+ significa 
+\begin_inset Formula $\mathtt{let\ }\text{<<bindings>>}\mathtt{\ in\ }E$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Generalmente en un programa funcional se extraen expresiones comunes como
+ construcciones 
+\family typewriter
+let
+\family default
+, con lo que un programa se mira como una serie de definiciones seguida
+ por una expresión principal.
+\end_layout
+
+\end_body
+\end_document
