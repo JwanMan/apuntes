@@ -1,0 +1,839 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+oráculo
+\series default
+ para un lenguaje 
+\begin_inset Formula $L$
+\end_inset
+
+ es una caja negra que decide 
+\begin_inset Formula $L$
+\end_inset
+
+.
+ Un lenguaje 
+\begin_inset Formula $A$
+\end_inset
+
+ se 
+\series bold
+reduce
+\series default
+ a un lenguaje 
+\begin_inset Formula $B$
+\end_inset
+
+ si existe una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ que decide 
+\begin_inset Formula $A$
+\end_inset
+
+ usando un oráculo de 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+reducción
+\series default
+ de un lenguaje 
+\begin_inset Formula $L_{1}\subseteq\Sigma_{1}^{*}$
+\end_inset
+
+ a un lenguaje 
+\begin_inset Formula $L_{2}\subseteq\Sigma_{2}^{*}$
+\end_inset
+
+ es una 
+\begin_inset Formula $f:\Sigma_{1}^{*}\to\Sigma_{2}^{*}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall w\in\Sigma_{1}^{*},(w\in L_{1}\iff f(w)\in L_{2})$
+\end_inset
+
+.
+ Una función 
+\begin_inset Formula $f:\Sigma_{1}^{*}\to\Sigma_{2}^{*}$
+\end_inset
+
+ es 
+\series bold
+computable
+\series default
+ si existe una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ que siempre termina y que, para una entrada 
+\begin_inset Formula $w\in\Sigma_{1}^{*}$
+\end_inset
+
+, termina conteniendo en su cinta únicamente 
+\begin_inset Formula $f(w)$
+\end_inset
+
+.
+ Una 
+\series bold
+\emph on
+\lang english
+mapping
+\emph default
+\lang spanish
+ reducción
+\series default
+ de 
+\begin_inset Formula $L_{1}\subseteq\Sigma_{1}^{*}$
+\end_inset
+
+ a 
+\begin_inset Formula $L_{2}\subseteq\Sigma_{2}^{*}$
+\end_inset
+
+ es una reducción computable de 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ a 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+.
+ Si existe decimos que 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ se puede 
+\series bold
+reducir
+\series default
+ a 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $L_{1}\leq_{\text{m}}L_{2}$
+\end_inset
+
+, y esta relación es claramente transitiva.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teoremas de reducibilidad:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A\leq_{\text{m}}B$
+\end_inset
+
+ y 
+\begin_inset Formula $A\notin{\cal DEC}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $B\notin{\cal DEC}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $B\in{\cal DEC}$
+\end_inset
+
+, sean 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+ una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ que decide 
+\begin_inset Formula $B$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+ una que calcula una 
+\emph on
+\lang english
+mapping
+\emph default
+\lang spanish
+ reducción de 
+\begin_inset Formula $A$
+\end_inset
+
+ a 
+\begin_inset Formula $B$
+\end_inset
+
+, una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ que ejecuta 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+ y luego 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+ decide 
+\begin_inset Formula $A$
+\end_inset
+
+, luego 
+\begin_inset Formula $A\in{\cal DEC}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A\leq_{\text{m}}B$
+\end_inset
+
+ y 
+\begin_inset Formula $A\notin{\cal RE}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $B\notin{\cal RE}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Análogo.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Problema de la parada.
+
+\series default
+ 
+\begin_inset Formula 
+\[
+\text{HALT}^{\text{MT}}\coloneqq\{\langle{\cal M},w\rangle:{\cal M}\text{ es una MT que para con entrada }w\}\notin{\cal DEC}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula ${\cal M}'$
+\end_inset
+
+ es una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ que ejecuta 
+\begin_inset Formula ${\cal M}$
+\end_inset
+
+, acepta si 
+\begin_inset Formula ${\cal M}$
+\end_inset
+
+ acepta y entra en bucle infinito en otro caso, 
+\begin_inset Formula $\langle{\cal M},w\rangle\mapsto\langle{\cal M}',w\rangle$
+\end_inset
+
+ es una 
+\emph on
+\lang english
+mapping
+\emph default
+\lang spanish
+ reducción de 
+\begin_inset Formula $K$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{HALT}^{\text{MT}}$
+\end_inset
+
+, y 
+\begin_inset Formula $K\notin{\cal DEC}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{EMPTY}^{\text{MT}}\coloneqq\{\langle{\cal M}\rangle:{\cal M}\text{ es una MT que no acepta ninguna cadena}\}\notin{\cal DEC}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Dadas una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ 
+\begin_inset Formula ${\cal M}$
+\end_inset
+
+ y una cadena 
+\begin_inset Formula $w$
+\end_inset
+
+, definimos 
+\begin_inset Formula ${\cal M}_{w}$
+\end_inset
+
+ como una máquina que comprueba si la entrada es 
+\begin_inset Formula $w$
+\end_inset
+
+, rechaza si no lo es y ejecuta 
+\begin_inset Formula ${\cal M}$
+\end_inset
+
+, de modo que
+\begin_inset Formula 
+\[
+L({\cal M}_{w})=\begin{cases}
+\{w\}, & w\in L({\cal M});\\
+\emptyset, & \text{en otro caso},
+\end{cases}
+\]
+
+\end_inset
+
+y 
+\begin_inset Formula $\langle{\cal M},w\rangle\mapsto\langle{\cal M}_{w}\rangle$
+\end_inset
+
+ es una 
+\emph on
+\lang english
+mapping
+\emph default
+\lang spanish
+ reducción de 
+\begin_inset Formula $K$
+\end_inset
+
+ a 
+\begin_inset Formula $\overline{\text{EMPTY}^{\text{MT}}}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\overline{\text{EMPTY}^{\text{MT}}}\notin{\cal DEC}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\text{EMPTY}^{\text{MT}}\notin{\cal DEC}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{Pass}\coloneqq\{\langle{\cal M},w,q\rangle:{\cal M}\text{ es una MT que, con entrada }w\text{, pasa por el estado \ensuremath{q}}\}\notin{\cal DEC}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\langle{\cal M},w\rangle\mapsto\langle{\cal M},w,q_{f}\rangle$
+\end_inset
+
+, donde 
+\begin_inset Formula $q_{f}$
+\end_inset
+
+ es el estado final de 
+\begin_inset Formula ${\cal M}$
+\end_inset
+
+, es una 
+\emph on
+\lang english
+mapping
+\emph default
+\lang spanish
+ reducción de 
+\begin_inset Formula $K$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{Pass}$
+\end_inset
+
+, pues si 
+\begin_inset Formula ${\cal M}$
+\end_inset
+
+ acepta 
+\begin_inset Formula $w$
+\end_inset
+
+, pasa por 
+\begin_inset Formula $q_{f}$
+\end_inset
+
+ cuando tiene entrada 
+\begin_inset Formula $w$
+\end_inset
+
+, y si no la acepta es porque no pasa por 
+\begin_inset Formula $q_{f}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Un lenguaje 
+\begin_inset Formula $L\in{\cal RE}$
+\end_inset
+
+ es 
+\series bold
+completo
+\series default
+ para 
+\begin_inset Formula ${\cal RE}$
+\end_inset
+
+ si todo 
+\begin_inset Formula $L'\in{\cal RE}$
+\end_inset
+
+ se puede reducir a 
+\begin_inset Formula $L$
+\end_inset
+
+.
+ Entonces:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $K$
+\end_inset
+
+ es completo en 
+\begin_inset Formula ${\cal RE}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Dado 
+\begin_inset Formula $L\in{\cal RE}$
+\end_inset
+
+, sea 
+\begin_inset Formula ${\cal M}$
+\end_inset
+
+ una máquina que enumera 
+\begin_inset Formula $L$
+\end_inset
+
+, 
+\begin_inset Formula $\langle w\rangle\mapsto\langle{\cal M},w\rangle$
+\end_inset
+
+ es una 
+\emph on
+\lang english
+mapping
+\emph default
+\lang spanish
+ reducción de 
+\begin_inset Formula $L$
+\end_inset
+
+ a 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $L$
+\end_inset
+
+ es completo en 
+\begin_inset Formula ${\cal RE}$
+\end_inset
+
+ y 
+\begin_inset Formula $L'\in{\cal RE}$
+\end_inset
+
+ cumple 
+\begin_inset Formula $L\leq_{\text{m}}L'$
+\end_inset
+
+, 
+\begin_inset Formula $L'$
+\end_inset
+
+ es completo en 
+\begin_inset Formula ${\cal RE}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+propiedad
+\series default
+ de los lenguajes recursivamente enumerables es una proposición cuya única
+ variable libre se refiere a un lenguaje en 
+\begin_inset Formula ${\cal RE}$
+\end_inset
+
+, y se puede identificar con la subclase de los lenguajes en 
+\begin_inset Formula ${\cal RE}$
+\end_inset
+
+ que cumplen la propiedad.
+ Es 
+\series bold
+trivial
+\series default
+ si es 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+ o 
+\begin_inset Formula ${\cal RE}$
+\end_inset
+
+.
+ Así, 
+\begin_inset Formula ${\cal REG}$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal CF}$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal DEC}$
+\end_inset
+
+ y 
+\begin_inset Formula $\{L\text{ es finito}\}$
+\end_inset
+
+ son propiedades no triviales.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Rice:
+\series default
+ Para una propiedad 
+\begin_inset Formula $P$
+\end_inset
+
+ de 
+\begin_inset Formula ${\cal RE}$
+\end_inset
+
+ no trivial,
+\begin_inset Formula 
+\[
+{\cal L}_{P}\coloneqq\{\langle{\cal M}\rangle:{\cal M}\text{ es una MT con }L(M)\in P\}\notin{\cal DEC}.
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Supongamos 
+\begin_inset Formula ${\cal L}_{P}\in{\cal DEC}$
+\end_inset
+
+, con lo que existe 
+\begin_inset Formula ${\cal M}_{P}$
+\end_inset
+
+ que decide 
+\begin_inset Formula ${\cal L}_{P}$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $P$
+\end_inset
+
+ es no trivial, existen 
+\begin_inset Formula $L_{1}\in{\cal L}_{P}$
+\end_inset
+
+ y 
+\begin_inset Formula $L_{2}\in{\cal RE}\setminus{\cal L}_{P}$
+\end_inset
+
+, y podemos tomar que uno de los dos sea 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+.
+ Si, por ejemplo, 
+\begin_inset Formula $L_{2}=\emptyset$
+\end_inset
+
+, sea 
+\begin_inset Formula ${\cal M}_{L_{1}}$
+\end_inset
+
+ una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ que enumera 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+, para cada 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ 
+\begin_inset Formula ${\cal M}$
+\end_inset
+
+ y cada cadena 
+\begin_inset Formula $w$
+\end_inset
+
+, definimos 
+\begin_inset Formula ${\cal M}_{w}$
+\end_inset
+
+ como una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ que, ante una entrada 
+\begin_inset Formula $x$
+\end_inset
+
+, ejecuta 
+\begin_inset Formula ${\cal M}$
+\end_inset
+
+ con entrada 
+\begin_inset Formula $w$
+\end_inset
+
+, entra en bucle infinito si 
+\begin_inset Formula ${\cal M}$
+\end_inset
+
+ rechaza, y en otro caso ejecuta 
+\begin_inset Formula ${\cal M}_{L_{1}}$
+\end_inset
+
+ con entrada 
+\begin_inset Formula $x$
+\end_inset
+
+ y devuelve el resultado de esta última máquina.
+ Entonces
+\begin_inset Formula 
+\[
+L({\cal M}_{w})=\begin{cases}
+L_{1}, & w\in L({\cal M});\\
+\emptyset, & \text{en otro caso},
+\end{cases}
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $\langle{\cal M},w\rangle\mapsto\langle{\cal M}_{w}\rangle$
+\end_inset
+
+ es una 
+\emph on
+\lang english
+mapping
+\emph default
+\lang spanish
+ reducción de 
+\begin_inset Formula $K$
+\end_inset
+
+ a 
+\begin_inset Formula ${\cal L}_{P}$
+\end_inset
+
+ y basta aplicar el primer teorema de reducibilidad.
+ Si 
+\begin_inset Formula $L_{1}=\emptyset$
+\end_inset
+
+ esto permite probar que 
+\begin_inset Formula ${\cal RE}\setminus{\cal L}_{P}\notin{\cal DEC}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula ${\cal L}_{P}\notin{\cal DEC}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un lenguaje es 
+\series bold
+indecidible
+\series default
+ si no es 
+\begin_inset Formula ${\cal RE}$
+\end_inset
+
+, pero existen 
+\series bold
+grados de indecidibilidad
+\series default
+ según los oráculos que hacen falta para poder enumerarlo.
+\end_layout
+
+\end_body
+\end_document
