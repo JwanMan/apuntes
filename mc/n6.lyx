@@ -1,0 +1,451 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ 
+\begin_inset Formula ${\cal M}$
+\end_inset
+
+ que termina siempre tiene 
+\series bold
+tiempo de ejecución
+\series default
+ o 
+\series bold
+complejidad en tiempo
+\series default
+ 
+\begin_inset Formula $t:\mathbb{N}\to\mathbb{N}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $t(n)\coloneqq\max_{w\in\Sigma^{n}}\{\text{n\ensuremath{^{\text{o}}} de pasos que }{\cal M}\text{ ejecuta con entrada }w\}$
+\end_inset
+
+, donde cada paso es una regla de transición.
+\end_layout
+
+\begin_layout Standard
+Dadas 
+\begin_inset Formula $f,g:\mathbb{N}\to\mathbb{R}^{\geq0}$
+\end_inset
+
+, 
+\begin_inset Formula $f(n)$
+\end_inset
+
+ es 
+\series bold
+
+\begin_inset Formula $O$
+\end_inset
+
+ grande
+\series default
+ de 
+\begin_inset Formula $g(n)$
+\end_inset
+
+, del 
+\series bold
+orden de magnitud
+\series default
+ de 
+\begin_inset Formula $g(n)$
+\end_inset
+
+ o 
+\begin_inset Formula $g(n)$
+\end_inset
+
+ es un 
+\series bold
+límite superior asintótico
+\series default
+ para 
+\begin_inset Formula $f(n)$
+\end_inset
+
+, 
+\begin_inset Formula $f(n)=O(g(n))$
+\end_inset
+
+, si 
+\begin_inset Formula $\exists c,n_{0}\in\mathbb{N}:\forall n\geq n_{0},(n)\leq cg(n)$
+\end_inset
+
+.
+ Casi nunca necesitamos conocer la complejidad en tiempo de un algoritmo
+ con precisión, sino que basta conocer su orden de magnitud.
+ Hay una jerarquía de órdenes 
+\begin_inset Formula $O(1)\subseteq O(\log n)\subseteq O(n)\subseteq O(n\log n)\subseteq O(n^{2})\subseteq O(n^{3})\subseteq\dots\subseteq O(2^{n})\subseteq O(n^{n})$
+\end_inset
+
+, y siempre que sea posible, al especificar el orden de magnitud de una
+ función, elegiremos el más pequeño.
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $t:\mathbb{N}\to\mathbb{R}^{+}$
+\end_inset
+
+, llamamos 
+\series bold
+clase de complejidad
+\series default
+ 
+\begin_inset Formula $\text{TIME}(t(n))$
+\end_inset
+
+ a la clase de los lenguajes decidibles por una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ con complejidad en tiempo 
+\begin_inset Formula $O(t(n))$
+\end_inset
+
+.
+ Nótese que esta magnitud se refiere al lenguaje o problema, no a un algoritmo
+ concreto.
+ En general, la clase de complejidad de un problema depende del modelo de
+ computación usado, aun para modelos equivalentes.
+ Este orden no difiere mucho entre modelos deterministas, pero sí entre
+ un modelo determinista y uno no determinista.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si una 
+\begin_inset Formula $k\text{-MT}$
+\end_inset
+
+ tiene tiempo de ejecución 
+\begin_inset Formula $O(t(n))$
+\end_inset
+
+ con 
+\begin_inset Formula $t(n)\geq n$
+\end_inset
+
+, existe una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ equivalente con tiempo de ejecución 
+\begin_inset Formula $O(t(n)^{2})$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ En la demostración de que 
+\begin_inset Formula $k\text{-MT}\equiv\text{MT}$
+\end_inset
+
+, para simular una 
+\begin_inset Formula $k\text{-MT}$
+\end_inset
+
+ con una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+, recorríamos la cinta para darle el formato correcto (
+\begin_inset Formula $O(n)$
+\end_inset
+
+) y, en cada paso de la 
+\begin_inset Formula $k\text{-MT}$
+\end_inset
+
+, recorríamos la cinta 2 veces, primero para saber qué transición aplicar
+ y luego para aplicarla, actualizando el contenido de las celdas y las posicione
+s de los cursores.
+ Cada cinta tiene tamaño como mucho 
+\begin_inset Formula $O(t(n))$
+\end_inset
+
+, pues en cada transición se añade como mucho un caracter en cada cinta,
+ con lo que los recorridos son 
+\begin_inset Formula $O(t(n))$
+\end_inset
+
+ y, como se hacen 
+\begin_inset Formula $O(t(n))$
+\end_inset
+
+ de estos, el tiempo total es 
+\begin_inset Formula $O(t(n)^{2}+n)=O(t(n)^{2})$
+\end_inset
+
+, usando que 
+\begin_inset Formula $t(n)\geq n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una 
+\begin_inset Formula $\text{MTND}$
+\end_inset
+
+ es un 
+\series bold
+decisor
+\series default
+ si, para toda cadena de entrada, todas sus secuencias de ejecución son
+ finitas.
+ Una 
+\begin_inset Formula $\text{MTND}$
+\end_inset
+
+ 
+\begin_inset Formula ${\cal N}$
+\end_inset
+
+ que es un decisor tiene 
+\series bold
+tiempo de ejecución
+\series default
+ o 
+\series bold
+complejidad en tiempo
+\series default
+ 
+\begin_inset Formula $f:\mathbb{N}\to\mathbb{N}$
+\end_inset
+
+ si 
+\begin_inset Formula $f(n)$
+\end_inset
+
+ es el máximo número de pasos que ejecuta 
+\begin_inset Formula ${\cal N}$
+\end_inset
+
+ en cualquiera de sus ramas para cualquier entrada de longitud 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si una 
+\begin_inset Formula $\text{MTND}$
+\end_inset
+
+ tiene tiempo de ejecución 
+\begin_inset Formula $O(f(n))$
+\end_inset
+
+ con 
+\begin_inset Formula $f(n)\geq n$
+\end_inset
+
+, existe una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ equivalente con tiempo de ejecución 
+\begin_inset Formula $2^{O(f(n))}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ En la demostración de que 
+\begin_inset Formula $\text{MTND}\equiv\text{3-MT}$
+\end_inset
+
+, se calculan cada uno de los nodos haciendo búsqueda en anchura, pero como
+ sabemos que todas las ramas terminan, podemos hacer búsqueda en profundidad
+ y solo detenernos al llegar a una hoja.
+ Si hay hasta 
+\begin_inset Formula $m$
+\end_inset
+
+ pasos, hay como mucho 
+\begin_inset Formula $c^{m}$
+\end_inset
+
+ hojas y calcular cada una requiere una copia 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ y simular 
+\begin_inset Formula $mc^{m}$
+\end_inset
+
+ transiciones, más una cantidad de transiciones asintóticamente menor para
+ llevar cuenta del 
+\emph on
+\lang english
+backtracking
+\emph default
+\lang spanish
+ y para evitar la interferencia entre una simulación y la siguiente, por
+ lo que el total de transiciones es como mucho 
+\begin_inset Formula $O(n+mc^{m})=O(n+f(n)c^{f(n)})$
+\end_inset
+
+, usando que 
+\begin_inset Formula $n\leq f(n)$
+\end_inset
+
+.
+ Entonces el total es 
+\begin_inset Formula $O(f(n)c^{f(n)})=O(2^{\log_{2}f(n)+f(n)\log_{2}c})=2^{O(\log_{2}f(n)+f(n)\log_{2}c})=2^{O(f(n))}$
+\end_inset
+
+, y por el teorema anterior, al simular esto en un 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ el orden máximo es 
+\begin_inset Formula $(2^{O(f(n))})^{2}=2^{O(2f(n))}=2^{O(f(n))}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Nótese que 
+\begin_inset Formula $2^{O(f(n))}$
+\end_inset
+
+ no es lo mismo que 
+\begin_inset Formula $O(2^{f(n)})$
+\end_inset
+
+, pues por ejemplo 
+\begin_inset Formula $3^{n}\neq O(2^{n})$
+\end_inset
+
+ pero 
+\begin_inset Formula $3^{n}=2^{\log_{2}3^{n}}=2^{n\log_{2}3}=2^{O(n)}$
+\end_inset
+
+.
+ En efecto, claramente 
+\begin_inset Formula $n\log_{2}3\in O(n)$
+\end_inset
+
+, pero para cualesquiera 
+\begin_inset Formula $c,n_{0}\in\mathbb{N}$
+\end_inset
+
+ existe 
+\begin_inset Formula $n>n_{0}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $3^{n}>2^{n}c$
+\end_inset
+
+, sin más que tomar 
+\begin_inset Formula $n>\log_{\frac{3}{2}}c$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
