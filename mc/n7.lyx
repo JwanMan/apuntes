@@ -1,0 +1,1822 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un problema es 
+\series bold
+tratable
+\series default
+ si se puede resolver de forma suficientemente eficiente, y es 
+\series bold
+intratable
+\series default
+ si se puede resolver pero no lo suficientemente rápido como para que la
+ solución sea práctica.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+camino hamiltoniano
+\series default
+ en un grafo es un camino que pasa por todos los nodos exactamente una vez.
+ Una 
+\series bold
+
+\begin_inset Formula $k$
+\end_inset
+
+-clique
+\series default
+ es un subgrafo completo de 
+\begin_inset Formula $k$
+\end_inset
+
+ nodos.
+\end_layout
+
+\begin_layout Section
+La clase 
+\begin_inset Formula ${\cal P}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un lenguaje es 
+\series bold
+decidible en tiempo polinómico
+\series default
+ si está en
+\begin_inset Formula 
+\[
+{\cal P}\coloneqq\bigcup_{k}\text{TIME}(n^{k}).
+\]
+
+\end_inset
+
+Los problemas en esta clase se consideran tratables, y el resto intratables.
+ Así, son intratables los problemas con orden de complejidad exponencial,
+ que suelen corresponder a búsqueda exhaustiva o por fuerza bruta del espacio
+ de búsqueda, y que solo se pueden resolver de forma general en casos sencillos.
+ Realmente, si un problema en 
+\begin_inset Formula $\text{TIME}(n^{k})$
+\end_inset
+
+ es tratable depende de 
+\begin_inset Formula $k$
+\end_inset
+
+ y de la aplicación particular, pero la distinción entre tiempo polinómico
+ y exponencial es útil en la práctica.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\cal P}$
+\end_inset
+
+ no es afectada significativamente por las particularidades del modelo de
+ computación, y de hecho es igual para una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+, una 
+\begin_inset Formula $k\text{-MT}$
+\end_inset
+
+ y un ordenador típico (extendido para que sea Turing-completo).
+ Sin embargo, sí es afectada por la representación del problema, pues aunque
+ casi todas las representaciones son equivalentes a este respecto, no todas
+ lo son.
+\end_layout
+
+\begin_layout Standard
+Una representación es 
+\series bold
+razonable
+\series default
+ si permite codificar y decodificar objetos hacia una representación interna
+ en tiempo polinómico.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Esto es así pese a que no hemos definido 
+\begin_inset Quotes cld
+\end_inset
+
+representación interna
+\begin_inset Quotes crd
+\end_inset
+
+ y en principio esta depende de la implementación del algoritmo.
+\end_layout
+
+\end_inset
+
+ Las formas que hemos usado para representar autómatas, grafos, etc.
+ son razonables, pero no lo es la representación unaria de números, pues
+ es exponencialmente más larga que una representación en base 2 o más.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Cadena $a$
+\backslash
+textvisiblespace{}$b$, donde $a,b
+\backslash
+in
+\backslash
+{0,1
+\backslash
+}^*$ son números naturales representados empezando por el bit menos significativ
+o.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Número $a+b$ con la misma representación.}
+\end_layout
+
+\begin_layout Plain Layout
+
+avanzar hasta 
+\backslash
+textvisiblespace{}, borrarlo y mover el resto a la cinta 2
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+volver al principio
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$c
+\backslash
+gets0$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{no hay $B$ en ambas cintas}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	leer $a$ de cinta 1 y $b$ de 2
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	escribir $a+b+c
+\backslash
+bmod 2$ en cinta 1 y B en 2
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	hacer $c
+\backslash
+gets[a+b+c
+\backslash
+geq2]$ y avanzar
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+volver al principio
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:suma"
+
+\end_inset
+
+Suma 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ en 
+\begin_inset Formula $\text{2-MT}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Como en Algoritmo 
+\backslash
+ref{alg:suma}.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{$
+\backslash
+max
+\backslash
+{a-b,0
+\backslash
+}$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+avanzar hasta 
+\backslash
+textvisiblespace{}, borrarlo y mover el resto a la cinta 2
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+volver al principio
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$c
+\backslash
+gets0$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{no hay $B$ en ambas cintas}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	leer $a$ de cinta 1 y $b$ de 2
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	escribir $a-b-c
+\backslash
+bmod 2$ en cinta 1 y B en 2
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	hacer $c
+\backslash
+gets[a-b-c<0]$ y avanzar
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lSSi{$c=1$}{borrar toda la cinta 1 y escribir <<0>>}
+\end_layout
+
+\begin_layout Plain Layout
+
+volver al principio
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:resta"
+
+\end_inset
+
+Resta saturada 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ en 
+\begin_inset Formula $\text{2-MT}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Como en Algoritmo 
+\backslash
+ref{alg:suma}.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{$ab$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+tras el final de la cadena escribir 
+\backslash
+textvisiblespace{}
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{haya un símbolo no marcado antes del primer 
+\backslash
+textvisiblespace{}}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	marcarlo y guardarlo en $c$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$c=1$}{copiar $b$ al final precedido por 
+\backslash
+textvisiblespace}
+\end_layout
+
+\begin_layout Plain Layout
+
+	ir al primer caracter no marcado tras el segundo 
+\backslash
+textvisiblespace{}
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$c=1$}{ejecutar el Algoritmo 
+\backslash
+ref{alg:suma} para sumar}
+\end_layout
+
+\begin_layout Plain Layout
+
+	marcar el caracter actual
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+borrar desde el principio hasta el segundo 
+\backslash
+textvisiblespace{} desplazando a la izquierda
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+eliminar las marcas
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:producto"
+
+\end_inset
+
+Producto 
+\begin_inset Formula $O(n^{3})$
+\end_inset
+
+ en 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Números $a$ y $b$ separados por 
+\backslash
+textvisiblespace{}, en binario con el bit menos significativo a la izquierda.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Resto y cociente de $b/a$ separados por 
+\backslash
+textvisiblespace{}.}
+\end_layout
+
+\begin_layout Plain Layout
+
+escribir <<
+\backslash
+textvisiblespace{}>> al final de la cadena
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{$b>a$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lMientras{haya un dígito de $a$ sin marcar}{marcar un dígito de $a$ y $b$
+ más a la derecha que no esté marcado}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Mientras{la parte marcada de $b$ es menor que la de $a$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		marcar el dígito sin marcar de $b$ más a la derecha
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		insertar un 0 detrás del segundo 
+\backslash
+textvisiblespace{}
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	copiar la parte marcada de $b$, sin las marcas, al final
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+    escribir 
+\backslash
+textvisiblespace{} y hacer lo propio con $a$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	ejecutar el Algoritmo 
+\backslash
+ref{alg:resta} para restar
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	mover el resultado sobre la parte marcada de $b$, de derecha a izquierda,
+ cambiando el primer caracter de $b$ por 0 si no se había reemplazado
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	ir al principio de $b$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lMientras{$0$}{eliminar desplazando lo de detrás a la izquierda}
+\end_layout
+
+\begin_layout Plain Layout
+
+	insertar un 1 detrás del segundo 
+\backslash
+textvisiblespace{}
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+eliminar $a$
+\backslash
+textvisiblespace{} desplazando lo de detrás a la izquierda
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:cociente"
+
+\end_inset
+
+Cociente entero 
+\begin_inset Formula $O(n^{3})$
+\end_inset
+
+ en 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+, usando que comparar dos números claramente se puede hacer en 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+.
+ Aunque esta comparación se hace en un bucle dentro de otro, a cada comparación
+ le corresponde la inserción de un dígito en el cociente y hay 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ de estas inserciones.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{Gramática $G=(V,
+\backslash
+Sigma,{
+\backslash
+cal R},S)$ en forma normal de Chomsky y cadena $w_1
+\backslash
+cdots w_n
+\backslash
+in
+\backslash
+Sigma$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{Acepta si $w
+\backslash
+in L(G)$, rechaza en otro caso.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SSi{$w=
+\backslash
+lambda$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$S
+\backslash
+to
+\backslash
+lambda
+\backslash
+in{
+\backslash
+cal R}$}{aceptar}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lEnOtroCaso{rechazar}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+$T
+\backslash
+gets
+\backslash
+emptyset$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+tcp*{{
+\backslash
+rm Para $
+\backslash
+{(i,j)
+\backslash
+}_{1
+\backslash
+leq i<j
+\backslash
+leq n}$, $T(i,j)$ contiene las variables que generan $w_i
+\backslash
+cdots w_j$.}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$i
+\backslash
+gets1$ 
+\backslash
+KwA $n$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lPara{$A
+\backslash
+in V$ con $A
+\backslash
+to w_i
+\backslash
+in{
+\backslash
+cal R}$}{añadir $A$ a $T(i,i)$}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$l
+\backslash
+gets2$ 
+\backslash
+KwA $n$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$i=1$ 
+\backslash
+KwA $n-l+1$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		$j
+\backslash
+gets i+l-1$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+Para{$k
+\backslash
+gets i$ 
+\backslash
+KwA $j-1$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+Para{$A
+\backslash
+to BC
+\backslash
+in{
+\backslash
+cal R}$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\backslash
+lSSi{$B
+\backslash
+in T(i,k)$ y $C
+\backslash
+in T(k+1,j)$}{añadir $A$ a $T(i,j)$}
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lSSi{$S
+\backslash
+in T(1,n)$}{aceptar}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lEnOtroCaso{rechazar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:cyk"
+
+\end_inset
+
+Algoritmo CYK de programación dinámica para establecer si una cadena está
+ en un cierto lenguaje libre de contexto en tiempo polinómico.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Están en 
+\begin_inset Formula ${\cal P}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{RELPRIM}\coloneqq\{\langle x,y\rangle:x,y\in\mathbb{N}\text{ son primos relativos}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Una forma de comprobarlo es usar el algoritmo de Euclides para ver que 
+\begin_inset Formula $\gcd\{x,y\}=1$
+\end_inset
+
+, repitiendo 
+\begin_inset Formula $(x,y)\gets(y,x\bmod y)$
+\end_inset
+
+ hasta que 
+\begin_inset Formula $y=0$
+\end_inset
+
+.
+ La operación más cara en un paso es el módulo, 
+\begin_inset Formula $O(n^{3})$
+\end_inset
+
+ con el Algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:cociente"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, y basta ver que el número de pasos es polinómico respecto al tamaño de
+ la entrada, para lo que vemos que, excluyendo el primer paso, cada 2 pasos
+ 
+\begin_inset Formula $x$
+\end_inset
+
+ se divide al menos por la mitad.
+ En efecto, tras el primer paso 
+\begin_inset Formula $x>y$
+\end_inset
+
+, de modo que si 
+\begin_inset Formula $\frac{x}{2}\geq y$
+\end_inset
+
+, 
+\begin_inset Formula $x\bmod y<y\leq\frac{x}{2}$
+\end_inset
+
+, y si 
+\begin_inset Formula $\frac{x}{2}<y$
+\end_inset
+
+, 
+\begin_inset Formula $x\bmod y=x-y<\frac{x}{2}$
+\end_inset
+
+, pero 
+\begin_inset Formula $x\bmod y$
+\end_inset
+
+ será el valor de 
+\begin_inset Formula $y$
+\end_inset
+
+ en un paso y de 
+\begin_inset Formula $x$
+\end_inset
+
+ en dos.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{PATH}\coloneqq\{\langle G,s,t\rangle:G\text{ es un grafo dirigido con un camino de }s\text{ a }t\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Se añade el nodo 
+\begin_inset Formula $s$
+\end_inset
+
+ a una lista 
+\begin_inset Formula $F$
+\end_inset
+
+.
+ Mientras haya un nodo 
+\begin_inset Formula $n$
+\end_inset
+
+ en 
+\begin_inset Formula $F$
+\end_inset
+
+, se elimina de 
+\begin_inset Formula $n$
+\end_inset
+
+, se añade a 
+\begin_inset Formula $C$
+\end_inset
+
+, se recorren los arcos añadiendo a 
+\begin_inset Formula $F$
+\end_inset
+
+ los que parten de 
+\begin_inset Formula $n$
+\end_inset
+
+ y van a un nodo que no está 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ Se acepta si y sólo si 
+\begin_inset Formula $t$
+\end_inset
+
+ está en 
+\begin_inset Formula $C$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{4-CLIQUE}\coloneqq\{\langle G\rangle:G\text{ es un grafo no dirigido con una 4-clique}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $G$
+\end_inset
+
+ tiene menos de 4 nodos, rechaza.
+ En otro caso se enumeran las 
+\begin_inset Formula $\binom{n}{4}=\frac{n!}{4!(n-4)!}=O(n^{4})$
+\end_inset
+
+ combinaciones de 4 nodos y, para cada una, se comprueba si todos los pares
+ de nodos están en el grafo.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Todo 
+\begin_inset Formula $L\in{\cal CF}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:cyk"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Dados 
+\begin_inset Formula $L_{1},L_{2}\in{\cal P}$
+\end_inset
+
+, 
+\begin_inset Formula $L_{1}\cup L_{2},L_{1}\cap L_{2},\overline{L_{1}},L_{1}L_{2},L_{1}^{*}\in{\cal P}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ La unión, intersección y clausura son triviales.
+ Respecto a la concatenación, para cada partición de la entrada en 2 partes,
+ posiblemente vacías, se decide 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ en la primera y 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ en la segunda.
+ Para ver que 
+\begin_inset Formula $L_{1}^{*}\in{\cal P}$
+\end_inset
+
+, hacemos lo siguiente: Para una entrada 
+\begin_inset Formula $w_{1}\cdots w_{n}$
+\end_inset
+
+, si 
+\begin_inset Formula $n=0$
+\end_inset
+
+, acepta.
+ En otro caso se usa una programación dinámica con una tabla 
+\begin_inset Formula $T(i,j)$
+\end_inset
+
+ en la que, para 
+\begin_inset Formula $1\leq i<j\leq n$
+\end_inset
+
+, 
+\begin_inset Formula $T(i,j)$
+\end_inset
+
+ indica si 
+\begin_inset Formula $w_{i}\cdots w_{j}\in L_{1}^{*}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $l$
+\end_inset
+
+ de 1 a 
+\begin_inset Formula $n$
+\end_inset
+
+, para 
+\begin_inset Formula $i$
+\end_inset
+
+ de 1 a 
+\begin_inset Formula $n-l+1$
+\end_inset
+
+, sea 
+\begin_inset Formula $j=i+l-1$
+\end_inset
+
+, si 
+\begin_inset Formula $w_{i}\cdots w_{j}\in L_{1}$
+\end_inset
+
+, se marca 
+\begin_inset Formula $T(i,j)$
+\end_inset
+
+, y de lo contrario, para 
+\begin_inset Formula $k$
+\end_inset
+
+ de 
+\begin_inset Formula $i$
+\end_inset
+
+ a 
+\begin_inset Formula $j-1$
+\end_inset
+
+, si están marcadas 
+\begin_inset Formula $T(i,k)$
+\end_inset
+
+ y 
+\begin_inset Formula $T(k+1,j)$
+\end_inset
+
+, se marca 
+\begin_inset Formula $T(i,j)$
+\end_inset
+
+.
+ Finalmente se acepta o rechaza según 
+\begin_inset Formula $T(1,n)$
+\end_inset
+
+ esté marcada o no.
+ En total se hacen 
+\begin_inset Formula $O(n^{3})$
+\end_inset
+
+ consultas a 
+\begin_inset Formula $T$
+\end_inset
+
+ y 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+ ejecuciones de la máquina que decide 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+La clase 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dada una clase 
+\begin_inset Formula ${\cal C}$
+\end_inset
+
+ de problemas que una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ puede solucionar con un cierto orden de complejidad en tiempo, llamamos
+ 
+\begin_inset Formula ${\cal NC}$
+\end_inset
+
+ a la clase de problemas que una 
+\begin_inset Formula $\text{MTND}$
+\end_inset
+
+ puede solucionar en dicho orden de complejidad.
+\end_layout
+
+\begin_layout Standard
+Así, un lenguaje es 
+\begin_inset Formula $\text{NTIME}(f(n))$
+\end_inset
+
+ si existe una 
+\begin_inset Formula $\text{MTND}$
+\end_inset
+
+ que lo decide con complejidad en tiempo 
+\begin_inset Formula $O(f(n))$
+\end_inset
+
+, y 
+\begin_inset Formula 
+\[
+{\cal NP}=\bigcup_{k}\text{NTIME}(n^{k}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+verificador
+\series default
+ para un lenguaje 
+\begin_inset Formula $L$
+\end_inset
+
+ es un algoritmo 
+\begin_inset Formula $V$
+\end_inset
+
+ tal que 
+\begin_inset Formula $L=\{w:\exists c:V\text{ acepta }\langle w,c\rangle\}$
+\end_inset
+
+.
+ Un lenguaje 
+\begin_inset Formula $L$
+\end_inset
+
+ es 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+ si y sólo si tiene un verificador que se ejecuta en tiempo 
+\begin_inset Formula $O(|w|^{k})$
+\end_inset
+
+ para algún 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $M$
+\end_inset
+
+ una 
+\begin_inset Formula $\text{MTND}$
+\end_inset
+
+ que decide 
+\begin_inset Formula $L$
+\end_inset
+
+ en tiempo polinómico, definimos un verificador que, ante una entrada 
+\begin_inset Formula $\langle w,c\rangle$
+\end_inset
+
+, simula 
+\begin_inset Formula $M$
+\end_inset
+
+ tratando 
+\begin_inset Formula $c$
+\end_inset
+
+ como una secuencia con la opción que hace 
+\begin_inset Formula $M$
+\end_inset
+
+ en cada paso para aceptar 
+\begin_inset Formula $w$
+\end_inset
+
+, y que acepta o rechaza según lo haga 
+\begin_inset Formula $M$
+\end_inset
+
+ con esta configuración.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $V$
+\end_inset
+
+ el verificador en tiempo 
+\begin_inset Formula $O(|w|^{k})$
+\end_inset
+
+, por definición existen 
+\begin_inset Formula $m,c\in\mathbb{N}$
+\end_inset
+
+ tales que, para toda cadena 
+\begin_inset Formula $w$
+\end_inset
+
+, 
+\begin_inset Formula $V$
+\end_inset
+
+ se ejecuta en tiempo máximo 
+\begin_inset Formula $t(w)\coloneqq\max\{m,c|w|^{k}\}$
+\end_inset
+
+.
+ Definimos una 
+\begin_inset Formula $\text{MTND}$
+\end_inset
+
+ que, ante una entrada 
+\begin_inset Formula $w$
+\end_inset
+
+, elige de forma no determinista una cadena 
+\begin_inset Formula $c$
+\end_inset
+
+ de longitud máxima 
+\begin_inset Formula $t(w)$
+\end_inset
+
+, ejecuta 
+\begin_inset Formula $V$
+\end_inset
+
+ sobre 
+\begin_inset Formula $\langle w,c\rangle$
+\end_inset
+
+ y acepta o rechaza según lo haga 
+\begin_inset Formula $V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Están en 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{HAMPATH}\coloneqq\{\langle G,s,t\rangle:G\text{ es un grafo dirigido con camino hamiltoniano de }s\text{ a }t\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+El verificador recibe el grafo y el camino hamiltoniano, cuyo tamaño es
+ claramente polinómico respecto al del grafo.
+ Marca los vértices de dicho camino, rechazando si encuentra un vértice
+ que ya ha sido marcado.
+ Si queda algún vértice sin marcar, rechaza.
+ Para cada arco del camino, si el arco no está en el grafo, rechaza.
+ Finalmente, acepta si el camino empieza por 
+\begin_inset Formula $s$
+\end_inset
+
+ y termina por 
+\begin_inset Formula $t$
+\end_inset
+
+ y rechaza en otro caso.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{CLIQUE}\coloneqq\{\langle G,k\rangle:G\text{ es grafo no dirigido con }k\text{-clique}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+El verificador recibe la lista de 
+\begin_inset Formula $k$
+\end_inset
+
+ nodos de la clique, de tamaño claramente proporcional al grafo.
+ Si tiene algún nodo que no está en el grafo, o más o menos de 
+\begin_inset Formula $k$
+\end_inset
+
+ nodos, rechaza.
+ Para cada par de nodos en la clique, si el par no es un arco del grafo,
+ rechaza.
+ En otro caso acepta.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $L_{1},L_{2}\in{\cal NP}$
+\end_inset
+
+, 
+\begin_inset Formula $L_{1}\cup L_{2},L_{1}\cap L_{2},L_{1}L_{2},L_{1}^{*}\in{\cal NP}$
+\end_inset
+
+.
+ Se desconoce si 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+ es cerrada para el complemento o no.
+ 
+\begin_inset Formula ${\cal P}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+ no son cerradas para subconjuntos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\cal P}\subseteq{\cal NP}$
+\end_inset
+
+, pero es un problema abierto si 
+\begin_inset Formula ${\cal P}={\cal NP}$
+\end_inset
+
+ o no.
+ La mayoría de investigadores consideran que 
+\begin_inset Formula ${\cal P}\neq{\cal NP}$
+\end_inset
+
+ porque se han invertido muchos recursos en encontrar algoritmos en tiempo
+ polinómico para ciertos problemas y no se han encontrado, y aunque se ha
+ intentado probar la existencia de algoritmos en 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+ que no están en 
+\begin_inset Formula ${\cal P}$
+\end_inset
+
+, no se han invertido tantos recursos porque el incentivo económico de probar
+ algo que casi se da por hecho es relativamente bajo.
+\end_layout
+
+\begin_layout Standard
+Un problema tiene 
+\series bold
+tiempo pseudo-polinómico
+\series default
+ si su entrada es una cantidad fija de números y existe un algoritmo que
+ lo resuelve en tiempo polinómico respecto a estos números pero no respecto
+ a la longitud de la entrada.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{PRIME}$
+\end_inset
+
+, el conjunto de números primos, es 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+ y pseudo-polinómico, pues un algoritmo para decidir si 
+\begin_inset Formula $n\in\text{PRIME}$
+\end_inset
+
+ es comprobar si es divisible por algún número entre 2 y 
+\begin_inset Formula $n-1$
+\end_inset
+
+, haciendo 
+\begin_inset Formula $n-2$
+\end_inset
+
+ divisiones.
+ En 2002, los autores indios Agarwal, Kayal y Saxena encontraron un algoritmo
+ que decide 
+\begin_inset Formula $\text{PRIME}$
+\end_inset
+
+ en tiempo polinómico, el 
+\series bold
+\emph on
+\lang english
+AKS primality test
+\series default
+\emph default
+\lang spanish
+, probando que 
+\begin_inset Formula $\text{PRIME}\in{\cal P}$
+\end_inset
+
+.
+ Este algoritmo no es constructivo; no encuentra factores primos de un número
+ compuesto.
+\end_layout
+
+\end_body
+\end_document

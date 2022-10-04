@@ -8,11 +8,13 @@
 \begin_preamble
 \input{../defs}
 \usepackage[x11names, svgnames, rgb]{xcolor}
-\usepackage[utf8]{inputenc}
 \usepackage{tikz}
 \usetikzlibrary{snakes,arrows,shapes}
 \end_preamble
 \use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
 \maintain_unincluded_children false
 \language spanish
 \language_package default
@@ -83,6 +85,10 @@
 \end_header
 
 \begin_body
+
+\begin_layout Section
+Autómatas de pila
+\end_layout
 
 \begin_layout Standard
 Un 
@@ -508,6 +514,11 @@ Llamamos
 \end_inset
 
  a la de lenguajes aceptados por algún PDAD.
+ No todo lenguaje aceptado por un PDA es aceptado por un PDAD.
+\end_layout
+
+\begin_layout Section
+Gramáticas libres de contexto
 \end_layout
 
 \begin_layout Standard
@@ -664,6 +675,7 @@ libre de contexto
 \end_inset
 
  a la clase de los lenguajes libres de contexto.
+ Todo lenguaje generado por un PDA es libre de contexto.
 \end_layout
 
 \begin_layout Standard
@@ -723,6 +735,433 @@ derivación por la izquierda
 \end_inset
 
  en preorden y expandiendo cada variable que se encuentre.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{GLC $G=(V,
+\backslash
+Sigma,{
+\backslash
+cal R},S)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{GLC $G'=(V,
+\backslash
+Sigma,{
+\backslash
+cal R},S_0)$ en forma normal de Chomsky con $L(G')=L(G)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+añadir una nueva variable $S_0$ a $V$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+añadir $S_0
+\backslash
+to S$ a ${
+\backslash
+cal R}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$A
+\backslash
+to
+\backslash
+lambda
+\backslash
+in{
+\backslash
+cal R}$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	eliminar $A
+\backslash
+to
+\backslash
+varepsilon$ de ${
+\backslash
+cal R}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Para{$B
+\backslash
+to w
+\backslash
+in{
+\backslash
+cal R}$ con $A$ en $w$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		añadir $B
+\backslash
+to w'$ a ${
+\backslash
+cal R}$ para cada $w'$ resultante de
+\end_layout
+
+\begin_layout Plain Layout
+
+		eliminar 1 o más ocurrencias de $A$ en $w$, con lo que si hay
+\end_layout
+
+\begin_layout Plain Layout
+
+		$n$ ocurrencias de $A$ se añaden $2^n-1$ reglas, con la
+\end_layout
+
+\begin_layout Plain Layout
+
+		excepción de que si habíamos eliminado $B
+\backslash
+to
+\backslash
+lambda$ no la
+\end_layout
+
+\begin_layout Plain Layout
+
+		volvemos a añadir
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Mientras{exista $A
+\backslash
+to B
+\backslash
+in{
+\backslash
+cal R}$ con $B
+\backslash
+in V$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	eliminar $A
+\backslash
+to B$ de ${
+\backslash
+cal R}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+SSi{$A
+\backslash
+neq B$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lPara{$B
+\backslash
+to u
+\backslash
+in{
+\backslash
+cal R}$}{añadir $A
+\backslash
+to u$ a $R$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$A
+\backslash
+to u_1
+\backslash
+cdots u_k
+\backslash
+in{
+\backslash
+cal R}$ con $k
+\backslash
+geq3$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	eliminar $A
+\backslash
+to u_1
+\backslash
+cdots u_k$ de ${
+\backslash
+cal R}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	añadir nuevas variables $A_1,
+\backslash
+dots,A_{k-2}$ a $V$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lPara{$i
+\backslash
+gets1$ a $k-3$}{añadir $A_i
+\backslash
+to u_{i+1}A_{i+1}$ a ${
+\backslash
+cal R}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+	añadir $A
+\backslash
+to u_1A_1$ y $A_{k-2}
+\backslash
+to u_{k-1}u_k$ a $R$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$X
+\backslash
+to ab$ con $a
+\backslash
+in
+\backslash
+Sigma$ o $b
+\backslash
+in
+\backslash
+Sigma$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+SSi{$a
+\backslash
+in
+\backslash
+Sigma$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+		añadir una nueva variable $A$ a $V$ y $A
+\backslash
+to a$ a ${
+\backslash
+cal R}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		cambiar $X
+\backslash
+to ab$ por $X
+\backslash
+to Ab$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lSSi{$b
+\backslash
+in
+\backslash
+Sigma$}{hacer lo propio}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:chomsky"
+
+\end_inset
+
+Conversión de una GLC a forma normal de Chomsky.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una GLC está en 
+\series bold
+forma normal de Chomsky
+\series default
+ si todas sus reglas son de la forma 
+\begin_inset Formula $S\to\lambda$
+\end_inset
+
+, 
+\begin_inset Formula $A\to BC$
+\end_inset
+
+ o 
+\begin_inset Formula $A\to a$
+\end_inset
+
+, donde 
+\begin_inset Formula $S$
+\end_inset
+
+ es la variable inicial, 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $B$
+\end_inset
+
+ y 
+\begin_inset Formula $C$
+\end_inset
+
+ son variables arbitrarias con 
+\begin_inset Formula $B,C\neq S$
+\end_inset
+
+ y 
+\begin_inset Formula $a$
+\end_inset
+
+ es un terminal arbitrario.
+ Toda GLC se puede convertir a forma normal de Chomsky con el Algoritmo
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:chomsky"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Propiedades de 
+\begin_inset Formula ${\cal CF}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -858,7 +1297,7 @@ small
 
 
 \backslash
-input{n2.1.tex} % dot -Txdot n2.1.dot | dot2tex --codeonly >n2.1.tex
+input{n2.1.tex}% dot -Txdot n2.1.dot | dot2tex --codeonly >n2.1.tex
 \end_layout
 
 \begin_layout Plain Layout
@@ -879,18 +1318,17 @@ end{tikzpicture}
 \end_inset
 
  Por definición.
-\begin_inset Note Comment
-status open
+\end_layout
 
 \begin_layout Description
 \begin_inset Formula $3\subseteq4]$
 \end_inset
 
- Dado un PDA 
+ Un PDA 
 \begin_inset Formula ${\cal A}=(Q,\Sigma,\Gamma,\delta,A_{0},q_{0},F)$
 \end_inset
 
-, el PDA
+ acepta el mismo lenguaje que el PDA
 \begin_inset Formula $^{\text{v}}$
 \end_inset
 
@@ -906,14 +1344,18 @@ status open
 \delta(q,a,x)\cup\{(q_{\text{e}},\epsilon)\}, & q\in F\land a,x=\epsilon;\\
 \delta(q,a,x), & q\in Q\land\neg(q\in F\land a,x=\epsilon);\\
 \{(q_{\text{e}},\epsilon)\}, & q=q_{\text{e}}\land a=\epsilon\land x\neq\epsilon;\\
-\emptyset, & \text{en otro caso},
+\emptyset, & \text{en otro caso}.
 \end{cases}
 \]
 
 \end_inset
 
-acepta el mismo lenguaje.
- En efecto, si 
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+En efecto, si 
 \begin_inset Formula $s_{0}\cdots s_{k}$
 \end_inset
 
@@ -1040,11 +1482,16 @@ acepta el mismo lenguaje.
  al fondo de la pila en cada posición).
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Description
 \begin_inset Formula $4\subseteq3]$
 \end_inset
 
- Dado un PDA
+ Un PDA
 \begin_inset Formula $^{\text{v}}$
 \end_inset
 
@@ -1052,7 +1499,7 @@ acepta el mismo lenguaje.
 \begin_inset Formula ${\cal A}'\coloneqq(Q,\Sigma,\Gamma,\delta,A_{0},q_{0})$
 \end_inset
 
-, el PDA dado por 
+ acepta el mismo lenguaje que el PDA dado por 
 \begin_inset Formula ${\cal A}\coloneqq(Q\sqcup\{q_{\text{s}}\}\sqcup\{q_{\text{e}}\},\Sigma,\Gamma\sqcup\{\$\},\delta',\$,q_{\text{s}},\{q_{\text{e}}\})$
 \end_inset
 
@@ -1069,6 +1516,11 @@ acepta el mismo lenguaje.
 
 \end_inset
 
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 En efecto, si 
 \begin_inset Formula $s_{0}\cdots s_{k}$
 \end_inset
@@ -1195,9 +1647,9 @@ cumple
 \end_inset
 
 .
-\end_layout
+\begin_inset Note Comment
+status open
 
-\begin_deeper
 \begin_layout Itemize
 \begin_inset Argument item:1
 status open
@@ -1269,6 +1721,7 @@ nte y se elimina el símbolo de la pila, y por inducción sobre la altura
 .
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 \begin_inset Argument item:1
 status open
@@ -1373,6 +1826,11 @@ Sean
 \end_layout
 
 \end_deeper
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 
 \series bold
@@ -1661,22 +2119,6 @@ Demostración:
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{samepage}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Dados 
 \begin_inset Formula $L_{1},L_{2}\in{\cal CF}$
 \end_inset
@@ -1928,7 +2370,12 @@ En general
 \begin_inset Formula $L_{2}\coloneqq\{a^{m}b^{n}c^{n}\}_{n,m\in\mathbb{N}}$
 \end_inset
 
- son libres de contexto, pues vienen dados respectivamente por
+ son libres de contexto,
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+pues vienen dados respectivamente por
 \begin_inset Formula 
 \begin{eqnarray*}
 \begin{array}{rl}
@@ -1944,7 +2391,12 @@ B & \to bBc\mid\epsilon
 
 \end_inset
 
-pero 
+
+\end_layout
+
+\end_inset
+
+ pero 
 \begin_inset Formula $L_{1}\cap L_{2}=\{a^{n}b^{n}c^{n}\}_{n\in\mathbb{N}}\notin{\cal CF}$
 \end_inset
 
@@ -1993,24 +2445,8 @@ Si lo fuera, como
 
 \end_deeper
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{samepage}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Los autómatas de pila no son un buen modelo de computación, pues esperaríamos
- que un ordenador pudiera reconocer si una cadena está en 
+Los autómatas de pila no son un buen modelo de computación, pues un ordenador
+ puede reconocer si una cadena está en 
 \begin_inset Formula $\{a^{n}b^{n}c^{n}\}_{n\in\mathbb{N}}$
 \end_inset
 
