@@ -1,0 +1,961 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una 
+\series bold
+reducción de tiempo polinómico
+\series default
+ de un lenguaje 
+\begin_inset Formula $L$
+\end_inset
+
+ a otro 
+\begin_inset Formula $L'$
+\end_inset
+
+ es una función polinómica 
+\begin_inset Formula $f:\Sigma^{*}\to\Sigma^{*}$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $w\in\Sigma^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $w\in L\iff f(w)\in L'$
+\end_inset
+
+.
+ Si existe decimos que 
+\begin_inset Formula $L$
+\end_inset
+
+ 
+\series bold
+se puede reducir polinómicamente
+\series default
+ o 
+\series bold
+se polireduce
+\series default
+ a 
+\begin_inset Formula $L'$
+\end_inset
+
+, 
+\begin_inset Formula $L\leq_{\text{p}}L'$
+\end_inset
+
+.
+ Claramente si 
+\begin_inset Formula $L\leq_{\text{p}}L'$
+\end_inset
+
+ y 
+\begin_inset Formula $L'\in{\cal P}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $L\in{\cal P}$
+\end_inset
+
+, y si 
+\begin_inset Formula $L\leq_{\text{p}}L'$
+\end_inset
+
+ y 
+\begin_inset Formula $L'\in{\cal NP}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $L\in{\cal NP}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un lenguaje 
+\begin_inset Formula $L\in{\cal NP}$
+\end_inset
+
+ es 
+\series bold
+
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completo
+\series default
+ si cualquier otro lenguaje 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+ se polireduce a 
+\begin_inset Formula $L$
+\end_inset
+
+.
+ 
+\begin_inset Formula ${\cal P}={\cal NP}$
+\end_inset
+
+ si y sólo si algún lenguaje 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completo está en 
+\begin_inset Formula ${\cal P}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Obvio.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+En tal caso todo lenguaje en 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+ se polireduce a él y por tanto también está en 
+\begin_inset Formula ${\cal P}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Tercer teorema de reducibilidad:
+\series default
+ Si 
+\begin_inset Formula $L\leq_{\text{p}}L'$
+\end_inset
+
+ y 
+\begin_inset Formula $L$
+\end_inset
+
+ es 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completo entonces 
+\begin_inset Formula $L'$
+\end_inset
+
+ es 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completo.
+\end_layout
+
+\begin_layout Section
+El problema SAT
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+proposición
+\series default
+ o 
+\series bold
+fórmula booleana
+\series default
+ es una 
+\series bold
+variable
+\series default
+ o 
+\series bold
+proposición atómica
+\series default
+ dada por una secuencia de letras, una 
+\series bold
+conjunción
+\series default
+ 
+\begin_inset Formula $(a\land b)$
+\end_inset
+
+, una 
+\series bold
+disyunción
+\series default
+ 
+\begin_inset Formula $(a\lor b)$
+\end_inset
+
+ o una 
+\series bold
+negación
+\series default
+ 
+\begin_inset Formula $(\neg a)$
+\end_inset
+
+, donde 
+\begin_inset Formula $a$
+\end_inset
+
+ y 
+\begin_inset Formula $b$
+\end_inset
+
+ son proposiciones.
+ Podemos reducir la cantidad de paréntesis entendiendo que la negación tiene
+ precedencia sobre la disyunción y la conjunción y que estas son asociativas
+ por la izquierda.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+asignación de valores
+\series default
+ es una función que a cada variable de una cierta proposición le asigna
+ un 
+\series bold
+valor de verdad
+\series default
+, 
+\begin_inset Quotes cld
+\end_inset
+
+verdadero
+\begin_inset Quotes crd
+\end_inset
+
+ o 
+\begin_inset Quotes cld
+\end_inset
+
+falso
+\begin_inset Quotes crd
+\end_inset
+
+.
+ Dada una asignación de valores, el valor de verdad de 
+\begin_inset Formula $(a\land b)$
+\end_inset
+
+ es verdadero si lo es el de 
+\begin_inset Formula $a$
+\end_inset
+
+ y el de 
+\begin_inset Formula $b$
+\end_inset
+
+ y falso en otro caso; el de 
+\begin_inset Formula $(a\lor b)$
+\end_inset
+
+ es falso si lo es el de 
+\begin_inset Formula $a$
+\end_inset
+
+ y el de 
+\begin_inset Formula $b$
+\end_inset
+
+ y verdadero en otro caso, y el de 
+\begin_inset Formula $(\neg a)$
+\end_inset
+
+ es verdadero si y sólo si el de 
+\begin_inset Formula $a$
+\end_inset
+
+ es falso, usando siempre la misma asignación.
+\end_layout
+
+\begin_layout Standard
+Una proposición es 
+\series bold
+satisfacible
+\series default
+ si existe una asignación de valores que le asigna el valor de verdad verdadero.
+ Definimos
+\begin_inset Formula 
+\[
+\text{SAT}\coloneqq\text{SAT}_{0}\coloneqq\text{SAT}_{\text{LP}}\coloneqq\{\langle\Phi\rangle:\Phi\text{ es una fórmula booleana satisfacible}\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $N=(Q,\Sigma,\Gamma,\delta,q_{0},q_{\text{f}})$
+\end_inset
+
+ una 
+\begin_inset Formula $\text{MNTD}$
+\end_inset
+
+ en tiempo polinómico, sean 
+\begin_inset Formula $m,c,k\in\mathbb{N}^{*}$
+\end_inset
+
+ tales que, para una entrada de tamaño 
+\begin_inset Formula $n$
+\end_inset
+
+, 
+\begin_inset Formula $N$
+\end_inset
+
+ se ejecuta en no más de 
+\begin_inset Formula $t(n)\coloneqq\max\{m,cn^{k}\}$
+\end_inset
+
+ pasos, un 
+\series bold
+tablón de cálculo
+\series default
+ para 
+\begin_inset Formula $N$
+\end_inset
+
+ es una matriz en 
+\begin_inset Formula ${\cal M}_{t(n)+1}(Q\sqcup\Gamma)$
+\end_inset
+
+ en que cada fila es una configuración de 
+\begin_inset Formula $N$
+\end_inset
+
+ que se sigue de la anterior, siendo la primera una configuración inicial.
+ Las configuraciones se representan como las primeras 
+\begin_inset Formula $t(n)$
+\end_inset
+
+ posiciones de la cinta con el estado de la máquina justo a la izquierda
+ de la posición donde está el cursor.
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $i\in\{1,\dots,t(n)\}$
+\end_inset
+
+ y 
+\begin_inset Formula $j\in\{1,\dots,t(n)+1\}$
+\end_inset
+
+, la 
+\series bold
+ventana 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+
+\series default
+ de un tablón 
+\begin_inset Formula $(a_{ij})$
+\end_inset
+
+ es la submatriz 
+\begin_inset Formula $2\times3$
+\end_inset
+
+ 
+\begin_inset Formula $(a_{pq})_{i\leq p\leq i+1}^{j-1\leq q\leq j+1}$
+\end_inset
+
+, donde 
+\begin_inset Formula $a_{p0}\coloneqq a_{p,t(n)+1}\coloneqq\#\notin Q\sqcup\Gamma$
+\end_inset
+
+.
+ Una 
+\series bold
+ventana legal
+\series default
+ es una matriz en 
+\begin_inset Formula ${\cal M}_{2\times3}(Q\sqcup\Gamma\sqcup\{\#\})$
+\end_inset
+
+ que puede ser ventana de un tablón de cálculo de 
+\begin_inset Formula $N$
+\end_inset
+
+ sin restringirlo a que la primera fila sea una configuración inicial.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Cook-Levin:
+\series default
+ 
+\begin_inset Formula $\text{SAT}$
+\end_inset
+
+ es 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completo.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $\text{SAT}\in{\cal NP}$
+\end_inset
+
+, pues su número de variables es menor que la longitud y por tanto decidir
+ una asignación de forma no determinista tiene tiempo polinómico, y el número
+ de evaluaciones a realizar para determinar el valor de verdad es una por
+ cada símbolo u operador y cada una se hace tiempo polinómico.
+ Sea ahora 
+\begin_inset Formula $A\in{\cal NP}$
+\end_inset
+
+, y queremos ver que 
+\begin_inset Formula $A\leq_{\text{p}}\text{SAT}$
+\end_inset
+
+.
+ Sea 
+\begin_inset Formula $N=(Q,\Sigma,\Gamma,\delta,q_{0},q_{\text{f}})$
+\end_inset
+
+ una 
+\begin_inset Formula $\text{MTND}$
+\end_inset
+
+ que decide 
+\begin_inset Formula $A$
+\end_inset
+
+ en tiempo polinómico, para 
+\begin_inset Formula $w\in\Sigma^{*}$
+\end_inset
+
+, si 
+\begin_inset Formula $N$
+\end_inset
+
+ tiene un tablón con entrada 
+\begin_inset Formula $w$
+\end_inset
+
+ que contiene 
+\begin_inset Formula $q_{\text{f}}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $w=w_{1}\cdots w_{n}\in A$
+\end_inset
+
+, y el recíproco se cumple siempre que después de 
+\begin_inset Formula $q_{\text{f}}$
+\end_inset
+
+ se puede seguir hasta completar las 
+\begin_inset Formula $t(n)$
+\end_inset
+
+ derivaciones, lo que podemos modelar con una transición adicional 
+\begin_inset Formula $(q_{\text{f}},a,\text{R})\in\delta(q_{\text{f}},a)$
+\end_inset
+
+ para cada 
+\begin_inset Formula $a\in\Gamma$
+\end_inset
+
+.
+ Entonces basta encontrar una fórmula booleana computable en tiempo polinómico
+ respecto a 
+\begin_inset Formula $n$
+\end_inset
+
+ cuya satisfacibilidad equivalga a la existencia de un tablón de 
+\begin_inset Formula $N$
+\end_inset
+
+ con entrada 
+\begin_inset Formula $w$
+\end_inset
+
+ que contenga a 
+\begin_inset Formula $q_{\text{f}}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $C\coloneqq Q\sqcup\Gamma$
+\end_inset
+
+, la fórmula tendrá 
+\begin_inset Formula $t(n)^{2}|C|$
+\end_inset
+
+ variables 
+\begin_inset Formula $\{x_{ijs}\}_{1\leq i,j\leq t(n)}^{s\in C}$
+\end_inset
+
+, donde 
+\begin_inset Formula $x_{ijs}$
+\end_inset
+
+ indica que el tablón contiene 
+\begin_inset Formula $s$
+\end_inset
+
+ en la posición 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+.
+ Queremos que la primera fila contenga la entrada,
+\begin_inset Formula 
+\[
+\Phi_{\text{start}}\coloneqq x_{11q_{0}}\land x_{12w_{1}}\land x_{13w_{2}}\land\dots\land x_{1,n+1,w_{n}}\land x_{1,n+2,\text{B}}\land\dots\land x_{1,t(n)+1,\text{B}}.
+\]
+
+\end_inset
+
+Tiene que aparecer 
+\begin_inset Formula $q_{\text{f}}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\Phi_{\text{accept}}\coloneqq\bigvee_{1\leq i,j\leq t(n)+1}x_{ijq_{\text{f}}}.
+\]
+
+\end_inset
+
+Cada celda debe contener uno y solo un valor,
+\begin_inset Formula 
+\[
+\Phi_{\text{cell}}=\bigwedge_{1\leq i,j\leq t(n)+1}\left(\bigvee_{s\in C}x_{ijs}\land\bigwedge_{\begin{subarray}{c}
+s,t\in C\\
+s\neq t
+\end{subarray}}(\neg x_{ijs}\lor\neg x_{ijt})\right).
+\]
+
+\end_inset
+
+Finalmente queremos ver que, si una fila es una configuración válida, la
+ siguiente también lo es y se sigue de ella.
+ Si esto es así, todas las ventanas entre las dos filas serán legales.
+ Ahora bien, las ventanas legales son las que tienen las siguientes formas,
+ donde 
+\begin_inset Formula $a,b,c,d\in\Gamma$
+\end_inset
+
+, 
+\begin_inset Formula $e\in\Gamma\sqcup\{\#\}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\bf q},{\bf r}\in Q$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+ & \begin{bmatrix}a & b & c\\
+a & b & c
+\end{bmatrix}, &  & \begin{bmatrix}\# & b & c\\
+\# & b & c
+\end{bmatrix}, &  & \begin{bmatrix}a & b & \#\\
+a & b & \#
+\end{bmatrix};\\
+ & \begin{bmatrix}a & c & e\\
+{\bf r} & c & e
+\end{bmatrix}, &  & \begin{bmatrix}{\bf q} & a & e\\
+b & {\bf r} & e
+\end{bmatrix}, &  & \begin{bmatrix}e & {\bf q} & a\\
+e & b & {\bf r}
+\end{bmatrix}, &  & \begin{bmatrix}e & c & {\bf q}\\
+e & c & b
+\end{bmatrix}, & ({\bf r},b,\text{R}) & \in\delta({\bf q},a);\\
+ & \begin{bmatrix}{\bf q} & a & e\\
+c & b & e
+\end{bmatrix}, &  & \begin{bmatrix}c & {\bf q} & a\\
+{\bf r} & c & b
+\end{bmatrix}, &  & \begin{bmatrix}e & c & {\bf q}\\
+e & {\bf r} & c
+\end{bmatrix}, &  & \begin{bmatrix}e & c & d\\
+e & c & {\bf r}
+\end{bmatrix}, & ({\bf r},b,\text{L}) & \in\delta({\bf q},a).
+\end{align*}
+
+\end_inset
+
+Con esto es claro que, si todas las ventanas entre dos filas son legales,
+ los 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $\#$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+ a los lados se conservan y, si una fila tiene un único estado, la siguiente
+ tendrá uno único que estará a la izquierda o a la derecha, la transición
+ estará en 
+\begin_inset Formula $\delta$
+\end_inset
+
+ y los símbolos que no participan de la transición quedarán igual.
+ Como hay un número finito de ventanas legales y estas solo dependen de
+ 
+\begin_inset Formula $N$
+\end_inset
+
+, la fórmula que buscamos es
+\begin_inset Formula 
+\[
+\Phi_{\text{move}}\coloneqq\bigwedge_{\begin{subarray}{c}
+1\leq i\leq t(n)\\
+1\leq j\leq t(n)+1
+\end{subarray}}\left(\bigvee_{{\footnotesize\begin{bmatrix}a & b & c\\
+d & e & f
+\end{bmatrix}}\text{ventana legal}}\begin{pmatrix}x_{i,j-1,a}\land x_{ijb}\land x_{i,j+1,c}\land\hfill\\
+\land x_{i+1,j-1,d}\land x_{i+1,j,e}\land x_{i+1,j+1,f}
+\end{pmatrix}\right),
+\]
+
+\end_inset
+
+eliminando de la conjunción interior las variables 
+\begin_inset Formula $x_{i0\#}$
+\end_inset
+
+ o 
+\begin_inset Formula $x_{i,t(n)+2,\#}$
+\end_inset
+
+ (que no están definidas y siempre son ciertas) y de la disyunción las ventanas
+ para las que hay 
+\begin_inset Formula $x_{i0s}$
+\end_inset
+
+ o 
+\begin_inset Formula $x_{i,t(n)+2,s}$
+\end_inset
+
+ con 
+\begin_inset Formula $s\neq\#$
+\end_inset
+
+ o 
+\begin_inset Formula $x_{ij\#}$
+\end_inset
+
+ con 
+\begin_inset Formula $j\neq0,t(n)+2$
+\end_inset
+
+ (que no están definidas y siempre son falsas).
+ Así, finalmente la fórmula es
+\begin_inset Formula 
+\[
+\Phi\coloneqq\Phi_{\text{start}}\land\Phi_{\text{accept}}\land\Phi_{\text{cell}}\land\Phi_{\text{move}}.
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $t(n)=O(n^{k})$
+\end_inset
+
+, esta fórmula tiene 
+\begin_inset Formula $O(n^{2k})$
+\end_inset
+
+ variables (
+\begin_inset Formula $C$
+\end_inset
+
+ por celda), 
+\begin_inset Formula $\Phi_{\text{start}}$
+\end_inset
+
+ tiene 
+\begin_inset Formula $O(n^{k})$
+\end_inset
+
+ apariciones de variables (una por columna), 
+\begin_inset Formula $\Phi_{\text{accept}}$
+\end_inset
+
+ tiene 
+\begin_inset Formula $O(n^{2k})$
+\end_inset
+
+ (una por celda), 
+\begin_inset Formula $\Phi_{\text{cell}}$
+\end_inset
+
+ tiene 
+\begin_inset Formula $O(n^{2k})$
+\end_inset
+
+ (
+\begin_inset Formula $C^{2}$
+\end_inset
+
+ por celda) y 
+\begin_inset Formula $\Phi_{\text{move}}$
+\end_inset
+
+ tiene 
+\begin_inset Formula $O(2^{nk})$
+\end_inset
+
+ (hasta 6 por ventana legal y ventana, el número de ventanas legales es
+ fijo y hay menos ventanas que celdas).
+ Por tanto 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ tiene tamaño 
+\begin_inset Formula $O(n^{2k})$
+\end_inset
+
+, y para 
+\begin_inset Formula $N$
+\end_inset
+
+ fijo, generarla a partir de 
+\begin_inset Formula $w$
+\end_inset
+
+ es sistemático, con lo que 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ se genera en tiempo polinómico.
+\end_layout
+
+\begin_layout Standard
+Este teorema lo descubrieron Stephen Cook y Leonid Levin en los 70, siendo
+ 
+\begin_inset Formula $\text{SAT}$
+\end_inset
+
+ el primer lenguaje que se descubrió 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completo.
+\end_layout
+
+\begin_layout Section
+Otros lenguajes 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completos
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+literal
+\series default
+ es una variable o su negación.
+ Una 
+\series bold
+cláusula
+\series default
+ es una disyunción de uno o más literales.
+ Una fórmula booleana está en 
+\series bold
+forma normal conjuntiva
+\series default
+ si es una conjunción de una o más cláusulas, y está en 
+\series bold
+forma normal 3-conjuntiva
+\series default
+ si además estas cláusulas tienen un máximo de 3 literales.
+\end_layout
+
+\begin_layout Standard
+Llamando 
+\begin_inset Formula $\text{SAT}_{\text{CNF}}$
+\end_inset
+
+ al conjunto de fórmulas satisfacibles en forma normal conjuntiva y 
+\begin_inset Formula $\text{SAT}_{\text{3-CNF}}$
+\end_inset
+
+ al de fórmulas satisfacibles en forma normal 3-conjuntiva, 
+\begin_inset Formula $\text{SAT}_{\text{3-CNF}}\subsetneq\text{SAT}_{\text{CNF}}\subsetneq\text{SAT}$
+\end_inset
+
+, y 
+\begin_inset Formula $\text{SAT}_{\text{3-CNF}}$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{SAT}_{\text{CNF}}$
+\end_inset
+
+ son 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completos.
+ También lo son 
+\begin_inset Formula $\text{HAMPATH}$
+\end_inset
+
+ y 
+\begin_inset Formula $k\text{-CLIQUE}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{SAT}_{1}$
+\end_inset
+
+, el conjunto de fórmulas satisfacibles en lógica de primer orden, es indecidibl
+es, y esto es más o menos lo que probaron Alonzo Church y Alan Turing en
+ sus 
+\emph on
+\lang english
+papers
+\emph default
+\lang spanish
+ sobre el 
+\emph on
+\lang ngerman
+Entscheidungsproblem
+\emph default
+\lang spanish
+ en 1936.
+\end_layout
+
+\end_body
+\end_document
