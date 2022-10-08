@@ -159,7 +159,7 @@ se polireduce
 
 \begin_layout Standard
 Un lenguaje 
-\begin_inset Formula $L\in{\cal NP}$
+\begin_inset Formula $L$
 \end_inset
 
  es 
@@ -168,14 +168,30 @@ Un lenguaje
 \begin_inset Formula ${\cal NP}$
 \end_inset
 
--completo
+-duro
 \series default
- si cualquier otro lenguaje 
+ si cualquier lenguaje 
 \begin_inset Formula ${\cal NP}$
 \end_inset
 
  se polireduce a 
 \begin_inset Formula $L$
+\end_inset
+
+, y es 
+\series bold
+
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completo
+\series default
+ si es 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-duro y 
+\begin_inset Formula ${\cal NP}$
 \end_inset
 
 .
@@ -869,14 +885,6 @@ Este teorema lo descubrieron Stephen Cook y Leonid Levin en los 70, siendo
 -completo.
 \end_layout
 
-\begin_layout Section
-Otros lenguajes 
-\begin_inset Formula ${\cal NP}$
-\end_inset
-
--completos
-\end_layout
-
 \begin_layout Standard
 Un 
 \series bold
@@ -925,15 +933,30 @@ Llamando
 \end_inset
 
 -completos.
- También lo son 
-\begin_inset Formula $\text{HAMPATH}$
+ Sin embargo 
+\begin_inset Formula $\text{SAT}_{\text{2-CNF}}$
 \end_inset
 
- y 
-\begin_inset Formula $k\text{-CLIQUE}$
+, el conjunto de fórmulas satisfacibles en forma normal conjuntiva con a
+ lo sumo 2 literales en cada cláusula, está en 
+\begin_inset Formula ${\cal P}$
 \end_inset
 
 .
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Pone que se puede demostrar por reducción a 
+\begin_inset Formula $\text{PATH}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -941,7 +964,7 @@ Llamando
 \end_inset
 
 , el conjunto de fórmulas satisfacibles en lógica de primer orden, es indecidibl
-es, y esto es más o menos lo que probaron Alonzo Church y Alan Turing en
+e, y esto es más o menos lo que probaron Alonzo Church y Alan Turing en
  sus 
 \emph on
 \lang english
@@ -957,5 +980,1878 @@ Entscheidungsproblem
  en 1936.
 \end_layout
 
+\begin_layout Section
+Otros lenguajes 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completos
+\end_layout
+
+\begin_layout Standard
+Son 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completos:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{CLIQUE}\coloneqq\{\langle G,k\rangle:G\text{ es grafo no dirigido con }k\text{-clique}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Primero vemos que está en 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+.
+ El verificador recibe la lista de 
+\begin_inset Formula $k$
+\end_inset
+
+ nodos de la clique, de tamaño claramente proporcional al grafo.
+ Si tiene algún nodo que no está en el grafo, o más o menos de 
+\begin_inset Formula $k$
+\end_inset
+
+ nodos, rechaza.
+ Para cada par de nodos en la clique, si el par no es un arco del grafo,
+ rechaza.
+ En otro caso acepta.
+\end_layout
+
+\begin_layout Standard
+Veamos que 
+\begin_inset Formula $\text{SAT}_{\text{3-cnf}}\leq_{\text{p}}\text{CLIQUE}$
+\end_inset
+
+.
+ Dada una fórmula 
+\begin_inset Formula $\Phi$
+\end_inset
+
+, si algún literal de 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ tiene menos de 3 literales, lo completamos repitiendo uno de ellos.
+ Sea la fórmula resultante 
+\begin_inset Formula $(l_{11}\lor l_{12}\lor l_{13})\land\dots\land(l_{k1}\lor l_{k2}\lor l_{k3})$
+\end_inset
+
+, definimos el grafo 
+\begin_inset Formula $G_{\Phi}=(V,E)$
+\end_inset
+
+ como 
+\begin_inset Formula $V\coloneqq\{(i,j)\}_{1\leq i\leq k}^{1\leq j\leq3}$
+\end_inset
+
+ y 
+\begin_inset Formula $E\coloneqq\{\{(a,b),(c,d)\}\}_{1\leq a<c\leq k,1\leq b,d\leq3,l_{ab}\neq\neg l_{cd},\neg l_{ab}\neq l_{cd}}$
+\end_inset
+
+, y 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ es satisfacible si y sólo si 
+\begin_inset Formula $G_{\Phi}$
+\end_inset
+
+ tiene una 
+\begin_inset Formula $k$
+\end_inset
+
+-clique.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dada una asignación de valores que hace a 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ verdadera, para 
+\begin_inset Formula $i\in\{1,\dots,k\}$
+\end_inset
+
+, existe al menos un 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $l_{in_{i}}$
+\end_inset
+
+ es verdadero, y como obviamente ningún 
+\begin_inset Formula $l_{in_{i}}$
+\end_inset
+
+ es negación de otro, 
+\begin_inset Formula $\{(i,n_{i})\}_{i=1}^{k}$
+\end_inset
+
+ forma una 
+\begin_inset Formula $k$
+\end_inset
+
+-clique.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Como ningún 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+ conecta con un 
+\begin_inset Formula $(i,k)$
+\end_inset
+
+, la 
+\begin_inset Formula $k$
+\end_inset
+
+-clique está formada por elementos correspondientes a literales de cláusulas
+ distintas, sin que uno sea la negación de otro, por lo que es posible construir
+ una asignación de verdad que haga verdaderos a los literales de la 
+\begin_inset Formula $k$
+\end_inset
+
+-clique y por tanto a 
+\begin_inset Formula $\Phi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La función de conversión de 
+\begin_inset Formula $\langle\Phi\rangle$
+\end_inset
+
+ a 
+\begin_inset Formula $\langle G_{\Phi},k\rangle$
+\end_inset
+
+ es claramente polinómica.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{HAMPATH}\coloneqq\{\langle G,s,t\rangle:G\text{ es un grafo dirigido con camino hamiltoniano de }s\text{ a }t\}$
+\end_inset
+
+.
+ Un 
+\series bold
+camino hamiltoniano
+\series default
+ es uno que pasa por todos los vértices exactamente una vez.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Primero vemos que es 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+.
+ El verificador recibe el grafo y el camino hamiltoniano, cuyo tamaño es
+ claramente polinómico respecto al del grafo.
+ Marca los vértices de dicho camino, rechazando si encuentra un vértice
+ que ya ha sido marcado.
+ Si queda algún vértice sin marcar, rechaza.
+ Para cada arco del camino, si el arco no está en el grafo, rechaza.
+ Finalmente, acepta si el camino empieza por 
+\begin_inset Formula $s$
+\end_inset
+
+ y termina por 
+\begin_inset Formula $t$
+\end_inset
+
+ y rechaza en otro caso.
+\end_layout
+
+\begin_layout Standard
+Veamos que 
+\begin_inset Formula $\text{SAT}_{\text{3-cnf}}\leq_{\text{p}}\text{HAMPATH}$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ una fórmula 3-CNF con proposiciones 
+\begin_inset Formula $\{p_{1},\dots,p_{m}\}$
+\end_inset
+
+ distintas y cláusulas 
+\begin_inset Formula $k_{1}\land\dots\land k_{n}$
+\end_inset
+
+, que podemos considerar de 3 elementos cada una.
+ Creamos un grafo dirigido 
+\begin_inset Formula $G_{\Phi}\coloneqq(V,E)$
+\end_inset
+
+, donde
+\begin_inset Formula 
+\begin{align*}
+V\coloneqq & \{a_{i}\}_{i=0}^{m}\cup\{b_{ij}\}_{i\in\{1,\dots,m\}}^{j\in\{1,\dots,3n+3\}}\cup\{c_{j}\}_{j=1}^{n},\\
+E\coloneqq & \{(a_{i-1},b_{i1}),(a_{i-1},b_{i,3n+3}),(b_{i1},a_{i}),(b_{i1},a_{i,3n+3})\}_{i=1}^{m}\cup\\
+ & \cup\{(b_{ij},b_{i,j+1}),(b_{i,j+1},b_{ij})\}_{i\in\{1,\dots,m\}}^{j\in\{1,\dots,3n+2\}}\cup\\
+ & \cup\{(b_{i,3j},c_{j}),(c_{j},b_{i,3j+1})\}_{i\in\{1,\dots m\},j\in\{1,\dots,n\}}^{p_{i}\text{ aparece en }k_{j}}\cup\\
+ & \cup\{(b_{i,3j+1},c_{j}),(c_{j},b_{i,3j})\}_{i\in\{1,\dots,m\},j\in\{1,\dots,n\}}^{\neg p_{1}\text{ aparece en }k_{j}}.
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\Phi$
+\end_inset
+
+ es satisfacible si y sólo si 
+\begin_inset Formula $G_{\Phi}$
+\end_inset
+
+ tiene un camino hamiltoniano de 
+\begin_inset Formula $a_{0}$
+\end_inset
+
+ a 
+\begin_inset Formula $a_{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Tomamos una asignación de valores que haga verdadera a 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ y, para cada 
+\begin_inset Formula $k_{j}$
+\end_inset
+
+, elegimos un literal en 
+\begin_inset Formula $k_{j}$
+\end_inset
+
+ que tenga valor verdadero.
+ Para construir el camino, primero, para 
+\begin_inset Formula $i$
+\end_inset
+
+ de 1 a 
+\begin_inset Formula $m$
+\end_inset
+
+, si 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ es verdadero, recorremos 
+\begin_inset Formula $a_{i-1},b_{i1},b_{i2},\dots,b_{i,3n+3},a_{i}$
+\end_inset
+
+, y si es falso, recorremos 
+\begin_inset Formula $a_{i-1},b_{i,3n+3},b_{i,3n+2},\dots,b_{i1},a_{i}$
+\end_inset
+
+.
+ Entonces, para cada 
+\begin_inset Formula $k_{j}$
+\end_inset
+
+, si el literal elegido de 
+\begin_inset Formula $k_{j}$
+\end_inset
+
+ es de la forma 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+, cambiamos el eje 
+\begin_inset Formula $(b_{i,3j},b_{i,3j+1})$
+\end_inset
+
+ del camino por 
+\begin_inset Formula $(b_{i,3j},c_{j}),(c_{j},b_{i,3j+1})$
+\end_inset
+
+, y si es de la forma 
+\begin_inset Formula $\neg p_{i}$
+\end_inset
+
+, cambiamos 
+\begin_inset Formula $(b_{i,3j+1},b_{i,3j})$
+\end_inset
+
+ por 
+\begin_inset Formula $(b_{i,3j+1},c_{j}),(c_{j},b_{i,3j})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $i\in\{1,\dots,m\}$
+\end_inset
+
+, el camino debe ir de 
+\begin_inset Formula $a_{i-1}$
+\end_inset
+
+ bien a 
+\begin_inset Formula $b_{i1}$
+\end_inset
+
+ o a 
+\begin_inset Formula $b_{i,3n+3}$
+\end_inset
+
+.
+ En el primer caso le asignamos verdadero a 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+, y en el segundo le asignamos falso.
+ Veamos que esta asignación hace verdadera a 
+\begin_inset Formula $\Phi$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $j\in\{1,\dots,n\}$
+\end_inset
+
+, si el nodo anterior a 
+\begin_inset Formula $c_{j}$
+\end_inset
+
+ en el camino es de la forma 
+\begin_inset Formula $b_{i,3j}$
+\end_inset
+
+, la queremos ver que el siguiente es 
+\begin_inset Formula $b_{i,3j+1}$
+\end_inset
+
+.
+ No puede ser 
+\begin_inset Formula $b_{i,3j}$
+\end_inset
+
+ porque ya ha aparecido, por lo que bien es 
+\begin_inset Formula $b_{i,3j+1}$
+\end_inset
+
+ o un nodo 
+\begin_inset Formula $b_{p,3j}$
+\end_inset
+
+ o 
+\begin_inset Formula $b_{p,3j+1}$
+\end_inset
+
+ con 
+\begin_inset Formula $p\neq i$
+\end_inset
+
+.
+ Si fuera lo segundo, el nodo anterior a 
+\begin_inset Formula $b_{i,3j+1}$
+\end_inset
+
+ no puede ser 
+\begin_inset Formula $c_{j}$
+\end_inset
+
+ porque este ya es anterior a 
+\begin_inset Formula $b_{p,3j}$
+\end_inset
+
+ o 
+\begin_inset Formula $b_{p,3j+1}$
+\end_inset
+
+, por lo que debe ser 
+\begin_inset Formula $b_{i,3j+2}$
+\end_inset
+
+, pero entonces de los sucesores a 
+\begin_inset Formula $b_{i,3j+1}$
+\end_inset
+
+ (
+\begin_inset Formula $b_{i,3j}$
+\end_inset
+
+, 
+\begin_inset Formula $b_{i,3j+2}$
+\end_inset
+
+ y posiblemente 
+\begin_inset Formula $c_{j}$
+\end_inset
+
+) ninguno puede ser el siguiente a este.
+\begin_inset Formula $\#$
+\end_inset
+
+ Por tanto el siguiente a 
+\begin_inset Formula $c_{j}$
+\end_inset
+
+ en el camino es 
+\begin_inset Formula $b_{i,3j+1}$
+\end_inset
+
+.
+ La otra alternativa es que el nodo anterior a 
+\begin_inset Formula $c_{j}$
+\end_inset
+
+ sea de la forma 
+\begin_inset Formula $b_{i,3j+1}$
+\end_inset
+
+, con lo que el siguiente es 
+\begin_inset Formula $b_{i,3j}$
+\end_inset
+
+ por un argumento análogo.
+ Entonces, para un mismo 
+\begin_inset Formula $i$
+\end_inset
+
+, los 
+\begin_inset Formula $b_{ij}$
+\end_inset
+
+ se recorren con 
+\begin_inset Formula $j$
+\end_inset
+
+ siempre ascendente o siempre descendente.
+ En el primer caso el anterior a 
+\begin_inset Formula $b_{i1}$
+\end_inset
+
+ es 
+\begin_inset Formula $a_{i-1}$
+\end_inset
+
+ y 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ es verdadero, y como 
+\begin_inset Formula $k_{j}$
+\end_inset
+
+ contiene a 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ ya que 
+\begin_inset Formula $(b_{i,3j},c_{j})\in E$
+\end_inset
+
+, la asignación hace a 
+\begin_inset Formula $k_{j}$
+\end_inset
+
+ verdadera.
+ En el segundo, el anterior a 
+\begin_inset Formula $b_{i,3n+3}$
+\end_inset
+
+ es 
+\begin_inset Formula $a_{i-1}$
+\end_inset
+
+ y 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ es falso, y como 
+\begin_inset Formula $k_{j}$
+\end_inset
+
+ contiene a 
+\begin_inset Formula $\neg p_{i}$
+\end_inset
+
+ ya que 
+\begin_inset Formula $(b_{i,3j+1},c_{j})\in E$
+\end_inset
+
+, la asignación hace a 
+\begin_inset Formula $k_{j}$
+\end_inset
+
+ verdadera.
+\end_layout
+
+\begin_layout Standard
+La función de conversión de 
+\begin_inset Formula $\langle\Phi\rangle$
+\end_inset
+
+ a 
+\begin_inset Formula $\langle G_{\Phi},a_{0},a_{m}\rangle$
+\end_inset
+
+ es claramente polinómica.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{HAMCYCLE}\coloneqq\{\langle G\rangle:G\text{ es un grafo dirigido con un ciclo hamiltoniano}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Claramente es 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+, pues basta tomar un nodo 
+\begin_inset Formula $s$
+\end_inset
+
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+ arbitrario y decidir si 
+\begin_inset Formula $\langle G,s,s\rangle\in\text{HAMPATH}$
+\end_inset
+
+.
+ Veamos ahora que 
+\begin_inset Formula $\text{HAMPATH}\leq_{\text{p}}\text{HAMCYCLE}$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ un grafo dirigido, 
+\begin_inset Formula $a,b\in V$
+\end_inset
+
+ y 
+\begin_inset Formula $G'\coloneqq(V',E')$
+\end_inset
+
+ un grafo dirigido dado por 
+\begin_inset Formula $V'\coloneqq V\sqcup\{a',b'\}$
+\end_inset
+
+ y 
+\begin_inset Formula $E'\coloneqq E\sqcup\{(b,b'),(b',a'),(a',a)\}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $G$
+\end_inset
+
+ tiene un camino hamiltoniano de 
+\begin_inset Formula $a$
+\end_inset
+
+ a 
+\begin_inset Formula $b$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $G'$
+\end_inset
+
+ tiene un ciclo hamiltoniano.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Concatenamos al camino hamiltoniano de 
+\begin_inset Formula $a$
+\end_inset
+
+ a 
+\begin_inset Formula $b$
+\end_inset
+
+ el camino 
+\begin_inset Formula $bb'a'a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+El ciclo hamiltoniano debe contener el subcamino 
+\begin_inset Formula $bb'a'a$
+\end_inset
+
+ por ser esta la única forma que pase por 
+\begin_inset Formula $b'$
+\end_inset
+
+ y 
+\begin_inset Formula $a'$
+\end_inset
+
+.
+ Entonces, tomando el ciclo empezando por 
+\begin_inset Formula $a$
+\end_inset
+
+, este debe acabar por dicho subcamino, y eliminando esta parte nos queda
+ un camino de 
+\begin_inset Formula $a$
+\end_inset
+
+ a 
+\begin_inset Formula $b$
+\end_inset
+
+ que pasa por todos los nodos en 
+\begin_inset Formula $V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La función de conversión de 
+\begin_inset Formula $\langle G,a,b\rangle$
+\end_inset
+
+ a 
+\begin_inset Formula $\langle G'\rangle$
+\end_inset
+
+ es claramente polinómica.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{UHAMCYCLE}\coloneqq\{\langle G\rangle:G\text{ es un grafo no dirigido con un ciclo hamiltoniano}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Claramente es 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+, pues equivale a decidir 
+\begin_inset Formula $\text{HAMCYCLE}$
+\end_inset
+
+ sobre un grafo dirigido cuyos nodos son los de 
+\begin_inset Formula $G$
+\end_inset
+
+ y cuyos arcos son 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+ y 
+\begin_inset Formula $(b,a)$
+\end_inset
+
+ para cada eje 
+\begin_inset Formula $\{a,b\}$
+\end_inset
+
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Para ver que es 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completo, vemos que 
+\begin_inset Formula $\text{HAMCYCLE}\leq_{\text{p}}\text{UHAMCYCLE}$
+\end_inset
+
+.
+ Dado un grafo dirigido 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+, definimos un grafo no dirigido 
+\begin_inset Formula $G'\coloneqq(V',E')$
+\end_inset
+
+ dado por
+\begin_inset Formula 
+\begin{align*}
+V' & \coloneqq\{(v,0),(v,1),(v,2)\}_{v\in V},\\
+E' & \coloneqq\{\{(v,0),(v,1)\},\{(v,1),(v,2)\}\}_{v\in V}\cup\{\{(u,2),(v,0)\}\}_{(u,v)\in E},
+\end{align*}
+
+\end_inset
+
+ y 
+\begin_inset Formula $G$
+\end_inset
+
+ tiene un ciclo hamiltoniano si y sólo si lo tiene 
+\begin_inset Formula $G'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $u_{1}\cdots u_{n}u_{1}$
+\end_inset
+
+ un ciclo hamiltoniano en 
+\begin_inset Formula $G$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+(u_{1},0)(u_{1},1)(u_{1},2)\cdots(u_{n},0)(u_{n},1)(u_{n},2)(u_{1},0)
+\]
+
+\end_inset
+
+ es uno en 
+\begin_inset Formula $G'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $V'$
+\end_inset
+
+ es vacío, 
+\begin_inset Formula $V$
+\end_inset
+
+ también y hemos terminado.
+ En otro caso, dado un ciclo hamiltoniano de 
+\begin_inset Formula $G'$
+\end_inset
+
+ y un nodo de este de la forma 
+\begin_inset Formula $(u_{1},1)$
+\end_inset
+
+, podemos suponer que el anterior es 
+\begin_inset Formula $(u_{1},0)$
+\end_inset
+
+ y el siguiente es 
+\begin_inset Formula $(u_{1},2)$
+\end_inset
+
+, pues en otro caso ocurre al revés y damos la vuelta al ciclo.
+ Vemos por inducción que, para 
+\begin_inset Formula $k\in\{1,\dots,n\}$
+\end_inset
+
+, el ciclo contiene un subcamino de la forma 
+\begin_inset Formula $(u_{1},0)(u_{1},1)(u_{1},2)\cdots(u_{k},0)(u_{k},1)(u_{k},2)$
+\end_inset
+
+, pues entonces en particular esto ocurre para 
+\begin_inset Formula $k=n$
+\end_inset
+
+ y 
+\begin_inset Formula $u_{1}\cdots u_{n}u_{1}$
+\end_inset
+
+ es un ciclo hamiltoniano en 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $k=1$
+\end_inset
+
+ ya lo hemos visto.
+ Para 
+\begin_inset Formula $k>1$
+\end_inset
+
+, probado esto para 
+\begin_inset Formula $k-1$
+\end_inset
+
+, por construcción el elemento siguiente a 
+\begin_inset Formula $(u_{k-1},2)$
+\end_inset
+
+ es de la forma 
+\begin_inset Formula $(u_{k},0)$
+\end_inset
+
+.
+ El elemento anterior a 
+\begin_inset Formula $(u_{k},1)$
+\end_inset
+
+ debe ser 
+\begin_inset Formula $(u_{k},0)$
+\end_inset
+
+ ya que de lo contrario sería 
+\begin_inset Formula $(u_{k},2)$
+\end_inset
+
+ y el siguiente sería 
+\begin_inset Formula $(u_{k},0)$
+\end_inset
+
+, pero 
+\begin_inset Formula $(u_{k},0)$
+\end_inset
+
+ ya es el siguiente de 
+\begin_inset Formula $(u_{k-1},2)\#$
+\end_inset
+
+.
+ Por tanto a 
+\begin_inset Formula $(u_{k},0)$
+\end_inset
+
+ le siguen 
+\begin_inset Formula $(u_{k},1)$
+\end_inset
+
+ y 
+\begin_inset Formula $(u_{k},2)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Claramente la función de conversión de 
+\begin_inset Formula $\langle G\rangle$
+\end_inset
+
+ a 
+\begin_inset Formula $\langle G'\rangle$
+\end_inset
+
+ es polinómica.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{COLOR}\coloneqq\{\langle G,k\rangle:G\text{ es un grafo no dirigido }k\text{-coloreable}\}$
+\end_inset
+
+.
+ Un grafo no dirigido 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ es 
+\series bold
+
+\begin_inset Formula $k$
+\end_inset
+
+-coloreable
+\series default
+ si existe una función 
+\begin_inset Formula $f:V\to\{1,\dots,k\}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f(u)\neq f(v)$
+\end_inset
+
+ para 
+\begin_inset Formula $\{u,v\}\in E$
+\end_inset
+
+, en cuyo caso 
+\begin_inset Formula $f$
+\end_inset
+
+ es un 
+\series bold
+coloreado
+\series default
+ de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ En particular un grafo es bipartito si es 2-coloreable.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Para ver que es 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+ consideramos un verificador que toma un coloreado potencial de 
+\begin_inset Formula $f$
+\end_inset
+
+; si no colorea algún nodo o lo colorea más de una vez, rechaza; si a algún
+ nodo le da un color mayor que 
+\begin_inset Formula $k$
+\end_inset
+
+, rechaza; para cada arista, si a los dos nodos que conecta les da el mismo
+ color, rechaza; en otro caso acepta.
+ Este verificador es polinómico.
+ Para ver que es 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completo probamos que 
+\begin_inset Formula $\text{SAT}_{\text{3-CNF}}\leq_{\text{p}}\text{COLOR}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+El 
+\series bold
+TSP
+\series default
+ (
+\series bold
+\emph on
+\lang english
+Traveling Salesman Problem
+\series default
+\emph default
+\lang spanish
+) consiste en encontrar el ciclo hamiltoniano de peso mínimo en un grafo
+ no dirigido completo con pesos.
+ La versión de decisión es 
+\begin_inset Formula $\text{TSP-DEC}$
+\end_inset
+
+, formado por los pares 
+\begin_inset Formula $\langle G,k\rangle$
+\end_inset
+
+ donde 
+\begin_inset Formula $G$
+\end_inset
+
+ es un grafo no dirigido completo con pesos en 
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+ con un ciclo hamiltoniano de coste no mayor a 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+, y es 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completo.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\text{TSP-DEC}\in{\cal NP}$
+\end_inset
+
+, pues basta tomar un nodo cualquiera del grafo y marcarlo, tomar de forma
+ no determinista otro nodo que no esté marcado y marcarlo, y así hasta marcar
+ todos los nodos, formando así un ciclo, sumar el coste de todos los ejes
+ del ciclo, rechazar si la suma es mayor a 
+\begin_inset Formula $k$
+\end_inset
+
+ y aceptar en otro caso.
+ Para ver que es 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completo vemos que 
+\begin_inset Formula $\text{UHAMCYCLE}\leq_{p}\text{TSP-DEC}$
+\end_inset
+
+.
+ Dado un grafo no dirigido 
+\begin_inset Formula $G=VE$
+\end_inset
+
+, definimos un grafo no dirigido con pesos 
+\begin_inset Formula $G'=(V,E',\omega)$
+\end_inset
+
+ donde 
+\begin_inset Formula $E'$
+\end_inset
+
+ es tal que 
+\begin_inset Formula $(V,E')$
+\end_inset
+
+ es completo y 
+\begin_inset Formula 
+\[
+\omega(e)\coloneqq\begin{cases}
+1, & e\in E;\\
+2, & e\notin E.
+\end{cases}
+\]
+
+\end_inset
+
+Claramente la función de conversión de 
+\begin_inset Formula $\langle G\rangle$
+\end_inset
+
+ a 
+\begin_inset Formula $\langle G',|V|\rangle$
+\end_inset
+
+ es polinómica, y queda ver que 
+\begin_inset Formula $G$
+\end_inset
+
+ tiene un ciclo hamiltoniano si y sólo si 
+\begin_inset Formula $G'$
+\end_inset
+
+ tiene uno con peso no mayor que 
+\begin_inset Formula $|V|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Tomamos el mismo ciclo, y como sus 
+\begin_inset Formula $|V|$
+\end_inset
+
+ aristas están en 
+\begin_inset Formula $G$
+\end_inset
+
+, su peso es 
+\begin_inset Formula $|V|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Un ciclo hamiltoniano en 
+\begin_inset Formula $G'$
+\end_inset
+
+ tiene 
+\begin_inset Formula $|V|$
+\end_inset
+
+ aristas y su peso es pues 
+\begin_inset Formula $|V|$
+\end_inset
+
+ más el número de aristas en el ciclo fuera de 
+\begin_inset Formula $E$
+\end_inset
+
+, por lo que si el ciclo tiene peso no mayor que 
+\begin_inset Formula $|V|$
+\end_inset
+
+, no puede tener aristas fuera de 
+\begin_inset Formula $E$
+\end_inset
+
+ y por tanto está en 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{SUBSET-SUM}\coloneqq\{\langle S,t\rangle:S\text{ es una lista de naturales con una subsecuencia que suma }t\}.$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Está en 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+, y un verificador toma una asignación de qué elementos de la lista se toman
+ y cuáles no, suma los que se toman y compara.
+ Para ver que es 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completo vemos que 
+\begin_inset Formula $\text{SAT}_{\text{3-CNF}}\leq_{\text{p}}\text{SUBSET-SUM}$
+\end_inset
+
+.
+ Dada una fórmula 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ con variables 
+\begin_inset Formula $p_{1},\dots,p_{m}$
+\end_inset
+
+ distintas y cláusulas 
+\begin_inset Formula $k_{1}\land\dots\land k_{n}$
+\end_inset
+
+, que podemos considerar con 3 literales cada una, tomamos la lista 
+\begin_inset Formula $S\coloneqq(y_{0},z_{0},\dots,y_{m-1},z_{m-1},g_{0},h_{0},\dots,g_{n-1},h_{n-1})$
+\end_inset
+
+, donde 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ es la suma de 
+\begin_inset Formula $10^{n+i}$
+\end_inset
+
+ más 
+\begin_inset Formula $10^{j}$
+\end_inset
+
+ por cada 
+\begin_inset Formula $k_{j}$
+\end_inset
+
+ con el literal 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ es la suma de 
+\begin_inset Formula $10^{n+i}$
+\end_inset
+
+ más 
+\begin_inset Formula $10^{j}$
+\end_inset
+
+ por cada 
+\begin_inset Formula $k_{j}$
+\end_inset
+
+ con el literal 
+\begin_inset Formula $\neg p_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $g_{j}\coloneqq h_{j}\coloneqq10^{j}$
+\end_inset
+
+, y 
+\begin_inset Formula $t\coloneqq\sum_{i=0}^{m-1}10^{n+i}+3\sum_{j=0}^{n-1}10^{j}$
+\end_inset
+
+.
+ Nótese que para cada posición decimal, una suma de elementos de 
+\begin_inset Formula $S$
+\end_inset
+
+ no incluye más de 5 sumandos con ese dígito no nulo, por lo que nunca hay
+ llevadas.
+ Entonces 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ es satisfacible si y sólo si alguna sublista de 
+\begin_inset Formula $S$
+\end_inset
+
+ suma 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dada una asignación de valores de los 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+, tomamos los 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ con 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ verdadero y los 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ con 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ falso.
+ Entonces las posiciones decimales de 
+\begin_inset Formula $n$
+\end_inset
+
+ a 
+\begin_inset Formula $n+m-1$
+\end_inset
+
+ valen 1, y las posiciones 
+\begin_inset Formula $j\in\{0,\dots,n-1\}$
+\end_inset
+
+ valen de 1 a 3 ya que la cláusula 
+\begin_inset Formula $k_{j}$
+\end_inset
+
+ contiene entre 1 y 3 literales verdaderos que tendrán el dígito correspondiente
+ en 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ o 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ a 1.
+ Añadiendo elementos 
+\begin_inset Formula $g_{j}$
+\end_inset
+
+ o 
+\begin_inset Formula $h_{j}$
+\end_inset
+
+ se llega a 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para cada 
+\begin_inset Formula $i$
+\end_inset
+
+, exactamente uno de entre 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ o 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ se toma, lo que nos da una asignación de valores con 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ a verdadero si se toma 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ o a falso si se toma 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+, y queda ver que esta hace a 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ verdadera.
+ Ahora bien, para cada cláusula 
+\begin_inset Formula $k_{j}$
+\end_inset
+
+, el dígito 
+\begin_inset Formula $j$
+\end_inset
+
+ es 3 y se han tomado entre 0 y 2 de 
+\begin_inset Formula $g_{j}$
+\end_inset
+
+ y 
+\begin_inset Formula $h_{j}$
+\end_inset
+
+, por lo que al menos uno de los 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ que se han tomado tiene un 1 en la posición 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ Si lo tiene un 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $k_{j}$
+\end_inset
+
+ contiene el literal 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ al que se ha asignado verdadero, y si lo tiene un 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $k_{j}$
+\end_inset
+
+ contiene el literal 
+\begin_inset Formula $\neg p_{i}$
+\end_inset
+
+ habiendo asignado falso a 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La función de conversión de 
+\begin_inset Formula $\langle\Phi\rangle$
+\end_inset
+
+ a 
+\begin_inset Formula $\langle S,t\rangle$
+\end_inset
+
+ es polinómica.
+ En efecto, la longitud de 
+\begin_inset Formula $t$
+\end_inset
+
+ es como mucho proporcional a la de 
+\begin_inset Formula $\Phi$
+\end_inset
+
+, como lo es la de cada elemento de 
+\begin_inset Formula $S$
+\end_inset
+
+ y la longitud de 
+\begin_inset Formula $S$
+\end_inset
+
+, y las operaciones usadas se calculan en tiempo polinómico salvo la exponenciac
+ión, pero calcular las potencias de 10 corresponde a multiplicar por 10
+ 
+\begin_inset Formula $n+m-1$
+\end_inset
+
+ veces, pudiendo hacer cada multiplicación en tiempo proporcional a la longitud
+ de los factores, la cual es como mucho proporcional a 
+\begin_inset Formula $n+m-1$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{VERTEX-COVER}\coloneqq\{\langle G,k\rangle:G\text{ es un grafo no dirigido con una }k\text{-cobertura}\}$
+\end_inset
+
+.
+ Una 
+\series bold
+
+\begin_inset Formula $k$
+\end_inset
+
+-cobertura
+\series default
+ de un grafo no dirigido es un conjunto de 
+\begin_inset Formula $k$
+\end_inset
+
+ nodos tales que toda arista contiene uno de esos nodos.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para ver que es 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+: si 
+\begin_inset Formula $G$
+\end_inset
+
+ tiene menos de 
+\begin_inset Formula $k$
+\end_inset
+
+ nodos, rechaza; se eligen 
+\begin_inset Formula $k$
+\end_inset
+
+ nodos de forma no determinista y, si alguna arista no contiene un nodo
+ de los seleccionados, rechaza; en otro caso acepta.
+ Ahora vemos que 
+\begin_inset Formula $\text{SAT}_{\text{3-CNF}}\leq_{\text{p}}\text{VERTEX-COVER}$
+\end_inset
+
+.
+ Dada una fórmula 3-CNF 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ con variables 
+\begin_inset Formula $p_{1},\dots,p_{m}$
+\end_inset
+
+ distintas y cláusulas 
+\begin_inset Formula $(l_{11}\land l_{12}\land l_{13})\land\dots\land(l_{n1}\land l_{n2}\land l_{n3})$
+\end_inset
+
+, definimos un grafo no dirigido 
+\begin_inset Formula $G_{\Phi}\coloneqq(V,E)$
+\end_inset
+
+ con
+\begin_inset Formula 
+\begin{align*}
+V:= & \{y_{i},z_{i}\}_{i=1}^{m}\cup\{a_{j1},a_{j2},a_{j3}\}_{j=1}^{n},\\
+E:= & \{\{y_{i},z_{i}\}\}_{i=1}^{m}\cup\{\{a_{j1},a_{j2}\},\{a_{j2},a_{j3}\},\{a_{j3},a_{j1}\}\}_{j=1}^{n}\cup\\
+ & \cup\{\{a_{jk},y_{i}\}\}_{l_{jk}=p_{i}}\cup\{\{a_{jk},z_{i}\}\}_{l_{jk}=\neg p_{i}}.
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\Phi$
+\end_inset
+
+ es satisfacible si y sólo si 
+\begin_inset Formula $G$
+\end_inset
+
+ tiene una 
+\begin_inset Formula $(m+2n)$
+\end_inset
+
+-cobertura.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dada una asignación de valores que hace a 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ verdadera, la cobertura está formada por los 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ con 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ verdadero, los 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ con 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ falso y, para 
+\begin_inset Formula $j\in\{1,\dots,n\}$
+\end_inset
+
+, los 
+\begin_inset Formula $a_{jk}$
+\end_inset
+
+ salvo uno con el correspondiente 
+\begin_inset Formula $l_{jk}$
+\end_inset
+
+ verdadero.
+ Las aristas 
+\begin_inset Formula $\{y_{i},z_{i}\}$
+\end_inset
+
+ y las 
+\begin_inset Formula $\{a_{jp},a_{jq}\}$
+\end_inset
+
+ quedan claramente cubiertas, y las de la forma 
+\begin_inset Formula $\{a_{jk},y_{i}\}$
+\end_inset
+
+ o 
+\begin_inset Formula $\{a_{jk},z_{i}\}$
+\end_inset
+
+ quedan cubiertas por 
+\begin_inset Formula $a_{jk}$
+\end_inset
+
+ si este está en la cobertura o por el otro nodo si no lo está, pues en
+ tal caso 
+\begin_inset Formula $l_{jk}$
+\end_inset
+
+ es verdadero y, si 
+\begin_inset Formula $l_{jk}=p_{i}$
+\end_inset
+
+, el otro nodo es 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ que está seleccionado, y si 
+\begin_inset Formula $l_{jk}=\neg p_{i}$
+\end_inset
+
+ el otro nodo es 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ que está seleccionado.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $i\in\{1,\dots,m\}$
+\end_inset
+
+ la cobertura debe tener a 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ o a 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ para cubrir 
+\begin_inset Formula $\{y_{i},z_{i}\}$
+\end_inset
+
+, y para 
+\begin_inset Formula $j\in\{1,\dots,n\}$
+\end_inset
+
+ debe tener dos de los 
+\begin_inset Formula $a_{jk}$
+\end_inset
+
+ para cubrir todos los 
+\begin_inset Formula $\{a_{jp},a_{jq}\}$
+\end_inset
+
+.
+ Ya llevamos 
+\begin_inset Formula $m+2n$
+\end_inset
+
+ nodos, por lo que no se cubren más.
+ Tomamos la asignación de valores con 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ a verdadero si la cobertura contiene a 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ o a falso si contiene a 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ es verdadera porque, para cada 
+\begin_inset Formula $j\in\{1,\dots,n\}$
+\end_inset
+
+, hay un 
+\begin_inset Formula $a_{jk}$
+\end_inset
+
+ fuera de la cobertura, de modo que si 
+\begin_inset Formula $\{a_{jk},y_{i}\}\in E$
+\end_inset
+
+ este está cubierto por 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $p_{i}=l_{jk}$
+\end_inset
+
+ es verdadero, y si 
+\begin_inset Formula $\{a_{jk},z_{i}\}\in E$
+\end_inset
+
+ este está cubierto por 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $\neg p_{i}=l_{jk}$
+\end_inset
+
+ es verdadero, y en cualquier caso la 
+\begin_inset Formula $j$
+\end_inset
+
+-ésima cláusula contiene un literal verdadero.
+\end_layout
+
+\begin_layout Standard
+La función de conversión de 
+\begin_inset Formula $\langle\Phi\rangle$
+\end_inset
+
+ a 
+\begin_inset Formula $\langle G_{\Phi},m+2n\rangle$
+\end_inset
+
+ es claramente polinómica.
+\end_layout
+
+\end_deeper
 \end_body
 \end_document

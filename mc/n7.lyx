@@ -96,27 +96,6 @@ intratable
  solución sea práctica.
 \end_layout
 
-\begin_layout Standard
-Un 
-\series bold
-camino hamiltoniano
-\series default
- en un grafo es un camino que pasa por todos los nodos exactamente una vez.
- Una 
-\series bold
-
-\begin_inset Formula $k$
-\end_inset
-
--clique
-\series default
- es un subgrafo completo de 
-\begin_inset Formula $k$
-\end_inset
-
- nodos.
-\end_layout
-
 \begin_layout Section
 La clase 
 \begin_inset Formula ${\cal P}$
@@ -1276,6 +1255,19 @@ Se añade el nodo
 \end_inset
 
 .
+ Una 
+\series bold
+
+\begin_inset Formula $k$
+\end_inset
+
+-clique
+\series default
+ es un subgrafo completo con 
+\begin_inset Formula $k$
+\end_inset
+
+ nodos.
 \end_layout
 
 \begin_deeper
@@ -1294,6 +1286,43 @@ Si
 \end_layout
 
 \end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{EULCYCLE}\coloneqq\{\langle G\rangle:G\text{ es un grafo dirigido con un ciclo euleriano}\}$
+\end_inset
+
+.
+ Un 
+\series bold
+camino euleriano
+\series default
+ es uno que pasa por todas las aristas exactamente una vez.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Un teorema de Euler dice que un grafo dirigido 
+\begin_inset Formula $G$
+\end_inset
+
+ tiene un ciclo euleriano si y sólo si existe un camino entre cada par de
+ vértices y todos los vértices tienen grado entrante igual a su grado saliente.
+ Ver que hay un camino entre cada par de vértices es polinómico por serlo
+ 
+\begin_inset Formula $\text{PATH}$
+\end_inset
+
+ y el número de pares de vértices, y ver que todos los vértices tienen grado
+ entrante y saliente iguales también.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{2-COLOR}\coloneqq\{\langle G\rangle:G\text{ es un grafo no dirigido bipartito}\}$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Enumerate
 Todo 
 \begin_inset Formula $L\in{\cal CF}$
@@ -1693,66 +1722,6 @@ end{samepage}
 
 \end_layout
 
-\begin_layout Standard
-Están en 
-\begin_inset Formula ${\cal NP}$
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $\text{HAMPATH}\coloneqq\{\langle G,s,t\rangle:G\text{ es un grafo dirigido con camino hamiltoniano de }s\text{ a }t\}$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-El verificador recibe el grafo y el camino hamiltoniano, cuyo tamaño es
- claramente polinómico respecto al del grafo.
- Marca los vértices de dicho camino, rechazando si encuentra un vértice
- que ya ha sido marcado.
- Si queda algún vértice sin marcar, rechaza.
- Para cada arco del camino, si el arco no está en el grafo, rechaza.
- Finalmente, acepta si el camino empieza por 
-\begin_inset Formula $s$
-\end_inset
-
- y termina por 
-\begin_inset Formula $t$
-\end_inset
-
- y rechaza en otro caso.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-\begin_inset Formula $\text{CLIQUE}\coloneqq\{\langle G,k\rangle:G\text{ es grafo no dirigido con }k\text{-clique}\}$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-El verificador recibe la lista de 
-\begin_inset Formula $k$
-\end_inset
-
- nodos de la clique, de tamaño claramente proporcional al grafo.
- Si tiene algún nodo que no está en el grafo, o más o menos de 
-\begin_inset Formula $k$
-\end_inset
-
- nodos, rechaza.
- Para cada par de nodos en la clique, si el par no es un arco del grafo,
- rechaza.
- En otro caso acepta.
-\end_layout
-
-\end_deeper
 \begin_layout Standard
 Sean 
 \begin_inset Formula $L_{1},L_{2}\in{\cal NP}$
