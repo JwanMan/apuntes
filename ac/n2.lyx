@@ -1,0 +1,699 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Retículos
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+conjunto ordenado
+\series default
+ 
+\begin_inset Formula $(A,\leq)$
+\end_inset
+
+ cumple la 
+\series bold
+condición de cadena ascendente
+\series default
+ (
+\series bold
+ACC
+\series default
+, 
+\emph on
+\lang english
+Ascending Chain Condition
+\emph default
+\lang spanish
+) si para 
+\begin_inset Formula $\{a_{n}\}_{n}\subseteq A$
+\end_inset
+
+ con cada 
+\begin_inset Formula $a_{n}\leq a_{n+1}$
+\end_inset
+
+ existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+ es 
+\begin_inset Formula $a_{n}=a_{n_{0}}$
+\end_inset
+
+, si y sólo si todo 
+\begin_inset Formula $S\subseteq A$
+\end_inset
+
+ no vacío tiene un elemento maximal.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Probamos el contrarrecíproco.
+ Si 
+\begin_inset Formula $S\subseteq A$
+\end_inset
+
+ no tiene elementos maximales, sea 
+\begin_inset Formula $s_{1}\in S$
+\end_inset
+
+ arbitrario, como 
+\begin_inset Formula $s_{1}$
+\end_inset
+
+ no es maximal, existe 
+\begin_inset Formula $s_{2}\in S$
+\end_inset
+
+ son 
+\begin_inset Formula $s_{1}<s_{2}$
+\end_inset
+
+, y por inducción se puede construir una secuencia 
+\begin_inset Formula $\{s_{n}\}_{n}\subseteq S\subseteq A$
+\end_inset
+
+ con cada 
+\begin_inset Formula $s_{n}<s_{n+1}$
+\end_inset
+
+ y 
+\begin_inset Formula $A$
+\end_inset
+
+ no cumple la ACC.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dada 
+\begin_inset Formula $\{a_{n}\}_{n}\subseteq A$
+\end_inset
+
+ con cada 
+\begin_inset Formula $a_{n}\leq a_{n+1}$
+\end_inset
+
+, como 
+\begin_inset Formula $\{a_{n}\}_{n}\neq\emptyset$
+\end_inset
+
+, tiene un maximal 
+\begin_inset Formula $a_{n_{0}}$
+\end_inset
+
+, y para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $a_{n}\geq a_{n_{0}}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $a_{n}=a_{n_{0}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(A,\leq)$
+\end_inset
+
+ cumple la 
+\series bold
+condición de cadena descendente
+\series default
+ (
+\series bold
+DCC
+\series default
+, 
+\emph on
+\lang english
+Descending Chain Condition
+\emph default
+\lang spanish
+) si 
+\begin_inset Formula $(A,\geq)$
+\end_inset
+
+ cumple la ACC, si y sólo si todo 
+\begin_inset Formula $S\subseteq A$
+\end_inset
+
+ no vacío tiene un elemento minimal.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+retículo
+\series default
+ es un conjunto parcialmente ordenado en que todo subconjunto de dos elementos
+ tiene supremo e ínfimo, y es 
+\series bold
+completo
+\series default
+ si todo subconjunto tiene supremo e ínfimo.
+ 
+\begin_inset Formula $({\cal L},\leq)$
+\end_inset
+
+ es un retículo completo si y sólo si lo es 
+\begin_inset Formula $({\cal L},\geq)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ un retículo completo, para 
+\begin_inset Formula $S\subseteq{\cal L}$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $\bigvee S\coloneqq\sup_{{\cal L}}S$
+\end_inset
+
+ y 
+\begin_inset Formula $\bigwedge S\coloneqq\inf_{{\cal L}}S$
+\end_inset
+
+.
+ Un 
+\begin_inset Formula $x\in{\cal L}$
+\end_inset
+
+ es 
+\series bold
+compacto
+\series default
+ si para 
+\begin_inset Formula $S\subseteq{\cal L}$
+\end_inset
+
+ no vacío con 
+\begin_inset Formula $x=\bigvee S$
+\end_inset
+
+ existe 
+\begin_inset Formula $F\subseteq S$
+\end_inset
+
+ finito con 
+\begin_inset Formula $x=\bigvee F$
+\end_inset
+
+, y es 
+\series bold
+cocompacto
+\series default
+ si para 
+\begin_inset Formula $S\subseteq{\cal L}$
+\end_inset
+
+ no vacío con 
+\begin_inset Formula $x=\bigwedge S$
+\end_inset
+
+ existe 
+\begin_inset Formula $F\subseteq S$
+\end_inset
+
+ finito con 
+\begin_inset Formula $x=\bigwedge F$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\{a_{n}\}_{n}$
+\end_inset
+
+ tiene un maximal
+\end_layout
+
+\begin_layout Standard
+Un retículo completo 
+\begin_inset Formula $({\cal L},\leq)$
+\end_inset
+
+ cumple la ACC si y sólo si todo 
+\begin_inset Formula $x\in{\cal L}$
+\end_inset
+
+ es compacto.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $x\in{\cal L}$
+\end_inset
+
+ y 
+\begin_inset Formula $S\subseteq{\cal L}$
+\end_inset
+
+ no vacío con 
+\begin_inset Formula $x=\bigvee S$
+\end_inset
+
+, 
+\begin_inset Formula $\Sigma\coloneqq\{\bigvee F\}_{F\subseteq S\text{ finito no vacío}}$
+\end_inset
+
+ tiene un elemento maximal 
+\begin_inset Formula $\bigvee F$
+\end_inset
+
+ con 
+\begin_inset Formula $F\subseteq S$
+\end_inset
+
+ finito, y queremos ver que 
+\begin_inset Formula $x=\bigvee F$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $t\in S$
+\end_inset
+
+ arbitrario y 
+\begin_inset Formula $F'\coloneqq F'\cup\{t\}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\bigvee F\leq\bigvee F'$
+\end_inset
+
+, pero como 
+\begin_inset Formula $\bigvee F'\in\Sigma$
+\end_inset
+
+ y 
+\begin_inset Formula $\bigvee F$
+\end_inset
+
+ es maximal, 
+\begin_inset Formula $\bigvee F=\bigvee F'$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $t\leq\bigvee F$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $t\in S$
+\end_inset
+
+ es arbitrario, 
+\begin_inset Formula $\bigvee S\leq\bigvee F$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $x=\bigvee S=\bigvee F$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $\{s_{n}\}_{n}\subseteq{\cal L}$
+\end_inset
+
+ con cada 
+\begin_inset Formula $s_{n}\leq s_{n+1}$
+\end_inset
+
+ y 
+\begin_inset Formula $x\coloneqq\bigvee_{n}s_{n}$
+\end_inset
+
+, como 
+\begin_inset Formula $x$
+\end_inset
+
+ es compacto, 
+\begin_inset Formula $x=\bigvee_{k=1}^{r}s_{n_{k}}$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $n_{1}<\dots<n_{r}$
+\end_inset
+
+, luego 
+\begin_inset Formula $x=s_{n_{r}}$
+\end_inset
+
+ y, para 
+\begin_inset Formula $n\geq n_{r}$
+\end_inset
+
+, 
+\begin_inset Formula $s_{n_{r}}\leq s_{n}$
+\end_inset
+
+ y por tanto, como 
+\begin_inset Formula $s_{n_{r}}$
+\end_inset
+
+ es maximal, 
+\begin_inset Formula $s_{n_{r}}=s_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Análogamente, 
+\begin_inset Formula $({\cal L},\leq)$
+\end_inset
+
+ cumple la DCC si y sólo si todo 
+\begin_inset Formula $x\in{\cal L}$
+\end_inset
+
+ es cocompacto.
+\end_layout
+
+\begin_layout Standard
+Dado un anillo 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $({\cal L}(A),\subseteq)$
+\end_inset
+
+ es un retículo completo con supremo 
+\begin_inset Formula $\bigvee S=\sum S=\{a_{1}+\dots+a_{n}\}_{n\in\mathbb{N},\{a_{1},\dots,a_{n}\}\subseteq\bigcup S}$
+\end_inset
+
+ e ínfimo 
+\begin_inset Formula $\inf S=\bigcap S$
+\end_inset
+
+.
+ 
+\begin_inset Formula $I\trianglelefteq A$
+\end_inset
+
+ es compacto en 
+\begin_inset Formula $({\cal L}(A),\subseteq)$
+\end_inset
+
+ si y sólo si es finitamente generado.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $I=\bigvee_{x\in I}(x)$
+\end_inset
+
+, por lo que existen 
+\begin_inset Formula $x_{1},\dots,x_{n}\in I$
+\end_inset
+
+ tales que 
+\begin_inset Formula $I=\bigvee_{i=1}^{n}(x_{i})=(\{x_{i}\}_{i=1}^{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $I\eqqcolon(x_{1},\dots,x_{n})$
+\end_inset
+
+ y 
+\begin_inset Formula $S\subseteq{\cal L}(A)$
+\end_inset
+
+ no vacío con 
+\begin_inset Formula $I=\bigvee S$
+\end_inset
+
+, para cada 
+\begin_inset Formula $i$
+\end_inset
+
+, como 
+\begin_inset Formula $x_{i}\in I$
+\end_inset
+
+, existen 
+\begin_inset Formula $a_{i1}\in J_{i1},\dots,a_{ik_{i}}\in J_{ik_{i}}$
+\end_inset
+
+ con 
+\begin_inset Formula $x_{i}=a_{i1}+\dots+a_{ik_{i}}$
+\end_inset
+
+, de modo que todo elemento de 
+\begin_inset Formula $I$
+\end_inset
+
+ se puede expresar como combinación lineal de los 
+\begin_inset Formula $a_{ij}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $I=\bigvee_{ij}J_{ij}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Anillos noetherianos y artinianos
+\end_layout
+
+\begin_layout Standard
+Un anillo 
+\begin_inset Formula $A$
+\end_inset
+
+ es 
+\series bold
+noetheriano
+\series default
+ si 
+\begin_inset Formula ${\cal L}(A)$
+\end_inset
+
+ cumple la ACC y 
+\series bold
+artiniano
+\series default
+ si cumple la DCC.
+ Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+Si un anillo es noetheriano o artiniano, también lo es cualquier anillo
+ cociente suyo.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+El teorema de la correspondencia establece una biyección que conserva la
+ inclusión entre los ideales de 
+\begin_inset Formula $A/I$
+\end_inset
+
+ y los de 
+\begin_inset Formula $A$
+\end_inset
+
+ que contienen a 
+\begin_inset Formula $I$
+\end_inset
+
+, conservando la ACC o DCC.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Un anillo
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO pg 28 (22)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
