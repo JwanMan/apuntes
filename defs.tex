@@ -83,12 +83,23 @@
 \def\eoffsets{\end{center}}
 
 % Notices
-\def\sremember#1{%
-	\vspace{-1ex}\begin{center}\begin{tabular}{|p{0.9\textwidth}|}%
-	\multicolumn{1}{p{0.9\textwidth}}{{\kern-.3em\small {[}#1{]}}}%
-		\tabularnewline\hline\nobreak\vspace{-1ex}
+%\def\sremember#1{%
+%	\vspace{-1ex}\begin{center}\begin{tabular}{|p{0.9\textwidth}|}%
+%	\multicolumn{1}{p{0.9\textwidth}}{{\kern-.3em\small {[}#1{]}}}%
+%		\tabularnewline\hline\nobreak\vspace{-1ex}
+%}
+%\def\eremember{%
+%	\nobreak\vspace{-1em}\tabularnewline\hline%
+%	\end{tabular}\par\end{center}\vspace{.3em}%
+%}
+\usepackage[xcolor]{mdframed}
+\mdfdefinestyle{reminder}{%
+	frametitlerule=true,frametitlebackgroundcolor=gray!20,%
+	frametitlefont={\small\bfseries},leftline=false,rightline=false,%
 }
-\def\eremember{%
-	\nobreak\vspace{-1em}\tabularnewline\hline%
-	\end{tabular}\par\end{center}\vspace{.3em}%
-}
+\newmdenv[topline=false,bottomline=false,%
+	  skipabove=\topsep,skipbelow=\topsep]{exinfo}
+\def\sremember#1{\begin{mdframed}[style=reminder,frametitle={#1}%
+]}
+\def\eremember{\end{mdframed}}
+\newenvironment{reminder}[1]{\sremember{#1}}{\eremember}
