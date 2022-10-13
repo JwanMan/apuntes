@@ -519,6 +519,10 @@ Análogamente,
  es cocompacto.
 \end_layout
 
+\begin_layout Section
+Retículos de ideales
+\end_layout
+
 \begin_layout Standard
 Dado un anillo 
 \begin_inset Formula $A$
@@ -632,10 +636,6 @@ Sean
 .
 \end_layout
 
-\begin_layout Section
-Anillos noetherianos y artinianos
-\end_layout
-
 \begin_layout Standard
 Un anillo 
 \begin_inset Formula $A$
@@ -649,7 +649,8 @@ noetheriano
 \begin_inset Formula ${\cal L}(A)$
 \end_inset
 
- cumple la ACC y 
+ cumple la ACC, si y sólo si todos sus ideales son finitamente generados,
+ y es 
 \series bold
 artiniano
 \series default
@@ -664,8 +665,8 @@ Si un anillo es noetheriano o artiniano, también lo es cualquier anillo
 
 \begin_deeper
 \begin_layout Standard
-El teorema de la correspondencia establece una biyección que conserva la
- inclusión entre los ideales de 
+El teorema de la correspondencia establece una biyección entre los ideales
+ de 
 \begin_inset Formula $A/I$
 \end_inset
 
@@ -677,17 +678,1499 @@ El teorema de la correspondencia establece una biyección que conserva la
 \begin_inset Formula $I$
 \end_inset
 
-, conservando la ACC o DCC.
+ que conserva la inclusión y por tanto las condiciones ACC y DCC.
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
-Un anillo
+Los anillos con una cantidad finita de ideales son noetherianos y artinianos,
+ y en particular lo son los cuerpos.
+\end_layout
+
+\begin_layout Enumerate
+Los DIPs son noetherianos.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Todos sus ideales son finitamente generados.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Un anillo con un elemento cancelable y no invertible no es artiniano.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $A$
+\end_inset
+
+ el anillo y 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ el elemento, 
+\begin_inset Formula $(x)\supsetneq(x^{2})\supsetneq\dots\supsetneq(x^{k})\supsetneq\dots$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Los dominios que no son cuerpos no son artinianos, y en particular los DIPs
+ son noetherianos pero no artinianos.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Por ser dominios todos los elementos no nulos son cancelables, y por no
+ ser cuerpo hay un elemento no nulo no invertible.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Los anillos de polinomios no son artinianos.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $X$
+\end_inset
+
+ es cancelable y no invertible.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Dado un anillo 
+\begin_inset Formula $A$
+\end_inset
+
+ no trivial, 
+\begin_inset Formula $A^{\mathbb{N}}$
+\end_inset
+
+ y 
+\begin_inset Formula $A[X_{1},X_{2},\dots]$
+\end_inset
+
+ no son noetherianos ni artinianos.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $A^{\mathbb{N}}$
+\end_inset
+
+, los 
+\begin_inset Formula $I_{n}\coloneqq\{a:\forall k>n,a_{k}=0\}$
+\end_inset
+
+ cumplen 
+\begin_inset Formula $I_{1}\subsetneq I_{2}\subsetneq\dots$
+\end_inset
+
+ y los 
+\begin_inset Formula $J_{n}\coloneqq\{a:\forall k<n,a_{k}=0\}$
+\end_inset
+
+ cumplen 
+\begin_inset Formula $J_{1}\supsetneq J_{2}\supsetneq\dots$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $A[X_{1},X_{2},\dots]$
+\end_inset
+
+ esto ocurre con los 
+\begin_inset Formula $I_{n}\coloneqq(X_{1},\dots,X_{n})$
+\end_inset
+
+ y los 
+\begin_inset Formula $J_{n}\coloneqq(X_{n},X_{n+1},\dots)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si un anillo es un 
+\begin_inset Formula $K$
+\end_inset
+
+-espacio vectorial de dimensión finita en que todos los ideales son subespacios
+ vectoriales entonces es noetheriano y artiniano.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si la dimensión es 
+\begin_inset Formula $d\in\mathbb{N}$
+\end_inset
+
+, una cadena estricta de ideales tiene a lo sumo 
+\begin_inset Formula $d+1$
+\end_inset
+
+ elementos.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Para todo cuerpo 
+\begin_inset Formula $K$
+\end_inset
+
+, 
+\begin_inset Formula $A=\frac{K[X]}{(X^{n})}$
+\end_inset
+
+ es noetheriano y artiniano.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Es un 
+\begin_inset Formula $K$
+\end_inset
+
+-espacio vectorial con base 
+\begin_inset Formula $\overline{1},\overline{X},\dots,\overline{X}^{n-1}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Que un anillo sea noetheriano o artiniano no implica que sus subanillos
+ lo sean.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $K[X_{1},X_{2},\dots]$
+\end_inset
+
+ no es noetheriano ni artiniano pero es subanillo de su cuerpo de fracciones.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Anillos noetherianos
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es noetheriano, todo 
+\begin_inset Formula $X\subseteq A$
+\end_inset
+
+ admite un 
+\begin_inset Formula $X_{0}\subseteq X$
+\end_inset
+
+ finito con 
+\begin_inset Formula $(X_{0})=(X)$
+\end_inset
+
+, pues 
+\begin_inset Formula $(X)=(b_{1},\dots,b_{m})$
+\end_inset
+
+ con cada 
+\begin_inset Formula $b_{i}=\sum_{j=1}^{k_{j}}a_{ij}x_{ij}$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $a_{ij}\in A$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{ij}\in X$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $(X)=(x_{11},\dots,x_{1j_{1}},\dots,x_{m1},\dots,x_{mk_{m}})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Todo dominio noetheriano es un dominio de factorización.
+ 
+\series bold
+Demostración:
+\series default
+ Supongamos que 
+\begin_inset Formula $D$
+\end_inset
+
+ es noetheriano pero no es un DF, de modo que el conjunto 
+\begin_inset Formula $S$
+\end_inset
+
+ de elementos no nulos de 
+\begin_inset Formula $D$
+\end_inset
+
+ que no se factorizan, es decir, que no están en 
+\begin_inset Formula $\{up_{1}\cdots p_{n}\}_{u\in D^{*}}^{p_{1},\dots,p_{n}\in D\text{ irreducibles}}$
+\end_inset
+
+, no es vacío.
+ Entonces 
+\begin_inset Formula $\Omega\coloneqq\{(a)\}_{a\in S}$
+\end_inset
+
+ tiene un maximal 
+\begin_inset Formula $(a)$
+\end_inset
+
+ con 
+\begin_inset Formula $a\in S$
+\end_inset
+
+, y como 
+\begin_inset Formula $a$
+\end_inset
+
+ no es nulo, invertible ni irreducible, existen 
+\begin_inset Formula $b,c\in D$
+\end_inset
+
+ no asociados de 
+\begin_inset Formula $a$
+\end_inset
+
+ con 
+\begin_inset Formula $a=bc$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $(b),(c)\supsetneq(a)$
+\end_inset
+
+ y por tanto no están en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, luego 
+\begin_inset Formula $b,c\notin S$
+\end_inset
+
+, y claramente 
+\begin_inset Formula $b,c\neq0$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $b$
+\end_inset
+
+ y 
+\begin_inset Formula $c$
+\end_inset
+
+ se factorizan y por tanto también lo hace 
+\begin_inset Formula $a\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es noetheriano, todo ideal contiene un producto finito de ideales primos,
+ y en particular 0 es un producto finito de ideales primos.
+ 
+\series bold
+Demostración:
+\series default
+ De no ser así, el conjunto 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ de ideales que no contienen un producto finito de primos es no vacío y
+ tiene un maximal 
+\begin_inset Formula $I\in\Omega$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $I$
+\end_inset
+
+ no es primo, existen 
+\begin_inset Formula $a,b\notin I$
+\end_inset
+
+ con 
+\begin_inset Formula $ab\in I$
+\end_inset
+
+, luego 
+\begin_inset Formula $I+(a),I+(b)\supsetneq I$
+\end_inset
+
+ e 
+\begin_inset Formula $I+(a),I+(b)\notin\Omega$
+\end_inset
+
+, con lo que existen 
+\begin_inset Formula $P_{i}\trianglelefteq_{\text{p}}A$
+\end_inset
+
+ y 
+\begin_inset Formula $Q_{j}\trianglelefteq_{\text{p}}A$
+\end_inset
+
+ con 
+\begin_inset Formula $P'\coloneqq\prod_{i}P_{i}\subseteq I+(a)$
+\end_inset
+
+ y 
+\begin_inset Formula $Q'\coloneqq\prod_{i}Q_{i}\subseteq I+(b)$
+\end_inset
+
+.
+ Ahora bien, los elementos de 
+\begin_inset Formula $P'Q'$
+\end_inset
+
+ son suma de elementos 
+\begin_inset Formula $pq$
+\end_inset
+
+ con 
+\begin_inset Formula $p\in P'\subseteq I+(a)$
+\end_inset
+
+ y 
+\begin_inset Formula $q\in Q'\subseteq I+(b)$
+\end_inset
+
+, de modo que existen 
+\begin_inset Formula $x,y\in I$
+\end_inset
+
+ y 
+\begin_inset Formula $s,t\in A$
+\end_inset
+
+ con 
+\begin_inset Formula $p=x+sa$
+\end_inset
+
+ y 
+\begin_inset Formula $b=y+tb$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $pq=(x+sa)(y+tb)=xy+(tb)x+(sa)y+(st)(ab)\in I$
+\end_inset
+
+, ya que 
+\begin_inset Formula $ab\in I$
+\end_inset
+
+, y por tanto 
+\begin_inset Formula $P'Q'\subseteq I\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de la base de Hilbert:
+\series default
+ Un anillo 
+\begin_inset Formula $A$
+\end_inset
+
+ es noetheriano si y sólo si lo es 
+\begin_inset Formula $A[X]$
+\end_inset
+
+, si y sólo si lo es cualquiera de los 
+\begin_inset Formula $A[X_{1},\dots,X_{n}]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Probamos el contrarrecíproco.
+ Sea 
+\begin_inset Formula $I\trianglelefteq A[X]$
+\end_inset
+
+ no finitamente generado, por inducción y usando el buen orden de 
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+ definimos una secuencia 
+\begin_inset Formula $\{f_{i}\}_{i=1}^{\infty}\subseteq I$
+\end_inset
+
+ donde cada 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ es un elemento de 
+\begin_inset Formula $I\setminus(f_{1},\dots,f_{i-1})$
+\end_inset
+
+ de grado mínimo.
+ Llamando 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ al grado de 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{i}$
+\end_inset
+
+ a su coeficiente principal, 
+\begin_inset Formula $(b_{1})\subseteq(b_{1},b_{2})\subseteq(b_{1},b_{2},b_{3})\subseteq\dots$
+\end_inset
+
+ es una cadena ascendente de ideales de 
+\begin_inset Formula $A$
+\end_inset
+
+, y queda ver que los contenidos son estrictos.
+ En efecto, si fuera 
+\begin_inset Formula $b_{k}\in(b_{1},\dots,b_{k-1})$
+\end_inset
+
+, digamos 
+\begin_inset Formula $b_{k}=\sum_{i=1}^{k-1}a_{i}b_{i}$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $a_{i}\in A$
+\end_inset
+
+, como 
+\begin_inset Formula $n_{1}\leq n_{2}\leq\dots$
+\end_inset
+
+, podemos tomar 
+\begin_inset Formula $f_{k}-\sum_{i=1}^{k-1}a_{i}f_{i}X^{n_{k}-n_{i}}$
+\end_inset
+
+, que está en 
+\begin_inset Formula $I\setminus(f_{1},\dots,f_{k-1})$
+\end_inset
+
+ y tiene grado menor que 
+\begin_inset Formula $n_{k}\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies1]$
+\end_inset
+
+ 
+\begin_inset Formula $A\cong A[X]/(X)$
+\end_inset
+
+ es noetheriano.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\iff3]$
+\end_inset
+
+ Por inducción en 
+\begin_inset Formula $[1\iff2]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Así, si 
+\begin_inset Formula $K$
+\end_inset
+
+ es un cuerpo, los anillos de la forma 
+\begin_inset Formula $K[X_{1},\dots,X_{n}]/I$
+\end_inset
+
+ son noetherianos.
+ Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un subanillo noetheriano de 
+\begin_inset Formula $B$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{1},\dots,b_{n}\in B$
+\end_inset
+
+, entonces 
+\begin_inset Formula $A[b_{1},\dots,b_{n}]$
+\end_inset
+
+ es noetheriano, pues la evaluación 
+\begin_inset Formula $\epsilon_{b}:A[X_{1},\dots,X_{n}]\to A[b_{1},\dots,b_{n}]$
+\end_inset
+
+ es un homomorfismo y por tanto 
+\begin_inset Formula $A[b_{1},\dots,b_{n}]\cong A[X_{1},\dots,X_{n}]/\ker\epsilon_{b}$
+\end_inset
+
+.
+ En particular los 
+\begin_inset Formula $\mathbb{Z}[\sqrt{m}]$
+\end_inset
+
+ son noetherianos, aunque muchos no son DFUs.
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $I,J\trianglelefteq A$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $(I:J)=\{a\in A:aJ\subseteq I\}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $I\subseteq(I:J)$
+\end_inset
+
+, pues para 
+\begin_inset Formula $x\in I$
+\end_inset
+
+, 
+\begin_inset Formula $xJ\subseteq xA\subseteq I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Cohen:
+\series default
+ Un anillo es noetheriano si y sólo si todos sus ideales primos son finitamente
+ generados.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Obvio.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Probamos el contrarrecíproco.
+ Sean 
+\begin_inset Formula $A$
+\end_inset
+
+ no noetheriano y 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ el conjunto de ideales de 
+\begin_inset Formula $A$
+\end_inset
+
+ no finitamente generados, la unión de una cadena de elementos de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ está en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ En efecto, dada una cadena 
+\begin_inset Formula $\{I_{\lambda}\}_{\lambda\in\Lambda}\subseteq\Omega$
+\end_inset
+
+, si fuera 
+\begin_inset Formula $\bigcup_{\lambda}I_{\lambda}\eqqcolon(a_{1},\dots,a_{n})$
+\end_inset
+
+, por ser 
+\begin_inset Formula $\{I_{\lambda}\}_{\lambda}$
+\end_inset
+
+ una cadena existe un 
+\begin_inset Formula $\mu\in\Lambda$
+\end_inset
+
+ con 
+\begin_inset Formula $a_{1},\dots,a_{n}\in I_{\mu}$
+\end_inset
+
+, luego 
+\begin_inset Formula $(a_{1},\dots,a_{n})\subseteq I_{\mu}\subseteq(a_{1},\dots,a_{n})$
+\end_inset
+
+ e 
+\begin_inset Formula $I_{\mu}$
+\end_inset
+
+ es finitamente generado.
+\begin_inset Formula $\#$
+\end_inset
+
+ Esto nos permite aplicar el lema de Zorn y obtener un elemento maximal
+ 
+\begin_inset Formula $P$
+\end_inset
+
+ de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, y queda ver que 
+\begin_inset Formula $P$
+\end_inset
+
+ es primo.
+ Supongamos que no lo fuera.
+ 
+\begin_inset Formula $P\neq A$
+\end_inset
+
+, pues 
+\begin_inset Formula $A=(1)$
+\end_inset
+
+ es finitamente generado, luego existen 
+\begin_inset Formula $a,b\notin P$
+\end_inset
+
+ con 
+\begin_inset Formula $ab\in P$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $P\subsetneq P+(a)$
+\end_inset
+
+, luego 
+\begin_inset Formula $P+(a)\notin\Omega$
+\end_inset
+
+ y existen 
+\begin_inset Formula $p_{1},\dots,p_{n}\in P$
+\end_inset
+
+ y 
+\begin_inset Formula $r_{1},\dots,r_{n}\in A$
+\end_inset
+
+ con 
+\begin_inset Formula $P+(a)=(p_{1}+r_{1}a,\dots,p_{n}+r_{n}a)=(p_{1},\dots,p_{n},a)$
+\end_inset
+
+.
+ Para la segunda igualdad:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\subseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Cada 
+\begin_inset Formula $p_{i}+r_{i}a\in(p_{i},a)\subseteq(p_{1},\dots,p_{n},a)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\supseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Claramente 
+\begin_inset Formula $a\in P+(a)$
+\end_inset
+
+, y entonces cada 
+\begin_inset Formula $p_{i}=(p_{i}+r_{i}a)-r_{i}a\in P+(a)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(P:(a))=\{c\in A:c(a)=(ca)\subseteq P\}=\{c\in A:ac\in P\}$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $P\subsetneq(P:(a))$
+\end_inset
+
+ ya que 
+\begin_inset Formula $ab\in P$
+\end_inset
+
+ pero 
+\begin_inset Formula $b\notin P$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $(P:(a))=(q_{1},\dots,q_{m})$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $q_{1},\dots,q_{m}$
+\end_inset
+
+ con cada 
+\begin_inset Formula $q_{j}a\in P$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $P=(p_{1},\dots,p_{n},q_{1}a,\dots,q_{m}a)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\subseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $x\in P$
+\end_inset
+
+, 
+\begin_inset Formula $x\in P+(a)=(p_{1},\dots,p_{n},a)$
+\end_inset
+
+, luego 
+\begin_inset Formula $x=s_{1}p_{1}+\dots+s_{n}p_{n}+ra$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $s_{j},r\in A$
+\end_inset
+
+, y como 
+\begin_inset Formula $x\in P$
+\end_inset
+
+ y los 
+\begin_inset Formula $p_{i}\in P$
+\end_inset
+
+, 
+\begin_inset Formula $ra\in P$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $ra\in(P:(a))=(q_{1},\dots,q_{m})$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $r=t_{1}q_{1}+\dots+t_{m}q_{m}$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $t_{j}\in A$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $x=s_{1}p_{1}+\dots+s_{n}p_{n}+t_{1}q_{1}a+\dots+t_{m}q_{m}a\in(p_{1},\dots,p_{n},q_{1}a,\dots,q_{m}a)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\supseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Cada 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ y cada 
+\begin_inset Formula $q_{j}a$
+\end_inset
+
+ está en 
+\begin_inset Formula $P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Con esto 
+\begin_inset Formula $P$
+\end_inset
+
+ es finitamente generado.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, un anillo 
+\begin_inset Formula $A$
+\end_inset
+
+ es noetheriano si y sólo si lo es 
+\begin_inset Formula $A\llbracket X\rrbracket$
+\end_inset
+
+, si y sólo si lo es cualquiera de los 
+\begin_inset Formula $A\llbracket X_{1},\dots,X_{n}\rrbracket$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $P\trianglelefteq_{\text{p}}A\llbracket X\rrbracket$
+\end_inset
+
+ y queremos ver que 
+\begin_inset Formula $P$
+\end_inset
+
+ es finitamente generado.
+ Como la evaluación en 0 
+\begin_inset Formula $\epsilon:A\llbracket X\rrbracket\to A$
+\end_inset
+
+ es suprayectiva, 
+\begin_inset Formula $\varepsilon(P)$
+\end_inset
+
+ es un ideal de 
+\begin_inset Formula $A$
+\end_inset
+
+ y por tanto es finitamente generado, digamos 
+\begin_inset Formula $\varepsilon(P)=(b_{1},\dots,b_{n})$
+\end_inset
+
+ con cada 
+\begin_inset Formula $b_{i}=\varepsilon(f_{i})$
+\end_inset
+
+ para cierto 
+\begin_inset Formula $f_{i}\in P$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $X\in P$
+\end_inset
+
+ entonces 
+\begin_inset Formula $P=(b_{1},\dots,b_{n},X)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\subseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $f\in P$
+\end_inset
+
+, 
+\begin_inset Formula $f=gX+b$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $g\in A\llbracket X\rrbracket$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in\varepsilon(P)=(b_{1},\dots,b_{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\supseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $X\in P$
+\end_inset
+
+ y cada 
+\begin_inset Formula $b_{i}=f_{i}-g_{i}X$
+\end_inset
+
+ para cierto 
+\begin_inset Formula $g_{i}\in A\llbracket X\rrbracket$
+\end_inset
+
+, luego 
+\begin_inset Formula $b_{i}\in P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X\notin P$
+\end_inset
+
+ entonces 
+\begin_inset Formula $P=(f_{1},\dots,f_{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\subseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $g\in P$
+\end_inset
+
+, queremos ver que existen 
+\begin_inset Formula $(a_{ij})_{1\leq i\leq n}^{j\in\mathbb{N}}\in A\llbracket X\rrbracket$
+\end_inset
+
+ tales que, para 
+\begin_inset Formula $j\in\mathbb{N}$
+\end_inset
+
+, existe 
+\begin_inset Formula $g'\in P$
+\end_inset
+
+ con 
+\begin_inset Formula $f=a_{1j}f_{1}+\dots+a_{nj}f_{n}+g'X^{j}$
+\end_inset
+
+, y 
+\begin_inset Formula $a_{ij}$
+\end_inset
+
+ y 
+\begin_inset Formula $a_{kj}$
+\end_inset
+
+ tienen los mismos coeficientes hasta el de grado 
+\begin_inset Formula $\min\{i,k\}-1$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $j=0$
+\end_inset
+
+, tomamos los 
+\begin_inset Formula $a_{i0}=0$
+\end_inset
+
+ y 
+\begin_inset Formula $g'=g$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $j>0$
+\end_inset
+
+, probado esto para 
+\begin_inset Formula $j-1$
+\end_inset
+
+, 
+\begin_inset Formula $g=a_{1,k-1}f_{1}+\dots+a_{n,k-1}f_{n}+g'X^{j-1}$
+\end_inset
+
+ con 
+\begin_inset Formula $g'\in P$
+\end_inset
+
+, pero como 
+\begin_inset Formula $\epsilon(g')\in\epsilon(P)$
+\end_inset
+
+, existen 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ con 
+\begin_inset Formula $\epsilon(g')\eqqcolon\sum_{i=1}^{n}x_{i}b_{i}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $h_{0}\coloneqq g'-\sum_{i=1}^{n}x_{i}f_{i}$
+\end_inset
+
+ está en 
+\begin_inset Formula $P$
+\end_inset
+
+ y tiene término independiente 0, luego 
+\begin_inset Formula $h_{0}=hX$
+\end_inset
+
+ con 
+\begin_inset Formula $h\in P$
+\end_inset
+
+ ya que 
+\begin_inset Formula $X\notin P$
+\end_inset
+
+ y 
+\begin_inset Formula $P$
+\end_inset
+
+ es primo, y como 
+\begin_inset Formula $g'=hX+\sum_{i=1}^{n}x_{i}f_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $g=(a_{1,j-1}+x_{1}X^{j-1})f_{1}+\dots+(a_{n,j-1}+x_{n}X^{j-1})f_{n}+hX^{j}$
+\end_inset
+
+, y hacemos los 
+\begin_inset Formula $a_{ij}\coloneqq a_{i,j-1}+x_{i}X^{j-1}$
+\end_inset
+
+.
+ Con esto, para 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+ definimos 
+\begin_inset Formula $c_{i}\in A\llbracket X\rrbracket$
+\end_inset
+
+ de modo que 
+\begin_inset Formula $c_{ik}\coloneqq a_{i,k+1,k}$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $g=\sum_{i=1}^{n}c_{i}f_{i}$
+\end_inset
+
+.
+ En efecto, para el coeficiente de grado 
+\begin_inset Formula $j$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{multline*}
+\left(\sum_{i=1}^{n}c_{i}f_{i}\right)_{j}=\sum_{i=1}^{n}\sum_{k=1}^{j}c_{ik}f_{i,j-k}=\sum_{i=1}^{n}\sum_{k=1}^{j}a_{i,k+1,k}f_{i,j-k}=\\
+=\sum_{i=1}^{n}\sum_{k=1}^{j}a_{i,j+1,k}f_{i,j-k}=\sum_{i=1}^{n}(a_{i,j+1}f_{i})_{j}=g_{j}.
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\supseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Todo 
+\begin_inset Formula $f_{i}\in P$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+\begin_inset Formula $2\implies1]$
+\end_inset
+
+ 
+\begin_inset Formula $A\cong A\llbracket X\rrbracket/(X)$
+\end_inset
+
+, que es noetheriano.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\iff3]$
+\end_inset
+
+ Por inducción en 
+\begin_inset Formula $[1\iff2]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Anillos artinianos
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+dimensión de Krull
+\series default
+ de un anillo 
+\begin_inset Formula $A$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\dim A\coloneqq\text{Kdim}A\coloneqq\sup\{n\in\mathbb{N}:\exists P_{0},\dots,P_{n}\trianglelefteq_{\text{p}}A:P_{0}\subsetneq\dots\subsetneq P_{n}\}\in\mathbb{N}\cup\{\infty\},
+\]
+
+\end_inset
+
+y se tiene 
+\begin_inset Formula $\text{Spec}A=\text{MaxSpec}A\iff\dim A=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si existen 
+\begin_inset Formula $P,Q\trianglelefteq_{\text{p}}A$
+\end_inset
+
+ con 
+\begin_inset Formula $P\subsetneq Q$
+\end_inset
+
+, 
+\begin_inset Formula $P\in\text{Spec}A\setminus\text{MaxSpec}A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si existe 
+\begin_inset Formula $P\in\text{Spec}A\setminus\text{MaxSpec}A$
+\end_inset
+
+, sabemos que 
+\begin_inset Formula $P$
+\end_inset
+
+ está contenido (estrictamente) en un maximal 
+\begin_inset Formula $Q$
+\end_inset
+
+, que debe ser primo, luego 
+\begin_inset Formula $P\subsetneq Q$
+\end_inset
+
+ y 
+\begin_inset Formula $\dim A\geq1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dado un anillo artiniano 
+\begin_inset Formula $A$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\dim A=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Dado 
+\begin_inset Formula $P\trianglelefteq_{\text{p}}A$
+\end_inset
+
+, 
+\begin_inset Formula $A/P$
+\end_inset
+
+ es un dominio por ser 
+\begin_inset Formula $P$
+\end_inset
+
+ primo y es artiniano por serlo 
+\begin_inset Formula $A$
+\end_inset
+
+, pero los dominios no cuerpos no son artinianos, luego 
+\begin_inset Formula $A/P$
+\end_inset
+
+ es un cuerpo y por tanto 
+\begin_inset Formula $P$
+\end_inset
+
+ es maximal y 
+\begin_inset Formula $\text{Spec}A=\text{MaxSpec}A$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{Spec}A=\text{MaxSpec}A$
+\end_inset
+
+ es finito.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\Omega\coloneqq\{\bigcap{\cal M}\}_{{\cal M}\subseteq\text{MaxSpec}A}\neq\emptyset$
+\end_inset
+
+, pues 
+\begin_inset Formula $\emptyset\neq\text{MaxSpec}A\subseteq\Omega$
+\end_inset
+
+, con lo que tiene un minimal 
+\begin_inset Formula $I\coloneqq M_{1}\cap\dots\cap M_{k}\in\Omega$
+\end_inset
+
+ con los 
+\begin_inset Formula $M_{i}\trianglelefteq_{\text{m}}A$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $M\trianglelefteq_{\text{m}}A$
+\end_inset
+
+, 
+\begin_inset Formula $M\cap I=M\cap M_{1}\cap\dots\cap M_{k}\in\Omega$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $M\cap I\subseteq I$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $I\subseteq M$
+\end_inset
+
+, pero 
+\begin_inset Formula $M_{1}\cdots M_{k}\subseteq M_{1}\cap\dots\cap M_{k}=I\subseteq M$
+\end_inset
+
+ y, como 
+\begin_inset Formula $M$
+\end_inset
+
+ es primo, algún 
+\begin_inset Formula $M_{i}\subseteq M$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $M_{i}=M$
+\end_inset
+
+ por ser 
+\begin_inset Formula $M$
+\end_inset
+
+ maximal y 
+\begin_inset Formula $\text{MaxSpec}(A)=\{M_{1},\dots,M_{k}\}$
+\end_inset
+
+.
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-TODO pg 28 (22)
+TODO ejercicios 1.8 en adelante en tema 1, y luego la última página del tema
+ 2.
 \end_layout
 
 \end_inset
@@ -695,5 +2178,6 @@ TODO pg 28 (22)
 
 \end_layout
 
+\end_deeper
 \end_body
 \end_document
