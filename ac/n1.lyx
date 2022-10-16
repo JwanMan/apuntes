@@ -998,10 +998,6 @@ Dados anillos
 \end_inset
 
 .
-\begin_inset Quotes crd
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2383,14 +2379,7 @@ Dados anillos
 \end_inset
 
 .
-\begin_inset Quotes crd
-\end_inset
-
- 
-\begin_inset Quotes cld
-\end_inset
-
-Si 
+ Si 
 \begin_inset Formula $e\in A$
 \end_inset
 
@@ -3823,6 +3812,55 @@ Sean
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{exinfo}
+\end_layout
+
+\end_inset
+
+Dados 
+\begin_inset Formula $I,J,J'\trianglelefteq A$
+\end_inset
+
+ con 
+\begin_inset Formula $I\subseteq J,J'$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{J}{I}+\frac{J'}{I}=\frac{J+J'}{I}$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{J}{I}\cap\frac{J'}{I}=\frac{J\cap J'}{I}$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{J}{I}\frac{J'}{I}=\frac{JJ'}{I}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{exinfo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Hay tantos ideales de 
 \begin_inset Formula $\mathbb{Z}_{n}$
 \end_inset
@@ -4199,8 +4237,170 @@ comaximales
 \end_inset
 
 .
+ Propiedades:
 \end_layout
 
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $I\trianglelefteq A$
+\end_inset
+
+ es comaximal con 
+\begin_inset Formula $J_{1},\dots,J_{n}\trianglelefteq A$
+\end_inset
+
+, lo es con 
+\begin_inset Formula $J_{1}\cdots J_{n}$
+\end_inset
+
+ y con 
+\begin_inset Formula $J_{1}\cap\dots\cap J_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Basta verlo para el producto, pues la intersección es más grande.
+ Para 
+\begin_inset Formula $n\in\{0,1\}$
+\end_inset
+
+ es claro.
+ Para 
+\begin_inset Formula $n=2$
+\end_inset
+
+, existen 
+\begin_inset Formula $a,a'\in I$
+\end_inset
+
+, 
+\begin_inset Formula $b\in J_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $b'\in J_{2}$
+\end_inset
+
+ con 
+\begin_inset Formula $1=a+b=a'+b'$
+\end_inset
+
+, luego 
+\begin_inset Formula $1=aa'+ab'+ba'+bb'$
+\end_inset
+
+ con 
+\begin_inset Formula $bb'\in J_{1}J_{2}$
+\end_inset
+
+ y el resto de sumandos en 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $n>2$
+\end_inset
+
+ se hace inducción.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $I_{1},\dots,I_{n}\trianglelefteq A$
+\end_inset
+
+ son comaximales dos a dos, 
+\begin_inset Formula $I_{1}\cdots I_{n}=I_{1}\cap\dots\cap I_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $n\in\{0,1\}$
+\end_inset
+
+ es claro.
+ Para 
+\begin_inset Formula $n=2$
+\end_inset
+
+, sea 
+\begin_inset Formula $x\in I_{1}\cap I_{2}$
+\end_inset
+
+, existen 
+\begin_inset Formula $a\in I_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in I_{2}$
+\end_inset
+
+ con 
+\begin_inset Formula $a+b=1$
+\end_inset
+
+, luego 
+\begin_inset Formula $x=ax+bx$
+\end_inset
+
+, pero 
+\begin_inset Formula $a\in I_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in I_{2}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $ax\in I_{1}I_{2}$
+\end_inset
+
+, y del mismo modo 
+\begin_inset Formula $bx\in I_{1}I_{2}$
+\end_inset
+
+, luego 
+\begin_inset Formula $I_{1}\cap I_{2}\subseteq I_{1}I_{2}$
+\end_inset
+
+ y ya sabíamos que 
+\begin_inset Formula $I_{1}I_{2}\subseteq I_{1}\cap I_{2}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $n>2$
+\end_inset
+
+, supuesto esto probado para 
+\begin_inset Formula $n$
+\end_inset
+
+ menor, por lo anterior 
+\begin_inset Formula $I_{1}\cdots I_{n-1}=I_{1}\cap\dots\cap I_{n-1}$
+\end_inset
+
+ es comaximal con 
+\begin_inset Formula $I_{n}$
+\end_inset
+
+ y basta usar el caso 
+\begin_inset Formula $n=2$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -4210,6 +4410,19 @@ status open
 
 \backslash
 begin{exinfo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+3.
 \end_layout
 
 \end_inset
@@ -4235,6 +4448,9 @@ begin{exinfo}
 \end_inset
 
  son comaximales.
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -4320,75 +4536,20 @@ Para
 \end_inset
 
 .
- Primero vemos que 
+ Al ser los 
+\begin_inset Formula $K_{i}$
+\end_inset
+
+ comaximales, 
 \begin_inset Formula $K_{1}$
 \end_inset
 
  es comaximal con 
-\begin_inset Formula $K_{2}\cdots K_{n}$
-\end_inset
-
-.
- Si 
-\begin_inset Formula $n=2$
-\end_inset
-
- esto es claro.
- Si 
-\begin_inset Formula $n=3$
-\end_inset
-
-, existen 
-\begin_inset Formula $a,a'\in K_{1}$
-\end_inset
-
-, 
-\begin_inset Formula $b\in K_{2}$
-\end_inset
-
- y 
-\begin_inset Formula $b'\in K_{3}$
-\end_inset
-
- con 
-\begin_inset Formula $1=a+b=a'+b'$
-\end_inset
-
-, luego 
-\begin_inset Formula $1=aa'+ab'+ba'+bb'$
-\end_inset
-
- con 
-\begin_inset Formula $bb'\in K_{2}K_{3}$
-\end_inset
-
- y el resto de sumandos en 
-\begin_inset Formula $K_{1}$
-\end_inset
-
-.
- Si 
-\begin_inset Formula $n>3$
-\end_inset
-
- basta hacer inducción.
- Al ser 
 \begin_inset Formula $K_{2}\cap\dots\cap K_{n}$
 \end_inset
 
- más grande que 
-\begin_inset Formula $K_{2}\cdots K_{n}$
-\end_inset
-
-, también es comaximal con 
-\begin_inset Formula $K_{1}$
-\end_inset
-
 .
-\end_layout
-
-\begin_layout Standard
-Sean ahora 
+ Sean ahora 
 \begin_inset Formula $a\in K_{1}$
 \end_inset
 
@@ -4479,69 +4640,11 @@ Sean ahora
 \end_inset
 
  es suprayectiva.
-\end_layout
-
-\begin_layout Standard
-Veamos ahora que 
+ Entonces 
 \begin_inset Formula $\ker\phi=K_{1}\cap\dots\cap K_{n}=K_{1}\cdots K_{n}$
 \end_inset
 
-.
- Para 
-\begin_inset Formula $n=2$
-\end_inset
-
-, sea 
-\begin_inset Formula $x\in K_{1}\cap K_{2}$
-\end_inset
-
-, existen 
-\begin_inset Formula $a\in K_{1}$
-\end_inset
-
- y 
-\begin_inset Formula $b\in K_{2}$
-\end_inset
-
- con 
-\begin_inset Formula $a+b=1$
-\end_inset
-
-, luego 
-\begin_inset Formula $x=1x=ax+bx$
-\end_inset
-
-, pero como 
-\begin_inset Formula $a\in K_{1}$
-\end_inset
-
- y 
-\begin_inset Formula $x\in K_{2}$
-\end_inset
-
-, 
-\begin_inset Formula $ax\in K_{1}K_{2}$
-\end_inset
-
-, y análogamente 
-\begin_inset Formula $xb\in K_{1}K_{2}$
-\end_inset
-
-, luego 
-\begin_inset Formula $x\in K_{1}K_{2}$
-\end_inset
-
- y 
-\begin_inset Formula $K_{1}\cap K_{2}\subseteq K_{1}K_{2}$
-\end_inset
-
-, y la otra inclusión la sabemos.
- Para 
-\begin_inset Formula $n>2$
-\end_inset
-
- basta hacer inducción.
- La última afirmación se debe al primer teorema de isomorfía.
+, y para la última afirmación basta aplicar el primer teorema de isomorfía.
 \end_layout
 
 \end_deeper
@@ -4929,6 +5032,7 @@ anillo local
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Standard
@@ -4966,6 +5070,43 @@ Sean
 \end_inset
 
  es el único irreducible salvo asociados.
+ 
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $(A,(p))$
+\end_inset
+
+ es un anillo local con 
+\begin_inset Formula $p\neq0$
+\end_inset
+
+ y 
+\begin_inset Formula $\bigcap_{n\in\mathbb{N}}(p)^{n}=0$
+\end_inset
+
+, cada 
+\begin_inset Formula $a\in A\setminus0$
+\end_inset
+
+ es de la forma 
+\begin_inset Formula $up^{n}$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $u\in A^{*}$
+\end_inset
+
+ y 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, y en particular 
+\begin_inset Formula $A$
+\end_inset
+
+ es un DIP con un único irreducible salvo asociados.
 \end_layout
 
 \begin_layout Standard
@@ -5023,6 +5164,66 @@ Si
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{exinfo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $I\trianglelefteq A$
+\end_inset
+
+ es 
+\series bold
+nilpotente
+\series default
+ si existe 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $I^{n}=0$
+\end_inset
+
+, donde 
+\begin_inset Formula $I^{0}\coloneqq A$
+\end_inset
+
+ y, para 
+\begin_inset Formula $n>0$
+\end_inset
+
+, 
+\begin_inset Formula $I^{n}\coloneqq II^{n-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{exinfo}
+\end_layout
+
+\end_inset
+
+Todo ideal nil finitamente generado es nilpotente.
 \begin_inset ERT
 status open
 
@@ -5510,6 +5711,18 @@ status open
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{6pt}
+\end_layout
+
+\end_inset
+
 Dados un homomorfismo 
 \begin_inset Formula $f:A\to B$
 \end_inset
@@ -5893,6 +6106,22 @@ radical
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Propiedades:
 \end_layout
 
@@ -5968,6 +6197,22 @@ Sea
 
 \end_deeper
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Un 
 \series bold
 subconjunto multiplicativo
@@ -5981,9 +6226,12 @@ subconjunto multiplicativo
 \end_inset
 
  cerrado para el producto y que contiene al 1.
+\end_layout
+
+\begin_layout Standard
 
 \series bold
- Lema de Krull:
+Lema de Krull:
 \series default
  Sean 
 \begin_inset Formula $A$

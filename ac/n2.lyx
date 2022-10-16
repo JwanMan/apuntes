@@ -1095,6 +1095,69 @@ Demostración:
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{exinfo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es noetheriano:
+\end_layout
+
+\begin_layout Enumerate
+Todo ideal suyo contiene una potencia de su radical.
+\end_layout
+
+\begin_layout Enumerate
+si 
+\begin_inset Formula $b\in A$
+\end_inset
+
+ es cancelable y no unidad, 
+\begin_inset Formula $\bigcap_{n\in\mathbb{N}}(b^{n})$
+\end_inset
+
+ puede ser no trivial, pero no contiene elementos cancelables.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A$
+\end_inset
+
+ tiene una cantidad finita de primos minimales.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{exinfo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 
 \series bold
 Teorema de la base de Hilbert:
@@ -1258,16 +1321,20 @@ Así, si
 
 \begin_layout Standard
 Dados 
-\begin_inset Formula $I,J\trianglelefteq A$
+\begin_inset Formula $I\trianglelefteq A$
+\end_inset
+
+ y 
+\begin_inset Formula $S\subseteq A$
 \end_inset
 
 , llamamos 
-\begin_inset Formula $(I:J)=\{a\in A:aJ\subseteq I\}$
+\begin_inset Formula $(I:S)=\{a\in A:aS\subseteq I\}$
 \end_inset
 
 .
  
-\begin_inset Formula $I\subseteq(I:J)$
+\begin_inset Formula $I\subseteq(I:S)$
 \end_inset
 
 , pues para 
@@ -1275,10 +1342,179 @@ Dados
 \end_inset
 
 , 
-\begin_inset Formula $xJ\subseteq xA\subseteq I$
+\begin_inset Formula $xS\subseteq xA\subseteq I$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{exinfo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $I,J\trianglelefteq A$
+\end_inset
+
+, 
+\begin_inset Formula $X,Y\subseteq A$
+\end_inset
+
+, 
+\begin_inset Formula $\{K_{\lambda}\}_{\lambda\in\Lambda}\subseteq{\cal L}(A)$
+\end_inset
+
+ y 
+\begin_inset Formula $\{Z_{\lambda}\}_{\lambda\in\Lambda}\subseteq{\cal P}(A)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(I:X)$
+\end_inset
+
+ es el mayor 
+\begin_inset Formula $L\trianglelefteq A$
+\end_inset
+
+ con 
+\begin_inset Formula $LX\subseteq I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $I\subseteq J\implies(I:X)\subseteq(J:X)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X\subseteq Y\implies(I:Y)\subseteq(I:X)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(I:X)=(I:(X))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(I:A)=I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(I:0)=A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(A:X)=A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $((I:X):Y)=(I:X\cdot Y)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\left(I:\bigcup_{\lambda}Z_{\lambda}\right)=\bigcap_{\lambda}(I:Z_{\lambda})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\left(I:\sum_{\lambda}K_{\lambda}\right)=\bigcap_{\lambda}(I:K_{\lambda})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\left(\bigcap_{\lambda}K_{\lambda}:J\right)=\bigcap_{\lambda}(K_{\lambda}:J)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+anulador
+\series default
+ de 
+\begin_inset Formula $X$
+\end_inset
+
+ en 
+\begin_inset Formula $A$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{ann}_{A}(X)\coloneqq(0:X)=\{a\in A:aX=0\}$
+\end_inset
+
+, t entonces 
+\begin_inset Formula $\text{ann}(X)=\text{ann}((X))$
+\end_inset
+
+, 
+\begin_inset Formula $\text{ann}\left(\bigcup_{\lambda}Z_{\lambda}\right)=\bigcap_{\lambda}\text{ann}(Z_{\lambda})$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{ann}\left(\sum_{\lambda}K_{\lambda}\right)=\bigcap_{\lambda}\text{ann}(Z_{\lambda})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{exinfo}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2165,12 +2401,234 @@ Dado
 \end_inset
 
 .
-\begin_inset Note Note
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\text{Jac}(A)=\text{Nil}(A)$
+\end_inset
+
+ es nilpotente.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $J\coloneqq\text{Jac}(A)=\bigcap\text{MaxSpec}(A)=\bigcap\text{Spec}(A)=\text{Nil}(A)$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $A$
+\end_inset
+
+ es artiniano, la cadena 
+\begin_inset Formula $J\supseteq J^{2}\supseteq J^{3}\supseteq\dots$
+\end_inset
+
+ se estabiliza en un cierto 
+\begin_inset Formula $I=J^{n}$
+\end_inset
+
+, y queremos ver que 
+\begin_inset Formula $I=0$
+\end_inset
+
+.
+ Si no lo fuera, 
+\begin_inset Formula $\Omega\coloneqq\{K\trianglelefteq A:KI\neq0\}\neq\emptyset$
+\end_inset
+
+, pues 
+\begin_inset Formula $A\in\Omega$
+\end_inset
+
+, con lo que tiene un minimal 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $KI\neq0$
+\end_inset
+
+, existe 
+\begin_inset Formula $x\in K$
+\end_inset
+
+ con 
+\begin_inset Formula $xI=(x)I\neq0$
+\end_inset
+
+, luego 
+\begin_inset Formula $(x)\in\Omega$
+\end_inset
+
+ y, como 
+\begin_inset Formula $(x)\subseteq K$
+\end_inset
+
+, 
+\begin_inset Formula $K=(x)$
+\end_inset
+
+.
+ Ahora bien, 
+\begin_inset Formula $I^{2}=J^{2n}=J^{n}=I$
+\end_inset
+
+, luego 
+\begin_inset Formula $0\neq xI=xI^{2}=(xI)I$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $xI\in\Omega$
+\end_inset
+
+ y está contenido en 
+\begin_inset Formula $(x)$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $xI=(x)$
+\end_inset
+
+.
+ En particular 
+\begin_inset Formula $x\in xI$
+\end_inset
+
+, luego existe 
+\begin_inset Formula $y\in I$
+\end_inset
+
+ con 
+\begin_inset Formula $x=xy$
+\end_inset
+
+, y por inducción 
+\begin_inset Formula $x=xy^{n}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, pues si 
+\begin_inset Formula $x=xy^{n-1}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $x=(xy)y^{n-1}=xy^{n}$
+\end_inset
+
+.
+ Ahora bien, 
+\begin_inset Formula $y\in I\subseteq J=\text{Nil}(A)$
+\end_inset
+
+, luego existe 
+\begin_inset Formula $n$
+\end_inset
+
+ con 
+\begin_inset Formula $y^{n}=0$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $x=xy^{n}=0$
+\end_inset
+
+, pero 
+\begin_inset Formula $xI\neq0\#$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+0 es producto finito de ideales maximales.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\text{MaxSpec}(A)$
+\end_inset
+
+ es finito, digamos 
+\begin_inset Formula $\text{MaxSpec}(A)=\{M_{1},\dots,M_{r}\}$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $\text{Jac}(A)=M_{1}\cap\dots\cap M_{r}=M_{1}\cdots M_{r}$
+\end_inset
+
+ por ser los 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ comaximales dos a dos, pero existe 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{Jac}(A)^{n}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $0=M_{1}^{n}\cdots M_{r}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-TODO ejercicios 1.8 en adelante en tema 1, y luego la última página del tema
- 2.
+
+
+\backslash
+begin{exinfo}
+\end_layout
+
+\end_inset
+
+Dado un anillo artiniano 
+\begin_inset Formula $A$
+\end_inset
+
+, sean 
+\begin_inset Formula $\text{Spec}(A)=\{M_{1},\dots,M_{k}\}$
+\end_inset
+
+ y 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{Jac}(A)^{n}=0$
+\end_inset
+
+, 
+\begin_inset Formula $A\cong\frac{A}{M_{1}^{n}}\times\dots\times\frac{A}{M_{k}^{n}}$
+\end_inset
+
+, con cada 
+\begin_inset Formula $\frac{A}{M_{i}^{k}}$
+\end_inset
+
+ local y artiniano.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{exinfo}
 \end_layout
 
 \end_inset
@@ -2178,6 +2636,46 @@ TODO ejercicios 1.8 en adelante en tema 1, y luego la última página del tema
 
 \end_layout
 
-\end_deeper
+\begin_layout Standard
+
+\series bold
+Teorema de Akizuki:
+\series default
+ Un anillo 
+\begin_inset Formula $A$
+\end_inset
+
+ es artiniano si y sólo si es noetheriano y 
+\begin_inset Formula $\dim A=0$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+No escribo la demostración hasta tenerla completa.
+ Por ahora tenemos:
+\end_layout
+
+\begin_layout Itemize
+Una demostración de Saorín, que al no usar conceptos que todavía no hemos
+ visto es bastante enrevesada y no llega a probar que artiniano implica
+ noetheriano.
+\end_layout
+
+\begin_layout Itemize
+Una que hay al final del tema 4 en la página 61 (67/122) de los apuntes.
+\end_layout
+
+\begin_layout Plain Layout
+Seguramente me quede con la segunda.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
