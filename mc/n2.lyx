@@ -151,7 +151,18 @@ símbolo inicial de la pila
 \begin_inset Formula $A_{0}$
 \end_inset
 
-, un 
+,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Este es completamente innecesario y solo sirve para complicar las demostraciones.
+ Aparece en las diapositivas pero no en el libro.
+\end_layout
+
+\end_inset
+
+ un 
 \series bold
 estado inicial
 \series default
@@ -514,7 +525,6 @@ Llamamos
 \end_inset
 
  a la de lenguajes aceptados por algún PDAD.
- No todo lenguaje aceptado por un PDA es aceptado por un PDAD.
 \end_layout
 
 \begin_layout Section
@@ -1165,6 +1175,421 @@ Propiedades de
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Entrada{PDA ${
+\backslash
+cal A}=(Q,
+\backslash
+Sigma,
+\backslash
+Gamma,
+\backslash
+delta,q_0,F)$.
+ Para simplificar la pila empieza vacía y no hay símbolo inicial, pero un
+ PDA <<normal>> se puede convertir a uno de este tipo trivialmente.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Salida{GLC $G=(V,
+\backslash
+Sigma,{
+\backslash
+cal R},S)$ con $L(G)=L({
+\backslash
+cal A})$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+añadir un nuevo $q_{
+\backslash
+text a}$ a $Q$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lPara{$q
+\backslash
+in F$}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+	añadir $(q_{
+\backslash
+text a},
+\backslash
+epsilon)$ a $
+\backslash
+delta(q,
+\backslash
+epsilon,
+\backslash
+epsilon)$}
+\end_layout
+
+\begin_layout Plain Layout
+
+$F
+\backslash
+gets
+\backslash
+{q_{
+\backslash
+text a}
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lPara{$x
+\backslash
+in
+\backslash
+Gamma$}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+	añadir $(q_{
+\backslash
+text a},
+\backslash
+epsilon)$ a $
+\backslash
+delta(q_{
+\backslash
+text a},
+\backslash
+epsilon,x)$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$q
+\backslash
+to^{a,x
+\backslash
+to y}r$ en $
+\backslash
+delta$ con $x,y
+\backslash
+neq
+\backslash
+epsilon$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	añadir un nuevo $s$ a $Q$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	sustituir $q
+\backslash
+to^{a,x
+\backslash
+to y}r$ en $
+\backslash
+delta$ por
+\end_layout
+
+\begin_layout Plain Layout
+
+		$q
+\backslash
+to^{a,x
+\backslash
+to
+\backslash
+epsilon}s,s
+\backslash
+to^{
+\backslash
+epsilon,
+\backslash
+epsilon
+\backslash
+to y}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+añadir un nuevo $
+\backslash
+$$ a $
+\backslash
+Gamma$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Para{$q
+\backslash
+to^{a,
+\backslash
+epsilon
+\backslash
+to
+\backslash
+epsilon}r$ en $
+\backslash
+delta$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+	añadir un nuevo $s$ a $Q$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+	sustituir $q
+\backslash
+to^{a,
+\backslash
+epsilon
+\backslash
+to
+\backslash
+epsilon}r$ en $
+\backslash
+delta$ por
+\end_layout
+
+\begin_layout Plain Layout
+
+		$q
+\backslash
+to^{a,
+\backslash
+epsilon
+\backslash
+to
+\backslash
+$}s,s
+\backslash
+to^{
+\backslash
+epsilon,
+\backslash
+$
+\backslash
+to
+\backslash
+epsilon}r$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+$V
+\backslash
+gets
+\backslash
+{A_{pq}
+\backslash
+}_{p,q
+\backslash
+in Q}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+$S
+\backslash
+gets A_{q_0q_{
+\backslash
+text a}}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+${
+\backslash
+cal R}
+\backslash
+gets
+\backslash
+{A_{pq}
+\backslash
+to A_{pr}A_{rq}
+\backslash
+}_{p,q,r
+\backslash
+in Q}
+\backslash
+cup%
+\end_layout
+
+\begin_layout Plain Layout
+
+              
+\backslash
+{A_{pp}
+\backslash
+to
+\backslash
+epsilon
+\backslash
+}_{p
+\backslash
+in Q}
+\backslash
+cup%
+\end_layout
+
+\begin_layout Plain Layout
+
+              
+\backslash
+{A_{pq}
+\backslash
+to aA_{rs}b
+\backslash
+}_{%
+\end_layout
+
+\begin_layout Plain Layout
+
+                 p,q,r,s
+\backslash
+in Q;u
+\backslash
+in
+\backslash
+Gamma;a,b
+\backslash
+in
+\backslash
+Sigma
+\backslash
+cup
+\backslash
+{
+\backslash
+epsilon
+\backslash
+}%
+\end_layout
+
+\begin_layout Plain Layout
+
+              }^{%
+\end_layout
+
+\begin_layout Plain Layout
+
+                (r,u)
+\backslash
+in
+\backslash
+delta(p,a,
+\backslash
+epsilon);(q,
+\backslash
+epsilon)
+\backslash
+in
+\backslash
+delta(s,b,u)%
+\end_layout
+
+\begin_layout Plain Layout
+
+              }$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{6pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:pdatocfg"
+
+\end_inset
+
+Conversión de un PDA a una GLC que acepta el mismo lenguaje.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Como 
 \series bold
 teorema
@@ -1202,18 +1627,15 @@ Nótese que sólo probamos
 \begin_inset Formula $(Q,\Sigma,\{\$\},\delta',\$,q_{0},F)$
 \end_inset
 
- con 
+ con
 \begin_inset Formula 
-\[
-\delta'(q,a,x)=\begin{cases}
-\{(\delta(q,a),\epsilon)\}, & a\in\Gamma\land x=\epsilon;\\
-\emptyset, & \text{en otro caso}.
-\end{cases}
-\]
+\begin{align*}
+\delta'(q,a\in\Sigma,\epsilon) & =\{(\delta(q,a),\epsilon)\}; & \delta'(q,a,x) & =\emptyset.
+\end{align*}
 
 \end_inset
 
-
+(En esta notación se usa la primera expresión aplicable, por columnas.)
 \end_layout
 
 \begin_layout Description
@@ -1338,15 +1760,10 @@ end{tikzpicture}
 
  con
 \begin_inset Formula 
-\[
-\delta'(q,a,x)\coloneqq\begin{cases}
-\{(q_{0},A_{0})\}, & q=q_{\text{s}}\land a=x=\epsilon;\\
-\delta(q,a,x)\cup\{(q_{\text{e}},\epsilon)\}, & q\in F\land a,x=\epsilon;\\
-\delta(q,a,x), & q\in Q\land\neg(q\in F\land a,x=\epsilon);\\
-\{(q_{\text{e}},\epsilon)\}, & q=q_{\text{e}}\land a=\epsilon\land x\neq\epsilon;\\
-\emptyset, & \text{en otro caso}.
-\end{cases}
-\]
+\begin{align*}
+\delta'(q_{\text{s}},\epsilon,\epsilon) & =\{(q_{0},A_{0})\}; & \delta'(q\in F,\epsilon,\epsilon) & =\delta(q,\epsilon,\epsilon)\cup\{(q_{\text{e}},\epsilon)\};\\
+\delta'(q_{\text{e}},\epsilon,x) & =\{(q_{\text{e}},\epsilon)\}; & \delta'(q\in Q,a,x) & =\delta(q,a,x); & \delta'(q,a,x) & =\emptyset.
+\end{align*}
 
 \end_inset
 
@@ -1505,14 +1922,10 @@ En efecto, si
 
  con
 \begin_inset Formula 
-\[
-\delta'(q,a,x)\coloneqq\begin{cases}
-\{(q_{0},A_{0})\}, & (q,a,x)=(q_{\text{s}},\epsilon,\epsilon);\\
-\delta(q,a,x), & q\in Q\land x\neq\$;\\
-\{(q_{\text{e}},\epsilon)\}, & q\in Q\land a=\epsilon\land x=\$;\\
-\emptyset, & \text{en otro caso}.
-\end{cases}
-\]
+\begin{align*}
+\delta'(q_{\text{s}},\epsilon,\epsilon) & =\{(q_{0},A_{0})\}; & \delta'(q\in Q,a,x\in\Sigma\cup\{\epsilon\}) & =\delta(q,a,x);\\
+\delta'(q\in Q,\epsilon,\$) & =\{(q_{\text{e}},\epsilon)\}; & \delta'(q,a,x) & =\emptyset.
+\end{align*}
 
 \end_inset
 
@@ -1618,6 +2031,347 @@ En efecto, si
 \end_layout
 
 \begin_layout Description
+\begin_inset Formula $3\subseteq5]$
+\end_inset
+
+ Hay que probar la corrección del Algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:pdatocfg"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Este primero modifica 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+ pero sin cambiar el lenguaje que acepta: primero para que tenga un único
+ estado final 
+\begin_inset Formula $q_{\text{a}}$
+\end_inset
+
+, luego para que siempre que se acepte una cadena, se pueda aceptar con
+ la pila vacía, y finalmente para que todas las transiciones añadan o eliminen
+ un elemento de la pila pero no ambos, usando estados intermedios.
+ Entonces queremos ver que, para 
+\begin_inset Formula $p,q\in Q$
+\end_inset
+
+ y 
+\begin_inset Formula $w\in\Sigma^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $A_{pq}$
+\end_inset
+
+ genera 
+\begin_inset Formula $w$
+\end_inset
+
+ si y sólo si existe una secuencia de acciones en 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+ de 
+\begin_inset Formula $(p,\epsilon,w)$
+\end_inset
+
+ a 
+\begin_inset Formula $(q,\epsilon,\epsilon)$
+\end_inset
+
+, pues entonces 
+\begin_inset Formula $A_{p_{0}p_{\text{a}}}$
+\end_inset
+
+ genera 
+\begin_inset Formula $L({\cal A})$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Dada una derivación 
+\begin_inset Formula $A_{pq}\Rightarrow^{*}(w=w_{1}\cdots w_{n})$
+\end_inset
+
+, si la derivación tiene un paso, la parte derecha de la regla no puede
+ tener variable y la regla debe ser 
+\begin_inset Formula $A_{pp}\to\epsilon$
+\end_inset
+
+, y la secuencia existe trivialmente.
+ Si tiene 
+\begin_inset Formula $k>1$
+\end_inset
+
+ pasos, suponemos esto probado para menos de 
+\begin_inset Formula $k$
+\end_inset
+
+ pasos, y vemos que el primer paso es de la forma 
+\begin_inset Formula $A_{pq}\Rightarrow w_{1}A_{rs}w_{n}$
+\end_inset
+
+ o 
+\begin_inset Formula $A_{pq}\Rightarrow A_{pr}A_{rq}$
+\end_inset
+
+.
+ En el primer caso 
+\begin_inset Formula $w=axb$
+\end_inset
+
+ con 
+\begin_inset Formula $a,b\in\Sigma\cup\{\epsilon\}$
+\end_inset
+
+ y 
+\begin_inset Formula $A_{rs}\Rightarrow^{*}x$
+\end_inset
+
+, y existe 
+\begin_inset Formula $u\in\Gamma$
+\end_inset
+
+ con 
+\begin_inset Formula $(r,u)\in\delta(p,a,\epsilon)$
+\end_inset
+
+ y 
+\begin_inset Formula $(q,\epsilon)\in\delta(s,b,u)$
+\end_inset
+
+, luego por inducción existe una secuencia de acciones de 
+\begin_inset Formula $(r,\epsilon,x)$
+\end_inset
+
+ a 
+\begin_inset Formula $(s,\epsilon,\epsilon)$
+\end_inset
+
+ y, añadiendo 
+\begin_inset Formula $u$
+\end_inset
+
+ a la pila y 
+\begin_inset Formula $b$
+\end_inset
+
+ a la cadena en esta secuencia, podemos construir la secuencia de acciones
+\begin_inset Formula 
+\[
+(p,\epsilon,x)(r,u,xb)\cdots(s,u,b)(q,\epsilon,\epsilon).
+\]
+
+\end_inset
+
+En el segundo caso, los subárboles del árbol de derivación correspondientes
+ a 
+\begin_inset Formula $A_{pr}$
+\end_inset
+
+ y 
+\begin_inset Formula $A_{rq}$
+\end_inset
+
+ tienen derivaciones con menos de 
+\begin_inset Formula $k$
+\end_inset
+
+ pasos, y por inducción, si 
+\begin_inset Formula $A_{pr}\Rightarrow^{*}y$
+\end_inset
+
+ y 
+\begin_inset Formula $A_{rq}\Rightarrow^{*}z$
+\end_inset
+
+ con 
+\begin_inset Formula $w=yz$
+\end_inset
+
+, existen una secuencia de acciones de 
+\begin_inset Formula $(p,\epsilon,y)$
+\end_inset
+
+ a 
+\begin_inset Formula $(r,\epsilon,\epsilon)$
+\end_inset
+
+, y por tanto una de 
+\begin_inset Formula $(r,\epsilon,yz)$
+\end_inset
+
+ a 
+\begin_inset Formula $(r,\epsilon,z)$
+\end_inset
+
+, y una de 
+\begin_inset Formula $(q,\epsilon,z)$
+\end_inset
+
+ a 
+\begin_inset Formula $(r,\epsilon,\epsilon)$
+\end_inset
+
+, y basta concatenarlas.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si la secuencia de acciones tiene 0 pasos, debe ser de la forma 
+\begin_inset Formula $((p,\epsilon,\epsilon))$
+\end_inset
+
+, empezando y terminando por el mismo paso, y por tanto 
+\begin_inset Formula $w=\epsilon$
+\end_inset
+
+ y basta usar la regla 
+\begin_inset Formula $A_{pp}\to\epsilon$
+\end_inset
+
+.
+ Si tiene 
+\begin_inset Formula $k>0$
+\end_inset
+
+ pasos, suponemos esto probado para menos de 
+\begin_inset Formula $k$
+\end_inset
+
+ pasos.
+ Si la pila solo está vacía al principio o al final de la secuencia, la
+ primera acción añade un cierto 
+\begin_inset Formula $u\in\Gamma$
+\end_inset
+
+ y la última lo elimina, con lo que esta tiene forma 
+\begin_inset Formula $(p,\epsilon,axb),(r,u,xb),\dots,(s,u,b),(q,\epsilon,\epsilon)$
+\end_inset
+
+ con 
+\begin_inset Formula $r,s\in Q$
+\end_inset
+
+, 
+\begin_inset Formula $a,b\in\Sigma\cup\{\epsilon\}$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in\Sigma^{*}$
+\end_inset
+
+, y por inducción, quitando 
+\begin_inset Formula $u$
+\end_inset
+
+ del fondo de la pila y 
+\begin_inset Formula $b$
+\end_inset
+
+ del final de la cadena en los pasos intermedios de la secuencia, nos queda
+ una secuencia de 
+\begin_inset Formula $(r,\epsilon,x)$
+\end_inset
+
+ a 
+\begin_inset Formula $(s,\epsilon,\epsilon)$
+\end_inset
+
+ y por inducción 
+\begin_inset Formula $A_{rs}\Rightarrow^{*}x$
+\end_inset
+
+, pero 
+\begin_inset Formula $(r,u)\in\delta(p,a,\epsilon)$
+\end_inset
+
+ y 
+\begin_inset Formula $(q,\epsilon)\in\delta(s,b,u)$
+\end_inset
+
+, luego 
+\begin_inset Formula $A_{pq}\to aA_{rs}b\in{\cal R}$
+\end_inset
+
+ y 
+\begin_inset Formula $A_{pq}\Rightarrow aA_{rs}b\Rightarrow^{*}(axb=w)$
+\end_inset
+
+.
+ Si la pila está vacía en un punto intermedio de la secuencia, digamos que
+ esta tiene la forma 
+\begin_inset Formula $(p,\epsilon,xy),\dots,(r,\epsilon,y),\dots,(q,\epsilon,\epsilon)$
+\end_inset
+
+, entonces por inducción la subsecuencia 
+\begin_inset Formula $(r,\epsilon,y),\dots,(q,\epsilon,\epsilon)$
+\end_inset
+
+ implica que 
+\begin_inset Formula $A_{rq}\Rightarrow^{*}y$
+\end_inset
+
+, y eliminando 
+\begin_inset Formula $y$
+\end_inset
+
+ del final de la cadena en la primera subsecuencia, tenemos la secuencia
+ 
+\begin_inset Formula $(p,\epsilon,x),\dots,(r,\epsilon,\epsilon)$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $A_{pr}\Rightarrow x$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $A_{pq}\Rightarrow A_{pr}A_{rq}\Rightarrow^{*}xA_{rq}\Rightarrow^{*}(xy=w)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
 \begin_inset Formula $5\subseteq3]$
 \end_inset
 
@@ -1629,16 +2383,12 @@ En efecto, si
 \begin_inset Formula ${\cal A}\coloneqq(\{s,l,e\},\Sigma,V\sqcup\Sigma\sqcup\{A_{0}\},\delta,A_{0},e)$
 \end_inset
 
- con 
+ con
 \begin_inset Formula 
-\[
-\delta(q,a,x)\coloneqq\begin{cases}
-(l,A_{0}S), & (q,a,x)=(s,\epsilon,A_{0});\\
-\{(l,w^{\text{R}})\}_{(x,w)\in{\cal R}}, & (q,a)=(l,\epsilon)\land x\in V;\\
-\{(l,\epsilon)\}, & q=l\land a=x;\\
-\{(e,\epsilon)\}, & (q,a,x)=(l,\epsilon,A_{0})
-\end{cases}
-\]
+\begin{align*}
+\delta(s,\epsilon,A_{0}) & =(l,A_{0}S); & \delta(l,\epsilon,x\in V) & =\{(l,w^{\text{R}})\}_{(x,w)\in{\cal R}};\\
+\delta(l,a,a) & =(l,\epsilon); & \delta(l,\epsilon,A_{0}) & =(e,\epsilon); & \delta(q,a,x) & =\emptyset
+\end{align*}
 
 \end_inset
 
@@ -1839,9 +2589,11 @@ Lema del bombeo
  (
 \series bold
 \emph on
+\lang english
 pumping lemma
 \series default
 \emph default
+\lang spanish
 ): Si 
 \begin_inset Formula $L\in{\cal CF}$
 \end_inset
