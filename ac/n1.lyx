@@ -3481,32 +3481,28 @@ begin{exinfo}
 
 \end_inset
 
-Dados un DIP 
+Dados un dominio 
 \begin_inset Formula $A$
 \end_inset
 
- e 
-\begin_inset Formula $I,J_{1},J_{2}\trianglelefteq A$
-\end_inset
-
- con 
-\begin_inset Formula $I\neq0$
+, 
+\begin_inset Formula $a,b\in A$
 \end_inset
 
  e 
-\begin_inset Formula $IJ_{1}=IJ_{2}$
+\begin_inset Formula $I\trianglelefteq A$
 \end_inset
 
-, entonces 
-\begin_inset Formula $J_{1}=J_{2}$
+ no trivial, si 
+\begin_inset Formula $I(a)=I(b)$
+\end_inset
+
+ entonces 
+\begin_inset Formula $(a)=(b)$
 \end_inset
 
 .
- Esto no es cierto en general si 
-\begin_inset Formula $A$
-\end_inset
-
- no es un DIP.
+ Esto no es cierto en general cuando los ideales no son principales.
 \begin_inset ERT
 status open
 
@@ -4171,7 +4167,7 @@ Teoremas de isomorfía:
 \end_layout
 
 \begin_layout Enumerate
-Para un isomorfismo de anillos 
+Para un homomorfismo de anillos 
 \begin_inset Formula $f:A\to B$
 \end_inset
 
@@ -5101,28 +5097,15 @@ radical de Jacobson
 \end_inset
 
  a 
-\begin_inset Formula $\text{Jac}(A)\coloneqq\bigcap\text{MaxSpec}(A)$
+\begin_inset Formula $\text{Jac}(A)\coloneqq\bigcap\text{MaxSpec}(A)=\{a\in A:1+(a)\subseteq A^{*}\}$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $\forall a\in A,(1+(a)\subseteq A^{*}\implies a\in\text{Jac}(A))$
-\end_inset
-
-, y en particular 
-\begin_inset Formula $\text{Nil}(A)\subseteq\text{Jac}(A)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
+ 
 \begin_inset Formula $\text{Jac}(A)$
 \end_inset
 
- no contiene elementos idempotentes no nulos.
+ no contiene idempotentes no nulos.
 \end_layout
 
 \begin_layout Standard
@@ -5173,7 +5156,6 @@ anillo local
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
@@ -5248,6 +5230,142 @@ Si
 \end_inset
 
  es un DIP con un único irreducible salvo asociados.
+\end_layout
+
+\begin_layout Standard
+Dados anillos locales 
+\begin_inset Formula $A_{1},\dots,A_{n}$
+\end_inset
+
+, los idempotentes de 
+\begin_inset Formula $A_{1}\times\dots\times A_{n}$
+\end_inset
+
+ son las 
+\begin_inset Formula $n$
+\end_inset
+
+-uplas 
+\begin_inset Formula $(e_{1},\dots,e_{n})$
+\end_inset
+
+ con cada 
+\begin_inset Formula $e_{i}\in\{0,1\}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+ con factorización prima 
+\begin_inset Formula $p_{1}^{m_{1}}\cdots p_{t}^{m_{t}}$
+\end_inset
+
+ (con los 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ distintos y los 
+\begin_inset Formula $t_{i}\geq1$
+\end_inset
+
+), 
+\begin_inset Formula $\mathbb{Z}_{n}$
+\end_inset
+
+ tiene 
+\begin_inset Formula $2^{t}$
+\end_inset
+
+ idempotentes dados por los sistemas de ecuaciones diofánticas
+\begin_inset Formula 
+\[
+\left\{ \begin{array}{rl}
+e_{I} & \equiv0\mod\left(q\coloneqq\prod_{i\in I}p_{i}^{m_{i}}\right),\\
+e_{I} & \equiv1\mod\left(r\coloneqq\prod_{i\notin I}p_{i}^{m_{i}}\right),
+\end{array}\right.
+\]
+
+\end_inset
+
+para 
+\begin_inset Formula $I\subseteq\{1,\dots,t\}$
+\end_inset
+
+.
+ En concreto existen 
+\begin_inset Formula $s,t\in\mathbb{Z}$
+\end_inset
+
+ con 
+\begin_inset Formula $x=1+qt=rs$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $rs-qt=1$
+\end_inset
+
+ y, como 
+\begin_inset Formula $q$
+\end_inset
+
+ y 
+\begin_inset Formula $r$
+\end_inset
+
+ son coprimos, se pueden obtener 
+\begin_inset Formula $s$
+\end_inset
+
+ y 
+\begin_inset Formula $t$
+\end_inset
+
+ con una identidad de Bézout.
+ Para obtener una identidad de Bézout:
+\end_layout
+
+\begin_layout Enumerate
+Se calcula el máximo común divisor por el algoritmo de Euclides, haciendo
+ 
+\begin_inset Formula $q_{0}\coloneqq q$
+\end_inset
+
+, 
+\begin_inset Formula $q_{1}\coloneqq r$
+\end_inset
+
+ y la recurrencia 
+\begin_inset Formula $q_{i-1}=r_{i}q_{i}+q_{i+1}$
+\end_inset
+
+, con 
+\begin_inset Formula $r_{i},q_{i+1}\in\mathbb{Z}$
+\end_inset
+
+ y 
+\begin_inset Formula $0\leq q_{i+1}<q_{i}$
+\end_inset
+
+, hasta llegar a un 
+\begin_inset Formula $q_{n}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Se va despejando hacia atrás, haciendo 
+\begin_inset Formula 
+\begin{multline*}
+1=q_{n}=q_{n-2}-r_{n-1}q_{n-1}=q_{n-2}-r_{n-1}(q_{n-3}-r_{n-2}q_{n-2})=\\
+=-r_{n-1}q_{n-3}+(1+r_{n-1}r_{n-2})q_{n-2}=\dots=q_{0}t+q_{1}s.
+\end{multline*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -6247,22 +6365,6 @@ radical
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{samepage}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Propiedades:
 \end_layout
 
@@ -6337,22 +6439,6 @@ Sea
 \end_layout
 
 \end_deeper
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{samepage}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 Un 
 \series bold
