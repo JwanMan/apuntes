@@ -1,0 +1,2706 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Haskell es un lenguaje de programación funcional puro y perezoso.
+\end_layout
+
+\begin_layout Section
+Estructura léxica
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Las reglas 
+\family typewriter
+\emph on
+nombre
+\emph default
+ =~ 
+\emph on
+regex
+\family default
+\emph default
+ definen una expresión regular en formato PCRE ampliado con dos reglas:
+ que 
+\family typewriter
+<
+\emph on
+nombre
+\emph default
+>
+\family default
+ incluye la expresión regular nombrada entre paréntesis y que un 
+\family typewriter
+
+\backslash
+
+\family default
+ antes de un salto de línea se salta todos los caracteres desde él mismo
+ hasta el primer caracter de la siguiente línea que no es un espacio en
+ blanco.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+program =~ (<lexeme>|<whitespace>)*
+\end_layout
+
+\begin_layout Plain Layout
+
+lexeme =~ <qvarid>|<qconid>|<qvarsym>|<qconsym>|<literal>|
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+          <special>|<reservedop>|<reservedid>
+\end_layout
+
+\begin_layout Plain Layout
+
+whitespace =~ <whitestuff>+
+\end_layout
+
+\begin_layout Plain Layout
+
+whitestuff =~ <whitechar>|<comment>|<ncomment>
+\end_layout
+
+\begin_layout Plain Layout
+
+whitechar =~ <newline>|[
+\backslash
+v 
+\backslash
+t]|
+\backslash
+p{Separator}
+\end_layout
+
+\begin_layout Plain Layout
+
+newline =~ 
+\backslash
+r
+\backslash
+n|[
+\backslash
+r
+\backslash
+n
+\backslash
+f]
+\end_layout
+
+\begin_layout Plain Layout
+
+comment =~ --+(?!<symbol>)<anynb>*<newline>
+\end_layout
+
+\begin_layout Plain Layout
+
+ncomment =~ 
+\backslash
+{-<anyseq>(<ncomment><anyseq>)*-
+\backslash
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las clases de caracteres son:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+anyseq =~ (?!<any>*(
+\backslash
+{-|-
+\backslash
+})<any>*)<any>*
+\end_layout
+
+\begin_layout Plain Layout
+
+any =~ <graphic>|<whitechar>
+\end_layout
+
+\begin_layout Plain Layout
+
+anynb =~ <graphic>|[ 
+\backslash
+t]
+\end_layout
+
+\begin_layout Plain Layout
+
+graphic =~ <small>|<large>|<symbol>|<digit>|<special>|[
+\begin_inset Quotes cld
+\end_inset
+
+']
+\end_layout
+
+\begin_layout Plain Layout
+
+small =~ 
+\backslash
+p{Lowercase_Letter}|_
+\end_layout
+
+\begin_layout Plain Layout
+
+large =~ 
+\backslash
+p{Uppercase_Letter}|
+\backslash
+p{Titlecase_Letter}
+\end_layout
+
+\begin_layout Plain Layout
+
+symbol =~ [!#$%&*+./<=>?@
+\backslash
+
+\backslash
+^|~:-]|(?!<special>|[_
+\begin_inset Quotes crd
+\end_inset
+
+'])
+\backslash
+p{Symbol}
+\end_layout
+
+\begin_layout Plain Layout
+
+digit =~ 
+\backslash
+p{Decimal_Digit_Number}
+\end_layout
+
+\begin_layout Plain Layout
+
+octit =~ [0-7]
+\end_layout
+
+\begin_layout Plain Layout
+
+hexit =~ <digit>|[A-Fa-f]
+\end_layout
+
+\begin_layout Plain Layout
+
+special =~ [()
+\backslash
+[
+\backslash
+]{},;`]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+Las palabras reservadas son:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+reservedid =~ case|class|data|default|deriving|do|else|foreign|
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+              if|import|in|infix|infixl|infixr|instance|let|
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+              module|newtype|of|then|type|where|_
+\end_layout
+
+\begin_layout Plain Layout
+
+reservedop =~ 
+\backslash
+.
+\backslash
+.|:|::|=|
+\backslash
+
+\backslash
+|
+\backslash
+||<-|->|@|~|=>
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las variables pueden estar en espacios de nombres jerárquicos:
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+tyvar=varid, tycon=tycls=conid, modid=qconid, qtycon=qtycls=qvarid
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+qvarid =~ (<conid>
+\backslash
+.)*<varid>
+\end_layout
+
+\begin_layout Plain Layout
+
+qconid =~ (<conid>
+\backslash
+.)*<conid>
+\end_layout
+
+\begin_layout Plain Layout
+
+qvarsym =~ (<conid>
+\backslash
+.)*<varsym>
+\end_layout
+
+\begin_layout Plain Layout
+
+qconsym =~ (<conid>
+\backslash
+.)*<consym>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se escriben como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+varid =~ (?!<reservedid>(?!<small>|<large>|<digit>|'))
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+         <small>(<small>|<large>|<digit>|')*
+\end_layout
+
+\begin_layout Plain Layout
+
+conid =~ <large>(<small>|<large>|<digit>|')*
+\end_layout
+
+\begin_layout Plain Layout
+
+varsym =~ (?!((--+|<reservedop>)(?!<symbol>))|:)<symbol>+
+\end_layout
+
+\begin_layout Plain Layout
+
+consym =~ (?!<reservedop>(?!<symbol>)):<symbol>*
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los literales son:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+literal =~ <integer>|<float>|<char>|<string>
+\end_layout
+
+\begin_layout Plain Layout
+
+integer =~ <digit>+|0[oO]<octit>+|0[xX]<hexit>+
+\end_layout
+
+\begin_layout Plain Layout
+
+float =~ <digit>+
+\backslash
+.<digit>+(<exponent>)?|<digit>+<exponent>
+\end_layout
+
+\begin_layout Plain Layout
+
+exponent =~ [eE][+-]?<digit>+
+\end_layout
+
+\begin_layout Plain Layout
+
+char =~ '((?!['
+\backslash
+
+\backslash
+])<graphic>| |(?!
+\backslash
+
+\backslash
+&)<escape>)'
+\end_layout
+
+\begin_layout Plain Layout
+
+string =~ 
+\begin_inset Quotes cld
+\end_inset
+
+((?![
+\begin_inset Quotes cld
+\end_inset
+
+
+\backslash
+
+\backslash
+])<graphic>| |<escape>|
+\backslash
+
+\backslash
+<whitechar>+
+\backslash
+
+\backslash
+)*
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+escape =~ 
+\backslash
+
+\backslash
+(<charesc>|<ascii>|<decimal>|o<octit>+|x<hexit>+)
+\end_layout
+
+\begin_layout Plain Layout
+
+charesc =~ [abfnrtv
+\backslash
+
+\backslash
+
+\begin_inset Quotes crd
+\end_inset
+
+'&]
+\end_layout
+
+\begin_layout Plain Layout
+
+ascii =~ 
+\backslash
+^[A-Z@
+\backslash
+[
+\backslash
+]
+\backslash
+
+\backslash
+^_]|NUL|SOH|STX|ETX|EOT|ENQ|ACK|BEL|BS|
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+         HT|LF|VT|FF|CR|SO|SI|DLE|DC1|DC2|DC3|DC4|NAK|SYN|ETB|
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+         CAN|EM|SUB|ESC|FS|GS|RS|US|SP|DEL
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En principio un programa se interpreta como una secuencia de lexemas, 
+\family typewriter
+{
+\family default
+ entra en un nuevo contexto y 
+\family typewriter
+}
+\family default
+ sale del último contexto en que se ha entrado.
+ Sin embargo, se pueden evitar apariciones de 
+\family typewriter
+{
+\family default
+, 
+\family typewriter
+}
+\family default
+ y 
+\family typewriter
+;
+\family default
+ sangrando los lexemas de cierta forma y dejando que el 
+\emph on
+\lang english
+lexer
+\emph default
+\lang spanish
+ los inserte como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Tras un 
+\family typewriter
+let
+\family default
+, 
+\family typewriter
+where
+\family default
+, 
+\family typewriter
+do
+\family default
+ u 
+\family typewriter
+of
+\family default
+ no seguido de 
+\family typewriter
+{
+\family default
+, o al principio del cuerpo si este no empieza por 
+\family typewriter
+module
+\family default
+ o 
+\family typewriter
+{
+\family default
+, se inserta 
+\family typewriter
+{
+\family default
+ y se abre un contexto implícito desde la columna por la que empieza el
+ siguiente lexema (si lo hay).
+ Este se cierra inmediatamente insertando 
+\family typewriter
+}
+\family default
+ si está directamente dentro (sin ningún contexto 
+\begin_inset Quotes cld
+\end_inset
+
+en medio
+\begin_inset Quotes crd
+\end_inset
+
+) de un contexto implícito que empieza en una columna anterior.
+\end_layout
+
+\begin_layout Enumerate
+Si el primer lexema explícito en una línea no es el primero de su contexto,
+ mientras su contexto sea implícito, justo antes de la línea se inserta
+ 
+\family typewriter
+;
+\family default
+ si el lexema empieza en la misma columna que el contexto o 
+\family typewriter
+}
+\family default
+ y si empieza en una anterior, cerrando el contexto.
+\end_layout
+
+\begin_layout Enumerate
+Es un error cerrar un contexto implícito con un 
+\family typewriter
+}
+\family default
+ explícito.
+\end_layout
+
+\begin_layout Enumerate
+Mientras un lexema explícito en un contexto implícito cause un error sintáctico
+ (los lexemas explícitos o implícitos anteriores forman un prefijo válido
+ de la gramática libre de contexto pero al añadir el propio lexema ya no),
+ se inserta 
+\family typewriter
+}
+\family default
+ antes del lexema.
+\end_layout
+
+\begin_layout Enumerate
+Al final de la entrada se insertan 
+\family typewriter
+}
+\family default
+ suficientes para cerrar los contextos implícitos que queden abiertos.
+\end_layout
+
+\begin_layout Section
+Sesiones
+\end_layout
+
+\begin_layout Standard
+El programa 
+\family typewriter
+ghci
+\family default
+ lee expresiones o definiciones en Haskell, una por línea o entre una línea
+ 
+\begin_inset Quotes cld
+\end_inset
+
+
+\family typewriter
+:{
+\family default
+
+\begin_inset Quotes crd
+\end_inset
+
+ y una 
+\begin_inset Quotes cld
+\end_inset
+
+
+\family typewriter
+:}
+\family default
+
+\begin_inset Quotes crd
+\end_inset
+
+, las evalúa e imprime el resultado, y también puede interpretar comandos
+ de 
+\family typewriter
+ghci
+\family default
+.
+ Una 
+\series bold
+sesión
+\series default
+ es la secuencia de iteraciones entre el usuario y este programa.
+ Las definiciones también se pueden guardar en ficheros, generalmente con
+ extensión 
+\family typewriter
+.hs
+\family default
+, llamadas 
+\series bold
+guiones
+\series default
+ o 
+\series bold
+\emph on
+\lang english
+scripts
+\series default
+\emph default
+\lang spanish
+, que se pueden cargar en el intérprete con el comando 
+\family typewriter
+:l 
+\emph on
+fichero
+\family default
+\emph default
+.
+ El formato es:
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Las reglas 
+\family typewriter
+\emph on
+nombre
+\emph default
+ = 
+\emph on
+valor
+\family default
+\emph default
+ describen la gramática libre de contexto de Haskell en ABNF.
+ Cada cadena entre comillas representa un sólo lexema y entre dos lexemas
+ puede haber espacio.
+ Esta gramática tiene ambigüedades que se resuelven haciendo las frases
+ tan largas como sea posible de izquierda a derecha, resolviendo todos los
+ conflictos 
+\emph on
+\lang english
+shift-reduce
+\emph default
+\lang spanish
+ con 
+\emph on
+\lang english
+shift
+\emph default
+\lang spanish
+.
+ Los 
+\emph on
+\lang english
+tokens
+\emph default
+\lang spanish
+ también se extienden lo máximo posible.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+module = body
+\end_layout
+
+\begin_layout Plain Layout
+
+body = 
+\begin_inset Quotes cld
+\end_inset
+
+{
+\begin_inset Quotes cld
+\end_inset
+
+ topdecls 
+\begin_inset Quotes cld
+\end_inset
+
+}
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+topdecls = [topdecl *(
+\begin_inset Quotes cld
+\end_inset
+
+;
+\begin_inset Quotes crd
+\end_inset
+
+ topdecl)]
+\end_layout
+
+\begin_layout Plain Layout
+
+topdecl = decl
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+vínculo
+\series default
+ es una asignación de un nombre a un valor, y un 
+\series bold
+entorno
+\series default
+ o 
+\series bold
+contexto
+\series default
+ es un conjunto de vínculos en que no hay más de un vínculo para el mismo
+ nombre.
+ Las expresiones se evalúan en un cierto contexto, y describen un valor
+ que depende de este.
+ Inicialmente el contexto global incluye las 
+\series bold
+operaciones primitivas
+\series default
+ incluidas en el evaluador, como las operaciones aritméticas básicas y las
+ incluidas en 
+\series bold
+preludios
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+var = varid / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ varsym 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+varop = varsym / 
+\begin_inset Quotes cld
+\end_inset
+
+`
+\begin_inset Quotes crd
+\end_inset
+
+ varid 
+\begin_inset Quotes cld
+\end_inset
+
+`
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las variables se nombran como 
+\family typewriter
+varid
+\family default
+ y los 
+\series bold
+operadores
+\series default
+ infijos como 
+\family typewriter
+varsym
+\family default
+, pero es posible usar un operador como nombre normal poniéndolo entre paréntesi
+s y una función con nombre normal como operador poniéndola entre comillas
+ invertidas.
+ Se pueden definir nuevos operadores.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+evaluación ansiosa
+\series default
+ o 
+\series bold
+llamada por valor
+\series default
+ es como el orden aplicativo pero sin evaluar en el interior de abstracciones,
+ y la 
+\series bold
+evaluación perezosa
+\series default
+ o 
+\series bold
+llamada por nombre
+\series default
+ es como el orden normal pero sin evaluar en el interior de abstracciones.
+ Haskell usa evaluación perezosa, que al contrario que la ansiosa garantiza
+ la terminación si la expresión es normalizable.
+\end_layout
+
+\begin_layout Section
+Tipos
+\end_layout
+
+\begin_layout Standard
+Todo valor tiene un tipo con un cierto dominio, que incluye un 
+\series bold
+valor indefinido
+\series default
+ 
+\begin_inset Formula $\bot$
+\end_inset
+
+ correspondiente a las expresiones de ese tipo cuya evaluación no termina,
+ aunque también se usa para notificar errores.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+type = btype [
+\begin_inset Quotes cld
+\end_inset
+
+->
+\begin_inset Quotes crd
+\end_inset
+
+ type]
+\end_layout
+
+\begin_layout Plain Layout
+
+btype = [btype] atype
+\end_layout
+
+\begin_layout Plain Layout
+
+atype = gtycon / varid / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ type *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ type) 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+[
+\begin_inset Quotes cld
+\end_inset
+
+ type 
+\begin_inset Quotes cld
+\end_inset
+
+]
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+gtycon = qtycon / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+[
+\begin_inset Quotes cld
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+]
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El tipo 
+\family typewriter
+\emph on
+fuente
+\emph default
+ -> 
+\emph on
+resultado
+\family default
+\emph default
+ es el de las funciones que toman 
+\series bold
+argumentos
+\series default
+ del 
+\series bold
+tipo fuente
+\series default
+ y devuelven 
+\series bold
+resultados
+\series default
+ del 
+\series bold
+tipo resultado
+\series default
+.
+ Una función 
+\begin_inset Formula $f$
+\end_inset
+
+ es 
+\series bold
+estricta
+\series default
+ si 
+\begin_inset Formula $f\,\bot=\bot$
+\end_inset
+
+.
+ Dos funciones son 
+\series bold
+iguales
+\series default
+ si devuelven los mismos resultados para los mismos argumentos, y el compilador
+ es libre de cambiar una función por otra igual.
+ Normalmente las funciones están currificadas, pues esto reduce el número
+ de paréntesis y permite aplicar una función de varios argumentos a menos
+ argumentos para obtener otra función que puede ser útil por sí misma.
+ Es idiomático 
+\begin_inset Formula $\eta$
+\end_inset
+
+-reducir las definiciones de funciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+aexp /= 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ exp *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ exp) 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+[
+\begin_inset Quotes cld
+\end_inset
+
+ exp *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ exp) 
+\begin_inset Quotes cld
+\end_inset
+
+]
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+(*), (<=), ->, (+), div, (^), (/), (.), Float, pi, Integer, not, True, False,
+ (1*,), (), [*,], [], (:), otherwise, error, (-)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+funlhs /= 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ funlhs 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ 1*apat
+\end_layout
+
+\begin_layout Plain Layout
+
+lpat /= gcon 1*apat
+\end_layout
+
+\begin_layout Plain Layout
+
+guards /=  
+\begin_inset Quotes cld
+\end_inset
+
+|
+\begin_inset Quotes crd
+\end_inset
+
+ guard *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ guard)
+\end_layout
+
+\begin_layout Plain Layout
+
+apat /= 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ pat 1*(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ pat) 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+[
+\begin_inset Quotes cld
+\end_inset
+
+ pat *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ pat) 
+\begin_inset Quotes cld
+\end_inset
+
+]
+\begin_inset Quotes crd
+\end_inset
+
+ / gcon
+\end_layout
+
+\begin_layout Plain Layout
+
+aexp /= gcon
+\end_layout
+
+\begin_layout Plain Layout
+
+gtycon /= 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+->
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ 1*
+\begin_inset Quotes crd
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+gcon = 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+[
+\begin_inset Quotes cld
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+]
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ 1*
+\begin_inset Quotes crd
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+op = varop / conop
+\end_layout
+
+\begin_layout Plain Layout
+
+conop = 
+\begin_inset Quotes cld
+\end_inset
+
+`
+\begin_inset Quotes crd
+\end_inset
+
+ conid 
+\begin_inset Quotes cld
+\end_inset
+
+`
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+qop = qvarop / qconop
+\end_layout
+
+\begin_layout Plain Layout
+
+qvarop = qvarsym / 
+\begin_inset Quotes cld
+\end_inset
+
+`
+\begin_inset Quotes crd
+\end_inset
+
+ qvarid 
+\begin_inset Quotes cld
+\end_inset
+
+`
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+qconop = gconsym / 
+\begin_inset Quotes cld
+\end_inset
+
+`
+\begin_inset Quotes crd
+\end_inset
+
+ qconid 
+\begin_inset Quotes cld
+\end_inset
+
+`
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+gconsym = 
+\begin_inset Quotes cld
+\end_inset
+
+:
+\begin_inset Quotes crd
+\end_inset
+
+ / qconsym
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Expresiones
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+exp = infixexp [
+\begin_inset Quotes cld
+\end_inset
+
+::
+\begin_inset Quotes crd
+\end_inset
+
+ type]
+\end_layout
+
+\begin_layout Plain Layout
+
+infixexp = lexp qop infixexp / 
+\begin_inset Quotes cld
+\end_inset
+
+-
+\begin_inset Quotes crd
+\end_inset
+
+ infixexp / lexp
+\end_layout
+
+\begin_layout Plain Layout
+
+lexp = fexp
+\end_layout
+
+\begin_layout Plain Layout
+
+fexp = [fexp] aexp / 
+\begin_inset Quotes cld
+\end_inset
+
+let
+\begin_inset Quotes crd
+\end_inset
+
+ decls 
+\begin_inset Quotes cld
+\end_inset
+
+in
+\begin_inset Quotes crd
+\end_inset
+
+ exp
+\end_layout
+
+\begin_layout Plain Layout
+
+aexp = qvar / literal
+\end_layout
+
+\begin_layout Plain Layout
+
+qvar = qvarid / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ qvarsym 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+decls = 
+\begin_inset Quotes cld
+\end_inset
+
+{
+\begin_inset Quotes cld
+\end_inset
+
+ [decl *(
+\begin_inset Quotes cld
+\end_inset
+
+;
+\begin_inset Quotes crd
+\end_inset
+
+ decl)] 
+\begin_inset Quotes cld
+\end_inset
+
+}
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una variable (
+\family typewriter
+qvar
+\family default
+) representa su valor en el contexto; un 
+\family typewriter
+literal
+\family default
+ se representa a sí mismo; 
+\family typewriter
+fexp aexp
+\family default
+ representa la aplicación de la función 
+\family typewriter
+fexp
+\family default
+ al valor 
+\family typewriter
+aexp
+\family default
+; 
+\family typewriter
+lexp qop infixexp
+\family default
+ equivale a 
+\family typewriter
+(qop) lexp infixexp
+\family default
+, aunque realmente distintos operadores tienen distinta precedencia y asociativi
+dad, establecidas con la sintaxis:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+gendecl /= fixity [integer] ops
+\end_layout
+
+\begin_layout Plain Layout
+
+ops = op *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ op)
+\end_layout
+
+\begin_layout Plain Layout
+
+fixity = 
+\begin_inset Quotes cld
+\end_inset
+
+infixl
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+infixr
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+infix
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El entero opcional va del 0 al 9 y es mayor a mayor precedencia, y se usa
+ 
+\family typewriter
+infixl
+\family default
+ para indicar asociatividad por la izquierda o 
+\family typewriter
+infixr
+\family default
+ por la derecha.
+ El operador 
+\family typewriter
+-
+\family default
+ es el único unario, y representa la negación.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+sección
+\series default
+ es un operador con una expresión delante o detrás:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+aexp /= 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ infixexp qop 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ qop infixexp 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+(
+\emph on
+infixexp qop
+\emph default
+)
+\family default
+ equivale a 
+\family typewriter
+
+\backslash
+y -> 
+\emph on
+infixexp qop
+\emph default
+ y
+\family default
+ y 
+\family typewriter
+(
+\emph on
+qop infixexp
+\emph default
+)
+\family default
+ a 
+\family typewriter
+
+\backslash
+x -> x 
+\emph on
+qop infixexp
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Section
+Patrones
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+pat = lpat
+\end_layout
+
+\begin_layout Plain Layout
+
+lpat = apat / 
+\begin_inset Quotes cld
+\end_inset
+
+-
+\begin_inset Quotes crd
+\end_inset
+
+ (integer / float)
+\end_layout
+
+\begin_layout Plain Layout
+
+apat = var [
+\begin_inset Quotes cld
+\end_inset
+
+@
+\begin_inset Quotes crd
+\end_inset
+
+ apat] / literal / 
+\begin_inset Quotes cld
+\end_inset
+
+_
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ pat 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+patrón
+\series default
+ recibe un argumento y bien encaja, creando una serie de vínculos, o no.
+ El patrón 
+\family typewriter
+_
+\family default
+ siempre encaja y no crea vínculos; una variable siempre encaja y crea un
+ vínculo de la variable al argumento; un patrón de forma 
+\family typewriter
+\emph on
+var
+\emph default
+@
+\emph on
+apat
+\family default
+\emph default
+ es similar pero solo encaja si lo hace 
+\family typewriter
+\emph on
+apat
+\family default
+\emph default
+ y en tal caso crea un vínculo de 
+\family typewriter
+\emph on
+var
+\family default
+\emph default
+ al argumento que se añade a los vínculos que crea 
+\family typewriter
+\emph on
+apat
+\family default
+\emph default
+.
+ Una misma variable no puede aparecer dos veces en la misma lista de patrones,
+ ni siquiera como subpatrón.
+ Un literal o su negación no crea vínculos y encaja sólo si el argumento
+ es igual a él.
+\end_layout
+
+\begin_layout Standard
+Un patrón no estándar es 
+\family typewriter
+varid 
+\begin_inset Quotes qld
+\end_inset
+
++
+\begin_inset Quotes qrd
+\end_inset
+
+ integer
+\family default
+, que encaja con un entero de valor mayor o igual al 
+\family typewriter
+integer
+\family default
+ y asigna a la variable el entero menos ese 
+\family typewriter
+integer
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Dada una lista de patrones o de listas de patrones del mismo tamaño cada
+ una con una expresión asociada, el 
+\series bold
+encaje de patrones
+\series default
+ consiste en seleccionar la expresión correspondiente al primer patrón que
+ encaje con cierto argumento, o la primera lista en que cada patrón encaje
+ con el correspondiente argumento de una lista de argumentos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+fexp /= 
+\begin_inset Quotes cld
+\end_inset
+
+case
+\begin_inset Quotes crd
+\end_inset
+
+ exp 
+\begin_inset Quotes cld
+\end_inset
+
+of
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+{
+\begin_inset Quotes cld
+\end_inset
+
+ alts 
+\begin_inset Quotes cld
+\end_inset
+
+}
+\begin_inset Quotes crd
+\end_inset
+
+ /
+\end_layout
+
+\begin_layout Plain Layout
+
+     / 
+\begin_inset Quotes cld
+\end_inset
+
+if
+\begin_inset Quotes crd
+\end_inset
+
+ exp [
+\begin_inset Quotes cld
+\end_inset
+
+;
+\begin_inset Quotes crd
+\end_inset
+
+] 
+\begin_inset Quotes cld
+\end_inset
+
+then
+\begin_inset Quotes crd
+\end_inset
+
+ exp [
+\begin_inset Quotes cld
+\end_inset
+
+;
+\begin_inset Quotes crd
+\end_inset
+
+] 
+\begin_inset Quotes cld
+\end_inset
+
+else
+\begin_inset Quotes crd
+\end_inset
+
+ exp /
+\end_layout
+
+\begin_layout Plain Layout
+
+     / 
+\begin_inset Quotes cld
+\end_inset
+
+
+\backslash
+
+\backslash
+
+\begin_inset Quotes crd
+\end_inset
+
+ 1*apat 
+\begin_inset Quotes cld
+\end_inset
+
+->
+\begin_inset Quotes crd
+\end_inset
+
+ exp
+\end_layout
+
+\begin_layout Plain Layout
+
+alts = alt *(
+\begin_inset Quotes cld
+\end_inset
+
+;
+\begin_inset Quotes crd
+\end_inset
+
+ alt)
+\end_layout
+
+\begin_layout Plain Layout
+
+alt = pat (
+\begin_inset Quotes cld
+\end_inset
+
+->
+\begin_inset Quotes crd
+\end_inset
+
+ exp / 1*gdpat) [
+\begin_inset Quotes cld
+\end_inset
+
+where
+\begin_inset Quotes crd
+\end_inset
+
+ decls]
+\end_layout
+
+\begin_layout Plain Layout
+
+gdpat = guards 
+\begin_inset Quotes cld
+\end_inset
+
+->
+\begin_inset Quotes crd
+\end_inset
+
+ exp
+\end_layout
+
+\begin_layout Plain Layout
+
+guards = 
+\begin_inset Quotes cld
+\end_inset
+
+|
+\begin_inset Quotes crd
+\end_inset
+
+ guard
+\end_layout
+
+\begin_layout Plain Layout
+
+guard = infixexp
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si todas las 
+\family typewriter
+alt
+\family default
+ son del segundo tipo, 
+\family typewriter
+case 
+\emph on
+exp
+\emph default
+ of 
+\emph on
+alts
+\family default
+\emph default
+ evalúa 
+\family typewriter
+\emph on
+exp
+\family default
+\emph default
+; selecciona la primera 
+\family typewriter
+gdpat
+\family default
+ tal que 
+\family typewriter
+\emph on
+exp
+\family default
+\emph default
+ encaja con el patrón de la 
+\family typewriter
+alt
+\family default
+ en la que está y, en un contexto extendido por las declaraciones en 
+\family typewriter
+decls
+\family default
+ y los vínculos de dicho patrón, la 
+\series bold
+guarda
+\series default
+ (
+\family typewriter
+guard
+\family default
+) devuelve 
+\family typewriter
+True
+\family default
+, y finalmente evalúa la expresión del 
+\family typewriter
+gdpat
+\family default
+ en el mismo contexto y devuelve su valor, o bien devuelve 
+\begin_inset Formula $\bot$
+\end_inset
+
+ si ninguna 
+\family typewriter
+gdpat
+\family default
+ cumple la condición.
+ Una 
+\family typewriter
+alt
+\family default
+ de la forma 
+\family typewriter
+-> 
+\emph on
+exp
+\family default
+\emph default
+ equivale a 
+\family typewriter
+| True -> 
+\emph on
+exp
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+if 
+\emph on
+condition
+\emph default
+ then 
+\emph on
+when-true
+\emph default
+ else 
+\emph on
+when-false
+\family default
+\emph default
+ equivale a 
+\family typewriter
+case 
+\emph on
+condition
+\emph default
+ of { True -> 
+\emph on
+when-true
+\emph default
+; False -> 
+\emph on
+when-false
+\emph default
+ }
+\family default
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+
+\backslash
+ 
+\emph on
+apat
+\begin_inset Formula $_{1}$
+\end_inset
+
+
+\emph default
+ 
+\family default
+...
+
+\family typewriter
+ 
+\emph on
+apat
+\begin_inset Formula $_{n}$
+\end_inset
+
+
+\emph default
+ -> 
+\emph on
+exp
+\family default
+\emph default
+ representa una función con parámetros definidos por patrones (generalmente
+ variables) cuya aplicación a 
+\begin_inset Formula $n$
+\end_inset
+
+ parámetros encaja los parámetros si es posible y devuelve el valor de 
+\family typewriter
+\emph on
+exp
+\family default
+\emph default
+ en un contexto extendido por los vínculos creados por los patrones, y devuelve
+ 
+\begin_inset Formula $\bot$
+\end_inset
+
+ en otro caso.
+\end_layout
+
+\begin_layout Section
+Definiciones
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+definición
+\series default
+ añade un vínculo al contexto en que se encuentra, en principio el contexto
+ global.
+ Está formada por una 
+\series bold
+asignación de tipo
+\series default
+ opcional, que indica el tipo de la variable, y una serie de ecuaciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+decl = gendecl / (funlhs / pat) rhs
+\end_layout
+
+\begin_layout Plain Layout
+
+gendecl = vars 
+\begin_inset Quotes cld
+\end_inset
+
+::
+\begin_inset Quotes crd
+\end_inset
+
+ type
+\end_layout
+
+\begin_layout Plain Layout
+
+vars = var *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ var)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+Las funciones se definen con una serie de 
+\series bold
+ecuaciones
+\series default
+ de la forma 
+\family typewriter
+funlhs rhs
+\family default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+funlhs = var 1*apat / pat varop pat
+\end_layout
+
+\begin_layout Plain Layout
+
+rhs = (
+\begin_inset Quotes cld
+\end_inset
+
+=
+\begin_inset Quotes crd
+\end_inset
+
+ exp / 1*gdrhs) [
+\begin_inset Quotes cld
+\end_inset
+
+where
+\begin_inset Quotes crd
+\end_inset
+
+ decls]
+\end_layout
+
+\begin_layout Plain Layout
+
+gdrhs = guards 
+\begin_inset Quotes cld
+\end_inset
+
+=
+\begin_inset Quotes crd
+\end_inset
+
+ exp
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+aridad
+\series default
+ de una ecuación es el número de parámetros (número de 
+\family typewriter
+apat
+\family default
+ en la primera sintaxis o 2 en la segunda), y todas las ecuaciones para
+ la misma función 
+\family typewriter
+var
+\family default
+ tienen la misma aridad.
+ La función se define currificada, y para evaluarla sobre ciertos argumentos,
+ se selecciona una 
+\series bold
+cláusula
+\series default
+ (
+\family typewriter
+gdrhs
+\family default
+) de la misma forma que se seleccionaban los 
+\family typewriter
+gdpat
+\family default
+ en una expresión 
+\family typewriter
+case
+\family default
+, usando ecuaciones en vez de 
+\family typewriter
+alt
+\family default
+s y encajando tantos argumentos como sea la aridad, y se ejecuta la expresión
+ correspondiente.
+ Una ecuación 
+\family typewriter
+\emph on
+var apat
+\family default
+\emph default
+...
+
+\family typewriter
+ = 
+\emph on
+exp
+\family default
+\emph default
+ equivale a 
+\family typewriter
+\emph on
+var apat
+\family default
+\emph default
+...
+
+\family typewriter
+ | True = 
+\emph on
+exp
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Las declaraciones de la forma 
+\family typewriter
+pat rhs
+\family default
+ definen variables globales añadiendo al contexto global los vínculos establecid
+os al encajar el 
+\family typewriter
+rhs
+\family default
+ con el patrón, y es un error si no hay encaje.
+ Generalmente 
+\family typewriter
+pat
+\family default
+ es una variable.
+\end_layout
+
+\end_body
+\end_document
