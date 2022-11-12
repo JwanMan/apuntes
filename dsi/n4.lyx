@@ -1,0 +1,669 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+El rendimiento del proceso de equiparación en un sistema basado en reglas
+ es afectado por un número elevado de reglas en la base de conocimiento
+ y por la aparición de variables en los antecedentes de las reglas, que
+ en general siempre se da al escribir las reglas con la mayor generalidad
+ posible, convirtiendo la equiparación en un proceso no trivial.
+\end_layout
+
+\begin_layout Standard
+Para mitigar los problemas por el número elevado de reglas usamos 
+\series bold
+técnicas de indexado
+\series default
+.
+ Una de ellas consiste en dividir el problema en varias etapas y agrupar
+ las reglas según dichas etapas, añadiendo condiciones en el antecedente
+ de las reglas relacionadas con las etapas.
+ Sin embargo, esto reduce la generalidad de las reglas.
+\end_layout
+
+\begin_layout Section
+Equiparación con variables
+\end_layout
+
+\begin_layout Standard
+Representamos reglas con una sintaxis basada en el lenguaje CLIPS:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\text{<<regla>>} & \to\text{\textbf{SI}}\,\text{<<antecedente>>}\,\text{\textbf{ENTONCES}}\,\text{<<consecuente>>}\\
+\text{<<antecedente>>} & \to\text{<<condición>>}\mid\text{<<condición>>}\land\text{<<antecedente>>}\\
+\text{<<condición>>} & \to\text{<<patrón>>}\mid\neg\text{<<patrón>>}\mid(\mathtt{test}\,\text{<<sexpr>>})\\
+\text{<<consecuente>>} & \to\mathtt{Añadir}\text{<<patrón>>}\mid\mathtt{Borrar}\text{<<patrón>>}\\
+\text{<<patrón>>} & \to(\text{<<constante>>}\,\text{<<parámetros>>})\\
+\text{<<parámetros>>} & \to\mid\text{<<constante>>}\,\text{<<parámetros>>}\mid\text{<<variable>>}\,\text{<<parámetros>>}\\
+\text{<<constante>>} & \to\mathtt{[\mathcircumflex?)\ ][\mathcircumflex)\ ]*}\\
+\text{<<variable>>} & \to\mathtt{\backslash?[\mathcircumflex)\ ]*}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+condición negada
+\series default
+ es un patrón inmediatamente precedido por 
+\begin_inset Formula $\neg$
+\end_inset
+
+.
+ Todas las variables en el consecuente de una regla deben aparecer en algún
+ patrón no negado en el antecedente.
+\end_layout
+
+\begin_layout Standard
+Los elementos o hechos de la BH son patrones sin variables.
+ Usamos la 
+\series bold
+hipótesis del mundo cerrado:
+\series default
+ todo hecho que no aparece en la BH se considera falso.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+instanciación
+\series default
+ es un par formado por una regla de la BC y una lista de hechos de la BH
+ de forma que:
+\end_layout
+
+\begin_layout Enumerate
+La lista tiene tantos elementos como patrones no negados en el antecedente.
+\end_layout
+
+\begin_layout Enumerate
+Existe una asignación de las variables que aparecen en la regla a constantes
+ tal que, al sustituir en la regla:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Los hechos de la lista son iguales a los correspondientes patrones no negados
+ del antecedente de la regla.
+\end_layout
+
+\begin_layout Enumerate
+Los patrones negados no aparecen en la BH.
+\end_layout
+
+\begin_layout Enumerate
+Los 
+\begin_inset Formula $\text{<<sexpr>>}$
+\end_inset
+
+ en la regla evalúan a un valor verdadero en un entorno léxico resultante
+ de añadir al entorno global esta asignación de variables en el espacio
+ de nombres de valores.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+La terminología es del estándar de Common Lisp (
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.lispworks.com/documentation/HyperSpec/Body/03_a.htm
+\end_layout
+
+\end_inset
+
+), pero básicamente esto significa que cada 
+\begin_inset Formula $\text{<<sexpr>>}$
+\end_inset
+
+ es una condición en la que aparecen las variables y que deben cumplir los
+ valores asignados a estas variables.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+El conjunto conflicto es el conjunto de instanciaciones posibles.
+\end_layout
+
+\begin_layout Section
+Algoritmo RETE
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+RETE
+\series default
+ (
+\series bold
+REdundancia TEmporal
+\series default
+) es un algoritmo propuesto por Forgy en 1979 y 1982 para calcular el conjunto
+ conflicto de forma incremental, teniendo en cuenta que cada ejecución de
+ una regla hace pocos cambios a la BH y por tanto al conjunto conflicto.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+testigo
+\series default
+ es un par formado por una etiqueta 
+\begin_inset Formula $+$
+\end_inset
+
+ o 
+\begin_inset Formula $-$
+\end_inset
+
+ y una lista de hechos.
+ Cada vez que se añade o borra un hecho de la BH se crea un 
+\series bold
+testigo
+\series default
+ con etiqueta 
+\begin_inset Formula $\mathtt{+}$
+\end_inset
+
+ o 
+\begin_inset Formula $\mathtt{-}$
+\end_inset
+
+ respectivamente y el hecho, y se envía al nodo raíz de la 
+\series bold
+red RETE
+\series default
+, un grafo dirigido cuyos nodos reciben testigos o listas de testigos, los
+ procesan y pueden propagarlos a sus sucesores.
+ Tipos de nodos en la red:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Raíz:
+\series default
+ Hay uno.
+ Recibe testigos de fuera y los propaga.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+De componente:
+\series default
+ Contiene un índice (de la lista de los componentes de los hechos en el
+ testigo) y una constante.
+ Recibe un testigo y lo propaga sólo si tiene esa constante en ese índice.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Terminal:
+\series default
+ Contiene una regla.
+ Cuando recibe un testigo positivo, crea una instanciación con dicha regla
+ y los hechos, y cuando recibe uno negativo la borra.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+De comprobación de variables:
+\series default
+ Contiene dos índices.
+ Recibe un testigo de un solo hecho y lo propaga sólo si los valores en
+ esos índices del hecho son iguales.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+De unión de elementos condición de una misma regla:
+\series default
+ Le llegan testigos de un puerto izquierdo y uno derecho, y cada puerto
+ tiene asociada una memoria de testigos positivos.
+ Cuando recibe un testigo positivo, lo añade a la memoria de ese puerto,
+ y cuando recibe uno negativo lo borra de esa memoria.
+ Entonces, para cada testigo en la memoria del otro puerto, propaga un testigo
+ con la etiqueta del testigo recibido cuyos hechos resultan de concatenar
+ los del testigo recibido y el de la memoria, primero los de la izquierda
+ y luego los de la derecha.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+De unión de elementos condición de una misma regla que contiene varias variables
+:
+\series default
+ Como el anterior pero además contiene una lista de pares de índice del
+ testigo izquierdo e índice del derecho, y sólo propaga los testigos concatenado
+s si en cada par de índices de la lista los valores son iguales.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+De unión de elementos de condición negados con los restantes elementos de
+ condición de una misma regla:
+\series default
+ También tiene dos puertos, una memoria de testigos positivos en cada uno
+ y una lista de pares de índices, pero los testigos en la memoria izquierda
+ tienen un contador asociado.
+ Cuando llega un testigo positivo por la izquierda, se guarda con un contador
+ igual al número de testigos por la derecha para los que se da la igualdad
+ en los pares de índices, y se propaga si el contador es 0.
+ Cuando llega uno negativo, si había uno positivo, se borra, y si su contador
+ era 0, se propaga el testigo negativo.
+ Cuando llega un testigo positivo por la derecha, se guarda y se aumenta
+ en 1 el contador de los testigos de la izquierda para los que se da la
+ igualdad en los pares de índices, y para los que dejan de estar a 0 se
+ propaga un testigo igual pero negativo.
+ Cuando llega uno negativo por la derecha, si había uno igual positivo,
+ se borra y, para cada testigo de la izquierda para el que se da la igualdad,
+ el contador se reduce en 1, propagando el testigo si llega a 0.
+\end_layout
+
+\begin_layout Standard
+Podemos suponer que todos los hechos con igual primer elemento tienen la
+ misma longitud, pues de lo contrario basta renombrarlo.
+ Podemos suponer que toda regla tiene un patrón no negado en el antecedente,
+ pues de lo contrario basta crear un hecho 
+\family typewriter
+(T)
+\family default
+ que siempre está en la base de hechos y añadirlo al antecedente de la regla.
+\end_layout
+
+\begin_layout Standard
+Para compilar un conjunto de reglas en una red:
+\end_layout
+
+\begin_layout Enumerate
+Se crea el nodo raíz.
+\end_layout
+
+\begin_layout Enumerate
+Para cada patrón del antecedente de cada regla:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Se crea un nodo componente por cada componente constante del patrón.
+\end_layout
+
+\begin_layout Enumerate
+Para cada variable que aparece 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+ veces en el patrón, se crean 
+\begin_inset Formula $n-1$
+\end_inset
+
+ nodos de comprobación de variables para asegurar que las apariciones son
+ iguales.
+\end_layout
+
+\begin_layout Enumerate
+Se crea un eje del nodo raíz al primer nodo creado en este paso y uno de
+ cada nodo al siguiente.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Para cada regla con 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+ patrones:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Elegimos un patrón no negado del antecedente y llamamos 
+\begin_inset Formula $L$
+\end_inset
+
+ al último nodo de su secuencia.
+\end_layout
+
+\begin_layout Enumerate
+Para cada otro patrón del antecedente:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Llamamos 
+\begin_inset Formula $R$
+\end_inset
+
+ al último nodo del patrón.
+\end_layout
+
+\begin_layout Enumerate
+Creamos un nodo de unión de elementos de condición, o de elementos de condición
+ negados si el patrón de 
+\begin_inset Formula $R$
+\end_inset
+
+ está negado.
+\end_layout
+
+\begin_layout Enumerate
+Conectamos 
+\begin_inset Formula $L$
+\end_inset
+
+ al puerto izquierdo y 
+\begin_inset Formula $R$
+\end_inset
+
+ al derecho.
+\end_layout
+
+\begin_layout Enumerate
+Para cada variable que aparezca tanto en algún patrón de 
+\begin_inset Formula $L$
+\end_inset
+
+ como en el de 
+\begin_inset Formula $R$
+\end_inset
+
+, añadimos un par de índices a la lista del nodo creado para asegurar que
+ sean iguales.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Mientras haya dos nodos iguales con el mismo predecesor, estos nodos se
+ unen en uno solo.
+\end_layout
+
+\begin_layout Standard
+Esta versión no considera 
+\emph on
+\lang english
+tests
+\emph default
+\lang spanish
+ en el antecedente, pero estos se representan trivialmente como variantes
+ de nodos de componente, comprobación de variables o unión que en vez de
+ comprobar igualdades, o además, comprueba la condición.
+ 
+\end_layout
+
+\begin_layout Standard
+Muchos de estos pasos no especifican exactamente el orden de los elementos,
+ por lo que estos se pueden reordenar para poner las comprobaciones de 
+\emph on
+\lang english
+tests
+\emph default
+\lang spanish
+ y otras con más posibilidades de fallar lo más arriba posible y maximizar
+ el número de uniones de nodos, aumentando la eficiencia.
+\end_layout
+
+\begin_layout Section
+Resolución de conflictos
+\end_layout
+
+\begin_layout Standard
+Consiste en elegir qué instanciación se ejecuta del conjunto conflicto.
+ Algunas estrategias:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Selección arbitraria.
+
+\series default
+ Se elige aleatoriamente.
+ 
+\begin_inset Quotes cld
+\end_inset
+
+Sólo es aplicable cuando todas las reglas tienen la misma posibilidad de
+ ser efectivas.
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Selección de la primera regla.
+
+\series default
+ Se elige la primera instanciación en un cierto buen orden del conjunto
+ conflicto, o una de la primera regla en un cierto buen orden de la base
+ de reglas.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Las diapositivas dicen una cosa y luego la otra, y la segunda sería una
+ forma de selección por prioridad.
+\end_layout
+
+\end_inset
+
+ Hay problemas en los que establecer un buen orden de la base de reglas
+ no es deseable.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Selección por prioridad.
+
+\series default
+ Cada regla tiene asignada una prioridad y se elige una instanciación con
+ máxima prioridad de su regla.
+ Algunos sistemas permiten establecer la prioridad según el orden de escritura
+ de la base de conocimiento.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Regla más específica.
+
+\series default
+ Una regla es más o igual de específica que otra si tiene todas las condiciones
+ de la otra.
+ Se ignora la instanciación más genérica.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Elemento añadido más recientemente.
+
+\series default
+ Cada elemento de la BH tiene asociada una marca de tiempo con el momento
+ de su creación o última modificación (regeneración del hecho por parte
+ de una regla), medida bien en número de ciclos (actualizaciones del CC),
+ o en número de acciones ejecutadas, en cuyo caso no todos los elementos
+ añadidos por la misma instanciación de una regla tienen la misma prioridad.
+ Se elige la instanciación que contiene el hecho más reciente en la CC.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Seleccionar una nueva regla.
+
+\series default
+ Se elige una instanciación no ejecutada previamente, evitando que una misma
+ regla se ejecute indefinidamente (
+\series bold
+principio de refracción
+\series default
+).
+ Una instanciación que desaparece del conjunto conflicto y luego vuelve
+ a aparecer no se considera ejecutada.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Seleccionar todas las reglas.
+
+\series default
+ Se aplican todas las reglas a la vez en el mismo ciclo.
+ Es especialmente útil en dominios médicos para examinar todas las posibilidades
+, pero hay que tener cuidado de no incurrir en una explosión combinatoria
+ o recorrer caminos idénticos.
+\end_layout
+
+\begin_layout Standard
+Cada una de estas estrategias salvo la última se puede ver como una función
+ que recibe un conjunto de instanciaciones no vacío y devuelve un subconjunto
+ de este.
+ Dadas dos estrategias 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ de este tipo, llamamos 
+\begin_inset Formula $f\CIRCLE g$
+\end_inset
+
+ a la estrategia dada por 
+\begin_inset Formula $A\mapsto f(A)\cap g(A)$
+\end_inset
+
+, y 
+\begin_inset Formula $f\to g$
+\end_inset
+
+ a la estrategia dada por
+\begin_inset Formula 
+\[
+A\mapsto\begin{cases}
+f(A), & |f(A)|\leq1,\\
+g(f(a)), & \text{en otro caso}.
+\end{cases}
+\]
+
+\end_inset
+
+Ambos operadores son asociativos, y el segundo no necesita que la estrategia
+ 
+\begin_inset Formula $g$
+\end_inset
+
+ sea de este tipo pero si no lo es la estrategia 
+\begin_inset Formula $f\to g$
+\end_inset
+
+ en general  tampoco lo es.
+\end_layout
+
+\end_body
+\end_document
