@@ -1,0 +1,3781 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Salvo que se indique lo contrario, al hablar de espacios vectoriales entenderemo
+s que lo son sobre 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ o 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Espacios de Banach
+\end_layout
+
+\begin_layout Standard
+Dados un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial 
+\begin_inset Formula $X$
+\end_inset
+
+ y 
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $\text{span}A$
+\end_inset
+
+ al menor subespacio vectorial de 
+\begin_inset Formula $X$
+\end_inset
+
+ que contiene a 
+\begin_inset Formula $A$
+\end_inset
+
+, y decimos que una 
+\begin_inset Formula $q:X\to\mathbb{R}$
+\end_inset
+
+ es:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Subaditiva
+\series default
+ si 
+\begin_inset Formula $\forall x,y\in X,q(x+y)\leq q(x)+q(y)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Positivamente homogénea
+\series default
+ si 
+\begin_inset Formula $\forall a\in\mathbb{K}\cap\mathbb{R}^{+},\forall x\in X,q(ax)=aq(x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Absolutamente homogénea
+\series default
+ si 
+\begin_inset Formula $\forall a\in\mathbb{K},\forall x\in X,q(ax)=|a|q(x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Una 
+\series bold
+seminorma
+\series default
+ si es subaditiva y absolutamente homogénea.
+\end_layout
+
+\begin_layout Enumerate
+Una 
+\series bold
+norma
+\series default
+ si es una seminorma con 
+\begin_inset Formula $q^{-1}(0)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Toda norma es definida positiva
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+, pues si 
+\begin_inset Formula $x\in X\setminus0$
+\end_inset
+
+, 
+\begin_inset Formula $q(x)=|-1|q(x)=q(-x)\neq0$
+\end_inset
+
+, pero 
+\begin_inset Formula $0=q(0)=q(x-x)\leq q(x)+q(-x)=2q(x)$
+\end_inset
+
+ y 
+\begin_inset Formula $q(x)>0$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+espacio normado
+\series default
+ es un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial 
+\begin_inset Formula $X$
+\end_inset
+
+ con una norma 
+\begin_inset Formula $\Vert\cdot\Vert:X\to\mathbb{R}$
+\end_inset
+
+.
+ Todo espacio normado 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es un espacio métrico con la distancia 
+\begin_inset Formula $(x,y)\mapsto\Vert x-y\Vert$
+\end_inset
+
+, y llamamos 
+\begin_inset Formula $B_{X}\coloneqq B[0,1]=\overline{B(0,1)}=\{x\in X:\Vert x\Vert\leq1\}$
+\end_inset
+
+ y conjunto de 
+\series bold
+vectores unitarios
+\series default
+ a 
+\begin_inset Formula $S_{X}\coloneqq\partial B(0,1)=\{x\in X:\Vert x\Vert=1\}$
+\end_inset
+
+.
+ La norma es uniformemente continua en este espacio métrico
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+, pues para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, si 
+\begin_inset Formula $x,y\in X$
+\end_inset
+
+ cumplen 
+\begin_inset Formula $\Vert x-y\Vert<\varepsilon$
+\end_inset
+
+, por subaditividad es 
+\begin_inset Formula $\Vert x\Vert\leq\Vert x-y\Vert+\Vert y\Vert$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\left|\Vert x\Vert-\Vert y\Vert\right|=\Vert x\Vert-\Vert y\Vert\leq\Vert x-y\Vert<\varepsilon$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+.
+ Un vector es 
+\series bold
+unitario
+\series default
+ si tiene norma 1.
+ Un 
+\series bold
+espacio de Banach
+\series default
+ es un espacio normado completo.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio normado:
+\end_layout
+
+\begin_layout Enumerate
+Todo subespacio vectorial de 
+\begin_inset Formula $X$
+\end_inset
+
+ es normado con la norma inducida.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $s:X\times X\to X$
+\end_inset
+
+ y 
+\begin_inset Formula $p:\mathbb{K}\times X\to X$
+\end_inset
+
+ dadas por 
+\begin_inset Formula $s(x,y)\coloneqq x+y$
+\end_inset
+
+ y 
+\begin_inset Formula $p(a,x)\coloneqq ax$
+\end_inset
+
+ son continuas.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+ abierto, queremos ver que 
+\begin_inset Formula $s^{-1}(A)$
+\end_inset
+
+ y 
+\begin_inset Formula $p^{-1}(A)$
+\end_inset
+
+ son abiertos con la topología producto.
+ Sean 
+\begin_inset Formula $(x,y)\in s^{-1}(A)$
+\end_inset
+
+ y 
+\begin_inset Formula $b\coloneqq s(x,y)$
+\end_inset
+
+, existe 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $B(b,\varepsilon)\subseteq A$
+\end_inset
+
+, pero entonces, para 
+\begin_inset Formula $(x',y')\in B(x,\frac{\varepsilon}{2})\times B(y,\frac{\varepsilon}{2})$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\Vert s(x',y')-b\Vert=\Vert\cancel{b}+(x'-x)+(y'-y)\cancel{-b}\Vert\leq\Vert x'-x\Vert+\Vert y'-y\Vert<\varepsilon,
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $s(x',y')\in B(x,\frac{\varepsilon}{2})\subseteq A$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $(a,x)\subseteq p^{-1}(A)$
+\end_inset
+
+ y 
+\begin_inset Formula $b\coloneqq p(a,x)$
+\end_inset
+
+, existe 
+\begin_inset Formula $\varepsilon\in(0,1)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $B(b,\varepsilon)\subseteq A$
+\end_inset
+
+, pero entonces para 
+\begin_inset Formula $(a',x')\in B(a,\frac{\varepsilon}{|a|+\Vert x\Vert+1})\times B(x,\frac{\varepsilon}{|a|+\Vert x\Vert+1})$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{align*}
+\Vert p(a',x')-b\Vert & =\Vert((a'-a)+a)((x'-x)+x)-ax\Vert=\\
+ & =|a'-a|\Vert x'-x\Vert+|a|\Vert x'-x\Vert+|a'-a|\Vert x\Vert<\\
+ & <\frac{\varepsilon}{|a|+\Vert x\Vert+1}\left(\frac{\varepsilon}{|a|+\Vert x\Vert+1}+|a|+\Vert x\Vert\right)\leq\varepsilon\frac{1+|a|+\Vert x\Vert}{|a|+\Vert x\Vert+1}=\varepsilon,
+\end{align*}
+
+\end_inset
+
+con lo que 
+\begin_inset Formula $p(a',x')\in B(b,\varepsilon)\subseteq A$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $s_{y}:X\to X$
+\end_inset
+
+ con 
+\begin_inset Formula $y\in X$
+\end_inset
+
+ y 
+\begin_inset Formula $p_{a}:X\to X$
+\end_inset
+
+ con 
+\begin_inset Formula $a\in\mathbb{K}^{*}$
+\end_inset
+
+ dados por 
+\begin_inset Formula $s_{y}(x)\coloneqq x+y$
+\end_inset
+
+ y 
+\begin_inset Formula $p_{a}(x)\coloneqq ax$
+\end_inset
+
+ son homeomorfismos.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $s_{y}$
+\end_inset
+
+ es la composición de 
+\begin_inset Formula $x\mapsto(x,y)$
+\end_inset
+
+ con la suma, por lo que es continua, y análogamente lo es 
+\begin_inset Formula $p_{a}$
+\end_inset
+
+, pero la inversa de 
+\begin_inset Formula $s_{y}$
+\end_inset
+
+ es 
+\begin_inset Formula $s_{-y}$
+\end_inset
+
+ y la de 
+\begin_inset Formula $p_{a}$
+\end_inset
+
+ es 
+\begin_inset Formula $p_{a^{-1}}$
+\end_inset
+
+, que también son continuas.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+La suma de un abierto y un subconjunto cualquiera de 
+\begin_inset Formula $X$
+\end_inset
+
+ es abierta en 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $G\subseteq X$
+\end_inset
+
+ abierto y 
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+.
+ Todo 
+\begin_inset Formula $p\in G+A$
+\end_inset
+
+ es de la forma 
+\begin_inset Formula $p=g+a$
+\end_inset
+
+ con 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $G+a\subseteq G+A$
+\end_inset
+
+ es un entorno de 
+\begin_inset Formula $g+a$
+\end_inset
+
+ por el homeomorfismo 
+\begin_inset Formula $s_{a}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+La suma de un cerrado y un compacto de 
+\begin_inset Formula $X$
+\end_inset
+
+ es cerrada en 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $F$
+\end_inset
+
+ el cerrado y 
+\begin_inset Formula $K$
+\end_inset
+
+ el compacto, tomamos una sucesión convergente arbitraria en 
+\begin_inset Formula $F+K$
+\end_inset
+
+, 
+\begin_inset Formula $(x_{n}+y_{n})_{n}$
+\end_inset
+
+ con cada 
+\begin_inset Formula $x_{n}\in F$
+\end_inset
+
+ y cada 
+\begin_inset Formula $y_{n}\in K$
+\end_inset
+
+, y 
+\begin_inset Formula $z\coloneqq\lim_{n}(x_{n}+y_{n})$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $K$
+\end_inset
+
+ es compacto, existe una subsucesión 
+\begin_inset Formula $(x_{n_{k}})_{k}$
+\end_inset
+
+ convergente a un 
+\begin_inset Formula $x\in K$
+\end_inset
+
+, luego 
+\begin_inset Formula $(y_{n_{k}})_{k}$
+\end_inset
+
+ converge a 
+\begin_inset Formula $z-x\in F$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $z=(z-x)+x\in F+K$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $Y\subseteq X$
+\end_inset
+
+ es un subespacio vectorial también lo es 
+\begin_inset Formula $\overline{Y}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Dados 
+\begin_inset Formula $a\in\mathbb{K}$
+\end_inset
+
+ y 
+\begin_inset Formula $x,y\in\overline{Y}$
+\end_inset
+
+, 
+\begin_inset Formula $x$
+\end_inset
+
+ e 
+\begin_inset Formula $y$
+\end_inset
+
+ son límites de sucesiones respectivas 
+\begin_inset Formula $\{x_{n}\}_{n},\{y_{n}\}_{n}\subseteq Y$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $x+y=\lim_{n}(x_{n}+y_{n})\in\overline{Y}$
+\end_inset
+
+ y 
+\begin_inset Formula $ax=\lim_{n}ax_{n}\in\overline{Y}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Un subespacio vectorial de 
+\begin_inset Formula $X$
+\end_inset
+
+ es propio si y sólo si su interior es vacío.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $Y<X$
+\end_inset
+
+ un subespacio vectorial propio y 
+\begin_inset Formula $p\in X\setminus Y$
+\end_inset
+
+, para 
+\begin_inset Formula $y\in Y$
+\end_inset
+
+, 
+\begin_inset Formula $(y+\frac{p}{n})_{n\in\mathbb{N}^{*}}$
+\end_inset
+
+ es una sucesión de elementos de 
+\begin_inset Formula $X\setminus Y$
+\end_inset
+
+ que converge a 
+\begin_inset Formula $y$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $y\notin\text{int}Y$
+\end_inset
+
+ e 
+\begin_inset Formula $\text{int}Y=\emptyset$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+El contrarrecíproco es trivial.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $X$
+\end_inset
+
+ es completo si y sólo si toda sucesión 
+\begin_inset Formula $(y_{n})_{n}$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+ con 
+\begin_inset Formula $\sum_{n}\Vert y_{n}\Vert$
+\end_inset
+
+ convergente cumple que 
+\begin_inset Formula $\sum_{n}y_{n}$
+\end_inset
+
+ converge a un punto de 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\sum_{n}\Vert y_{n}\Vert$
+\end_inset
+
+ es de Cauchy, pero 
+\begin_inset Formula $\Vert y_{m}+\dots+y_{n}\Vert\leq\Vert y_{m}\Vert+\dots+\Vert y_{n}\Vert=\sum_{k=m}^{n}\Vert y_{k}\Vert$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\sum_{n}y_{n}$
+\end_inset
+
+ también es de Cauchy en 
+\begin_inset Formula $X$
+\end_inset
+
+ y por tanto convergente en 
+\begin_inset Formula $X$
+\end_inset
+
+ por ser 
+\begin_inset Formula $X$
+\end_inset
+
+ completo.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $\{x_{n}\}_{n}\subseteq X$
+\end_inset
+
+ una sucesión de Cauchy, existe 
+\begin_inset Formula $(x_{n_{k}})_{k}$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert x_{n_{k}}-x_{n_{k+1}}\Vert\leq2^{-k}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\sum_{k}\Vert x_{n_{k}}-x_{n_{k+1}}\Vert$
+\end_inset
+
+ es convergente y por tanto también lo es 
+\begin_inset Formula $\sum_{k}(x_{n_{k}}-x_{n_{k+1}})$
+\end_inset
+
+, que es 
+\begin_inset Formula $(x_{n_{0}}-x_{n_{k}})_{k}$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $(x_{n_{k}})_{k}$
+\end_inset
+
+ es una subsucesión convergente de 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+, que es de Cauchy, por lo que 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ es convergente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Todo subespacio vectorial de Banach de 
+\begin_inset Formula $X$
+\end_inset
+
+ es cerrado en 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Toda sucesión de Cauchy en 
+\begin_inset Formula $Y\leq X$
+\end_inset
+
+ converge a un punto de 
+\begin_inset Formula $Y$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $Y=\overline{Y}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es de Banach, todo subespacio vectorial cerrado es de Banach.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Toda sucesión de Cauchy en 
+\begin_inset Formula $Y\leq X$
+\end_inset
+
+ es de Cauchy en 
+\begin_inset Formula $X$
+\end_inset
+
+ y converge en 
+\begin_inset Formula $X$
+\end_inset
+
+, pero como 
+\begin_inset Formula $Y$
+\end_inset
+
+ es cerrado, el límite está en 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Operadores continuos
+\end_layout
+
+\begin_layout Standard
+Dado un espacio normado 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+ es 
+\series bold
+acotado
+\series default
+ si 
+\begin_inset Formula $\{\Vert x\Vert\}_{x\in A}$
+\end_inset
+
+ está acotado superiormente.
+\end_layout
+
+\begin_layout Standard
+Dados dos 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacios normados 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+, un 
+\series bold
+operador
+\series default
+ de 
+\begin_inset Formula $X$
+\end_inset
+
+ a 
+\begin_inset Formula $Y$
+\end_inset
+
+ es una función lineal de 
+\begin_inset Formula $X$
+\end_inset
+
+ a 
+\begin_inset Formula $Y$
+\end_inset
+
+, y se llama 
+\series bold
+acotado
+\series default
+ si es continuo.
+ Llamamos 
+\begin_inset Formula ${\cal L}(X,Y)$
+\end_inset
+
+ al conjunto de operadores acotados de 
+\begin_inset Formula $X$
+\end_inset
+
+ a 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+ 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacios normados:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $T:X\to Y$
+\end_inset
+
+ es lineal, 
+\begin_inset Formula $T$
+\end_inset
+
+ es continuo si y sólo si lo es en 0, si y sólo si para 
+\begin_inset Formula $S\subseteq X$
+\end_inset
+
+ acotado, 
+\begin_inset Formula $T(S)\subseteq Y$
+\end_inset
+
+ es acotado, si y sólo si 
+\begin_inset Formula $\Vert T(S_{X})\Vert\subseteq Y$
+\end_inset
+
+ es acotado, si y sólo si 
+\begin_inset Formula $\exists M\geq0:\forall x\in X,\Vert T(x)\Vert\leq M\Vert x\Vert$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $T$
+\end_inset
+
+ es uniformemente continuo.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Obvio.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies3]$
+\end_inset
+
+ Probamos el contrarrecíproco.
+ Si 
+\begin_inset Formula $S\subseteq X$
+\end_inset
+
+ está acotado por 
+\begin_inset Formula $M>0$
+\end_inset
+
+ pero 
+\begin_inset Formula $T(S)\subseteq Y$
+\end_inset
+
+ no está acotado, existe 
+\begin_inset Formula $\{s_{n}\}_{n}\subseteq S$
+\end_inset
+
+ con cada 
+\begin_inset Formula $\Vert T(s_{n})\Vert\geq n$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $\Vert T(\frac{s_{n}}{n})\Vert=\frac{1}{n}\Vert T(s_{n})\Vert\geq1$
+\end_inset
+
+, pero 
+\begin_inset Formula $\Vert s_{n}\Vert<M$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert\frac{s_{n}}{n}\Vert<\frac{M}{n}$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $(\frac{s_{n}}{n})_{n}$
+\end_inset
+
+ converge a 0 pero 
+\begin_inset Formula $T(\frac{s_{n}}{n})$
+\end_inset
+
+ no converge a 
+\begin_inset Formula $T(0)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies4]$
+\end_inset
+
+ Obvio.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $4\implies5]$
+\end_inset
+
+ Sea 
+\begin_inset Formula $M$
+\end_inset
+
+ una cota superior de 
+\begin_inset Formula $T(S_{X})$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $x=0$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert T(0)\Vert=\Vert0\Vert=0$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $x\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $\left\Vert T\left(\frac{x}{\Vert x\Vert}\Vert x\Vert\right)\right\Vert =\Vert x\Vert\left\Vert T\left(\frac{x}{\Vert x\Vert}\right)\right\Vert \leq M\Vert x\Vert$
+\end_inset
+
+, pues 
+\begin_inset Formula $\frac{x}{\Vert x\Vert}\in S_{X}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $5\implies6]$
+\end_inset
+
+ Para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, sean 
+\begin_inset Formula $x,y\in X$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert x-y\Vert<\frac{\varepsilon}{M}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\Vert T(x)-T(y)\Vert=\Vert T(x-y)\Vert\leq M\Vert x-y\Vert<\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $6\implies1]$
+\end_inset
+
+ Obvio.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula ${\cal L}(X,Y)$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial con norma 
+\begin_inset Formula 
+\[
+\Vert T\Vert\coloneqq\sup_{x\in B_{X}}\Vert T(x)\Vert=\sup_{x\in S_{X}}\Vert T(x)\Vert=\sup_{x\in B(0,1)}\Vert T(x)\Vert,
+\]
+
+\end_inset
+
+tomando 
+\begin_inset Formula $\sup\emptyset\coloneqq0$
+\end_inset
+
+, y si 
+\begin_inset Formula $Y$
+\end_inset
+
+ es un espacio de Banach, 
+\begin_inset Formula $({\cal L}(X,Y),\Vert\cdot\Vert)$
+\end_inset
+
+ también lo es.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $a\in\mathbb{K}$
+\end_inset
+
+ y 
+\begin_inset Formula $S,T:X\to Y$
+\end_inset
+
+ son lineales y continuas, 
+\begin_inset Formula $S+T$
+\end_inset
+
+ y 
+\begin_inset Formula $aS$
+\end_inset
+
+ también son lineales y continuas.
+ La igualdad entre los supremos se debe a que, para 
+\begin_inset Formula $x\in S_{X}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert T(x)\Vert=\sup_{n\in\mathbb{N}^{*}}(1-\frac{1}{n})\Vert T(x)\Vert=\sup_{n\in\mathbb{N}^{*}}\Vert T((1-\frac{1}{n})x)\Vert\leq\sup_{x\in B(0,1)}\Vert T(x)\Vert$
+\end_inset
+
+ y, para 
+\begin_inset Formula $x\in B(0,1)$
+\end_inset
+
+, si 
+\begin_inset Formula $x=0$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\Vert T(x)\Vert=0\leq\sup_{x\in S_{X}}\Vert T(x)\Vert$
+\end_inset
+
+ y en otro caso 
+\begin_inset Formula $\Vert T(x)\Vert=\Vert x\Vert\Vert T(\frac{x}{\Vert x\Vert})\Vert\overset{\Vert x\Vert\leq1}{\leq}\sup_{x\in S_{X}}\Vert T(x)\Vert$
+\end_inset
+
+, y 
+\begin_inset Formula $B_{X}=S_{X}\cup B(0,1)$
+\end_inset
+
+.
+ Este supremo está bien definido, y queremos ver que es una norma:
+\end_layout
+
+\begin_layout Enumerate
+Subaditiva:
+\begin_inset Formula 
+\begin{multline*}
+\Vert S+T\Vert=\sup_{x\in S_{X}}\Vert S(x)+T(x)\Vert\leq\sup_{x\in S_{X}}(\Vert S(x)\Vert+\Vert T(x)\Vert)\leq\\
+\leq\sup_{x\in S_{X}}\Vert S(x)\Vert+\sup_{x\in S_{X}}\Vert T(x)\Vert=\Vert S\Vert+\Vert T\Vert.
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Positivamente homogénea:
+\begin_inset Formula 
+\[
+\Vert aS\Vert=\sup_{x\in S_{X}}\Vert aS(x)\Vert=\sup_{x\in S_{X}}|a|\Vert S(x)\Vert=|a|\sup_{x\in S_{X}}\Vert S(x)\Vert=|a|\Vert S\Vert.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Núcleo 0: Si 
+\begin_inset Formula $\Vert S\Vert=0$
+\end_inset
+
+ entonces para 
+\begin_inset Formula $p\in S_{X}$
+\end_inset
+
+, 
+\begin_inset Formula $0\leq\Vert S(p)\Vert\leq0$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $S(p)=0$
+\end_inset
+
+, por lo que para 
+\begin_inset Formula $x\in X\setminus0$
+\end_inset
+
+ es 
+\begin_inset Formula $S(x)=S(\frac{x}{\Vert x\Vert}\Vert x\Vert)=\Vert x\Vert S(\frac{x}{\Vert x\Vert})=0$
+\end_inset
+
+ y ya sabemos que 
+\begin_inset Formula $S(0)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Finalmente, si 
+\begin_inset Formula $\{T_{n}\}_{n}\subseteq{\cal L}(X,Y)$
+\end_inset
+
+ es una sucesión de Cauchy, para 
+\begin_inset Formula $x\in X$
+\end_inset
+
+, 
+\begin_inset Formula $\{T_{n}(x)\}_{n}$
+\end_inset
+
+ también es de Cauchy, pues si 
+\begin_inset Formula $x=0$
+\end_inset
+
+ entonces 
+\begin_inset Formula $T_{n}(x)\equiv0$
+\end_inset
+
+ y en otro caso para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n,m\geq n_{0}$
+\end_inset
+
+ es 
+\begin_inset Formula $\Vert T_{n}-T_{m}\Vert<\frac{\varepsilon}{\Vert x\Vert}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\Vert T_{n}(x)-T_{m}(x)\Vert=\Vert(T_{n}-T_{m})(x)\Vert<\frac{\varepsilon}{\Vert x\Vert}\Vert x\Vert=\varepsilon$
+\end_inset
+
+, y como 
+\begin_inset Formula $Y$
+\end_inset
+
+ es completo, 
+\begin_inset Formula $\{T_{n}(x)\}_{n}$
+\end_inset
+
+ converge.
+ Sea entonces 
+\begin_inset Formula $T:X\to Y$
+\end_inset
+
+ dada por 
+\begin_inset Formula $T(x)\coloneqq\lim_{n}T_{n}(x)$
+\end_inset
+
+, tenemos que ver que 
+\begin_inset Formula $T$
+\end_inset
+
+ es lineal y continua y que 
+\begin_inset Formula $(T_{n})_{n}$
+\end_inset
+
+ converge a 
+\begin_inset Formula $T$
+\end_inset
+
+ en 
+\begin_inset Formula $({\cal L}(X,Y),\Vert\cdot\Vert)$
+\end_inset
+
+.
+ Para ver que es lineal, sean 
+\begin_inset Formula $x,y\in X$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in\mathbb{K}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{align*}
+T(x+y) & =\lim_{n}T_{n}(x+y)=\lim_{n}(T_{n}(x)+T_{n}(y))=\lim_{n}T_{n}(x)+\lim_{n}T_{n}(y)=T(x)+T(y),\\
+T(ax) & =\lim_{n}T_{n}(ax)=\lim_{n}aT_{n}(x)=a\lim_{n}T_{n}(x)=aT(x).
+\end{align*}
+
+\end_inset
+
+Para ver que es continua, como 
+\begin_inset Formula $(T_{n})_{n}$
+\end_inset
+
+ es de Cauchy, 
+\begin_inset Formula $\{\Vert T_{n}\Vert\}_{n}$
+\end_inset
+
+ es acotado por un cierto 
+\begin_inset Formula $M>0$
+\end_inset
+
+, de modo que para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in B(0,\frac{\varepsilon}{2M})$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert T_{n}(x)\Vert\leq M\Vert x\Vert<\frac{\varepsilon}{2}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $n$
+\end_inset
+
+, pero como 
+\begin_inset Formula $T_{n}(x)\to T(x)$
+\end_inset
+
+ existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+ es 
+\begin_inset Formula $\Vert T(x)-T_{n}(x)\Vert<\frac{\varepsilon}{2}$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $\Vert T(x)\Vert\leq\Vert T_{n}(x)\Vert+\Vert T(x)-T_{n}(x)\Vert<\varepsilon$
+\end_inset
+
+, por lo que en resumen para 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert x\Vert<\frac{\varepsilon}{2M}$
+\end_inset
+
+ es 
+\begin_inset Formula $\Vert T(x)\Vert<\varepsilon$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $T$
+\end_inset
+
+ es continua en 0, por lo que es continua.
+\end_layout
+
+\begin_layout Standard
+Finalmente, para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $n,m\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert T_{n}-T_{m}\Vert<\frac{\varepsilon}{2}$
+\end_inset
+
+, por lo que para todo 
+\begin_inset Formula $x\in S_{X}$
+\end_inset
+
+ es 
+\begin_inset Formula $\Vert T_{n}(x)-T_{m}(x)\Vert\leq\Vert T_{n}-T_{m}\Vert<\frac{\varepsilon}{2}$
+\end_inset
+
+ y 
+\begin_inset Formula 
+\[
+\Vert T_{n}(x)-T(x)\Vert=\Vert T_{n}(x)-\lim_{m}T_{m}(x)\Vert=\lim_{m}\Vert T_{n}(x)-T_{m}(x)\Vert\leq\frac{\varepsilon}{2}<\varepsilon,
+\]
+
+\end_inset
+
+ por lo que finalmente 
+\begin_inset Formula $\Vert T_{n}-T\Vert=\sup_{x\in S_{X}}\Vert T_{n}(x)-T(x)\Vert<\varepsilon$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+La composición de operadores acotados es un operador acotado.
+\end_layout
+
+\begin_layout Enumerate
+En espacios de dimensión infinita hay operadores no acotados.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $X$
+\end_inset
+
+ un espacio normado de dimensión infinita, 
+\begin_inset Formula $Y$
+\end_inset
+
+ un espacio normado no nulo, 
+\begin_inset Formula $\{x_{n}\}_{n}\subseteq X$
+\end_inset
+
+ una sucesión de vectores linealmente independientes con norma 1, 
+\begin_inset Formula $y\in Y\setminus0$
+\end_inset
+
+, 
+\begin_inset Formula $(z_{i})_{i\in I}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $(x_{n})_{n}(z_{i})_{i}$
+\end_inset
+
+ es una base de 
+\begin_inset Formula $X$
+\end_inset
+
+ y 
+\begin_inset Formula $T:X\to Y$
+\end_inset
+
+ un operador dado por 
+\begin_inset Formula $Tx_{n}\coloneqq ny$
+\end_inset
+
+ y 
+\begin_inset Formula $Tz_{i}\coloneqq0$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert Tx_{n}\Vert=n\Vert y\Vert$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\{\Vert T(x)\Vert\}_{x\in S_{X}}$
+\end_inset
+
+ no tiene cota superior.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Una 
+\series bold
+forma lineal
+\series default
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+ es una función lineal 
+\begin_inset Formula $X\to\mathbb{K}$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+dual algebraico
+\series default
+ de 
+\begin_inset Formula $X$
+\end_inset
+
+ al conjunto de formas lineales de 
+\begin_inset Formula $X$
+\end_inset
+
+ y 
+\series bold
+dual topológico
+\series default
+ de 
+\begin_inset Formula $X$
+\end_inset
+
+ a 
+\begin_inset Formula $X^{*}\coloneqq{\cal L}(X,\mathbb{K})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Isomorfismos topológicos
+\end_layout
+
+\begin_layout Standard
+Dados dos espacios normados 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+, una función 
+\begin_inset Formula $T:X\to Y$
+\end_inset
+
+ es un 
+\series bold
+isomorfismo topológico
+\series default
+ si es un isomorfismo y un homeomorfismo, si y sólo si es lineal, suprayectiva
+ y 
+\begin_inset Formula $\exists m,M>0:\forall x\in X,m\Vert x\Vert\leq\Vert T(x)\Vert\leq M\Vert x\Vert$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Claramente es lineal y suprayectiva, y las acotaciones se obtienen de que
+ 
+\begin_inset Formula $T$
+\end_inset
+
+ y 
+\begin_inset Formula $T^{-1}$
+\end_inset
+
+ son funciones lineales continuas.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $x\in X$
+\end_inset
+
+, 
+\begin_inset Formula $T(x)=0\implies m\Vert x\Vert\leq\Vert T(x)\Vert=0\implies\Vert x\Vert=0\implies x=0$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $T$
+\end_inset
+
+ es inyectiva y por tanto biyectiva, luego es un isomorfismo porque la inversa
+ de una aplicación lineal es lineal, y las acotaciones implican que 
+\begin_inset Formula $T$
+\end_inset
+
+ y 
+\begin_inset Formula $T^{-1}$
+\end_inset
+
+ son continuas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dos espacios normados 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+ son 
+\series bold
+topológicamente isomorfos
+\series default
+ si existe un isomorfismo topológico entre ellos, y son 
+\series bold
+isométricamente isomorfos
+\series default
+ si este se puede tomar 
+\series bold
+isométrico
+\series default
+, que conserve distancias o, equivalentemente, normas.
+ Dos normas 
+\begin_inset Formula $\Vert\cdot\Vert,|\cdot|:X\to\mathbb{R}$
+\end_inset
+
+ son 
+\series bold
+equivalentes
+\series default
+ si 
+\begin_inset Formula $1_{X}:(X,\Vert\cdot\Vert)\to(X,|\cdot|)$
+\end_inset
+
+ es un isomorfismo topológico, si y sólo si 
+\begin_inset Formula $\exists m,M>0:\forall x\in X,m|x|\leq\Vert x\Vert\leq M|x|$
+\end_inset
+
+, en cuyo caso ambas definen la misma topología.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+ son espacios normados topológicamente isomorfos, la completitud de uno
+ equivale a la del otro.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+En efecto, si 
+\begin_inset Formula $X$
+\end_inset
+
+ es completo, 
+\begin_inset Formula $T:X\to Y$
+\end_inset
+
+ es un isomorfismo topológico e 
+\begin_inset Formula $\{y_{n}\}_{n}$
+\end_inset
+
+ es una sucesión de Cauchy, entonces 
+\begin_inset Formula $\{x_{n}\coloneqq T^{-1}(y_{n})\}_{n}$
+\end_inset
+
+ es de Cauchy, pues para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n,m\geq0$
+\end_inset
+
+ es 
+\begin_inset Formula $\Vert y_{n}-y_{m}\Vert<\frac{\varepsilon}{\Vert T^{-1}\Vert}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\Vert x_{n}-x_{m}\Vert=\Vert T^{-1}(y_{n}-y_{m})\Vert<\varepsilon$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ es convergente y existe 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+ es 
+\begin_inset Formula $\Vert x_{n}-x\Vert\leq\frac{\varepsilon}{\Vert T\Vert}$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $\Vert y_{n}-T(x)\Vert<\varepsilon$
+\end_inset
+
+ e 
+\begin_inset Formula $(y_{n})_{n}$
+\end_inset
+
+ converge a 
+\begin_inset Formula $T(x)\in Y$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Compleción
+\end_layout
+
+\begin_layout Standard
+Para todo espacio normado 
+\begin_inset Formula $X$
+\end_inset
+
+ existen un espacio de Banach 
+\begin_inset Formula $\hat{X}$
+\end_inset
+
+ y un operador isométrico 
+\begin_inset Formula $J:X\to\hat{X}$
+\end_inset
+
+ tales que 
+\begin_inset Formula $J(X)$
+\end_inset
+
+ es denso en 
+\begin_inset Formula $\hat{X}$
+\end_inset
+
+, y llamamos a 
+\begin_inset Formula $\hat{X}$
+\end_inset
+
+ la 
+\series bold
+compleción
+\series default
+ de 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $A\subseteq X^{\mathbb{N}}$
+\end_inset
+
+ es el conjunto de sucesiones de Cauchy en 
+\begin_inset Formula $X$
+\end_inset
+
+, definimos la relación de equivalencia en 
+\begin_inset Formula $A$
+\end_inset
+
+ dada por 
+\begin_inset Formula $x\equiv y\iff\lim_{n}(x_{n}-y_{n})=0$
+\end_inset
+
+, y llamamos 
+\begin_inset Formula $\hat{X}\coloneqq X/\equiv$
+\end_inset
+
+ con la suma y producto componente a componente y la norma dada por el límite
+ de las normas.
+ Estas operaciones están bien definidas.
+ En efecto, si 
+\begin_inset Formula $x\equiv x'$
+\end_inset
+
+ e 
+\begin_inset Formula $y\equiv y'$
+\end_inset
+
+, 
+\begin_inset Formula $\lim_{n}((x_{n}+y_{n})-(x'_{n}+y'_{n}))=\lim_{n}((x_{n}-x'_{n})+(y_{n}-y'_{n}))=0$
+\end_inset
+
+ y 
+\begin_inset Formula $x+x'\equiv y+y'$
+\end_inset
+
+, y si además 
+\begin_inset Formula $a\in\mathbb{K}$
+\end_inset
+
+, 
+\begin_inset Formula $\lim_{n}(ax_{n}-ax'_{n})=a\lim_{n}(x_{n}-x'_{n})=0$
+\end_inset
+
+ y 
+\begin_inset Formula $ax\equiv ax'$
+\end_inset
+
+.
+ Finalmente, la norma existe porque la sucesión de normas es convergente
+ y por tanto de Cauchy si 
+\begin_inset Formula $\lim_{n}(x_{n}-x'_{n})=0$
+\end_inset
+
+, para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\left|\Vert x_{n}\Vert-\Vert x'_{n}\Vert\right|\leq\Vert x_{n}-x'_{n}\Vert<\varepsilon$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\Vert x_{n}\Vert-\Vert x'_{n}\Vert\to0$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert x_{n}\Vert=\Vert x'_{n}\Vert$
+\end_inset
+
+.
+ Es fácil comprobar tomando representantes que se cumplen los axiomas de
+ espacio vectorial con el 0 como la clase de las sucesión constante en 0
+ y que la norma definida es subaditiva y absolutamente homogénea.
+ Además, 
+\begin_inset Formula 
+\[
+\Vert\overline{x}\Vert=0\implies\Vert\overline{x}\Vert=\lim_{n}\Vert x_{n}\Vert=\left\Vert \lim_{n}x_{n}\right\Vert =0\implies(x_{n})_{n}\equiv0\implies\overline{x}=0.
+\]
+
+\end_inset
+
+ El operador isométrico 
+\begin_inset Formula $J$
+\end_inset
+
+ es el que lleva cada 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ a la clase de la sucesión constante en 
+\begin_inset Formula $x$
+\end_inset
+
+, que claramente es un operador isométrico.
+ Para ver que 
+\begin_inset Formula $J(X)$
+\end_inset
+
+ es denso en 
+\begin_inset Formula $\hat{X}$
+\end_inset
+
+, sea 
+\begin_inset Formula $\overline{x}\in X$
+\end_inset
+
+, 
+\begin_inset Formula $\lim_{n}J(x_{n})=\overline{x}$
+\end_inset
+
+, pues 
+\begin_inset Formula $\Vert J(x_{n})-\overline{x}\Vert=\lim_{m}\Vert x_{n}-x_{m}\Vert$
+\end_inset
+
+ pero como 
+\begin_inset Formula $x$
+\end_inset
+
+ es de Cauchy, para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $n,m\geq n_{0}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\Vert x_{n}-x_{m}\Vert<\frac{\varepsilon}{2}$
+\end_inset
+
+ y tomando límites en 
+\begin_inset Formula $m$
+\end_inset
+
+ es 
+\begin_inset Formula $\lim_{m}\Vert x_{n}-x_{m}\Vert\leq\frac{\varepsilon}{2}<\varepsilon$
+\end_inset
+
+.
+ Para ver que 
+\begin_inset Formula $\hat{X}$
+\end_inset
+
+ es completo, sea 
+\begin_inset Formula $\{\overline{x}_{n}\}_{n}\subseteq\hat{X}$
+\end_inset
+
+ de Cauchy, para 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+ existe 
+\begin_inset Formula $N_{k}\in\mathbb{N}$
+\end_inset
+
+, que podemos tomar mayor que 
+\begin_inset Formula $N_{k-1}$
+\end_inset
+
+, tal que para 
+\begin_inset Formula $n,m\geq N_{k}$
+\end_inset
+
+ es 
+\begin_inset Formula $\Vert x_{kn}-x_{km}\Vert<\frac{1}{k}$
+\end_inset
+
+, y llamamos 
+\begin_inset Formula $y_{k}\coloneqq x_{kN_{k}}\in X$
+\end_inset
+
+.
+ Queremos ver que 
+\begin_inset Formula $(y_{k})_{k}$
+\end_inset
+
+ es de Cauchy y que 
+\begin_inset Formula $\overline{x}_{n}\to\overline{y}$
+\end_inset
+
+.
+ Para lo primero, para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, existe 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n,m\geq M_{1}$
+\end_inset
+
+ es 
+\begin_inset Formula $\Vert x_{n}-x_{m}\Vert=\lim_{k}\Vert x_{nk}-x_{mk}\Vert<\frac{\varepsilon}{2}$
+\end_inset
+
+, luego existe 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $i\geq M_{2}$
+\end_inset
+
+ es 
+\begin_inset Formula $\Vert x_{ni}-x_{mi}\Vert<\frac{\varepsilon}{2}$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $M\coloneqq\max\{M_{1},M_{2}\}$
+\end_inset
+
+, para 
+\begin_inset Formula $n,m\geq M$
+\end_inset
+
+, como 
+\begin_inset Formula $n,m\geq M_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $N_{n}\geq n\geq M_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert x_{nN_{n}}-x_{mN_{n}}\Vert<\frac{\varepsilon}{2}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula 
+\[
+\Vert y_{n}-y_{m}\Vert=\Vert x_{nN_{n}}-x_{mN_{m}}\Vert\leq\Vert x_{nN_{n}}-x_{mN_{n}}\Vert+\Vert x_{mN_{n}}-x_{mN_{m}}\Vert<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.
+\]
+
+\end_inset
+
+Para lo segundo, para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, sean 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $n,m\geq0$
+\end_inset
+
+ es 
+\begin_inset Formula $\Vert y_{n}-y_{m}\Vert<\frac{\varepsilon}{3}$
+\end_inset
+
+ y 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+ con 
+\begin_inset Formula $k\geq n_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{1}{k}<\frac{\varepsilon}{3}$
+\end_inset
+
+, para 
+\begin_inset Formula $i\geq N_{k}$
+\end_inset
+
+ es 
+\begin_inset Formula $\Vert x_{ki}-y_{k}\Vert=\Vert x_{ki}-x_{kN_{k}}\Vert<\frac{1}{k}$
+\end_inset
+
+, luego 
+\begin_inset Formula 
+\[
+\Vert\overline{x}_{k}-\overline{y}\Vert=\lim_{i}\Vert x_{ki}-y_{i}\Vert\leq\lim_{i}(\Vert x_{ki}-y_{k}\Vert+\Vert y_{k}-y_{i}\Vert)\leq\frac{\varepsilon}{3}+\frac{\varepsilon}{3}<\varepsilon
+\]
+
+\end_inset
+
+y la completitud queda probada.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Espacios cociente
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{reminder}{TS}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado un espacio topológico 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ y una relación de equivalencia 
+\begin_inset Formula $\sim$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+, llamamos 
+\series bold
+topología cociente
+\series default
+ en 
+\begin_inset Formula $X/\sim$
+\end_inset
+
+ a 
+\begin_inset Formula $\{V\subseteq(X/\sim):p^{-1}(V)\in{\cal T}\}$
+\end_inset
+
+, donde 
+\begin_inset Formula $p:X\to X/\sim$
+\end_inset
+
+ es la 
+\series bold
+proyección canónica
+\series default
+ [...].
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{reminder}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado un espacio vectorial 
+\begin_inset Formula $X$
+\end_inset
+
+ con un subespacio 
+\begin_inset Formula $Y$
+\end_inset
+
+, llamamos 
+\series bold
+espacio vectorial cociente
+\series default
+ 
+\begin_inset Formula $X/Y$
+\end_inset
+
+ al conjunto cociente de 
+\begin_inset Formula $X$
+\end_inset
+
+ bajo la relación de equivalencia 
+\begin_inset Formula $x\equiv y\iff x-y\in Y$
+\end_inset
+
+ entendido como espacio vectorial con las operaciones heredadas de 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es normado e 
+\begin_inset Formula $Y$
+\end_inset
+
+ es cerrado en 
+\begin_inset Formula $X$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X/Y$
+\end_inset
+
+ es un espacio normado con la 
+\series bold
+norma cociente
+\series default
+ 
+\begin_inset Formula $\Vert x+Y\Vert\coloneqq\inf_{y\in Y}\Vert x+y\Vert$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $x,x'\in X$
+\end_inset
+
+, para 
+\begin_inset Formula $y,y'\in Y$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\Vert x+y\Vert+\Vert x'+y'\Vert\geq\Vert(x+x')+(y+y')\Vert\geq\inf_{y\in Y}\Vert(x+x')+y\Vert=\Vert\overline{x+x'}\Vert,
+\]
+
+\end_inset
+
+por lo que 
+\begin_inset Formula $\Vert\overline{x}\Vert+\Vert\overline{x'}\Vert=\inf_{y\in Y}\Vert x+y\Vert+\inf_{y'\in Y}\Vert x'+y'\Vert\geq\Vert\overline{x+x'}\Vert$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $a\in\mathbb{K}$
+\end_inset
+
+, si 
+\begin_inset Formula $a=0$
+\end_inset
+
+, 
+\begin_inset Formula $0\leq\Vert0\overline{x}\Vert=\Vert0\Vert=\inf_{y\in Y}\Vert y\Vert\leq0$
+\end_inset
+
+, y en otro caso 
+\begin_inset Formula 
+\[
+\Vert a\overline{x}\Vert=\Vert\overline{ax}\Vert=\inf_{y\in Y}\Vert ax+y\Vert=\inf_{y\in Y}\Vert ax+ay\Vert=|a|\inf_{y\in Y}\Vert x+y\Vert=|a|\Vert x\Vert.
+\]
+
+\end_inset
+
+Finalmente, si 
+\begin_inset Formula $\Vert\overline{x}\Vert=0$
+\end_inset
+
+, para 
+\begin_inset Formula $n\in\mathbb{N}^{*}$
+\end_inset
+
+ existe 
+\begin_inset Formula $y_{n}\in Y$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert x-y_{n}\Vert<\frac{1}{n}$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $(y_{n})_{n}$
+\end_inset
+
+ converge a 
+\begin_inset Formula $x$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+, luego 
+\begin_inset Formula $x\in Y$
+\end_inset
+
+ por ser 
+\begin_inset Formula $Y$
+\end_inset
+
+ cerrado y 
+\begin_inset Formula $\overline{x}=0$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+La aplicación cociente 
+\begin_inset Formula $X\to X/Y$
+\end_inset
+
+ es lineal, continua y abierta.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $Q$
+\end_inset
+
+ la aplicación, que claramente es lineal.
+ Para 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ y 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, si 
+\begin_inset Formula $x'\in B(\overline{x},\varepsilon)$
+\end_inset
+
+ 
+\begin_inset Formula $\Vert\overline{x}-\overline{x}'\Vert=\inf_{y\in Y}\Vert x-x'+y\Vert\leq\Vert x-x'\Vert<\varepsilon$
+\end_inset
+
+.
+ Para ver que es abierta, para 
+\begin_inset Formula $x_{0}\in X$
+\end_inset
+
+ y 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+, 
+\begin_inset Formula $\overline{x}\in Q(B(x_{0},\delta))$
+\end_inset
+
+ si y sólo si existe 
+\begin_inset Formula $x'\equiv x$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert x'-x_{0}\Vert<\delta$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\Vert\overline{x}-\overline{x}_{0}\Vert<\delta$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\overline{x}\in B(\overline{x_{0}},\delta)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+La norma cociente genera la topología cociente.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Dado 
+\begin_inset Formula $V\subseteq X/Y$
+\end_inset
+
+, si 
+\begin_inset Formula $V$
+\end_inset
+
+ es abierto 
+\begin_inset Formula $Q^{-1}(V)$
+\end_inset
+
+ también por continuidad, y si 
+\begin_inset Formula $Q^{-1}(V)$
+\end_inset
+
+ es abierto, 
+\begin_inset Formula $V$
+\end_inset
+
+ también por ser 
+\begin_inset Formula $Q$
+\end_inset
+
+ abierta.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es de Banach también lo es 
+\begin_inset Formula $X/Y$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $\{\overline{x_{n}}\}_{n}\subseteq X/Y$
+\end_inset
+
+ una sucesión con 
+\begin_inset Formula $\sum_{n}\Vert\overline{x_{n}}\Vert$
+\end_inset
+
+ convergente, tomando 
+\begin_inset Formula $y_{n}\in\overline{x_{n}}$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert y_{n}\Vert\leq\Vert\overline{x_{n}}\Vert+2^{-n}$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{n}\Vert y_{n}\Vert$
+\end_inset
+
+ converge, y como 
+\begin_inset Formula $X$
+\end_inset
+
+ es completa también lo hace 
+\begin_inset Formula $\sum_{n}y_{n}$
+\end_inset
+
+ converge, y por continuidad de 
+\begin_inset Formula $Q$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{n}\overline{x_{n}}=\sum_{n}Q(y_{n})=Q(\sum_{n}y_{n})$
+\end_inset
+
+ converge.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Suma directa topológica
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $X$
+\end_inset
+
+ un espacio normado e 
+\begin_inset Formula $Y,Z\leq X$
+\end_inset
+
+, 
+\begin_inset Formula $X$
+\end_inset
+
+ es la 
+\series bold
+suma directa topológica
+\series default
+ de 
+\begin_inset Formula $Y$
+\end_inset
+
+ y 
+\begin_inset Formula $Z$
+\end_inset
+
+ si 
+\begin_inset Formula $X=Y\oplus Z$
+\end_inset
+
+ y las proyecciones canónicas 
+\begin_inset Formula $y+z\mapsto y$
+\end_inset
+
+ e 
+\begin_inset Formula $y+z\mapsto z$
+\end_inset
+
+ para 
+\begin_inset Formula $y\in Y$
+\end_inset
+
+ y 
+\begin_inset Formula $z\in Z$
+\end_inset
+
+ son continuas, si y sólo si 
+\begin_inset Formula $s:Y\times Z\to X$
+\end_inset
+
+ dada por 
+\begin_inset Formula $s(y,z)\coloneqq y+z$
+\end_inset
+
+ es un isomorfismo topológico, en cuyo caso 
+\begin_inset Formula $Z$
+\end_inset
+
+ es un 
+\series bold
+complementario topológico
+\series default
+ de 
+\begin_inset Formula $Y$
+\end_inset
+
+ respecto de 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Es claramente un isomorfismo, es continua por serlo la suma y 
+\begin_inset Formula $s^{-1}$
+\end_inset
+
+ también por serlo las proyecciones.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Que 
+\begin_inset Formula $s$
+\end_inset
+
+ sea biyectiva implica que 
+\begin_inset Formula $X=Y\oplus Z$
+\end_inset
+
+.
+ Además 
+\begin_inset Formula $y+z\overset{s^{-1}}{\mapsto}(y,z)\overset{p}{\mapsto}y$
+\end_inset
+
+ es continua, y análogamente lo es la otra proyección.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nproof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Espacios normados de dimensión finita
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Desigualdad de Hölder:
+\series default
+ Dados 
+\begin_inset Formula $a_{1},\dots,a_{n},b_{1},\dots,b_{n}>0$
+\end_inset
+
+, 
+\begin_inset Formula $p>1$
+\end_inset
+
+ y 
+\begin_inset Formula $q>1$
+\end_inset
+
+ con 
+\begin_inset Formula $\frac{1}{p}+\frac{1}{q}=1$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\sum_{k=1}^{n}a_{k}b_{k}\leq\left(\sum_{k=1}^{n}a_{k}^{p}\right)^{\frac{1}{p}}\left(\sum_{k=1}^{n}b_{k}^{q}\right)^{\frac{1}{q}}.
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $n=0$
+\end_inset
+
+ es obvio.
+ La exponencial es convexa, por lo que si 
+\begin_inset Formula $a,b>0$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+ab=\text{e}^{\log ab}=\text{e}^{\frac{1}{p}\log a^{p}+\frac{1}{q}\log b^{q}}\leq\frac{1}{p}\text{e}^{\log a^{p}}+\frac{1}{q}\text{e}^{\log b^{q}}=\frac{a^{p}}{p}+\frac{b^{q}}{q},
+\]
+
+\end_inset
+
+y si 
+\begin_inset Formula $A\coloneqq\left(\sum_{k}a_{k}^{p}\right)^{\frac{1}{p}}$
+\end_inset
+
+ y 
+\begin_inset Formula $B\coloneqq\left(\sum_{k}b_{k}^{q}\right)^{\frac{1}{q}}$
+\end_inset
+
+, haciendo 
+\begin_inset Formula $a\coloneqq\frac{a_{k}}{A}$
+\end_inset
+
+ y 
+\begin_inset Formula $b\coloneqq\frac{b_{k}}{B}$
+\end_inset
+
+ y sumando,
+\begin_inset Formula 
+\[
+\frac{\sum_{k=1}^{n}a_{k}b_{k}}{AB}=\sum_{k=1}^{n}\frac{a_{k}}{A}\frac{b_{k}}{B}\leq\frac{1}{p}\left(\sum_{k=1}^{n}\frac{a_{k}^{p}}{A^{p}}\right)+\frac{1}{q}\left(\sum_{k=1}^{n}\frac{b_{k}^{q}}{B^{q}}\right)=1.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+desigualdad de Schwarz
+\series default
+ es la desigualdad de Hölder con 
+\begin_inset Formula $p=2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Desigualdad de Minkowski:
+\series default
+ Para 
+\begin_inset Formula $a_{1},\dots,a_{n},b_{1},\dots,b_{n}\geq0$
+\end_inset
+
+ y 
+\begin_inset Formula $p\geq1$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\left(\sum_{k=1}^{n}(a_{k}+b_{k})^{p}\right)^{\frac{1}{p}}\leq\left(\sum_{k=1}^{n}a_{k}^{p}\right)^{\frac{1}{p}}+\left(\sum_{k=1}^{n}b_{k}^{p}\right)^{\frac{1}{p}}.
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $p=1$
+\end_inset
+
+ es obvio.
+ Si 
+\begin_inset Formula $p>1$
+\end_inset
+
+, sea 
+\begin_inset Formula $q\coloneqq\frac{1}{1-\frac{1}{p}}$
+\end_inset
+
+, se tiene 
+\begin_inset Formula $\frac{1}{p}+\frac{1}{q}=1$
+\end_inset
+
+ y 
+\begin_inset Formula $(p-1)\frac{q}{p}=1$
+\end_inset
+
+, y por la desigualdad de Hölder,
+\begin_inset Formula 
+\begin{align*}
+\alpha & \coloneqq\sum_{k=1}^{n}(a_{k}+b_{k})^{p}=\sum_{k=1}^{n}a_{k}(a_{k}+b_{k})^{p-1}+\sum_{k=1}^{n}b_{k}(a_{k}+b_{k})^{p-1}\leq\\
+ & \leq\left(\sum_{k=1}^{n}a_{k}^{p}\right)^{\frac{1}{p}}\left(\sum_{k=1}^{n}(a_{k}+b_{k})^{q(p-1)}\right)^{\frac{1}{q}}+\left(\sum_{k=1}^{n}b_{k}^{p}\right)^{\frac{1}{p}}\left(\sum_{k=1}^{n}(a_{k}+b_{k})^{q(p-1)}\right)^{\frac{1}{q}}=\\
+ & =\left(\left(\sum_{k=1}^{n}a_{k}^{p}\right)^{\frac{1}{p}}+\left(\sum_{k=1}^{n}b_{k}^{p}\right)^{\frac{1}{p}}\right)\left(\sum_{k=1}^{n}(a_{k}+b_{k})^{p}\right)^{\frac{1}{q}}=\alpha^{\frac{1}{q}}\left(\left(\sum_{k=1}^{n}a_{k}^{p}\right)^{\frac{1}{p}}+\left(\sum_{k=1}^{n}b_{k}^{p}\right)^{\frac{1}{p}}\right),
+\end{align*}
+
+\end_inset
+
+y dividiendo entre 
+\begin_inset Formula $\alpha^{\frac{1}{q}}$
+\end_inset
+
+ se obtiene el resultado.
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ definimos los espacios normados:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\ell_{n}^{p}\coloneqq(\mathbb{K}^{n},\Vert\cdot\Vert_{p})$
+\end_inset
+
+ para 
+\begin_inset Formula $p\in[1,\infty)$
+\end_inset
+
+, donde
+\begin_inset Formula 
+\[
+\Vert x\Vert_{p}\coloneqq\left(\sum_{k=1}^{n}|x_{k}|^{p}\right)^{\frac{1}{p}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\Vert\cdot\Vert_{p}$
+\end_inset
+
+ es absolutamente homogénea y sólo vale 0 en el 0, y la desigualdad triangular
+ se sigue de la de Minkowski usando que 
+\begin_inset Formula $|a_{k}+b_{k}|\leq|a_{k}|+|b_{k}|$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\ell_{n}^{\infty}\coloneqq(\mathbb{K}^{n},\Vert\cdot\Vert_{p})$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert x\Vert_{\infty}\coloneqq\sup_{k=1}^{n}|x_{k}|$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\Vert\cdot\Vert_{\infty}$
+\end_inset
+
+ hereda las propiedades de norma de 
+\begin_inset Formula $|\cdot|$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio normado de dimensión finita 
+\begin_inset Formula $n$
+\end_inset
+
+ con base 
+\begin_inset Formula $(e_{1},\dots,e_{n})$
+\end_inset
+
+, 
+\begin_inset Formula $T:\ell_{n}^{1}\to X$
+\end_inset
+
+ dado por 
+\begin_inset Formula $T(a_{1},\dots,a_{n})\coloneqq a_{1}e_{1}+\dots+a_{n}e_{n}$
+\end_inset
+
+ es un isomorfismo topológico.
+ 
+\series bold
+Demostración:
+\series default
+ Claramente 
+\begin_inset Formula $T$
+\end_inset
+
+ es un isomorfismo algebraico.
+ Para 
+\begin_inset Formula $a\in\ell_{n}^{1}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\Vert T(a)\Vert=\left\Vert \sum_{k=1}^{n}a_{k}e_{k}\right\Vert \leq\sum_{k=1}^{n}|a_{k}|\sup_{k=1}^{n}\{\Vert e_{k}\Vert\}=\sup_{k=1}^{n}\{\Vert e_{k}\Vert\}\Vert(a_{1},\dots,a_{n})\Vert_{1}.
+\]
+
+\end_inset
+
+Para la otra cota, 
+\begin_inset Formula $S_{\ell_{n}^{1}}$
+\end_inset
+
+ es compacto y 
+\begin_inset Formula $f:S_{\ell_{n}^{1}}\to\mathbb{R}$
+\end_inset
+
+ dado por 
+\begin_inset Formula $f(x)\coloneqq\Vert T(x)\Vert$
+\end_inset
+
+ es continua y sin ceros (
+\begin_inset Formula $f(0)=0\implies T(x)=0\implies x=0$
+\end_inset
+
+), por lo que 
+\begin_inset Formula $\beta\coloneqq\min\text{Im}f>0$
+\end_inset
+
+ y para 
+\begin_inset Formula $a\in\ell_{n}^{1}\setminus0$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\beta\leq f\left(\frac{a}{\Vert a\Vert}\right)=\left\Vert T\left(\frac{a}{\Vert a\Vert}\right)\right\Vert =\frac{\Vert T(a)\Vert}{\Vert a\Vert}\implies\beta\Vert a\Vert\leq\Vert T(a)\Vert.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así:
+\end_layout
+
+\begin_layout Enumerate
+Todos los espacios normados de igual dimensión finta son topológicamente
+ isomorfos.
+\end_layout
+
+\begin_layout Enumerate
+Todas las normas en un espacio de dimensión finita son equivalentes.
+\end_layout
+
+\begin_layout Enumerate
+Toda norma en 
+\begin_inset Formula $\mathbb{K}^{n}$
+\end_inset
+
+ genera la topología producto.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Las bolas de 
+\begin_inset Formula $\ell_{n}^{\infty}$
+\end_inset
+
+ son rectángulos y toda norma de 
+\begin_inset Formula $\mathbb{K}^{n}$
+\end_inset
+
+ genera la misma topología.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Todo espacio de dimensión finita es de Banach.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Lo es 
+\begin_inset Formula $\ell_{n}^{\infty}$
+\end_inset
+
+ por tener topología producto.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Todo subespacio de dimensión finita de un espacio normado es cerrado.
+\end_layout
+
+\begin_layout Enumerate
+Todo operador entre espacios normados con dominio de dimensión finita es
+ continuo.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Por isomorfismo podemos suponer que el dominio es 
+\begin_inset Formula $\ell_{n}^{1}$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $T:\ell_{n}^{1}\to Y$
+\end_inset
+
+ el operador y 
+\begin_inset Formula $a_{i}\coloneqq T(e_{i})$
+\end_inset
+
+, 
+\begin_inset Formula $\sup_{x\in S_{\ell_{n}^{1}}}\Vert T(x)\Vert=\sup_{\{x\in\mathbb{K}^{n}:\sum_{i}x_{i}=1\}}\left\Vert \sum_{i}x_{i}a_{i}\right\Vert =\sup_{i=1}^{n}a_{i}<\infty$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\series bold
+Teorema de Bolzano-Weierstrass:
+\series default
+ En espacio normados de dimensión finita, los conjuntos cerrados y acotados
+ son compactos, pues esto ocurre en 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+El teorema se suele enunciar como que toda sucesión en un cerrado acotado
+ posee una subsucesión convergente, pero esto es la compacidad por sucesiones.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Lema de Riesz:
+\series default
+ Dados un subespacio normado 
+\begin_inset Formula $X$
+\end_inset
+
+, un subespacio cerrado 
+\begin_inset Formula $Y\subsetneq X$
+\end_inset
+
+ y 
+\begin_inset Formula $\varepsilon\in(0,1)$
+\end_inset
+
+, existe 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ unitario con 
+\begin_inset Formula $d(x,Y)\geq1-\varepsilon$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea 
+\begin_inset Formula $x_{0}\in X\setminus Y$
+\end_inset
+
+, como 
+\begin_inset Formula $Y$
+\end_inset
+
+ es cerrado, 
+\begin_inset Formula $d\coloneqq d(x_{0},Y)>0$
+\end_inset
+
+, y como 
+\begin_inset Formula $d<\frac{d}{1+\varepsilon}$
+\end_inset
+
+, existe 
+\begin_inset Formula $y_{0}\in Y$
+\end_inset
+
+ tal que 
+\begin_inset Formula $d\leq\Vert x_{0}-y_{0}\Vert<\frac{d}{1-\varepsilon}$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $x\coloneqq\frac{x_{0}-y_{0}}{\Vert x_{0}-y_{0}\Vert}$
+\end_inset
+
+, para 
+\begin_inset Formula $y\in Y$
+\end_inset
+
+ es
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Vert x-y\Vert=\left\Vert \frac{x_{0}-y_{0}}{\Vert x_{0}-y_{0}\Vert}-y\right\Vert =\frac{1}{\Vert x_{0}-y_{0}\Vert}\left\Vert x_{0}-y_{0}-\Vert x_{0}-y_{0}\Vert y\right\Vert \geq
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio normado de dimensión infinita, existen una sucesión 
+\begin_inset Formula $(M_{n})_{n}$
+\end_inset
+
+ de subespacios de 
+\begin_inset Formula $X$
+\end_inset
+
+ de dimensión finita con cada 
+\begin_inset Formula $M_{n}\subseteq M_{n+1}$
+\end_inset
+
+ y una sucesión de vectores unitarios 
+\begin_inset Formula $\{y_{n}\}_{n}\subseteq X$
+\end_inset
+
+ con cada 
+\begin_inset Formula $y_{n}\in M_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $d(M_{n},y_{n+1})\geq\frac{1}{2}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
