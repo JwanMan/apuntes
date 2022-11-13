@@ -1,0 +1,2409 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+agente antimicrobiano
+\series default
+ es un fármaco para eliminar microbios o detener su crecimiento.
+ Elegir uno sería fácil si hubiera un único agente no tóxico efectivo para
+ cada tipo de bacteria.
+ MYCIN es un sistema basado en reglas escrito en Lisp que usa información
+ clínica para aconsejar sobre el tratamiento de una infección.
+ Fue creado por un equipo de programación heurística del 
+\lang english
+Stanford Research Institute
+\lang spanish
+ de la Universidad de Stanford, formado entre otros por:
+\end_layout
+
+\begin_layout Itemize
+Edward Feigenbaum, que defendió el uso de sistemas de producciones para
+ codificar conocimiento específico de un dominio en base a trabajos de Allan
+ Newell que defendían de estos sistemas como un formalismo elegante y eficiente
+ para el modelado psicológico.
+\end_layout
+
+\begin_layout Itemize
+Bruce Buchanan y Edward Shortliffe, que participaron previamente en DENDRAL
+ y el sistema de alerta de interacción de medicamentos MEDIPHOR.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Las diapositivas dicen que estos se incorporaron posteriormente; Wikipedia
+ que era la tesis doctoral de Shortliffe dirigida por Buchanan.
+ Las diapositivas no dicen que estos estuvieran en DENDRAL y MEDIPHOR pero
+ lo intuyen, Wikipedia dice que Buchanan estuvo en DENDRAL y MEDIPHOR no
+ aparece en Internet.
+ En casos como este se da prioridad a lo estudiado en clase porque es lo
+ que entra en el examen, y no porque necesariamente sea verdad.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Stanley Cohen, jefe del departamento de farmacología clínica de Stanford
+ que también trabajó en MEDIPHOR.
+\end_layout
+
+\begin_layout Itemize
+Stanton Axline y Thomas Merigan, del departamento de enfermedades infecciosas.
+\end_layout
+
+\begin_layout Standard
+Tiene 5 módulos:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+De consulta.
+
+\series default
+ Núcleo del sistema, que interactúa con los médicos para recoger información
+ del paciente y generar recomendaciones.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+De explicación.
+
+\series default
+ Genera explicaciones y justificaciones de las recomendaciones de conocimiento.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+De adquisición de conocimiento.
+
+\series default
+ Usado por los expertos para actualizar la base de conocimiento.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Base de conocimiento.
+
+\series default
+ Almacena las reglas.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Base de datos de pacientes.
+
+\series default
+ Va almacenado los datos relativos al paciente que está siendo analizado.
+\end_layout
+
+\begin_layout Standard
+MYCIN determina el tratamiento en 4 fases:
+\end_layout
+
+\begin_layout Enumerate
+Decidir si la infección es significativa.
+\end_layout
+
+\begin_layout Enumerate
+Determinar los organismos implicados.
+\end_layout
+
+\begin_layout Enumerate
+Seleccionar fármacos apropiados.
+\end_layout
+
+\begin_layout Enumerate
+Elegir el fármaco o combinación de fármacos más apropiado para el paciente.
+\end_layout
+
+\begin_layout Section
+Base de datos
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+parámetro clínico
+\series default
+ es una característica con un valor como el nombre del paciente, el lugar
+ del cultivo, la morfología del organismo, la dosis del fármaco, etc.
+ Tiene las siguientes propiedades:
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Aprovecho que Lisp es 
+\emph on
+\lang english
+case insensitive
+\emph default
+\lang spanish
+ para aumentar la legibilidad.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Expect
+\family default
+ Tipo de valor esperado: 
+\family typewriter
+yn
+\family default
+, 
+\family typewriter
+numb
+\family default
+, 
+\family typewriter
+one-of
+\family default
+ o 
+\family typewriter
+any
+\family default
+.
+ Los parámetros pueden ser multivaluados, de un solo valor o booleanos.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Prompt
+\family default
+,
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+prompt1
+\family default
+ Pregunta que hay que hacer para solicitar un valor.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Labdata
+\family default
+ Indica si el dato procede de laboratorio.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Trans
+\family default
+ Información para traducir lo expresado por el parámetro al inglés.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Default
+\family default
+ Unidad en que se expresan los valores numéricos.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Condition
+\family default
+ Expresión a ejecutar antes de preguntar el valor del parámetro, que devuelve
+ verdadero si no hay que preguntar el valor.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Lookahead
+\family default
+ Reglas que referencian al parámetro en su premisa.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Updated-by
+\family default
+ Reglas que lo actualizan.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Contained-in
+\family default
+ Reglas que lo contienen en el consecuente.
+\end_layout
+
+\begin_layout Standard
+Las únicas propiedades obligatorias son 
+\family typewriter
+expect
+\family default
+ y 
+\family typewriter
+trans
+\family default
+.
+ MYCIN tiene 65 parámetros clínicos en 6 clases: 
+\family typewriter
+prop-cul
+\family default
+, 
+\family typewriter
+prop-drg
+\family default
+, 
+\family typewriter
+prop-op
+\family default
+, 
+\family typewriter
+prop-org
+\family default
+, 
+\family typewriter
+prop-pt
+\family default
+ y 
+\family typewriter
+prop-ther
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Los valores de un parámetro clínico se representan con una lista 
+\family typewriter
+(
+\emph on
+value cf
+\emph default
+)
+\family default
+ formada por el valor del parámetro y un 
+\series bold
+factor de certeza
+\series default
+, un número del 
+\begin_inset Formula $-1$
+\end_inset
+
+ al 1 que indica un grado de certeza subjetiva de que el parámetro tenga
+ ese valor, donde 1 significa que se está totalmente seguro, 
+\begin_inset Formula $-1$
+\end_inset
+
+ que se está totalmente seguro de que es falso y 0 que no se tiene evidencia
+ a favor ni en contra o las evidencias se contrarrestan perfectamente.
+\end_layout
+
+\begin_layout Standard
+El módulo de traducción considera que algo es definitivo si 
+\begin_inset Formula $|\text{CF}|=1$
+\end_inset
+
+, que hay una fuerte evidencia si 
+\begin_inset Formula $0.8\leq|\text{CF}|<1$
+\end_inset
+
+, que hay evidencia si 
+\begin_inset Formula $0.4\leq|\text{CF}|<0.8$
+\end_inset
+
+ y que hay una débil evidencia si 
+\begin_inset Formula $|\text{CF}|<0.4$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si un parámetro solo puede tomar un valor, la suma de los 
+\begin_inset Formula $\text{CFs}$
+\end_inset
+
+ de los distintos parámetros no puede ser mayor que 1 (sí puede ser menor
+ que 
+\begin_inset Formula $-1$
+\end_inset
+
+), y si una hipótesis tiene 
+\begin_inset Formula $\text{CF}=1$
+\end_inset
+
+ el resto se pueden suponer con 
+\begin_inset Formula $\text{CF}=-1$
+\end_inset
+
+.
+ Si un parámetro es booleano su único valor almacenado es 
+\family typewriter
+yes
+\family default
+ y el CF de 
+\begin_inset Quotes cld
+\end_inset
+
+no
+\begin_inset Quotes crd
+\end_inset
+
+ será el opuesto al de 
+\begin_inset Quotes cld
+\end_inset
+
+yes
+\begin_inset Quotes crd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Las inferencias se hacen dentro de un 
+\series bold
+contexto
+\series default
+, formado por un tipo de contexto, valores de los parámetros clínicos, y
+ un posible contexto padre, formando los contextos un 
+\series bold
+árbol de contexto
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Un tipo de contexto se define con 
+\family typewriter
+(defcontext 
+\emph on
+contextname parms initialdata goals
+\emph default
+)
+\family default
+ y lo forman:
+\end_layout
+
+\begin_layout Enumerate
+Un nombre (un símbolo).
+\end_layout
+
+\begin_layout Enumerate
+Una lista de parámetros clínicos aplicables.
+\end_layout
+
+\begin_layout Enumerate
+Una lista de parámetros cuyos parámetros se han de obtener al principio.
+\end_layout
+
+\begin_layout Enumerate
+Una lista de objetivos (parámetros).
+\end_layout
+
+\begin_layout Standard
+Tipos de contexto predefinidos:
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Person
+\family default
+ Raíz del árbol, con los datos del paciente.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Priorculs
+\family default
+ Hijo de 
+\family typewriter
+person
+\family default
+, cultivo en la historia clínica.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Priororgs
+\family default
+ Hijo de 
+\family typewriter
+priorcul
+\family default
+, organismo identificado en la historia clínica.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Priordrogs
+\family default
+ Hijo de 
+\family typewriter
+priororgs
+\family default
+, fármaco administrado en la historia clínica.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Curcul
+\family default
+ Hijo de 
+\family typewriter
+person
+\family default
+, cultivo en la sesión actual.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Curorg
+\family default
+ Hijo de 
+\family typewriter
+curcul
+\family default
+, cultivo en la sesión actual.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Curdrogs
+\family default
+ Hijo de 
+\family typewriter
+curorg
+\family default
+ o 
+\family typewriter
+priororgs
+\family default
+, fármaco en la sesión actual.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Opers
+\family default
+ Hijo de 
+\family typewriter
+person
+\family default
+, procedimientos terapéuticos seguidos por el paciente.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Opdrogs
+\family default
+ Hijo de 
+\family typewriter
+opers
+\family default
+, fármacos tomados por el paciente.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Possther
+\family default
+ Tratamiento candidato a ser recomendado.
+\end_layout
+
+\begin_layout Standard
+Todos salvo 
+\family typewriter
+person
+\family default
+ pueden tener más de una instancia.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+La descripción de un parámetro clínico es de la forma 
+\family typewriter
+(
+\emph on
+name domain
+\emph default
+ [
+\emph on
+cosas
+\emph default
+])
+\family default
+.
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+(defcontext 
+\emph on
+name parms initialdata goals
+\emph default
+) make-context
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Base de conocimiento
+\end_layout
+
+\begin_layout Standard
+La última versión de MYCIN de 1978 tenía unas 500 reglas, definidas con
+ 
+\family typewriter
+(defrules (
+\emph on
+rule-name premise action
+\emph default
+)*)
+\family default
+ y formadas por:
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\series bold
+nombre
+\series default
+, un símbolo no evaluado.
+\end_layout
+
+\begin_layout Enumerate
+Una 
+\series bold
+premisa
+\series default
+, una expresión que devuelve un factor de certeza o 
+\family typewriter
+NIL
+\family default
+ (equivalente a 0), como puede ser:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family typewriter
+($and
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+expr
+\emph default
+*)
+\family default
+.
+ Conjunción de premisas; toma el mínimo de sus CF si es mayor que 
+\begin_inset Formula $0.2$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Primero hace un prescan y si ese prescan no da nil entonces ya hace bien.
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+filbreak
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+(
+\emph on
+fn cntxt parm value
+\emph default
+*)
+\family default
+, donde 
+\family typewriter
+\emph on
+fn
+\family default
+\emph default
+ es una de las funciones del Cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:valfun"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Función
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Valor según el CF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Función
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Valor según el CF
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+same
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(\text{CF}>.2\to\text{CF};\mathtt{T}\to\mathtt{NIL})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+defis
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{CF}=1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+thoughtnot
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(\text{CF}<-.2\to-\text{CF};\mathtt{T}\to\mathtt{NIL})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+defnot
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{CF}=-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+notsame
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{CF}\leq.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+notdefis
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{CF}\in(.2,1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+mightbe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{CF}\geq-.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+notdefnot
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{CF}\in(-1,.2)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+vnotknown
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $|\text{CF}|\leq.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:valfun"
+
+\end_inset
+
+Funciones de evaluación de factores de certeza.
+ Reciben un contexto (normalmente el actual en la variable global 
+\family typewriter
+cntxt
+\family default
+), un parámetro (símbolo no evaluado) y una serie de valores (símbolos no
+ evaluados, normalmente uno) y actúa según el máximo de los 
+\begin_inset Formula $\text{CFs}$
+\end_inset
+
+ de que el parámetro tenga cada valor en el contexto, que se toma 0 si el
+ conjunto de valores es vacío.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\family typewriter
+(
+\emph on
+fn cntxt parm
+\emph default
+)
+\family default
+, donde 
+\family typewriter
+\emph on
+fn
+\family default
+\emph default
+ es una de las funciones del Cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:parmfun"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Función
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Valor según CF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Función
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Valor según CF
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+known
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{CF}>.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+definite
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{CF}=1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+notknown
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{CF}\leq.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+notdefinite
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{CF}<1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:parmfun"
+
+\end_inset
+
+Funciones de evaluación de parámetros.
+ Como las del Cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:valfun"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ pero tomando el máximo CF entre todos los posibles valores del parámetro.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Una 
+\series bold
+acción
+\series default
+, una expresión de la forma:
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\family typewriter
+(conclude
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+cntxt
+\begin_inset space ~
+\end_inset
+
+parm
+\begin_inset space ~
+\end_inset
+
+value
+\begin_inset space ~
+\end_inset
+
+tally
+\begin_inset space ~
+\end_inset
+
+rulecf
+\emph default
+)
+\family default
+ Establece el factor de certeza de que 
+\family typewriter
+\emph on
+parm
+\family default
+\emph default
+ (símbolo no evaluado) valga 
+\family typewriter
+\emph on
+value
+\family default
+\emph default
+ (no evaluado sólo si es un símbolo) en el contexto 
+\family typewriter
+\emph on
+cntxt
+\family default
+\emph default
+ a 
+\begin_inset Formula $f\coloneqq\text{\emph{\texttt{tally}}}\cdot\frac{\text{\emph{\texttt{rulecf}}}}{1000}$
+\end_inset
+
+.
+ Si este parámetro ya tenía asignado un factor de certeza 
+\begin_inset Formula $e$
+\end_inset
+
+ para ese valor, este se actualiza a
+\begin_inset Formula 
+\[
+\begin{cases}
+e+f(1-e), & e,f\geq0;\\
+e+f(1+e), & e,f<0;\\
+\frac{e+f}{1-\min\{|e|,|f|\}}, & \text{en otro caso},
+\end{cases}
+\]
+
+\end_inset
+
+lanzando un error si 
+\begin_inset Formula $\{e,f\}=\{1,-1\}$
+\end_inset
+
+ al ser esto una contradicción.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+(do-all
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+expr
+\emph default
+*)
+\family default
+ Ejecuta todas las expresiones.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Una disyunción en la premisa se puede representar con varias reglas con
+ la misma acción.
+ Para aplicar una regla, se evalúa la premisa, se guarda el factor de certeza
+ devuelto en la variable global 
+\family typewriter
+tally
+\family default
+ y, si este es mayor que 
+\begin_inset Formula $0.2$
+\end_inset
+
+, se evalúa la conclusión.
+\end_layout
+
+\begin_layout Standard
+Las reglas se organizan en grupos según el tipo de contexto en que se pueden
+ aplicar (ver Cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:rule-types"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tipo de regla
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tipos de contexto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tipo de regla
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tipos de contexto
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Culrules
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Curcul
+\family default
+, 
+\family typewriter
+priorculs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Drgrules
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Curdrogs
+\family default
+, 
+\family typewriter
+priordrogs
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Curculrules
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Curcul
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Oprules
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Opers
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Curorgrules
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Curorg
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Patrules
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Person
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Pdrgrules
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Priordrogs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Orderrules
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recomendaciones terapéuticas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Prculrules
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Priorculs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Therrules
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Selección de fármacos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Prorgrules
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Priororgs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:rule-types"
+
+\end_inset
+
+Tipos de reglas predefinidos y tipos de contexto en que se aplican.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La regla 
+\family typewriter
+rule092
+\family default
+ define el objetivo global del sistema: si existe un organismo que requiere
+ tratamiento y existen indicios de la existencia de otros organismos que
+ requieren tratamiento, aunque no hayan sido detectados en los cultivos
+ en curso, entonces recopilar los posibles tratamientos que puedan ser efectivos
+ contra los organismos considerados y determinar cuál es la mejor terapia
+ de la lista.
+ 
+\end_layout
+
+\begin_layout Standard
+Para recopilar los tratamientos, se usan los CF de las hipótesis para selecciona
+r las identificaciones más probables y, para cada organismo identificado,
+ se dispara una regla de tipo 
+\family typewriter
+therules
+\family default
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+¿Es esto lo mismo que 
+\family typewriter
+\size normal
+therrules
+\family default
+? Las diapositivas son horribles así que no lo sé.
+\end_layout
+
+\end_inset
+
+ Una regla de este tipo puede ser 
+\begin_inset Quotes cld
+\end_inset
+
+si el organismo es pseudomonas entonces el tratamiento es colistina (
+\begin_inset Formula $.98$
+\end_inset
+
+), polimyxcina (
+\begin_inset Formula $.96$
+\end_inset
+
+), gentamicina (
+\begin_inset Formula $.96$
+\end_inset
+
+), carbenicilina (
+\begin_inset Formula $.65$
+\end_inset
+
+) o sulfisoxazolona (
+\begin_inset Formula $.64$
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+, donde los números indican la posibilidad de que el organismo aislado en
+ el hospitar de Stanford sea sensible al fármaco, pero se pueden modificar
+ si el sistema se instala en otro hospital, y puede cambiarlos el propio
+ MYCIN si tiene datos reales relativos a dicho organismo en el paciente
+ o si puede inferirlos de la información sobre los cultivos realizados.
+ 
+\end_layout
+
+\begin_layout Standard
+Las reglas 
+\family typewriter
+therules
+\family default
+ no son disparadas directamente por el mecanismo de inferencia ya que no
+ se encuentran en ninguna lista 
+\family typewriter
+updated-by
+\family default
+ de los parámetros clínicos.
+ El resultado final es una o más listas de posibles fármacos junto a su
+ sensibilidad inferida por MYCIN.
+\end_layout
+
+\begin_layout Standard
+Para seleccionar la mejor terapia, se tienen en cuenta la sensibilidad del
+ organismo al fármaco, si se está administrando un fármaco de similar sensibilid
+ad y la cobertura y las contra-indicaciones de los fármacos.
+\end_layout
+
+\begin_layout Section
+Módulo de consulta
+\end_layout
+
+\begin_layout Standard
+Usa las bases de datos y de conocimiento; un 
+\series bold
+diccionario
+\series default
+ para el procesamiento del lenguaje natural para entender las preguntas
+ del usuario; 
+\series bold
+listas
+\series default
+ para referenciar variables sin duplicar su contenido, y 
+\series bold
+tablas de conocimiento
+\series default
+ que indican qué valores deben tomar ciertos parámetros clínicos bajo ciertas
+ circunstancias.
+\end_layout
+
+\begin_layout Standard
+El proceso de consulta tiene dos pasos:
+\end_layout
+
+\begin_layout Enumerate
+Crear el contexto del paciente como nodo raíz del árbol de contexto.
+\end_layout
+
+\begin_layout Enumerate
+Aplicar las reglas que definen los objetivos principal de dicho contexto.
+\end_layout
+
+\begin_layout Standard
+El motor de inferencia usa encaminamiento hacia atrás mediante dos procesos:
+ 
+\family typewriter
+monitor
+\family default
+, que analiza las premisas de una regla, y 
+\family typewriter
+findout
+\family default
+, que deriva el valor de un parámetro de las reglas o preguntando al usuario.
+ Concretamente:
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Monitor
+\family default
+ Evalúa las premisas.
+ Para cada una, si no tiene toda la información para evaluar el parámetro,
+ llama a 
+\family typewriter
+findout
+\family default
+ y termina si la premisa resulta no ser cierta (si 
+\begin_inset Formula $\text{CF}\leq0.2$
+\end_inset
+
+).
+ Finalmente, si se cumple la premisa (no devuelve 
+\family typewriter
+nil
+\family default
+), evalúa las conclusiones.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Findout
+\family default
+ Si 
+\family typewriter
+labdata
+\family default
+ es cierto, primero pregunta el valor al usuario y, si este no lo conoce,
+ ejecuta 
+\family typewriter
+monitor
+\family default
+ para cada regla relevante (en 
+\family typewriter
+updated-by
+\family default
+).
+ En otro caso primero ejecuta 
+\family typewriter
+monitor
+\family default
+ para cada regla relevante y, si esto no consigue el valor (ninguna de las
+ reglas es aplicable) pregunta al usuario.
+ Los valores se guardan en el contexto en la memoria dinámica para no volver
+ a preguntarla o calcularla, en lo que llamamos la 
+\series bold
+agenda
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+El árbol de contexto se puede extender 
+\series bold
+explícitamente
+\series default
+ cuando una regla hace referencia a contextos que no han sido creados, en
+ cuyo caso se ejecuta 
+\family typewriter
+findout
+\family default
+ y si se devuelven uno o más valores se crea el nodo, o 
+\series bold
+implícitamente
+\series default
+ cuando no hay referencia explícita a un contexto necesario para evaluar
+ una condición o cuando al evaluar una regla no existen los contextos apropiados.
+\end_layout
+
+\begin_layout Standard
+Se pueden producir bucles por reglas auto-referenciadas, en que un parámetro
+ aparece tanto en la premisa como en la conclusión para aumentar el grado
+ de certeza de la conclusión, y por ciclos en la cadena de razonamiento.
+ Para evitarlo se mantiene una lista de los parámetros que están siendo
+ evaluados por 
+\family typewriter
+findout
+\family default
+ y se consideran desconocidos los parámetros en la lista, evitando considerar
+ las reglas que lo tienen en la premisa.
+\end_layout
+
+\begin_layout Section
+Módulo de explicación
+\end_layout
+
+\begin_layout Standard
+Está formado por:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RSC
+\series default
+ (
+\series bold
+\emph on
+\lang english
+Reasoning Status Checker
+\series default
+\emph default
+\lang spanish
+): Permite al usuario preguntar, cada vez que se le lanza una pregunta:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Por qué se ha hecho la pregunta (
+\family typewriter
+why
+\family default
+), para lo que el sistema recorre el árbol de contexto en sentido ascendente
+ para determinar qué reglas y objetivos de más alto nivel se está intentando
+ seguir.
+\end_layout
+
+\begin_layout Itemize
+Cómo se ha llegado a cierta conclusión (
+\family typewriter
+how
+\family default
+), para lo que se recorre el árbol en sentido descendente para determinar
+ qué reglas y subobjetivos se han satisfecho.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+GQA
+\series default
+ (
+\series bold
+\emph on
+\lang english
+General Question Answerer
+\series default
+\emph default
+\lang spanish
+): Permite consultas en lenguaje natural sobre 
+\series bold
+conocimiento estático
+\series default
+, información almacenada de parámetros clínicos, hechos médicamente ciertos,
+ y 
+\series bold
+conocimiento dinámico
+\series default
+, conclusiones e información usada en el proceso de consulta, derivada de
+ las reglas y no completamente cierta.
+\end_layout
+
+\begin_layout Standard
+Para entender una consulta, se reduce a un conjunto de palabras terminales,
+ se identifica el tipo de consulta según una serie de patrones preestablecidos
+ para decidir si responde el RSC o el GCA.
+ Entonces se determina qué parámetros, valores y pesos son relevantes en
+ la consulta a partir de la información en el diccionario, usando el peso
+ para descartar parámetros no relevantes, se determinan las reglas que pueden
+ responder a la consulta, se eligen las que cumplen las restricciones para
+ los valores de los parámetros y se muestran estas al usuario.
+\end_layout
+
+\begin_layout Section
+Proceso de evaluación
+\end_layout
+
+\begin_layout Standard
+Se seleccionaron 10 casos clínicos con las condiciones de que no debía haber
+ más de 3 casos de meningitis viral y debería haber como mínimo uno de tuberculo
+sis, uno micótico, uno vírico, uno bacteriano grampositivo y otro bacteriano
+ gramnegativo.
+ Estos se presentaron a MYCIN, 5 médicos docentes, un becario pos-doctoral,
+ un médico residente, un alumno, que recomendaron un tratamiento para cada
+ caso, y las 90 recomendaciones junto a los 10 tratamientos que se prescribieron
+ en realidad se presentaron a cada uno de 8 evaluadores que hicieron sus
+ propias recomendaciones y clasificaron cada una de las 100 como 
+\series bold
+equivalente
+\series default
+ si coincide o equivale a la del evaluador, 
+\series bold
+alternativa aceptable
+\series default
+ si es distinta pero aceptable o 
+\series bold
+no aceptable
+\series default
+ si es inapropiada o inaceptable.
+\end_layout
+
+\begin_layout Standard
+Se analizaron las 800 valoraciones con ANOVA para ver si había diferencias
+ estadísticamente significativas entre MYCIN y los otros 9 prescriptores,
+ se usó el test de Tukey para determinar esas diferencias y se hizo lo mismo
+ con los evaluadores.
+ 
+\end_layout
+
+\begin_layout Standard
+El 
+\begin_inset Formula $\unit[65]{\%}$
+\end_inset
+
+ de los tratamientos de MYCIN fueron catalogados como aceptables frente
+ a un 
+\begin_inset Formula $\unit[55.5]{\%}$
+\end_inset
+
+ entre los 5 médicos docentes, aunque había mucha variabilidad entre ellos
+ con un ratio entre 
+\begin_inset Formula $\unit[42.5]{\%}$
+\end_inset
+
+ y 
+\begin_inset Formula $\unit[62.5]{\%}$
+\end_inset
+
+.
+ Se define
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Incorrectamente.
+\end_layout
+
+\end_inset
+
+ el consenso entre evaluadores como que al menos 5 de ellos acepten el mismo
+ tratamiento, y MYCIN dio 7 tratamientos con consenso y 0 fallos frente
+ a una media de 
+\begin_inset Formula $4.4$
+\end_inset
+
+ y 
+\begin_inset Formula $0.8$
+\end_inset
+
+ entre los médicos docentes.
+ Esto muestra un rendimiento de MYCIN ligeramente superior al de los miembros
+ del departamento de enfermedades infecciosas del hospital de la universidad
+ de Stanford, pero el estudio es limitado por el reducido número de casos
+ frente a la gran cantidad de posibles infecciones.
+\end_layout
+
+\begin_layout Standard
+MYCIN no fue usado en la práctica porque los usuarios no se sentían cómodos
+ con la interfaz
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+La cual era horrible.
+\end_layout
+
+\end_inset
+
+.
+ Además, la mayoría de hospitales no tenían mucha potencia de cálculo y
+ la base de conocimiento sólo cubre una pequeña parte del dominio de enfermedade
+s infecciosas.
+\end_layout
+
+\begin_layout Section
+Clasificación heurística
+\end_layout
+
+\begin_layout Standard
+William J.
+ Clancey analizó una serie de sistemas expertos para caracterizar el 
+\begin_inset Quotes cld
+\end_inset
+
+nivel de conocimiento
+\begin_inset Quotes crd
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Aparentemente tenemos que estudiar este término pero no lo que significa.
+\end_layout
+
+\end_inset
+
+ y concluyó que casi todos usan lo que llamó 
+\series bold
+clasificación heurística
+\series default
+, un proceso de clasificación para relacionar conceptos de dos jerarquías
+ distintas por procedimientos aproximados para problemas en que una gran
+ cantidad de atributos para cada categoría imposibilita una comparación
+ directa.
+ Fases:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Abstracción de datos.
+
+\series default
+ Convertir datos observados en datos abstractos.
+ Tipos de abstracción:
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\series bold
+Definicional
+\series default
+ Se definen clases de objetos en base a sus propiedades esenciales.
+\end_layout
+
+\begin_layout Description
+
+\series bold
+Cualitativa
+\series default
+ Se crean categorías según el valor de medidas cuantitativas.
+\end_layout
+
+\begin_layout Description
+
+\series bold
+Por
+\begin_inset space ~
+\end_inset
+
+generalización
+\series default
+ Jerarquía 
+\begin_inset Quotes cld
+\end_inset
+
+es-un
+\begin_inset Quotes crd
+\end_inset
+
+, recorrida en sentido ascendente.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Equiparación heurística.
+
+\series default
+ Los datos abstractos disparan hipótesis abstractas (categorías generales).
+ La relación entre datos e hipótesis no es uno a uno y puede haber excepciones
+ a las reglas generales.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Refinamiento.
+
+\series default
+ Una vez el espacio de soluciones está acotado, se evalúan las subcategorías
+ y se refinan las verosímiles mediante 
+\series bold
+clasificación jerárquica
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+En el caso de un diagnóstico, se introduce una jerarquía de hipótesis diagnóstic
+as y una de datos, se infieren datos y se definen asociaciones no jerárquicas
+ entre datos y categorías.
+ Se usa una taxonomía de categorías diagnósticas para guiar y focalizar
+ el razonamiento sobre hipótesis diagnósticas.
+\end_layout
+
+\begin_layout Standard
+Primero se considera como hipótesis una categoría diagnóstica general, se
+ evalúa la hipótesis y, si es verosímil, se refina en hipótesis más específicas,
+ repitiendo con cada hipótesis específica y parando cuando ninguna hipótesis
+ se puede refinar más.
+ El estado inicial es un conjunto de observaciones iniciales y una hipótesis
+ inicial muy abstracta; el estado final es un conjunto de hipótesis concretas
+ más plausibles, y hay dos subtareas: 
+\series bold
+evaluar
+\series default
+ una hipótesis que no se ha evaluado anteriormente para obtener su verosimilitud
+ y 
+\series bold
+refinar
+\series default
+ una hipótesis verosímil que no se ha refinado anteriormente para obtener
+ otras más concretas.
+\end_layout
+
+\begin_layout Section
+Resultados
+\end_layout
+
+\begin_layout Standard
+MYCIN probó que los SBCs pueden abordar eficientemente problemas complejos
+ en dominios específicos y sentó las bases de este tipo de sistemas: conocimient
+o separado de la resolución; posibilidad de justificar las conclusiones;
+ enfoque en los procesos de evaluación, distintos a los de sistemas convencional
+es; declaración y organización explícita de los elementos de conocimiento
+ usado para describir las reglas, anticipando la importancia de las ontologías,
+ e importancia del proceso de adquisición de conocimiento para el éxito
+ del SBC.
+\end_layout
+
+\begin_layout Standard
+A partir de MYCIN surgieron muchos proyectos que profundizaron en distintos
+ aspectos básicos de estos sistemas: 
+\series bold
+EMYCIN
+\series default
+, un entorno de desarrollo creado a partir del motor de MYCIN y en que se
+ basaron muchos SBC; 
+\series bold
+TIERESIAS
+\series default
+, un entorno de adquisición de conocimiento que hacía de intérprete entre
+ los expertos y MYCIN; 
+\series bold
+GUIDON
+\series default
+, una extensión de MYCIN para uso formativo; 
+\series bold
+ONCOCIN
+\series default
+, un sistema que asignaba protocolos de tratamiento a enfermos de cáncer
+ y los monitorizaba, y 
+\series bold
+NEOMYCIN
+\series default
+, sistema resultante de la reorganización de la base de conocimiento de
+ MYCIN para que GUIDON la usara de forma más efectiva.
+\end_layout
+
+\end_body
+\end_document
