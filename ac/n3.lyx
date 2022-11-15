@@ -529,15 +529,16 @@ Llamamos
 \begin_inset Formula $M$
 \end_inset
 
- ordenado por inclusión, que es un retículo en la que el ínfimo es la intersecci
-ón y el supremo es la suma.
-\begin_inset Note Note
-status open
+ ordenado por inclusión, que es un retículo en el que el ínfimo es la intersecci
+ón y el supremo es la suma, definida para 
+\begin_inset Formula ${\cal S}\subseteq{\cal L}(_{A}M)$
+\end_inset
 
-\begin_layout Plain Layout
-TODO definida más adelante.
- Añadir demostración.
-\end_layout
+ como
+\begin_inset Formula 
+\[
+\sum{\cal S}\coloneqq\left\{ \sum_{N\in F}a_{N}\;\middle|\;F\subseteq{\cal S}\text{ finito},a_{N}\in N\right\} .
+\]
 
 \end_inset
 
@@ -1440,15 +1441,1362 @@ y los
 \end_inset
 
 .
+ Decimos que 
+\begin_inset Formula $V$
+\end_inset
+
+ tiene 
+\series bold
+estructura de 
+\begin_inset Formula $\mathbb{K}[X]$
+\end_inset
+
+-módulo asociada al endomorfismo
+\series default
+ 
+\begin_inset Formula $f$
+\end_inset
+
+.
 \end_layout
 
 \begin_deeper
 \begin_layout Standard
-\begin_inset Note Note
+Si 
+\begin_inset Formula $V$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{K}[X]$
+\end_inset
+
+-módulo, 
+\begin_inset Formula $f$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{K}[X]$
+\end_inset
+
+-endomorfismo, y por restricción de escalares 
+\begin_inset Formula $V$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-módulo o 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial y 
+\begin_inset Formula $f$
+\end_inset
+
+ un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-endomorfismo (vectorial).
+ Y si 
+\begin_inset Formula $V$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial y 
+\begin_inset Formula $f$
+\end_inset
+
+ un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-endomorfismo, el producto 
+\begin_inset Formula $\mathbb{K}[X]\times V\to V$
+\end_inset
+
+ dado por 
+\begin_inset Formula $\left(\sum_{i}r_{i}X^{i}\right)v\coloneqq\sum_{i}r_{i}f^{i}(v)$
+\end_inset
+
+ hereda las propiedades del producto escalar (identidad en el anillo, asociativi
+dad y distributividad por ambos lados).
+ Todas son obvias salvo la asociatividad, pero
+\begin_inset Formula 
+\begin{multline*}
+\left(\sum_{i}q_{i}X^{i}\right)\left(\left(\sum_{i}r_{i}X^{i}\right)v\right)=\left(\sum_{i}q_{i}X^{i}\right)\left(\sum_{i}r_{i}f^{i}(v)\right)=\\
+=\sum_{i}q_{i}f^{i}\left(\sum_{j}r_{j}f^{j}(v)\right)=\sum_{i}\sum_{j}q_{i}r_{j}f^{i+j}(v)=\sum_{i}\sum_{k=0}^{i}q_{k}r_{i-k}f^{i}(v)=\\
+=\left(\sum_{i}\sum_{k=0}^{i}q_{k}r_{i-k}X^{i}\right)v=\left(\left(\sum_{i}q_{i}X^{i}\right)\left(\sum_{i}r_{i}X^{i}\right)\right)v.
+\end{multline*}
+
+\end_inset
+
+Finalmente, estas operaciones son inversas una de la otra, pues para 
+\begin_inset Formula $p\in\mathbb{K}[X]$
+\end_inset
+
+, 
+\begin_inset Formula $a\in\mathbb{K}$
+\end_inset
+
+ y 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, partiendo del 
+\begin_inset Formula $\mathbb{K}[X]$
+\end_inset
+
+-módulo, 
+\begin_inset Formula $\left(\sum_{i}r_{i}X^{i}\right)v=\sum_{i}r_{i}f^{i}(v)=\sum_{i}r_{i}X^{i}v=\left(\sum_{i}r_{i}X^{i}\right)v$
+\end_inset
+
+ por asociatividad y distributividad del producto en el 
+\begin_inset Formula $\mathbb{K}[X]$
+\end_inset
+
+-módulo, y partiendo del 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial y endomorfismo, 
+\begin_inset Formula $a_{\mathbb{K}[X]}v=af^{0}(v)=a$
+\end_inset
+
+ y 
+\begin_inset Formula $(v\mapsto Xv)(v)=Xv=f(v)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Teoremas de isomorfía
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de la correspondencia:
+\series default
+ Si 
+\begin_inset Formula $N\leq_{A}M$
+\end_inset
+
+ y 
+\begin_inset Formula $p:M\to M/N$
+\end_inset
+
+ es la proyección canónica,
+\begin_inset Formula 
+\[
+\rho:\{K\leq_{A}M\mid N\subseteq K\}\to\{L\leq_{A}M/N\}
+\]
+
+\end_inset
+
+dada por 
+\begin_inset Formula $\rho(K)\coloneqq K/N\coloneqq p(K)=\{k+N\}_{k\in K}$
+\end_inset
+
+ es una biyección que conserva la inclusión, y 
+\begin_inset Formula 
+\[
+p(K)=\frac{K+N}{N}.
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Que conserve la inclusión es claro, y que 
+\begin_inset Formula $p(K)=p(K+N)$
+\end_inset
+
+ también.
+ Si 
+\begin_inset Formula $K\leq_{A}M$
+\end_inset
+
+ con 
+\begin_inset Formula $N\subseteq K$
+\end_inset
+
+, para 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ y 
+\begin_inset Formula $k,l\in K$
+\end_inset
+
+, 
+\begin_inset Formula $\overline{0},\overline{k}+\overline{l}=\overline{k+l},a\overline{k}=\overline{ak}\in K/N$
+\end_inset
+
+, luego 
+\begin_inset Formula $K/N\leq_{A}M/N$
+\end_inset
+
+, y si 
+\begin_inset Formula $L\leq_{A}M/N$
+\end_inset
+
+, para 
+\begin_inset Formula $n\in N$
+\end_inset
+
+, 
+\begin_inset Formula $p(n)=\overline{n}=\overline{0}\in L$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $N\subseteq p^{-1}(L)$
+\end_inset
+
+, y para 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ y 
+\begin_inset Formula $k,l\in p^{-1}(L)$
+\end_inset
+
+, 
+\begin_inset Formula $\overline{k},\overline{l}\in L$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{ak}=a\overline{k},\overline{k+l}=\overline{k}+\overline{l}\in L$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $ak,k+l\in p^{-1}(L)$
+\end_inset
+
+.
+ Queda ver que 
+\begin_inset Formula $\rho$
+\end_inset
+
+ y 
+\begin_inset Formula $L\to p^{-1}(L)$
+\end_inset
+
+ son inversas una de la otra.
+ Por teoría de conjuntos, para 
+\begin_inset Formula $L\subseteq M/N$
+\end_inset
+
+, 
+\begin_inset Formula $p(p^{-1}(L))=\{p(k)\in M\mid k\in p^{-1}(L)\}=\{p(k)\in M\mid p(k)\in L\}=L$
+\end_inset
+
+, y para 
+\begin_inset Formula $K\subseteq M$
+\end_inset
+
+, 
+\begin_inset Formula $p^{-1}(p(K))=\{k\in M\mid p(k)\in p(K)\}=\{k\in M\mid\exists k'\in K:p(k)=p(k')\}\supseteq K$
+\end_inset
+
+, y solo hay que ver que si 
+\begin_inset Formula $K\leq_{A}M$
+\end_inset
+
+ 
+\begin_inset Formula $p^{-1}(p(K))\subseteq K$
+\end_inset
+
+.
+ Pero si 
+\begin_inset Formula $k\in p^{-1}(p(K))$
+\end_inset
+
+, existe 
+\begin_inset Formula $k'\in K$
+\end_inset
+
+ con 
+\begin_inset Formula $p(k)=p(k')$
+\end_inset
+
+, luego 
+\begin_inset Formula $p(k-k')=0$
+\end_inset
+
+ y 
+\begin_inset Formula $k-k'\in N\subseteq K$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $k=k'+(k-k')\in K$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teoremas de isomorfía:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f:M\to N$
+\end_inset
+
+ es un 
+\begin_inset Formula $A$
+\end_inset
+
+-homomorfismo, 
+\begin_inset Formula $\frac{M}{\ker f}\cong\text{Im}f$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $N'\coloneqq\text{Im}f\leq_{A}N$
+\end_inset
+
+, luego 
+\begin_inset Formula $f:N\to N'$
+\end_inset
+
+ es un homomorfismo suprayectivo.
+ Sea entonces 
+\begin_inset Formula $\overline{f}:M/\ker f\to\text{Im}f$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\overline{f}(\overline{a})\coloneqq f(a)$
+\end_inset
+
+, que está bien definida porque para 
+\begin_inset Formula $k\in\ker f$
+\end_inset
+
+ es 
+\begin_inset Formula $\overline{f}(\overline{a+k})=f(a)+f(k)=f(a)$
+\end_inset
+
+, 
+\begin_inset Formula $\overline{f}(\overline{a})=f(a)=0\implies a\in\ker f\implies\overline{a}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\overline{f}$
+\end_inset
+
+ es inyectiva y suprayectiva y por tanto un 
+\begin_inset Formula $A$
+\end_inset
+
+-isomorfismo.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $N,K\leq_{A}M$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{N}{N\cap K}\cong\frac{N+K}{K}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $p:M\to M/K$
+\end_inset
+
+ la proyección canónica, 
+\begin_inset Formula $p(N)=\frac{N+K}{K}$
+\end_inset
+
+, luego 
+\begin_inset Formula $f\coloneqq p|_{N}:N\to\frac{N+K}{K}$
+\end_inset
+
+ es suprayectiva y 
+\begin_inset Formula $f(a)=0\iff f\in K$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\ker f=N\cap K$
+\end_inset
+
+ y el resultado se obtiene del primer teorema de isomorfía.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $N,K\leq_{A}M$
+\end_inset
+
+ con 
+\begin_inset Formula $N\subseteq K$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{M/N}{K/N}\cong\frac{M}{K}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $p:M\to M/K$
+\end_inset
+
+ la proyección canónica, como 
+\begin_inset Formula $N\subseteq K=\ker p$
+\end_inset
+
+, 
+\begin_inset Formula $\overline{p}:\frac{M}{N}\to\frac{M}{K}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\overline{p}(\overline{a})\coloneqq p(a)$
+\end_inset
+
+ está bien definida, es suprayectiva y su núcleo es 
+\begin_inset Formula $\frac{K}{N}$
+\end_inset
+
+, y el resultado se obtiene del primer teorema de isomorfía.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Operaciones con submódulos
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $m\in_{A}M$
+\end_inset
+
+, llamamos 
+\series bold
+submódulo cíclico
+\series default
+ a 
+\begin_inset Formula $(m)\coloneqq Am=\{am\}_{a\in A}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X\subseteq_{A}M$
+\end_inset
+
+, llamamos 
+\series bold
+
+\begin_inset Formula $A$
+\end_inset
+
+-submódulo de 
+\begin_inset Formula $M$
+\end_inset
+
+ generado por 
+\begin_inset Formula $X$
+\end_inset
+
+
+\series default
+ a
+\begin_inset Formula 
+\[
+(X)\coloneqq AX\coloneqq\min\{N\leq_{A}M\mid X\subseteq N\}=\{a_{1}x_{1}+\dots+a_{n}x_{n}\}_{a_{i}\in A,x_{i}\in X}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
 status open
 
 \begin_layout Plain Layout
-TODO
+\begin_inset Formula $\subseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+El conjunto de combinaciones 
+\begin_inset Formula $A$
+\end_inset
+
+-lineales de elementos de 
+\begin_inset Formula $X$
+\end_inset
+
+ contiene a 
+\begin_inset Formula $X$
+\end_inset
+
+ y es un 
+\begin_inset Formula $A$
+\end_inset
+
+-submódulo de 
+\begin_inset Formula $M$
+\end_inset
+
+, por lo que contiene al mínimo de los 
+\begin_inset Formula $A$
+\end_inset
+
+-submódulos que cumplen esto.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\supseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Por definición todo 
+\begin_inset Formula $A$
+\end_inset
+
+-submódulo de 
+\begin_inset Formula $M$
+\end_inset
+
+ que contiene a 
+\begin_inset Formula $X$
+\end_inset
+
+ contiene a sus combinaciones 
+\begin_inset Formula $A$
+\end_inset
+
+-lineales, por lo que el conjunto de estas está en el ínfimo, y el ínfimo
+ está en el conjunto.
+\end_layout
+
+\begin_layout Standard
+Claramente 
+\begin_inset Formula $(\emptyset)=0$
+\end_inset
+
+ y 
+\begin_inset Formula $(x_{1},\dots,x_{n})=Ax_{1}+\dots+Ax_{n}$
+\end_inset
+
+, y llamamos 
+\series bold
+submódulo cíclico
+\series default
+ generado por 
+\begin_inset Formula $m\in_{A}M$
+\end_inset
+
+ a 
+\begin_inset Formula $Am\coloneqq(m)\coloneqq(\{m\})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+conjunto
+\series default
+ o 
+\series bold
+sistema generador
+\series default
+ de 
+\begin_inset Formula $_{A}M$
+\end_inset
+
+ es un 
+\begin_inset Formula $X\subseteq M$
+\end_inset
+
+ con 
+\begin_inset Formula $(X)=M$
+\end_inset
+
+, y 
+\begin_inset Formula $(M)=M$
+\end_inset
+
+.
+ 
+\begin_inset Formula $_{A}M$
+\end_inset
+
+ es 
+\series bold
+finitamente generado
+\series default
+ si admite un conjunto generador finito, y es 
+\series bold
+cíclico
+\series default
+ si admite uno unipuntual.
+\end_layout
+
+\begin_layout Enumerate
+El 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo regular es cíclico, 
+\begin_inset Formula $_{A}A=(1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+En 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial es finitamente generado si y sólo si es de dimensión
+ finita, y entonces los generadores minimales son bases y tienen todos el
+ mismo número de elementos.
+\end_layout
+
+\begin_layout Enumerate
+No siempre los generadores minimales finitos tienen igual número de elementos.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\mathbb{Z}_{\mathbb{Z}}$
+\end_inset
+
+ tiene generadores minimales 
+\begin_inset Formula $\{1\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\{3,5\}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\{X_{i}\}_{i\in I}\subseteq{\cal P}(M)$
+\end_inset
+
+ y 
+\begin_inset Formula $M=\sum_{i}(X_{i})$
+\end_inset
+
+ entonces 
+\begin_inset Formula $M=(\bigcup X_{i})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f:M\to N$
+\end_inset
+
+ es un epimorfismo y 
+\begin_inset Formula $M=(X)$
+\end_inset
+
+, 
+\begin_inset Formula $N=(f(X))$
+\end_inset
+
+, luego si 
+\begin_inset Formula $M$
+\end_inset
+
+ es finitamente generado también lo es 
+\begin_inset Formula $N$
+\end_inset
+
+, y en particular los cocientes de módulos finitamente generados son finitamente
+ generados.
+\end_layout
+
+\begin_layout Enumerate
+En general los submódulos de módulos finitamente generados no son finitamente
+ generados.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula ${\cal L}(_{A}A)={\cal L}(A)$
+\end_inset
+
+, pero 
+\begin_inset Formula $A=(1)$
+\end_inset
+
+ y contiene ideales no finitamente generados.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $A[X]$
+\end_inset
+
+ es un 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo cíclico pero no es finitamente generado como 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $S\subseteq A[X]$
+\end_inset
+
+ es finito, 
+\begin_inset Formula $X^{\max_{f\in S}\text{gr}f+1}\notin AS$
+\end_inset
+
+ y 
+\begin_inset Formula $A[X]\neq AS$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ es cíclico como 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+-módulo pero no es finitamente generado como 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+-módulo.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $S\subseteq\mathbb{Q}$
+\end_inset
+
+ es finito y 
+\begin_inset Formula $p\in\mathbb{Z}$
+\end_inset
+
+ es un primo que no divide a los denominadores de los elementos de 
+\begin_inset Formula $S$
+\end_inset
+
+ en forma irreducible, 
+\begin_inset Formula $\frac{1}{p}\notin\mathbb{Z}S$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\{N_{i}\}_{i\in I}\subseteq{\cal L}(_{A}M)$
+\end_inset
+
+ y el homomorfismo de 
+\begin_inset Formula $A$
+\end_inset
+
+-módulos 
+\begin_inset Formula $\phi:\bigoplus_{i\in I}N_{i}\to M$
+\end_inset
+
+ dado por 
+\begin_inset Formula $\phi(m)\coloneqq\sum_{i}m_{i}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\phi$
+\end_inset
+
+ es suprayectiva si y sólo si 
+\begin_inset Formula $M=\sum_{i}N_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\phi$
+\end_inset
+
+ es inyectiva si y sólo si los elementos de 
+\begin_inset Formula $\sum_{i}N_{i}$
+\end_inset
+
+ tienen una expresión única como 
+\begin_inset Formula $\sum_{i}n_{i}$
+\end_inset
+
+ con cada 
+\begin_inset Formula $n_{i}\in N_{i}$
+\end_inset
+
+ casi todos nulos, si y sólo si 
+\begin_inset Formula $\forall i,N_{i}\cap\sum_{j\neq i}N_{j}=0$
+\end_inset
+
+, en cuyo caso 
+\begin_inset Formula $\sum_{i}N_{i}$
+\end_inset
+
+ es la 
+\series bold
+suma directa interna
+\series default
+ de 
+\begin_inset Formula $(N_{i})_{i}$
+\end_inset
+
+, escrita 
+\begin_inset Formula $\bigoplus_{i}M_{i}$
+\end_inset
+
+, que es isomorfa con la suma directa externa.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+\begin_inset Formula $1\iff2]$
+\end_inset
+
+ Por definición de 
+\begin_inset Formula $\phi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies3]$
+\end_inset
+
+ Si 
+\begin_inset Formula $n_{i}=\sum_{j\neq i}n_{j}$
+\end_inset
+
+, por unicidad es 
+\begin_inset Formula $n_{i}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies1]$
+\end_inset
+
+ Para 
+\begin_inset Formula $n\in\bigoplus_{i}N_{i}$
+\end_inset
+
+ con 
+\begin_inset Formula $\phi(n)=\sum_{i}n_{i}=0$
+\end_inset
+
+, para 
+\begin_inset Formula $i\in I$
+\end_inset
+
+, 
+\begin_inset Formula $n_{i}=-\sum_{j\neq i}n_{j}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $n=0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $M$
+\end_inset
+
+ es la suma directa interna de los 
+\begin_inset Formula $N_{i}$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\phi$
+\end_inset
+
+ es un isomorfismo, si y sólo si cada elemento de 
+\begin_inset Formula $M$
+\end_inset
+
+ se escribe de forma única como 
+\begin_inset Formula $\sum_{i}m_{i}$
+\end_inset
+
+ con cada 
+\begin_inset Formula $m_{i}\in M_{i}$
+\end_inset
+
+ y casi todos nulos.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $N,N'\leq_{A}M$
+\end_inset
+
+, 
+\begin_inset Formula $M=N\oplus N'\iff M=N\oplus N'\land N\cap N'=0$
+\end_inset
+
+, y entonces:
+\end_layout
+
+\begin_layout Enumerate
+La 
+\series bold
+proyección
+\series default
+ 
+\begin_inset Formula $p:M\to N$
+\end_inset
+
+ dada por 
+\begin_inset Formula $p(x+x')\coloneqq x$
+\end_inset
+
+ para 
+\begin_inset Formula $x\in N$
+\end_inset
+
+ y 
+\begin_inset Formula $x'\in N'$
+\end_inset
+
+ es un homomorfismo suprayectivo con núcleo 
+\begin_inset Formula $N'$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+La unicidad garantiza que está bien definida y el resto es trivial.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\frac{M}{N}\cong N'$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Por el primer teorema de isomorfía en 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $M$
+\end_inset
+
+ es finitamente generado si y sólo si lo son 
+\begin_inset Formula $N$
+\end_inset
+
+ y 
+\begin_inset Formula $N'$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Por ser isomorfos a espacios cociente del módulo finitamente generado 
+\begin_inset Formula $M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+La unión de un conjunto generador de 
+\begin_inset Formula $N$
+\end_inset
+
+ y uno de 
+\begin_inset Formula $N'$
+\end_inset
+
+ es uno de 
+\begin_inset Formula $M$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Formula $N\leq_{A}M$
+\end_inset
+
+ es un 
+\series bold
+sumando directo
+\series default
+ de 
+\begin_inset Formula $M$
+\end_inset
+
+ si existe 
+\begin_inset Formula $N'\leq_{A}M$
+\end_inset
+
+ con 
+\begin_inset Formula $M=N\oplus N'$
+\end_inset
+
+ llamado 
+\series bold
+complemento directo
+\series default
+ de 
+\begin_inset Formula $N$
+\end_inset
+
+ en 
+\begin_inset Formula $M$
+\end_inset
+
+, si y sólo si la inclusión 
+\begin_inset Formula $\iota:N\hookrightarrow M$
+\end_inset
+
+ tiene un inverso por la izquierda, es decir, un 
+\begin_inset Formula $A$
+\end_inset
+
+-homomorfismo 
+\begin_inset Formula $h:M\to N$
+\end_inset
+
+ con 
+\begin_inset Formula $h\circ\iota=1_{N}$
+\end_inset
+
+, que deja fijos los puntos de 
+\begin_inset Formula $N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+La proyección 
+\begin_inset Formula $p:M\to N$
+\end_inset
+
+ cumple 
+\begin_inset Formula $p\circ\iota=1_{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $N'\coloneqq\ker h$
+\end_inset
+
+, para 
+\begin_inset Formula $x\in N\cap N'$
+\end_inset
+
+, 
+\begin_inset Formula $0=h(x)=h(\iota(x))=x$
+\end_inset
+
+, y para 
+\begin_inset Formula $x\in M$
+\end_inset
+
+, 
+\begin_inset Formula $x=h(x)+(x-h(x))$
+\end_inset
+
+ con 
+\begin_inset Formula $h(x)\in N$
+\end_inset
+
+ y 
+\begin_inset Formula $x-h(x)\in N'=\ker h$
+\end_inset
+
+ ya que 
+\begin_inset Formula $h(x-\iota(h(x)))=h(x)-h(x)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En general un submódulo de 
+\begin_inset Formula $M$
+\end_inset
+
+ no es isomorfo a un cociente de 
+\begin_inset Formula $M$
+\end_inset
+
+ ni al revés, pues el cociente 
+\begin_inset Formula $\mathbb{Z}_{2}=\mathbb{Z}/2\mathbb{Z}$
+\end_inset
+
+ no es isomorfo a un ideal de 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbb{Z}\leq_{\mathbb{Z}}\mathbb{Q}$
+\end_inset
+
+ no es isomorfo a un cociente de 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ ya que en todo cociente de 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ cumple que para cada 
+\begin_inset Formula $x$
+\end_inset
+
+ hay un 
+\begin_inset Formula $y$
+\end_inset
+
+ con 
+\begin_inset Formula $x=y+y$
+\end_inset
+
+ (
+\begin_inset Formula $y=\frac{x}{2}$
+\end_inset
+
+) y esto no ocurre en 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $M=\bigoplus_{i\in I}M_{i}$
+\end_inset
+
+, cada 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ es un sumando directo de 
+\begin_inset Formula $M$
+\end_inset
+
+ con complemento directo 
+\begin_inset Formula $\bigoplus_{j\in I\setminus\{i\}}M_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Estaba en mis notas de clase y no sé que significa.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Quotes cld
+\end_inset
+
+Tenemos un isomorfismo 
+\begin_inset Formula $_{A}\text{Mod}\left(\frac{A}{\text{ann}_{A}(M)}\right)\cong M$
+\end_inset
+
+, luego 
+\begin_inset Formula $\text{End}_{A}(M)\cong\text{End}_{A}\left(\frac{A}{\text{ann}_{A}(M)}\right)\cong\frac{A}{\text{ann}_{A}(M)}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $I\triangleleft A$
+\end_inset
+
+ entonces la aplicación 
+\begin_inset Formula $\mu:\frac{A}{I}\to\text{End}_{A}(\frac{A}{I})$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\overline{a}\mapsto\mu_{\overline{a}}\coloneqq(\overline{b}\mapsto\overline{ab})$
+\end_inset
+
+ es un isomorfismo de anillos.
+ En efecto, 
+\begin_inset Formula $\ker\mu=\{\overline{a}:\mu_{\overline{a}}\equiv0\}=\{\overline{a}\in\frac{A}{I}:\forall\overline{b}\in\frac{A}{I},\overline{a}\overline{b}=\overline{0}\}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\ker\mu=0$
+\end_inset
+
+ implica que 
+\begin_inset Formula $\mu$
+\end_inset
+
+ es inyectiva.
+ 
+\begin_inset Formula $\mu$
+\end_inset
+
+ suprayectiva: Sea 
+\begin_inset Formula $f\in\text{End}_{A}(\frac{A}{I})$
+\end_inset
+
+ (
+\begin_inset Formula $f:\frac{A}{I}\to\frac{A}{I}$
+\end_inset
+
+), sea 
+\begin_inset Formula $\overline{a}\coloneqq f(\overline{1})$
+\end_inset
+
+, 
+\begin_inset Formula $f(\overline{b})=f(\overline{b}\overline{1})=\overline{b}f(\overline{1})=\overline{b}\overline{a}$
+\end_inset
+
+.
+\begin_inset Quotes crd
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1456,6 +2804,2466 @@ TODO
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Formula $_{A}M$
+\end_inset
+
+ es 
+\series bold
+indescomponible
+\series default
+ si sus únicos sumandos directos son 0 y 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Todo subespacio 
+\begin_inset Formula $W$
+\end_inset
+
+ de un espacio vectorial 
+\begin_inset Formula $V$
+\end_inset
+
+ tiene complementos directos (no únicos).
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Una base de 
+\begin_inset Formula $W$
+\end_inset
+
+ se completa a una de 
+\begin_inset Formula $V$
+\end_inset
+
+ y el subespacio generado por los vectores que se añaden es un complemento
+ directo de 
+\begin_inset Formula $W$
+\end_inset
+
+ en 
+\begin_inset Formula $V$
+\end_inset
+
+.
+\end_layout
+
 \end_deeper
+\begin_layout Enumerate
+Dada una familia 
+\begin_inset Formula $\{M_{i}\}_{i\in I}\subseteq_{A}\text{Mod}$
+\end_inset
+
+, podemos identificar cada 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ con el submódulo de 
+\begin_inset Formula $\prod_{i}M_{i}$
+\end_inset
+
+ con entradas nulas en cada componente salvo la 
+\begin_inset Formula $i$
+\end_inset
+
+ y entonces la familia 
+\begin_inset Formula $(M_{i})_{i}$
+\end_inset
+
+ es independiente y su suma directa interna coincide con la suma directa
+ externa.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $I\triangleleft A$
+\end_inset
+
+ tiene un elemento cancelable (no invertible), 
+\begin_inset Formula $I$
+\end_inset
+
+ no es un sumando directo de 
+\begin_inset Formula $_{A}A$
+\end_inset
+
+.
+ En particular, si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un dominio, 
+\begin_inset Formula $_{A}A$
+\end_inset
+
+ es indescomponible.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si tuviera complemento directo 
+\begin_inset Formula $J$
+\end_inset
+
+, este sería no nulo por ser 
+\begin_inset Formula $I$
+\end_inset
+
+ propio, luego si 
+\begin_inset Formula $b\in I$
+\end_inset
+
+ es cancelable y 
+\begin_inset Formula $c\in J\setminus\{0\}$
+\end_inset
+
+, 
+\begin_inset Formula $0\neq bc\in I\cap J\#$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $p_{1},\dots,p_{r}\in\mathbb{Z}$
+\end_inset
+
+ son primos distintos, 
+\begin_inset Formula $n\coloneqq\prod_{i=1}^{r}p_{i}^{m_{i}}$
+\end_inset
+
+ y 
+\begin_inset Formula $q_{i}\coloneqq\frac{n}{p_{i}^{m_{i}}}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{Z}_{n}=\bigoplus_{i=1}^{r}q_{i}\mathbb{Z}_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Como 
+\begin_inset Formula $\gcd\{q_{1},\dots,q_{r}\}=1$
+\end_inset
+
+, hay una identidad de Bézout 
+\begin_inset Formula $\sum_{i}a_{i}q_{i}=1$
+\end_inset
+
+ y la suma de ideales es 
+\begin_inset Formula $\mathbb{Z}_{n}$
+\end_inset
+
+.
+ Para ver que es directa, si 
+\begin_inset Formula $q_{i}\overline{a_{i}}=\sum_{j\neq i}q_{j}\overline{a_{j}}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $q_{i}a_{i}=nb+\sum_{j\neq i}q_{j}a_{j}$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ para cierto 
+\begin_inset Formula $b$
+\end_inset
+
+, y como 
+\begin_inset Formula $p_{i}^{m_{i}}$
+\end_inset
+
+ divide a la parte derecha de la igualdad, debe dividir a la primera y 
+\begin_inset Formula $p_{i}^{m_{i}}\mid q_{i}a_{i}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $q_{i}\overline{a_{i}}=0$
+\end_inset
+
+ y la suma es directa.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Un 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo cíclico 
+\begin_inset Formula $M\neq0$
+\end_inset
+
+ es indescomponible si y sólo si los únicos idempotentes de 
+\begin_inset Formula $\frac{A}{\text{ann}_{A}(M)}$
+\end_inset
+
+ son 
+\begin_inset Formula $\overline{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Probamos el contrarrecíproco.
+ Sea 
+\begin_inset Formula $m\in M\setminus0$
+\end_inset
+
+ con 
+\begin_inset Formula $M=(m)$
+\end_inset
+
+, 
+\begin_inset Formula $\text{ann}_{A}(M)=\{a\in A:am=0\}$
+\end_inset
+
+, y si 
+\begin_inset Formula $\overline{e}\in\frac{A}{\text{ann}_{A}(M)}$
+\end_inset
+
+ es un idempotente distinto de 
+\begin_inset Formula $\overline{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{1}$
+\end_inset
+
+, sean 
+\begin_inset Formula $\iota:(em)\to M$
+\end_inset
+
+ es la inclusión y 
+\begin_inset Formula $h:M\to(em)$
+\end_inset
+
+ el homomorfismo producto por 
+\begin_inset Formula $e$
+\end_inset
+
+, para 
+\begin_inset Formula $b\in M$
+\end_inset
+
+, 
+\begin_inset Formula $h(\iota(bem))=h(bem)=be^{2}m=bem$
+\end_inset
+
+, luego 
+\begin_inset Formula $h\circ\iota=1_{(em)}$
+\end_inset
+
+ y 
+\begin_inset Formula $(em)$
+\end_inset
+
+ es sumando directo distinto de 0 y 
+\begin_inset Formula $M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $\overline{e}\in\frac{A}{\text{ann}_{A}(M)}$
+\end_inset
+
+, por el argumento anterior 
+\begin_inset Formula $(em)$
+\end_inset
+
+ es un sumando directo, de modo que bien 
+\begin_inset Formula $(em)=0$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $em=0$
+\end_inset
+
+, 
+\begin_inset Formula $e\in\text{ann}_{A}(M)$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{e}=\overline{0}$
+\end_inset
+
+, bien 
+\begin_inset Formula $(em)=(m)$
+\end_inset
+
+ y existe 
+\begin_inset Formula $b\in A$
+\end_inset
+
+ con 
+\begin_inset Formula $bem=m$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $(be-1)m=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{b}\overline{e}=\overline{1}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\overline{e}$
+\end_inset
+
+ es una unidad con 
+\begin_inset Formula $\overline{e}\overline{e}=\overline{e}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\overline{e}=\overline{1}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $M\in\text{MaxSpec}(A)$
+\end_inset
+
+ y 
+\begin_inset Formula $n\in\mathbb{N}^{*}$
+\end_inset
+
+, el 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo 
+\begin_inset Formula $\frac{A}{M^{n}}$
+\end_inset
+
+ es indescomponible.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO ejercicio Saorín 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un DIP y 
+\begin_inset Formula $a\in A\setminus(A^{*}\cup\{0\})$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{A}{(a)}$
+\end_inset
+
+ es indescomponible si y sólo si 
+\begin_inset Formula $a$
+\end_inset
+
+ es asociado a 
+\begin_inset Formula $p^{t}$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $p\in A$
+\end_inset
+
+ irreducible y 
+\begin_inset Formula $t\in\mathbb{N}^{*}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO ejercicio Saorín 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Módulos libres
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $X\coloneqq\{m_{i}\}_{i\in I}\subseteq_{A}M$
+\end_inset
+
+, el homomorfismo 
+\begin_inset Formula $\phi:A^{(I)}\to M$
+\end_inset
+
+ dado por 
+\begin_inset Formula $\phi(a)\coloneqq\sum_{i}a_{i}m_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $\phi$
+\end_inset
+
+ es suprayectivo si y sólo si 
+\begin_inset Formula $M=\sum_{i\in I}Am_{i}$
+\end_inset
+
+, y es inyectivo si y sólo si cada elemento de 
+\begin_inset Formula $(X)$
+\end_inset
+
+ se expresa de forma única como 
+\begin_inset Formula $\sum_{i}a_{i}m_{i}$
+\end_inset
+
+ con los 
+\begin_inset Formula $a_{i}\in A$
+\end_inset
+
+ casi todos nulos, si y sólo si los submódulos 
+\begin_inset Formula $(Am_{i})_{i\in I}$
+\end_inset
+
+ son independientes y para cada 
+\begin_inset Formula $i\in I$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in A\setminus\{0\}$
+\end_inset
+
+ es 
+\begin_inset Formula $am_{i}\neq0$
+\end_inset
+
+, en cuyo caso decimos que 
+\begin_inset Formula $(m_{i})_{i\in I}$
+\end_inset
+
+ es 
+\series bold
+linealmente independiente
+\series default
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Si 
+\begin_inset Formula $\sum_{i}a_{i}m_{i}=\sum_{i}a'_{i}m_{i}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\phi(a)=\phi(a')$
+\end_inset
+
+ y 
+\begin_inset Formula $a=a'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies3]$
+\end_inset
+
+ La expresión de elementos de 
+\begin_inset Formula $(X)$
+\end_inset
+
+ como 
+\begin_inset Formula $\sum_{i}n_{i}$
+\end_inset
+
+ con cada 
+\begin_inset Formula $n_{i}=a_{i}m_{i}\in Am_{i}$
+\end_inset
+
+ es única, luego los 
+\begin_inset Formula $Am_{i}$
+\end_inset
+
+ son independientes, y si hubiera 
+\begin_inset Formula $a\in A\setminus\{0\}$
+\end_inset
+
+ e 
+\begin_inset Formula $i\in I$
+\end_inset
+
+ con 
+\begin_inset Formula $am_{i}=0$
+\end_inset
+
+ habría dos expresiones 
+\begin_inset Formula $\sum_{i}a_{i}m_{i}$
+\end_inset
+
+ para el 
+\begin_inset Formula $0\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies1]$
+\end_inset
+
+ Si 
+\begin_inset Formula $\phi(a)=\sum_{i}a_{i}m_{i}=0$
+\end_inset
+
+, por lo primero cada 
+\begin_inset Formula $a_{i}m_{i}=0$
+\end_inset
+
+, y por lo segundo cada 
+\begin_inset Formula $a_{i}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $a=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una familia 
+\begin_inset Formula $\{m_{i}\}_{i\in I}\subseteq_{A}M$
+\end_inset
+
+ es una 
+\series bold
+base
+\series default
+ de 
+\begin_inset Formula $M$
+\end_inset
+
+ si es linealmente independiente y genera 
+\begin_inset Formula $M$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\phi:A^{(I)}\to M$
+\end_inset
+
+ dado por 
+\begin_inset Formula $\phi(a)\coloneqq\sum_{i}m_{i}$
+\end_inset
+
+ es biyectiva, si y sólo si para cada 
+\begin_inset Formula $m\in M$
+\end_inset
+
+ existe una única elección de coeficientes 
+\begin_inset Formula $a_{i}\in A$
+\end_inset
+
+ casi todos nulos, llamados 
+\series bold
+coordenadas
+\series default
+ de 
+\begin_inset Formula $m$
+\end_inset
+
+ la base, con 
+\begin_inset Formula $m=\sum_{i}a_{i}m_{i}$
+\end_inset
+
+.
+ Un módulo es 
+\series bold
+libre
+\series default
+ si tiene una base.
+\end_layout
+
+\begin_layout Enumerate
+El módulo 0 es libre con base vacía.
+\end_layout
+
+\begin_layout Enumerate
+Los 
+\begin_inset Formula $A^{(I)}$
+\end_inset
+
+ son libres con la 
+\series bold
+base canónica
+\series default
+ 
+\begin_inset Formula $(e_{i})_{i\in I}$
+\end_inset
+
+, donde cada 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+ tiene 1 en la entrada 
+\begin_inset Formula $i$
+\end_inset
+
+ y un 0 en el resto.
+\end_layout
+
+\begin_layout Enumerate
+Todo espacio vectorial es libre, y las bases coinciden con los conjuntos
+ linealmente independientes maximales y los conjuntos generadores minimales.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $_{A}A[X]$
+\end_inset
+
+ es libre con base 
+\begin_inset Formula $(X^{n})_{n\in\mathbb{N}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $_{\mathbb{Z}}\mathbb{Z}[\text{i}]$
+\end_inset
+
+ es libre con base 
+\begin_inset Formula $\{1,\text{i}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $_{\mathbb{Z}}\mathbb{Q}$
+\end_inset
+
+ no es libre.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $\frac{a}{r},\frac{b}{s}\in\mathbb{Q}$
+\end_inset
+
+, 
+\begin_inset Formula $br\frac{a}{r}-as\frac{b}{s}=0$
+\end_inset
+
+, luego los conjuntos linealmente independientes son de un elemento, pero
+ estos no generan 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $M$
+\end_inset
+
+ es un grupo abeliano finito no nulo, 
+\begin_inset Formula $_{\mathbb{Z}}M$
+\end_inset
+
+ no es libre.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+No puede ser isomorfo a un 
+\begin_inset Formula $\mathbb{Z}^{(I)}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{exinfo}
+\end_layout
+
+\end_inset
+
+Los isomorfismos conservan bases.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{exinfo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $_{A}M$
+\end_inset
+
+ es libre si y sólo si es isomorfo a 
+\begin_inset Formula $A^{(I)}$
+\end_inset
+
+ para cierto 
+\begin_inset Formula $I$
+\end_inset
+
+, en cuyo caso todas sus bases tienen cardinal 
+\begin_inset Formula $|I|$
+\end_inset
+
+, llamado el 
+\series bold
+rango
+\series default
+ de 
+\begin_inset Formula $M$
+\end_inset
+
+ o 
+\begin_inset Formula $\text{rg}M$
+\end_inset
+
+, y en particular.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $_{A}M$
+\end_inset
+
+ es libre con base 
+\begin_inset Formula $(m_{i})_{i\in I}$
+\end_inset
+
+, hay un isomorfismo 
+\begin_inset Formula $\phi:A^{(I)}\to M$
+\end_inset
+
+, y si hay tal isomorfismo, 
+\begin_inset Formula $M$
+\end_inset
+
+ tiene la base resultante de llevar la base canónica de 
+\begin_inset Formula $A^{(I)}$
+\end_inset
+
+ a 
+\begin_inset Formula $M$
+\end_inset
+
+ por el isomorfismo.
+ Si 
+\begin_inset Formula $A=0$
+\end_inset
+
+ entonces 
+\begin_inset Formula $M=0$
+\end_inset
+
+ y el resultado es claro.
+ En otro caso existe 
+\begin_inset Formula $J\trianglelefteq_{\text{m}}A$
+\end_inset
+
+ y 
+\begin_inset Formula $JM$
+\end_inset
+
+ es un 
+\begin_inset Formula $A$
+\end_inset
+
+-submódulo de 
+\begin_inset Formula $M$
+\end_inset
+
+, luego si 
+\begin_inset Formula $\overline{M}\coloneqq\frac{M}{JM}$
+\end_inset
+
+, los elementos de 
+\begin_inset Formula $J\overline{M}$
+\end_inset
+
+ son sumas de elementos de la forma 
+\begin_inset Formula $j\overline{m}=jm+JM=JM$
+\end_inset
+
+ con 
+\begin_inset Formula $j\in J$
+\end_inset
+
+ y 
+\begin_inset Formula $m\in M$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $J\overline{M}=0$
+\end_inset
+
+.
+ Pero un 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo 
+\begin_inset Formula $\overline{M}$
+\end_inset
+
+ con 
+\begin_inset Formula $J\overline{M}=0$
+\end_inset
+
+ es 
+\begin_inset Quotes cld
+\end_inset
+
+lo mismo
+\begin_inset Quotes crd
+\end_inset
+
+ que un 
+\begin_inset Formula $\frac{A}{J}$
+\end_inset
+
+-módulo, luego 
+\begin_inset Formula $\overline{M}$
+\end_inset
+
+ es un 
+\begin_inset Formula $\frac{A}{J}$
+\end_inset
+
+-módulo y por tanto es un 
+\begin_inset Formula $\frac{A}{J}$
+\end_inset
+
+-espacio vectorial.
+ Sea entonces 
+\begin_inset Formula $(m_{i})_{i\in I}$
+\end_inset
+
+ una base de 
+\begin_inset Formula $_{A}M$
+\end_inset
+
+, 
+\begin_inset Formula $\{\overline{m_{i}}\}_{i\in I}\subseteq\overline{M}$
+\end_inset
+
+ es un conjunto generador, y es linealmente independiente.
+ En efecto, si 
+\begin_inset Formula $\sum_{i}\overline{a_{i}}\overline{m_{i}}=\overline{0}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $x\coloneqq\sum_{i}a_{i}m_{i}\in JM$
+\end_inset
+
+, luego 
+\begin_inset Formula $x=\sum_{j=1}^{n}b_{j}x_{j}$
+\end_inset
+
+ con cada 
+\begin_inset Formula $b_{j}\in J$
+\end_inset
+
+ y cada 
+\begin_inset Formula $x_{j}\in M$
+\end_inset
+
+ y, escribiendo cada 
+\begin_inset Formula $x_{j}$
+\end_inset
+
+ como 
+\begin_inset Formula $\sum_{i}c_{ji}m_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $x=\sum_{j}\sum_{i}b_{j}c_{ji}m_{i}=\sum_{i}\left(\sum_{j}b_{j}c_{ji}\right)m_{i}$
+\end_inset
+
+, y por la independencia lineal de los 
+\begin_inset Formula $m_{i}$
+\end_inset
+
+, cada 
+\begin_inset Formula $a_{i}=\sum_{j}b_{j}c_{ji}\in J$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\overline{a_{i}}=\overline{0}$
+\end_inset
+
+.
+ Haciendo esta operación con dos bases distintas de 
+\begin_inset Formula $M$
+\end_inset
+
+ con el mismo 
+\begin_inset Formula $J$
+\end_inset
+
+ se obtienen dos bases distintas del espacio vectorial 
+\begin_inset Formula $J\overline{M}$
+\end_inset
+
+ que deben tener el mismo cardinal, lo que prueba la unicidad del rango.
+\end_layout
+
+\begin_layout Standard
+Un 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo libre es finitamente generado si y sólo si tiene rango finito, es
+ decir, si es isomorfo a un 
+\begin_inset Formula $A^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $S\subseteq_{A}M$
+\end_inset
+
+ un generador finito de 
+\begin_inset Formula $M$
+\end_inset
+
+, 
+\begin_inset Formula $(b_{i})_{i\in I}$
+\end_inset
+
+ una base de 
+\begin_inset Formula $M$
+\end_inset
+
+ y 
+\begin_inset Formula $\phi:A^{(I)}\to M$
+\end_inset
+
+ el isomorfismo asociado a la base, si 
+\begin_inset Formula $f(a)\coloneqq\{i\in I:(\phi^{-1}(a))_{i}\neq0\}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $J\coloneqq\bigcup_{a\in S}f(a)$
+\end_inset
+
+ es finito, pero necesariamente 
+\begin_inset Formula $J=I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Obvio.
+\end_layout
+
+\begin_layout Standard
+Todo módulo es cociente de un módulo libre de rango igual a un generador
+ del módulo, pues si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un generador de 
+\begin_inset Formula $M$
+\end_inset
+
+ existe un epimorfismo 
+\begin_inset Formula $\phi:A^{(X)}\to M$
+\end_inset
+
+ dado por 
+\begin_inset Formula $\phi(a)\coloneqq\sum_{x}a_{x}x$
+\end_inset
+
+ y, por el primer teorema de isomorfía, 
+\begin_inset Formula $\frac{A^{(X)}}{\ker\phi}\cong M$
+\end_inset
+
+.
+ En particular todo módulo finitamente generado es cociente de un módulo
+ libre de rango finito y todo 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo cíclico es cociente de 
+\begin_inset Formula $_{A}A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $_{A}L=L_{1}\oplus\dots\oplus L_{t}$
+\end_inset
+
+ es una suma directa interna y cada 
+\begin_inset Formula $L_{i}$
+\end_inset
+
+ es libre con base finita 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $L$
+\end_inset
+
+ tiene como base la concatenación de las 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{rg}L=\text{rg}L_{1}+\dots+\text{rg}L_{t}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $t\leq1$
+\end_inset
+
+ es obvio, y para 
+\begin_inset Formula $t>2$
+\end_inset
+
+ se ve por inducción.
+ Para 
+\begin_inset Formula $t=2$
+\end_inset
+
+, las uniones de conjuntos generadores generan el submódulo suma, y queda
+ ver que si 
+\begin_inset Formula $\{n_{1},\dots,n_{r}\}\subseteq L_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\{k_{1},\dots,k_{s}\}\subseteq L_{2}$
+\end_inset
+
+ son linealmente independientes, la unión, que es disjunta, es linealmente
+ independiente.
+ Pero si 
+\begin_inset Formula $(a\coloneqq a_{1}n_{1}+\dots+a_{r}n_{r})+(b\coloneqq b_{1}k_{1}+\dots+b_{s}k_{s})=0$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $a_{i},b_{j}\in A$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a,b=0$
+\end_inset
+
+ por ser 
+\begin_inset Formula $a\in L_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in L_{2}$
+\end_inset
+
+, luego cada 
+\begin_inset Formula $a_{i},b_{j}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $(m_{i})_{i\in I}$
+\end_inset
+
+ una base de 
+\begin_inset Formula $_{A}M$
+\end_inset
+
+ y 
+\begin_inset Formula $\{n_{i}\}_{i\in I}\subseteq_{A}N$
+\end_inset
+
+, existe un único 
+\begin_inset Formula $A$
+\end_inset
+
+-homomorfismo 
+\begin_inset Formula $f:M\to N$
+\end_inset
+
+ con cada 
+\begin_inset Formula $f(m_{i})=n_{i}$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Existe un 
+\begin_inset Formula $A$
+\end_inset
+
+-isomorfismo 
+\begin_inset Formula $\phi:A^{(I)}\to M$
+\end_inset
+
+ con 
+\begin_inset Formula $\phi(e_{i})=m_{i}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+ de la base canónica y un 
+\begin_inset Formula $A$
+\end_inset
+
+-homomorfismo 
+\begin_inset Formula $\psi:A^{(I)}\to N$
+\end_inset
+
+ dado por 
+\begin_inset Formula $\psi(e_{i})=n_{i}$
+\end_inset
+
+, y 
+\begin_inset Formula $f\coloneqq\psi\circ\phi^{-1}:M\to N$
+\end_inset
+
+ es un 
+\begin_inset Formula $A$
+\end_inset
+
+-isomorfismo con cada 
+\begin_inset Formula $f(m_{i})=n_{i}$
+\end_inset
+
+.
+ Para la unicidad, como 
+\begin_inset Formula $\{m_{i}\}_{i}$
+\end_inset
+
+ es un conjunto generador, dos 
+\begin_inset Formula $A$
+\end_inset
+
+-homomorfismos que actúen igual sobre sus elementos son iguales.
+\end_layout
+
+\begin_layout Section
+Condiciones de cadena en módulos
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $_{A}N\in{\cal L}(_{A}M)$
+\end_inset
+
+ es compacto si y sólo si es finitamente generado.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $N=\bigvee_{n\in N}(n)$
+\end_inset
+
+, por lo que existen 
+\begin_inset Formula $n_{1},\dots,n_{k}\in N$
+\end_inset
+
+ con 
+\begin_inset Formula $N=(n_{1})\vee\dots\vee(n_{k})=(n_{1},\dots,n_{k})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $N\eqqcolon(x_{1},\dots,x_{n})$
+\end_inset
+
+ y 
+\begin_inset Formula $S\subseteq{\cal L}(_{A}N)$
+\end_inset
+
+ no vacío con 
+\begin_inset Formula $N=\bigvee S$
+\end_inset
+
+, para cada 
+\begin_inset Formula $i$
+\end_inset
+
+, como 
+\begin_inset Formula $x_{i}\in N$
+\end_inset
+
+, existen 
+\begin_inset Formula $L_{i1},\dots,L_{ik_{i}}\in S$
+\end_inset
+
+ y 
+\begin_inset Formula $p_{i1}\in L_{i1},\dots,p_{ik_{i}}\in L_{ik_{i}}$
+\end_inset
+
+ con 
+\begin_inset Formula $x_{i}=a_{i1}+\dots+a_{ik_{i}}$
+\end_inset
+
+, de modo que todo elemento de 
+\begin_inset Formula $I$
+\end_inset
+
+ se puede expresar como combinación lineal de los 
+\begin_inset Formula $a_{ij}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $I=\bigvee_{ij}L_{ij}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $_{A}M$
+\end_inset
+
+ es 
+\series bold
+noetheriano
+\series default
+ si cumple la ACC, si y sólo si todos sus submódulos son finitamente generados,
+ y es 
+\series bold
+artiniano
+\series default
+ si cumple la DCC, con lo que un anillo 
+\begin_inset Formula $A$
+\end_inset
+
+ es noetheriano o artiniano cuando lo es 
+\begin_inset Formula $_{A}A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Un espacio vectorial es noetheriano si y sólo si es artiniano, si y sólo
+ si es finitamente generado, si y sólo si es de dimensión finita.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+\begin_inset Formula $1\implies3]$
+\end_inset
+
+ Por definición.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies4\implies1,2]$
+\end_inset
+
+ Por álgebra lineal.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies4]$
+\end_inset
+
+ Probamos el contrarrecíproco.
+ Si 
+\begin_inset Formula $(v_{n})_{n\in\mathbb{N}}$
+\end_inset
+
+ es una familia de vectores linealmente independiente y llamamos 
+\begin_inset Formula $V_{n}\coloneqq\text{span}\{v_{m}\}_{m\geq n}$
+\end_inset
+
+, 
+\begin_inset Formula $V_{1}\supsetneq V_{2}\supsetneq V_{3}\supsetneq\dots$
+\end_inset
+
+ viola la DCC.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $_{\mathbb{Z}}\mathbb{Q}$
+\end_inset
+
+ no es noetheriano ni artiniano.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\dots\subsetneq(4)\subsetneq(2)\subsetneq(1)\subsetneq(\frac{1}{2})\subsetneq(\frac{1}{4})\subsetneq\dots$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ es un homomorfismo de anillos y vemos a un 
+\begin_inset Formula $_{B}M$
+\end_inset
+
+ como 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo por restricción de escalares sobre 
+\begin_inset Formula $f$
+\end_inset
+
+, si 
+\begin_inset Formula $_{A}M$
+\end_inset
+
+ es noetheriano o artiniano también lo es 
+\begin_inset Formula $_{B}M$
+\end_inset
+
+.
+ En particular si 
+\begin_inset Formula $A$
+\end_inset
+
+ es cuerpo y 
+\begin_inset Formula $_{A}M$
+\end_inset
+
+ tiene dimensión finita, 
+\begin_inset Formula $_{B}M$
+\end_inset
+
+ es noetheriano y artiniano.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula ${\cal L}(_{B}M)\subseteq{\cal L}(_{A}M)$
+\end_inset
+
+, por lo que si en 
+\begin_inset Formula ${\cal L}({}_{A}M)$
+\end_inset
+
+ no hay cadenas de cierta forma, en 
+\begin_inset Formula ${\cal L}(_{B}M)$
+\end_inset
+
+ tampoco.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+En el grupo 
+\begin_inset Formula $\frac{\mathbb{Q}}{\mathbb{Z}}$
+\end_inset
+
+, para 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\left(\overline{\frac{1}{n}}\right)=\left\{ \overline{\frac{0}{n}},\overline{\frac{1}{n}},\dots,\overline{\frac{n-1}{n}}\right\} \cong\mathbb{Z}_{n}
+\]
+
+\end_inset
+
+ admite como generadores unitarios los 
+\begin_inset Formula $\overline{\frac{a}{n}}$
+\end_inset
+
+ en que la fracción es irreducible.
+ Si 
+\begin_inset Formula $p\in\mathbb{Z}$
+\end_inset
+
+ es primo, 
+\begin_inset Formula $\mathbb{Z}_{p^{\infty}}\coloneqq\left\{ \overline{\frac{a}{p^{n}}}\right\} _{a\in\mathbb{Z},n\in\mathbb{N}}$
+\end_inset
+
+ es un subgrupo de 
+\begin_inset Formula $\frac{\mathbb{Q}}{\mathbb{Z}}$
+\end_inset
+
+ que es artiniano pero no noetheriano, y que no es finitamente generado
+ pero todos sus subgrupos propios son cíclicos de la forma 
+\begin_inset Formula $\left(\overline{\frac{1}{p^{n}}}\right)$
+\end_inset
+
+ con 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\mathbb{Z}_{p^{\infty}}$
+\end_inset
+
+ es la unión de la cadena de subgrupos 
+\begin_inset Formula 
+\[
+0=\left(\overline{\frac{1}{p^{0}}}\right)\subsetneq\left(\overline{\frac{1}{p}}\right)\subsetneq\left(\overline{\frac{1}{p^{2}}}\right)\subsetneq\left(\overline{\frac{1}{p^{3}}}\right)\subsetneq\dots,
+\]
+
+\end_inset
+
+ por lo que no es noetheriano.
+ Si 
+\begin_inset Formula $_{\mathbb{Z}}N\leq\mathbb{Z}_{p^{\infty}}$
+\end_inset
+
+ contiene una cantidad infinita de elementos 
+\begin_inset Formula $\overline{\frac{1}{p^{n}}}$
+\end_inset
+
+, contiene a todos los miembros de la cadena y 
+\begin_inset Formula $N=\mathbb{Z}_{p^{\infty}}$
+\end_inset
+
+, y en otro caso, sea 
+\begin_inset Formula $n\coloneqq\max\left\{ n\in\mathbb{N}:\overline{\frac{1}{p^{n}}}\in\mathbb{N}\right\} $
+\end_inset
+
+, 
+\begin_inset Formula $N=\left(\overline{\frac{1}{p^{n}}}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\subseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $\overline{\frac{a}{p^{m}}}\in N$
+\end_inset
+
+ con la fracción irreducible, 
+\begin_inset Formula $a$
+\end_inset
+
+ es coprimo con 
+\begin_inset Formula $p^{m}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\left(\overline{\frac{1}{p^{m}}}\right)=\left(\overline{\frac{a}{p^{n}}}\right)\subseteq N$
+\end_inset
+
+, de donde 
+\begin_inset Formula $m\leq n$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{\frac{a}{p^{m}}}\in\left(\overline{\frac{1}{p^{n}}}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\supseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Obvio.
+\end_layout
+
+\begin_layout Standard
+Como todos sus subgrupos son los de esta cadena, 
+\begin_inset Formula $\mathbb{Z}_{p^{\infty}}$
+\end_inset
+
+ es artiniano, y no es finitamente generado porque de serlo, como todos
+ sus subgrupos también lo son, sería noetheriano.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Una 
+\series bold
+sucesión exacta corta
+\series default
+ es una expresión de la forma 
+\begin_inset Formula $0\to L\overset{f}{\to}M\overset{g}{\to}N\to0$
+\end_inset
+
+ en la que 
+\begin_inset Formula $L$
+\end_inset
+
+, 
+\begin_inset Formula $M$
+\end_inset
+
+ y 
+\begin_inset Formula $N$
+\end_inset
+
+ son 
+\begin_inset Formula $A$
+\end_inset
+
+-módulos, 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ son homomorfismos y el núcleo de cada morfismo es la imagen del que le
+ precede tomando como homomorfismos 
+\begin_inset Formula $0\to L$
+\end_inset
+
+ y 
+\begin_inset Formula $N\to0$
+\end_inset
+
+ los únicos posibles, lo que equivale a que 
+\begin_inset Formula $f$
+\end_inset
+
+ sea un monomorfismo y 
+\begin_inset Formula $g$
+\end_inset
+
+ un epimorfismo con 
+\begin_inset Formula $\text{Im}f=\ker g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Toda sucesión exacta corta con término central 
+\begin_inset Formula $M$
+\end_inset
+
+ es isomorfa a una de la forma 
+\begin_inset Formula $0\to K\overset{\iota}{\hookrightarrow}M\overset{\pi}{\to}\frac{M}{K}\to0$
+\end_inset
+
+, donde 
+\begin_inset Formula $\iota$
+\end_inset
+
+ es la inclusión y 
+\begin_inset Formula $\pi$
+\end_inset
+
+ la proyección canónica.
+ 
+\series bold
+Demostración:
+\series default
+ Dada 
+\begin_inset Formula $0\to L\overset{f}{\to}M\overset{g}{\to}N\to0$
+\end_inset
+
+, sea 
+\begin_inset Formula $K\coloneqq\text{Im}f$
+\end_inset
+
+, restringiendo 
+\begin_inset Formula $\hat{f}:L\to K$
+\end_inset
+
+ tenemos un isomorfismo que nos permite cambiar 
+\begin_inset Formula $L$
+\end_inset
+
+ por 
+\begin_inset Formula $K$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ por 
+\begin_inset Formula $\iota$
+\end_inset
+
+ ya que 
+\begin_inset Formula $\iota\circ\hat{f}=f$
+\end_inset
+
+, y por el primer teorema de isomorfía en 
+\begin_inset Formula $g$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{M}{K}\cong N$
+\end_inset
+
+, por lo que cambiamos 
+\begin_inset Formula $N$
+\end_inset
+
+ por 
+\begin_inset Formula $\frac{M}{K}$
+\end_inset
+
+ y 
+\begin_inset Formula $g$
+\end_inset
+
+ por 
+\begin_inset Formula $\pi$
+\end_inset
+
+ ya que el isomorfismo de la prueba del teorema de isomorfía es 
+\begin_inset Formula $\overline{g}:\frac{M}{K}\to N$
+\end_inset
+
+ dado por 
+\begin_inset Formula $\overline{g}(\overline{m})\coloneqq g(m)$
+\end_inset
+
+ y claramente 
+\begin_inset Formula $\overline{g}\circ\pi=g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $N\leq_{A}M$
+\end_inset
+
+, 
+\begin_inset Formula $M$
+\end_inset
+
+ es noetheriano o artiniano si y sólo si lo son 
+\begin_inset Formula $N$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{M}{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $M$
+\end_inset
+
+ es noetheriano o artiniano, como 
+\begin_inset Formula ${\cal L}(_{A}N)\subseteq{\cal L}(_{A}M)$
+\end_inset
+
+, también lo es 
+\begin_inset Formula $N$
+\end_inset
+
+, y como la biyección 
+\begin_inset Formula $\rho:\{K\in{\cal L}(_{A}M)\mid N\subseteq K\}\to{\cal L}(_{A}M/N)$
+\end_inset
+
+ del teorema de correspondencia conserva la inclusión, 
+\begin_inset Formula $\rho^{-1}({\cal L}(_{A}M/N))\subseteq{\cal L}(_{A}M)$
+\end_inset
+
+ y también lo es 
+\begin_inset Formula $\frac{M}{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si 
+\begin_inset Formula $P\subseteq Q$
+\end_inset
+
+ son submódulos de 
+\begin_inset Formula $M$
+\end_inset
+
+ con 
+\begin_inset Formula $P\cap N=Q\cap N$
+\end_inset
+
+ y 
+\begin_inset Formula $P+N=Q+N$
+\end_inset
+
+, para 
+\begin_inset Formula $q\in Q$
+\end_inset
+
+, 
+\begin_inset Formula $q\in Q+N=P+N$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $q=p+n$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $p\in P$
+\end_inset
+
+ y 
+\begin_inset Formula $n\in N$
+\end_inset
+
+, y 
+\begin_inset Formula $q-p=n\in Q\cap N=P\cap N\subseteq P$
+\end_inset
+
+, luego 
+\begin_inset Formula $q=(q-p)+p\in P$
+\end_inset
+
+ y se concluye que 
+\begin_inset Formula $P=Q$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $N$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{M}{N}$
+\end_inset
+
+ son noetherianos o artinianos respectivamente, sea 
+\begin_inset Formula $(P_{n})_{n}$
+\end_inset
+
+ una cadena ascendente o descendente de submódulos de 
+\begin_inset Formula $M$
+\end_inset
+
+, los 
+\begin_inset Formula $P_{n}\cap N$
+\end_inset
+
+ y los 
+\begin_inset Formula $\frac{P_{n}+N}{N}$
+\end_inset
+
+ forman cadenas ascendentes o descendentes de submódulos de 
+\begin_inset Formula $N$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{M}{N}$
+\end_inset
+
+ respectivamente, y por hipótesis ambas se estabilizan a partir de un 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ que podemos suponer común, pero entonces, para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $P_{n}\subseteq P_{n+1}$
+\end_inset
+
+ con 
+\begin_inset Formula $P_{n}\cap N=P_{n+1}\cap N$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{P_{n}\cap N}{N}=\frac{P_{n+1}+N}{N}$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $P_{n}=P_{n+1}$
+\end_inset
+
+ y 
+\begin_inset Formula $M$
+\end_inset
+
+ es noetheriano o artiniano.
+\end_layout
+
+\begin_layout Standard
+La suma directa finita de módulos noetherianos o artinianos es respectivamente
+ noetheriana o artiniana.
+ En efecto, para 
+\begin_inset Formula $n\leq1$
+\end_inset
+
+ módulos es obvio, para 
+\begin_inset Formula $n=2$
+\end_inset
+
+ se deduce de lo anterior y de que, si 
+\begin_inset Formula $M=N\oplus K$
+\end_inset
+
+, 
+\begin_inset Formula $K\cong\frac{M}{N}$
+\end_inset
+
+, y para 
+\begin_inset Formula $n>2$
+\end_inset
+
+ se hace inducción.
+\end_layout
+
+\begin_layout Standard
+Dado un anillo 
+\begin_inset Formula $A$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A$
+\end_inset
+
+ es noetheriano o artiniano, respectivamente, si y sólo si existe 
+\begin_inset Formula $n>0$
+\end_inset
+
+ con 
+\begin_inset Formula $_{A}A^{n}$
+\end_inset
+
+ noetheriano o noetheriano, si y sólo si todo 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo finitamente generado es noetheriano o artiniano.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+\begin_inset Formula $1\implies3]$
+\end_inset
+
+ Es fácil ver que los submódulos de 
+\begin_inset Formula $_{A}A^{n}$
+\end_inset
+
+ son productos de submódulos de 
+\begin_inset Formula $A$
+\end_inset
+
+, que son ideales, pero si 
+\begin_inset Formula $(M_{k}\coloneqq I_{k1}\times\dots\times I_{kn})_{k}$
+\end_inset
+
+ es una cadena ascendente de submódulos de 
+\begin_inset Formula $A^{n}$
+\end_inset
+
+, cada cadena ascendente 
+\begin_inset Formula $(I_{ki})_{k}$
+\end_inset
+
+ se estabiliza en un punto, que podemos suponer común, y 
+\begin_inset Formula $(M_{k})_{k}$
+\end_inset
+
+ se estabiliza.
+ Entonces para 
+\begin_inset Formula $_{A}M$
+\end_inset
+
+ finitamente generado existe un epimorfismo 
+\begin_inset Formula $\phi:A^{n}\to M$
+\end_inset
+
+ y las cadenas ascendentes de 
+\begin_inset Formula $M$
+\end_inset
+
+ también se estabilizan.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies2]$
+\end_inset
+
+ Obvio.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies1]$
+\end_inset
+
+ Si 
+\begin_inset Formula $A^{n}$
+\end_inset
+
+ es noetheriano para cierto 
+\begin_inset Formula $n>0$
+\end_inset
+
+, sea 
+\begin_inset Formula $(I_{k})_{k}$
+\end_inset
+
+ una cadena ascendente de ideales de 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $(I_{k},0,\dots,0)_{k}$
+\end_inset
+
+ es una cadena ascendente de submódulos de 
+\begin_inset Formula $A^{n}$
+\end_inset
+
+ y por tanto se estabiliza, luego 
+\begin_inset Formula $(I_{k})_{k}$
+\end_inset
+
+ también se estabiliza.
+\end_layout
+
+\begin_layout Standard
+Para artinianos es análogo.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Dados un anillo 
+\begin_inset Formula $A$
+\end_inset
+
+ noetheriano o artiniano, respectivamente, y un homomorfismo 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ tal que 
+\begin_inset Formula $_{A}B$
+\end_inset
+
+ por restricción de escalares es finitamente generado, entonces 
+\begin_inset Formula $B$
+\end_inset
+
+ es un anillo noetheriano o artiniano.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Por lo anterior lo es 
+\begin_inset Formula $_{A}B$
+\end_inset
+
+, pero 
+\begin_inset Formula ${\cal L}(_{B}B)\subseteq{\cal L}(_{A}B)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $A=A_{1}\times\dots\times A_{n}$
+\end_inset
+
+ es un producto de anillos, todo 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo es isomorfo a un producto 
+\begin_inset Formula $M_{1}\times\dots\times M_{n}$
+\end_inset
+
+, donde cada 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ es un 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+-módulo, y en particular 
+\begin_inset Formula ${\cal L}(_{A}M)\cong{\cal L}(_{A_{1}}M_{1})\times\dots\times{\cal L}(_{A_{n}}M_{n})$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO ejercicio Saorín 4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Lema de Artin:
+\series default
+ En un anillo 
+\begin_inset Formula $A$
+\end_inset
+
+ en que 0 es producto finito de ideales maximales, un 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo es noetheriano si y sólo si es artiniano.
+ 
+\series bold
+Demostración:
+\series default
+ Si el número de ideales que hay que multiplicar es 
+\begin_inset Formula $n\leq1$
+\end_inset
+
+, 
+\begin_inset Formula $A$
+\end_inset
+
+ es un cuerpo y sabemos que se cumple.
+ Para 
+\begin_inset Formula $n>1$
+\end_inset
+
+, por inducción, sean 
+\begin_inset Formula $0=J_{1}J_{2}$
+\end_inset
+
+ donde cada 
+\begin_inset Formula $J_{i}$
+\end_inset
+
+ es producto de menos de 
+\begin_inset Formula $n$
+\end_inset
+
+ maximales.
+ Si por ejemplo 
+\begin_inset Formula $J_{1}=M_{1}\cdots M_{k}$
+\end_inset
+
+ con los 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ maximales, en 
+\begin_inset Formula $\frac{A}{J_{1}}$
+\end_inset
+
+, 
+\begin_inset Formula $0=\frac{J_{1}}{J_{1}}=\frac{M_{1}\cdots M_{k}}{J_{1}}=\frac{M_{1}}{J_{1}}\cdots\frac{M_{k}}{J_{1}}$
+\end_inset
+
+, y como 
+\begin_inset Formula $J_{1}\subseteq M_{i}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{M_{i}}{J_{1}}\trianglelefteq_{\text{m}}\frac{A}{J_{1}}$
+\end_inset
+
+ y, en 
+\begin_inset Formula $\frac{A}{J_{1}}$
+\end_inset
+
+, 0 es producto de menos de 
+\begin_inset Formula $n$
+\end_inset
+
+ maximales y por tanto un 
+\begin_inset Formula $\frac{A}{J_{1}}$
+\end_inset
+
+-módulo es noetheriano si y sólo si es artiniano, y análogamente para un
+ 
+\begin_inset Formula $\frac{A}{J_{2}}$
+\end_inset
+
+-módulo.
+ Dado 
+\begin_inset Formula $_{A}M$
+\end_inset
+
+, 
+\begin_inset Formula $N\coloneqq J_{1}M$
+\end_inset
+
+ es anulado por 
+\begin_inset Formula $J_{2}$
+\end_inset
+
+ y por tanto se puede ver como un 
+\begin_inset Formula $\frac{A}{J_{2}}$
+\end_inset
+
+-módulo con 
+\begin_inset Formula ${\cal L}(_{A/J_{2}}N)={\cal L}(_{A}N)$
+\end_inset
+
+ por restricción de escalares, mientras que 
+\begin_inset Formula $\frac{M}{N}=\frac{M}{J_{1}M}$
+\end_inset
+
+ es anulado por 
+\begin_inset Formula $J_{1}$
+\end_inset
+
+ y se puede ver como un 
+\begin_inset Formula $\frac{A}{J_{1}}$
+\end_inset
+
+-módulo con 
+\begin_inset Formula ${\cal L}(_{A/J_{1}}M/N)={\cal L}(_{A}M/N)$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $_{A}M$
+\end_inset
+
+ es noetheriano si y sólo si lo son 
+\begin_inset Formula $_{A}M/N$
+\end_inset
+
+ y 
+\begin_inset Formula $_{A}N$
+\end_inset
+
+, si y sólo si lo son 
+\begin_inset Formula $_{A/J_{1}}M/N$
+\end_inset
+
+ y 
+\begin_inset Formula $_{A/J_{2}}N$
+\end_inset
+
+, si y sólo si son artinianos, si y sólo si lo son 
+\begin_inset Formula $_{A}M/N$
+\end_inset
+
+ y 
+\begin_inset Formula $_{A}N$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $_{A}M$
+\end_inset
+
+ es noetheriano.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Akizuki:
+\end_layout
+
+\begin_layout Enumerate
+Un anillo es artiniano si y sólo si es noetheriano de dimensión 0.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Ya vimos que entonces es de dimensión 0 y el 0 es producto finito de maximales,
+ luego es noetheriano por el lema de Artin.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Por ser noetheriano, 0 es producto finito de ideales primos, que son maximales
+ por ser de dimensión 0, luego el anillo es artiniano por el lema de Artin.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Un módulo de un anillo artiniano es artiniano si y sólo si es noetheriano,
+ si y sólo si es finitamente generado.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+\begin_inset Formula $1\iff2]$
+\end_inset
+
+ Por el argumento anterior el 0 es producto finito de maximales y aplica
+ el lema de Artin.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies3]$
+\end_inset
+
+ Por definición.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies1]$
+\end_inset
+
+ Visto.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Un 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo es 
+\series bold
+de longitud finita
+\series default
+ si es noetheriano y artiniano.
+ Un anillo 
+\begin_inset Formula $A$
+\end_inset
+
+ es artiniano si y sólo si todo 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo finitamente generado es de longitud finita.
+\end_layout
+
 \end_body
 \end_document
