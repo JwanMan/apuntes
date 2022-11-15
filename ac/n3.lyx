@@ -999,7 +999,10 @@ epimorfismo
 isomorfismo
 \series default
  si es biyectivo.
- Las proyecciones canónicas 
+\end_layout
+
+\begin_layout Standard
+Las proyecciones canónicas 
 \begin_inset Formula $M\to M/N$
 \end_inset
 
@@ -1080,19 +1083,6 @@ Un
 .
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO 4.1.8
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Restricción de escalares
 \end_layout
@@ -1106,15 +1096,354 @@ Dado un homomorfismo de anillos
 \begin_inset Formula $B$
 \end_inset
 
--módulo es un 
+-módulo 
+\begin_inset Formula $M$
+\end_inset
+
+ es un 
 \begin_inset Formula $A$
 \end_inset
 
--módulo por 
+-módulo definiendo 
+\begin_inset Formula $am\coloneqq f(a)m$
+\end_inset
+
+, lo que se conoce como 
 \series bold
 restricción de escalares
 \series default
+.
+ Entonces 
+\begin_inset Formula ${\cal L}(_{B}M)\subseteq{\cal L}(_{A}M)$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{Hom}_{B}(M,N)\subseteq\text{Hom}_{A}(M,N)$
+\end_inset
+
+ y ambos son igualdades cuando 
+\begin_inset Formula $f$
+\end_inset
+
+ es suprayectivo.
+ 
+\series bold
+Demostración:
+\series default
+ Todo 
+\begin_inset Formula $B$
+\end_inset
+
+-submódulo de 
+\begin_inset Formula $M$
+\end_inset
+
+ es un 
+\begin_inset Formula $A$
+\end_inset
+
+-submódulo, y todo 
+\begin_inset Formula $B$
+\end_inset
+
+-homomorfismo 
+\begin_inset Formula $h:M\to N$
+\end_inset
+
+ es un 
+\begin_inset Formula $A$
+\end_inset
+
+-homomorfismo ya que 
+\begin_inset Formula $h(a\cdot_{_{A}M}m)=h(f(a)\cdot_{_{B}M}m)=f(a)\cdot_{_{B}N}h(m)=a\cdot_{_{A}N}h(m)$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es suprayectivo, si 
+\begin_inset Formula $S$
+\end_inset
+
+ es un 
+\begin_inset Formula $_{A}M$
+\end_inset
+
+-submódulo, para 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ y 
+\begin_inset Formula $s\in S$
+\end_inset
+
+, existe 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ con 
+\begin_inset Formula $f(a)=b$
+\end_inset
+
+ y 
+\begin_inset Formula $bs=f(a)s=as\in B$
+\end_inset
+
+, y si 
+\begin_inset Formula $h:M\to N$
+\end_inset
+
+ es un 
+\begin_inset Formula $A$
+\end_inset
+
+-homomorfismo, es un homomorfismo de grupos abelianos y, para 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ y 
+\begin_inset Formula $m\in M$
+\end_inset
+
+, sea 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ con 
+\begin_inset Formula $f(a)=b$
+\end_inset
+
 , 
+\begin_inset Formula $h(bm)=h(am)=ah(m)=bh(m)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es el único homomorfismo de anillos 
+\begin_inset Formula $\mathbb{Z}\to A$
+\end_inset
+
+, la restricción de escalares de un 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo es el grupo abeliano subyacente, y la de un 
+\begin_inset Formula $A$
+\end_inset
+
+-homomorfismo es el homomorfismo de los grupos abelianos.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\iota:A\hookrightarrow B$
+\end_inset
+
+ es una inclusión, restringir escalares es limitarse a considerar escalares
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{Hom}_{\mathbb{R}[X]}(\mathbb{R}[X],\mathbb{R}[X])\subsetneq\text{Hom}_{\mathbb{R}}(\mathbb{R}[X],\mathbb{R}[X])$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+La inclusión es por restricción de escalares con la inclusión, y la derivada
+ es un 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-homomorfismo (lleva 0 a 0 y conserva sumas y producto por escalares de
+ 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+) pero no es un 
+\begin_inset Formula $\mathbb{R}[X]$
+\end_inset
+
+-homomorfismo (no conserva producto por 
+\begin_inset Formula $X$
+\end_inset
+
+).
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $I\trianglelefteq A$
+\end_inset
+
+, 
+\begin_inset Formula $_{A/I}\text{Mod}\equiv\{M\in_{A}\text{Mod}:IM=0\}$
+\end_inset
+
+ por la biyección 
+\begin_inset Formula 
+\[
+(M,+,\cdot)\mapsto(M,+,(a,m)\mapsto\overline{a}m),
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula ${\cal L}(_{A/I}M)={\cal L}(_{A}M)$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{Hom}_{A/I}(M,N)=\text{Hom}_{A}(M,N)$
+\end_inset
+
+.
+ En particular los 
+\begin_inset Formula $\mathbb{Z}_{n}$
+\end_inset
+
+-módulos son grupos abelianos 
+\begin_inset Formula $M$
+\end_inset
+
+ con 
+\begin_inset Formula $nM=0$
+\end_inset
+
+ y, si 
+\begin_inset Formula $p$
+\end_inset
+
+ es primo, los 
+\begin_inset Formula $\mathbb{Z}_{p}$
+\end_inset
+
+-espacios vectoriales son grupos abelianos con 
+\begin_inset Formula $pM=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $_{A/I}M$
+\end_inset
+
+ es un 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo por restricción de escalares en la proyección canónica 
+\begin_inset Formula $A\to A/I$
+\end_inset
+
+ con 
+\begin_inset Formula $am=\overline{a}m$
+\end_inset
+
+, 
+\begin_inset Formula $IM=\overline{0}M=0$
+\end_inset
+
+ y las igualdades se tienen porque la proyección canónica es suprayectiva.
+ Si 
+\begin_inset Formula $_{A}M$
+\end_inset
+
+ cumple 
+\begin_inset Formula $IM=0$
+\end_inset
+
+, el producto 
+\begin_inset Formula $\overline{a}m\coloneqq am$
+\end_inset
+
+ está bien definido y convierte a 
+\begin_inset Formula $M$
+\end_inset
+
+ en un 
+\begin_inset Formula $(A/I)$
+\end_inset
+
+-módulo.
+ Estos procesos son uno inverso del otro.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+ es un cuerpo, 
+\begin_inset Formula $_{\mathbb{K}[X]}\text{Mod}\equiv\prod_{V\in_{\mathbb{K}}\text{Vect}}\text{End}_{\mathbb{K}}(V)$
+\end_inset
+
+ por la biyección
+\begin_inset Formula 
+\[
+(V,+,\cdot)\mapsto((V,+,\cdot),v\mapsto Xv),
+\]
+
+\end_inset
+
+y los 
+\begin_inset Formula $\mathbb{K}[X]$
+\end_inset
+
+-submódulos de 
+\begin_inset Formula $V$
+\end_inset
+
+ son sus 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-subespacios vectoriales 
+\series bold
+
+\begin_inset Formula $f$
+\end_inset
+
+-invariantes
+\series default
+ siendo 
+\begin_inset Formula $f(v)\coloneqq vX$
+\end_inset
+
+, es decir, los 
+\begin_inset Formula $W\leq V$
+\end_inset
+
+ con 
+\begin_inset Formula $f(W)\subseteq W$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -1127,5 +1456,6 @@ TODO
 
 \end_layout
 
+\end_deeper
 \end_body
 \end_document
