@@ -299,6 +299,37 @@ idénticos
 \end_layout
 
 \begin_layout Standard
+Para reducir el uso de paréntesis, consideramos que la aplicación tiene
+ máxima prioridad y es asociativa por la izquierda, la abstracción se extiende
+ lo más lejos posible y 
+\begin_inset Formula $\to$
+\end_inset
+
+ y 
+\begin_inset Formula $=$
+\end_inset
+
+ tienen el máximo alcance.
+ Además, si 
+\begin_inset Formula $x_{1},\dots,x_{n}$
+\end_inset
+
+ son variables y 
+\begin_inset Formula $M$
+\end_inset
+
+ es un término, la sintaxis 
+\begin_inset Formula $\lambda x_{1}\,x_{2}\,\dots\,x_{n}.M$
+\end_inset
+
+ equivale a 
+\begin_inset Formula $\lambda x_{1}.\lambda x_{2}.\dots\lambda x_{n}.M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 Si 
 \begin_inset Formula $x$
 \end_inset
@@ -405,11 +436,11 @@ donde
 \begin_inset Formula $x\notin\text{FV}(M)$
 \end_inset
 
-, la última regla se puede simplificar como 
-\begin_inset Formula $(\lambda y.M)[N/x]=\lambda y.(M[N/x])$
+, en la última regla se puede omitir 
+\begin_inset Formula $[z/y]$
 \end_inset
 
- y esta sustitución es 
+ y la sustitución es 
 \series bold
 válida
 \series default
@@ -500,6 +531,12 @@ reducciones
  que la reducibilidad es reflexiva y transitiva, y que dos términos son
  iguales si se pueden conectar por una cadena finita de reducciones hacia
  un lado u otro.
+ La igualdad es 
+\series bold
+extensional
+\series default
+, de modo que si dos funciones son iguales, al aplicarlas a los mismos parámetro
+s se obtienen resultados iguales.
 \end_layout
 
 \begin_layout Standard
@@ -515,74 +552,16 @@ cálculo lambda impuro
 \series default
  permite también constantes predefinidas sin definir estas como términos,
  como números o funciones sobre estos.
-\end_layout
-
-\begin_layout Standard
-Para reducir el uso de paréntesis, consideramos que la aplicación tiene
- máxima prioridad y es asociativa por la izquierda, la abstracción se extiende
- lo más lejos posible y 
-\begin_inset Formula $\to$
-\end_inset
-
- y 
-\begin_inset Formula $=$
-\end_inset
-
- tienen el máximo alcance.
- Además, si 
-\begin_inset Formula $x_{1},\dots,x_{n}$
-\end_inset
-
- son variables y 
-\begin_inset Formula $M$
-\end_inset
-
- es un término, la sintaxis 
-\begin_inset Formula $\lambda x_{1}\,x_{2}\,\dots\,x_{n}.M$
-\end_inset
-
- equivale a 
-\begin_inset Formula $\lambda x_{1}.\lambda x_{2}.\dots\lambda x_{n}.M$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-La igualdad es 
+ Se añaden 
 \series bold
-extensional
+
+\begin_inset Formula $\delta$
+\end_inset
+
+-reducciones
 \series default
-, de modo que si dos funciones son iguales, dan el mismo resultado para
- todos los parámetros.
- 
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-Poner esto cuando se defina 
-\begin_inset Quotes cld
-\end_inset
-
-dar el mismo resultado
-\begin_inset Quotes crd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+, en las que una expresión en que intervienen constantes se sustituye por
+ su valor según reglas específicas a dichas constantes.
 \end_layout
 
 \begin_layout Standard
@@ -782,7 +761,7 @@ Propiedad del diamante:
 \end_layout
 
 \begin_layout Enumerate
-Si un término es normalizable, se puede llegar a su forma normal por el
+Si un término es normalizable, se puede llevar a su forma normal por el
  orden de reducción normal.
 \end_layout
 

@@ -97,7 +97,7 @@ y escribimos
 \begin_inset Formula $\mathtt{if}\,i\,\mathtt{then}\,t\,\mathtt{else}\,e\coloneqq\mathtt{cond}\,i\,t\,e$
 \end_inset
 
-, así como 
+, 
 \begin_inset Formula $a\land b\coloneqq\mathtt{and}\,a\,b$
 \end_inset
 
@@ -457,7 +457,7 @@ pues
 \end_inset
 
 , 
-\begin_inset Formula ${\bf Y}\,f=\lambda x.(f({\bf Y}\,f)x)=\lambda x.E[{\bf Y}\,f/F]$
+\begin_inset Formula ${\bf Y}\,f=f({\bf Y}\,f)=\lambda x.E[{\bf Y}\,f/F]$
 \end_inset
 
 .
@@ -511,19 +511,27 @@ ligaduras paralelas
 \end_inset
 
 Una ligadura 
-\begin_inset Formula $x=E$
+\begin_inset Formula $x=\lambda b_{1}\,\dots\,b_{n}.E$
 \end_inset
 
  se puede sustituir por 
-\begin_inset Formula $x\,b_{1}\,\dots\,b_{n}=E\equiv x=\lambda b_{1}\,\dots\,b_{n}.E$
+\begin_inset Formula $x\,b_{1}\,\dots\,b_{n}=E$
 \end_inset
 
-, por 
-\begin_inset Formula $\mathtt{rec\ }x=E\equiv x={\bf Y}(\lambda x.E)$
+, 
+\begin_inset Formula $x={\bf Y}(\lambda x.E)$
 \end_inset
 
- o por 
-\begin_inset Formula $\mathtt{rec\ }x\,b_{1}\,\dots\,b_{n}=E\equiv x={\bf Y}(\lambda x\,b_{1}\,\dots\,b_{n}.E)$
+ por 
+\begin_inset Formula $\mathtt{rec\ }x=E$
+\end_inset
+
+ y 
+\begin_inset Formula $x={\bf Y}(\lambda x\,b_{1}\,\dots\,b_{n}.E)$
+\end_inset
+
+ por 
+\begin_inset Formula $\mathtt{rec\ }x\,b_{1}\,\dots\,b_{n}=E$
 \end_inset
 
 , donde los 
