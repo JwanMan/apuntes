@@ -382,7 +382,7 @@ Las variables pueden estar en espacios de nombres jerárquicos:
 status open
 
 \begin_layout Plain Layout
-tyvar=varid, tycon=tycls=conid, modid=qconid, qtycon=qtycls=qvarid
+tyvar=varid, tycon=tycls=conid, modid=qtycon=qtycls=qconid
 \end_layout
 
 \end_inset
@@ -629,13 +629,6 @@ lexer
  los inserte como sigue:
 \end_layout
 
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
 \begin_layout Enumerate
 Tras un 
 \family typewriter
@@ -812,7 +805,21 @@ nombre
 valor
 \family default
 \emph default
- describen la gramática libre de contexto de Haskell en ABNF.
+ describen la gramática libre de contexto de Haskell en ABNF, con la extensión
+ de que 
+\family typewriter
+!
+\emph on
+x
+\family default
+\emph default
+ indica que el siguiente elemento no debe tener forma 
+\family typewriter
+\emph on
+x
+\family default
+\emph default
+.
  Cada cadena entre comillas representa un sólo lexema y entre dos lexemas
  puede haber espacio.
  Esta gramática tiene ambigüedades que se resuelven haciendo las frases
@@ -924,6 +931,16 @@ operaciones primitivas
 \series bold
 preludios
 \series default
+, por defecto el 
+\series bold
+preludio estándar
+\series default
+, el módulo 
+\family typewriter
+\lang english
+Prelude
+\family default
+\lang spanish
 .
 \end_layout
 
@@ -974,6 +991,137 @@ varop = varsym /
 
 \end_layout
 
+\begin_layout Plain Layout
+
+con = conid / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ consym 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+conop = consym / 
+\begin_inset Quotes cld
+\end_inset
+
+`
+\begin_inset Quotes crd
+\end_inset
+
+ conid 
+\begin_inset Quotes cld
+\end_inset
+
+`
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+qvar = qvarid / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ qvarsym 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+qvarop = qvarsym / 
+\begin_inset Quotes cld
+\end_inset
+
+`
+\begin_inset Quotes crd
+\end_inset
+
+ qvarid 
+\begin_inset Quotes cld
+\end_inset
+
+`
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+qcon = qconid / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ gconsym 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+qconop = gconsym / 
+\begin_inset Quotes cld
+\end_inset
+
+`
+\begin_inset Quotes crd
+\end_inset
+
+ qconid 
+\begin_inset Quotes cld
+\end_inset
+
+`
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+gconsym = qconsym
+\end_layout
+
 \end_inset
 
 
@@ -998,29 +1146,6 @@ s y una función con nombre normal como operador poniéndola entre comillas
  Se pueden definir nuevos operadores.
 \end_layout
 
-\begin_layout Standard
-La 
-\series bold
-evaluación ansiosa
-\series default
- o 
-\series bold
-llamada por valor
-\series default
- es como el orden aplicativo pero sin evaluar en el interior de abstracciones,
- y la 
-\series bold
-evaluación perezosa
-\series default
- o 
-\series bold
-llamada por nombre
-\series default
- es como el orden normal pero sin evaluar en el interior de abstracciones.
- Haskell usa evaluación perezosa, que al contrario que la ansiosa garantiza
- la terminación si la expresión es normalizable.
-\end_layout
-
 \begin_layout Section
 Tipos
 \end_layout
@@ -1036,6 +1161,7 @@ valor indefinido
 
  correspondiente a las expresiones de ese tipo cuya evaluación no termina,
  aunque también se usa para notificar errores.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1071,35 +1197,11 @@ atype = gtycon / varid /
 \begin_inset Quotes cld
 \end_inset
 
- type *(
-\begin_inset Quotes cld
-\end_inset
-
-,
-\begin_inset Quotes crd
-\end_inset
-
- type) 
-\begin_inset Quotes cld
-\end_inset
-
-)
-\begin_inset Quotes crd
-\end_inset
-
- / 
-\begin_inset Quotes cld
-\end_inset
-
-[
-\begin_inset Quotes cld
-\end_inset
-
  type 
 \begin_inset Quotes cld
 \end_inset
 
-]
+)
 \begin_inset Quotes crd
 \end_inset
 
@@ -1108,44 +1210,21 @@ atype = gtycon / varid /
 
 \begin_layout Plain Layout
 
-gtycon = qtycon / 
-\begin_inset Quotes cld
-\end_inset
-
-(
-\begin_inset Quotes cld
-\end_inset
-
- 
-\begin_inset Quotes cld
-\end_inset
-
-)
-\begin_inset Quotes crd
-\end_inset
-
- / 
-\begin_inset Quotes cld
-\end_inset
-
-[
-\begin_inset Quotes cld
-\end_inset
-
- 
-\begin_inset Quotes cld
-\end_inset
-
-]
-\begin_inset Quotes crd
-\end_inset
-
-
+gtycon = qconid
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Un tipo puede ser un 
+\family typewriter
+qconid
+\family default
+, cuyo significado depende del entorno, y esta definición puede aceptar
+ un número fijo de parámetros que también son tipos.
 \end_layout
 
 \begin_layout Standard
@@ -1206,150 +1285,173 @@ iguales
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-aexp /= 
-\begin_inset Quotes cld
-\end_inset
-
-(
-\begin_inset Quotes cld
-\end_inset
-
- exp *(
-\begin_inset Quotes cld
-\end_inset
-
-,
-\begin_inset Quotes crd
-\end_inset
-
- exp) 
-\begin_inset Quotes cld
-\end_inset
-
-)
-\begin_inset Quotes crd
-\end_inset
-
- / 
-\begin_inset Quotes cld
-\end_inset
-
-[
-\begin_inset Quotes cld
-\end_inset
-
- exp *(
-\begin_inset Quotes cld
-\end_inset
-
-,
-\begin_inset Quotes crd
-\end_inset
-
- exp) 
-\begin_inset Quotes cld
-\end_inset
-
-]
-\begin_inset Quotes crd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+Un 
+\family typewriter
+varid
+\family default
+ representa una variable libre, y cuando el tipo que se asigna a una expresión
+ tiene alguna variable libre, el tipo de la expresión es 
+\series bold
+polimórfico
+\series default
+, genérico sobre los valores de las variables libres.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-(*), (<=), ->, (+), div, (^), (/), (.), Float, pi, Integer, not, True, False,
- (1*,), (), [*,], [], (:), otherwise, error, (-)
+Tipos primitivos en el 
+\family typewriter
+Prelude
+\family default
+:
 \end_layout
 
-\end_inset
+\begin_layout Description
 
-
+\family typewriter
+Char
+\family default
+ Caracteres Unicode.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
+\begin_layout Description
 
-\begin_layout Plain Layout
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-funlhs /= 
-\begin_inset Quotes cld
-\end_inset
-
-(
-\begin_inset Quotes cld
-\end_inset
-
- funlhs 
-\begin_inset Quotes cld
-\end_inset
-
-)
-\begin_inset Quotes crd
-\end_inset
-
- 1*apat
+\family typewriter
+Double
+\family default
+ Números de punto flotante de precisión doble.
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Description
 
-lpat /= gcon 1*apat
+\family typewriter
+Float
+\family default
+ Números de punto flotante de precisión simple.
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Description
 
-guards /=  
-\begin_inset Quotes cld
+\family typewriter
+Int
+\begin_inset space ~
+\end_inset
+
+=
+\begin_inset space ~
+\end_inset
+
+minBound
+\begin_inset space ~
+\end_inset
+
+...
+\begin_inset space ~
+\end_inset
+
+-1
+\begin_inset space ~
 \end_inset
 
 |
-\begin_inset Quotes crd
+\begin_inset space ~
 \end_inset
 
- guard *(
-\begin_inset Quotes cld
+0
+\begin_inset space ~
 \end_inset
 
-,
-\begin_inset Quotes crd
+|
+\begin_inset space ~
 \end_inset
 
- guard)
+1
+\begin_inset space ~
+\end_inset
+
+...
+\begin_inset space ~
+\end_inset
+
+maxBound
+\family default
+ Enteros de tamaño limitado, con al menos los del rango 
+\begin_inset Formula $[-2^{29},2^{29})$
+\end_inset
+
+.
 \end_layout
+
+\begin_layout Description
+
+\family typewriter
+Integer
+\begin_inset space ~
+\end_inset
+
+=
+\begin_inset space ~
+\end_inset
+
+...
+\begin_inset space ~
+\end_inset
+
+-1
+\begin_inset space ~
+\end_inset
+
+|
+\begin_inset space ~
+\end_inset
+
+0
+\begin_inset space ~
+\end_inset
+
+|
+\begin_inset space ~
+\end_inset
+
+1
+\begin_inset space ~
+\end_inset
+
+...
+
+\family default
+ Enteros de tamaño arbitrario.
+\end_layout
+
+\begin_layout Standard
+También son predefinidos las 
+\series bold
+tuplas
+\series default
+, productos directos de un número fijo de tipos escritos entre paréntesis,
+ las 
+\series bold
+listas
+\series default
+, secuencias finitas de elementos del mismo tipo escrito entre corchetes,
+ y el 
+\series bold
+tipo unidad
+\series default
+ 
+\family typewriter
+()
+\family default
+, con un solo elemento:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
 
 \begin_layout Plain Layout
 
-apat /= 
+atype /= 
 \begin_inset Quotes cld
 \end_inset
 
@@ -1357,7 +1459,7 @@ apat /=
 \begin_inset Quotes cld
 \end_inset
 
- pat 1*(
+ type 1*(
 \begin_inset Quotes cld
 \end_inset
 
@@ -1365,7 +1467,7 @@ apat /=
 \begin_inset Quotes crd
 \end_inset
 
- pat) 
+ type 
 \begin_inset Quotes cld
 \end_inset
 
@@ -1381,15 +1483,7 @@ apat /=
 \begin_inset Quotes cld
 \end_inset
 
- pat *(
-\begin_inset Quotes cld
-\end_inset
-
-,
-\begin_inset Quotes crd
-\end_inset
-
- pat) 
+ type 
 \begin_inset Quotes cld
 \end_inset
 
@@ -1397,12 +1491,7 @@ apat /=
 \begin_inset Quotes crd
 \end_inset
 
- / gcon
-\end_layout
 
-\begin_layout Plain Layout
-
-aexp /= gcon
 \end_layout
 
 \begin_layout Plain Layout
@@ -1419,59 +1508,6 @@ gtycon /=
 \begin_inset Quotes cld
 \end_inset
 
-->
-\begin_inset Quotes crd
-\end_inset
-
- 
-\begin_inset Quotes cld
-\end_inset
-
-)
-\begin_inset Quotes crd
-\end_inset
-
- / 
-\begin_inset Quotes cld
-\end_inset
-
-(
-\begin_inset Quotes cld
-\end_inset
-
- 1*
-\begin_inset Quotes crd
-\end_inset
-
-,
-\begin_inset Quotes crd
-\end_inset
-
- 
-\begin_inset Quotes cld
-\end_inset
-
-)
-\begin_inset Quotes crd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-gcon = 
-\begin_inset Quotes cld
-\end_inset
-
-(
-\begin_inset Quotes crd
-\end_inset
-
- 
-\begin_inset Quotes cld
-\end_inset
-
 )
 \begin_inset Quotes crd
 \end_inset
@@ -1492,6 +1528,486 @@ gcon =
 \begin_inset Quotes crd
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos definir nuevos tipos para aumentar la seguridad de los programas:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+topdecl /= 
+\begin_inset Quotes cld
+\end_inset
+
+data
+\begin_inset Quotes crd
+\end_inset
+
+ [context 
+\begin_inset Quotes cld
+\end_inset
+
+=>
+\begin_inset Quotes crd
+\end_inset
+
+] simpletype 
+\begin_inset Quotes cld
+\end_inset
+
+=
+\begin_inset Quotes crd
+\end_inset
+
+ constrs [deriving]
+\end_layout
+
+\begin_layout Plain Layout
+
+constrs = constr *(
+\begin_inset Quotes cld
+\end_inset
+
+|
+\begin_inset Quotes crd
+\end_inset
+
+ constr)
+\end_layout
+
+\begin_layout Plain Layout
+
+constr = conid *atype / (btype / 
+\begin_inset Quotes cld
+\end_inset
+
+!
+\begin_inset Quotes crd
+\end_inset
+
+ atype) conop (btype / 
+\begin_inset Quotes cld
+\end_inset
+
+!
+\begin_inset Quotes crd
+\end_inset
+
+ atype)
+\end_layout
+
+\begin_layout Plain Layout
+
+simpletype = conid *varid
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cada 
+\family typewriter
+constr
+\family default
+ se refiere al tipo producto de los 
+\family typewriter
+atype
+\family default
+ etiquetado con el 
+\family typewriter
+conid
+\family default
+, o bien a un tipo unipuntual con ese nombre, y el tipo 
+\family typewriter
+simpletype
+\family default
+ es la unión disjunta de estos tipos producto y de 
+\begin_inset Formula $\{\bot\}$
+\end_inset
+
+.
+ Si 
+\family typewriter
+simpletype
+\family default
+ contiene variables, estas corresponden a parámetros de tipo, y los 
+\family typewriter
+constrs
+\family default
+ solo pueden contener variables que aparezcan en el 
+\family typewriter
+simpletype
+\family default
+.
+ El 
+\family typewriter
+Prelude
+\family default
+ define 
+\family typewriter
+data Bool = False | True
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+También es posible añadir nombres a los campos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+constr /= con 
+\begin_inset Quotes cld
+\end_inset
+
+{
+\begin_inset Quotes cld
+\end_inset
+
+ [fielddecl *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ fielddecl)] 
+\begin_inset Quotes cld
+\end_inset
+
+}
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+fielddecl = vars 
+\begin_inset Quotes cld
+\end_inset
+
+::
+\begin_inset Quotes crd
+\end_inset
+
+ (type / 
+\begin_inset Quotes cld
+\end_inset
+
+!
+\begin_inset Quotes crd
+\end_inset
+
+ atype)
+\end_layout
+
+\begin_layout Plain Layout
+
+vars = var *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ var)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cada 
+\family typewriter
+var
+\family default
+ define un campo del tipo producto, y por cada una se crea una función del
+ tipo definido al tipo de la variable que devuelve el valor en esa posición
+ si la variable es de la variante 
+\family typewriter
+con
+\family default
+ o 
+\begin_inset Formula $\bot$
+\end_inset
+
+ en otro caso.
+ Un 
+\series bold
+tipo recursivo
+\series default
+ es uno que se tiene al mismo en la parte derecha de la definición, consiguiendo
+ valores recursivos.
+\end_layout
+
+\begin_layout Standard
+Los 
+\series bold
+sinónimos de tipo
+\series default
+ permiten definir abreviaturas para tipos comunes, que internamente se expanden
+ al tipo a la derecha:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+topdecl /= 
+\begin_inset Quotes cld
+\end_inset
+
+type
+\begin_inset Quotes crd
+\end_inset
+
+ simpletype 
+\begin_inset Quotes cld
+\end_inset
+
+=
+\begin_inset Quotes crd
+\end_inset
+
+ type
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las cadenas de caracteres se definen como 
+\family typewriter
+type String = [Char]
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+topdecl /= 
+\begin_inset Quotes cld
+\end_inset
+
+newtype
+\begin_inset Quotes crd
+\end_inset
+
+ [context 
+\begin_inset Quotes cld
+\end_inset
+
+=>
+\begin_inset Quotes crd
+\end_inset
+
+] simpletype = newconstr [deriving]
+\end_layout
+
+\begin_layout Plain Layout
+
+newconstr = con atype / con 
+\begin_inset Quotes cld
+\end_inset
+
+{
+\begin_inset Quotes cld
+\end_inset
+
+ var 
+\begin_inset Quotes cld
+\end_inset
+
+::
+\begin_inset Quotes crd
+\end_inset
+
+ type 
+\begin_inset Quotes cld
+\end_inset
+
+}
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Crea un tipo que etiqueta a otro.
+ Equivale a cambiar 
+\family typewriter
+newtype
+\family default
+ por 
+\family typewriter
+data
+\family default
+ pero sin añadir un 
+\begin_inset Formula $\bot$
+\end_inset
+
+ adicional.
+\end_layout
+
+\begin_layout Section
+Clases de tipos
+\end_layout
+
+\begin_layout Standard
+Son una forma de polimorfismo basada en clases cuyas instancias son tipos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+topdecl /= 
+\begin_inset Quotes cld
+\end_inset
+
+class
+\begin_inset Quotes crd
+\end_inset
+
+ [scontext 
+\begin_inset Quotes cld
+\end_inset
+
+=>
+\begin_inset Quotes crd
+\end_inset
+
+] conid varid [
+\begin_inset Quotes cld
+\end_inset
+
+where
+\begin_inset Quotes crd
+\end_inset
+
+ cdecls]
+\end_layout
+
+\begin_layout Plain Layout
+
+        / 
+\begin_inset Quotes cld
+\end_inset
+
+instance
+\begin_inset Quotes crd
+\end_inset
+
+ [scontext 
+\begin_inset Quotes cld
+\end_inset
+
+=>
+\begin_inset Quotes crd
+\end_inset
+
+] qconid inst [
+\begin_inset Quotes cld
+\end_inset
+
+where
+\begin_inset Quotes crd
+\end_inset
+
+ idecls]
+\end_layout
+
+\begin_layout Plain Layout
+
+cdecls = 
+\begin_inset Quotes cld
+\end_inset
+
+{
+\begin_inset Quotes cld
+\end_inset
+
+ [cdecl *(
+\begin_inset Quotes cld
+\end_inset
+
+;
+\begin_inset Quotes crd
+\end_inset
+
+ cdecl) 
+\begin_inset Quotes cld
+\end_inset
+
+}
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+inst = gtycon / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ gtycon *varid 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
  / 
 \begin_inset Quotes cld
 \end_inset
@@ -1500,15 +2016,60 @@ gcon =
 \begin_inset Quotes cld
 \end_inset
 
- 1*
-\begin_inset Quotes crd
+ varid 1*(
+\begin_inset Quotes cld
 \end_inset
 
 ,
 \begin_inset Quotes crd
 \end_inset
 
- 
+ varid) 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ /
+\end_layout
+
+\begin_layout Plain Layout
+
+     / 
+\begin_inset Quotes cld
+\end_inset
+
+[
+\begin_inset Quotes cld
+\end_inset
+
+ varid 
+\begin_inset Quotes cld
+\end_inset
+
+]
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ varid 
+\begin_inset Quotes cld
+\end_inset
+
+->
+\begin_inset Quotes crd
+\end_inset
+
+ varid 
 \begin_inset Quotes cld
 \end_inset
 
@@ -1521,50 +2082,171 @@ gcon =
 
 \begin_layout Plain Layout
 
-op = varop / conop
+idecls = 
+\begin_inset Quotes cld
+\end_inset
+
+{
+\begin_inset Quotes cld
+\end_inset
+
+ [idecl *(
+\begin_inset Quotes cld
+\end_inset
+
+;
+\begin_inset Quotes crd
+\end_inset
+
+ idecl)] 
+\begin_inset Quotes cld
+\end_inset
+
+}
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una declaración 
+\family typewriter
+class
+\family default
+ define una clase 
+\family typewriter
+conid
+\family default
+ y una serie de vínculos en el contexto global dados por las asignaciones
+ de tipo en las 
+\family typewriter
+cdecl
+\family default
+, en las que 
+\family typewriter
+varid
+\family default
+ se refiere a un tipo cualquiera de clase 
+\family typewriter
+conid
+\family default
+ y debe aparecer alguna vez en el tipo.
+ Una 
+\series bold
+declaración de instancia
+\series default
+ 
+\family typewriter
+instance
+\family default
+ indica que el tipo 
+\family typewriter
+inst
+\family default
+ es de la clase 
+\family typewriter
+qconid
+\family default
+ y da las definiciones de los vínculos establecidos por la clase cuando
+ el tipo 
+\family typewriter
+varid
+\family default
+ se sustituye por 
+\family typewriter
+inst
+\family default
+, llamadas 
+\series bold
+métodos
+\series default
+.
+ Los nombres de métodos son miembros de una única clase, lo que evita conflictos
+ entre nombres.
+\end_layout
+
+\begin_layout Standard
+La declaración 
+\family typewriter
+class
+\family default
+ puede contener definiciones por defecto para los vínculos, en cuyo caso
+ no es necesario dar estas definiciones en las instancias, y también puede
+ declarar la aridad de operadores definidos en la clase.
+ Sin embargo, es común que las definiciones por defecto estén unas en función
+ de otras y haya que definir al menos un elemento para romper el ciclo.
+ La 
+\series bold
+definición mínima completa
+\series default
+ de una clase es cualquier conjunto minimal de definiciones de la clase
+ que deben definir las instancias.
+\end_layout
+
+\begin_layout Standard
+Las declaraciones pueden tener un 
+\series bold
+contexto
+\series default
+ para restringir los valores por los que se pueden sustituir las variables
+ de tipo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+context = class / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ [class *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ class)] 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-conop = 
+class = qconid varid / qconid 
 \begin_inset Quotes cld
 \end_inset
 
-`
-\begin_inset Quotes crd
-\end_inset
-
- conid 
+(
 \begin_inset Quotes cld
 \end_inset
 
-`
-\begin_inset Quotes crd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-qop = qvarop / qconop
-\end_layout
-
-\begin_layout Plain Layout
-
-qvarop = qvarsym / 
+ varid 1*atype 
 \begin_inset Quotes cld
 \end_inset
 
-`
-\begin_inset Quotes crd
-\end_inset
-
- qvarid 
-\begin_inset Quotes cld
-\end_inset
-
-`
+)
 \begin_inset Quotes crd
 \end_inset
 
@@ -1573,19 +2255,27 @@ qvarop = qvarsym /
 
 \begin_layout Plain Layout
 
-qconop = gconsym / 
+scontext = simpleclass / 
 \begin_inset Quotes cld
 \end_inset
 
-`
+(
+\begin_inset Quotes cld
+\end_inset
+
+ [simpleclass *(
+\begin_inset Quotes cld
+\end_inset
+
+,
 \begin_inset Quotes crd
 \end_inset
 
- qconid 
+ simpleclass)] 
 \begin_inset Quotes cld
 \end_inset
 
-`
+)
 \begin_inset Quotes crd
 \end_inset
 
@@ -1594,17 +2284,149 @@ qconop = gconsym /
 
 \begin_layout Plain Layout
 
-gconsym = 
+simpleclass = qconid varid
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las sustituciones deben respetar que cada 
+\family typewriter
+varid
+\family default
+ o 
+\family typewriter
+varid 1*atype
+\family default
+ sea de la clase 
+\family typewriter
+qconid
+\family default
+.
+ Esto es necesario cuando en la definición de una función se quieren usar
+ funciones definidas en una clase, y de hecho el tipo de estas funciones
+ tiene una restricción en su contexto.
+\end_layout
+
+\begin_layout Standard
+Si una clase 
+\family typewriter
+class 
+\family default
+...
+
+\family typewriter
+ => 
+\emph on
+Foo a
+\family default
+\emph default
+ tiene 
+\family typewriter
+\emph on
+Bar a
+\family default
+\emph default
+ en su contexto, 
+\family typewriter
+\emph on
+Bar
+\family default
+\emph default
+ es 
+\series bold
+superclase
+\series default
+ de 
+\family typewriter
+\emph on
+Foo
+\family default
+\emph default
+ y 
+\family typewriter
+\emph on
+Foo
+\family default
+\emph default
+ es 
+\series bold
+subclase
+\series default
+ de 
+\family typewriter
+\emph on
+Bar
+\family default
+\emph default
+, y todo contexto que indique que una variable o expresión tiene tipo 
+\family typewriter
+\emph on
+Foo
+\family default
+\emph default
+ permite usar sobre ella además de las operaciones de 
+\family typewriter
+\emph on
+Foo
+\family default
+\emph default
+ las de 
+\family typewriter
+\emph on
+Bar
+\family default
+\emph default
+, recursivamente.
+ El contexto de un método no puede tener restricciones sobre la variable
+ de la clase.
+\end_layout
+
+\begin_layout Standard
+Se pueden derivar automáticamente las definiciones de algunas clases predefinida
+s:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+deriving = 
 \begin_inset Quotes cld
 \end_inset
 
-:
+deriving
 \begin_inset Quotes crd
 \end_inset
 
- / qconsym
-\end_layout
+ (qconid / 
+\begin_inset Quotes cld
+\end_inset
 
+(
+\begin_inset Quotes cld
+\end_inset
+
+ [qconid *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ qconid)] 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
 \end_inset
 
 
@@ -1613,10 +2435,68 @@ gconsym =
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Haskell soporta 
+\series bold
+tipos de alto rango
+\series default
+, lo que significa que las instancias de una clase pueden ser tipos que
+ acepten parámetros, y no necesariamente tipos completos.
 \end_layout
 
 \begin_layout Section
 Expresiones
+\end_layout
+
+\begin_layout Standard
+Haskell tiene 
+\series bold
+disciplina de tipos
+\series default
+, consistente en que toda expresión bien formada tiene un tipo deducible
+ a partir de sus subexpresiones y el contexto, y las expresiones a las que
+ no se puede asignar un tipo están mal formadas.
+ Esto permite detectar errores antes de la evaluación y fuerza al programador
+ se plantearse tipos apropiados para los valores, ayudando a diseñar programas
+ claros y bien estructurados.
+\end_layout
+
+\begin_layout Standard
+Al empezar a evaluar una expresión, primero se comprueba que la sintaxis
+ sea correcta y, si no lo es, se produce un 
+\series bold
+error de sintaxis
+\series default
+, y luego se comprueba si tiene un tipo correcto y si no se produce un 
+\series bold
+error de tipo
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+evaluación ansiosa
+\series default
+ o 
+\series bold
+llamada por valor
+\series default
+ es como el orden aplicativo pero sin evaluar en el interior de abstracciones,
+ y la 
+\series bold
+evaluación perezosa
+\series default
+ o 
+\series bold
+llamada por nombre
+\series default
+ es como el orden normal pero sin evaluar en el interior de abstracciones.
+ Haskell usa evaluación perezosa, que al contrario que la ansiosa garantiza
+ la terminación si la expresión es normalizable.
 \end_layout
 
 \begin_layout Standard
@@ -1678,7 +2558,23 @@ in
 
 \begin_layout Plain Layout
 
-aexp = qvar / literal
+aexp = qvar / literal / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ exp 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1765,78 +2661,8 @@ lexp qop infixexp
 \family typewriter
 (qop) lexp infixexp
 \family default
-, aunque realmente distintos operadores tienen distinta precedencia y asociativi
-dad, establecidas con la sintaxis:
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-gendecl /= fixity [integer] ops
-\end_layout
-
-\begin_layout Plain Layout
-
-ops = op *(
-\begin_inset Quotes cld
-\end_inset
-
-,
-\begin_inset Quotes crd
-\end_inset
-
- op)
-\end_layout
-
-\begin_layout Plain Layout
-
-fixity = 
-\begin_inset Quotes cld
-\end_inset
-
-infixl
-\begin_inset Quotes crd
-\end_inset
-
- / 
-\begin_inset Quotes cld
-\end_inset
-
-infixr
-\begin_inset Quotes crd
-\end_inset
-
- / 
-\begin_inset Quotes cld
-\end_inset
-
-infix
-\begin_inset Quotes crd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-El entero opcional va del 0 al 9 y es mayor a mayor precedencia, y se usa
- 
-\family typewriter
-infixl
-\family default
- para indicar asociatividad por la izquierda o 
-\family typewriter
-infixr
-\family default
- por la derecha.
+, aunque realmente distintos operadores tienen distinta precedencia del
+ 0 al 9 y asociatividad.
  El operador 
 \family typewriter
 -
@@ -1881,6 +2707,14 @@ aexp /=
 
 (
 \begin_inset Quotes cld
+\end_inset
+
+ !
+\begin_inset Quotes crd
+\end_inset
+
+-
+\begin_inset Quotes crd
 \end_inset
 
  qop infixexp 
@@ -1938,6 +2772,239 @@ qop infixexp
 .
 \end_layout
 
+\begin_layout Standard
+La negación 
+\family typewriter
+-
+\emph on
+a
+\family default
+\emph default
+ equivale a 
+\family typewriter
+Prelude.negate 
+\emph on
+a
+\family default
+\emph default
+; los literales 
+\family typewriter
+char
+\family default
+ son de tipo 
+\family typewriter
+Char
+\family default
+; los 
+\family typewriter
+string
+\family default
+ de tipo 
+\family typewriter
+String
+\family default
+; los 
+\family typewriter
+integer
+\family default
+ equivalen a 
+\family typewriter
+Prelude.fromInteger (
+\emph on
+x
+\emph default
+ :: Prelude.Integer)
+\family default
+, siendo 
+\family typewriter
+\emph on
+x
+\family default
+\emph default
+ el entero indicado, y los 
+\family typewriter
+float
+\family default
+ a 
+\family typewriter
+Prelude.fromRational (
+\emph on
+x
+\emph default
+ :: Data.Ratio.Rational)
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+aexp /= 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ exp 1*(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ exp) 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+[
+\begin_inset Quotes cld
+\end_inset
+
+ exp *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ exp) 
+\begin_inset Quotes cld
+\end_inset
+
+]
+\begin_inset Quotes crd
+\end_inset
+
+ / gcon
+\end_layout
+
+\begin_layout Plain Layout
+
+gcon = 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+[
+\begin_inset Quotes cld
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+]
+\begin_inset Quotes crd
+\end_inset
+
+ / qcon
+\end_layout
+
+\begin_layout Plain Layout
+
+gconsym /= 
+\begin_inset Quotes cld
+\end_inset
+
+:
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La primera sintaxis indica una tupla, la segunda una lista de un tamaño
+ dado, 
+\family typewriter
+()
+\family default
+ el tipo unidad, 
+\family typewriter
+[]
+\family default
+ la lista vacía y un 
+\family typewriter
+qconid
+\family default
+ es un constructor de tipo, que actúa como una función currificada que recibe
+ tantos parámetros como aparezcan en la definición y del tipo correcto y
+ devuelve un elemento del tipo definido.
+ Finalmente, 
+\family typewriter
+(:) :: a -> [a] -> [a]
+\family default
+ es un operador asociativo por la derecha con precedencia 5 que añade un
+ elemento al inicio de una lista, con lo que 
+\family typewriter
+[
+\emph on
+a1
+\emph default
+, 
+\family default
+...
+\family typewriter
+, 
+\emph on
+an
+\emph default
+]
+\family default
+ equivale a 
+\family typewriter
+\emph on
+a1
+\emph default
+:
+\family default
+...
+\family typewriter
+:
+\emph on
+an
+\emph default
+:[]
+\family default
+.
+\end_layout
+
 \begin_layout Section
 Patrones
 \end_layout
@@ -1949,7 +3016,7 @@ status open
 
 \begin_layout Plain Layout
 
-pat = lpat
+pat = lpat / lpat qconop pat
 \end_layout
 
 \begin_layout Plain Layout
@@ -1962,7 +3029,7 @@ lpat = apat /
 \begin_inset Quotes crd
 \end_inset
 
- (integer / float)
+ (integer / float) / gcon 1*apat
 \end_layout
 
 \begin_layout Plain Layout
@@ -1999,7 +3066,102 @@ _
 \begin_inset Quotes crd
 \end_inset
 
+ / gcon /
+\end_layout
 
+\begin_layout Plain Layout
+
+     / qcon 
+\begin_inset Quotes cld
+\end_inset
+
+{
+\begin_inset Quotes cld
+\end_inset
+
+ [fpat *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ fpat)] 
+\begin_inset Quotes cld
+\end_inset
+
+}
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ pat 1*(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ pat) 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ /
+\end_layout
+
+\begin_layout Plain Layout
+
+     / 
+\begin_inset Quotes cld
+\end_inset
+
+[
+\begin_inset Quotes cld
+\end_inset
+
+ pat *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ pat) 
+\begin_inset Quotes cld
+\end_inset
+
+]
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+fpat = qvar 
+\begin_inset Quotes cld
+\end_inset
+
+=
+\begin_inset Quotes crd
+\end_inset
+
+ pat
 \end_layout
 
 \end_inset
@@ -2049,8 +3211,68 @@ apat
 .
  Una misma variable no puede aparecer dos veces en la misma lista de patrones,
  ni siquiera como subpatrón.
- Un literal o su negación no crea vínculos y encaja sólo si el argumento
- es igual a él.
+ Un literal, su negación o un 
+\family typewriter
+gcon
+\family default
+ suelto recibe un argumento del tipo que tendría como expresión, no crea
+ vínculos y encaja sólo si el argumento es igual a él.
+ 
+\end_layout
+
+\begin_layout Standard
+Un patrón 
+\family typewriter
+qcon 1*apat
+\family default
+, con tantos 
+\family typewriter
+apat
+\family default
+ como parámetros tenga el constructor 
+\family typewriter
+qcon
+\family default
+, acepta un argumento del tipo que crearía el constructor y encaja si este
+ es de la variante dada y cada 
+\family typewriter
+apat
+\family default
+ encaja con el elemento correspondiente de la variante, añadiendo los vínculos
+ de los 
+\family typewriter
+apat
+\family default
+.
+ Uno 
+\family typewriter
+qcon { 
+\family default
+...
+
+\family typewriter
+ }
+\family default
+ es similar pero para constructores definidos con llaves, y 
+\family typewriter
+( 
+\family default
+...
+
+\family typewriter
+ )
+\family default
+ y 
+\family typewriter
+[ 
+\family default
+...
+
+\family typewriter
+ ]
+\family default
+ hacen lo propio con tuplas y listas, entendiendo que las listas deben tener
+ tantos elementos como patrones haya para encajar.
 \end_layout
 
 \begin_layout Standard
@@ -2354,6 +3576,28 @@ exp
 \family default
 \emph default
 .
+ Todas las guardas deben tener tipo 
+\family typewriter
+Bool
+\family default
+ y todas las partes derechas de 
+\family typewriter
+gdpat
+\family default
+ o 
+\family typewriter
+alt
+\family default
+ de la misma 
+\family typewriter
+case
+\family default
+ deben tener el mismo tipo o intersección no vacía, y el tipo de la expresión
+ 
+\family typewriter
+case
+\family default
+ será la intersección de los tipos de las partes derechas.
 \end_layout
 
 \begin_layout Standard
@@ -2464,6 +3708,81 @@ exp
 \end_inset
 
  en otro caso.
+ El tipo de los parámetros puede ser restringido por los patrones y los
+ usos que se les da a las variables en 
+\family typewriter
+\emph on
+exp
+\family default
+\emph default
+, y el tipo de la función es de la forma [
+\family typewriter
+\emph on
+contexto
+\emph default
+ =>
+\family default
+]
+\family typewriter
+ 
+\emph on
+t
+\begin_inset Formula $_{1}$
+\end_inset
+
+ -> 
+\family default
+\emph default
+...
+
+\family typewriter
+\emph on
+ -> t
+\begin_inset Formula $_{n}$
+\end_inset
+
+
+\emph default
+ -> 
+\emph on
+r
+\family default
+\emph default
+, donde los 
+\family typewriter
+\emph on
+t
+\begin_inset Formula $_{i}$
+\end_inset
+
+
+\family default
+\emph default
+ son los tipos de los parámetros, que pueden contener variables posiblemente
+ restringidas por el 
+\family typewriter
+\emph on
+contexto
+\family default
+\emph default
+, y 
+\family typewriter
+\emph on
+r
+\family default
+\emph default
+ es el tipo que tiene el resultado cuando las variables tienen los tipos
+ dados por los 
+\family typewriter
+\emph on
+t
+\begin_inset Formula $_{i}$
+\end_inset
+
+
+\family default
+\emph default
+.
 \end_layout
 
 \begin_layout Section
@@ -2482,6 +3801,10 @@ definición
 asignación de tipo
 \series default
  opcional, que indica el tipo de la variable, y una serie de ecuaciones.
+ La asignación del tipo debe corresponder o al tipo inferido o a una restricción
+, no se puede dar más de una asignación a la misma variable y, si se asigna
+ un tipo más restringido, no se puede usar la variable como si tuviera el
+ tipo más general.
 \end_layout
 
 \begin_layout Standard
@@ -2496,6 +3819,16 @@ decl = gendecl / (funlhs / pat) rhs
 
 \begin_layout Plain Layout
 
+cdecl = gendecl / (funlhs / var) rhs
+\end_layout
+
+\begin_layout Plain Layout
+
+idecl = (funlhs / var) rhs /
+\end_layout
+
+\begin_layout Plain Layout
+
 gendecl = vars 
 \begin_inset Quotes cld
 \end_inset
@@ -2504,12 +3837,12 @@ gendecl = vars
 \begin_inset Quotes crd
 \end_inset
 
- type
+ type / fixity [integer] ops
 \end_layout
 
 \begin_layout Plain Layout
 
-vars = var *(
+ops = op *(
 \begin_inset Quotes cld
 \end_inset
 
@@ -2517,10 +3850,35 @@ vars = var *(
 \begin_inset Quotes crd
 \end_inset
 
- var)
+ op)
 \end_layout
 
 \begin_layout Plain Layout
+
+fixity = 
+\begin_inset Quotes cld
+\end_inset
+
+infixl
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+infixr
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+infix
+\begin_inset Quotes crd
+\end_inset
+
 
 \end_layout
 
@@ -2682,6 +4040,12 @@ exp
 \family default
 \emph default
 .
+ La inferencia de tipos funciona como si la función se hubiera definido
+ mediante una abstracción con dentro un 
+\family typewriter
+case
+\family default
+.
 \end_layout
 
 \begin_layout Standard
@@ -2700,6 +4064,27 @@ rhs
 pat
 \family default
  es una variable.
+\end_layout
+
+\begin_layout Standard
+El segundo tipo de 
+\family typewriter
+gendecl
+\family default
+ establece que los operadores indicados tengan precedencia dada por el entero
+ opcional y asociatividad por la izquierda (
+\family typewriter
+infixl
+\family default
+), por la derecha (
+\family typewriter
+infixr
+\family default
+) o ninguna (
+\family typewriter
+infix
+\family default
+).
 \end_layout
 
 \end_body
