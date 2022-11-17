@@ -3710,24 +3710,23 @@ Demostración:
 \end_inset
 
  es
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO
-\end_layout
-
-\end_inset
-
-
 \begin_inset Formula 
-\[
-\Vert x-y\Vert=\left\Vert \frac{x_{0}-y_{0}}{\Vert x_{0}-y_{0}\Vert}-y\right\Vert =\frac{1}{\Vert x_{0}-y_{0}\Vert}\left\Vert x_{0}-y_{0}-\Vert x_{0}-y_{0}\Vert y\right\Vert \geq
-\]
+\begin{align*}
+\Vert x-y\Vert & =\left\Vert \frac{x_{0}-y_{0}}{\Vert x_{0}-y_{0}\Vert}-y\right\Vert =\frac{1}{\Vert x_{0}-y_{0}\Vert}\left\Vert x_{0}-y_{0}-\Vert x_{0}-y_{0}\Vert y\right\Vert =\\
+ & =\frac{\left\Vert x_{0}-(y_{0}+\Vert x_{0}-y_{0}\Vert y)\right\Vert }{\Vert x_{0}-y_{0}\Vert}\geq\frac{d}{\Vert x_{0}-y_{0}\Vert}>1-\varepsilon,
+\end{align*}
 
 \end_inset
 
+donde usamos que 
+\begin_inset Formula $y_{0}+\Vert x_{0}-y_{0}\Vert y\in Y$
+\end_inset
 
+, y entonces 
+\begin_inset Formula $d(x,Y)\geq1-\varepsilon$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -3757,6 +3756,16 @@ Si
 
  y 
 \begin_inset Formula $d(M_{n},y_{n+1})\geq\frac{1}{2}$
+
+\end_inset
+
+ con cada 
+\begin_inset Formula $x_{n}\in M_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $d(M_{n},x_{n+1})\geq\frac{1}{2}$ >>>>>>> af
+
 \end_inset
 
 .
@@ -3764,7 +3773,108 @@ Si
 \series bold
 Demostración:
 \series default
- 
+ Tomamos 
+\begin_inset Formula $x_{1}\in X$
+\end_inset
+
+ unitario y por inducción, para 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+, 
+\begin_inset Formula $M_{n}\coloneqq\text{span}\{x_{1},\dots,x_{n}\}\neq X$
+\end_inset
+
+ por ser 
+\begin_inset Formula $X$
+\end_inset
+
+ de dimensión infinita, luego por el lema de Riesz existe 
+\begin_inset Formula $x_{n+1}\in X$
+\end_inset
+
+ unitario con 
+\begin_inset Formula $d(x_{n+1},M_{n})\geq\frac{1}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Riesz:
+\series default
+ Un espacio normado 
+\begin_inset Formula $X$
+\end_inset
+
+ es de dimensión finita si y sólo si todo cerrado y acotado de 
+\begin_inset Formula $X$
+\end_inset
+
+ es compacto, si y sólo si 
+\begin_inset Formula $B_{X}$
+\end_inset
+
+ es compacta.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Visto.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies3]$
+\end_inset
+
+ Obvio.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies1]$
+\end_inset
+
+ Si 
+\begin_inset Formula $X$
+\end_inset
+
+ tuviera dimensión infinita, habría una sucesión 
+\begin_inset Formula $\{y_{n}\}_{n}\in S_{X}\subseteq B_{X}$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert y_{n}-y_{m}\Vert\geq\frac{1}{2}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $n\neq m$
+\end_inset
+
+ y por tanto no hay puntos de acumulación.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado un espacio normado 
+\begin_inset Formula $X$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $Y\leq X$
+\end_inset
+
+ tiene dimensión finita
 \begin_inset Note Note
 status open
 

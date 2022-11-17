@@ -661,6 +661,215 @@ end{reminder}
 \end_layout
 
 \begin_layout Standard
+Un anillo es 
+\series bold
+conmutativo
+\series default
+ si su producto es conmutativo, y tiene 
+\series bold
+identidad
+\series default
+ si este tiene elemento neutro 
+\begin_inset Formula $1\in A$
+\end_inset
+
+ llamado 
+\series bold
+uno
+\series default
+.
+ Salvo que se indique lo contrario, al hablar de anillos nos referiremos
+ a anillos conmutativos y con identidad.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbb{Z}_{n}$
+\end_inset
+
+ para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ son anillos con la suma y el producto usuales.
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $c\in\mathbb{C}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{Z}[c]\coloneqq\left\{ \sum_{n=0}^{\infty}a_{n}c^{n}\right\} _{a\in\mathbb{Z}^{\mathbb{N}}}\subseteq\mathbb{C}$
+\end_inset
+
+ es un anillo con la suma y el producto de complejos, y en particular lo
+ es 
+\begin_inset Formula $\mathbb{Z}[\text{i}]\coloneqq\{a+b\text{i}\}_{a,b\in\mathbb{Z}}$
+\end_inset
+
+, el 
+\series bold
+anillo de los enteros de Gauss
+\series default
+.
+\end_layout
+
+\begin_layout Enumerate
+El conjunto de funciones 
+\begin_inset Formula $\mathbb{R}\to\mathbb{R}$
+\end_inset
+
+ que se anulan en casi todos los puntos es un anillo conmutativo sin identidad
+ con la suma y producto de funciones.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A_{1},\dots,A_{n}$
+\end_inset
+
+ son anillos, 
+\begin_inset Formula $\prod_{i=1}^{n}A_{i}$
+\end_inset
+
+ es un anillo con las operaciones componente a componente, el 
+\series bold
+anillo producto
+\series default
+ de 
+\begin_inset Formula $A_{1},\dots,A_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Dado un anillo 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $A\llbracket X\rrbracket\coloneqq A^{\mathbb{N}}$
+\end_inset
+
+ es un anillo con la suma componente a componente y el producto 
+\begin_inset Formula $a\cdot b\coloneqq(\sum_{k=0}^{n}a_{k}b_{n-k})_{n}$
+\end_inset
+
+, el 
+\series bold
+anillo de las series de potencias
+\series default
+ sobre 
+\begin_inset Formula $A$
+\end_inset
+
+, y un 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ se suele denotar como 
+\begin_inset Formula $\sum_{n}a_{n}X^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{reminder}{ga}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\begin_inset Formula $Y^{X}$
+\end_inset
+
+ al conjunto de funciones de 
+\begin_inset Formula $X$
+\end_inset
+
+ a 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+ [...] Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un anillo [...], 
+\begin_inset Formula $A^{X}=\prod_{x\in X}A$
+\end_inset
+
+ es un anillo [...].
+ Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un anillo y 
+\begin_inset Formula $n$
+\end_inset
+
+ es un entero positivo, el conjunto 
+\begin_inset Formula ${\cal M}_{n}(A)$
+\end_inset
+
+ de matrices cuadradas en 
+\begin_inset Formula $A$
+\end_inset
+
+ de tamaño 
+\begin_inset Formula $n$
+\end_inset
+
+ es un anillo con la suma y el producto habituales.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{reminder}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Dados dos anillos 
 \begin_inset Formula $A$
 \end_inset
@@ -2013,7 +2222,11 @@ máximo común divisor
 \begin_inset Formula $a=\text{mcd}S$
 \end_inset
 
-, si divide a cada elemento de 
+[
+\begin_inset Formula $=\gcd S$
+\end_inset
+
+], si divide a cada elemento de 
 \begin_inset Formula $S$
 \end_inset
 
@@ -2033,7 +2246,11 @@ mínimo común múltiplo
 \begin_inset Formula $a=\text{mcm}S$
 \end_inset
 
-, si es múltiplo de cada elemento de 
+[
+\begin_inset Formula $=\text{lcm}S$
+\end_inset
+
+], si es múltiplo de cada elemento de 
 \begin_inset Formula $S$
 \end_inset
 
@@ -2430,6 +2647,424 @@ Todo cuerpo es un DFU, pues no tiene elementos nulos no invertibles.
  También lo son los anillos de polinomios sobre un DFU.
 \end_layout
 
+\begin_layout Standard
+Para 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $r\in\mathbb{Z}_{n}$
+\end_inset
+
+ es unidad si y sólo si 
+\begin_inset Formula $\gcd\{r,n\}=1$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si fuera 
+\begin_inset Formula $d\coloneqq\gcd\{r,n\}>1$
+\end_inset
+
+, sean 
+\begin_inset Formula $r',n'\in\mathbb{Z}$
+\end_inset
+
+ con 
+\begin_inset Formula $r=dr'$
+\end_inset
+
+ y 
+\begin_inset Formula $n=dn'$
+\end_inset
+
+, entonces 
+\begin_inset Formula $n'\not\equiv0\bmod n$
+\end_inset
+
+ pero 
+\begin_inset Formula $rn'=dr'n'=r'n\equiv0\bmod n$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $r$
+\end_inset
+
+ es divisor de cero.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Una identidad de Bézout 
+\begin_inset Formula $ar+bn=1$
+\end_inset
+
+ se traduce en que 
+\begin_inset Formula $ar\equiv1\bmod n$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $r\in\mathbb{Z}_{n}$
+\end_inset
+
+ es nilpotente si y sólo si todos los divisores primos de 
+\begin_inset Formula $n$
+\end_inset
+
+ dividen a 
+\begin_inset Formula $r$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $m$
+\end_inset
+
+ con 
+\begin_inset Formula $r^{m}\equiv0$
+\end_inset
+
+ y 
+\begin_inset Formula $p$
+\end_inset
+
+ un divisor primo de 
+\begin_inset Formula $n$
+\end_inset
+
+, como 
+\begin_inset Formula $n$
+\end_inset
+
+ divide a 
+\begin_inset Formula $r^{m}$
+\end_inset
+
+, 
+\begin_inset Formula $p$
+\end_inset
+
+ divide a 
+\begin_inset Formula $r^{m}$
+\end_inset
+
+ y por tanto a 
+\begin_inset Formula $r$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $p_{1}^{k_{1}}\cdots p_{s}^{k_{s}}$
+\end_inset
+
+ la descomposición prima de 
+\begin_inset Formula $n$
+\end_inset
+
+, como 
+\begin_inset Formula $p_{1}\cdots p_{s}$
+\end_inset
+
+ divide a 
+\begin_inset Formula $r$
+\end_inset
+
+, si 
+\begin_inset Formula $m\coloneqq\max\{k_{1},\dots,k_{s}\}$
+\end_inset
+
+, 
+\begin_inset Formula $n$
+\end_inset
+
+ divide a 
+\begin_inset Formula $p_{1}^{m}\cdots p_{s}^{m}$
+\end_inset
+
+ y este a 
+\begin_inset Formula $r^{m}$
+\end_inset
+
+, luego 
+\begin_inset Formula $n$
+\end_inset
+
+ divide a 
+\begin_inset Formula $r^{m}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{Z}_{n}$
+\end_inset
+
+ es un cuerpo si y sólo si es un dominio, si y sólo si 
+\begin_inset Formula $n$
+\end_inset
+
+ es primo.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Visto.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies3]$
+\end_inset
+
+ Probamos el contrarrecíproco.
+ Si existen 
+\begin_inset Formula $p,q\in\mathbb{Z}$
+\end_inset
+
+, 
+\begin_inset Formula $1<p,q<n$
+\end_inset
+
+, con 
+\begin_inset Formula $n=pq$
+\end_inset
+
+, 
+\begin_inset Formula $p$
+\end_inset
+
+ es divisor de 0 en 
+\begin_inset Formula $\mathbb{Z}_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies1]$
+\end_inset
+
+ Para 
+\begin_inset Formula $r\in\mathbb{Z}_{n}\setminus\{0\}$
+\end_inset
+
+, 
+\begin_inset Formula $\gcd\{r,n\}=1$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $r$
+\end_inset
+
+ es unidad.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\mathbb{Z}_{n}$
+\end_inset
+
+ es reducido si y sólo si 
+\begin_inset Formula $n$
+\end_inset
+
+ es 
+\series bold
+libre de cuadrados
+\series default
+, es decir, si no tiene divisores cuadrados de primos.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si no fuera libre de cuadrados, sea 
+\begin_inset Formula $n=p^{2}q$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $p,q\in\mathbb{Z}$
+\end_inset
+
+ con 
+\begin_inset Formula $p$
+\end_inset
+
+ primo, en 
+\begin_inset Formula $\mathbb{Z}_{n}$
+\end_inset
+
+ 
+\begin_inset Formula $pq\neq0$
+\end_inset
+
+ pero 
+\begin_inset Formula $(pq)^{2}=p^{2}q^{2}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+La descomposición en primos de 
+\begin_inset Formula $n$
+\end_inset
+
+ es de la forma 
+\begin_inset Formula $p_{1}\cdots p_{s}$
+\end_inset
+
+ con los 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ distintos, y si 
+\begin_inset Formula $r\in\mathbb{Z}_{n}$
+\end_inset
+
+ cumple 
+\begin_inset Formula $r^{2}=0$
+\end_inset
+
+ entonces en 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ cada 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ divide a 
+\begin_inset Formula $r^{2}$
+\end_inset
+
+ y por tanto a 
+\begin_inset Formula $r$
+\end_inset
+
+, luego 
+\begin_inset Formula $n$
+\end_inset
+
+ divide a 
+\begin_inset Formula $r$
+\end_inset
+
+ y 
+\begin_inset Formula $r=0$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{Z}_{n}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Subanillos
 \end_layout
