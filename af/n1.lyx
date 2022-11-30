@@ -7,6 +7,7 @@
 \textclass book
 \begin_preamble
 \input{../defs}
+\usepackage{commath}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -81,6 +82,31 @@
 \begin_body
 
 \begin_layout Standard
+David Hilbert (1862–1943) fue un influyente matemático alemán que formuló
+ la teoría de los espacios de Hilbert.
+ En 1900 publicó una lista de 23 problemas que marcarían en buena medida
+ el progreso matemático en el siglo XX, y presentó 10 de ellos en el 
+\emph on
+\lang english
+International Congress of Mathematicians
+\emph default
+\lang spanish
+ de París de 1900.
+ Fue editor jefe de 
+\emph on
+\lang ngerman
+Mathematische Annalen
+\emph default
+\lang spanish
+, una revista matemática muy prestigiosa por casi 150 años, y tuvo discípulos
+ como 
+\lang ngerman
+Alfréd Haar, Erhard Schmidt, Hugo Steihaus, Hermann Weyl o Ernst Zermelo
+\lang spanish
+.
+\end_layout
+
+\begin_layout Standard
 Salvo que se indique lo contrario, al hablar de espacios vectoriales entenderemo
 s que lo son sobre 
 \begin_inset Formula $\mathbb{R}$
@@ -88,6 +114,31 @@ s que lo son sobre
 
  o 
 \begin_inset Formula $\mathbb{C}$
+\end_inset
+
+.
+ Dados dos 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacios vectoriales 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+, 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ es 
+\series bold
+lineal conjugada
+\series default
+ si 
+\begin_inset Formula $\forall a,b\in\mathbb{K},\forall x,y\in X,f(ax+by)=\overline{a}f(x)+\overline{b}f(y)$
 \end_inset
 
 .
@@ -187,18 +238,10 @@ norma
 
 \begin_layout Standard
 Toda norma es definida positiva
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
 , pues si 
 \begin_inset Formula $x\in X\setminus0$
 \end_inset
@@ -216,14 +259,6 @@ begin{nproof}
 \end_inset
 
 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
 \end_layout
 
 \end_inset
@@ -258,7 +293,7 @@ espacio normado
 \end_inset
 
 , y llamamos 
-\begin_inset Formula $B_{X}\coloneqq B[0,1]=\overline{B(0,1)}=\{x\in X\mid \Vert x\Vert\leq1\}$
+\begin_inset Formula $B_{X}\coloneqq B[0,1]=\overline{B(0,1)}=\{x\in X\mid\Vert x\Vert\leq1\}$
 \end_inset
 
  y conjunto de 
@@ -266,23 +301,15 @@ espacio normado
 vectores unitarios
 \series default
  a 
-\begin_inset Formula $S_{X}\coloneqq\partial B(0,1)=\{x\in X\mid \Vert x\Vert=1\}$
+\begin_inset Formula $S_{X}\coloneqq\partial B(0,1)=\{x\in X\mid\Vert x\Vert=1\}$
 \end_inset
 
 .
  La norma es uniformemente continua en este espacio métrico
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
 , pues para 
 \begin_inset Formula $\varepsilon>0$
 \end_inset
@@ -304,14 +331,6 @@ begin{nproof}
 \end_inset
 
 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
 \end_layout
 
 \end_inset
@@ -327,6 +346,22 @@ unitario
 espacio de Banach
 \series default
  es un espacio normado completo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -366,23 +401,10 @@ Todo subespacio vectorial de
 \end_inset
 
  son continuas.
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
 Sea 
 \begin_inset Formula $A\subseteq X$
 \end_inset
@@ -464,14 +486,6 @@ con lo que
 \end_inset
 
 .
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
 \end_layout
 
 \end_inset
@@ -479,7 +493,6 @@ end{nproof}
 
 \end_layout
 
-\end_deeper
 \begin_layout Enumerate
 \begin_inset Formula $s_{y}:X\to X$
 \end_inset
@@ -505,23 +518,10 @@ end{nproof}
 \end_inset
 
  son homeomorfismos.
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
 \begin_inset Formula $s_{y}$
 \end_inset
 
@@ -550,14 +550,6 @@ begin{nproof}
 \end_inset
 
 , que también son continuas.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
 \end_layout
 
 \end_inset
@@ -565,7 +557,6 @@ end{nproof}
 
 \end_layout
 
-\end_deeper
 \begin_layout Enumerate
 La suma de un abierto y un subconjunto cualquiera de 
 \begin_inset Formula $X$
@@ -576,23 +567,10 @@ La suma de un abierto y un subconjunto cualquiera de
 \end_inset
 
 .
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
 Sean 
 \begin_inset Formula $G\subseteq X$
 \end_inset
@@ -631,14 +609,6 @@ Sean
 \end_inset
 
 .
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
 \end_layout
 
 \end_inset
@@ -646,7 +616,6 @@ end{nproof}
 
 \end_layout
 
-\end_deeper
 \begin_layout Enumerate
 La suma de un cerrado y un compacto de 
 \begin_inset Formula $X$
@@ -657,23 +626,10 @@ La suma de un cerrado y un compacto de
 \end_inset
 
 .
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
 Sean 
 \begin_inset Formula $F$
 \end_inset
@@ -728,14 +684,6 @@ Sean
 \end_inset
 
 .
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
 \end_layout
 
 \end_inset
@@ -743,7 +691,6 @@ end{nproof}
 
 \end_layout
 
-\end_deeper
 \begin_layout Enumerate
 Si 
 \begin_inset Formula $Y\subseteq X$
@@ -754,23 +701,10 @@ Si
 \end_inset
 
 .
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
 Dados 
 \begin_inset Formula $a\in\mathbb{K}$
 \end_inset
@@ -800,14 +734,6 @@ Dados
 \end_inset
 
 .
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
 \end_layout
 
 \end_inset
@@ -815,29 +741,15 @@ end{nproof}
 
 \end_layout
 
-\end_deeper
 \begin_layout Enumerate
 Un subespacio vectorial de 
 \begin_inset Formula $X$
 \end_inset
 
  es propio si y sólo si su interior es vacío.
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
-\begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
 \begin_layout Enumerate
 \begin_inset Argument item:1
 status open
@@ -886,6 +798,7 @@ Sea
 .
 \end_layout
 
+\begin_deeper
 \begin_layout Enumerate
 \begin_inset Argument item:1
 status open
@@ -902,23 +815,12 @@ status open
 El contrarrecíproco es trivial.
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
-\end_layout
-
+\end_deeper
 \end_inset
 
 
 \end_layout
 
-\end_deeper
 \begin_layout Enumerate
 \begin_inset Formula $X$
 \end_inset
@@ -944,22 +846,9 @@ end{nproof}
 \end_inset
 
 .
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
-\begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
 \begin_layout Enumerate
 \begin_inset Argument item:1
 status open
@@ -1052,23 +941,11 @@ Sea
  es convergente.
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
-\end_deeper
 \begin_layout Enumerate
 Todo subespacio vectorial de Banach de 
 \begin_inset Formula $X$
@@ -1079,23 +956,10 @@ Todo subespacio vectorial de Banach de
 \end_inset
 
 .
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
 Toda sucesión de Cauchy en 
 \begin_inset Formula $Y\leq X$
 \end_inset
@@ -1109,14 +973,6 @@ Toda sucesión de Cauchy en
 \end_inset
 
 .
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
 \end_layout
 
 \end_inset
@@ -1124,30 +980,16 @@ end{nproof}
 
 \end_layout
 
-\end_deeper
 \begin_layout Enumerate
 Si 
 \begin_inset Formula $X$
 \end_inset
 
  es de Banach, todo subespacio vectorial cerrado es de Banach.
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
 Toda sucesión de Cauchy en 
 \begin_inset Formula $Y\leq X$
 \end_inset
@@ -1171,6 +1013,11 @@ Toda sucesión de Cauchy en
 .
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -1179,17 +1026,12 @@ status open
 
 
 \backslash
-end{nproof}
+end{samepage}
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Operadores continuos
 \end_layout
 
 \begin_layout Standard
@@ -1311,22 +1153,9 @@ Si
 \end_inset
 
  es uniformemente continuo.
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
-\begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
 \begin_layout Description
 \begin_inset Formula $1\implies2]$
 \end_inset
@@ -1460,23 +1289,11 @@ begin{nproof}
  Obvio.
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
-\end_deeper
 \begin_layout Enumerate
 \begin_inset Formula ${\cal L}(X,Y)$
 \end_inset
@@ -1506,23 +1323,10 @@ tomando
 \end_inset
 
  también lo es.
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
 Si 
 \begin_inset Formula $a\in\mathbb{K}$
 \end_inset
@@ -1629,7 +1433,7 @@ Núcleo 0: Si
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Finalmente, si 
 \begin_inset Formula $\{T_{n}\}_{n}\subseteq{\cal L}(X,Y)$
 \end_inset
@@ -1788,7 +1592,7 @@ Para ver que es continua, como
  es continua en 0, por lo que es continua.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Finalmente, para 
 \begin_inset Formula $\varepsilon>0$
 \end_inset
@@ -1821,19 +1625,11 @@ Finalmente, para
 
 \end_inset
 
- por lo que finalmente 
+por lo que finalmente 
 \begin_inset Formula $\Vert T_{n}-T\Vert=\sup_{x\in S_{X}}\Vert T_{n}(x)-T(x)\Vert<\varepsilon$
 \end_inset
 
 .
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
 \end_layout
 
 \end_inset
@@ -1841,30 +1637,16 @@ end{nproof}
 
 \end_layout
 
-\end_deeper
 \begin_layout Enumerate
 La composición de operadores acotados es un operador acotado.
 \end_layout
 
 \begin_layout Enumerate
 En espacios de dimensión infinita hay operadores no acotados.
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
 Sean 
 \begin_inset Formula $X$
 \end_inset
@@ -1914,14 +1696,6 @@ Sean
 \end_inset
 
  no tiene cota superior.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
 \end_layout
 
 \end_inset
@@ -1929,7 +1703,6 @@ end{nproof}
 
 \end_layout
 
-\end_deeper
 \begin_layout Standard
 Una 
 \series bold
@@ -1971,10 +1744,6 @@ dual topológico
 .
 \end_layout
 
-\begin_layout Subsection
-Isomorfismos topológicos
-\end_layout
-
 \begin_layout Standard
 Dados dos espacios normados 
 \begin_inset Formula $X$
@@ -1998,20 +1767,8 @@ isomorfismo topológico
 \end_inset
 
 .
-\begin_inset ERT
+\begin_inset Note Comment
 status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
 
 \begin_layout Itemize
 \begin_inset Argument item:1
@@ -2075,17 +1832,6 @@ Para
  son continuas.
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
-\end_layout
-
 \end_inset
 
 
@@ -2144,18 +1890,10 @@ Si
  son espacios normados topológicamente isomorfos, la completitud de uno
  equivale a la del otro.
  
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
 En efecto, si 
 \begin_inset Formula $X$
 \end_inset
@@ -2229,23 +1967,11 @@ En efecto, si
 \end_inset
 
 .
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-Compleción
 \end_layout
 
 \begin_layout Standard
@@ -2283,18 +2009,10 @@ compleción
 
 .
  
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
 
 \series bold
 Demostración:
@@ -2392,7 +2110,7 @@ Demostración:
 
 \end_inset
 
- El operador isométrico 
+El operador isométrico 
 \begin_inset Formula $J$
 \end_inset
 
@@ -2459,162 +2177,113 @@ Demostración:
 \end_inset
 
  es completo, sea 
-\begin_inset Formula $\{\overline{x}_{n}\}_{n}\subseteq\hat{X}$
+\begin_inset Formula $\{\overline{x_{n}}\}_{n}\subseteq\hat{X}$
 \end_inset
 
  de Cauchy, para 
-\begin_inset Formula $k\in\mathbb{N}$
+\begin_inset Formula $n\in\mathbb{N}$
 \end_inset
 
  existe 
-\begin_inset Formula $N_{k}\in\mathbb{N}$
+\begin_inset Formula $y_{n}\in X$
 \end_inset
 
-, que podemos tomar mayor que 
-\begin_inset Formula $N_{k-1}$
-\end_inset
-
-, tal que para 
-\begin_inset Formula $n,m\geq N_{k}$
-\end_inset
-
- es 
-\begin_inset Formula $\Vert x_{kn}-x_{km}\Vert<\frac{1}{k}$
-\end_inset
-
-, y llamamos 
-\begin_inset Formula $y_{k}\coloneqq x_{kN_{k}}\in X$
+ tal que 
+\begin_inset Formula $\Vert\overline{x_{n}}-y_{n}\Vert<\frac{1}{n}$
 \end_inset
 
 .
- Queremos ver que 
-\begin_inset Formula $(y_{k})_{k}$
+ En efecto, existe 
+\begin_inset Formula $m_{0}\in\mathbb{N}$
 \end_inset
 
- es de Cauchy y que 
-\begin_inset Formula $\overline{x}_{n}\to\overline{y}$
-\end_inset
-
-.
- Para lo primero, para 
-\begin_inset Formula $\varepsilon>0$
-\end_inset
-
-, existe 
-\begin_inset Formula $M_{1}$
-\end_inset
-
- tal que para 
-\begin_inset Formula $n,m\geq M_{1}$
-\end_inset
-
- es 
-\begin_inset Formula $\Vert x_{n}-x_{m}\Vert=\lim_{k}\Vert x_{nk}-x_{mk}\Vert<\frac{\varepsilon}{2}$
-\end_inset
-
-, luego existe 
-\begin_inset Formula $M_{2}$
-\end_inset
-
- tal que para 
-\begin_inset Formula $i\geq M_{2}$
-\end_inset
-
- es 
-\begin_inset Formula $\Vert x_{ni}-x_{mi}\Vert<\frac{\varepsilon}{2}$
-\end_inset
-
-.
- Sea entonces 
-\begin_inset Formula $M\coloneqq\max\{M_{1},M_{2}\}$
-\end_inset
-
-, para 
-\begin_inset Formula $n,m\geq M$
-\end_inset
-
-, como 
-\begin_inset Formula $n,m\geq M_{1}$
-\end_inset
-
- y 
-\begin_inset Formula $N_{n}\geq n\geq M_{2}$
+ tal que, para 
+\begin_inset Formula $k,m\geq m_{0}$
 \end_inset
 
 , 
-\begin_inset Formula $\Vert x_{nN_{n}}-x_{mN_{n}}\Vert<\frac{\varepsilon}{2}$
+\begin_inset Formula $\Vert x_{nk}-x_{nm}\Vert<\frac{1}{2n}$
 \end_inset
 
-, con lo que 
-\begin_inset Formula 
-\[
-\Vert y_{n}-y_{m}\Vert=\Vert x_{nN_{n}}-x_{mN_{m}}\Vert\leq\Vert x_{nN_{n}}-x_{mN_{n}}\Vert+\Vert x_{mN_{n}}-x_{mN_{m}}\Vert<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.
-\]
-
+, luego si 
+\begin_inset Formula $y_{n}\coloneqq x_{nm_{0}}$
 \end_inset
 
-Para lo segundo, para 
+, 
+\begin_inset Formula $\Vert x_{nk}-y_{n}\Vert<\frac{1}{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert\overline{x_{n}}-y_{n}\Vert=\lim_{k}\Vert x_{nk}-y_{n}\Vert\leq\frac{1}{2n}<\frac{1}{n}$
+\end_inset
+
+.
+ Entonces, para 
 \begin_inset Formula $\varepsilon>0$
 \end_inset
 
 , sean 
-\begin_inset Formula $n_{0}$
-\end_inset
-
- tal que para 
-\begin_inset Formula $n,m\geq0$
-\end_inset
-
- es 
-\begin_inset Formula $\Vert y_{n}-y_{m}\Vert<\frac{\varepsilon}{3}$
-\end_inset
-
- y 
-\begin_inset Formula $k\in\mathbb{N}$
+\begin_inset Formula $N\in\mathbb{N}$
 \end_inset
 
  con 
-\begin_inset Formula $k\geq n_{0}$
+\begin_inset Formula $\frac{1}{N}<\frac{\varepsilon}{4}$
 \end_inset
 
  y 
-\begin_inset Formula $\frac{1}{k}<\frac{\varepsilon}{3}$
+\begin_inset Formula $M\in\mathbb{N}$
 \end_inset
 
-, para 
-\begin_inset Formula $i\geq N_{k}$
+ tal que para 
+\begin_inset Formula $n,m>M$
 \end_inset
 
  es 
-\begin_inset Formula $\Vert x_{ki}-y_{k}\Vert=\Vert x_{ki}-x_{kN_{k}}\Vert<\frac{1}{k}$
+\begin_inset Formula $\Vert\overline{x_{n}}-\overline{x_{m}}\Vert<\frac{\varepsilon}{3}$
 \end_inset
 
-, luego 
+, para 
+\begin_inset Formula $n,m>\max\{N,M\}$
+\end_inset
+
+, 
 \begin_inset Formula 
 \[
-\Vert\overline{x}_{k}-\overline{y}\Vert=\lim_{i}\Vert x_{ki}-y_{i}\Vert\leq\lim_{i}(\Vert x_{ki}-y_{k}\Vert+\Vert y_{k}-y_{i}\Vert)\leq\frac{\varepsilon}{3}+\frac{\varepsilon}{3}<\varepsilon
+\Vert y_{n}-y_{m}\Vert\leq\Vert y_{n}-\overline{u_{n}}\Vert+\Vert\overline{u_{n}}-\overline{u_{m}}\Vert+\Vert\overline{u_{m}}-y_{m}\Vert<\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon,
 \]
 
 \end_inset
 
-y la completitud queda probada.
-\begin_inset ERT
-status open
+luego 
+\begin_inset Formula $y_{n}$
+\end_inset
 
-\begin_layout Plain Layout
+ es de Cauchy y solo queda que ver que 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
 
+ converge a 
+\begin_inset Formula $L\coloneqq\overline{(y_{n})_{n}}$
+\end_inset
 
-\backslash
-end{nproof}
+, pero por construcción es 
+\begin_inset Formula $\lim_{n}\Vert y_{n}-L\Vert=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{n}\Vert\overline{x_{n}}-y_{n}\Vert\leq\lim_{n}\frac{1}{n}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\lim_{n}\Vert\overline{x_{n}}-L\Vert\leq\lim_{n}(\Vert\overline{x_{n}}-y_{n}\Vert+\Vert y_{n}-L\Vert)=0+0=0$
+\end_inset
+
+.
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-Espacios cociente
 \end_layout
 
 \begin_layout Standard
@@ -2714,6 +2383,22 @@ espacio vectorial cociente
 \begin_inset Formula $X$
 \end_inset
 
+, y llamamos 
+\series bold
+codimensión
+\series default
+ de 
+\begin_inset Formula $Y$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+ a la dimensión de 
+\begin_inset Formula $X/Y$
+\end_inset
+
 .
  Si 
 \begin_inset Formula $X$
@@ -2743,23 +2428,10 @@ norma cociente
 \end_inset
 
 .
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
 Si 
 \begin_inset Formula $x,x'\in X$
 \end_inset
@@ -2842,14 +2514,6 @@ Finalmente, si
 \end_inset
 
 .
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
 \end_layout
 
 \end_inset
@@ -2857,30 +2521,16 @@ end{nproof}
 
 \end_layout
 
-\end_deeper
 \begin_layout Enumerate
 La aplicación cociente 
 \begin_inset Formula $X\to X/Y$
 \end_inset
 
  es lineal, continua y abierta.
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
 Sea 
 \begin_inset Formula $Q$
 \end_inset
@@ -2932,14 +2582,6 @@ Sea
 \end_inset
 
 .
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
 \end_layout
 
 \end_inset
@@ -2947,26 +2589,12 @@ end{nproof}
 
 \end_layout
 
-\end_deeper
 \begin_layout Enumerate
 La norma cociente genera la topología cociente.
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
 Dado 
 \begin_inset Formula $V\subseteq X/Y$
 \end_inset
@@ -2992,14 +2620,6 @@ Dado
 \end_inset
 
  abierta.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
 \end_layout
 
 \end_inset
@@ -3007,7 +2627,6 @@ end{nproof}
 
 \end_layout
 
-\end_deeper
 \begin_layout Enumerate
 Si 
 \begin_inset Formula $X$
@@ -3018,23 +2637,10 @@ Si
 \end_inset
 
 .
-\begin_inset ERT
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
 Sea 
 \begin_inset Formula $\{\overline{x_{n}}\}_{n}\subseteq X/Y$
 \end_inset
@@ -3072,24 +2678,11 @@ Sea
 \end_inset
 
  converge.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Suma directa topológica
 \end_layout
 
 \begin_layout Standard
@@ -3162,20 +2755,8 @@ complementario topológico
 \end_inset
 
 .
-\begin_inset ERT
+\begin_inset Note Comment
 status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{nproof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
 
 \begin_layout Itemize
 \begin_inset Argument item:1
@@ -3226,17 +2807,6 @@ Que
  es continua, y análogamente lo es la otra proyección.
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{nproof}
-\end_layout
-
 \end_inset
 
 
@@ -3270,11 +2840,16 @@ Desigualdad de Hölder:
 ,
 \begin_inset Formula 
 \[
-\sum_{k=1}^{n}a_{k}b_{k}\leq\left(\sum_{k=1}^{n}a_{k}^{p}\right)^{\frac{1}{p}}\left(\sum_{k=1}^{n}b_{k}^{q}\right)^{\frac{1}{q}}.
+\sum_{k}a_{k}b_{k}\leq\left(\sum_{k}a_{k}^{p}\right)^{\frac{1}{p}}\left(\sum_{k}b_{k}^{q}\right)^{\frac{1}{q}}.
 \]
 
 \end_inset
 
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 
 \series bold
 Demostración:
@@ -3315,8 +2890,13 @@ y si
  y sumando,
 \begin_inset Formula 
 \[
-\frac{\sum_{k=1}^{n}a_{k}b_{k}}{AB}=\sum_{k=1}^{n}\frac{a_{k}}{A}\frac{b_{k}}{B}\leq\frac{1}{p}\left(\sum_{k=1}^{n}\frac{a_{k}^{p}}{A^{p}}\right)+\frac{1}{q}\left(\sum_{k=1}^{n}\frac{b_{k}^{q}}{B^{q}}\right)=1.
+\frac{\sum_{k}a_{k}b_{k}}{AB}=\sum_{k}\frac{a_{k}}{A}\frac{b_{k}}{B}\leq\frac{1}{p}\left(\sum_{k}\frac{a_{k}^{p}}{A^{p}}\right)+\frac{1}{q}\left(\sum_{k}\frac{b_{k}^{q}}{B^{q}}\right)=1.
 \]
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -3357,6 +2937,11 @@ Desigualdad de Minkowski:
 \end_inset
 
 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
 \series bold
 Demostración:
 \series default
@@ -3384,9 +2969,9 @@ Demostración:
 , y por la desigualdad de Hölder,
 \begin_inset Formula 
 \begin{align*}
-\alpha & \coloneqq\sum_{k=1}^{n}(a_{k}+b_{k})^{p}=\sum_{k=1}^{n}a_{k}(a_{k}+b_{k})^{p-1}+\sum_{k=1}^{n}b_{k}(a_{k}+b_{k})^{p-1}\leq\\
- & \leq\left(\sum_{k=1}^{n}a_{k}^{p}\right)^{\frac{1}{p}}\left(\sum_{k=1}^{n}(a_{k}+b_{k})^{q(p-1)}\right)^{\frac{1}{q}}+\left(\sum_{k=1}^{n}b_{k}^{p}\right)^{\frac{1}{p}}\left(\sum_{k=1}^{n}(a_{k}+b_{k})^{q(p-1)}\right)^{\frac{1}{q}}=\\
- & =\left(\left(\sum_{k=1}^{n}a_{k}^{p}\right)^{\frac{1}{p}}+\left(\sum_{k=1}^{n}b_{k}^{p}\right)^{\frac{1}{p}}\right)\left(\sum_{k=1}^{n}(a_{k}+b_{k})^{p}\right)^{\frac{1}{q}}=\alpha^{\frac{1}{q}}\left(\left(\sum_{k=1}^{n}a_{k}^{p}\right)^{\frac{1}{p}}+\left(\sum_{k=1}^{n}b_{k}^{p}\right)^{\frac{1}{p}}\right),
+\alpha & \coloneqq\sum_{k}(a_{k}+b_{k})^{p}=\sum_{k}a_{k}(a_{k}+b_{k})^{p-1}+\sum_{k}b_{k}(a_{k}+b_{k})^{p-1}\leq\\
+ & \leq\left(\sum_{k}a_{k}^{p}\right)^{\frac{1}{p}}\left(\sum_{k}(a_{k}+b_{k})^{q(p-1)}\right)^{\frac{1}{q}}+\left(\sum_{k}b_{k}^{p}\right)^{\frac{1}{p}}\left(\sum_{k}(a_{k}+b_{k})^{q(p-1)}\right)^{\frac{1}{q}}=\\
+ & =\left(\left(\sum_{k}a_{k}^{p}\right)^{\frac{1}{p}}+\left(\sum_{k}b_{k}^{p}\right)^{\frac{1}{p}}\right)\left(\sum_{k}(a_{k}+b_{k})^{p}\right)^{\frac{1}{q}}=\alpha^{\frac{1}{q}}\left(\left(\sum_{k}a_{k}^{p}\right)^{\frac{1}{p}}+\left(\sum_{k}b_{k}^{p}\right)^{\frac{1}{p}}\right),
 \end{align*}
 
 \end_inset
@@ -3398,7 +2983,24 @@ y dividiendo entre
  se obtiene el resultado.
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
 Para 
 \begin_inset Formula $n\in\mathbb{N}$
 \end_inset
@@ -3417,16 +3019,16 @@ Para
 , donde
 \begin_inset Formula 
 \[
-\Vert x\Vert_{p}\coloneqq\left(\sum_{k=1}^{n}|x_{k}|^{p}\right)^{\frac{1}{p}}.
+\Vert x\Vert_{p}\coloneqq\left(\sum_{k\in\mathbb{N}_{n}}|x_{k}|^{p}\right)^{\frac{1}{p}}.
 \]
 
 \end_inset
 
 
-\end_layout
+\begin_inset Note Comment
+status open
 
-\begin_deeper
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula $\Vert\cdot\Vert_{p}$
 \end_inset
 
@@ -3438,7 +3040,11 @@ Para
 .
 \end_layout
 
-\end_deeper
+\end_inset
+
+
+\end_layout
+
 \begin_layout Enumerate
 \begin_inset Formula $\ell_{n}^{\infty}\coloneqq(\mathbb{K}^{n},\Vert\cdot\Vert_{p})$
 \end_inset
@@ -3448,10 +3054,10 @@ Para
 \end_inset
 
 .
-\end_layout
+\begin_inset Note Comment
+status open
 
-\begin_deeper
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula $\Vert\cdot\Vert_{\infty}$
 \end_inset
 
@@ -3462,7 +3068,27 @@ Para
 .
 \end_layout
 
-\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 Si 
 \begin_inset Formula $X$
@@ -3486,6 +3112,11 @@ Si
 
  es un isomorfismo topológico.
  
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
 \series bold
 Demostración:
 \series default
@@ -3501,7 +3132,7 @@ Demostración:
 ,
 \begin_inset Formula 
 \[
-\Vert T(a)\Vert=\left\Vert \sum_{k=1}^{n}a_{k}e_{k}\right\Vert \leq\sum_{k=1}^{n}|a_{k}|\sup_{k=1}^{n}\{\Vert e_{k}\Vert\}=\sup_{k=1}^{n}\{\Vert e_{k}\Vert\}\Vert(a_{1},\dots,a_{n})\Vert_{1}.
+\Vert T(a)\Vert=\left\Vert \sum_{k}a_{k}e_{k}\right\Vert \leq\sum_{k}|a_{k}|\sup_{k}\{\Vert e_{k}\Vert\}=\sup_{k}\{\Vert e_{k}\Vert\}\Vert(a_{1},\dots,a_{n})\Vert_{1}.
 \]
 
 \end_inset
@@ -3541,6 +3172,11 @@ Para la otra cota,
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 Así:
 \end_layout
@@ -3560,10 +3196,10 @@ Toda norma en
 \end_inset
 
  genera la topología producto.
-\end_layout
+\begin_inset Note Comment
+status open
 
-\begin_deeper
-\begin_layout Standard
+\begin_layout Plain Layout
 Las bolas de 
 \begin_inset Formula $\ell_{n}^{\infty}$
 \end_inset
@@ -3575,13 +3211,17 @@ Las bolas de
  genera la misma topología.
 \end_layout
 
-\end_deeper
-\begin_layout Enumerate
-Todo espacio de dimensión finita es de Banach.
+\end_inset
+
+
 \end_layout
 
-\begin_deeper
-\begin_layout Standard
+\begin_layout Enumerate
+Todo espacio de dimensión finita es de Banach.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 Lo es 
 \begin_inset Formula $\ell_{n}^{\infty}$
 \end_inset
@@ -3589,7 +3229,11 @@ Lo es
  por tener topología producto.
 \end_layout
 
-\end_deeper
+\end_inset
+
+
+\end_layout
+
 \begin_layout Enumerate
 Todo subespacio de dimensión finita de un espacio normado es cerrado.
 \end_layout
@@ -3597,10 +3241,10 @@ Todo subespacio de dimensión finita de un espacio normado es cerrado.
 \begin_layout Enumerate
 Todo operador entre espacios normados con dominio de dimensión finita es
  continuo.
-\end_layout
+\begin_inset Note Comment
+status open
 
-\begin_deeper
-\begin_layout Standard
+\begin_layout Plain Layout
 Por isomorfismo podemos suponer que el dominio es 
 \begin_inset Formula $\ell_{n}^{1}$
 \end_inset
@@ -3615,13 +3259,17 @@ Por isomorfismo podemos suponer que el dominio es
 \end_inset
 
 , 
-\begin_inset Formula $\sup_{x\in S_{\ell_{n}^{1}}}\Vert T(x)\Vert=\sup_{\{x\in\mathbb{K}^{n}\mid \sum_{i}x_{i}=1\}}\left\Vert \sum_{i}x_{i}a_{i}\right\Vert =\sup_{i=1}^{n}a_{i}<\infty$
+\begin_inset Formula $\sup_{x\in S_{\ell_{n}^{1}}}\Vert T(x)\Vert=\sup_{\{x\in\mathbb{K}^{n}\mid\sum_{i}x_{i}=1\}}\left\Vert \sum_{i}x_{i}a_{i}\right\Vert =\sup_{i=1}^{n}a_{i}<\infty$
 \end_inset
 
 .
 \end_layout
 
-\end_deeper
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 
 \series bold
@@ -3756,7 +3404,6 @@ Si
 
  y 
 \begin_inset Formula $d(M_{n},y_{n+1})\geq\frac{1}{2}$
-
 \end_inset
 
  con cada 
@@ -3764,8 +3411,7 @@ Si
 \end_inset
 
  y 
-\begin_inset Formula $d(M_{n},x_{n+1})\geq\frac{1}{2}$ >>>>>>> af
-
+\begin_inset Formula $\ensuremath{d(M_{n},x_{n+1})\geq\frac{1}{2}}$
 \end_inset
 
 .
@@ -3801,6 +3447,18 @@ Demostración:
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
 
 \series bold
 Teorema de Riesz:
@@ -3862,6 +3520,22 @@ Teorema de Riesz:
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Dado un espacio normado 
 \begin_inset Formula $X$
 \end_inset
@@ -3874,12 +3548,7225 @@ Si
 \begin_inset Formula $Y\leq X$
 \end_inset
 
- tiene dimensión finita
+ es cerrado y 
+\begin_inset Formula $Z\leq X$
+\end_inset
+
+ tiene dimensión finita, 
+\begin_inset Formula $Y+Z\leq X$
+\end_inset
+
+ es cerrado.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Si 
+\begin_inset Formula $Q:X\to\frac{X}{Y}$
+\end_inset
+
+ es la función cociente, 
+\begin_inset Formula $Q(Z)$
+\end_inset
+
+ es de dimensión finita y por tanto cerrado, y por continuidad 
+\begin_inset Formula $Q^{-1}(Q(Z))=Y+Z$
+\end_inset
+
+ es cerrado.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Sean 
+\begin_inset Formula $Y$
+\end_inset
+
+ un espacio normado y 
+\begin_inset Formula $T:X\to Y$
+\end_inset
+
+ una aplicación lineal con imagen de dimensión finita, 
+\begin_inset Formula $T$
+\end_inset
+
+ es continua si y sólo si 
+\begin_inset Formula $\ker T$
+\end_inset
+
+ es cerrado.
+\begin_inset Note Comment
+status open
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $0\leq T(X)$
+\end_inset
+
+ es cerrado y por tanto 
+\begin_inset Formula $T^{-1}(0)$
+\end_inset
+
+ también.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $Q:X\to\frac{X}{\ker T}$
+\end_inset
+
+ la función cociente e 
+\begin_inset Formula $\iota:T(X)\hookrightarrow Y$
+\end_inset
+
+ la inclusión, ambas continuas, existe un isomorfismo 
+\begin_inset Formula $J:\frac{X}{\ker T}\to T(X)$
+\end_inset
+
+ con 
+\begin_inset Formula $T=\iota\circ J\circ Q$
+\end_inset
+
+, y como 
+\begin_inset Formula $T(X)$
+\end_inset
+
+ es de dimensión finita, 
+\begin_inset Formula $J$
+\end_inset
+
+ es un isomorfismo topológico, luego 
+\begin_inset Formula $J$
+\end_inset
+
+ es continua y también lo es 
+\begin_inset Formula $T$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es de Banach e 
+\begin_inset Formula $Y\leq X$
+\end_inset
+
+ tiene codimensión finita, todo complementario algebraico 
+\begin_inset Formula $Z$
+\end_inset
+
+ de 
+\begin_inset Formula $Y$
+\end_inset
+
+ es un complementario topológico.
+\end_layout
+
+\begin_layout Section
+Ejemplos de espacios de Banach
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{reminder}{TEM}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D\subseteq X$
+\end_inset
+
+ es 
+\series bold
+denso
+\series default
+ en 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ si 
+\begin_inset Formula $\overline{D}=X$
+\end_inset
+
+, si y sólo si cualquier abierto no vacío corta a 
+\begin_inset Formula $D$
+\end_inset
+
+.
+ 
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ es 
+\series bold
+separable
+\series default
+ si admite un subconjunto denso y numerable.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{reminder}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{reminder}{FVV2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+soporte
+\series default
+ de una función 
+\begin_inset Formula $g:\Omega\rightarrow\mathbb{C}$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{sop}(g)\coloneqq\overline{\{g\neq0\}}$
+\end_inset
+
+[...].
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{reminder}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $S\neq\emptyset$
+\end_inset
+
+, definimos 
+\begin_inset Formula $\Vert\cdot\Vert_{\infty}:\mathbb{K}^{S}\to[0,+\infty]$
+\end_inset
+
+ como 
+\begin_inset Formula $\Vert f\Vert_{\infty}\coloneqq\sup_{s\in S}|f(s)|$
+\end_inset
+
+ y llamamos 
+\series bold
+espacio de las funciones acotadas
+\series default
+ en 
+\begin_inset Formula $S$
+\end_inset
+
+ al espacio de Banach 
+\begin_inset Formula $\ell^{\infty}(S)\coloneqq(\{f\in\mathbb{K}^{S}\mid\Vert f\Vert_{\infty}<\infty\},\Vert\cdot\Vert_{\infty})$
+\end_inset
+
+.
+ 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-TODO
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+Si además 
+\begin_inset Formula $S$
+\end_inset
+
+ es un espacio topológico:
+\end_layout
+
+\begin_layout Enumerate
+El espacio 
+\begin_inset Formula $C_{b}(S)$
+\end_inset
+
+ de funciones 
+\begin_inset Formula $S\to\mathbb{K}$
+\end_inset
+
+ continuas y acotadas es un subespacio cerrado de 
+\begin_inset Formula $\ell^{\infty}(S)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Una función 
+\begin_inset Formula $S\to\mathbb{K}$
+\end_inset
+
+ 
+\series bold
+se anula en el infinito
+\series default
+ si 
+\begin_inset Formula $\forall\varepsilon>0,\exists K\subseteq S\text{ compacto}:\Vert f|_{S\setminus K}\Vert_{\infty}<\varepsilon$
+\end_inset
+
+.
+ El espacio 
+\begin_inset Formula $C_{0}(S)$
+\end_inset
+
+ de funciones 
+\begin_inset Formula $S\to\mathbb{K}$
+\end_inset
+
+ continuas que se anulan en el infinito es un subespacio cerrado de 
+\begin_inset Formula $C_{b}(S)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $S$
+\end_inset
+
+ es localmente compacto y Hausdorff, el espacio 
+\begin_inset Formula $C_{c}(S)$
+\end_inset
+
+ de funciones 
+\begin_inset Formula $S\to\mathbb{K}$
+\end_inset
+
+ continuas con soporte compacto es un subespacio denso de 
+\begin_inset Formula $C_{0}(S)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamando 
+\begin_inset Formula $\ell^{\infty}\coloneqq\ell^{\infty}(\mathbb{N})$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\ell^{\infty}$
+\end_inset
+
+ es no separable.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $c_{0}\coloneqq\{x\in\mathbb{K}^{\mathbb{N}}\mid\lim_{n}|x_{n}|=0\}$
+\end_inset
+
+ y 
+\begin_inset Formula $c\coloneqq\{x\in\mathbb{K}^{\mathbb{N}}\mid\exists\lim_{n}x_{n}\}$
+\end_inset
+
+ son subespacios cerrados y separables de 
+\begin_inset Formula $\ell^{\infty}$
+\end_inset
+
+ con 
+\begin_inset Formula $c_{0}\subsetneq c\subsetneq\ell^{\infty}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dados un espacio métrico 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{0}\in X$
+\end_inset
+
+, 
+\begin_inset Formula $\phi:(X,d)\to\ell^{\infty}(X)$
+\end_inset
+
+ dado por 
+\begin_inset Formula $\phi(x)(y)\coloneqq d(x,y)-d(x_{0},y)$
+\end_inset
+
+ es una isometría.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{reminder}{FVV2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+álgebra de partes
+\series default
+ de 
+\begin_inset Formula $\Omega\neq\emptyset$
+\end_inset
+
+ es un conjunto no vacío 
+\begin_inset Formula ${\cal A}\subseteq{\cal P}(\Omega)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $A\in{\cal A}\implies A^{\complement}\in{\cal A}$
+\end_inset
+
+ y 
+\begin_inset Formula $A,B\in{\cal A}\implies A\cup B\in{\cal A}$
+\end_inset
+
+.
+ [...] Una 
+\series bold
+
+\begin_inset Formula $\sigma$
+\end_inset
+
+-álgebra de partes
+\series default
+ de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ es un álgebra 
+\begin_inset Formula $\Sigma\subseteq{\cal P}(\Omega)$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $\{A_{n}\}_{n}\subseteq\Sigma$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\bigcup_{n\in\mathbb{N}}A_{n}\in\Sigma$
+\end_inset
+
+ [...].
+ [...]
+\end_layout
+
+\begin_layout Standard
+Dada una 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-álgebra 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ de partes de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, una función 
+\begin_inset Formula $\mu:\Sigma\rightarrow[0,+\infty]$
+\end_inset
+
+ es una 
+\series bold
+medida
+\series default
+ [...] sobre 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ si 
+\begin_inset Formula $\mu(\emptyset)=0$
+\end_inset
+
+ y para toda familia 
+\begin_inset Formula $\{A_{n}\}_{n\in\mathbb{N}}\subseteq\Sigma$
+\end_inset
+
+ de conjuntos disjuntos [...] 
+\begin_inset Formula $\sigma(\bigcup_{n\in\mathbb{N}}A_{n})=\sum_{n\in\mathbb{N}}\mu(A_{n})$
+\end_inset
+
+.
+ Si existe [...] 
+\begin_inset Formula $(\Omega,\Sigma)$
+\end_inset
+
+ es un 
+\series bold
+espacio medible
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+espacio de medida
+\series default
+ es una terna 
+\begin_inset Formula $(\Omega,\Sigma,\mu)$
+\end_inset
+
+ donde 
+\begin_inset Formula $(\Omega,\Sigma)$
+\end_inset
+
+ es un espacio medible y 
+\begin_inset Formula $\mu$
+\end_inset
+
+ es una medida sobre este.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{reminder}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dados un espacio de medida 
+\begin_inset Formula $(\Omega,\Sigma,\mu)$
+\end_inset
+
+ y, para 
+\begin_inset Formula $p\geq1$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert\cdot\Vert_{p}:\mathbb{K}^{\Omega}\to[0,+\infty]$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+\Vert f\Vert_{p}\coloneqq\left(\int|f(x)|^{p}\dif\mu(x)\right)^{\frac{1}{p}},
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula $L^{p}(\Omega)\coloneqq L^{p}(\Omega,\Sigma,\mu)\coloneqq(\{f\in\mathbb{K}^{\Omega}\mid\Vert f\Vert_{p}<\infty\},\Vert\cdot\Vert_{p})$
+\end_inset
+
+ es un espacio de Banach.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ es un abierto de 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ con la medida de Lebesgue inducida, 
+\begin_inset Formula $C_{c}(\Omega)$
+\end_inset
+
+ es denso en 
+\begin_inset Formula $L^{p}(\Omega)$
+\end_inset
+
+ .
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $p\geq1$
+\end_inset
+
+, llamamos 
+\begin_inset Formula $\ell^{p}\coloneqq L^{p}(\mathbb{N})$
+\end_inset
+
+, y entonces:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\ell^{p}$
+\end_inset
+
+ es separable.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+El 
+\series bold
+espacio de las sucesiones finitamente no nulas
+\series default
+, 
+\begin_inset Formula 
+\[
+c_{00}\coloneqq\{x\in\mathbb{K}^{\mathbb{N}}\mid\exists n_{0}\in\mathbb{N}:\forall n\geq n_{0},x_{n}=0\},
+\]
+
+\end_inset
+
+es un subespacio denso de 
+\begin_inset Formula $\ell^{p}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $1\leq p<q$
+\end_inset
+
+, 
+\begin_inset Formula $\ell^{p}\subsetneq\ell^{q}\subsetneq c_{0}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La suma de subespacios cerrados puede no ser un subespacio cerrado.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ un abierto no vacío, 
+\begin_inset Formula $K\subseteq\Omega$
+\end_inset
+
+ compacto y, para 
+\begin_inset Formula $m\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert\cdot\Vert_{m}:{\cal C}^{m}(\Omega)\to[0,+\infty)$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+\Vert f\Vert_{m}\coloneqq\sup_{x\in\Omega}\sup_{\begin{subarray}{c}
+\alpha\in\mathbb{N}^{n}\\
+|\alpha|\coloneqq\alpha_{1}+\dots+\alpha_{n}\leq m
+\end{subarray}}\left|\frac{\partial^{|\alpha|}f}{\partial x_{1}^{\alpha_{1}}\cdots\partial x_{n}^{\alpha_{n}}}\right|,
+\]
+
+\end_inset
+
+entonces:
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $K\subseteq\Omega$
+\end_inset
+
+ compacto, 
+\begin_inset Formula ${\cal D}_{K}^{m}(\Omega)\coloneqq(\{f\in{\cal C}^{m}(\Omega)\mid\text{sop}f\subseteq K\},\Vert\cdot\Vert_{m})$
+\end_inset
+
+ es un espacio de Banach.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula ${\cal D}^{m}(\Omega)\coloneqq(\{f\in{\cal C}^{m}(\Omega)\mid\text{sop}f\text{ compacto}\},\Vert\cdot\Vert_{m})$
+\end_inset
+
+ es un espacio normado, y en particular lo es 
+\begin_inset Formula $(C_{c}(\Omega),\Vert\cdot\Vert_{\infty})={\cal D}^{0}(\Omega)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula ${\cal D}(\Omega)\coloneqq\{f\in{\cal C}^{\infty}(\Omega)\mid\text{sop}f\text{ compacto}\}$
+\end_inset
+
+ es un subespacio de 
+\begin_inset Formula ${\cal D}^{m}(\Omega)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $D\coloneqq\{x\in\mathbb{C}:|x|<1\}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal H}(D)$
+\end_inset
+
+ el espacio de funciones holomorfas 
+\begin_inset Formula $D\to\mathbb{C}$
+\end_inset
+
+ y, para 
+\begin_inset Formula $p\geq1$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert\cdot\Vert_{H_{p}},\Vert\cdot\Vert_{H_{\infty}}:{\cal H}(D)\to[0,\infty]$
+\end_inset
+
+ dadas por
+\begin_inset Formula 
+\begin{align*}
+\Vert f\Vert_{H_{p}} & \coloneqq\sup_{r\in(0,1)}\left(\frac{1}{2\pi}\int_{0}^{2\pi}|f(r\text{e}^{\text{i}\theta})|^{p}\dif\theta\right)^{\frac{1}{p}}, & \Vert f\Vert_{H_{\infty}} & \coloneqq\Vert f\Vert_{\infty},
+\end{align*}
+
+\end_inset
+
+entonces para 
+\begin_inset Formula $p\in[1,\infty]$
+\end_inset
+
+, el 
+\series bold
+espacio de Hardy
+\series default
+ 
+\begin_inset Formula $H^{p}(D)\coloneqq(\{f\in{\cal H}(D):\Vert f\Vert_{H_{p}}<\infty)$
+\end_inset
+
+ es un espacio de Banach.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Espacios de Hilbert
+\end_layout
+
+\begin_layout Standard
+Dado un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial 
+\begin_inset Formula $H$
+\end_inset
+
+, 
+\begin_inset Formula $\langle\cdot,\cdot\rangle:H\times H\to\mathbb{K}$
+\end_inset
+
+ es una 
+\series bold
+forma hermitiana
+\series default
+ si para 
+\begin_inset Formula $a,b\in\mathbb{K}$
+\end_inset
+
+ y 
+\begin_inset Formula $x,y,z\in H$
+\end_inset
+
+ se tiene 
+\begin_inset Formula $\langle ax+by,z\rangle=a\langle x,z\rangle+b\langle y,z\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle x,y\rangle=\overline{\langle y,x\rangle}$
+\end_inset
+
+, y es 
+\series bold
+definida positiva
+\series default
+ si para 
+\begin_inset Formula $x\in H\setminus0$
+\end_inset
+
+ es 
+\begin_inset Formula $\langle x,x\rangle\in\mathbb{R}^{+}$
+\end_inset
+
+.
+ Un 
+\series bold
+producto escalar
+\series default
+ es una forma hermitiana definida positiva, y un 
+\series bold
+espacio prehilbertiano
+\series default
+ es par formado por un espacio vectorial y un producto escalar sobre este.
+\end_layout
+
+\begin_layout Standard
+Dado un espacio prehilbertiano 
+\begin_inset Formula $(H,\langle\cdot,\cdot\rangle)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Desigualdad de Cauchy-Schwartz:
+\series default
+ 
+\begin_inset Formula $\forall x,y\in H,|\langle x,y\rangle|^{2}\leq\langle x,x\rangle\langle y,y\rangle$
+\end_inset
+
+, con igualdad si y sólo si 
+\begin_inset Formula $x$
+\end_inset
+
+ e 
+\begin_inset Formula $y$
+\end_inset
+
+ son linealmente dependientes.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $H$
+\end_inset
+
+ es un espacio normado con la norma 
+\begin_inset Formula $\Vert x\Vert\coloneqq\sqrt{\langle x,x\rangle}$
+\end_inset
+
+, y para 
+\begin_inset Formula $x,y\in H$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert x+y\Vert=\Vert x\Vert+\Vert y\Vert\iff x=0\lor y=0\lor\exists a>0:x=ay$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $a,b\in\mathbb{K}$
+\end_inset
+
+ y 
+\begin_inset Formula $x,y,z\in H$
+\end_inset
+
+, 
+\begin_inset Formula $\langle x,ay+bz\rangle=\overline{a}\langle x,y\rangle+\overline{b}\langle x,z\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $x,y\in H$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert x+y\Vert^{2}=\Vert x\Vert^{2}+\Vert y\Vert^{2}+2\text{Re}\langle x,y\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\Vert x+y\Vert^{2}=\langle x+y,x+y\rangle=\langle x,x\rangle+\langle x,y\rangle+\overline{\langle x,y\rangle}+\langle y,y\rangle$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\series bold
+Identidades de polarización:
+\series default
+ Si 
+\begin_inset Formula $H$
+\end_inset
+
+ es un espacio prehilbertiano y 
+\begin_inset Formula $x,y\in H$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\langle x,y\rangle=\frac{1}{4}(\Vert x+y\Vert^{2}-\Vert x-y\Vert^{2}+\text{i}\Vert x+\text{i}y\Vert^{2}-\text{i}\Vert x-\text{i}y\Vert^{2})$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $H$
+\end_inset
+
+ se define sobre 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $\langle x,y\rangle=\frac{1}{4}(\Vert x+y\Vert^{2}-\Vert x-y\Vert^{2})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de von Neumann:
+\series default
+ Un espacio normado 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ admite un producto escalar 
+\begin_inset Formula $\langle\cdot,\cdot\rangle$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+ con 
+\begin_inset Formula $\langle x,x\rangle\equiv\Vert x\Vert^{2}$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ verifica la 
+\series bold
+ley del paralelogramo:
+\series default
+
+\begin_inset Formula 
+\[
+\forall x,y\in H,\Vert x+y\Vert^{2}+\Vert x-y\Vert^{2}=2(\Vert x\Vert^{2}+\Vert y\Vert^{2}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+En general 
+\begin_inset Formula $\langle x,y+z\rangle=\overline{\langle y+z,x\rangle}=\overline{\langle y,x\rangle}+\overline{\langle z,x\rangle}=\langle x,y\rangle+\langle x,z\rangle$
+\end_inset
+
+, de donde
+\begin_inset Formula 
+\begin{multline*}
+\Vert x+y\Vert^{2}+\Vert x-y\Vert^{2}=\langle x+y,x+y\rangle+\langle x-y,x-y\rangle=\\
+=\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle+\langle x,x\rangle-\langle x,y\rangle-\langle y,x\rangle+\langle y,y\rangle=2(\Vert x\Vert^{2}+\Vert y\Vert^{2}).
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Definimos 
+\begin_inset Formula $\langle\cdot,\cdot\rangle$
+\end_inset
+
+ según la identidad de polarización, y queremos ver que es un producto escalar
+ cuya norma es la inicial.
+ Se tiene
+\begin_inset Formula 
+\begin{align*}
+\langle x,x\rangle & =\frac{1}{4}\left(\Vert2x\Vert^{2}-\Vert x-x\Vert^{2}+\text{i}\Vert x+\text{i}x\Vert^{2}-\text{i}\Vert x-\text{i}x\Vert^{2}\right)=\\
+ & =\frac{1}{4}\left(4\Vert x\Vert^{2}+\text{i}|1+\text{i}|^{2}\Vert x\Vert^{2}-\text{i}|1-\text{i}|^{2}\Vert x\Vert^{2}\right)=\Vert x\Vert^{2},
+\end{align*}
+
+\end_inset
+
+y
+\begin_inset Formula 
+\begin{align*}
+4\langle x,y\rangle & =\Vert x+y\Vert^{2}-\Vert x-y\Vert^{2}+\text{i}\Vert x+\text{i}y\Vert^{2}-\text{i}\Vert x-\text{i}y\Vert^{2}\\
+ & =\Vert y+x\Vert^{2}-\Vert y-x\Vert^{2}+\text{i}\Vert y-\text{i}x\Vert-\text{i}\Vert y+\text{i}x\Vert^{2}=4\overline{\langle y,x\rangle}\\
+ & =\Vert-x-y\Vert^{2}-\Vert-x+y\Vert^{2}+\text{i}\Vert-x-\text{i}y\Vert^{2}-\text{i}\Vert-x+\text{i}y\Vert^{2}=-4\langle-x,y\rangle\\
+ & =\Vert\text{i}x+\text{i}y\Vert^{2}-\Vert\text{i}x-\text{i}y\Vert^{2}+\text{i}\Vert\text{i}x-y\Vert^{2}-\text{i}\Vert\text{i}x+y\Vert^{2}=4\frac{\langle\text{i}x,y\rangle}{\text{i}}.
+\end{align*}
+
+\end_inset
+
+Para ver que 
+\begin_inset Formula $\langle x+z,y\rangle=\langle x,y\rangle+\langle z,y\rangle$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{multline*}
+\Vert x+z+y\Vert^{2}-\Vert x+z-y\Vert^{2}=\left\Vert \left(x+\frac{y}{2}\right)+\left(z+\frac{y}{2}\right)\right\Vert ^{2}-\left\Vert \left(x+\frac{y}{2}\right)-\left(z+\frac{y}{2}\right)\right\Vert ^{2}=\\
+=2\left\Vert x+\frac{y}{2}\right\Vert ^{2}+2\left\Vert z+\frac{y}{2}\right\Vert ^{2}\cancel{-\Vert x-z\Vert^{2}}-2\left\Vert x-\frac{y}{2}\right\Vert ^{2}-2\left\Vert z-\frac{y}{2}\right\Vert ^{2}\cancel{+\Vert x-z\Vert^{2}},
+\end{multline*}
+
+\end_inset
+
+de donde
+\begin_inset Formula 
+\begin{eqnarray*}
+4\langle x+z,y\rangle & = & \Vert x+z+y\Vert^{2}-\Vert x+z-y\Vert^{2}+\text{i}\Vert x+z+\text{i}y\Vert^{2}-\text{i}\Vert x+z-\text{i}y\Vert^{2}\\
+ & = & 2\left(\left\Vert x+\frac{y}{2}\right\Vert ^{2}+\left\Vert z+\frac{y}{2}\right\Vert ^{2}-\left\Vert x-\frac{y}{2}\right\Vert ^{2}-\left\Vert z-\frac{y}{2}\right\Vert \right)\\
+ &  & +2\text{i}\left(\left\Vert x+\text{i}\frac{y}{2}\right\Vert ^{2}+\left\Vert z+\text{i}\frac{z}{2}\right\Vert ^{2}-\left\Vert x-\text{i}\frac{y}{2}\right\Vert ^{2}-\left\Vert z-\text{i}\frac{y}{2}\right\Vert ^{2}\right)\\
+ & = & 8\left\langle x,\frac{y}{2}\right\rangle +8\left\langle z,\frac{y}{2}\right\rangle ,
+\end{eqnarray*}
+
+\end_inset
+
+y por tanto
+\begin_inset Formula 
+\[
+\langle x+z,y\rangle=2\left\langle x,\frac{y}{2}\right\rangle +2\left\langle z,\frac{y}{2}\right\rangle =\langle x,y\rangle+\langle z,y\rangle,
+\]
+
+\end_inset
+
+donde en la segunda igualdad hemos usado la primera igualdad con 
+\begin_inset Formula $z=0$
+\end_inset
+
+ o 
+\begin_inset Formula $x=0$
+\end_inset
+
+.
+ Usando esto y que 
+\begin_inset Formula $\langle-x,y\rangle$
+\end_inset
+
+ es fácil ver que 
+\begin_inset Formula $\langle ax,y\rangle=a\langle x,y\rangle$
+\end_inset
+
+ para 
+\begin_inset Formula $a\in\mathbb{Q}$
+\end_inset
+
+; para 
+\begin_inset Formula $a\in\mathbb{R}$
+\end_inset
+
+ se usa la continuidad de la norma y por tanto del producto escalar, y para
+ 
+\begin_inset Formula $a\in\mathbb{C}$
+\end_inset
+
+ se usa 
+\begin_inset Formula $\langle\text{i}x,y\rangle=\text{i}\langle x,y\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(\ell^{\infty},\Vert\cdot\Vert_{\infty})$
+\end_inset
+
+ y 
+\begin_inset Formula $({\cal C}([a,b]),\Vert\cdot\Vert_{1})$
+\end_inset
+
+ son espacios normados no prehilbertianos.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dos espacios prehilbertianos 
+\begin_inset Formula $(H_{1},\langle\cdot,\cdot\rangle_{1})$
+\end_inset
+
+ y 
+\begin_inset Formula $(H_{2},\langle\cdot,\cdot\rangle_{2})$
+\end_inset
+
+ son 
+\series bold
+equivalentes
+\series default
+ si existe un isomorfismo algebraico 
+\begin_inset Formula $T:H_{1}\to H_{2}$
+\end_inset
+
+ con 
+\begin_inset Formula $\langle x,y\rangle_{1}=\langle T(x),T(y)\rangle_{2}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x,y\in H_{1}$
+\end_inset
+
+, si y sólo si existe un isomorfismo isométrico entre los espacios normados.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $H$
+\end_inset
+
+ es un espacio prehilbertiano, 
+\begin_inset Formula $x,y\in H$
+\end_inset
+
+ son 
+\series bold
+ortogonales
+\series default
+, 
+\begin_inset Formula $x\bot y$
+\end_inset
+
+, si 
+\begin_inset Formula $\langle x,y\rangle=0$
+\end_inset
+
+.
+ Decimos que 
+\begin_inset Formula $x\in H$
+\end_inset
+
+ es 
+\series bold
+ortogonal
+\series default
+ a 
+\begin_inset Formula $M\subseteq H$
+\end_inset
+
+, 
+\begin_inset Formula $x\bot M$
+\end_inset
+
+, si 
+\begin_inset Formula $\forall y\in M,x\bot y$
+\end_inset
+
+, y llamamos 
+\begin_inset Formula $M^{\bot}\coloneqq\{x\in H:x\bot M\}$
+\end_inset
+
+.
+ Una familia 
+\begin_inset Formula $\{x_{i}\}_{i\in I}\subseteq H$
+\end_inset
+
+ es 
+\series bold
+ortogonal
+\series default
+ si 
+\begin_inset Formula $\forall i,j\in I,(i\neq j\implies x_{i}\bot x_{j})$
+\end_inset
+
+, y es 
+\series bold
+ortonormal
+\series default
+ si además 
+\begin_inset Formula $\forall i,\Vert x_{i}\Vert=1$
+\end_inset
+
+.
+ Entonces:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Teorema de Pitágoras:
+\series default
+ Si 
+\begin_inset Formula $x\bot y$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert x+y\Vert^{2}=\Vert x\Vert^{2}+\Vert y\Vert^{2}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $(x_{i})_{i\in I}$
+\end_inset
+
+ es una familia ortogonal de elementos no nulos, es una familia linealmente
+ independiente.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $M\subseteq H$
+\end_inset
+
+, 
+\begin_inset Formula $M^{\bot}$
+\end_inset
+
+ es un subespacio cerrado de 
+\begin_inset Formula $H$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Lema de Gram-Schmidt:
+\series default
+ Sean 
+\begin_inset Formula $H$
+\end_inset
+
+ prehilbertiano, 
+\begin_inset Formula $\{x_{n}\}_{n}\subseteq H$
+\end_inset
+
+ una familia contable linealmente independiente y 
+\begin_inset Formula $(u_{n})_{n}$
+\end_inset
+
+ e 
+\begin_inset Formula $(y_{n})_{n}$
+\end_inset
+
+ dadas por 
+\begin_inset Formula $u_{n}\coloneqq\frac{y_{n}}{\Vert y_{n}\Vert}$
+\end_inset
+
+, 
+\begin_inset Formula $y_{0}\coloneqq x_{0}$
+\end_inset
+
+ y para 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+y_{n}\coloneqq x_{n}-\sum_{j<n}\langle x_{n},u_{j}\rangle u_{j},
+\]
+
+\end_inset
+
+
+\begin_inset Formula $(u_{n})_{n}$
+\end_inset
+
+ es una sucesión ortonormal en 
+\begin_inset Formula $H$
+\end_inset
+
+ y, para cada 
+\begin_inset Formula $n$
+\end_inset
+
+, 
+\begin_inset Formula $\text{span}\{u_{1},\dots,u_{n}\}=\text{span}\{x_{1},\dots,x_{n}\}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $M$
+\end_inset
+
+ es un subespacio de dimensión finita del espacio prehilbertiano 
+\begin_inset Formula $H$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $M$
+\end_inset
+
+ tiene una base algebraica formada por vectores ortonormales.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $M$
+\end_inset
+
+ es equivalente a 
+\begin_inset Formula $\mathbb{K}^{\dim M}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+espacio de Hilbert
+\series default
+ es un espacio prehilbertiano completo.
+ Dado un espacio de medida 
+\begin_inset Formula $(\Omega,\Sigma,\mu)$
+\end_inset
+
+, 
+\begin_inset Formula $L^{2}(\Omega,\Sigma,\mu)$
+\end_inset
+
+ es un espacio de Hilbert con
+\begin_inset Formula 
+\[
+\langle f,g\rangle\coloneqq\int_{\Omega}f\overline{g}\dif\mu,
+\]
+
+\end_inset
+
+y en particular lo son 
+\begin_inset Formula $\ell^{2}$
+\end_inset
+
+ con 
+\begin_inset Formula $\langle x,y\rangle\coloneqq\sum_{n}x_{n}\overline{y_{n}}$
+\end_inset
+
+ y 
+\begin_inset Formula $\ell_{n}^{2}$
+\end_inset
+
+ con 
+\begin_inset Formula $\langle x,y\rangle\coloneqq\sum_{i}x_{i}\overline{y_{i}}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Son espacios prehilbertianos no completos:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $c_{00}$
+\end_inset
+
+ con el producto escalar de 
+\begin_inset Formula $\ell^{2}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $C([a,b])$
+\end_inset
+
+ con el producto escalar de 
+\begin_inset Formula $L^{2}([a,b])$
+\end_inset
+
+ con la medida de Lebesgue, y entonces 
+\begin_inset Formula $C([a,b])$
+\end_inset
+
+ es denso en 
+\begin_inset Formula $L^{2}([a,b])$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Mejor aproximación
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio vectorial, 
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+ es 
+\series bold
+convexo
+\series default
+ si 
+\begin_inset Formula $\forall\lambda\in[0,1]$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda A+(1-\lambda)A\subseteq A$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es normado, 
+\begin_inset Formula $S\subseteq X$
+\end_inset
+
+ no vacío y 
+\begin_inset Formula $x\in X$
+\end_inset
+
+, un 
+\begin_inset Formula $y\in S$
+\end_inset
+
+ es un 
+\series bold
+vector de mejor aproximación
+\series default
+ de 
+\begin_inset Formula $x$
+\end_inset
+
+ a 
+\begin_inset Formula $S$
+\end_inset
+
+ si 
+\begin_inset Formula $\Vert x-y\Vert=\min_{z\in S}\Vert x-z\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de mejor aproximación:
+\series default
+ Si 
+\begin_inset Formula $H$
+\end_inset
+
+ es un espacio prehilbertiano y 
+\begin_inset Formula $C\subseteq H$
+\end_inset
+
+ es no vacío, convexo y completo, para cada 
+\begin_inset Formula $x\in H$
+\end_inset
+
+ existe una mejor aproximación de 
+\begin_inset Formula $x$
+\end_inset
+
+ a 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Podemos suponer por traslación que 
+\begin_inset Formula $x=0$
+\end_inset
+
+, y llamamos 
+\begin_inset Formula $\alpha\coloneqq\inf_{z\in C}\Vert z\Vert$
+\end_inset
+
+.
+ Para la existencia tomamos una sucesión 
+\begin_inset Formula $\{y_{n}\}_{n}\subseteq C$
+\end_inset
+
+ con 
+\begin_inset Formula $\lim_{n}\Vert y_{n}\Vert=\alpha$
+\end_inset
+
+ y probamos que es de Cauchy, pues entonces por completitud existe 
+\begin_inset Formula $y\coloneqq\lim_{n}y_{n}\in C$
+\end_inset
+
+ y por continuidad de la norma es 
+\begin_inset Formula $\Vert y\Vert=\alpha$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+ es 
+\begin_inset Formula $\Vert y_{n}\Vert^{2}<\alpha^{2}+\varepsilon$
+\end_inset
+
+, y por la ley del paralelogramo es
+\begin_inset Formula 
+\[
+\left\Vert \frac{y_{n}-y_{m}}{2}\right\Vert ^{2}=\frac{1}{2}(\Vert y_{n}\Vert^{2}+\Vert y_{m}\Vert^{2})-\left\Vert \frac{y_{n}+y_{m}}{2}\right\Vert ^{2}\leq\frac{1}{2}(\alpha^{2}+\varepsilon+\alpha^{2}+\varepsilon)-\alpha^{2}=\varepsilon,
+\]
+
+\end_inset
+
+pues por convexidad 
+\begin_inset Formula $\frac{y_{n}+y_{m}}{2}\in S$
+\end_inset
+
+ y por tanto su norma es mayor o igual a 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ Para la unicidad, si 
+\begin_inset Formula $y,z\in C$
+\end_inset
+
+ cumplen 
+\begin_inset Formula $\Vert y\Vert=\Vert z\Vert=\alpha$
+\end_inset
+
+, por un argumento como el anterior,
+\begin_inset Formula 
+\[
+\left\Vert \frac{y-z}{2}\right\Vert ^{2}=\frac{1}{2}(\Vert y\Vert^{2}+\Vert z\Vert^{2})-\left\Vert \frac{y+z}{2}\right\Vert ^{2}\leq\frac{1}{2}(\alpha^{2}+\alpha^{2})-\alpha^{2}=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $Y$
+\end_inset
+
+ es un subespacio de un espacio prehilbertiano 
+\begin_inset Formula $H$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in H$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $y\in Y$
+\end_inset
+
+ es de mejor aproximación de 
+\begin_inset Formula $x$
+\end_inset
+
+ a 
+\begin_inset Formula $Y$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $x-y\bot Y$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $z\in Y$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in\mathbb{K}$
+\end_inset
+
+, como 
+\begin_inset Formula $y-az\in Y$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\Vert x-y\Vert^{2}\leq\Vert x-y+az\Vert^{2}=\Vert x-y\Vert^{2}+2\text{Re}(a\langle z,x-y\rangle)+|a|^{2}\Vert z\Vert^{2},
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $0\leq2\text{Re}(a\langle z,x-y\rangle)+|a|^{2}\Vert z\Vert^{2}$
+\end_inset
+
+ y, haciendo 
+\begin_inset Formula $a=t\langle x-y,z\rangle$
+\end_inset
+
+ con 
+\begin_inset Formula $t\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $0\leq2t|\langle x-y,z\rangle|^{2}+t^{2}|\langle x-y,z\rangle|^{2}\Vert z\Vert^{2}$
+\end_inset
+
+.
+ Si hubiera 
+\begin_inset Formula $z\in Y$
+\end_inset
+
+ con 
+\begin_inset Formula $\langle x-y,z\rangle\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $0\leq2t+t^{2}\Vert z\Vert^{2}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $t\in\mathbb{R}$
+\end_inset
+
+, pero si 
+\begin_inset Formula $\Vert z\Vert^{2}=0$
+\end_inset
+
+, esto es negativo cuando 
+\begin_inset Formula $t<0$
+\end_inset
+
+, y si 
+\begin_inset Formula $\Vert z\Vert^{2}>0$
+\end_inset
+
+, es negativo al menos cuando 
+\begin_inset Formula $t=-\frac{1}{\Vert z\Vert^{2}}\#$
+\end_inset
+
+, luego 
+\begin_inset Formula $x-y\bot z$
+\end_inset
+
+ y 
+\begin_inset Formula $x-y\bot Y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $z\in Y$
+\end_inset
+
+, por el teorema de Pitágoras,
+\begin_inset Formula 
+\[
+\Vert x-z\Vert^{2}=\Vert x-y+y-z\Vert^{2}=\Vert x-y\Vert^{2}+\Vert y-z\Vert^{2}\geq\Vert x-y\Vert^{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si existe una mejor aproximación de 
+\begin_inset Formula $x$
+\end_inset
+
+ a 
+\begin_inset Formula $Y$
+\end_inset
+
+, es única.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $y,z\in Y$
+\end_inset
+
+ de mejor aproximación, como 
+\begin_inset Formula $x-y,x-z\in Y^{\bot}$
+\end_inset
+
+, su diferencia 
+\begin_inset Formula $y-z\in Y^{\bot}\cap Y$
+\end_inset
+
+, luego 
+\begin_inset Formula $\langle y-z,y-z\rangle=0$
+\end_inset
+
+ e 
+\begin_inset Formula $y=z$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $Y$
+\end_inset
+
+ es completo, hay vector de mejor aproximación.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Por el teorema anterior (los subespacios son convexos).
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Determinante de Gram
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $H$
+\end_inset
+
+ prehilbertiano y 
+\begin_inset Formula $M\leq H$
+\end_inset
+
+ de dimensión finita con base ortonormal 
+\begin_inset Formula $(e_{i})_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $x\in H$
+\end_inset
+
+ existe un único vector de aproximación de 
+\begin_inset Formula $x$
+\end_inset
+
+ a 
+\begin_inset Formula $M$
+\end_inset
+
+ dado por
+\begin_inset Formula 
+\[
+\sum_{i}\langle x,e_{i}\rangle e_{i}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $d(x,M)^{2}=\Vert x\Vert^{2}-\sum_{i}|\langle x,e_{i}\rangle|^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+determinante de Gram
+\series default
+ de 
+\begin_inset Formula $(x_{i})_{i=1}^{n}$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+G(x_{1},\dots,G_{n})\coloneqq\det(\langle x_{j},x_{i}\rangle)_{1\leq i\leq n}^{1\leq j\leq n}.
+\]
+
+\end_inset
+
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $H$
+\end_inset
+
+ es prehilbertiano, 
+\begin_inset Formula $M\leq H$
+\end_inset
+
+ de dimensión finita con base 
+\begin_inset Formula $(b_{i})_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in H$
+\end_inset
+
+, el vector de mejor aproximación de 
+\begin_inset Formula $x$
+\end_inset
+
+ a 
+\begin_inset Formula $M$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\frac{-1}{G(b_{1},\dots,b_{n})}\begin{vmatrix}\langle x_{1},x_{1}\rangle & \langle x_{2},x_{1}\rangle & \cdots & \langle x_{n},x_{1}\rangle & \langle x,x_{1}\rangle\\
+\langle x_{1},x_{2}\rangle & \langle x_{2},x_{2}\rangle & \cdots & \langle x_{n},x_{2}\rangle & \langle x,x_{2}\rangle\\
+\vdots & \vdots & \ddots & \vdots & \vdots\\
+\langle x_{1},x_{n}\rangle & \langle x_{2},x_{n}\rangle & \cdots & \langle x_{n},x_{n}\rangle & \langle x,x_{n}\rangle\\
+x_{1} & x_{2} & \cdots & x_{n} & 0
+\end{vmatrix},
+\]
+
+\end_inset
+
+y
+\begin_inset Formula 
+\[
+d(x,M)=\sqrt{\frac{G(x_{1},\dots,x_{n},x)}{G(x_{1},\dots,x_{n})}}.
+\]
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algunas aplicaciones:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Resolución de sistemas sobre-dimensionados por mínimos cuadrados.
+
+\series default
+ Tenemos un fenómeno experimental que se puede modelar como una función
+ lineal 
+\begin_inset Formula $y(x)=a_{1}x_{1}+\dots+a_{n}x_{n}$
+\end_inset
+
+, pero no conocemos los 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+.
+ Hacemos 
+\begin_inset Formula $m$
+\end_inset
+
+ experimentos fijando un 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ en cada uno y midiendo 
+\begin_inset Formula $y_{i}\coloneqq y(x_{i})$
+\end_inset
+
+ para plantear un sistema de 
+\begin_inset Formula $m$
+\end_inset
+
+ ecuaciones.
+ Solo hacen falta 
+\begin_inset Formula $n$
+\end_inset
+
+ experimentos cuidando que los 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ sean linealmente independientes, pero en general conviene hacer más, 
+\begin_inset Formula $m>n$
+\end_inset
+
+.
+ Como las mediciones son aproximadas, el sistema puede ser incompatible,
+ por lo que se eligen los 
+\begin_inset Formula $a_{i}\in\mathbb{R}$
+\end_inset
+
+ de forma que se minimice
+\begin_inset Formula 
+\[
+\sum_{i\in\mathbb{N}_{m}}\left(y_{i}-\sum_{j\in\mathbb{N}_{n}}a_{j}x_{ij}\right)^{2}=\left\Vert y-\sum_{j\in\mathbb{N}_{n}}a_{j}X_{j}\right\Vert ^{2},
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $X_{j}\coloneqq(x_{1j},\dots,x_{mj})$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $X_{1},\dots,X_{n}$
+\end_inset
+
+ son linealmente independientes, sea 
+\begin_inset Formula $M\coloneqq\text{span}\{X_{1},\dots,X_{n}\}<\mathbb{R}^{m}$
+\end_inset
+
+, buscamos el vector 
+\begin_inset Formula $Z\in M$
+\end_inset
+
+ de mejor aproximación de 
+\begin_inset Formula $y$
+\end_inset
+
+ en 
+\begin_inset Formula $M$
+\end_inset
+
+ que, expresado respecto de la base 
+\begin_inset Formula $(X_{1},\dots,X_{n})$
+\end_inset
+
+, nos dará el vector 
+\begin_inset Formula $(a_{1},\dots,a_{n})$
+\end_inset
+
+ buscado.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ajustes polinómicos por mínimos cuadrados.
+
+\series default
+ Queremos modelar un fenómeno experimental como una función polinómica 
+\begin_inset Formula $f:[a,b]\to\mathbb{R}$
+\end_inset
+
+, y tenemos 
+\begin_inset Formula $k$
+\end_inset
+
+ observaciones de la forma 
+\begin_inset Formula $f(t_{i})=y_{i}$
+\end_inset
+
+ con 
+\begin_inset Formula $t_{1}<\dots<t_{k}$
+\end_inset
+
+.
+ Existe un polinomio de grado máximo 
+\begin_inset Formula $k-1$
+\end_inset
+
+ que cumple esto, pero muchas veces 
+\begin_inset Formula $k$
+\end_inset
+
+ es muy grande y esto complica los cálculos y puede llevar al 
+\emph on
+\lang english
+overfitting
+\emph default
+\lang spanish
+ o fenómeno de Runge.
+ Entonces buscamos un polinomio 
+\begin_inset Formula $f$
+\end_inset
+
+ de grado máximo 
+\begin_inset Formula $n$
+\end_inset
+
+ bastante menor que 
+\begin_inset Formula $k-1$
+\end_inset
+
+ que minimice
+\begin_inset Formula 
+\[
+\sum_{i\in\mathbb{N}_{k}}|y_{i}-f(t_{i})|^{2}=\left\Vert y-\sum_{j=0}^{n}f_{j}t^{j}\right\Vert ^{2},
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $t^{j}\coloneqq(t_{1}^{j},\dots,t_{k}^{j})$
+\end_inset
+
+.
+ Para ello, como para 
+\begin_inset Formula $k\geq2$
+\end_inset
+
+ los 
+\begin_inset Formula $t^{j}$
+\end_inset
+
+ son linealmente independientes, consideramos 
+\begin_inset Formula $M\coloneqq\text{span}\{1,t,t^{2},\dots,t^{n}\}<\mathbb{R}^{n+1}$
+\end_inset
+
+ y buscamos la mejor aproximación de 
+\begin_inset Formula $y$
+\end_inset
+
+ a 
+\begin_inset Formula $M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Teorema de la proyección
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de la proyección:
+\series default
+ Si 
+\begin_inset Formula $H$
+\end_inset
+
+ es un espacio de Hilbert con un subespacio cerrado 
+\begin_inset Formula $M$
+\end_inset
+
+ y 
+\begin_inset Formula $P_{M}:H\to M$
+\end_inset
+
+ la 
+\series bold
+proyección ortogonal
+\series default
+ de 
+\begin_inset Formula $H$
+\end_inset
+
+ sobre 
+\begin_inset Formula $M$
+\end_inset
+
+ que asigna a cada 
+\begin_inset Formula $x\in H$
+\end_inset
+
+ la mejor aproximación de 
+\begin_inset Formula $x$
+\end_inset
+
+ a 
+\begin_inset Formula $M$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $H$
+\end_inset
+
+ es suma directa topológica de 
+\begin_inset Formula $M$
+\end_inset
+
+ y 
+\begin_inset Formula $M^{\bot}$
+\end_inset
+
+, 
+\begin_inset Formula $P_{M}$
+\end_inset
+
+ es la proyección canónica y, si 
+\begin_inset Formula $P_{M^{\bot}}:H\to M^{\bot}$
+\end_inset
+
+ es la otra proyección canónica, si 
+\begin_inset Formula $M\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert P_{M}\Vert=1$
+\end_inset
+
+, y si 
+\begin_inset Formula $M^{\bot}\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert P_{M^{\bot}}\Vert=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Por la definición de producto escalar, 
+\begin_inset Formula $M^{\bot}\leq H$
+\end_inset
+
+.
+ Claramente 
+\begin_inset Formula $M\cap M^{\bot}=0$
+\end_inset
+
+, y para 
+\begin_inset Formula $x\in M$
+\end_inset
+
+, como 
+\begin_inset Formula $y\coloneqq P_{M}(x)$
+\end_inset
+
+ cumple 
+\begin_inset Formula $x-y\bot M$
+\end_inset
+
+, 
+\begin_inset Formula $x=y+z$
+\end_inset
+
+ con 
+\begin_inset Formula $y\in M$
+\end_inset
+
+ y 
+\begin_inset Formula $z\coloneqq x-y\in M^{\bot}$
+\end_inset
+
+, luego 
+\begin_inset Formula $M+M^{\bot}=H$
+\end_inset
+
+ y 
+\begin_inset Formula $H$
+\end_inset
+
+ es suma directa algebraica de 
+\begin_inset Formula $M$
+\end_inset
+
+ y 
+\begin_inset Formula $M^{\bot}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $P_{M}$
+\end_inset
+
+ es la proyección canónica porque, si 
+\begin_inset Formula $y\in M$
+\end_inset
+
+ y 
+\begin_inset Formula $z\in M^{\bot}$
+\end_inset
+
+, 
+\begin_inset Formula $(y+z)-y=z\bot M$
+\end_inset
+
+, y por unicidad de la mejor aproximación, 
+\begin_inset Formula $P_{M}(y+z)=y$
+\end_inset
+
+.
+ 
+\begin_inset Formula $P_{M}$
+\end_inset
+
+ y 
+\begin_inset Formula $P_{M^{\bot}}$
+\end_inset
+
+ son lineales por ser proyecciones canónicas, y para 
+\begin_inset Formula $x=y+z\in S_{H}$
+\end_inset
+
+ con 
+\begin_inset Formula $y\in M$
+\end_inset
+
+ y 
+\begin_inset Formula $z\in M^{\bot}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert x\Vert^{2}=\Vert y\Vert^{2}+\Vert z\Vert^{2}=\Vert P_{M}(x)\Vert^{2}+\Vert P_{M^{\bot}}(x)\Vert^{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert P_{M}(x)\Vert,\Vert P_{M^{\bot}}(x)\Vert\leq\Vert x\Vert=1$
+\end_inset
+
+, lo que prueba la continuidad y por tanto que 
+\begin_inset Formula $M$
+\end_inset
+
+ es topológica.
+ Además, si 
+\begin_inset Formula $M\neq0$
+\end_inset
+
+, existe 
+\begin_inset Formula $y\in S_{M}$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert P_{M}(y)\Vert=\Vert y\Vert=1$
+\end_inset
+
+, luego 
+\begin_inset Formula $\Vert P_{M}\Vert=1$
+\end_inset
+
+, y análogamente para 
+\begin_inset Formula $M^{\bot}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $P_{M}(H)=M$
+\end_inset
+
+, 
+\begin_inset Formula $\ker P_{M}=M^{\bot}$
+\end_inset
+
+ y 
+\begin_inset Formula $P_{M^{\bot}}=1_{H}-P_{M}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $x,y\in H$
+\end_inset
+
+, 
+\begin_inset Formula $\langle P_{M}(x),y\rangle=\langle x,P_{M}(y)\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle P_{M^{\bot}}(x),y\rangle=\langle x,P_{M^{\bot}}(y)\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $x=x_{1}+x_{2}$
+\end_inset
+
+ e 
+\begin_inset Formula $y=y_{1}+y_{2}$
+\end_inset
+
+ con 
+\begin_inset Formula $x_{1},y_{1}\in M$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{2},y_{2}\in M^{\bot}$
+\end_inset
+
+, 
+\begin_inset Formula $\langle P_{M}(x),y\rangle=\langle x_{1},y_{1}+y_{2}\rangle=\langle x_{1},y_{1}\rangle=\langle x_{1}+x_{2},y_{1}\rangle=\langle x,P_{M}(y)\rangle$
+\end_inset
+
+, y para 
+\begin_inset Formula $P_{M^{\bot}}$
+\end_inset
+
+ es análogo.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $M^{\bot\bot}=M$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Si 
+\begin_inset Formula $x\in M$
+\end_inset
+
+, para 
+\begin_inset Formula $y\in M^{\bot}$
+\end_inset
+
+, 
+\begin_inset Formula $\langle y,x\rangle=\overline{\langle x,y\rangle}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $x\in M^{\bot\bot}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $x\in M^{\bot\bot}\subseteq H$
+\end_inset
+
+, sean 
+\begin_inset Formula $y\in M$
+\end_inset
+
+ y 
+\begin_inset Formula $z\in M^{\bot}$
+\end_inset
+
+ con 
+\begin_inset Formula $x=y+z$
+\end_inset
+
+, 
+\begin_inset Formula $0=\langle x,z\rangle=\langle y,z\rangle+\langle z,z\rangle=\langle z,z\rangle=\Vert z\Vert^{2}$
+\end_inset
+
+, luego 
+\begin_inset Formula $z=0$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in M$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Esto no es cierto si 
+\begin_inset Formula $M$
+\end_inset
+
+ no es cerrado ni si 
+\begin_inset Formula $H$
+\end_inset
+
+ no es completo.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un espacio normado es de Hilbert si y sólo si cada subespacio cerrado tiene
+ un complementario topológico.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un subconjunto 
+\begin_inset Formula $S$
+\end_inset
+
+ de un espacio normado 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es 
+\series bold
+total
+\series default
+ si 
+\begin_inset Formula $\overline{\text{span}S}=X$
+\end_inset
+
+, y si 
+\begin_inset Formula $H$
+\end_inset
+
+ es de Hilbert esto ocurre si y sólo si 
+\begin_inset Formula $S^{\bot}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Dual de un espacio de Hilbert
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Riesz-Fréchet:
+\series default
+ Dados un espacio de Hilbert 
+\begin_inset Formula $H$
+\end_inset
+
+ y un operador 
+\begin_inset Formula $f:H\to\mathbb{K}$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ es acotado si y sólo si existe 
+\begin_inset Formula $y\in H$
+\end_inset
+
+ con 
+\begin_inset Formula $f=\langle\cdot,y\rangle$
+\end_inset
+
+, en cuyo caso 
+\begin_inset Formula $y$
+\end_inset
+
+ es único y 
+\begin_inset Formula $\Vert f\Vert=\Vert y\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para la unicidad, si 
+\begin_inset Formula $f(x)=\langle x,y\rangle=\langle x,z\rangle$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in H$
+\end_inset
+
+, 
+\begin_inset Formula $\langle x,y-z\rangle=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $y-z\bot H$
+\end_inset
+
+ y, como 
+\begin_inset Formula $H^{\bot}=0$
+\end_inset
+
+, 
+\begin_inset Formula $y=z$
+\end_inset
+
+.
+ Para la existencia, si 
+\begin_inset Formula $f=0$
+\end_inset
+
+ tomamos 
+\begin_inset Formula $y=0$
+\end_inset
+
+, y en otro caso, 
+\begin_inset Formula $Y\coloneqq\ker f$
+\end_inset
+
+ es un subespacio cerrado de 
+\begin_inset Formula $H$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $H=Y\oplus Y^{\bot}$
+\end_inset
+
+, con 
+\begin_inset Formula $\dim Y^{\bot}=\dim\text{Im}f=1$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $z\in Y^{\bot}$
+\end_inset
+
+ unitario, la proyección ortogonal de un 
+\begin_inset Formula $x\in H$
+\end_inset
+
+ sobre 
+\begin_inset Formula $Y^{\bot}$
+\end_inset
+
+ es 
+\begin_inset Formula $\langle x,z\rangle z$
+\end_inset
+
+, luego 
+\begin_inset Formula $x-\langle x,z\rangle z\in Y$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+f(x)=f(x-\langle x,z\rangle z+\langle x,z\rangle z)=f(\langle x,z\rangle z)=\langle x,z\rangle f(z)=\langle x,\overline{f(z)}z\rangle\eqqcolon\langle x,y\rangle.
+\]
+
+\end_inset
+
+Para 
+\begin_inset Formula $x\in S_{H}$
+\end_inset
+
+, por la desigualdad de Cauchy-Schwartz, 
+\begin_inset Formula $\Vert f(x)\Vert^{2}=|\langle x,y\rangle|^{2}\leq\langle x,x\rangle\langle y,y\rangle=\Vert y\Vert^{2}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\Vert f\Vert\leq\Vert y\Vert$
+\end_inset
+
+, pero 
+\begin_inset Formula $f(\frac{y}{\Vert y\Vert})=\frac{f(y)}{\Vert y\Vert}=\frac{\Vert y\Vert^{2}}{\Vert y\Vert}=\Vert y\Vert$
+\end_inset
+
+, luego 
+\begin_inset Formula $\Vert f\Vert=\Vert y\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $f\coloneqq\langle\cdot,y\rangle$
+\end_inset
+
+ es lineal, y es continua por el argumento anterior que prueba que 
+\begin_inset Formula $\Vert f\Vert=\Vert y\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El teorema no es válido si 
+\begin_inset Formula $H$
+\end_inset
+
+ no es completo.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $H$
+\end_inset
+
+ un espacio de Hilbert y 
+\begin_inset Formula $T:H^{*}\to H$
+\end_inset
+
+ que a cada 
+\begin_inset Formula $f$
+\end_inset
+
+ le asocia el 
+\begin_inset Formula $y$
+\end_inset
+
+ con 
+\begin_inset Formula $f=\langle\cdot,y\rangle$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $T$
+\end_inset
+
+ es biyectiva, isométrica y lineal conjugada.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $H^{*}$
+\end_inset
+
+ es un espacio de Hilbert con el producto escalar 
+\begin_inset Formula $\langle f,g\rangle^{*}\coloneqq\langle T(g),T(f)\rangle$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $J:H\to H^{**}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $J(x)(f)\coloneqq f(x)$
+\end_inset
+
+ es un isomorfismo algebraico isométrico.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado un un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $B:X\times X\to\mathbb{K}$
+\end_inset
+
+ es 
+\series bold
+bilineal
+\series default
+ si las 
+\begin_inset Formula $B(\cdot,y)$
+\end_inset
+
+ y 
+\begin_inset Formula $B(x,\cdot)$
+\end_inset
+
+ son lineales, 
+\series bold
+sesquilineal
+\series default
+ si las 
+\begin_inset Formula $B(\cdot,y)$
+\end_inset
+
+ son lineales y las 
+\begin_inset Formula $B(x,\cdot)$
+\end_inset
+
+ son lineales conjugadas, 
+\series bold
+simétrica
+\series default
+ si 
+\begin_inset Formula $B(x,y)\equiv B(y,x)$
+\end_inset
+
+ y 
+\series bold
+positiva
+\series default
+ si 
+\begin_inset Formula $\forall x\in X,B(x,x)\geq0$
+\end_inset
+
+.
+ Si además 
+\begin_inset Formula $X$
+\end_inset
+
+ es normado, 
+\begin_inset Formula $B$
+\end_inset
+
+ es 
+\series bold
+acotada
+\series default
+ si 
+\begin_inset Formula $\exists M>0:\forall x,y\in X,|B(x,y)|\leq M\Vert x\Vert\Vert y\Vert$
+\end_inset
+
+, y es 
+\series bold
+fuertemente positiva
+\series default
+ si 
+\begin_inset Formula $\exists c>0:\forall x\in X,B(x,x)\geq c\Vert x\Vert^{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $B$
+\end_inset
+
+ es bilineal o sesquilineal, es acotada si y sólo si es continua, y para
+ todo 
+\begin_inset Formula $x$
+\end_inset
+
+ e 
+\begin_inset Formula $y$
+\end_inset
+
+ es 
+\begin_inset Formula $2B(x,x)+2B(y,y)=B(x+y,x+y)+B(x-y,x-y)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Lax-Milgram:
+\series default
+ Sean 
+\begin_inset Formula $H$
+\end_inset
+
+ un espacio de Hilbert y 
+\begin_inset Formula $B$
+\end_inset
+
+ una 
+\begin_inset Formula $H$
+\end_inset
+
+-forma sesquilineal acotada y fuertemente positiva, existe un único isomorfismo
+ de espacios de Hilbert 
+\begin_inset Formula $T:H\to H$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall x,y\in H,B(x,y)=\langle x,T(y)\rangle$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Sea
+\begin_inset Formula 
+\[
+Y\coloneqq\{y\in H\mid\exists z\in H:\langle\cdot,y\rangle=B(\cdot,z)\},
+\]
+
+\end_inset
+
+
+\begin_inset Formula $0\in Y$
+\end_inset
+
+ tomando 
+\begin_inset Formula $z=0$
+\end_inset
+
+ y 
+\begin_inset Formula $z$
+\end_inset
+
+ está unívocamente determinado por 
+\begin_inset Formula $y$
+\end_inset
+
+, ya que si 
+\begin_inset Formula $\langle\cdot,y\rangle=B(\cdot,z)=B(\cdot,z')$
+\end_inset
+
+ entonces 
+\begin_inset Formula $B(\cdot,z-z')=0$
+\end_inset
+
+ y en particular 
+\begin_inset Formula $0=B(z-z',z-z')\geq c\Vert z-z'\Vert^{2}$
+\end_inset
+
+ para cierto 
+\begin_inset Formula $c>0$
+\end_inset
+
+ por ser 
+\begin_inset Formula $B$
+\end_inset
+
+ fuertemente positiva, luego 
+\begin_inset Formula $z=z'$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $\langle\cdot,\cdot\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ son sesquilineales, 
+\begin_inset Formula $Y$
+\end_inset
+
+ es un espacio vectorial y 
+\begin_inset Formula $S:Y\to H$
+\end_inset
+
+ que a cada 
+\begin_inset Formula $y$
+\end_inset
+
+ le asocia el 
+\begin_inset Formula $z$
+\end_inset
+
+ con 
+\begin_inset Formula $\langle\cdot,y\rangle=B(\cdot,z)$
+\end_inset
+
+ es lineal.
+ Entonces, para 
+\begin_inset Formula $y\in S_{Y}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+c\Vert S(y)\Vert^{2}\leq B(S(y),S(y))=\langle S(y),y\rangle\in\mathbb{R}^{+},
+\]
+
+\end_inset
+
+pero por la desigualdad de Cauchy-Schwartz, 
+\begin_inset Formula $\langle S(y),y\rangle^{2}=|\langle S(y),y\rangle|^{2}\leq\Vert S(y)\Vert^{2}\Vert y\Vert^{2}$
+\end_inset
+
+, luego 
+\begin_inset Formula $c\Vert S(y)\Vert^{2}\leq\langle S(y),y\rangle\leq\Vert S(y)\Vert\Vert y\Vert=\Vert S(y)\Vert$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert S(y)\Vert\leq\frac{1}{c}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $S$
+\end_inset
+
+ es continua.
+ Entonces, si 
+\begin_inset Formula $\{y_{n}\}_{n}\subseteq Y$
+\end_inset
+
+ y existe 
+\begin_inset Formula $\lim_{n}y_{n}\eqqcolon y\in H$
+\end_inset
+
+, por continuidad de 
+\begin_inset Formula $S$
+\end_inset
+
+ y de 
+\begin_inset Formula $B$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\langle x,y\rangle=\lim_{n}\langle x,y_{n}\rangle=\lim_{n}B(x,S(y_{n}))=B(x,S(y)),
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula $y\in Y$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+ es cerrado.
+ Entonces, si 
+\begin_inset Formula $z\in Y^{\bot}$
+\end_inset
+
+, como 
+\begin_inset Formula $B(\cdot,z):H\to\mathbb{K}$
+\end_inset
+
+ es continua, por el teorema de Riesz-Fréchet existe 
+\begin_inset Formula $w\in H$
+\end_inset
+
+ con 
+\begin_inset Formula $B(\cdot,z)=\langle\cdot,w\rangle$
+\end_inset
+
+, luego 
+\begin_inset Formula $w\in Y$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $B(z,z)=\langle z,w\rangle=0$
+\end_inset
+
+ y, por ser 
+\begin_inset Formula $B$
+\end_inset
+
+ fuertemente positiva, 
+\begin_inset Formula $z=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $Y^{\bot}=0$
+\end_inset
+
+ e 
+\begin_inset Formula $Y=H$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $z\in H$
+\end_inset
+
+, como 
+\begin_inset Formula $B(\cdot,z)$
+\end_inset
+
+ es continua, existe 
+\begin_inset Formula $w\in H$
+\end_inset
+
+ con 
+\begin_inset Formula $B(\cdot z)=\langle\cdot,w\rangle$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $z=S(w)$
+\end_inset
+
+, luego 
+\begin_inset Formula $S$
+\end_inset
+
+ es suprayectiva.
+ Si 
+\begin_inset Formula $S(y)=0$
+\end_inset
+
+, para 
+\begin_inset Formula $x\in H$
+\end_inset
+
+, 
+\begin_inset Formula $\langle x,y\rangle=B(x,S(y))=0$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $y=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $S$
+\end_inset
+
+ es inyectiva.
+ Por tanto 
+\begin_inset Formula $S$
+\end_inset
+
+ es biyectiva y 
+\begin_inset Formula $T\coloneqq S^{-1}$
+\end_inset
+
+ cumple 
+\begin_inset Formula $\langle x,T(y)\rangle=B(x,y)$
+\end_inset
+
+.
+ Además, para 
+\begin_inset Formula $y\in S_{H}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert T(y)\Vert^{2}=\langle T(y),T(y)\rangle=B(T(y),y)\leq M\Vert T(y)\Vert\Vert y\Vert=M\Vert T(y)\Vert$
+\end_inset
+
+, siendo 
+\begin_inset Formula $M$
+\end_inset
+
+ una cota de 
+\begin_inset Formula $B$
+\end_inset
+
+, de donde 
+\begin_inset Formula $\Vert T\Vert\leq M$
+\end_inset
+
+ y, como 
+\begin_inset Formula $\Vert T^{-1}\Vert=\Vert S\Vert\leq\frac{1}{c}$
+\end_inset
+
+, 
+\begin_inset Formula $T$
+\end_inset
+
+ es un isomorfismo topológico isométrico.
+\end_layout
+
+\begin_layout Standard
+En particular, dado un espacio vectorial 
+\begin_inset Formula $H$
+\end_inset
+
+ con dos productos escalares 
+\begin_inset Formula $\langle\cdot,\cdot\rangle_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle\cdot,\cdot\rangle_{2}$
+\end_inset
+
+ equivalentes que hacen a 
+\begin_inset Formula $H$
+\end_inset
+
+ completo, existe un isomorfismo 
+\begin_inset Formula $T:H\to H$
+\end_inset
+
+ de espacios de Hilbert con 
+\begin_inset Formula $\langle x,y\rangle_{1}=\langle x,T(y)\rangle_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Problemas variacionales cuadráticos
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema principal de los problemas variacionales cuadráticos:
+\series default
+ Sean 
+\begin_inset Formula $H$
+\end_inset
+
+ un 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-espacio de Hilbert, 
+\begin_inset Formula $B$
+\end_inset
+
+ una 
+\begin_inset Formula $H$
+\end_inset
+
+-forma bilineal simétrica, acotada y fuertemente positiva, 
+\begin_inset Formula $b$
+\end_inset
+
+ una 
+\begin_inset Formula $H$
+\end_inset
+
+-forma lineal continua y 
+\begin_inset Formula $F:H\to\mathbb{R}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+F(x)\coloneqq\frac{1}{2}B(x,x)-b(x),
+\]
+
+\end_inset
+
+entonces:
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $w\in H$
+\end_inset
+
+, 
+\begin_inset Formula $F$
+\end_inset
+
+ alcanza su mínimo en 
+\begin_inset Formula $w$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\forall y\in H,B(w,y)=b(y)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Fijado 
+\begin_inset Formula $y\in H$
+\end_inset
+
+, para 
+\begin_inset Formula $t\in\mathbb{R}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+F(w+ty) & =\frac{1}{2}B(w+ty,w+ty)-b(w+ty)=\\
+ & =\frac{1}{2}(B(w,w)+2tB(w,y)+t^{2}B(y,y))-b(w)-tb(y)=\\
+ & =F(w)+t(B(w,y)-b(y))+\frac{1}{2}t^{2}B(y,y),
+\end{align*}
+
+\end_inset
+
+pero por hipótesis 
+\begin_inset Formula $F(w)\leq F(w+ty)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $t\in\mathbb{R}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\varphi:\mathbb{R}\to\mathbb{R}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\varphi(t)\coloneqq F(w+ty)$
+\end_inset
+
+ tiene un mínimo en 
+\begin_inset Formula $t=0$
+\end_inset
+
+ y 
+\begin_inset Formula $0=\varphi'(0)=B(w,y)-b(y)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $y\in H$
+\end_inset
+
+ y 
+\begin_inset Formula $t\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+F(w+ty)=F(w)+\cancel{t(B(w,y)-b(y))}^{=0}+\frac{1}{2}t^{2}B(y,y)\geq F(w).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Existe un único 
+\begin_inset Formula $w\in H$
+\end_inset
+
+ en el que 
+\begin_inset Formula $F$
+\end_inset
+
+ alcanza su mínimo.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Como 
+\begin_inset Formula $B$
+\end_inset
+
+ es bilineal, simétrica y fuertemente positiva, es un producto escalar sobre
+ 
+\begin_inset Formula $H$
+\end_inset
+
+, y como existen 
+\begin_inset Formula $c,M>0$
+\end_inset
+
+ con 
+\begin_inset Formula $c\Vert x\Vert^{2}\leq B(x,x)\leq M\Vert x\Vert^{2}$
+\end_inset
+
+, el producto escalar 
+\begin_inset Formula $B$
+\end_inset
+
+ es equivalente al de 
+\begin_inset Formula $H$
+\end_inset
+
+, luego 
+\begin_inset Formula $b$
+\end_inset
+
+ es continua con el producto escalar 
+\begin_inset Formula $B$
+\end_inset
+
+ y por el teorema de Riesz-Fréchet existe un único 
+\begin_inset Formula $w\in H$
+\end_inset
+
+ con 
+\begin_inset Formula $b=B(\cdot,w)=B(w,\cdot)$
+\end_inset
+
+, que es la condición del primer apartado.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Convolución y aproximación de funciones
+\end_layout
+
+\begin_layout Standard
+Dado un abierto 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $f:\mathbb{R}^{n}\to\mathbb{R}$
+\end_inset
+
+ es 
+\series bold
+localmente integrable
+\series default
+ si 
+\begin_inset Formula $|f|$
+\end_inset
+
+ es integrable en todo compacto 
+\begin_inset Formula $K\subseteq\Omega$
+\end_inset
+
+.
+ Dadas dos funciones localmente integrables 
+\begin_inset Formula $f,g:\mathbb{R}^{n}\to\mathbb{R}$
+\end_inset
+
+, definimos su 
+\series bold
+producto de convolución
+\series default
+ como 
+\begin_inset Formula $(f*g):D\to\mathbb{R}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+(f*g)(a)\coloneqq\int_{\mathbb{R}^{n}}f(x)g(a-x)\dif x,
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $D\coloneqq\{a\in\mathbb{R}^{n}\mid x\mapsto f(x)g(a-x)\text{ integrable}\}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $f,g\in L^{2}(\mathbb{R}^{n})$
+\end_inset
+
+, 
+\begin_inset Formula $f*g$
+\end_inset
+
+ está definida en todo 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ y es continua y uniformemente acotada con
+\begin_inset Formula 
+\[
+\Vert f*g\Vert_{\infty}\leq\Vert f\Vert_{2}\Vert g\Vert_{2}.
+\]
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+El producto de convolución es conmutativo, y si 
+\begin_inset Formula $f*g$
+\end_inset
+
+ está definida en casi todo punto, 
+\begin_inset Formula $\text{sop}(f*g)\subseteq\overline{\text{sop}(f)+\text{sop}(g)}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+sucesión de Dirac
+\series default
+ es una sucesión 
+\begin_inset Formula $(K_{m}:\mathbb{R}^{n}\to\mathbb{R}^{\geq0})_{m}$
+\end_inset
+
+ de funciones continuas con
+\begin_inset Formula 
+\[
+\int_{\mathbb{R}^{n}}K_{n}=1
+\]
+
+\end_inset
+
+y tal que
+\begin_inset Formula 
+\[
+\forall\varepsilon,\delta>0,\exists n_{0}:\forall n\geq n_{0},\int_{\mathbb{R}^{n}\setminus B(0,\delta)}K_{n}(x)\dif x<\varepsilon.
+\]
+
+\end_inset
+
+Por ejemplo, si 
+\begin_inset Formula $K:\mathbb{R}^{n}\to\mathbb{R}$
+\end_inset
+
+ es continua, no negativa, con soporte compacto e integral 1, entonces 
+\begin_inset Formula $(x\mapsto m^{n}K(mx))_{m\geq1}$
+\end_inset
+
+ es una sucesión de Dirac.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las sucesiones de Dirac aproximan la 
+\series bold
+delta de Dirac
+\series default
+, una 
+\begin_inset Quotes cld
+\end_inset
+
+función extendida
+\begin_inset Quotes crd
+\end_inset
+
+ con integral 1 que vale 0 en todo punto salvo en el origen en que el valor
+ es infinito.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $f:\mathbb{R}^{n}\to\mathbb{R}$
+\end_inset
+
+ es continua y acotada, la sucesión 
+\begin_inset Formula $(f*K_{m})_{m}$
+\end_inset
+
+ tiende uniformemente a 
+\begin_inset Formula $f$
+\end_inset
+
+ sobre subconjuntos compactos de 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $f:\mathbb{R}^{n}\to\mathbb{R}$
+\end_inset
+
+ es localmente integrable y 
+\begin_inset Formula $g\in{\cal D}^{k}(\mathbb{R}^{n})$
+\end_inset
+
+, 
+\begin_inset Formula $f*g\in{\cal C}^{k}(\mathbb{R}^{n})$
+\end_inset
+
+ y para 
+\begin_inset Formula $\alpha\in\mathbb{N}^{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $\sum_{i}\alpha_{i}\leq k$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\frac{\partial^{|\alpha|}(f*g)}{\partial x_{1}^{\alpha_{1}}\cdots\partial x_{n}^{\alpha_{n}}}=f*\left(\frac{\partial^{|\alpha|}g}{\partial x_{1}^{\alpha_{1}}\cdots\partial x_{n}^{\alpha_{n}}}\right),
+\]
+
+\end_inset
+
+con lo que 
+\begin_inset Formula $f*g$
+\end_inset
+
+ es una regularización de 
+\begin_inset Formula $f$
+\end_inset
+
+ a través de una función suave 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, dado un abierto 
+\begin_inset Formula $G\subseteq\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal D}(G)$
+\end_inset
+
+ es denso en 
+\begin_inset Formula $(C_{c}(G),\Vert\cdot\Vert_{\infty})$
+\end_inset
+
+ y en 
+\begin_inset Formula $L^{p}(G)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $p\in[1,\infty)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $G\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ abierto y 
+\begin_inset Formula $f\in L^{2}(G)$
+\end_inset
+
+, si para todo 
+\begin_inset Formula $\psi\in{\cal D}(G)$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\int_{G}f\psi=0
+\]
+
+\end_inset
+
+entonces 
+\begin_inset Formula $f=0$
+\end_inset
+
+ en casi todo punto, y en particular, si 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua, 
+\begin_inset Formula $f=0$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Principio de Dirichlet
+\end_layout
+
+\begin_layout Standard
+Dado un abierto 
+\begin_inset Formula $G\subseteq\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $u\in{\cal D}^{2}(G)$
+\end_inset
+
+ es 
+\series bold
+armónica
+\series default
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ si 
+\begin_inset Formula $\triangle u\coloneqq\nabla^{2}u=0$
+\end_inset
+
+ en todo punto de 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Dada 
+\begin_inset Formula $g\in{\cal C}(S_{\mathbb{C}})$
+\end_inset
+
+, el 
+\series bold
+problema de Dirichlet
+\series default
+ consiste en encontrar 
+\begin_inset Formula $u\in{\cal D}^{2}(\overline{B_{X}})$
+\end_inset
+
+ armónica con 
+\begin_inset Formula $u|_{S_{\mathbb{C}}}=g$
+\end_inset
+
+.
+ Para un abierto 
+\begin_inset Formula $G\subseteq\mathbb{R}^{n}$
+\end_inset
+
+, llamamos 
+\begin_inset Formula ${\cal C}^{m}(\overline{G})$
+\end_inset
+
+ al conjunto de funciones 
+\begin_inset Formula $u:\overline{G}\to\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $u|_{G}\in{\cal C}^{m}(G)$
+\end_inset
+
+ para las que las derivadas parciales de orden 
+\begin_inset Formula $m$
+\end_inset
+
+ de 
+\begin_inset Formula $u$
+\end_inset
+
+ en 
+\begin_inset Formula $G$
+\end_inset
+
+ admiten prolongación continua a 
+\begin_inset Formula $\overline{G}$
+\end_inset
+
+.
+ Escribimos 
+\begin_inset Formula $\partial_{j}u\coloneqq\frac{\partial u}{\partial j}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+Dados un abierto 
+\begin_inset Formula $G\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ acotado y no vacío, 
+\begin_inset Formula $f:G\to\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $g:\partial G\to\mathbb{R}$
+\end_inset
+
+, el 
+\series bold
+problema de valores frontera para la ecuación de Poisson
+\series default
+ consiste en encontrar 
+\begin_inset Formula $u:\overline{G}\to\mathbb{R}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $-\triangle u|_{G}=f$
+\end_inset
+
+ y 
+\begin_inset Formula $u|_{\partial G}=g$
+\end_inset
+
+, y el 
+\series bold
+problema generalizado de valores frontera
+\series default
+ consiste en encontrar 
+\begin_inset Formula $u:\overline{G}\to\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $u|_{\partial G}=g$
+\end_inset
+
+ y
+\begin_inset Formula 
+\[
+\forall v\in{\cal D}(G),\int_{G}\sum_{j=1}^{n}\frac{\partial u}{\partial x_{j}}\frac{\partial v}{\partial x_{j}}\dif x\int_{G}fv.
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $G\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ es un abierto acotado no vacío, 
+\begin_inset Formula $f\in{\cal C}(\overline{G})$
+\end_inset
+
+ y 
+\begin_inset Formula $g\in{\cal C}(\partial G)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Una 
+\begin_inset Formula $w\in{\cal C}^{2}(\overline{G})$
+\end_inset
+
+ es solución del problema de valores frontera para la ecuación de Poisson
+ y sólo si lo es del problema generalizado de valores frontera.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $w\in{\cal C}^{2}(\overline{G})$
+\end_inset
+
+ es solución del problema variacional consistente en encontrar el mínimo
+ de 
+\begin_inset Formula $F:\{u\in{\cal C}^{2}(\overline{G})\mid u|_{\partial G}=g\}\to\mathbb{R}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+F(u)\coloneqq\frac{1}{2}\int_{G}\sum_{j=1}^{n}(\partial_{j}u(x))^{2}\dif x-\int_{G}fu,
+\]
+
+\end_inset
+
+entonces es solución de los dos problemas anteriores.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+teorema de integración por partes en varias variables
+\series default
+ afirma que, si 
+\begin_inset Formula $G\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ es un abierto, 
+\begin_inset Formula $u\in{\cal C}^{1}(G)$
+\end_inset
+
+ y 
+\begin_inset Formula $v\in{\cal D}(G)$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\int_{G}u\partial_{j}v=-\int_{G}(\partial_{j}u)v.
+\]
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un abierto de 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $u,w\in L^{2}(G)$
+\end_inset
+
+, 
+\begin_inset Formula $w$
+\end_inset
+
+ es la 
+\series bold
+derivada generalizada 
+\begin_inset Formula $j$
+\end_inset
+
+-ésima
+\series default
+ de 
+\begin_inset Formula $u$
+\end_inset
+
+, 
+\begin_inset Formula $w=\partial_{j}u$
+\end_inset
+
+, si
+\begin_inset Formula 
+\[
+\forall v\in{\cal D}(G),\int_{G}u\partial_{j}v=-\int_{G}wv,
+\]
+
+\end_inset
+
+y para 
+\begin_inset Formula $\alpha\in\mathbb{N}^{n}$
+\end_inset
+
+ llamamos 
+\begin_inset Formula $D^{\alpha}u\coloneqq\partial_{1}^{\alpha_{1}}\cdots\partial_{n}^{\alpha_{n}}u$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $G\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ abierto, 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+ y 
+\begin_inset Formula $p\in[1,\infty)$
+\end_inset
+
+, llamamos 
+\series bold
+espacio de Sobolev
+\series default
+ a
+\begin_inset Formula 
+\[
+W^{k,p}(G)\coloneqq\{u\in L^{p}(G)\mid\forall\alpha\in\mathbb{N}^{n},(|\alpha|\leq k\implies\exists D^{\alpha}f\in L^{p}(G))\}.
+\]
+
+\end_inset
+
+Escribimos 
+\begin_inset Formula $W^{k}(G)\coloneqq W^{k,2}(G)$
+\end_inset
+
+, y generalmente consideramos el espacio de Sobolev 
+\begin_inset Formula $W^{1}(G)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $G\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ es abierto, definimos la relación de equivalencia en 
+\begin_inset Formula $G\to\mathbb{R}$
+\end_inset
+
+ como 
+\begin_inset Formula $f\sim g\iff\{x\in G\mid f(x)\neq g(x)\}\text{ es de medida nula}$
+\end_inset
+
+, y 
+\begin_inset Formula $\langle\cdot,\cdot\rangle_{1,2}:W^{1}(G)/\sim\to\mathbb{R}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+\langle\overline{u},\overline{v}\rangle_{1,2}\coloneqq\int_{G}\left(uv+\sum_{j}(\partial_{j}u)(\partial_{j}v)\right)
+\]
+
+\end_inset
+
+es un producto escalar en 
+\begin_inset Formula $W^{1}(G)/\sim$
+\end_inset
+
+ que lo convierte en un espacio de Hilbert.
+ Identificamos 
+\begin_inset Formula $W^{1}(G)$
+\end_inset
+
+ con 
+\begin_inset Formula $W^{1}(G)/\sim$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\begin_inset Formula $H_{0}^{1}(G)$
+\end_inset
+
+ al espacio de Hilbert obtenido como la clausura de 
+\begin_inset Formula ${\cal D}(G)$
+\end_inset
+
+ en 
+\begin_inset Formula $W^{1}(G)$
+\end_inset
+
+, que en general es un subespacio propio de 
+\begin_inset Formula $W^{1}(G)$
+\end_inset
+
+ pero es igual a 
+\begin_inset Formula $W^{1}(G)$
+\end_inset
+
+ si 
+\begin_inset Formula $G=\mathbb{R}^{n}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $G\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ es un abierto acotado no vacío y 
+\begin_inset Formula $u\in W^{1}(G)$
+\end_inset
+
+, 
+\series bold
+
+\begin_inset Formula $u$
+\end_inset
+
+ se anula en la frontera de 
+\begin_inset Formula $G$
+\end_inset
+
+ en sentido generalizado
+\series default
+, 
+\begin_inset Formula $u=0$
+\end_inset
+
+ en 
+\begin_inset Formula $\partial G$
+\end_inset
+
+, si 
+\begin_inset Formula $u\in H_{0}^{1}(G)$
+\end_inset
+
+, y para 
+\begin_inset Formula $f,g\in W^{1}(G)$
+\end_inset
+
+, 
+\series bold
+
+\begin_inset Formula $f=g$
+\end_inset
+
+ en 
+\begin_inset Formula $\partial G$
+\end_inset
+
+ en sentido generalizado
+\series default
+ si 
+\begin_inset Formula $f-g\in H_{0}^{1}(G)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Desigualdad de Poincaré-Friedrichs:
+\series default
+ Si 
+\begin_inset Formula $G\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ es un abierto acotado no vacío, existe 
+\begin_inset Formula $C>0$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $u\in H_{0}^{1}(G)$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+C\int_{G}u^{2}\leq\int_{G}\sum_{j=1}^{n}(\partial_{j}u)^{2}.
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $R\coloneqq\prod_{i}[a_{i},b_{i}]$
+\end_inset
+
+ con 
+\begin_inset Formula $G\subseteq R$
+\end_inset
+
+ y 
+\begin_inset Formula $u\in{\cal D}(G)$
+\end_inset
+
+, y vemos 
+\begin_inset Formula $u$
+\end_inset
+
+ como una función en 
+\begin_inset Formula $R$
+\end_inset
+
+ que se anula fuera de 
+\begin_inset Formula $G$
+\end_inset
+
+ y con valor indefinido en 
+\begin_inset Formula $\partial G$
+\end_inset
+
+, para 
+\begin_inset Formula $x\in R$
+\end_inset
+
+, por la desigualdad de Cauchy-Schwartz,
+\begin_inset Formula 
+\begin{align*}
+(u(x))^{2} & =\left(\int_{a_{n}}^{x_{n}}\partial_{n}u(x_{1},\dots,x_{n-1},t)\dif t\right)^{2}\leq\left(\int_{a_{n}}^{x_{n}}\dif t\right)\left(\int_{a_{n}}^{x_{n}}\partial_{n}u(x_{1},\dots,x_{n-1},t)^{2}\dif t\right)\leq\\
+ & \leq(b_{n}-a_{n})\int_{a_{n}}^{b_{n}}\partial_{n}u(x_{1},\dots,x_{n-1},t)^{2}\dif t,
+\end{align*}
+
+\end_inset
+
+luego
+\begin_inset Formula 
+\begin{align*}
+\int_{G}u^{2} & =\int_{R}u^{2}\leq\int_{a_{1}}^{b_{1}}\cdots\int_{a_{n}}^{b_{n}}(b_{n}-a_{n})\int_{a_{n}}^{b_{n}}\partial_{n}u(x_{1},\dots,x_{n-1},t)^{2}\dif t\dif x_{n}\cdots\dif x_{1}=\\
+ & =(b_{n}-a_{n})^{2}\int_{a_{1}}^{b_{1}}\cdots\int_{a_{n}}^{b_{n}}\partial_{n}u(x_{1},\dots,x_{n-1},t)^{2}\dif t\dif x_{n-1}\cdots\dif x_{1}=\\
+ & =(b_{n}-a_{n})^{2}\int_{R}(\partial_{n}u)^{2}\dif x\leq(b_{n}-a_{n})^{2}\int_{R}\sum_{j}(\partial_{j}u)^{2}\dif x=(b_{n}-a_{n})^{2}\int_{G}\sum_{j}(\partial_{j}u)^{2}\dif x.
+\end{align*}
+
+\end_inset
+
+Para 
+\begin_inset Formula $u\in H_{0}^{1}(G)$
+\end_inset
+
+,existe una sucesión 
+\begin_inset Formula $\{u_{m}\}_{m}\subseteq{\cal D}(G)$
+\end_inset
+
+ con 
+\begin_inset Formula $\lim_{m}\Vert u-u_{m}\Vert_{1,2}=0$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\lim_{m}\Vert u-u_{m}\Vert_{2}=\lim_{m}\Vert\partial_{j}u-\partial_{j}u_{m}\Vert_{2}=0$
+\end_inset
+
+, y tomando límites y usando que la norma 
+\begin_inset Formula $\Vert\cdot\Vert_{2}\leq\Vert\cdot\Vert_{1,2}$
+\end_inset
+
+ y por tanto es continua en 
+\begin_inset Formula $W^{1}(G)$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+C\int_{G}u^{2}-\int_{G}\sum_{j}(\partial_{j}u)^{2}=C\Vert u\Vert_{2}^{2}-\sum_{j}\Vert\partial_{j}u\Vert_{2}^{2}=\lim_{m}\left(C\Vert u_{m}\Vert_{2}^{2}-\sum_{j}\Vert\partial_{j}u_{m}\Vert_{2}^{2}\right)\leq0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Principio de Dirichlet:
+\series default
+ Sean 
+\begin_inset Formula $G\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ un abierto acotado no vacío, 
+\begin_inset Formula $f\in L^{2}(G)$
+\end_inset
+
+ y 
+\begin_inset Formula $g\in W^{1}(G)$
+\end_inset
+
+, 
+\begin_inset Formula $F:\{u\in W^{1}(G)\mid u-g\in H_{0}^{1}(G)\}\to\mathbb{R}$
+\end_inset
+
+ dada por 
+\begin_inset Formula 
+\[
+F(u)\coloneqq\frac{1}{2}\int_{G}\sum_{j=1}^{n}(\partial_{j}u)^{2}-\int_{G}fu
+\]
+
+\end_inset
+
+alcanza su mínimo en un único punto, que es el único 
+\begin_inset Formula $u\in\text{Dom}f$
+\end_inset
+
+ tal que
+\begin_inset Formula 
+\[
+\forall v\in H_{0}^{1}(G),\int_{G}\sum_{j=1}^{n}(\partial_{j}u)(\partial_{j}v)=\int_{G}fv
+\]
+
+\end_inset
+
+y la única solución en 
+\begin_inset Formula $\text{Dom}f$
+\end_inset
+
+ del problema de valores frontera para la ecuación de Poisson 
+\begin_inset Formula $-\nabla^{2}u=f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Para 
+\begin_inset Formula $u,v\in W^{1}(G)$
+\end_inset
+
+ definimos 
+\begin_inset Formula 
+\begin{align*}
+B(u,v) & \coloneqq\int_{G}\sum_{j}(\partial_{j}u)(\partial_{j}v), & b_{0}(v) & \coloneqq\int_{G}fv, & b(v) & \coloneqq b_{0}(v)-B(v,g).
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $B$
+\end_inset
+
+ es bilineal y simétrica, y es acotada porque
+\begin_inset Formula 
+\[
+|B(u,v)|=\left|\sum_{j}\int_{G}(\partial_{j}u)(\partial_{j}v)\right|\leq\sum_{j}\left|\int_{G}(\partial_{j}u)(\partial_{j}v)\right|\leq\sum_{j}\Vert\partial_{j}u\Vert_{2}\Vert\partial_{j}v\Vert_{2}\leq n\Vert u\Vert_{1,2}\Vert v\Vert_{1,2}.
+\]
+
+\end_inset
+
+Por la desigualdad de Poincaré-Friedrichs, existe 
+\begin_inset Formula $C>0$
+\end_inset
+
+ tal que, para todo 
+\begin_inset Formula $v\in H$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+C\int_{G}v^{2}\leq\int_{G}\sum_{j}(\partial_{j}v)^{2},
+\]
+
+\end_inset
+
+luego 
+\begin_inset Formula 
+\[
+C\Vert v\Vert_{1,2}^{2}=C\left(\int_{G}v^{2}+\sum_{j}(\partial_{j}v)^{2}\right)\leq(1+C)\int_{G}\sum_{j}(\partial_{j}v)^{2}=(1+C)B(v,v)
+\]
+
+\end_inset
+
+y 
+\begin_inset Formula $B$
+\end_inset
+
+ es fuertemente positiva.
+ Además, 
+\begin_inset Formula $b_{0}$
+\end_inset
+
+ es lineal y es acotada por la desigualdad de Cauchy-Schwartz, y como además
+ 
+\begin_inset Formula $B$
+\end_inset
+
+ es bilineal y acotada, 
+\begin_inset Formula $b_{0}$
+\end_inset
+
+ es lineal acotada y se dan las condiciones del teorema principal de los
+ problemas variacionales cuadráticos.
+ Ahora bien, si 
+\begin_inset Formula $w\coloneqq u-g\in H_{0}^{1}(G)$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{multline*}
+\frac{1}{2}B(w,w)-b(w)=\frac{1}{2}\int_{G}\sum_{j}(\partial_{j}(u-g))^{2}-\int_{G}f(u-g)+\int_{G}\sum_{j}(\partial_{j}(u-g))(\partial_{j}(g))=\\
+=\frac{1}{2}\int_{G}\sum_{j}(\partial_{j}(u-g))(\partial_{j}(u+g))-\int_{G}f(u-g)=\\
+=\frac{1}{2}\int_{G}\sum_{j}(\partial_{j}u)^{2}-\int_{G}fu+\frac{1}{2}\int_{G}\sum_{j}(\partial_{j}g)^{2}+\int_{G}fg,
+\end{multline*}
+
+\end_inset
+
+luego minimizar 
+\begin_inset Formula $F$
+\end_inset
+
+ equivale a minimizar 
+\begin_inset Formula $\frac{1}{2}B(w,w)-b(w)$
+\end_inset
+
+, y además
+\begin_inset Formula 
+\begin{multline*}
+B(w,v)=b(v)\iff B(u,v)-B(g,v)=b_{0}(v)-B(v,g)\iff B(u,v)=b_{0}(v)\iff\\
+\iff\int_{G}\sum_{j}(\partial_{j}u)(\partial_{j}v)=\int_{G}fv.
+\end{multline*}
+
+\end_inset
+
+Para la última parte, si 
+\begin_inset Formula $u_{0}$
+\end_inset
+
+ cumple esta última fórmula para todo 
+\begin_inset Formula $v\in H_{0}^{1}(G)$
+\end_inset
+
+, por integración por partes,
+\begin_inset Formula 
+\[
+0=\int_{G}\sum_{j}(\partial_{j}u_{0})(\partial_{j}v)-\int_{G}fv=-\int_{G}\sum_{j}(\partial_{j}\partial_{j}u_{0})v-\int_{G}fv=-\int_{G}(\nabla^{2}u_{0}+f)v,
+\]
+
+\end_inset
+
+con lo que 
+\begin_inset Formula $(\nabla^{2}u_{0}+f)\bot H_{0}^{1}(G)$
+\end_inset
+
+ y, como 
+\begin_inset Formula ${\cal D}(G)\subseteq H_{0}^{1}(G)$
+\end_inset
+
+ es denso en 
+\begin_inset Formula $L^{2}(G)$
+\end_inset
+
+, 
+\begin_inset Formula $\nabla^{2}u_{0}+f=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Soluciones débiles
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $k,n\in\mathbb{N}$
+\end_inset
+
+ y 
+\begin_inset Formula $a_{\alpha}\in\mathbb{K}^{n}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $\alpha\in\mathbb{N}^{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $|\alpha|<k$
+\end_inset
+
+, un 
+\series bold
+operador diferencial lineal de coeficientes constantes
+\series default
+ es uno de la forma
+\begin_inset Formula 
+\[
+L\coloneqq\sum_{|\alpha|\leq k}a_{\alpha}\left(\frac{\partial}{\partial x}\right)^{\alpha}\coloneqq\sum_{|\alpha|\leq k}a_{\alpha}\frac{\partial^{|\alpha|}}{\partial x_{1}^{\alpha_{1}}\cdots\partial x_{n}^{\alpha_{n}}},
+\]
+
+\end_inset
+
+y su 
+\series bold
+operador adjunto
+\series default
+ es
+\begin_inset Formula 
+\[
+L^{*}\coloneqq\sum_{|\alpha|\leq k}(-1)^{|\alpha|}\overline{a_{\alpha}}\left(\frac{\partial}{\partial x}\right)^{\alpha}.
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $G\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ es abierto, 
+\begin_inset Formula $\varphi,\psi\in L^{2}(G)$
+\end_inset
+
+ son de clase 
+\begin_inset Formula ${\cal C}^{k}$
+\end_inset
+
+ y una de las dos tiene soporte compacto, entonces 
+\begin_inset Formula $\langle L\psi,\varphi\rangle=\langle\psi,L^{*}\varphi\rangle$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así, si 
+\begin_inset Formula $G$
+\end_inset
+
+ es un abierto en 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $f,u\in L^{2}(G)$
+\end_inset
+
+ son de clase 
+\begin_inset Formula ${\cal C}^{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $Lu=f$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\langle f,\psi\rangle=\langle u,L^{*}\psi\rangle$
+\end_inset
+
+ para todo 
+\begin_inset Formula $\psi\in{\cal D}(G)$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $f\in L^{2}(G)$
+\end_inset
+
+, 
+\begin_inset Formula $u\in L^{2}(G)$
+\end_inset
+
+ es 
+\series bold
+solución débil
+\series default
+ de la ecuación en derivadas parciales 
+\begin_inset Formula $Lu=f$
+\end_inset
+
+ si para todo 
+\begin_inset Formula $\psi\in{\cal D}(G)$
+\end_inset
+
+ es 
+\begin_inset Formula $\langle f,\psi\rangle=\langle u,L^{*}\psi\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $L=\od{}{x}$
+\end_inset
+
+ y 
+\begin_inset Formula $u,f\in L^{2}((0,1))$
+\end_inset
+
+, 
+\begin_inset Formula $Lu=f$
+\end_inset
+
+ en sentido débil si y sólo si existe 
+\begin_inset Formula $F:(0,1)\to\mathbb{R}$
+\end_inset
+
+ absolutamente continua con 
+\begin_inset Formula $F=u$
+\end_inset
+
+ y 
+\begin_inset Formula $F'=f$
+\end_inset
+
+ para casi todo 
+\begin_inset Formula $x\in(0,1)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La ecuación de ondas en una dimensión,
+\begin_inset Formula 
+\[
+\left\{ \begin{array}{rlrl}
+\frac{\partial^{2}u}{\partial x^{2}}-\frac{\partial^{2}u}{\partial t^{2}} & =0, & t & \in[0,+\infty),\\
+u(x,0) & \equiv f(x), & x & \in[0,\pi],\\
+\frac{\partial u}{\partial t}(x,0) & \equiv0,
+\end{array}\right.
+\]
+
+\end_inset
+
+siendo 
+\begin_inset Formula $f:[0,\pi]\to\mathbb{R}$
+\end_inset
+
+ una función lineal a trozos, admite soluciones débiles que no son soluciones
+ ordinarias.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Malgrange-Ehrenpreis:
+\series default
+ Sean 
+\begin_inset Formula $G$
+\end_inset
+
+ un abierto acotado de 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $L$
+\end_inset
+
+ un operador en derivadas parciales lineal con coeficientes constantes,
+ existe un operador lineal continuo 
+\begin_inset Formula $K:L^{2}(G)\to L^{2}(G)$
+\end_inset
+
+ tal que para todo 
+\begin_inset Formula $f\in L^{2}(G)$
+\end_inset
+
+, 
+\begin_inset Formula $u\coloneqq K(f)$
+\end_inset
+
+ es solución débil de 
+\begin_inset Formula $Lu=f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Demostración:
+\series default
+ Definimos 
+\begin_inset Formula $\langle\varphi,\psi\rangle_{L}\coloneqq\langle L^{*}\varphi,L^{*}\psi\rangle_{2}$
+\end_inset
+
+, y para ver que es un producto escalar sobre 
+\begin_inset Formula ${\cal D}(G)$
+\end_inset
+
+ vemos que existe 
+\begin_inset Formula $C>0$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $\psi\in{\cal D}(G)$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert\psi\Vert_{2}\leq C\Vert L^{*}\psi\Vert_{2}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $L^{*}=\frac{\partial}{\partial x_{1}}$
+\end_inset
+
+, llamando 
+\begin_inset Formula $\psi(x)\coloneqq0$
+\end_inset
+
+ para 
+\begin_inset Formula $x\notin G$
+\end_inset
+
+, para 
+\begin_inset Formula $x\in G$
+\end_inset
+
+, como 
+\begin_inset Formula $\text{sop}\psi\subseteq G$
+\end_inset
+
+ es compacto, sea 
+\begin_inset Formula $m\coloneqq\inf_{x\in G}x_{1}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+\psi(x)^{2} & =\left(\int_{m}^{x_{1}}\frac{\partial\psi}{\partial x_{1}}(t,x_{2},\dots,x_{n})\dif t\right)^{2}\leq\left(\int_{m}^{x_{1}}\left|\frac{\partial\psi}{\partial x_{1}}(t,x_{2},\dots,x_{n})\right|\cdot1\dif t\right)\leq\\
+ & \leq\int_{m}^{x_{1}}\dif t\int_{m}^{x_{1}}\left|\frac{\partial\psi}{\partial x_{1}}(t,x_{2},\dots,x_{n})\right|^{2}\dif t\leq d\int_{m}^{x_{1}}\left|\frac{\partial\psi}{\partial x_{1}}(t,x_{2},\dots,x_{n})\right|^{2},
+\end{align*}
+
+\end_inset
+
+donde 
+\begin_inset Formula $d$
+\end_inset
+
+ es el diámetro de 
+\begin_inset Formula $G$
+\end_inset
+
+, e integrando de nuevo,
+\begin_inset Formula 
+\begin{align*}
+\Vert\psi\Vert_{2}^{2} & =\int_{G}\psi(x)^{2}\dif x\leq d\int_{m}^{x_{1}}\int_{-\infty}^{x_{2}}\cdots\int_{-\infty}^{x_{n}}\int_{m}^{x_{1}}\left|\frac{\partial\psi}{\partial x_{1}}(t,x_{2},\dots,x_{n})\right|^{2}\dif t\dif x_{n}\cdots\dif x_{1}\leq\\
+ & \leq d^{2}\int_{G}\left|\frac{\partial\psi}{\partial x_{1}}(x)\right|^{2}\dif x=d^{2}\Vert L^{*}\psi\Vert_{2}^{2}.
+\end{align*}
+
+\end_inset
+
+Si 
+\begin_inset Formula $L^{*}=\frac{\partial}{\partial x_{i}}$
+\end_inset
+
+ para otro 
+\begin_inset Formula $i$
+\end_inset
+
+, es análogo, y si 
+\begin_inset Formula $L^{*}=\left(\frac{\partial}{\partial x}\right)^{|\alpha|}$
+\end_inset
+
+, por inducción, 
+\begin_inset Formula $\Vert\psi\Vert_{2}\leq d^{|\alpha|}\Vert L^{*}\psi\Vert_{2}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $L$
+\end_inset
+
+ arbitrario basta hacer combinaciones lineales.
+ Visto esto, sean 
+\begin_inset Formula $H_{0}\coloneqq({\cal D}(G),\langle\cdot,\cdot\rangle_{L})$
+\end_inset
+
+ y 
+\begin_inset Formula $H$
+\end_inset
+
+ su compleción, 
+\begin_inset Formula $L^{*}:H_{0}\to L^{2}(G)$
+\end_inset
+
+ es lineal y continuo y por tanto admite una extensión lineal y continua
+ 
+\begin_inset Formula $\hat{L}^{*}:H\to L^{2}(G)$
+\end_inset
+
+.
+ Sea ahora 
+\begin_inset Formula $f\in L^{2}(G)$
+\end_inset
+
+ y 
+\begin_inset Formula $l_{0}:H_{0}\to\mathbb{K}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $l_{0}(\psi)\coloneqq\langle\psi,f\rangle_{2}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+|l_{0}(\psi)|=|\langle\psi,f\rangle_{2}|\leq\Vert\psi\Vert_{2}\Vert f\Vert_{2}\leq C\Vert f\Vert_{2}\Vert L^{*}\psi\Vert_{2},
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $C$
+\end_inset
+
+ es tal que 
+\begin_inset Formula $\Vert\psi\Vert_{2}\leq C\Vert L^{*}\psi\Vert_{2}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $C$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $l_{0}$
+\end_inset
+
+ es lineal continua por la cota 
+\begin_inset Formula $C\Vert f\Vert_{2}$
+\end_inset
+
+ y se puede extender a una forma lineal y continua 
+\begin_inset Formula $l:H\to\mathbb{K}$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert l\Vert\leq C\Vert f\Vert_{2}$
+\end_inset
+
+.
+ Por el teorema de Riesz, existe un único 
+\begin_inset Formula $\hat{u}\in H$
+\end_inset
+
+ con 
+\begin_inset Formula $l(h)\equiv\langle h,\hat{u}\rangle_{L}$
+\end_inset
+
+ para 
+\begin_inset Formula $h\in H$
+\end_inset
+
+ y además 
+\begin_inset Formula $\Vert\hat{u}\Vert_{H}=\Vert l\Vert_{H}$
+\end_inset
+
+, y tomando 
+\begin_inset Formula $u\coloneqq\hat{L}^{*}\hat{u}$
+\end_inset
+
+, 
+\begin_inset Formula $l(h)=\langle\hat{L}^{*}h,\hat{L}^{*}\hat{u}\rangle=\langle\hat{L}^{*}h,u\rangle_{2}$
+\end_inset
+
+, pero para 
+\begin_inset Formula $\psi\in{\cal D}(G)$
+\end_inset
+
+, 
+\begin_inset Formula $l(\psi)=\langle\psi,f\rangle_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $\hat{L}^{*}(\psi)=L^{*}\psi$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\langle L^{*}\psi,u\rangle_{2}=l(\psi)=\langle\psi,f\rangle_{2}$
+\end_inset
+
+, y basta llamar 
+\begin_inset Formula $K(f)\coloneqq u$
+\end_inset
+
+.
+ Para la continuidad de 
+\begin_inset Formula $K$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\Vert K(f)\Vert_{2}=\Vert u\Vert_{2}=\Vert\hat{L}^{*}\hat{u}\Vert_{2}=\Vert\hat{u}\Vert_{H}=\Vert l\Vert_{H}=\sup_{\Vert\psi\Vert_{H}=\Vert L^{*}\psi\Vert_{2}=1}|l(\psi)|\leq C\Vert f\Vert_{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Método de Galerkin
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $M_{1}\subseteq M_{2}\subseteq\dots\subseteq M_{n}\subseteq\dots$
+\end_inset
+
+ una sucesión de subespacios cerrados de un espacio de Hilbert 
+\begin_inset Formula $H$
+\end_inset
+
+ con unión densa en 
+\begin_inset Formula $H$
+\end_inset
+
+, 
+\begin_inset Formula $a:H\times H\to\mathbb{R}$
+\end_inset
+
+ bilineal, simétrica, continua y fuertemente positiva, 
+\begin_inset Formula $b:H\to\mathbb{R}$
+\end_inset
+
+ lineal continua,
+\begin_inset Formula 
+\[
+J(x)\coloneqq\frac{1}{2}a(x,x)-b(x)
+\]
+
+\end_inset
+
+para 
+\begin_inset Formula $x\in H$
+\end_inset
+
+, 
+\begin_inset Formula $u\in H$
+\end_inset
+
+ con 
+\begin_inset Formula $J(u)$
+\end_inset
+
+ mínimo y, para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $u_{n}\in M_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $J(u_{n})$
+\end_inset
+
+ mínimo, de modo que 
+\begin_inset Formula $a(x,u_{n})=b(x)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in M_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $a(x,u)=b(x)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in H$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Teorema de Galerkin-Ritz:
+\series default
+ 
+\begin_inset Formula $\lim_{n}u_{n}=u$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $x\in M_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $a(x,u_{n})=b(x)$
+\end_inset
+
+, y para 
+\begin_inset Formula $x\in H$
+\end_inset
+
+, 
+\begin_inset Formula $a(x,u)=f(x)$
+\end_inset
+
+, luego 
+\begin_inset Formula $a(x,u-u_{n})=b(x)-b(x)=0$
+\end_inset
+
+ para 
+\begin_inset Formula $x\in M_{n}$
+\end_inset
+
+.
+ Pero 
+\begin_inset Formula $a$
+\end_inset
+
+ es un producto escalar equivalente al de 
+\begin_inset Formula $H$
+\end_inset
+
+, luego 
+\begin_inset Formula $u-u_{n}\bot M_{n}$
+\end_inset
+
+ y, si 
+\begin_inset Formula $P_{n}:H\to M_{n}$
+\end_inset
+
+ es la proyección ortogonal, 
+\begin_inset Formula $P_{n}(u)=u_{n}$
+\end_inset
+
+.
+ Por el teorema de la proyección, 
+\begin_inset Formula $\Vert u-u_{n}\Vert=\Vert u-P_{n}(u)\Vert=d(u,M_{n})$
+\end_inset
+
+, pero por la densidad es 
+\begin_inset Formula $d(u,\bigcup_{n}M_{n})=0$
+\end_inset
+
+, y para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existen 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ e 
+\begin_inset Formula $y\in M_{n_{0}}$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert u-y\Vert<\varepsilon$
+\end_inset
+
+, y como la sucesión es creciente, para 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert u-u_{n}\Vert=d(u,M_{n})\leq d(u,M_{n_{0}})\leq\Vert u-y\Vert<\varepsilon$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\lim_{n}u_{n}=u$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Dados 
+\begin_inset Formula $c,d>0$
+\end_inset
+
+ con 
+\begin_inset Formula $a(x,y)\leq d\Vert x\Vert\Vert y\Vert$
+\end_inset
+
+ y 
+\begin_inset Formula $c\Vert x\Vert^{2}\leq a(x,x)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x,y\in H$
+\end_inset
+
+, 
+\begin_inset Formula $c\Vert u\Vert\leq\Vert b\Vert$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Razón de convergencia:
+\series default
+ 
+\begin_inset Formula $\Vert u-u_{n}\Vert\leq\frac{d}{c}d(u,M_{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Estimación del error:
+\series default
+ Si 
+\begin_inset Formula $\beta\leq J(x)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $x\in H$
+\end_inset
+
+, para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ es 
+\begin_inset Formula $\frac{c}{2}\Vert u-u_{n}\Vert^{2}\leq J(u_{n})-\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+método de Galerkin
+\series default
+ para resolver un problema de esta forma consiste en tomar en el teorema
+ anterior los 
+\begin_inset Formula $M_{n}$
+\end_inset
+
+ de dimensión finita y resolver los sistemas de ecuaciones lineales resultantes,
+ con matriz de coeficientes simétrica y definida positiva de tamaño 
+\begin_inset Formula $\dim M_{n}$
+\end_inset
+
+.
+ Tomando adecuadamente las bases de los 
+\begin_inset Formula $M_{n}$
+\end_inset
+
+ se puede conseguir que las matrices tengan muchas entradas nulas.
+\end_layout
+
+\begin_layout Section
+Bases hilbertianas
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $(H_{i})_{i\in I}$
+\end_inset
+
+ una familia de 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacios de Hilbert, 
+\begin_inset Formula $H_{0}\coloneqq\prod_{i\in I}H_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $\langle\cdot,\cdot\rangle:H_{0}\times H_{0}\to[0,+\infty]$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+\langle x,y\rangle\coloneqq\sum_{i\in I}\langle x_{i},y_{i}\rangle_{H_{i}},
+\]
+
+\end_inset
+
+llamamos 
+\series bold
+suma directa hilbertiana
+\series default
+ o 
+\series bold
+suma 
+\begin_inset Formula $\ell^{2}$
+\end_inset
+
+
+\series default
+ de 
+\begin_inset Formula $\{H_{i}\}_{i\in I}$
+\end_inset
+
+ al espacio de Hilbert 
+\begin_inset Formula 
+\[
+\bigoplus_{i\in I}H_{i}\coloneqq\ell^{2}((H_{i})_{i\in I})\coloneqq(\{x\in H_{0}\mid\langle x,x\rangle<\infty\},\langle\cdot,\cdot\rangle).
+\]
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cada 
+\begin_inset Formula $H_{i}$
+\end_inset
+
+ es isométricamente isomorfo al subespacio de 
+\begin_inset Formula $H$
+\end_inset
+
+ de los vectores con todas las coordenadas nulas salvo la 
+\begin_inset Formula $i$
+\end_inset
+
+, los 
+\begin_inset Formula $H_{i}$
+\end_inset
+
+ son mutuamente ortogonales en 
+\begin_inset Formula $H$
+\end_inset
+
+, 
+\begin_inset Formula $H$
+\end_inset
+
+ es la clausura lineal cerrada de los 
+\begin_inset Formula $H_{i}$
+\end_inset
+
+ y cada 
+\begin_inset Formula $x\in H$
+\end_inset
+
+ se puede expresar de forma única como 
+\begin_inset Formula $\sum_{i\in I}x_{i}$
+\end_inset
+
+ con cada 
+\begin_inset Formula $x_{i}\in H_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $H$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio de Hilbert y 
+\begin_inset Formula $(H_{i})_{i\in I}$
+\end_inset
+
+ es una familia de subespacios cerrados de 
+\begin_inset Formula $H$
+\end_inset
+
+ mutuamente ortogonales con 
+\begin_inset Formula $H=\overline{\text{span}\{H_{i}\}_{i\in I}}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $H$
+\end_inset
+
+ es isométricamente isomorfo a 
+\begin_inset Formula $\bigoplus_{i\in I}H_{i}$
+\end_inset
+
+, e identificamos 
+\begin_inset Formula $H$
+\end_inset
+
+ con 
+\begin_inset Formula $\bigoplus_{i\in I}H_{i}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Desigualdad de Bessel:
+\series default
+ Sean 
+\begin_inset Formula $H$
+\end_inset
+
+ un espacio prehilbertiano y 
+\begin_inset Formula $\{e_{i}\}_{i\in I}\subseteq H$
+\end_inset
+
+ una familia ortonormal, para 
+\begin_inset Formula $x\in H$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\sum_{i\in I}|\langle x,e_{i}\rangle|^{2}\leq\Vert x\Vert^{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para un conjunto 
+\begin_inset Formula $I$
+\end_inset
+
+ arbitrario, llamamos 
+\begin_inset Formula $\ell^{2}(I)\coloneqq\bigoplus_{i\in I}\mathbb{K}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de la base hilbertiana:
+\series default
+ Sean 
+\begin_inset Formula $H$
+\end_inset
+
+ un espacio de Hilbert y 
+\begin_inset Formula $\{e_{i}\}_{i\in I}\subseteq H$
+\end_inset
+
+ una familia ortonormal, 
+\begin_inset Formula $\{e_{i}\}_{i\in I}$
+\end_inset
+
+ es ortonormal maximal (por inclusión) si y sólo si 
+\begin_inset Formula $\forall x\in H,(\forall i\in I,\langle x,e_{i}\rangle=0\implies x=0)$
+\end_inset
+
+, si y sólo si es un conjunto total, si y sólo si 
+\begin_inset Formula $\hat{}:H\to\ell^{2}(I)$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\hat{x}\coloneqq(\langle x,e_{i}\rangle)_{i\in I}$
+\end_inset
+
+ es inyectiva, si y sólo si todo 
+\begin_inset Formula $x\in H$
+\end_inset
+
+ admite un 
+\series bold
+desarrollo de Fourier
+\series default
+ 
+\begin_inset Formula $x=\sum_{i\in I}\langle x,e_{i}\rangle e_{i}$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\forall x,y\in H,\langle x,y\rangle=\sum_{i\in I}\langle x,e_{i}\rangle\overline{\langle y,e_{i}\rangle}$
+\end_inset
+
+, si y sólo si todo 
+\begin_inset Formula $x\in H$
+\end_inset
+
+ cumple la 
+\series bold
+identidad de Parseval
+\series default
+, 
+\begin_inset Formula $\Vert x\Vert^{2}=\sum_{i\in I}|\langle x,e_{i}\rangle|^{2}$
+\end_inset
+
+, y entonces decimos que 
+\begin_inset Formula $(e_{i})_{i\in I}$
+\end_inset
+
+ es una 
+\series bold
+base hilbertiana
+\series default
+ de 
+\begin_inset Formula $H$
+\end_inset
+
+ o un 
+\series bold
+sistema ortonormal completo
+\series default
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\implies2]$
+\end_inset
+
+ Entonces 
+\begin_inset Formula $x\bot\{e_{i}\}_{i\in I}$
+\end_inset
+
+, por lo que si 
+\begin_inset Formula $x\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $\{e_{i}\}_{i\in I}\cup\{x\}$
+\end_inset
+
+ sería ortogonal.
+\begin_inset Formula $\#$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\iff3]$
+\end_inset
+
+ Sabemos que un 
+\begin_inset Formula $S\subseteq H$
+\end_inset
+
+ es total si y sólo si 
+\begin_inset Formula $S^{\bot}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\iff4]$
+\end_inset
+
+ Por ser 
+\begin_inset Formula $\hat{}$
+\end_inset
+
+ lineal.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $4\implies5]$
+\end_inset
+
+ 
+\begin_inset Formula $\widehat{\sum_{i}\langle x,e_{i}\rangle e_{i}}=\sum_{i}\langle x,e_{i}\rangle\hat{e}_{i}=\sum_{i}\langle x,e_{i}\rangle e_{i}=\hat{x}$
+\end_inset
+
+, y por inyectividad 
+\begin_inset Formula $x=\sum_{i\in I}\langle x,e_{i}\rangle e_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $5\implies6]$
+\end_inset
+
+ 
+\begin_inset Formula $\langle x,y\rangle=\sum_{i,j\in I}\langle\langle x,e_{i}\rangle e_{i},\langle y,e_{j}\rangle e_{j}\rangle=\sum_{i,j\in I}\langle x,e_{i}\rangle\overline{\langle y,e_{j}\rangle}\langle e_{i},e_{j}\rangle=\sum_{i\in I}\langle x,e_{i}\rangle\overline{\langle y,e_{j}\rangle}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $6\implies7]$
+\end_inset
+
+ Basta tomar 
+\begin_inset Formula $x=y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $7\implies1]$
+\end_inset
+
+ Si fuera 
+\begin_inset Formula $\{e_{i}\}_{i}\subsetneq M\subseteq H$
+\end_inset
+
+ con 
+\begin_inset Formula $M$
+\end_inset
+
+ ortonormal, para 
+\begin_inset Formula $x\in M\setminus\{e_{i}\}_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $1=\Vert x\Vert^{2}=\sum_{i\in I}|\langle x,e_{i}\rangle|^{2}=0\#$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Primer teorema de Riesz-Fischer:
+\series default
+ Si 
+\begin_inset Formula $H$
+\end_inset
+
+ es un espacio prehilbertiano con una familia ortonormal 
+\begin_inset Formula $\{e_{i}\}_{i\in I}$
+\end_inset
+
+ y 
+\begin_inset Formula $\hat{}:H\to\mathbb{K}^{I}$
+\end_inset
+
+ viene dada por 
+\begin_inset Formula $\hat{x}\coloneqq(\langle x,e_{i}\rangle)_{i\in I}$
+\end_inset
+
+, 
+\begin_inset Formula $\hat{}$
+\end_inset
+
+ es lineal y continua con imagen contenida en 
+\begin_inset Formula $\ell^{2}(I)$
+\end_inset
+
+ e igual a 
+\begin_inset Formula $\ell^{2}(I)$
+\end_inset
+
+ si 
+\begin_inset Formula $H$
+\end_inset
+
+ es de Hilbert.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $H$
+\end_inset
+
+ es un espacio de Hilbert, todo espacio ortonormal de vectores en 
+\begin_inset Formula $H$
+\end_inset
+
+ se puede completar a una base hilbertiana de 
+\begin_inset Formula $H$
+\end_inset
+
+, y en particular todo espacio de Hilbert posee una base hilbertiana y es
+ isométricamente isomorfo a un 
+\begin_inset Formula $\ell^{2}(I)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los espacios de Hilbert 
+\begin_inset Formula $\ell^{2}(I)$
+\end_inset
+
+ y 
+\begin_inset Formula $\ell^{2}(J)$
+\end_inset
+
+ son topológicamente isomorfos si y sólo si 
+\begin_inset Formula $|I|=|J|$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+dimensión hilbertiana
+\series default
+ de un espacio de Hilbert al cardinal de cualquier base hilbertiana.
+ 
+\series bold
+Segundo teorema de Riesz-Fischer:
+\series default
+ Si 
+\begin_inset Formula $H$
+\end_inset
+
+ es de dimensión infinita, 
+\begin_inset Formula $\dim H=\mathbb{N}$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $H\cong\ell^{2}$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $H$
+\end_inset
+
+ es separable.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $1\iff2]$
+\end_inset
+
+ Por lo anterior.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $2\implies3]$
+\end_inset
+
+ Visto.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $3\implies2]$
+\end_inset
+
+ Dado 
+\begin_inset Formula $\{x_{n}\}_{n\in\mathbb{N}}\subseteq H$
+\end_inset
+
+ denso, como 
+\begin_inset Formula $H$
+\end_inset
+
+ es de dimensión infinita, existe una subsucesión 
+\begin_inset Formula $(x_{n_{k}})_{k}$
+\end_inset
+
+ linealmente independiente de 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $\text{span}\{x_{n}\}_{n}=\text{span}\{x_{n_{k}}\}_{k}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\overline{\text{span}\{x_{n_{k}}\}_{k}}=H$
+\end_inset
+
+ y el proceso de ortonormalización de Gram-Schmidt nos da una base hilbertiana
+ numerable de 
+\begin_inset Formula $H$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Así, si 
+\begin_inset Formula $Z\leq_{\mathbb{K}}\ell^{2}$
+\end_inset
+
+ es cerrado de dimensión infinita, 
+\begin_inset Formula $Z\cong\ell^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Aproximaciones por polinomios
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $I\subseteq\mathbb{R}$
+\end_inset
+
+ es un intervalo cerrado, llamamos 
+\begin_inset Formula ${\cal C}(I)$
+\end_inset
+
+ al conjunto de funciones 
+\begin_inset Formula $I\to\mathbb{R}$
+\end_inset
+
+ continuas en el interior de 
+\begin_inset Formula $I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Korovkin:
+\series default
+ Sean 
+\begin_inset Formula $p_{0},p_{1},p_{2}:[a,b]\subseteq\mathbb{R}\to\mathbb{R}$
+\end_inset
+
+ dadas por 
+\begin_inset Formula $p_{k}(t)\coloneqq t^{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $(P_{n}:{\cal C}([a,b])\to{\cal C}([a,b]))_{n}$
+\end_inset
+
+ una sucesión de funciones lineales positivas (
+\begin_inset Formula $\forall f\in{\cal C}([a,b]),(f\geq0\implies P_{n}(f)\geq0)$
+\end_inset
+
+) con 
+\begin_inset Formula $\lim_{n}\Vert P_{n}(p_{k})-p_{k}\Vert_{\infty}=0$
+\end_inset
+
+ para 
+\begin_inset Formula $k\in\{0,1,2\}$
+\end_inset
+
+, entonces, para 
+\begin_inset Formula $f\in{\cal C}([a,b])$
+\end_inset
+
+, 
+\begin_inset Formula $\lim_{n}\Vert P_{n}(f)-f\Vert_{\infty}=0$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Weierstrass:
+\series default
+ El conjunto de polinomios en una variable es denso 
+\begin_inset Formula $({\cal C}([a,b]),\Vert\cdot\Vert_{\infty})$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así, para 
+\begin_inset Formula $f\in{\cal C}([a,b])$
+\end_inset
+
+, se puede encontrar una sucesión de polinomios que converja uniformemente
+ a 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ Hacerlo con polinomios de interpolación por nodos prefijados no es una
+ buena estrategia ya que para toda secuencia de nodos de interpolación en
+ 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+, existe 
+\begin_inset Formula $f\in{\cal C}([a,b])$
+\end_inset
+
+ para la que los polinomios de interpolación en dichos nodos no converge
+ uniformemente a 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+ Si se hace con nodos equidistantes se da el fenómeno de Runge.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Čebyšev:
+\series default
+ Para 
+\begin_inset Formula $f\in{\cal C}([a,b])$
+\end_inset
+
+ y 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, si 
+\begin_inset Formula $K_{n}\subseteq\mathbb{K}[X]$
+\end_inset
+
+ es el conjunto de polinomio de grado máximo 
+\begin_inset Formula $n$
+\end_inset
+
+, 
+\begin_inset Formula $p:K_{n}\mapsto\Vert f-p\Vert_{\infty}$
+\end_inset
+
+ tiene un único mínimo 
+\begin_inset Formula $p_{n}$
+\end_inset
+
+, y 
+\begin_inset Formula $(p_{n})_{n}$
+\end_inset
+
+ converge uniformemente a 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+polinomio trigonométrico real
+\series default
+ es una función 
+\begin_inset Formula $p:\mathbb{R}\to\mathbb{R}$
+\end_inset
+
+ de la forma
+\begin_inset Formula 
+\[
+p(x)\coloneqq\sum_{n=0}^{m}(a_{n}\cos(nx)+b_{n}\sin(nx))
+\]
+
+\end_inset
+
+para ciertos 
+\begin_inset Formula $a_{n},b_{n}\in\mathbb{R}$
+\end_inset
+
+.
+ 
+\series bold
+Teorema de Weierstrass:
+\series default
+ Si 
+\begin_inset Formula $f:[-\pi,\pi]\to\mathbb{R}$
+\end_inset
+
+ es continua con 
+\begin_inset Formula $f(-\pi)=f(\pi)$
+\end_inset
+
+, para cada 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe un polinomio trigonométrico real 
+\begin_inset Formula $p$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert f-p\Vert_{\infty}<\varepsilon$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $f:[-\pi,\pi]\to\mathbb{C}$
+\end_inset
+
+ integrable y 
+\begin_inset Formula $r\in\mathbb{Z}$
+\end_inset
+
+, llamamos 
+\series bold
+
+\begin_inset Formula $r$
+\end_inset
+
+-ésimo coeficiente de Fourier
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+\hat{f}(r)\coloneqq\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)\text{e}^{-\text{i}rt}\dif t,
+\]
+
+\end_inset
+
+y 
+\series bold
+serie de Fourier
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ a la serie formal
+\begin_inset Formula 
+\[
+\sum_{r\in\mathbb{Z}}\hat{f}(r)\text{e}^{-\text{i}rt}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $f:[-\pi,\pi]\to\mathbb{R}$
+\end_inset
+
+ integrable y 
+\begin_inset Formula $n\in\mathbb{N}^{*}$
+\end_inset
+
+, llamando
+\begin_inset Formula 
+\begin{align*}
+a_{0} & \coloneqq\frac{1}{2\pi}\int_{-\pi}^{\pi}f, & a_{n} & \coloneqq\frac{1}{\pi}\int_{-\pi}^{\pi}f(t)\cos(nt)\dif t, & b_{n} & \coloneqq\frac{1}{\pi}\int_{-\pi}^{\pi}f(t)\sin(nt)\dif t,
+\end{align*}
+
+\end_inset
+
+la 
+\series bold
+serie de Fourier real
+\series default
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\sum_{n=0}^{\infty}a_{n}\cos(nt)+\sum_{n=1}^{\infty}b_{n}\sin(nt).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, sean 
+\begin_inset Formula $([-\pi,\pi],\Sigma,\mu)$
+\end_inset
+
+ es el espacio de medida usual en 
+\begin_inset Formula $[-\pi,\pi]$
+\end_inset
+
+, 
+\begin_inset Formula $M_{\mathbb{R}}\coloneqq L_{\mathbb{R}}^{2}([-\pi,\pi],\Sigma,\frac{\mu}{\pi})$
+\end_inset
+
+ y 
+\begin_inset Formula $M_{\mathbb{C}}\coloneqq L_{\mathbb{C}}^{2}([-\pi,\pi],\Sigma,\frac{\mu}{2\pi})$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+El 
+\series bold
+sistema trigonométrico
+\series default
+ 
+\begin_inset Formula $(\text{e}^{\text{i}rt})_{r\in\mathbb{Z}}$
+\end_inset
+
+ es una base hilbertiana de 
+\begin_inset Formula $M_{\mathbb{C}}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(\cos(nt))_{n\in\mathbb{N}}\star(\sin(nt))_{n\in\mathbb{N}^{*}}$
+\end_inset
+
+ es una base hilbertiana de 
+\begin_inset Formula $M_{\mathbb{R}}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $f\in M_{\mathbb{C}}$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ coincide con su serie de Fourier en 
+\begin_inset Formula $\Vert\cdot\Vert_{2}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $f\in M_{\mathbb{R}}$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ coincide con su serie de Fourier real en 
+\begin_inset Formula $\Vert\cdot\Vert_{2}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula ${\cal F}:M_{\mathbb{C}}\to\ell^{2}(\mathbb{Z})$
+\end_inset
+
+ que asigna a cada función su familia de coeficientes de Fourier 
+\begin_inset Formula $(\hat{f}(n))_{n\in\mathbb{Z}}$
+\end_inset
+
+ es un isomorfismo de espacios de Hilbert.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+peso
+\series default
+ en un intervalo cerrado 
+\begin_inset Formula $I\subseteq\mathbb{R}$
+\end_inset
+
+ es una 
+\begin_inset Formula $p\in{\cal C}(I)$
+\end_inset
+
+ estrictamente positiva tal que
+\begin_inset Formula 
+\[
+\forall n\in\mathbb{N},\int_{I}|t|^{n}p(t)\dif t<\infty.
+\]
+
+\end_inset
+
+Entonces 
+\begin_inset Formula $\langle\cdot,\cdot\rangle:{\cal C}(I)\times{\cal C}(I)\to[-\infty,+\infty]$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+\langle f,g\rangle\coloneqq\int_{I}f\overline{g}p
+\]
+
+\end_inset
+
+es un producto escalar en 
+\begin_inset Formula $H_{p}\coloneqq\{f\in{\cal C}(I)\mid\langle f,f\rangle<\infty\}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+sucesión de polinomios ortonormales
+\series default
+ asociada a 
+\begin_inset Formula $\langle\cdot,\cdot\rangle$
+\end_inset
+
+ o al peso 
+\begin_inset Formula $p$
+\end_inset
+
+ en 
+\begin_inset Formula $I$
+\end_inset
+
+ a una sucesión 
+\begin_inset Formula $\{P_{n}\}_{n\in\mathbb{N}}\subseteq H_{p}$
+\end_inset
+
+ de polinomios con 
+\begin_inset Formula $\text{span}\{1,t,\dots,t^{n}\}=\text{span}\{P_{0},P_{1},\dots,P_{n}\}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, y entonces, para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $P_{n}$
+\end_inset
+
+ es un polinomio de grado 
+\begin_inset Formula $n$
+\end_inset
+
+ con coeficientes reales.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $P_{n}$
+\end_inset
+
+ es ortogonal en 
+\begin_inset Formula $H_{p}$
+\end_inset
+
+ al subespacio de polinomios de grado menor que 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $P_{n}$
+\end_inset
+
+ tiene 
+\begin_inset Formula $n$
+\end_inset
+
+ raíces distintas en 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Polinomios de Legendre.
+\series default
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+I & =[-1,1], & p(t) & =1, & P_{n}(t) & =\frac{\sqrt{\frac{2n+1}{2}}}{2^{n}n!}\od[n]{(t^{2}-1)^{n}}{t}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Polinomios de Laguerre.
+\series default
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\series bold
+
+\begin_inset Formula 
+\begin{align*}
+I & =[0,\infty), & p(t) & =\text{e}^{-t}, & P_{n}(t) & =\frac{\text{e}^{t}}{n!}\od[n]{\text{e}^{-t}t^{n}}{t}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Polinomios de Hermite.
+\series default
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+I & =(-\infty,\infty), & p(t) & =\text{e}^{-t^{2}}, & P_{n}(t) & =\frac{\text{e}^{t^{2}}}{\sqrt[4]{\pi}\sqrt{2^{n}n!}}\od[n]{\text{e}^{-t^{2}}}{t}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Polinomios de Čebyšev.
+\series default
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+I & =[-1,1], & p(t) & =\frac{1}{\sqrt{1-t^{2}}}, & P_{n}(t) & =\cos(n\arccos t),
+\end{align*}
+
+\end_inset
+
+siendo 
+\begin_inset Formula $\arccos:[-1,1]\to[0,\pi]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una sucesión de polinomios ortonormales asociada a un peso 
+\begin_inset Formula $p$
+\end_inset
+
+ en un intervalo compacto es total en 
+\begin_inset Formula $H_{p}$
+\end_inset
+
+, y en particular los polinomios de Legendre forman una base hilbertiana
+ en 
+\begin_inset Formula $L^{2}([-1,1]).$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $p$
+\end_inset
+
+ es un peso en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ y 
+\begin_inset Formula $a\leq t_{1}<\dots<t_{n}\leq b$
+\end_inset
+
+, se tiene una 
+\series bold
+fórmula de cuadratura gaussiana
+\series default
+, 
+\begin_inset Formula 
+\[
+\int_{a}^{b}fp\approx\sum_{k=1}^{n}A_{k}f(t_{k})
+\]
+
+\end_inset
+
+para ciertos 
+\begin_inset Formula $A_{1},\dots,A_{n}\in\mathbb{R}$
+\end_inset
+
+, y se alcanza la igualdad si 
+\begin_inset Formula $f$
+\end_inset
+
+ es un polinomio de grado menor que 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Gauss:
+\series default
+ Dados un peso 
+\begin_inset Formula $p$
+\end_inset
+
+ en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ con una sucesión de polinomios ortonormales 
+\begin_inset Formula $(P_{n})_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $n\in\mathbb{N}^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $a<t_{1}<\dots<t_{n}<b$
+\end_inset
+
+ y 
+\begin_inset Formula $A_{1},\dots,A_{n}\in\mathbb{R}$
+\end_inset
+
+, si
+\begin_inset Formula 
+\[
+\int_{a}^{b}fp=\sum_{k=1}^{n}A_{k}f(t_{k})
+\]
+
+\end_inset
+
+para todo polinomio 
+\begin_inset Formula $f$
+\end_inset
+
+ de grado menor que 
+\begin_inset Formula $n$
+\end_inset
+
+, esta fórmula se para polinomios de grado menor que 
+\begin_inset Formula $2n$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $t_{1},\dots,t_{n}$
+\end_inset
+
+ son los ceros de 
+\begin_inset Formula $P_{n}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Stieltjes:
+\series default
+ Sean 
+\begin_inset Formula $p$
+\end_inset
+
+ un peso en 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ con una sucesión de polinomios ortonormales 
+\begin_inset Formula $(P_{n})_{n}$
+\end_inset
+
+ y, para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $t_{n1}<\dots<t_{nn}$
+\end_inset
+
+ los ceros de 
+\begin_inset Formula $P_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $A_{n1},\dots,A_{nn}\in\mathbb{R}$
+\end_inset
+
+ los correspondientes coeficientes en la fórmula de cuadratura gaussiana,
+ para 
+\begin_inset Formula $f\in{\cal C}([a,b])$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\int_{a}^{b}fp=\lim_{n}\sum_{k=1}^{n}A_{nk}f(t_{nk}).
+\]
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
 \end_layout
 
 \end_inset
