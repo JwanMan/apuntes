@@ -346,7 +346,7 @@ data Ordering = LT | EQ | GT
 
 \begin_layout Plain Layout
 
-	deriving (Eq, Ord, Enum, Read, Show, Bounded)
+    deriving (Eq, Ord, Enum, Read, Show, Bounded)
 \end_layout
 
 \begin_layout Plain Layout
@@ -360,57 +360,57 @@ class (Eq a) => Ord a where  {-# MINIMAL compare | (<=) #-}
 
 \begin_layout Plain Layout
 
-	compare :: a -> a -> Ordering
+    compare :: a -> a -> Ordering
 \end_layout
 
 \begin_layout Plain Layout
 
-	(<), (<=), (>=), (>) :: a -> a -> Bool
+    (<), (<=), (>=), (>) :: a -> a -> Bool
 \end_layout
 
 \begin_layout Plain Layout
 
-	max, min :: a -> a -> a
+    max, min :: a -> a -> a
 \end_layout
 
 \begin_layout Plain Layout
 
-	compare x y
+    compare x y
 \end_layout
 
 \begin_layout Plain Layout
 
-		| x == y    = EQ
+        | x == y    = EQ
 \end_layout
 
 \begin_layout Plain Layout
 
-		| x <= y    = LT
+        | x <= y    = LT
 \end_layout
 
 \begin_layout Plain Layout
 
-		| True      = GT
+        | True      = GT
 \end_layout
 
 \begin_layout Plain Layout
 
-	x <= y = compare x y /= GT
+    x <= y = compare x y /= GT
 \end_layout
 
 \begin_layout Plain Layout
 
-	x <  y = compare x y == LT
+    x <  y = compare x y == LT
 \end_layout
 
 \begin_layout Plain Layout
 
-	x >= y = compare x y /= LT
+    x >= y = compare x y /= LT
 \end_layout
 
 \begin_layout Plain Layout
 
-	x >  y = compare x y == GT
+    x >  y = compare x y == GT
 \end_layout
 
 \begin_layout Plain Layout
@@ -420,7 +420,7 @@ class (Eq a) => Ord a where  {-# MINIMAL compare | (<=) #-}
 
 \begin_layout Plain Layout
 
-	min x y = if x <= y then x else y
+    min x y = if x <= y then x else y
 \end_layout
 
 \end_inset
@@ -514,12 +514,12 @@ class Bounded a where
 
 \begin_layout Plain Layout
 
-	minBound :: a
+    minBound :: a
 \end_layout
 
 \begin_layout Plain Layout
 
-	maxBound :: a
+    maxBound :: a
 \end_layout
 
 \end_inset
@@ -577,12 +577,12 @@ class Enum a where
 
 \begin_layout Plain Layout
 
-	toEnum :: Int -> a
+    toEnum :: Int -> a
 \end_layout
 
 \begin_layout Plain Layout
 
-	fromEnum :: a -> Int
+    fromEnum :: a -> Int
 \end_layout
 
 \end_inset
@@ -785,7 +785,7 @@ class Read a where
 
 \begin_layout Plain Layout
 
-	readsPrec :: Int -> ReadS a
+    readsPrec :: Int -> ReadS a
 \end_layout
 
 \end_inset
@@ -1062,12 +1062,12 @@ until p f x  -- until p f aplica f hasta que se cumple p
 
 \begin_layout Plain Layout
 
-	| p x       = x
+    | p x       = x
 \end_layout
 
 \begin_layout Plain Layout
 
-	| otherwise = until p f (f x)
+    | otherwise = until p f (f x)
 \end_layout
 
 \end_inset
@@ -1234,7 +1234,12 @@ class (Eq a, Show a) => Num a where
 
 \begin_layout Plain Layout
 
-		{-# MINIMAL (+), (*), abs, signum, fromInteger, (negate | (-)) #-}
+        {-# MINIMAL (+), (*), abs, signum, fromInteger, #
+\end_layout
+
+\begin_layout Plain Layout
+
+          #         (negate | (-))                      #-}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1292,7 +1297,7 @@ class (Real a, Enum a) => Integral a where
 
 \begin_layout Plain Layout
 
-		{-# MINIMAL quotRem, toInteger #-}
+        {-# MINIMAL quotRem, toInteger #-}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1380,12 +1385,12 @@ class (Fractional a) => Floating a where
 
 \begin_layout Plain Layout
 
-    	{#- MINIMAL pi, exp, log, sin, cos, asin, acos, atan, sinh, cosh,
+    {-# MINIMAL pi, exp, log, sin, cos, asin, acos, atan, #
 \end_layout
 
 \begin_layout Plain Layout
 
-		            asinh, acosh, atanh #-}
+      #         sinh, cosh, asinh, acosh, atanh           #-}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1425,6 +1430,10 @@ class (Fractional a) => Floating a where
 \begin_layout Plain Layout
 
     tanh x = sinh x / cosh x
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1799,19 +1808,9 @@ class Monad m where  {#- MINIMAL (>>=), return -#}
 _ -> k
 \end_layout
 
-\end_inset
-
+\begin_layout Plain Layout
 
 \end_layout
-
-\begin_layout Section
-Tipos monádicos
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
 
 \begin_layout Plain Layout
 
