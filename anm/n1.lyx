@@ -1519,7 +1519,7 @@ Queremos ver que
 
 .
  Si 
-\begin_inset Formula $E_{k-1}^{\bot}:=\{v\in V:v\bot E_{k-1}\}$
+\begin_inset Formula $E_{k-1}^{\bot}:=\{v\in V\mid v\bot E_{k-1}\}$
 \end_inset
 
 , basta ver que para todo subespacio 
@@ -1860,7 +1860,7 @@ Sea
 
 \begin_deeper
 \begin_layout Standard
-\begin_inset Formula $\sup\{\Vert Ax\Vert:\Vert x\Vert=1\}=\sup\{\sum_{k}|Ax|_{k}:\sum_{k}|x_{k}|=1\}=\sup\{\sum_{k,i}|a_{ki}||x_{i}|:\sum_{i}|x_{i}|=1\}$
+\begin_inset Formula $\sup\{\Vert Ax\Vert\mid\Vert x\Vert=1\}=\sup\{\sum_{k}|Ax|_{k}\mid\sum_{k}|x_{k}|=1\}=\sup\{\sum_{k,i}|a_{ki}||x_{i}|\mid\sum_{i}|x_{i}|=1\}$
 \end_inset
 
 .
@@ -1889,7 +1889,7 @@ Sea
 \end_inset
 
 luego 
-\begin_inset Formula $\sup\{\sum_{k,i}|a_{ki}||x_{i}|:\sum_{i}|x_{i}|=1\}=\max_{i}\sum_{k}|a_{ki}|$
+\begin_inset Formula $\sup\{\sum_{k,i}|a_{ki}||x_{i}|\mid\sum_{i}|x_{i}|=1\}=\max_{i}\sum_{k}|a_{ki}|$
 \end_inset
 
 .
@@ -1922,10 +1922,14 @@ luego
 
 \begin_deeper
 \begin_layout Standard
-\begin_inset Formula $\Vert A\Vert_{2}^{2}=\sup\left\{ \frac{\Vert Ax\Vert_{2}^{2}}{\Vert x\Vert_{2}^{2}}:\Vert x\Vert_{2}=1\right\} =\sup\left\{ \frac{\langle Ax,Ax\rangle}{\langle x,x\rangle}=\frac{\langle A^{*}Ax,x\rangle}{\langle x,x\rangle}=R_{A^{*}A}(x):\Vert x\Vert_{2}=1\right\} $
+\begin_inset Formula 
+\[
+\Vert A\Vert_{2}^{2}=\sup\left\{ \frac{\Vert Ax\Vert_{2}^{2}}{\Vert x\Vert_{2}^{2}}\;\middle|\;\Vert x\Vert_{2}=1\right\} =\sup\left\{ \frac{\langle Ax,Ax\rangle}{\langle x,x\rangle}=\frac{\langle A^{*}Ax,x\rangle}{\langle x,x\rangle}=R_{A^{*}A}(x)\;\middle|\;\Vert x\Vert_{2}=1\right\} ,
+\]
+
 \end_inset
 
-, pero si 
+ pero si 
 \begin_inset Formula $\lambda_{1},\dots,\lambda_{m}\geq0$
 \end_inset
 
@@ -1938,7 +1942,7 @@ luego
 \end_inset
 
  son los subespacios propios asociados, 
-\begin_inset Formula $\rho(A^{*}A)=\max\{\lambda_{1},\dots,\lambda_{m}\}=\max_{k=1}^{m}\max\{R_{A^{*}A}(v):v\in E_{k}\setminus\{0\}\}=\max\{R_{A^{*}A}(v):v\neq0\}$
+\begin_inset Formula $\rho(A^{*}A)=\max\{\lambda_{1},\dots,\lambda_{m}\}=\max_{k=1}^{m}\max\{R_{A^{*}A}(v)\mid v\in E_{k}\setminus\{0\}\}=\max\{R_{A^{*}A}(v)\mid v\neq0\}$
 \end_inset
 
 , y como 
@@ -1950,7 +1954,7 @@ R_{A^{*}A}(v)=\frac{\langle Av,v\rangle}{\langle v,v\rangle}=\left\langle A\frac
 \end_inset
 
 queda 
-\begin_inset Formula $\rho(A^{*}A)=\max\{R_{A^{*}A}(v):v\neq0\}=\max\{R_{A^{*}A}(v):\Vert v\Vert_{2}=1\}=\Vert A\Vert_{2}^{2}$
+\begin_inset Formula $\rho(A^{*}A)=\max\{R_{A^{*}A}(v)\mid v\neq0\}=\max\{R_{A^{*}A}(v)\mid\Vert v\Vert_{2}=1\}=\Vert A\Vert_{2}^{2}$
 \end_inset
 
 .
@@ -1968,8 +1972,8 @@ queda
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\Vert A\Vert_{\infty} & =\sup\{\Vert Ax\Vert_{\infty}:\Vert x\Vert_{\infty}=1\}=\sup\{\max_{k}|Ax|_{k}:\max_{k}|x_{k}|=1\}=\\
- & =\sup\left\{ \max_{k}\left|\sum_{i}a_{ki}x_{i}\right|:\max_{i}|x_{i}|=1\right\} =\max_{k}\sup\left\{ \left|\sum_{i}a_{ki}x_{i}\right|:\max_{i}|x_{i}|=1\right\} .
+\Vert A\Vert_{\infty} & =\sup\{\Vert Ax\Vert_{\infty}\mid\Vert x\Vert_{\infty}=1\}=\sup\{\max_{k}|Ax|_{k}\mid\max_{k}|x_{k}|=1\}=\\
+ & =\sup\left\{ \max_{k}\left|\sum_{i}a_{ki}x_{i}\right|\;\middle|\;\max_{i}|x_{i}|=1\right\} =\max_{k}\sup\left\{ \left|\sum_{i}a_{ki}x_{i}\right|\;\middle|\;\max_{i}|x_{i}|=1\right\} .
 \end{align*}
 
 \end_inset
@@ -1995,7 +1999,7 @@ queda
 \end_inset
 
 , con lo que 
-\begin_inset Formula $\sup\{|\sum_{i}a_{ki}x_{i}|:\max_{i}|x_{i}|=1\}=\left|\sum_{i}|a_{ki}|\right|=\sum_{i}|a_{ki}|$
+\begin_inset Formula $\sup\{|\sum_{i}a_{ki}x_{i}|\mid\max_{i}|x_{i}|=1\}=\left|\sum_{i}|a_{ki}|\right|=\sum_{i}|a_{ki}|$
 \end_inset
 
 , luego 
@@ -2211,7 +2215,7 @@ La diagonal no cambia, la matriz sigue siendo triangular superior y, para
 \end_deeper
 \begin_layout Standard
 De aquí que 
-\begin_inset Formula $\rho(A)=\inf\{\Vert A\Vert:\Vert\cdot\Vert\text{ es una norma matricial en }{\cal M}_{n}(\mathbb{K})\}$
+\begin_inset Formula $\rho(A)=\inf\{\Vert A\Vert\mid\Vert\cdot\Vert\text{ es una norma matricial en }{\cal M}_{n}(\mathbb{K})\}$
 \end_inset
 
 .

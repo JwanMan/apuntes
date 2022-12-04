@@ -107,7 +107,7 @@ nodos
 aristas
 \series default
  
-\begin_inset Formula $E\subseteq\{(a,b)\in V\times V:a\neq b\}$
+\begin_inset Formula $E\subseteq\{(a,b)\in V\times V\mid a\neq b\}$
 \end_inset
 
 , mientras que uno 
@@ -123,7 +123,7 @@ no dirigido
 \end_inset
 
  y 
-\begin_inset Formula $E\subseteq\{x\in{\cal P}(V):|x|=2\}$
+\begin_inset Formula $E\subseteq\{x\in{\cal P}(V)\mid |x|=2\}$
 \end_inset
 
 .
@@ -136,7 +136,7 @@ bucles
 \end_inset
 
  para que el grafo sea dirigido o que 
-\begin_inset Formula $E\subseteq\{x\in{\cal P}(V):|x|\in\{1,2\}\}$
+\begin_inset Formula $E\subseteq\{x\in{\cal P}(V)\mid |x|\in\{1,2\}\}$
 \end_inset
 
  para que sea no dirigido.
@@ -374,7 +374,7 @@ grado
 \end_inset
 
  es el número de arcos adyacentes a él (
-\begin_inset Formula $|\{X\in E:v\in X\}|$
+\begin_inset Formula $|\{X\in E\mid v\in X\}|$
 \end_inset
 
 ), mientras que en uno dirigido 
@@ -390,7 +390,7 @@ grado de entrada
 \end_inset
 
  como 
-\begin_inset Formula $|\{(a,b)\in A:b=v\}|$
+\begin_inset Formula $|\{(a,b)\in A\mid b=v\}|$
 \end_inset
 
  y el 
@@ -398,7 +398,7 @@ grado de entrada
 grado de salida
 \series default
  como 
-\begin_inset Formula $|\{(a,b)\in A:a=v\}|$
+\begin_inset Formula $|\{(a,b)\in A\mid a=v\}|$
 \end_inset
 
 .
@@ -419,7 +419,7 @@ Operaciones elementales:
 ((V,E),v)\mapsto(V\cup\{v\},E) & ((V,E),(a,b))\overset{a,b\in V}{\mapsto}(V,E\cup\{e\})\\
 \\
 \mathsf{EliminarNodo}:G\times{\cal U}\rightarrow G & \mathsf{EliminarArista}:G\times({\cal U}\times{\cal U})\rightarrow G\\
-((V,E),v)\mapsto(V\backslash\{e\},\{(a,b)\in E:a,b\neq v\}) & ((V,E),e)\mapsto(V,E\backslash\{e\})\\
+((V,E),v)\mapsto(V\backslash\{e\},\{(a,b)\in E\mid a,b\neq v\}) & ((V,E),e)\mapsto(V,E\backslash\{e\})\\
 \\
 \mathsf{ConsultarArista}:G\times({\cal U}\times{\cal U})\rightarrow B\\
 ((V,E),(a,b))\mapsto(a,b)\in A
@@ -456,8 +456,9 @@ status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename graph.svg
+\begin_inset External
+	template VectorGraphics
+	filename graph.eps
 	scale 60
 
 \end_inset
@@ -508,7 +509,7 @@ En un ordenador podemos representar un grafo finito
 \end_inset
 
  o 
-\begin_inset Formula $(V:=\{1,\dots,n\},E,\sigma:E\rightarrow X)$
+\begin_inset Formula $(V:=\{1,\dots,n\},E,\sigma\mid E\rightarrow X)$
 \end_inset
 
  mediante:
@@ -594,12 +595,12 @@ Listas de adyacencia
 
  (representados como listas enlazadas en una lista contigua) de los que
  
-\begin_inset Formula $C_{i}=\{j:(i,j)\in E\}$
+\begin_inset Formula $C_{i}=\{j\mid(i,j)\in E\}$
 \end_inset
 
 .
  Si el grafo es etiquetado, 
-\begin_inset Formula $C_{i}=\{(j,\sigma(i,j)):(i,j)\in E\}$
+\begin_inset Formula $C_{i}=\{(j,\sigma(i,j))\mid(i,j)\in E\}$
 \end_inset
 
 .
@@ -617,7 +618,7 @@ Listas de adyacencia
 
 \begin_layout Standard
 En adelante, salvo que se indique lo contrario, suponemos un grafo 
-\begin_inset Formula $(V:=\{1,\dots,n\},E,\sigma:E\rightarrow X)$
+\begin_inset Formula $(V:=\{1,\dots,n\},E,\sigma\mid E\rightarrow X)$
 \end_inset
 
 , y que las variables en pseudocódigo se inicializan con su valor por defecto.
@@ -2586,7 +2587,7 @@ grafo reducido
 \end_inset
 
  y 
-\begin_inset Formula $E_{R}:=\{(A,B)\in V_{R}:\exists a\in A,b\in B:(a,b)\in E\}$
+\begin_inset Formula $E_{R}:=\{(A,B)\in V_{R}\mid \exists a\in A,b\in B:(a,b)\in E\}$
 \end_inset
 
 .
