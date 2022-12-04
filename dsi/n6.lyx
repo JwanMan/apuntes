@@ -1,0 +1,1357 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Un 
+\series bold
+conjunto borroso
+\series default
+ 
+\begin_inset Formula $F$
+\end_inset
+
+ sobre un 
+\series bold
+universo de discurso
+\series default
+ 
+\begin_inset Formula $U$
+\end_inset
+
+ es una función 
+\begin_inset Formula $\mu_{F}:U\to[0,1]$
+\end_inset
+
+ llamada 
+\series bold
+función de pertenencia
+\series default
+ de 
+\begin_inset Formula $F$
+\end_inset
+
+, que representa el grado de pertenencia de cada elemento de 
+\begin_inset Formula $U$
+\end_inset
+
+ en 
+\begin_inset Formula $F$
+\end_inset
+
+.
+ Escribimos
+\begin_inset Formula 
+\[
+F\eqqcolon\sum_{x\in U}\frac{\mu_{F}(x)}{x}\eqqcolon\int_{x\in U}\frac{\mu_{F}(x)}{x},
+\]
+
+\end_inset
+
+donde la fracción y los símbolos sumatorio e integral son solo símbolos
+ y no se pueden simplificar.
+ Si 
+\begin_inset Formula $U=\{x_{1},\dots,x_{n}\}$
+\end_inset
+
+, escribimos
+\begin_inset Formula 
+\[
+F\eqqcolon\left\{ \frac{\mu_{F}(x_{1})}{x_{1}}+\dots+\frac{\mu_{F}(x_{n})}{x_{n}}\right\} .
+\]
+
+\end_inset
+
+Llamamos 
+\series bold
+soporte
+\series default
+ de 
+\begin_inset Formula $F$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{Supp}_{F}\coloneqq\{x\in U\mid F(x)>0\}$
+\end_inset
+
+, 
+\series bold
+núcleo
+\series default
+ de 
+\begin_inset Formula $F$
+\end_inset
+
+ a 
+\begin_inset Formula $\ker F\coloneqq\{x\in U\mid\mu_{F}(x)=\sup_{x\in U}F(x)\}$
+\end_inset
+
+, 
+\series bold
+altura
+\series default
+ de 
+\begin_inset Formula $F$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{Height}_{F}\coloneqq\sup_{x\in U}F(x)$
+\end_inset
+
+ y, para 
+\begin_inset Formula $\alpha\in[0,1)$
+\end_inset
+
+, 
+\series bold
+
+\begin_inset Formula $\alpha$
+\end_inset
+
+-corte
+\series default
+ de 
+\begin_inset Formula $F$
+\end_inset
+
+ a 
+\begin_inset Formula $F_{\alpha}=\{x\in U\mid F(x)>\alpha\}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $F$
+\end_inset
+
+ es 
+\series bold
+vacío
+\series default
+, 
+\begin_inset Formula $F=\emptyset$
+\end_inset
+
+, si 
+\begin_inset Formula $\text{Supp}_{F}=\emptyset$
+\end_inset
+
+; 
+\series bold
+unitario
+\series default
+ o 
+\series bold
+\emph on
+\lang english
+singleton
+\series default
+\emph default
+\lang spanish
+ si 
+\begin_inset Formula $|\text{Supp}_{F}|=1$
+\end_inset
+
+, y 
+\series bold
+normalizado
+\series default
+ si 
+\begin_inset Formula $\text{Height}_{F}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Funciones de pertenencia comunes sobre el universo 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Funciones trapezoidales:
+\series default
+ Para 
+\begin_inset Formula $a<b\leq c<d$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\text{trapmf}(x;a,b,c,d)\coloneqq\begin{cases}
+\frac{x-a}{b-a}, & x\in[a,b];\\
+1, & x\in[b,c];\\
+\frac{d-x}{d-c}, & x\in[c,d];\\
+0, & \text{en otro caso.}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Funciones triangulares:
+\series default
+ Para 
+\begin_inset Formula $a<b<c$
+\end_inset
+
+, 
+\begin_inset Formula $\text{trimmf}(x;a,b,c)\coloneqq\text{trapmf}(x;a,b,b,c)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Funciones S:
+\series default
+ Para 
+\begin_inset Formula $a<b$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\text{smf}(x;a,b)\coloneqq\begin{cases}
+0, & x\leq a;\\
+2\left(\frac{x-a}{b-a}\right)^{2}, & x\in\left[a,\frac{a+b}{2}\right];\\
+1-2\left(\frac{b-x}{b-a}\right)^{2}, & x\in\left[\frac{a+b}{2},b\right],\\
+1, & x\geq b.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Funciones 
+\begin_inset Formula $\Pi$
+\end_inset
+
+:
+\series default
+ Para 
+\begin_inset Formula $a<b\leq c<d$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\text{pimf}(x;a,b,c,d)\coloneqq\begin{cases}
+2\left(\frac{x-a}{b-a}\right)^{2}, & x\in\left[a,\frac{a+b}{2}\right];\\
+1-2\left(\frac{b-x}{b-a}\right)^{2}, & x\in\left[\frac{a+b}{2},b\right];\\
+1, & x\in[b,c];\\
+1-2\left(\frac{x-c}{d-c}\right)^{2}, & x\in\left[c,\frac{c+d}{2}\right];\\
+2\left(\frac{d-x}{d-c}\right)^{2}, & x\in\left[\frac{c+d}{2},d\right];\\
+0, & \text{en otro caso}.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dados dos conjuntos borrosos 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ sobre 
+\begin_inset Formula $U$
+\end_inset
+
+, 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall x\in U,A(x)\leq B(x)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Un operador 
+\begin_inset Formula $\#:D\subseteq(\mathbb{R}\times\mathbb{R})\to\mathbb{R}$
+\end_inset
+
+ es 
+\series bold
+monótono
+\series default
+ si para 
+\begin_inset Formula $(a,b),(a',b')\in D$
+\end_inset
+
+ con 
+\begin_inset Formula $a\leq a'$
+\end_inset
+
+ y 
+\begin_inset Formula $b\leq b'$
+\end_inset
+
+ es 
+\begin_inset Formula $a\#b\leq a'\#b'$
+\end_inset
+
+.
+ Una operador 
+\begin_inset Formula $\#:[0,1]\times[0,1]\to[0,1]$
+\end_inset
+
+ asociativo, conmutativo y monótono es una 
+\series bold
+t-norma
+\series default
+ si 
+\begin_inset Formula $\forall a\in[0,1],(a\#0=0\land a\#1=a)$
+\end_inset
+
+, y es una 
+\series bold
+s-norma
+\series default
+ o 
+\series bold
+t-conorma
+\series default
+ si 
+\begin_inset Formula $\forall a\in[0,1],(a\#0=a\land a\#1=1)$
+\end_inset
+
+.
+ Llamamos 
+\begin_inset Formula $*$
+\end_inset
+
+ a una t-norma cualquiera y 
+\begin_inset Formula $\oplus$
+\end_inset
+
+ a una s-norma cualquiera.
+\end_layout
+
+\begin_layout Standard
+Algunas t-normas:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Mínimo:
+\series default
+ 
+\begin_inset Formula $a\wedge b\coloneqq\min\{a,b\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Producto algebraico:
+\series default
+ 
+\begin_inset Formula $a*b\coloneqq ab$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Producto acotado:
+\series default
+ Para 
+\begin_inset Formula $p\in[-1,\infty)$
+\end_inset
+
+, 
+\begin_inset Formula $a*b\coloneqq\max\{0,(1+p)(a+b-1)-pab\}$
+\end_inset
+
+.
+ Se suele tomar 
+\begin_inset Formula $p=0$
+\end_inset
+
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Las diapositivas dicen 
+\begin_inset Formula $p\in\mathbb{R}$
+\end_inset
+
+, pero es fácil ver que la monotonía y otras propiedades sólo se cumplen
+ cuando 
+\begin_inset Formula $p\geq-1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Claramente es conmutativa.
+ Además, 
+\begin_inset Formula $a*0=\max\{0,(1+p)(a-1)\}=0\iff(1+p)(a-1)\leq0$
+\end_inset
+
+, lo que se cumple porque 
+\begin_inset Formula $1+p\geq0$
+\end_inset
+
+ y 
+\begin_inset Formula $a-1\leq0$
+\end_inset
+
+, y 
+\begin_inset Formula $a*1=\max\{0,(1+p)a-pa\}=\max\{0,a\}=a$
+\end_inset
+
+.
+ Para ver que es monótona, sea 
+\begin_inset Formula $f(a,b)\coloneqq(1+p)(a+b-1)-pab$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial f}{\partial a} & =1+p-pb, & \frac{\partial f}{\partial b} & =1+p-pa,
+\end{align*}
+
+\end_inset
+
+pero 
+\begin_inset Formula $p-pb=p(1-b),p-pa=p(1-a)\geq-1$
+\end_inset
+
+, pues 
+\begin_inset Formula $p\geq-1$
+\end_inset
+
+ y 
+\begin_inset Formula $1-a,1-b\in[0,1]$
+\end_inset
+
+, luego 
+\begin_inset Formula $\frac{\partial f}{\partial a},\frac{\partial f}{\partial b}\geq0$
+\end_inset
+
+ en todo punto.
+ Para ver que 
+\begin_inset Formula $\text{Im}(*)\subseteq[0,1]$
+\end_inset
+
+, es claro por las derivadas de 
+\begin_inset Formula $f$
+\end_inset
+
+ que los extremos interiores se dan cuando 
+\begin_inset Formula $a=b=\frac{1+p}{p}$
+\end_inset
+
+.
+ Si esta valor está en 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+f(a,b) & =(1+p)\left(2\frac{1+p}{p}-1\right)-p\left(\frac{1+p}{p}\right)^{2}=\\
+ & =(1+p)\frac{2+p}{p}-\frac{(1+p)^{2}}{p}=\frac{1+p}{p}(2+p-1-p)=\frac{1+p}{p}\in[0,1].
+\end{align*}
+
+\end_inset
+
+Respecto a las aristas del cuadrado, la función restringida a una de estas
+ 4 es afín ya que, por ejemplo, si 
+\begin_inset Formula $a=0$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{\partial f}{\partial b}=1+p$
+\end_inset
+
+, y si 
+\begin_inset Formula $a=1$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{\partial f}{\partial b}=1$
+\end_inset
+
+.
+ Finalmente, para los vértices, 
+\begin_inset Formula $f(0,0)=-(1+p)>1\iff p<-2$
+\end_inset
+
+, 
+\begin_inset Formula $f(0,1)=f(1,0)=0$
+\end_inset
+
+ y 
+\begin_inset Formula $f(1,1)=1$
+\end_inset
+
+.
+ Para ver que es asociativa, primero vemos que lo es 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $g(x,y,z)\coloneqq f(f(x,y),z)-f(x,f(y,z))$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial g}{\partial x} & =\frac{\partial f}{\partial a}(f(x,y),z)\frac{\partial f}{\partial a}(x,y)-\frac{\partial f}{\partial a}(x,f(y,z))=\\
+ & =(1+p-pz)(1+p-py)-(1+p-p((1+p)(y+z-1)-pyz))=\\
+ & =1+2p+p^{2}-py-p^{2}y-pz-p^{2}z+p^{2}yz-\\
+ & -1-2p+py+pz+p^{2}y+p^{2}z-p^{2}-p^{2}yz=0,\\
+\frac{\partial g}{\partial y} & =\frac{\partial f}{\partial a}(f(x,y),z)\frac{\partial f}{\partial b}(x,y)-\frac{\partial f}{\partial b}(x,f(y,z))\frac{\partial f}{\partial a}(y,z)=\\
+ & =(1+p-pz)(1+p-px)-(1+p-px)(1+p-pz)=0;\\
+\frac{\partial g}{\partial z} & =0,
+\end{align*}
+
+\end_inset
+
+donde la última derivada es por simetría respecto a la primera usando la
+ conmutatividad de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ Entonces, como 
+\begin_inset Formula $g(0,0,0)=f(f(0,0),0)-f(0,f(0,0))=0$
+\end_inset
+
+ por conmutatividad de 
+\begin_inset Formula $f$
+\end_inset
+
+, 
+\begin_inset Formula $g\equiv0$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ es asociativa.
+ Una propiedad de 
+\begin_inset Formula $f$
+\end_inset
+
+ es que 
+\begin_inset Formula $f(a,b)\leq\min\{a,b\}$
+\end_inset
+
+ para 
+\begin_inset Formula $a,b\in[0,1]$
+\end_inset
+
+, pues 
+\begin_inset Formula $f(a,b)\leq f(a,1)=a$
+\end_inset
+
+ y del mismo modo 
+\begin_inset Formula $f(a,b)\leq b$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $f(a,b)\leq0$
+\end_inset
+
+, 
+\begin_inset Formula $a*b=0$
+\end_inset
+
+ y 
+\begin_inset Formula $(a*b)*c=0$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $b*c\leq b$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $a*(b*c)\leq a*b=0$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $f(a,b)>0$
+\end_inset
+
+ pero 
+\begin_inset Formula $f(f(a,b),c)\leq0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $(a*b)*c=0$
+\end_inset
+
+, pero si 
+\begin_inset Formula $f(b,c)>0$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a*(b*c)=\max\{0,f(a,f(b,c))\}=\max\{0,f(f(a,b),c)\}=0$
+\end_inset
+
+, y si 
+\begin_inset Formula $f(b,c)\leq0$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a*(b*c)=a*0=0$
+\end_inset
+
+.
+ Finalmente, si 
+\begin_inset Formula $f(a,b)>0$
+\end_inset
+
+ y 
+\begin_inset Formula $f(f(a,b),c)>0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f(a,f(b,c))>0$
+\end_inset
+
+ y por monotonía 
+\begin_inset Formula $f(b,c)\geq f(f(a,b),c)>0$
+\end_inset
+
+, luego 
+\begin_inset Formula $a*(b*c)=f(a,f(b,c))=f(f(a,b),c)=(a*b)*c$
+\end_inset
+
+.
+ Esto prueba la asociatividad.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Producto drástico:
+\series default
+
+\begin_inset Formula 
+\[
+x*y\coloneqq\begin{cases}
+x, & y=1;\\
+y, & x=1;\\
+0, & \text{en otro caso}.
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Claramente es conmutativa y monótona.
+ Se tiene 
+\begin_inset Formula $1*1=1$
+\end_inset
+
+ y 
+\begin_inset Formula $1*0=0$
+\end_inset
+
+, y si 
+\begin_inset Formula $a\in[0,1)$
+\end_inset
+
+, 
+\begin_inset Formula $a*1=a$
+\end_inset
+
+ y 
+\begin_inset Formula $a*0=0$
+\end_inset
+
+.
+ Para la asociatividad, sean 
+\begin_inset Formula $a,b,c\in[0,1]$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $b=1$
+\end_inset
+
+, 
+\begin_inset Formula $(a*b)*c=a*c=a*(b*c)$
+\end_inset
+
+.
+ En otro caso, si 
+\begin_inset Formula $a=1$
+\end_inset
+
+, 
+\begin_inset Formula $(a*b)*c=b*c=a*(b*c)$
+\end_inset
+
+, y si 
+\begin_inset Formula $c=1$
+\end_inset
+
+ es análogo.
+ Si ninguno es 1, 
+\begin_inset Formula $(a*b)*c=0*c=0=a*0=a*(b*c)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Familia Dubois-Prade:
+\series default
+ Para 
+\begin_inset Formula $p\in[0,1]$
+\end_inset
+
+, 
+\begin_inset Formula $x*y=\frac{xy}{\max\{x,y,p\}}$
+\end_inset
+
+ (tomando límites cuando 
+\begin_inset Formula $x,y=0$
+\end_inset
+
+ para 
+\begin_inset Formula $p=0$
+\end_inset
+
+).
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Claramente es conmutativa.
+ Como 
+\begin_inset Formula $0\leq xy\leq\max\{x,y,p\}$
+\end_inset
+
+, la función está en 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+ donde esté definida, y para 
+\begin_inset Formula $p=0$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+0*0=\lim_{x,y\to0^{+}}\frac{xy}{\max\{x,y\}}=\lim_{x,y\to0^{+}}\min\{x,y\}=0.
+\]
+
+\end_inset
+
+En general, 
+\begin_inset Formula $a*0=\frac{0}{\max\{a,p\}}=0$
+\end_inset
+
+ (salvo en el caso 
+\begin_inset Formula $\max\{a,p\}=0$
+\end_inset
+
+ que ya hemos tratado) y 
+\begin_inset Formula $a*1=\frac{a}{\max\{a,1,p\}}=a$
+\end_inset
+
+.
+ Se tiene
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial(x*y)}{\partial x} & =\begin{cases}
+0, & x\geq y,p;\\
+1, & y\geq x,p;\\
+y, & p\geq x,y;
+\end{cases} & \frac{\partial(x*y)}{\partial y} & =\begin{cases}
+1, & x\geq y,p;\\
+0, & y\geq x,p;\\
+x, & p\geq x,y;
+\end{cases}
+\end{align*}
+
+\end_inset
+
+con lo que 
+\begin_inset Formula $*$
+\end_inset
+
+ es monótona.
+ Para la asociatividad, si 
+\begin_inset Formula $a,b,c\in[0,1]$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+(a*b)*c & =\frac{(a*b)c}{\max\{a*b,c,p\}}=\frac{abc}{\max\{a,b,p\}\max\{a*b,c,p\}},\\
+a*(b*c) & =\frac{a(b*c)}{\max\{a,b*c,p\}}=\frac{abc}{\max\{b,c,p\}\max\{a,b*c,p\}}.
+\end{align*}
+
+\end_inset
+
+Si 
+\begin_inset Formula $p\geq a,b,c$
+\end_inset
+
+, 
+\begin_inset Formula $(a*b)*c=\frac{abc}{p^{2}}=a*(b*c)$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $a\geq p,b,c$
+\end_inset
+
+, 
+\begin_inset Formula $a*b=\frac{ab}{\max\{a,b,p\}}=\frac{ab}{a}=b$
+\end_inset
+
+, luego 
+\begin_inset Formula $(a*b)*c=\frac{abc}{a\max\{a*b,c,p\}}=\frac{abc}{a\max\{b,c,p\}}=a*(b*c)$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $c\geq p,b,a$
+\end_inset
+
+ es análogo.
+ Si 
+\begin_inset Formula $b\geq p,a,c$
+\end_inset
+
+, 
+\begin_inset Formula $a*b=a$
+\end_inset
+
+ y 
+\begin_inset Formula $b*c=c$
+\end_inset
+
+, luego 
+\begin_inset Formula $(a*b)*c=\frac{abc}{b\max\{a,c,p\}}=a*(b*c)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Familia Yager:
+\series default
+ Para 
+\begin_inset Formula $p\in\mathbb{R}^{+}$
+\end_inset
+
+, 
+\begin_inset Formula $x*y\coloneqq1-\min\{1,\sqrt[p]{(1-x)^{p}+(1-y)^{p}}\}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Las propiedades se deducen de las de la familia correspondiente de s-normas.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algunas s-normas:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Máximo:
+\series default
+ 
+\begin_inset Formula $x\vee y\coloneqq\max\{x,y\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Suma algebraica:
+\series default
+ 
+\begin_inset Formula $x\oplus y\coloneqq x+y-xy$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Claramente es conmutativa, y es monótona porque 
+\begin_inset Formula $\frac{\partial(x\oplus y)}{\partial x}=1-y$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{\partial(x\oplus y)}{\partial y}=1-x$
+\end_inset
+
+.
+ 
+\begin_inset Formula $a\oplus0=a$
+\end_inset
+
+ y 
+\begin_inset Formula $a\oplus1=a+1-a=1$
+\end_inset
+
+.
+ Para ver que es asociativa, 
+\begin_inset Formula $(a\oplus b)\oplus c=a\oplus b+c-(a\oplus b)c=a+b-ab+c-ac-bc+abc$
+\end_inset
+
+, que es simétrica respecto a las variables, por lo que 
+\begin_inset Formula $(a\oplus b)\oplus c=(c\oplus b)\oplus a=a\oplus(b\oplus c)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Suma acotada:
+\series default
+ Para 
+\begin_inset Formula $p\geq-1$
+\end_inset
+
+, 
+\begin_inset Formula $x\oplus y\coloneqq\min(1,x+y+pxy)$
+\end_inset
+
+.
+ Se suele usar 
+\begin_inset Formula $p=0$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Claramente es conmutativa, 
+\begin_inset Formula $a\oplus0=\min(1,a)=a$
+\end_inset
+
+ y 
+\begin_inset Formula $a\oplus1=\min(1,a+1+pa)=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Para la monotonía, sea 
+\begin_inset Formula $f(a,b)\coloneqq a+b-pab$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial f}{\partial a} & =1+pb, & \frac{\partial f}{\partial b} & =1+pa.
+\end{align*}
+
+\end_inset
+
+Para ver que es asociativa, primero vemos que lo es 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ Sea entonces 
+\begin_inset Formula $g(x,y,z)\coloneqq f(f(x,y),z)-f(x,f(y,z))$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial g}{\partial x} & =\frac{\partial f}{\partial a}(f(x,y),z)\frac{\partial f}{\partial a}(x,y)-\frac{\partial f}{\partial a}(x,f(y,z))=\\
+ & =(1+pz)(1+py)-(1+p(y+z-pyz))=\\
+ & =1+py+pz-p^{2}yz-1-py-pz-p^{2}yz=0,\\
+\frac{\partial g}{\partial y} & =\frac{\partial f}{\partial a}(f(x,y),z)\frac{\partial f}{\partial b}(x,y)-\frac{\partial f}{\partial b}(x,f(y,z))\frac{\partial f}{\partial a}(y,z)=\\
+ & =(1+pz)(1+px)-(1+px)(1+pz)=0,\\
+\frac{\partial g}{\partial z} & =0,
+\end{align*}
+
+\end_inset
+
+donde la última es por simetría, y como 
+\begin_inset Formula $g(0,0,0)=f(f(0,0),0)-f(0,f(0,0))=0$
+\end_inset
+
+ por conmutatividad, 
+\begin_inset Formula $g\equiv0$
+\end_inset
+
+ y 
+\begin_inset Formula $f$
+\end_inset
+
+ es asociativa.
+ Se tiene 
+\begin_inset Formula $f(a,b)\geq\max\{a,b\}$
+\end_inset
+
+, pues 
+\begin_inset Formula $f(a,b)\geq a\oplus b\geq a\oplus0=a$
+\end_inset
+
+ y análogamente para 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $f(a,b)\geq1$
+\end_inset
+
+, 
+\begin_inset Formula $(a\oplus b)\oplus c=1\oplus c=1$
+\end_inset
+
+, pero 
+\begin_inset Formula $a\oplus(b\oplus c)\geq a\oplus b=1$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $f(a,b)<1$
+\end_inset
+
+ pero 
+\begin_inset Formula $f(f(a,b),c)\geq1$
+\end_inset
+
+, 
+\begin_inset Formula $(a\oplus b)\oplus c=\min\{1,f(f(a,b),c)\}=1$
+\end_inset
+
+, pero si 
+\begin_inset Formula $f(b,c)\geq1$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a\oplus(b\oplus c)=a\oplus1=1$
+\end_inset
+
+, y si 
+\begin_inset Formula $f(b,c)<1$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a\oplus(b\oplus c)=\min\{1,f(a,f(b,c))\}=\min\{1,f(f(a,b),c)\}=1$
+\end_inset
+
+.
+ Finalmente, si 
+\begin_inset Formula $f(a,b)<1$
+\end_inset
+
+ y 
+\begin_inset Formula $f(f(a,b),c)<1$
+\end_inset
+
+, 
+\begin_inset Formula $f(a,f(b,c))<1$
+\end_inset
+
+ y por monotonía 
+\begin_inset Formula $f(b,c)\leq f(f(a,b),c)<1$
+\end_inset
+
+, luego 
+\begin_inset Formula $a\oplus(b\oplus c)=f(a,f(b,c))=f(f(a,b),c)=(a\oplus b)\oplus c$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Suma drástica:
+\series default
+
+\begin_inset Formula 
+\[
+x\oplus y=\begin{cases}
+x, & y=0;\\
+y, & x=0;\\
+1, & \text{en otro caso}.
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Claramente es conmutativa y monótona, 
+\begin_inset Formula $a\oplus0=a$
+\end_inset
+
+, 
+\begin_inset Formula $0\oplus1=1$
+\end_inset
+
+ y, para 
+\begin_inset Formula $a>0$
+\end_inset
+
+, 
+\begin_inset Formula $a\oplus1=1$
+\end_inset
+
+.
+ Para la asociatividad, sean 
+\begin_inset Formula $a,b,c\in[0,1]$
+\end_inset
+
+, si 
+\begin_inset Formula $b=0$
+\end_inset
+
+, 
+\begin_inset Formula $(a\oplus b)\oplus c=a\oplus c=a\oplus(b\oplus c)$
+\end_inset
+
+; en otro caso, si 
+\begin_inset Formula $a=0$
+\end_inset
+
+, 
+\begin_inset Formula $(a\oplus b)\oplus c=b\oplus c=a\oplus(b\oplus c)$
+\end_inset
+
+; si 
+\begin_inset Formula $c=0$
+\end_inset
+
+ es análogo, y si 
+\begin_inset Formula $a,b,c>0$
+\end_inset
+
+, 
+\begin_inset Formula $(a\oplus b)\oplus c=1\oplus c=1=a\oplus1=a\oplus(b\oplus c)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Familia Dubois-Prade:
+\series default
+ Para 
+\begin_inset Formula $p\in[0,1]$
+\end_inset
+
+, 
+\begin_inset Formula $x\oplus y\coloneqq1-\frac{(1-x)(1-y)}{\max\{1-x,1-y,p\}}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Las propiedades se deducen de las de la familia correspondiente de t-normas.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO from pg 27 familia Yager & proof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
