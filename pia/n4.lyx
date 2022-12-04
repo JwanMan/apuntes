@@ -3768,6 +3768,487 @@ t
 \end_layout
 
 \begin_layout Section
+Otras expresiones
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+secuencia aritmética
+\series default
+ se define como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+aexp /= 
+\begin_inset Quotes cld
+\end_inset
+
+[
+\begin_inset Quotes cld
+\end_inset
+
+ exp [
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ exp] 
+\begin_inset Quotes cld
+\end_inset
+
+..
+\begin_inset Quotes crd
+\end_inset
+
+ [exp] 
+\begin_inset Quotes cld
+\end_inset
+
+]
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+[
+\emph on
+e1
+\emph default
+..]
+\family default
+ equivale a 
+\family typewriter
+Prelude.enumFrom 
+\emph on
+e1
+\family default
+\emph default
+, 
+\family typewriter
+[
+\emph on
+e1
+\emph default
+,
+\emph on
+e2
+\emph default
+..]
+\family default
+ a 
+\family typewriter
+Prelude.enumFromThen 
+\emph on
+e1 e2
+\family default
+\emph default
+, 
+\family typewriter
+[
+\emph on
+e1
+\emph default
+..
+\emph on
+e3
+\emph default
+]
+\family default
+ a 
+\family typewriter
+Prelude.enumFromTo 
+\emph on
+e1 e3
+\family default
+\emph default
+ y 
+\family typewriter
+[
+\emph on
+e1
+\emph default
+,
+\emph on
+e2
+\emph default
+..
+\emph on
+e3
+\emph default
+]
+\family default
+ a 
+\family typewriter
+Prelude.enumFromThenTo 
+\emph on
+e1 e2 e3
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Para expresiones de tipo 
+\family typewriter
+Int
+\family default
+, 
+\family typewriter
+[
+\emph on
+x
+\emph default
+,
+\emph on
+y
+\emph default
+..]
+\family default
+ es la secuencia aritmética infinita cuyos dos primeros elementos son 
+\family typewriter
+\emph on
+x
+\family default
+\emph default
+ e 
+\family typewriter
+\emph on
+y
+\family default
+\emph default
+; 
+\family typewriter
+[
+\emph on
+x
+\emph default
+..]
+\family default
+ equivale a 
+\family typewriter
+[
+\emph on
+x
+\emph default
+,
+\emph on
+x
+\emph default
++1,..]
+\family default
+; 
+\family typewriter
+[
+\emph on
+x
+\emph default
+,
+\emph on
+y
+\emph default
+..
+\emph on
+z
+\emph default
+]
+\family default
+ es como 
+\family typewriter
+[
+\emph on
+x
+\emph default
+,
+\emph on
+y
+\emph default
+..]
+\family default
+ pero termina cuando se sobrepasa 
+\family typewriter
+\emph on
+z
+\family default
+\emph default
+, de modo que si 
+\begin_inset Formula $\text{\emph{\texttt{x}}}\leq\text{\emph{\texttt{y}}}$
+\end_inset
+
+ la secuencia para en el primer elemento mayor a 
+\family typewriter
+\emph on
+z
+\family default
+\emph default
+ sin incluirlo, y si 
+\begin_inset Formula $\text{\emph{\texttt{x}}}>\text{\emph{\texttt{y}}}$
+\end_inset
+
+ la secuencia para en el primero menor que 
+\family typewriter
+\emph on
+z
+\family default
+\emph default
+ sin incluirlo.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+lista por comprehensión
+\series default
+ se define como
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+aexp /= 
+\begin_inset Quotes cld
+\end_inset
+
+[
+\begin_inset Quotes cld
+\end_inset
+
+ exp 
+\begin_inset Quotes cld
+\end_inset
+
+|
+\begin_inset Quotes crd
+\end_inset
+
+ qual *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ qual) 
+\begin_inset Quotes cld
+\end_inset
+
+]
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+qual = pat 
+\begin_inset Quotes cld
+\end_inset
+
+<-
+\begin_inset Quotes crd
+\end_inset
+
+ exp | exp
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resultado es una lista de elementos del tipo de 
+\family typewriter
+exp
+\family default
+.
+ Un 
+\series bold
+cualificador
+\series default
+ (
+\family typewriter
+qual
+\family default
+) del primer tipo es un 
+\series bold
+generador
+\series default
+ y uno del segundo es un 
+\series bold
+filtro
+\series default
+ o 
+\series bold
+guarda
+\series default
+.
+ Si 
+\family typewriter
+\emph on
+e
+\family default
+\emph default
+ y 
+\family typewriter
+\emph on
+f
+\family default
+\emph default
+ son expresiones, 
+\family typewriter
+\emph on
+p
+\family default
+\emph default
+ un patrón y 
+\family typewriter
+\emph on
+Q
+\family default
+\emph default
+ una lista de cualificadores, 
+\family typewriter
+[
+\emph on
+e
+\emph default
+ | 
+\emph on
+p
+\emph default
+ <- 
+\emph on
+f
+\emph default
+, 
+\emph on
+Q
+\emph default
+]
+\family default
+, para cada elemento de la lista 
+\family typewriter
+\emph on
+f
+\family default
+\emph default
+ que encaje con 
+\family typewriter
+\emph on
+p
+\family default
+\emph default
+, evalúa 
+\family typewriter
+[
+\emph on
+e
+\emph default
+ | 
+\emph on
+Q
+\emph default
+]
+\family default
+ en un entorno extendido por los vínculos del encaje, y concatena los resultados
+, y 
+\family typewriter
+[
+\emph on
+e
+\emph default
+ | 
+\emph on
+f
+\emph default
+, 
+\emph on
+Q
+\emph default
+]
+\family default
+ devuelve 
+\family typewriter
+[
+\emph on
+e
+\emph default
+ | 
+\emph on
+Q
+\emph default
+]
+\family default
+ si el booleano 
+\family typewriter
+\emph on
+f
+\family default
+\emph default
+ es 
+\family typewriter
+True
+\family default
+ o 
+\family typewriter
+[]
+\family default
+ en otro caso.
+ Si 
+\family typewriter
+\emph on
+Q
+\family default
+\emph default
+ es vacío se entiende que 
+\family typewriter
+[
+\emph on
+e
+\emph default
+ | 
+\emph on
+Q
+\emph default
+]
+\family default
+ vale 
+\family typewriter
+[
+\emph on
+e
+\emph default
+]
+\family default
+.
+\end_layout
+
+\begin_layout Section
 Definiciones
 \end_layout
 

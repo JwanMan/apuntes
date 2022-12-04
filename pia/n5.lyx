@@ -91,7 +91,7 @@ status open
 
 \begin_layout Plain Layout
 
-infixr 9 .
+infixr 9 ., !!
 \end_layout
 
 \begin_layout Plain Layout
@@ -111,7 +111,12 @@ infixl 6 +, -
 
 \begin_layout Plain Layout
 
-infix 4 ==, /=, <, <=, >=, >
+infixl 5 ++
+\end_layout
+
+\begin_layout Plain Layout
+
+infix 4 ==, /=, <, <=, >=, >, `elem`
 \end_layout
 
 \begin_layout Plain Layout
@@ -134,7 +139,7 @@ infixr 2 ||
 status open
 
 \begin_layout Plain Layout
-^^, .., =<<, $, $!, `seq`
+^^, .., =<<, $, $!, `seq`, `notElem`
 \end_layout
 
 \end_inset
@@ -380,17 +385,17 @@ class (Eq a) => Ord a where  {-# MINIMAL compare | (<=) #-}
 
 \begin_layout Plain Layout
 
-        | x == y    = EQ
+        | x == y = EQ
 \end_layout
 
 \begin_layout Plain Layout
 
-        | x <= y    = LT
+        | x <= y = LT
 \end_layout
 
 \begin_layout Plain Layout
 
-        | True      = GT
+        | True   = GT
 \end_layout
 
 \begin_layout Plain Layout
@@ -572,7 +577,7 @@ status open
 
 \begin_layout Plain Layout
 
-class Enum a where
+class Enum a where  {-# MINIMAL toEnum, fromEnum #-}
 \end_layout
 
 \begin_layout Plain Layout
@@ -583,6 +588,67 @@ class Enum a where
 \begin_layout Plain Layout
 
     fromEnum :: a -> Int
+\end_layout
+
+\begin_layout Plain Layout
+
+    succ, pred :: a -> a
+\end_layout
+
+\begin_layout Plain Layout
+
+    enumFrom :: a -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+    enumFromThen, enumFromTo :: a -> a -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+    enumFromThenTo :: a -> a -> a -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    succ x = toEnum (fromEnum x + 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+    pred x = toEnum (fromEnum x - 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+    enumFrom x = map toEnum [fromEnum x ..]
+\end_layout
+
+\begin_layout Plain Layout
+
+    enumFromTo x y = map toEnum [fromEnum x ..
+ fromEnum y]
+\end_layout
+
+\begin_layout Plain Layout
+
+    enumFromThen x y = map toEnum [fromEnum x, fromEnum y ..]
+\end_layout
+
+\begin_layout Plain Layout
+
+    enumFromThenTo x y z =
+\end_layout
+
+\begin_layout Plain Layout
+
+        map toEnum [fromEnum x, fromEnum y ..
+ fromEnum z]
 \end_layout
 
 \end_inset
@@ -600,18 +666,24 @@ toEnum 0
 \family typewriter
 toEnum 1
 \family default
- el segundo, etc., y 
+ el segundo, etc., y para cualquier otro 
+\family typewriter
+\emph on
+x
+\family default
+\emph default
+, 
 \family typewriter
 toEnum 
 \emph on
-a
+x
 \family default
 \emph default
  devuelve 
 \begin_inset Formula $\bot$
 \end_inset
 
- para una entrada no definida.
+.
  
 \family typewriter
 fromEnum
@@ -621,24 +693,40 @@ fromEnum
 toEnum
 \family default
 .
+ Si 
+\family typewriter
+firstCon
+\family default
+ es el primer constructor y 
+\family typewriter
+lastCon
+\family default
+ el último, se define
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Comment
+\begin_inset listings
+inline false
 status open
 
 \begin_layout Plain Layout
-succ, pred, enumFrom, enumThen, enumFromTo, enumFromThenTo
+
+enumFrom x = enumFromTo x lastCon
 \end_layout
 
-\end_inset
+\begin_layout Plain Layout
 
-
-\begin_inset Note Comment
-status open
+enumFromThen x y = enumFromThenTo x y bound
+\end_layout
 
 \begin_layout Plain Layout
-enumFrom y enumFromThen se definen de forma especial.
+
+    where bound | fromEnum x <= fromEnum y = lastCon
+\end_layout
+
+\begin_layout Plain Layout
+
+                | otherwise                = firstCon
 \end_layout
 
 \end_inset
@@ -912,7 +1000,7 @@ not :: Bool -> Bool
 
 \begin_layout Plain Layout
 
-not True = False  
+not True  = False  
 \end_layout
 
 \begin_layout Plain Layout
@@ -1355,9 +1443,19 @@ class (Real a, Enum a) => Integral a where
     n `mod` d = r where (q, r) = divMod n d
 \end_layout
 
-\begin_layout Plain Layout
+\end_inset
+
 
 \end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\begin_inset listings
+inline false
+status open
 
 \begin_layout Plain Layout
 
@@ -1563,7 +1661,7 @@ lcm x y = abs ((x `quot` (gcd x y)) * y)
 
 \begin_layout Plain Layout
 
-x ^ 0 = 1
+x ^ 0     = 1
 \end_layout
 
 \begin_layout Plain Layout
@@ -1586,19 +1684,9 @@ fromIntegral = fromInteger .
  toInteger
 \end_layout
 
-\end_inset
-
+\begin_layout Plain Layout
 
 \end_layout
-
-\begin_layout Section
-Tipos numéricos
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
 
 \begin_layout Plain Layout
 
@@ -1633,42 +1721,6 @@ instance RealFrac Double where ...
 \begin_layout Plain Layout
 
 instance Floating Double where ...
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-instance Enum Float where
-\end_layout
-
-\begin_layout Plain Layout
-
-	toEnum = fromIntegral
-\end_layout
-
-\begin_layout Plain Layout
-
-	fromEnum = fromInteger .
- truncate
-\end_layout
-
-\begin_layout Plain Layout
-
-instance Enum Double where
-\end_layout
-
-\begin_layout Plain Layout
-
-	toEnum = fromIntegral
-\end_layout
-
-\begin_layout Plain Layout
-
-	fromEnum = fromInteger .
- truncate
 \end_layout
 
 \end_inset

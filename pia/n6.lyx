@@ -1,0 +1,1487 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Operaciones sobre listas en 
+\family typewriter
+Prelude
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+map
+\family default
+ aplica una función a todos los elementos de una lista y 
+\family typewriter
+filter
+\family default
+ selecciona los que cumplen una condición.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+map :: (a -> b) -> [a] -> [b]
+\end_layout
+
+\begin_layout Plain Layout
+
+map f []     = []
+\end_layout
+
+\begin_layout Plain Layout
+
+map f (x:xs) = f x : map f xs
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+filter :: (a -> Bool) -> [a] -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+filter p [] = []
+\end_layout
+
+\begin_layout Plain Layout
+
+filter p (x:xs) | p x       = x : filter p xs
+\end_layout
+
+\begin_layout Plain Layout
+
+                | otherwise = filter p xs
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+(++)
+\family default
+ concatena dos listas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+(++) :: [a] -> [a] -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+[] ++ ys = ys
+\end_layout
+
+\begin_layout Plain Layout
+
+(x:xs) ++ ys = x : (xs ++ ys)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+length
+\family default
+ devuelve la longitud de una lista.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+length :: [a] -> Int
+\end_layout
+
+\begin_layout Plain Layout
+
+length [] = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+length (_:l) = 1 + length l
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+head :: [a] -> a
+\end_layout
+
+\begin_layout Plain Layout
+
+head (x:_) = x
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+tail :: [a] -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+tail (_:xs) = xs
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+last :: [a] -> a
+\end_layout
+
+\begin_layout Plain Layout
+
+last [x]    = x
+\end_layout
+
+\begin_layout Plain Layout
+
+last (_:xs) = last xs
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+init :: [a] -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+init [x]    = []
+\end_layout
+
+\begin_layout Plain Layout
+
+init (x:xs) = x : init xs
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+null :: [a] -> Bool
+\end_layout
+
+\begin_layout Plain Layout
+
+null []    = True
+\end_layout
+
+\begin_layout Plain Layout
+
+null (_:_) = False
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+take 
+\emph on
+n xs
+\family default
+\emph default
+ y 
+\family typewriter
+drop 
+\emph on
+n xs
+\family default
+\emph default
+ devuelven respectivamente los 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+ primeros elementos y el resto de elementos de 
+\family typewriter
+\emph on
+xs
+\family default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+take, drop :: Int -> [a] -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+take n _ | n <= 0 = []
+\end_layout
+
+\begin_layout Plain Layout
+
+take _ []         = []
+\end_layout
+
+\begin_layout Plain Layout
+
+take (n+1) (x:xs) = x : take (n-1) xs
+\end_layout
+
+\begin_layout Plain Layout
+
+drop n xs | n <= 0 = xs
+\end_layout
+
+\begin_layout Plain Layout
+
+drop _ []          = []
+\end_layout
+
+\begin_layout Plain Layout
+
+drop (n+1) (_:xs)  = drop n xs
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+takeWhile :: (a -> Bool) -> [a] -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+takeWhile p (x:xs) | p x = x : takeWhile p xs
+\end_layout
+
+\begin_layout Plain Layout
+
+takeWhile _ _            = []
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+dropWhile :: (a -> Bool) -> [a] -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+dropWhile p []      = []
+\end_layout
+
+\begin_layout Plain Layout
+
+dropWhile p (x:xs)
+\end_layout
+
+\begin_layout Plain Layout
+
+        | p x       = dropWhile p xs
+\end_layout
+
+\begin_layout Plain Layout
+
+        | otherwise = xs
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+(!!) 
+\emph on
+n xs
+\family default
+\emph default
+ devuelve el 
+\family typewriter
+\emph on
+n
+\family default
+\emph default
+-ésimo elemento de 
+\family typewriter
+\emph on
+xs
+\family default
+\emph default
+, empezando por el 0, pero es 
+\begin_inset Formula $O(n)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+(!!) :: [a] -> Int -> a
+\end_layout
+
+\begin_layout Plain Layout
+
+(x:_) !! 0      = x
+\end_layout
+
+\begin_layout Plain Layout
+
+(_:xs) !! (n+1) = xs !! n
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+zip
+\family default
+ junta dos listas en una cuya longitud es la mínima de la de las dos listas
+ y cuyos elementos son las tuplas de elementos correspondientes de ambas
+ listas.
+ 
+\family typewriter
+unzip
+\family default
+ hace lo contrario.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+zip :: [a] -> [b] -> [(a,b)]
+\end_layout
+
+\begin_layout Plain Layout
+
+zip (x:xs) (y:ys) = (x, y) : zip xs ys
+\end_layout
+
+\begin_layout Plain Layout
+
+zip _ = []
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+unzip :: [(a,b)] -> ([a], [b])
+\end_layout
+
+\begin_layout Plain Layout
+
+unzip xs = (map fst xs, map snd xs)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+foldl 
+\emph on
+f z xs
+\family default
+\emph default
+ aplica la función 
+\family typewriter
+\emph on
+f
+\family default
+\emph default
+ de dos parámetros a 
+\family typewriter
+\emph on
+z
+\family default
+\emph default
+ y al primer elemento de 
+\family typewriter
+\emph on
+xs
+\family default
+\emph default
+, luego al resultado y al segnudo elemento de 
+\family typewriter
+\emph on
+xs
+\family default
+\emph default
+, etc., y devuelve el resultado final, y 
+\family typewriter
+foldr 
+\emph on
+f a xs
+\family default
+\emph default
+ aplica 
+\family typewriter
+\emph on
+f
+\family default
+\emph default
+ al último elemento de 
+\family typewriter
+\emph on
+xs
+\family default
+\emph default
+ y a 
+\family typewriter
+\emph on
+z
+\family default
+\emph default
+, luego al penúltimo elemento y al resultado de esto, etc.
+ (
+\family typewriter
+foldl
+\family default
+ empieza por la izquierda y 
+\family typewriter
+foldr
+\family default
+ por la derecha).
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+foldl :: (a -> b -> a) -> a -> [b] -> a
+\end_layout
+
+\begin_layout Plain Layout
+
+foldl f z []     = z
+\end_layout
+
+\begin_layout Plain Layout
+
+foldl f z (x:xs) = foldl f (f z x) xs
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+foldr :: (a -> b -> b) -> b -> [a] -> b
+\end_layout
+
+\begin_layout Plain Layout
+
+foldr f z []     = z
+\end_layout
+
+\begin_layout Plain Layout
+
+foldr f z (x:xs) = f x (foldr f z xs)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+foldl1 :: (a -> a -> a) -> [a] -> a
+\end_layout
+
+\begin_layout Plain Layout
+
+foldl1 f (x:xs) = foldl f x xs
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+foldr1 :: (a -> a -> a) -> [a] -> a
+\end_layout
+
+\begin_layout Plain Layout
+
+foldr1 f xs = foldr f (last xs) (init xs)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+foldr
+\family default
+ se suele usar para sumar una lista de elementos de un monoide, siendo 
+\family typewriter
+f
+\family default
+ la suma y 
+\family typewriter
+z
+\family default
+ el elemento neutro, y 
+\family typewriter
+foldr1
+\family default
+ para hacer lo propio en un semigrupo.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+scanl
+\family default
+, 
+\family typewriter
+scanr
+\family default
+, 
+\family typewriter
+scanl1
+\family default
+ y 
+\family typewriter
+scanr1
+\family default
+ hacen lo mismo pero devolviendo una lista de resultados intermedios, de
+ izquierda a derecha en 
+\family typewriter
+scanl
+\family default
+ y 
+\family typewriter
+scanl1
+\family default
+ y de derecha a izquierda en 
+\family typewriter
+scanr
+\family default
+ y 
+\family typewriter
+scanr1
+\family default
+, tantos como la longitud que la lista de entrada en 
+\family typewriter
+scanl1
+\family default
+ y 
+\family typewriter
+scanr1
+\family default
+ y con un elemento más en 
+\family typewriter
+scanl
+\family default
+ y 
+\family typewriter
+scanr
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+scanl :: (a -> b -> a) -> a -> [b] -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+scanl f q xs = q : (case xs of [] -> []
+\end_layout
+
+\begin_layout Plain Layout
+
+                               x:xs -> scanl f (f q x) xs)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+scanr :: (a -> b -> b) -> b -> [a] -> [b]
+\end_layout
+
+\begin_layout Plain Layout
+
+scanr f q0 [] = [q0]
+\end_layout
+
+\begin_layout Plain Layout
+
+scanr f q0 (x:xs) = let qs = scanr f q0 xs in f x (head qs) : qs
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+scanl1 :: (a -> a -> a) -> [a] -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+scanl1 _ []     = []
+\end_layout
+
+\begin_layout Plain Layout
+
+scanl1 f (x:xs) = scanl f x xs
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+scanr1 :: (a -> a -> a) -> [a] -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+scanr1 _ [] = []
+\end_layout
+
+\begin_layout Plain Layout
+
+scanr1 f xs = scanr f (last xs) (init xs)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+iterate :: (a -> a) -> a -> a
+\end_layout
+
+\begin_layout Plain Layout
+
+iterate f x = x : iterate f (f x)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+concat
+\family default
+ concatena una lista de listas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+concat :: [[a]] -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+concat xss = foldr (++) [] xss
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así, 
+\family typewriter
+[
+\emph on
+e
+\emph default
+ | 
+\emph on
+p
+\emph default
+ <- 
+\emph on
+xs
+\emph default
+, 
+\emph on
+Q
+\emph default
+]
+\family default
+ equivale a 
+\family typewriter
+concat (map f 
+\emph on
+xs
+\emph default
+) where { f 
+\emph on
+p
+\emph default
+ = [
+\emph on
+e
+\emph default
+ | 
+\emph on
+Q
+\emph default
+]; f _ = [] }
+\family default
+, y 
+\family typewriter
+[
+\emph on
+e
+\emph default
+ | 
+\emph on
+c
+\emph default
+, 
+\emph on
+Q
+\emph default
+]
+\family default
+ equivale a 
+\family typewriter
+if 
+\emph on
+c
+\emph default
+ then [
+\emph on
+e
+\emph default
+ | 
+\emph on
+Q
+\emph default
+] else []
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+reverse :: [a] -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+reverse = foldl (flip (:)) []
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+and, or :: [Bool] -> Bool
+\end_layout
+
+\begin_layout Plain Layout
+
+and = foldr (&&) True
+\end_layout
+
+\begin_layout Plain Layout
+
+or  = foldr (||) False
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+any, all :: (a -> Bool) -> [a] -> Bool
+\end_layout
+
+\begin_layout Plain Layout
+
+any p = or .
+ map p
+\end_layout
+
+\begin_layout Plain Layout
+
+all p = and .
+ map p
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+elem :: (Eq a) => a -> [a] -> Bool
+\end_layout
+
+\begin_layout Plain Layout
+
+elem x = any (==x)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+sum, product :: (Num a) => [a] -> a
+\end_layout
+
+\begin_layout Plain Layout
+
+sum = foldl (+) 0
+\end_layout
+
+\begin_layout Plain Layout
+
+product = foldl (*) 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+concatMap, iterate, repeat, replicate, cycle, splitAt, takeWhile, dropWhile,
+ span, break, lines, words, unlines, unwords, notElem, lookup, maximum,
+ minimum, zip3, zipWith, zipWith3, unzip3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO instance (Show a) => Show [a], instance (Read a) => Read [a], instance
+ Show Char, instance Read Char
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Secuencias aritméticas en punto flotante
+\end_layout
+
+\begin_layout Standard
+En 
+\family typewriter
+float
+\family default
+ y 
+\family typewriter
+double
+\family default
+ las secuencias aritméticas no se pueden definir como en el resto de tipos
+ porque 
+\family typewriter
+toEnum
+\family default
+ y 
+\family typewriter
+fromEnum
+\family default
+ truncarían los números a enteros.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+instance Enum Float where
+\end_layout
+
+\begin_layout Plain Layout
+
+	toEnum = fromIntegral
+\end_layout
+
+\begin_layout Plain Layout
+
+	fromEnum = fromInteger .
+ truncate
+\end_layout
+
+\begin_layout Plain Layout
+
+    succ x = x + 1
+\end_layout
+
+\begin_layout Plain Layout
+
+    pred x = x - 1
+\end_layout
+
+\begin_layout Plain Layout
+
+    enumFrom = iterate (+1)
+\end_layout
+
+\begin_layout Plain Layout
+
+    enumFromThen a a' = iterate (+(a'-a)) a
+\end_layout
+
+\begin_layout Plain Layout
+
+    enumFromThenTo a b = takeWhile (<= b+1/2) (enumFrom a)
+\end_layout
+
+\begin_layout Plain Layout
+
+    enumFromThenTo a a' b = takeWhile p (enumFromThen a a')
+\end_layout
+
+\begin_layout Plain Layout
+
+        where p | a' >= a   = (<= b + (a'-a)/2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                | otherwise = (>= b + (n'-n)/2)
+\end_layout
+
+\begin_layout Plain Layout
+
+instance Enum Double where
+\end_layout
+
+\begin_layout Plain Layout
+
+	-- Igual que para Float
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Árboles
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+árbol binario
+\series default
+ se define como
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+data Árbol a = Hoja a | Rama (Árbol a) (Árbol a)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+aplanar :: Árbol a -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+aplanar (Hoja x) = [x]
+\end_layout
+
+\begin_layout Plain Layout
+
+aplanar (Rama xt yt) = aplanar xt ++ aplanar yt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+El 
+\series bold
+tamaño
+\series default
+ de un árbol es el número de hojas, y su 
+\series bold
+altura
+\series default
+ es la distancia de la raíz a la hoja más lejana.
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+tam, altura :: Árbol a -> Int
+\end_layout
+
+\begin_layout Plain Layout
+
+tam = length .
+ aplanar
+\end_layout
+
+\begin_layout Plain Layout
+
+altura (Hoja x) = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+altura (Rama xt yt) = 1 + max (altura xt) (altura yt)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+mapÁrbol :: (a -> b) -> Árbol a -> Árbol b
+\end_layout
+
+\begin_layout Plain Layout
+
+mapÁrbol f (Hoja x) = Hoja (f x)
+\end_layout
+
+\begin_layout Plain Layout
+
+mapÁrbol f (Rama xt yt) = Rama (mapÁrbol f xt) (mapÁrbol f yt)
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Entonces 
+\family typewriter
+map f .
+ aplanar = aplanar .
+ mapÁrbol f
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+árbol binario aumentado
+\series default
+ es uno que tiene información en los nodos internos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+data ÁrbolAum r a = Hoja a | Rama r (ÁrbolAum r a) (ÁrbolAum r a)
+\end_layout
+
+\begin_layout Plain Layout
+
+type ÁrbolA = ÁrbolAum Int
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+Árbol
+\family default
+ equivale a 
+\family typewriter
+ÁrbolAum ()
+\family default
+.
+ Un 
+\series bold
+árbol binario etiquetado
+\series default
+ es uno en que la información no se guarda en las hojas sino entre dos subárbole
+s.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+data ÁrbolB a = Hoja | Rama (ÁrbolB a) a (ÁrbolB a)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+aplanar :: ÁrbolB a -> [a]
+\end_layout
+
+\begin_layout Plain Layout
+
+aplanar Hoja = []
+\end_layout
+
+\begin_layout Plain Layout
+
+aplanar (Rama xt a yt) = aplanar xy ++ [a] ++ aplanar yt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+árbol binario de búsqueda
+\series default
+ es un 
+\family typewriter
+Ord a => ÁrbolB a
+\family default
+ para el que 
+\family typewriter
+aplanar
+\family default
+ devuelve una lista en orden creciente.
+ Es útil para operaciones de pertenencia, inserción y borrado.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+árbol binario montículo
+\series default
+ es una instancia de
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+data ÁrbolM a = Hoja | Rama a (ÁrbolM a) (ÁrbolM a)
+\end_layout
+
+\end_inset
+
+en que el valor de cada nodo es menor o igual al de cualquiera de los subárboles
+, y es útil para búsqueda del valor más pequeño o fusión de montículos.
+ 
+\family typewriter
+ÁrbolM a
+\family default
+ equivale a 
+\family typewriter
+ÁrbolAum a ()
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+rosadelfa
+\series default
+ es un árbol sin restricciones:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+data Rosa a = Nodo a [Rosa a]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una rosadelfa es 
+\series bold
+
+\begin_inset Formula $k$
+\end_inset
+
+-aria
+\series default
+ si todo nodo tiene exactamente 0 o 
+\begin_inset Formula $k$
+\end_inset
+
+ subárboles, y los árboles binarios se pueden ver como rosadelfas binarias.
+\end_layout
+
+\end_body
+\end_document
