@@ -1,0 +1,809 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class Monad m where  {#- MINIMAL (>>=), return -#}
+\end_layout
+
+\begin_layout Plain Layout
+
+    (>>=) :: m a -> (a -> m b) -> m b
+\end_layout
+
+\begin_layout Plain Layout
+
+    (>>) :: m a -> m b -> m b
+\end_layout
+
+\begin_layout Plain Layout
+
+    return :: a -> m a
+\end_layout
+
+\begin_layout Plain Layout
+
+    fail :: String -> m a
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    m >> k = m >>= 
+\backslash
+_ -> k
+\end_layout
+
+\begin_layout Plain Layout
+
+    fail s = error s
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Functor, sequence, mapM, (=<<), Maybe, maybe, Either, either, instance Functor
+ IO, instance Monad IO, instance Functor [], instance Monad [], IOError,
+ ioError, userError, catch, readIO, readLn
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+urldef
+\backslash
+urlmonada
+\backslash
+url{https://stackoverflow.com/questions/3870088/a-monad-is-just-a-monoid-in-the-c
+ategory-of-endofunctors-whats-the-problem#3870310}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+urldef
+\backslash
+urlmonadb
+\backslash
+url{http://james-iry.blogspot.com/2009/05/brief-incomplete-and-mostly-wrong.html}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+urldef
+\backslash
+urlmonadc
+\backslash
+url{https://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-t
+utorial-fallacy/}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+urldef
+\backslash
+urlmonadd
+\backslash
+url{https://blog.plover.com/prog/burritos.html}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+urldef
+\backslash
+urlmonade
+\backslash
+url{https://wiki.haskell.org/All_About_Monads}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+urldef
+\backslash
+urlmonadf
+\backslash
+url{https://wiki.haskell.org/Monad}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+mónada
+\series default
+ es una instancia de 
+\family typewriter
+Monad
+\family default
+ con las siguientes propiedades:
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Una mónada en 
+\begin_inset Formula $X$
+\end_inset
+
+ es un monoide en la categoría de los endofuntores de 
+\begin_inset Formula $X$
+\end_inset
+
+, con el producto reemplazado por la composición de endofuntores y el conjunto
+ unidad por el endofuntor identidad (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+urlmonada
+\end_layout
+
+\end_inset
+
+).
+ Una mónada es un como un burrito (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+urlmonadc
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+urlmonadd
+\end_layout
+
+\end_inset
+
+).
+ No voy a explicar la intuición de qué es una mónada porque en el examen
+ sólo entra la definición formal e IO, pero hay un tutorial muy bueno en
+ la Wiki de Haskell (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+urlmonade
+\end_layout
+
+\end_inset
+
+) y una explicación resumida (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+urlmonadf
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Identidad por la izquierda: 
+\family typewriter
+return a >>= h = ha
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Identidad por la derecha: 
+\family typewriter
+m >>= return = m
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Asociatividad: 
+\family typewriter
+(m >>= g) >>= h = m >>= (
+\backslash
+x -> g x >>= h)
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+mónada de E/S
+\series default
+ es una mónada 
+\family typewriter
+m
+\family default
+ que además tiene operaciones 
+\family typewriter
+putChar :: Char -> m ()
+\family default
+ y 
+\family typewriter
+getChar :: m Char
+\family default
+, como 
+\family typewriter
+IO
+\family default
+.
+ 
+\family typewriter
+IO a
+\family default
+ es el tipo de las acciones que pueden realizar operaciones de E/S y devuelven
+ un resultado de tipo 
+\family typewriter
+a
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+data IO a = ...
+\end_layout
+
+\begin_layout Plain Layout
+
+instance Monad IO where ...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+return 
+\emph on
+a
+\family default
+\emph default
+ es una acción que no hace nada y devuelve 
+\family typewriter
+\emph on
+a
+\family default
+\emph default
+, y 
+\family typewriter
+\emph on
+m
+\emph default
+ >>= 
+\emph on
+h
+\family default
+\emph default
+ es una que ejecuta 
+\family typewriter
+\emph on
+m
+\family default
+\emph default
+, le pasa el resultado a 
+\family typewriter
+\emph on
+h
+\family default
+\emph default
+ y devuelve el resultado de ejecutar la acción devuelta por 
+\family typewriter
+\emph on
+h
+\family default
+\emph default
+, permitiendo secuenciar acciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sequence_ :: Monad m => [m a] -> m ()
+\end_layout
+
+\begin_layout Plain Layout
+
+sequence_ = foldr (>>) (return ())
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+mapM_ :: Monad m => (a -> m b) -> [a] -> m [b]
+\end_layout
+
+\begin_layout Plain Layout
+
+mapM_ f as = sequence_ (map f as)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos definir (aunque no está en el 
+\family typewriter
+Prelude
+\family default
+):
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Está en 
+\family typewriter
+Control.Monad.Extra
+\family default
+ y se llama 
+\family typewriter
+skip
+\family default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+done :: Monad m => m ()
+\end_layout
+
+\begin_layout Plain Layout
+
+done = return ()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+putChar
+\family default
+ imprime un caracter, 
+\family typewriter
+getChar
+\family default
+ lee uno de la entrada estándar y 
+\family typewriter
+getContents
+\family default
+ lee toda la entrada estándar en una 
+\family typewriter
+String
+\family default
+ de forma perezosa según se va necesitando.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+putChar :: Char -> IO ()
+\end_layout
+
+\begin_layout Plain Layout
+
+putChar = ...
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+getChar :: IO Char
+\end_layout
+
+\begin_layout Plain Layout
+
+getChar = ...
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+getContents :: IOString
+\end_layout
+
+\begin_layout Plain Layout
+
+getContents = ...
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+putStr, putStrLn :: String -> IO ()
+\end_layout
+
+\begin_layout Plain Layout
+
+putStr s = map_ putChar s
+\end_layout
+
+\begin_layout Plain Layout
+
+putStrLn s = putStr s >> putStr 
+\begin_inset Quotes cld
+\end_inset
+
+
+\backslash
+n
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+print :: Show a => a -> IO ()
+\end_layout
+
+\begin_layout Plain Layout
+
+print x = putStrLn (show x)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+getLine :: IO String
+\end_layout
+
+\begin_layout Plain Layout
+
+getLine = getChar >>= 
+\backslash
+c -> if c == '
+\backslash
+n' then return 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+                            else getLine >>= 
+\backslash
+s -> return (c:s)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+interact 
+\emph on
+f
+\family default
+\emph default
+ desactiva el 
+\emph on
+buffering
+\emph default
+ de la entrada y salida estándar, le pasa la entrada estándar a 
+\family typewriter
+\emph on
+f
+\family default
+\emph default
+ y va imprimiendo el valor devuelto por la función, evaluándolo y pidiendo
+ caracteres de la entrada según sea necesario.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+interact :: (String -> String) -> IO ()
+\end_layout
+
+\begin_layout Plain Layout
+
+interact f = hSetBuffering stdin NoBuffering >>=
+\end_layout
+
+\begin_layout Plain Layout
+
+             hSetBuffering stdout NoBuffering >>=
+\end_layout
+
+\begin_layout Plain Layout
+
+             s <- getContents >>= putStr (f s)
+\end_layout
+
+\begin_layout Plain Layout
+
+        where hSetBuffering = ...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+readFile
+\family default
+ lee el contenido de un fichero de forma perezosa, 
+\family typewriter
+writeFile
+\family default
+ escribe un fichero y 
+\family typewriter
+appendFile
+\family default
+ añade contenido al final de uno.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+type FilePath = String
+\end_layout
+
+\begin_layout Plain Layout
+
+readFile :: FilePath -> IO String
+\end_layout
+
+\begin_layout Plain Layout
+
+readFile = ...
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+writeFile, appendFile :: FilePath -> String -> IO ()
+\end_layout
+
+\begin_layout Plain Layout
+
+writeFile = ...
+\end_layout
+
+\begin_layout Plain Layout
+
+appendFile = ...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un programa en Haskell es una colección de módulos de los que uno es el
+ principal y tiene un vínculo 
+\family typewriter
+main :: IO ()
+\family default
+, que se ejecuta al ejecutar el programa.
+\end_layout
+
+\end_body
+\end_document

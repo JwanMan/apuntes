@@ -1175,7 +1175,6 @@ s
 \begin_inset Formula $\bot$
 \end_inset
 
-.
  y, cuando se evalúa, imprime el error 
 \family typewriter
 \emph on
@@ -1786,111 +1785,6 @@ instance Ord Char where
 \begin_layout Plain Layout
 
 type String = [Char]
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Mónadas
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-fail, sequence, sequence_, mapM, mapM_, (=<<)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-class Functor f where
-\end_layout
-
-\begin_layout Plain Layout
-
-	fmap :: (a -> b) -> f a -> f b
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-class Monad m where  {#- MINIMAL (>>=), return -#}
-\end_layout
-
-\begin_layout Plain Layout
-
-	(>>=) :: m a -> (a -> m b) -> m b
-\end_layout
-
-\begin_layout Plain Layout
-
-	(>>) :: m a -> m b -> m b
-\end_layout
-
-\begin_layout Plain Layout
-
-	return :: a -> m a
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-	m >> k = m >>= 
-\backslash
-_ -> k
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-data Either a b = Left a | Right b deriving (Eq, Ord, Read, Show)
-\end_layout
-
-\begin_layout Plain Layout
-
-data IO a = ...
-\end_layout
-
-\begin_layout Plain Layout
-
-instance Monad IO where ...
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-Maybe, maybe, either, instance Functor IO, instance Monad IO, instance Functor
- [], instance Monad []
 \end_layout
 
 \end_inset

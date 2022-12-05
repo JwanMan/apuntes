@@ -359,17 +359,7 @@ reservedop =~
 \end_layout
 
 \begin_layout Standard
-Las variables pueden estar en espacios de nombres jerárquicos:
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-tyvar=varid, tycon=tycls=conid, modid=qtycon=qtycls=qconid
-\end_layout
-
-\end_inset
-
-
+Las variables pueden estar en espacios de nombres aparentemente jerárquicos:
 \end_layout
 
 \begin_layout Standard
@@ -411,7 +401,16 @@ qconsym =~ (<conid>
 \end_layout
 
 \begin_layout Standard
-Se escriben como sigue:
+Realmente sólo se distingue entre el nombre de la variable, detrás del último
+ 
+\family typewriter
+.
+\family default
+, y el del módulo, antes del 
+\family typewriter
+.
+\family default
+, y no hay relación jerárquica entre módulos.
 \end_layout
 
 \begin_layout Standard
@@ -904,26 +903,7 @@ contexto
  nombre.
  Las expresiones se evalúan en un cierto contexto, y describen un valor
  que depende de este.
- Inicialmente el contexto global incluye las 
-\series bold
-operaciones primitivas
-\series default
- incluidas en el evaluador, como las operaciones aritméticas básicas y las
- incluidas en 
-\series bold
-preludios
-\series default
-, por defecto el 
-\series bold
-preludio estándar
-\series default
-, el módulo 
-\family typewriter
-\lang english
-Prelude
-\family default
-\lang spanish
-.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1104,6 +1084,16 @@ qconop = gconsym /
 gconsym = qconsym
 \end_layout
 
+\begin_layout Plain Layout
+
+cname = var / con
+\end_layout
+
+\begin_layout Plain Layout
+
+qop = qvarop / qconop
+\end_layout
+
 \end_inset
 
 
@@ -1126,6 +1116,21 @@ varsym
 s y una función con nombre normal como operador poniéndola entre comillas
  invertidas.
  Se pueden definir nuevos operadores.
+\end_layout
+
+\begin_layout Standard
+En el resto del capítulo cuando se menciona un nombre concreto, salvo que
+ se indique lo contrario, se entiende que pertenece al módulo 
+\family typewriter
+\lang english
+Prelude
+\family default
+\lang spanish
+, el 
+\series bold
+preludio estándar
+\series default
+, cuyos vínculos están por defecto en el contexto global.
 \end_layout
 
 \begin_layout Section
@@ -1206,7 +1211,7 @@ Un tipo puede ser un
 qconid
 \family default
 , cuyo significado depende del entorno, y esta definición puede aceptar
- un número fijo de parámetros que también son tipos.
+ un número fijo de parámetros de tipo.
 \end_layout
 
 \begin_layout Standard
@@ -1282,8 +1287,10 @@ polimórfico
 \begin_layout Standard
 Tipos primitivos en el 
 \family typewriter
+\lang english
 Prelude
 \family default
+\lang spanish
 :
 \end_layout
 
@@ -1519,6 +1526,9 @@ gtycon /=
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
 Podemos definir nuevos tipos para aumentar la seguridad de los programas:
 \end_layout
 
@@ -1637,8 +1647,10 @@ simpletype
 .
  El 
 \family typewriter
+\lang english
 Prelude
 \family default
+\lang spanish
  define 
 \family typewriter
 data Bool = False | True
@@ -2764,7 +2776,7 @@ a
 \emph default
  equivale a 
 \family typewriter
-Prelude.negate 
+negate 
 \emph on
 a
 \family default
@@ -2791,11 +2803,11 @@ integer
 \family default
  equivalen a 
 \family typewriter
-Prelude.fromInteger (
+fromInteger (
 \emph on
 x
 \emph default
- :: Prelude.Integer)
+ :: Integer)
 \family default
 , siendo 
 \family typewriter
@@ -2809,7 +2821,7 @@ float
 \family default
  a 
 \family typewriter
-Prelude.fromRational (
+fromRational (
 \emph on
 x
 \emph default
@@ -3837,7 +3849,7 @@ e1
 \family default
  equivale a 
 \family typewriter
-Prelude.enumFrom 
+enumFrom 
 \emph on
 e1
 \family default
@@ -3856,7 +3868,7 @@ e2
 \family default
  a 
 \family typewriter
-Prelude.enumFromThen 
+enumFromThen 
 \emph on
 e1 e2
 \family default
@@ -3875,7 +3887,7 @@ e3
 \family default
  a 
 \family typewriter
-Prelude.enumFromTo 
+enumFromTo 
 \emph on
 e1 e3
 \family default
@@ -3898,7 +3910,7 @@ e3
 \family default
  a 
 \family typewriter
-Prelude.enumFromThenTo 
+enumFromThenTo 
 \emph on
 e1 e2 e3
 \family default
@@ -4248,6 +4260,169 @@ e
 .
 \end_layout
 
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+lexp /= 
+\begin_inset Quotes cld
+\end_inset
+
+do
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+{
+\begin_inset Quotes cld
+\end_inset
+
+ stmts 
+\begin_inset Quotes cld
+\end_inset
+
+}
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+stmts = *stmt exp [
+\begin_inset Quotes cld
+\end_inset
+
+;
+\begin_inset Quotes crd
+\end_inset
+
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+stmt = (exp / pat 
+\begin_inset Quotes cld
+\end_inset
+
+<-
+\begin_inset Quotes crd
+\end_inset
+
+ exp /) 
+\begin_inset Quotes cld
+\end_inset
+
+;
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+do { 
+\emph on
+exp
+\emph default
+ }
+\family default
+ equivale a 
+\family typewriter
+\emph on
+exp
+\family default
+\emph default
+, que debe tener tipo 
+\family typewriter
+m a
+\family default
+ para algún 
+\family typewriter
+m
+\family default
+ de clase 
+\family typewriter
+Monad
+\family default
+ y algún 
+\family typewriter
+a
+\family default
+; 
+\family typewriter
+do { 
+\emph on
+exp
+\emph default
+; 
+\emph on
+rest
+\emph default
+ }
+\family default
+ equivale a 
+\family typewriter
+\emph on
+exp
+\emph default
+ >> do { 
+\emph on
+rest
+\emph default
+ }
+\family default
+, y 
+\family typewriter
+do { 
+\emph on
+pat
+\emph default
+ <- 
+\emph on
+exp
+\emph default
+; 
+\emph on
+rest 
+\emph default
+}
+\family default
+ equivale a 
+\family typewriter
+\emph on
+exp
+\emph default
+ >>= 
+\backslash
+
+\emph on
+pat
+\emph default
+ -> do { 
+\emph on
+rest
+\emph default
+ }
+\family default
+.
+\end_layout
+
 \begin_layout Section
 Definiciones
 \end_layout
@@ -4548,6 +4723,653 @@ infixr
 infix
 \family default
 ).
+\end_layout
+
+\begin_layout Section
+Módulos
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+module /= 
+\begin_inset Quotes cld
+\end_inset
+
+module
+\begin_inset Quotes crd
+\end_inset
+
+ qconid [exports] 
+\begin_inset Quotes cld
+\end_inset
+
+where
+\begin_inset Quotes crd
+\end_inset
+
+ body
+\end_layout
+
+\begin_layout Plain Layout
+
+exports = 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ [export *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ export) [
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+] 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+export = qvar / qconid [
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+..
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ [cname *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ cname)] 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+       / qconid [
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+..
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ [qvar *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ qvar)] 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+       / 
+\begin_inset Quotes cld
+\end_inset
+
+module
+\begin_inset Quotes crd
+\end_inset
+
+ qconid
+\end_layout
+
+\begin_layout Plain Layout
+
+cname = var / con
+\end_layout
+
+\begin_layout Plain Layout
+
+body /= 
+\begin_inset Quotes cld
+\end_inset
+
+{
+\begin_inset Quotes cld
+\end_inset
+
+ impdecls [
+\begin_inset Quotes cld
+\end_inset
+
+;
+\begin_inset Quotes crd
+\end_inset
+
+ topdecls] 
+\begin_inset Quotes cld
+\end_inset
+
+}
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+impdecls = impdecl *(
+\begin_inset Quotes cld
+\end_inset
+
+;
+\begin_inset Quotes crd
+\end_inset
+
+ impdecl)
+\end_layout
+
+\begin_layout Plain Layout
+
+impdecl = 
+\begin_inset Quotes cld
+\end_inset
+
+import
+\begin_inset Quotes crd
+\end_inset
+
+ [
+\begin_inset Quotes cld
+\end_inset
+
+qualified
+\begin_inset Quotes crd
+\end_inset
+
+] qconid [
+\begin_inset Quotes cld
+\end_inset
+
+as
+\begin_inset Quotes crd
+\end_inset
+
+ qconid] [impspec]
+\end_layout
+
+\begin_layout Plain Layout
+
+impspec = [
+\begin_inset Quotes cld
+\end_inset
+
+hiding
+\begin_inset Quotes crd
+\end_inset
+
+] 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ [import *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ import)] 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+import = var / qconid[
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+..
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ [cname *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ cname)] 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+       / qconid[
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+..
+\begin_inset Quotes crd
+\end_inset
+
+ 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ [var *(
+\begin_inset Quotes cld
+\end_inset
+
+,
+\begin_inset Quotes crd
+\end_inset
+
+ var)] 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Haskell organiza los elementos en módulos, uno por fichero, cada uno con
+ un nombre único y un contexto global formado por los vínculos establecidos
+ en el módulo y los que se importan de otros.
+ 
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+entidad
+\series default
+ es un vínculo importado o exportado por un módulo, con un nombre que no
+ incluye el nombre del módulo y un valor.
+\end_layout
+
+\begin_layout Standard
+Se exportan las entidades indicadas por 
+\family typewriter
+exports
+\family default
+: 
+\family typewriter
+\emph on
+qvar
+\family default
+\emph default
+ para una variable, 
+\family typewriter
+\emph on
+qconid
+\family default
+\emph default
+ para un tipo o clase, 
+\family typewriter
+\emph on
+qconid
+\emph default
+(..)
+\family default
+ para el tipo y todos sus constructores o la clase y todos sus métodos;
+ 
+\family typewriter
+\emph on
+qconid
+\emph default
+(
+\emph on
+cname
+\emph default
+, 
+\family default
+...
+\family typewriter
+)
+\family default
+ para el tipo y los constructores indicados, y 
+\family typewriter
+\emph on
+qconid
+\emph default
+(
+\emph on
+qvar
+\emph default
+, 
+\family default
+...
+\family typewriter
+)
+\family default
+ para el tipo y los métodos indicados.
+ Si no hay un 
+\family typewriter
+exports
+\family default
+, se exportan todos los vínculos definidos en el módulo.
+\end_layout
+
+\begin_layout Standard
+Una 
+\family typewriter
+impdecl
+\family default
+ importa entidades del módulo 
+\family typewriter
+qconid
+\family default
+, por defecto todas las que este importa, pero 
+\family typewriter
+impspec
+\family default
+ permite importar sólo los vínculos de los 
+\family typewriter
+import
+\family default
+, con la misma semántica que los 
+\family typewriter
+export
+\family default
+, o sólo los que no están en los 
+\family typewriter
+import
+\family default
+ si se indica 
+\family typewriter
+hiding
+\family default
+.
+ Añadir 
+\family typewriter
+qualified
+\family default
+ hace que las entidades se importen con nombre 
+\family typewriter
+\emph on
+módulo
+\emph default
+.
+\emph on
+entidad
+\family default
+\emph default
+, donde el 
+\family typewriter
+\emph on
+módulo
+\family default
+\emph default
+ es el nombre del módulo del que se importa o el que se indica después de
+ 
+\family typewriter
+as
+\family default
+ si aparece.
+\end_layout
+
+\begin_layout Standard
+Algunos programadores prefieren usar 
+\family typewriter
+qualified
+\family default
+ en todos los 
+\family typewriter
+import
+\family default
+, haciendo explícito el origen de cada nombre y usando 
+\family typewriter
+as
+\family default
+ si hace falta para acortar el nombre, mientras que otros prefieren nombres
+ cortos y usan 
+\family typewriter
+qualified
+\family default
+ o 
+\family typewriter
+hiding
+\family default
+ según sea necesario para evitar conflictos de nombres.
+\end_layout
+
+\begin_layout Standard
+Los módulos permiten crear tipos de datos abstractos, pues exportar un tipo
+ sin constructores hace que este solo se pueda usar fuera del módulo a través
+ de las operaciones exportadas, permitiendo cambiar la representación del
+ tipo sin afectar a sus usuarios.
+\end_layout
+
+\begin_layout Standard
+Haskell no especifica una relación entre nombres de módulo y de fichero,
+ pero GHC busca el módulo 
+\family typewriter
+\emph on
+A1
+\emph default
+.
+\family default
+...
+\family typewriter
+.
+\emph on
+An
+\family default
+\emph default
+ en 
+\family typewriter
+\emph on
+A1
+\emph default
+/
+\family default
+...
+\family typewriter
+/
+\emph on
+An
+\emph default
+.hs
+\family default
+ en el directorio raíz del programa (el directorio actual si se usa GHCi)
+ y una serie de directorios predefinidos.
+ 
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+preludio
+\series default
+ es un módulo que se importa por defecto en los demás como si hubiera un
+ 
+\family typewriter
+import 
+\emph on
+Preludio
+\family default
+\emph default
+, salvo que haya un 
+\family typewriter
+impdecl
+\family default
+ explícito para ese preludio.
+ El único es 
+\family typewriter
+\lang english
+Prelude
+\family default
+\lang spanish
+, con 
+\series bold
+operaciones primitivas
+\series default
+ incluidas en el evaluador, como las operaciones aritméticas básicas, y
+ tipos y funciones de utilidad.
 \end_layout
 
 \end_body
