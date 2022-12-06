@@ -128,6 +128,19 @@ F\eqqcolon\sum_{x\in U}\frac{\mu_{F}(x)}{x}\eqqcolon\int_{x\in U}\frac{\mu_{F}(x
 
 donde la fracción y los símbolos sumatorio e integral son solo símbolos
  y no se pueden simplificar.
+ Se suele usar la primera notación cuando 
+\begin_inset Formula $U$
+\end_inset
+
+ es 
+\series bold
+discreto
+\series default
+ (todos sus puntos son aislados) y la segunda cuando es 
+\series bold
+continuo
+\series default
+ (no tiene puntos aislados).
  Si 
 \begin_inset Formula $U=\{x_{1},\dots,x_{n}\}$
 \end_inset
@@ -366,8 +379,11 @@ Dados dos conjuntos borrosos
 \begin_inset Formula $\forall x\in U,A(x)\leq B(x)$
 \end_inset
 
-.
- 
+, y esto es un orden parcial.
+\end_layout
+
+\begin_layout Section
+T-normas
 \end_layout
 
 \begin_layout Standard
@@ -487,8 +503,7 @@ Las diapositivas dicen
 \begin_inset Formula $p\in\mathbb{R}$
 \end_inset
 
-, pero es fácil ver que la monotonía y otras propiedades sólo se cumplen
- cuando 
+, pero la monotonía y otras propiedades sólo se cumplen cuando 
 \begin_inset Formula $p\geq-1$
 \end_inset
 
@@ -1341,11 +1356,702 @@ Las propiedades se deducen de las de la familia correspondiente de t-normas.
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Note Note
+
+\series bold
+Familia Yager:
+\series default
+ Para 
+\begin_inset Formula $p\in\mathbb{R}^{+}$
+\end_inset
+
+, 
+\begin_inset Formula $x\oplus y\coloneqq\min\{1,\sqrt[p]{x^{p}+y^{p}}\}$
+\end_inset
+
+.
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-TODO from pg 27 familia Yager & proof
+Claramente es conmutativa y monótona, 
+\begin_inset Formula $a\oplus0=\min\{1,\sqrt[p]{a^{p}}\}=a$
+\end_inset
+
+ y 
+\begin_inset Formula $a\oplus1=\min\{1,\sqrt[p]{a^{p}+1}\}=1$
+\end_inset
+
+ ya que 
+\begin_inset Formula $\sqrt[p]{a^{p}+1}\geq\sqrt[p]{1}=1$
+\end_inset
+
+.
+ Para la asociatividad, sea 
+\begin_inset Formula $f(x,y)\coloneqq\sqrt[p]{x^{p}+y^{p}}$
+\end_inset
+
+, queremos ver que 
+\begin_inset Formula $f$
+\end_inset
+
+ es asociativa, pero para 
+\begin_inset Formula $a,b,c\in[0,1]$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+f(f(a,b),c)=\sqrt[p]{\left(\sqrt[p]{a^{p}+b^{p}}\right)^{p}+c^{p}}=\sqrt[p]{a^{p}+b^{p}+c^{p}}=f(a,f(b,c)).
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $f(a,b)\geq1$
+\end_inset
+
+, 
+\begin_inset Formula $(a\oplus b)\oplus c=1\oplus c=1$
+\end_inset
+
+, pero 
+\begin_inset Formula $1\geq a\oplus(b\oplus c)\geq a\oplus b=1$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $f(a,b)<1$
+\end_inset
+
+ pero 
+\begin_inset Formula $f(f(a,b),c)=f(a,f(b,c))\geq1$
+\end_inset
+
+, 
+\begin_inset Formula $(a\oplus b)\oplus c=\max\{1,f(f(a,b),c)\}=1$
+\end_inset
+
+, pero si 
+\begin_inset Formula $f(b,c)\geq1$
+\end_inset
+
+, 
+\begin_inset Formula $a\oplus(b\oplus c)=a\oplus1=1$
+\end_inset
+
+, y si 
+\begin_inset Formula $f(b,c)<1$
+\end_inset
+
+, 
+\begin_inset Formula $a\oplus(b\oplus c)=\max\{1,f(a,f(b,c))=1$
+\end_inset
+
+.
+ Finalmente, si 
+\begin_inset Formula $f(a,b)<1$
+\end_inset
+
+ y 
+\begin_inset Formula $f(f(a,b),c)<1$
+\end_inset
+
+, 
+\begin_inset Formula $f(b,c)\leq f(f(a,b),c)<1$
+\end_inset
+
+ y 
+\begin_inset Formula $a\oplus(b\oplus c)=\max\{1,f(a,f(b,c))\}=f(f(a,b),c)=(a\oplus b)\oplus c$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+complemento
+\series default
+ o 
+\series bold
+negación
+\series default
+ es una función 
+\begin_inset Formula $N:[0,1]\to[0,1]$
+\end_inset
+
+ monótona decreciente con 
+\begin_inset Formula $N(0)=1$
+\end_inset
+
+ y 
+\begin_inset Formula $N(1)=0$
+\end_inset
+
+, y es 
+\series bold
+fuerte
+\series default
+ si es estrictamente decreciente e involutivo (
+\begin_inset Formula $N^{2}=1_{[0,1]}$
+\end_inset
+
+).
+ También se puede requerir que sea continuo.
+ Algunos complementos:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Usual:
+\series default
+ 
+\begin_inset Formula $N(x)\coloneqq1-x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Familia Sugeno:
+\series default
+ Para 
+\begin_inset Formula $\lambda\in(-1,\infty)$
+\end_inset
+
+, 
+\begin_inset Formula $N(x)\coloneqq\frac{1-x}{1+\lambda x}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $N(0)=\frac{1}{1}=1$
+\end_inset
+
+, 
+\begin_inset Formula $N(1)=\frac{0}{1+\lambda}=0$
+\end_inset
+
+, y como 
+\begin_inset Formula $N$
+\end_inset
+
+ es continua y 
+\begin_inset Formula $N'(x)=\frac{-(1+\lambda x)-\lambda(1-x)}{(1+\lambda x)^{2}}=0$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $1+\lambda x=-\lambda+\lambda x$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\lambda=-1\#$
+\end_inset
+
+, 
+\begin_inset Formula $N$
+\end_inset
+
+ no tiene extremos internos y es monótona decreciente.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Familia Yager:
+\series default
+ Para 
+\begin_inset Formula $w\in\mathbb{R}^{+}$
+\end_inset
+
+, 
+\begin_inset Formula $N(x)\coloneqq\sqrt[w]{1-x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una t-norma 
+\begin_inset Formula $*$
+\end_inset
+
+ y una s-norma 
+\begin_inset Formula $\oplus$
+\end_inset
+
+ son 
+\series bold
+duales
+\series default
+ o 
+\series bold
+conjugadas
+\series default
+ respecto a un complemento 
+\begin_inset Formula $N$
+\end_inset
+
+ si 
+\begin_inset Formula $N(x\oplus y)=N(x)*N(y)$
+\end_inset
+
+.
+ Toda t-norma tiene una única s-norma dual bajo el complemento usual.
+ La de la t-norma del mínimo es la s-norma del máximo, y la de la t-norma
+ drástica es la s-norma drástica.
+ Normalmente se usa la negación usual, la t-norma del mínimo y la s-norma
+ del máximo.
+\end_layout
+
+\begin_layout Section
+Unión, intersección y complemento
+\end_layout
+
+\begin_layout Standard
+Dados un complemento 
+\begin_inset Formula $N$
+\end_inset
+
+, una t-norma 
+\begin_inset Formula $*$
+\end_inset
+
+ y una s-norma 
+\begin_inset Formula $\oplus$
+\end_inset
+
+ duales y conjuntos borrosos 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ sobre un universo 
+\begin_inset Formula $U$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+A\cup B & \coloneqq\int_{x\in U}\frac{A(x)\oplus B(x)}{x}, & A\cap B & \coloneqq\int_{x\in U}\frac{A(x)*B(x)}{x}, & \overline{A} & \coloneqq\int_{x\in U}\frac{N(A(x))}{x}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Propiedades:
+\end_layout
+
+\begin_layout Enumerate
+La unión e intersección son conmutativas y asociativas.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A\cup\emptyset=A$
+\end_inset
+
+, 
+\begin_inset Formula $A\cap\emptyset=\emptyset$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A\cup U=A\cap U=A$
+\end_inset
+
+, donde 
+\begin_inset Formula $U\coloneqq\int_{x\in U}\frac{1}{x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Las siguientes se cumplen para las normas usuales pero no en general:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A\cup(B\cap C)=(A\cup B)\cap(A\cup C)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $x\in U$
+\end_inset
+
+, 
+\begin_inset Formula $\max\{A,\min\{B,C\}\}=\min\{\max\{A,C\},\max\{B,C\}\}$
+\end_inset
+
+, pero si 
+\begin_inset Formula $0<a,b,c<1$
+\end_inset
+
+, con las normas drásticas, 
+\begin_inset Formula $a\oplus(b*c)=a\oplus0=a$
+\end_inset
+
+ y 
+\begin_inset Formula $(a\oplus b)*(a\oplus c)=1*1=1$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $A\cap(B\cup C)=(A\cap B)\cup(A\cap C)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $x\in U$
+\end_inset
+
+, 
+\begin_inset Formula $\min\{A,\max\{B,C\}\}=\max\{\min\{A,B\},\min\{A,C\}\}$
+\end_inset
+
+, pero si 
+\begin_inset Formula $0<a,b,c<1$
+\end_inset
+
+, con las normas drásticas, 
+\begin_inset Formula $a*(b\oplus c)=a*1=a$
+\end_inset
+
+ y 
+\begin_inset Formula $(a*b)\oplus(a*c)=0\oplus0=0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $A\cup A=A\cap A=A$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $x\in U$
+\end_inset
+
+, 
+\begin_inset Formula $\max\{A(x),A(x)\}=A(x)$
+\end_inset
+
+ y 
+\begin_inset Formula $\min\{A(x),A(x)\}=A(x)$
+\end_inset
+
+, pero si 
+\begin_inset Formula $a\in(0,1)$
+\end_inset
+
+, con las normas drásticas, 
+\begin_inset Formula $a\oplus a=1$
+\end_inset
+
+ y 
+\begin_inset Formula $a*a=0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Las siguientes no se cumplen tampoco para las normas del máximo y el mínimo:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ley de la contradicción:
+\series default
+ 
+\begin_inset Formula $A\cup\overline{A}=U$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $0.7\oplus N(0.7)=\max\{0.7,0.3\}=0.7\neq1$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Ley del medio excluido:
+\series default
+ 
+\begin_inset Formula $A\cap\overline{A}=\emptyset$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $0.7*N(0.7)=\min\{0.7,0.3\}=0.3\neq0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Relaciones
+\end_layout
+
+\begin_layout Standard
+Dados conjuntos borrosos 
+\begin_inset Formula $A_{1},\dots,A_{n}$
+\end_inset
+
+ sobre universos 
+\begin_inset Formula $U_{1},\dots,U_{n}$
+\end_inset
+
+, su 
+\series bold
+producto cartesiano borroso
+\series default
+ es
+\begin_inset Formula 
+\[
+A_{1}\times\dots\times A_{n}\coloneqq\int_{x\in U_{1}\times\dots\times U_{n}}\frac{A_{1}(x_{1})*\dots*A_{n}(x_{n})}{x},
+\]
+
+\end_inset
+
+y una 
+\series bold
+relación borrosa
+\series default
+ es un conjunto borroso sobre 
+\begin_inset Formula $U_{1}\times\dots\times U_{n}$
+\end_inset
+
+.
+ El 
+\series bold
+dominio
+\series default
+ y el 
+\series bold
+rango
+\series default
+ de una relación borrosa binaria 
+\begin_inset Formula $R$
+\end_inset
+
+ sobre 
+\begin_inset Formula $A\times B$
+\end_inset
+
+ son
+\begin_inset Formula 
+\begin{align*}
+\text{Dom}R & \coloneqq\int_{x\in A}\frac{\max_{y\in Y}R(x,y)}{x}, & \text{Ran}R & \coloneqq\int_{x\in B}\frac{\max_{x\in X}R(x,y)}{x}.
+\end{align*}
+
+\end_inset
+
+La 
+\series bold
+composición borrosa
+\series default
+ o
+\series bold
+ sup-star
+\series default
+ de dos relaciones borrosas 
+\begin_inset Formula $R:A\times B\to[0,1]$
+\end_inset
+
+ y 
+\begin_inset Formula $S:B\times C\to[0,1]$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+R\circ S\coloneqq\int_{(x,z)\in A\times C}\frac{\sup_{y\in B}(R(x,y)*S(y,z))}{(x,z)}.
+\]
+
+\end_inset
+
+Nótese que el orden es al contrario que en la composición convencional.
+ Esta composición se llama 
+\series bold
+max-min
+\series default
+ si la t-norma es el mínimo y 
+\series bold
+max-producto
+\series default
+ si es el producto algebraico.
+\end_layout
+
+\begin_layout Standard
+Propiedades:
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Las diapositivas incluyen también 
+\begin_inset Formula $R\circ(S\cup T)=(R\cup S)\circ(R\cup T)$
+\end_inset
+
+ y 
+\begin_inset Formula $R\circ(S\cap T)\subseteq(R\cap S)\circ(R\cap T)$
+\end_inset
+
+, pero estas no son correctas ni siquiera cuando tienen sentido, ni siquiera
+ con las normas y negación usuales.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Asociativa.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sean 
+\begin_inset Formula $R:A\times B\to[0,1]$
+\end_inset
+
+, 
+\begin_inset Formula $S:B\times C\to[0,1]$
+\end_inset
+
+, 
+\begin_inset Formula $T:C\times D\to[0,1]$
+\end_inset
+
+, 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ y 
+\begin_inset Formula $w\in D$
+\end_inset
+
+, 
+\begin_inset Formula $(R\circ(S\circ T))(x,w)=\sup_{y\in B}(R(x,y)*\sup_{z\in C}(S(y,z)*T(z,w)))$
+\end_inset
+
+, pero por monotonía de 
+\begin_inset Formula $*$
+\end_inset
+
+ esto es igual a 
+\begin_inset Formula $\sup_{y\in B}\sup_{z\in C}(R(x,y)*S(y,z)*T(z,w)$
+\end_inset
+
+, y por simetría y usando la asociatividad de 
+\begin_inset Formula $*$
+\end_inset
+
+ esto es igual a 
+\begin_inset Formula $((R\circ S)\circ T)(x,w)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $S\subseteq T\implies R\circ S\subseteq R\circ T$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Si 
+\begin_inset Formula $R:A\times B\to[0,1]$
+\end_inset
+
+, 
+\begin_inset Formula $S,T:B\times C\to[0,1]$
+\end_inset
+
+, 
+\begin_inset Formula $x\in A$
+\end_inset
+
+, 
+\begin_inset Formula $z\in C$
+\end_inset
+
+ y 
+\begin_inset Formula $S\subseteq T$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+(R\circ S)(x,z)=\sup_{y\in B}(R(x,y)*S(y,z))\leq\sup_{y\in B}(R(x,y)*T(y,z))=(R\circ T)(x,z).
+\]
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
