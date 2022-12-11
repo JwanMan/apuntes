@@ -1,0 +1,1029 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una 
+\series bold
+variable lingüística
+\series default
+ es una tupla 
+\begin_inset Formula $V=(N,U,T,G,M)$
+\end_inset
+
+ donde 
+\begin_inset Formula $N$
+\end_inset
+
+ es el 
+\series bold
+nombre
+\series default
+ de la variable, 
+\begin_inset Formula $U$
+\end_inset
+
+ es el 
+\series bold
+dominio
+\series default
+ de valores de la variable, 
+\begin_inset Formula $T$
+\end_inset
+
+ es un alfabeto cuyos símbolos se llaman 
+\series bold
+etiquetas lingüísticas
+\series default
+, 
+\begin_inset Formula $G$
+\end_inset
+
+ es una gramática con alfabeto 
+\begin_inset Formula $T$
+\end_inset
+
+ y 
+\begin_inset Formula $M:L(G)\to(U\to[0,1])$
+\end_inset
+
+ es una 
+\series bold
+regla semántica
+\series default
+.
+ Llamamos 
+\series bold
+término lingüístico
+\series default
+ de 
+\begin_inset Formula $V$
+\end_inset
+
+ a un elemento de 
+\begin_inset Formula $L(G)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Estas variables permiten describir términos del lenguaje natural en términos
+ matemáticos precisos.
+ En general 
+\begin_inset Formula $G$
+\end_inset
+
+ es de la forma
+\begin_inset Formula 
+\[
+S\to P\mid H\,S\mid(S\,\text{and}\,S)\mid(S\,\text{or}\,S)\mid(\text{not}\,S),
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $P$
+\end_inset
+
+ es un conjunto finito de 
+\series bold
+términos primarios
+\series default
+ o 
+\series bold
+etiquetas lingüísticas
+\series default
+ (bajo, alto, medio, etc.), 
+\begin_inset Formula $H$
+\end_inset
+
+ uno de 
+\series bold
+modificadores lingüísticos
+\series default
+ o 
+\series bold
+\emph on
+\lang english
+hedges
+\series default
+\emph default
+\lang spanish
+, y llamamos 
+\series bold
+conectores lógicos
+\series default
+ a 
+\begin_inset Formula $\text{and}$
+\end_inset
+
+, 
+\begin_inset Formula $\text{or}$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{not}$
+\end_inset
+
+.
+ Un 
+\series bold
+término atómico
+\series default
+ es un término primario, un 
+\emph on
+\lang english
+hedge
+\emph default
+\lang spanish
+ o un conector lógico.
+ Cada término primario 
+\begin_inset Formula $p$
+\end_inset
+
+ lleva asociado un 
+\begin_inset Formula $C_{p}:U\to[0,1]$
+\end_inset
+
+ y cada modificador 
+\begin_inset Formula $h$
+\end_inset
+
+ una transformación 
+\begin_inset Formula $T_{h}:(U\to[0,1])\to(U\to[0,1])$
+\end_inset
+
+, y para 
+\begin_inset Formula $p\in P$
+\end_inset
+
+, 
+\begin_inset Formula $h\in H$
+\end_inset
+
+ y 
+\begin_inset Formula $r,s\in L(G)$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+M(p) & \coloneqq C_{p}, & M(h\,r) & \coloneqq T_{h}(M(r)), & M(\text{not}\,r) & \coloneqq N(M(r)),\\
+M(r\,\text{and}\,s) & \coloneqq M(r)*M(s), & M(r\text{ or }s) & \coloneqq M(r)\oplus M(s),
+\end{align*}
+
+\end_inset
+
+donde 
+\begin_inset Formula $N$
+\end_inset
+
+ es la negación, 
+\begin_inset Formula $*$
+\end_inset
+
+ la t-norma y 
+\begin_inset Formula $\oplus$
+\end_inset
+
+ la s-norma.
+\end_layout
+
+\begin_layout Standard
+Tipos de 
+\emph on
+\lang english
+hedges
+\emph default
+\lang spanish
+:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De concentración:
+\series default
+ 
+\begin_inset Formula $T_{h}(S)(x)\coloneqq S(x)^{p}$
+\end_inset
+
+ para cierto 
+\begin_inset Formula $p>1$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{align*}
+T_{\text{muy}}(S)(x) & \coloneqq S(x)^{2}, & T_{\text{más}}(S)(x) & \coloneqq S(x)^{\frac{5}{4}}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De dilatación:
+\series default
+ 
+\begin_inset Formula $T_{h}(S)(x)\coloneqq S(x)^{p}$
+\end_inset
+
+ para cierto 
+\begin_inset Formula $p\in[0,1]$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{align*}
+T_{\text{más o menos}}(S)(x) & \coloneqq\sqrt{S(x)}, & T_{\text{poco}}(S)(x) & \coloneqq S(x)^{\frac{3}{4}}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De intensificación:
+\series default
+ Para cada 
+\begin_inset Formula $x$
+\end_inset
+
+, 
+\begin_inset Formula $S(x)$
+\end_inset
+
+ está entre 
+\begin_inset Formula $T_{h}(S)(x)$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+T_{\text{especialmente}}(S)(x)\coloneqq T_{\text{bastante}}(S)(x)\coloneqq\begin{cases}
+2S(x)^{2}, & x\in[0,\frac{1}{2}];\\
+1-2(1-S(x))^{2}, & x\in[\frac{1}{2},1].
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+De difuminación:
+\series default
+ Para cada 
+\begin_inset Formula $x$
+\end_inset
+
+, 
+\begin_inset Formula $T_{h}(S)(x)$
+\end_inset
+
+ está entre 
+\begin_inset Formula $S(x)$
+\end_inset
+
+ y 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+T_{\text{cerca de}}(S)(x)\coloneqq T_{\text{casi}}(S)(x)\coloneqq\begin{cases}
+\sqrt{\frac{1}{2}S(x)}, & x\in[0,\frac{1}{2}];\\
+1-\sqrt{\frac{1}{2}(1-S(x))}, & x\in[\frac{1}{2},1].
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lo que en lógica clásica son paradojas, en lógica difusa es una 
+\series bold
+media verdad
+\series default
+ o 
+\series bold
+media falsedad
+\series default
+ (grado de pertenencia 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+proposición borrosa atómica
+\series default
+ es una expresión de la forma 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $x$
+\end_inset
+
+ es 
+\begin_inset Formula $P$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+ o 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $x$
+\end_inset
+
+ es 
+\begin_inset Formula $P$
+\end_inset
+
+ es 
+\begin_inset Formula $C$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+, donde 
+\begin_inset Formula $x$
+\end_inset
+
+ es una variable libre, 
+\begin_inset Formula $P$
+\end_inset
+
+ un conjunto borroso que representa la propiedad y 
+\begin_inset Formula $C$
+\end_inset
+
+ un 
+\series bold
+cualificador de certeza
+\series default
+, una función 
+\begin_inset Formula $[0,1]\to[0,1]$
+\end_inset
+
+ de entre las siguientes:
+\begin_inset Formula 
+\begin{align*}
+\text{cierto}(x) & \coloneqq x, & \text{falso}(x) & \coloneqq1-x,\\
+\text{muy cierto}(x) & \coloneqq x^{2}, & \text{muy falso}(x) & \coloneqq(1-x)^{2},\\
+\text{bastante cierto}(x) & \coloneqq\sqrt{x}, & \text{bastante falso}(x) & \coloneqq\sqrt{1-x}.
+\end{align*}
+
+\end_inset
+
+Una 
+\series bold
+proposición borrosa compuesta
+\series default
+ es una expresión de la forma 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $p$
+\end_inset
+
+ and 
+\begin_inset Formula $q$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+, 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $p$
+\end_inset
+
+ or 
+\begin_inset Formula $q$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+ o 
+\begin_inset Quotes cld
+\end_inset
+
+not 
+\begin_inset Formula $p$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+, donde 
+\begin_inset Formula $p$
+\end_inset
+
+ y 
+\begin_inset Formula $q$
+\end_inset
+
+ son proposiciones borrosas (simples o compuestas).
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+función de pertenencia
+\series default
+ de una proposición borrosa es
+\begin_inset Formula 
+\begin{align*}
+\mu_{x\text{ es }P} & \coloneqq P, & \mu_{x\text{ es }P\text{ es }C} & \coloneqq C\circ P, & \mu_{\text{not }p} & \coloneqq N\circ P,\\
+\mu_{p\text{ and }q}(x,y) & \coloneqq p(x)*q(y), & \mu_{p\text{ or q}}(x,y) & \coloneqq p(x)\oplus q(y),
+\end{align*}
+
+\end_inset
+
+tomando 
+\begin_inset Formula $*$
+\end_inset
+
+ y 
+\begin_inset Formula $\oplus$
+\end_inset
+
+ conjugadas respecto a 
+\begin_inset Formula $N$
+\end_inset
+
+.
+ Las proposiciones borrosas son sentencias sobre un concepto sin definición
+ precisa, permitiendo expresar ideas subjetivas con distintas interpretaciones.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+razonamiento aproximado
+\series default
+ permite razonar sobre proposiciones imprecisas.
+ Una 
+\series bold
+regla IF-THEN borrosa
+\series default
+ es una expresión 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $\text{IF }u\text{ es }A\text{ THEN }v\text{ es }B$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $A$
+\end_inset
+
+ se define sobre el universo 
+\begin_inset Formula $U$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ sobre 
+\begin_inset Formula $V$
+\end_inset
+
+, esta regla se entiende como una relación entre 
+\begin_inset Formula $U$
+\end_inset
+
+ y 
+\begin_inset Formula $V$
+\end_inset
+
+, la 
+\series bold
+implicación borrosa
+\series default
+ 
+\begin_inset Formula $R_{A\to B}:U\times V\to[0,1]$
+\end_inset
+
+ dada por 
+\begin_inset Formula $R_{A\to B}(u,v)\coloneqq I(A(u),B(v))$
+\end_inset
+
+, donde 
+\begin_inset Formula $I:[0,1]\times[0,1]\to[0,1]$
+\end_inset
+
+ es una 
+\series bold
+función de implicación
+\series default
+.
+ Algunas funciones de implicación:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Interpretación clásica:
+\series default
+ 
+\begin_inset Formula $I(x,y)\coloneqq N(x)\oplus y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Dienes-Rescher:
+\series default
+ 
+\begin_inset Formula $I_{D}(x,y)\coloneqq\max\{1-x,y\}$
+\end_inset
+
+ (interpretación clásica con las normas usuales).
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Lukasiewicz:
+\series default
+ 
+\begin_inset Formula $I_{Lu}(x,y)\coloneqq\min\{1,1-x+y\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Zadeh:
+\series default
+ 
+\begin_inset Formula $I_{Z}(x,y)\coloneqq\max\{\min\{x,y\},1-x\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Gödel:
+\series default
+ 
+\begin_inset Formula $I_{G}(x,y)\coloneqq\begin{cases}
+1, & x\leq y;\\
+y, & \text{en otro caso}.
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se tiene 
+\begin_inset Formula $I_{Z}\leq I_{D}\leq I_{Lu}$
+\end_inset
+
+.
+ Definiendo 
+\begin_inset Formula $I(x,y)\coloneqq x*y$
+\end_inset
+
+ obtenemos:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Mandami:
+\series default
+ 
+\begin_inset Formula $I_{M}(x,y)\coloneqq\min\{x,y\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Larsen:
+\series default
+ 
+\begin_inset Formula $I_{L}(x,y)\coloneqq xy$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Estas funciones se basan en una interpretación 
+\begin_inset Quotes cld
+\end_inset
+
+local
+\begin_inset Quotes crd
+\end_inset
+
+ de la implicación, en la que 
+\begin_inset Formula $P\to Q$
+\end_inset
+
+ equivale a 
+\begin_inset Formula $P\land Q$
+\end_inset
+
+ si se cumple 
+\begin_inset Formula $P$
+\end_inset
+
+ y se ignora en otro caso.
+ Si hace falta una interpretación global como en la lógica clásica, hay
+ que usar una como las de la primera lista.
+\end_layout
+
+\begin_layout Standard
+Reglas lógicas:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Modus ponens generalizado:
+\series default
+ Dados los conjuntos borrosos 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $A'$
+\end_inset
+
+ sobre 
+\begin_inset Formula $U$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ sobre 
+\begin_inset Formula $V$
+\end_inset
+
+, si 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $x$
+\end_inset
+
+ es 
+\begin_inset Formula $A'$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+ e 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $\text{IF }x\text{ es }A\text{ THEN }y\text{ es }B$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+, entonces 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $y$
+\end_inset
+
+ es 
+\begin_inset Formula $A'\circ R_{A\to B}$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Modus tollens generalizado:
+\series default
+ Dados los conjuntos borrosos 
+\begin_inset Formula $A$
+\end_inset
+
+ sobre 
+\begin_inset Formula $U$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ y 
+\begin_inset Formula $B'$
+\end_inset
+
+ sobre 
+\begin_inset Formula $V$
+\end_inset
+
+, si 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $y\text{ es }B'$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+ e 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $\text{IF }x\text{ es }A\text{ THEN }y\text{ es }B$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+, entonces 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $x\text{ es }R_{A\to B}\circ B'$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si la función de implicación es la t-norma, al aplicar modus ponens sobre
+ 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $x\text{ es }A'$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+ e 
+\begin_inset Quotes cld
+\end_inset
+
+IF 
+\begin_inset Formula $x$
+\end_inset
+
+ es 
+\begin_inset Formula $A$
+\end_inset
+
+ THEN 
+\begin_inset Formula $y$
+\end_inset
+
+ es 
+\begin_inset Formula $B$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+, se obtiene 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $y\text{ es }B'$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+ con
+\begin_inset Formula 
+\[
+B'(y)=\sup_{u\in U}(A'(u)*I(A(u),B(v)))=\sup_{u\in U}(A'(u)*A(u))*B(v),
+\]
+
+\end_inset
+
+y llamamos 
+\series bold
+\emph on
+\lang english
+degree of fulfillment
+\series default
+\emph default
+\lang spanish
+ a
+\begin_inset Formula 
+\[
+\text{DOF}(A',A)\coloneqq\sup_{u\in U}(A'(u)*A(u))=\sup_{u\in U}(A'\cap A)(u),
+\]
+
+\end_inset
+
+con lo que 
+\begin_inset Formula $B'(y)=\text{DOF}(A',A)*B(v)$
+\end_inset
+
+.
+ Por ello las implicaciones de Mandami y Larsen son muy eficientes y son
+ las más usadas.
+ Además hay una interpretación gráfica intuitiva: para calcular la implicación
+ de Mandami, se toma el supremo del mínimo de 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $A'$
+\end_inset
+
+, que será el DOF, y se corta 
+\begin_inset Formula $B$
+\end_inset
+
+ por este punto (tomando el mínimo) para obtener 
+\begin_inset Formula $B'$
+\end_inset
+
+, y para la de Larsen se toma el supremo del producto de 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $A'$
+\end_inset
+
+ y se multiplica 
+\begin_inset Formula $B$
+\end_inset
+
+ por este número.
+\end_layout
+
+\end_body
+\end_document
