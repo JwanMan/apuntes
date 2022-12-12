@@ -1,0 +1,601 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Una 
+\series bold
+base de reglas borrosas
+\series default
+ es una familia finita de reglas IF-THEN de la forma
+\begin_inset Formula 
+\[
+R_{k}:\text{IF }x_{1}\text{ es }A_{k1}\text{ and }\dots\text{ and }x_{n}\text{ es }A_{kn}\text{ THEN }y\text{ es }B_{k},
+\]
+
+\end_inset
+
+donde cada 
+\begin_inset Formula $A_{ki}$
+\end_inset
+
+ es un conjunto borroso sobre un universo 
+\begin_inset Formula $U_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $B_{k}$
+\end_inset
+
+ sobre un universo 
+\begin_inset Formula $V$
+\end_inset
+
+, y llamamos 
+\begin_inset Formula $U\coloneqq U_{1}\times\dots\times U_{n}$
+\end_inset
+
+.
+ La base de reglas es 
+\series bold
+completa
+\series default
+ si 
+\begin_inset Formula $\forall x\in U_{1}\times\dots\times U_{n},\exists k:\forall j,A_{kj}(x_{j})>0$
+\end_inset
+
+, 
+\series bold
+consistente
+\series default
+ si no existen reglas con los mismos antecedentes pero distintos consecuentes,
+ y 
+\series bold
+continua
+\series default
+ si no existen dos reglas adyacentes
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+No sé qué significa adyacentes aquí.
+\end_layout
+
+\end_inset
+
+ cuyos consecuentes tienen intersección vacía, asegurando un comportamiento
+ suave.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+regla parcial
+\series default
+ es una de la forma
+\begin_inset Formula 
+\[
+\text{IF }x_{p_{1}}\text{ es }A_{k1}\text{ and }\dots\text{ and }x_{p_{m}}\text{ es }A_{km}\text{ THEN }y\text{ es }B_{k},
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $1\leq p_{1}<\dots<p_{m}\leq n$
+\end_inset
+
+, 
+\begin_inset Formula $m<n$
+\end_inset
+
+ y cada 
+\begin_inset Formula $A_{ki}$
+\end_inset
+
+ definido sobre 
+\begin_inset Formula $U_{p_{i}}$
+\end_inset
+
+, y equivale a una regla completa que en cada 
+\begin_inset Formula $j\neq p_{1},\dots p_{m}$
+\end_inset
+
+ incluye en el antecedente 
+\begin_inset Quotes cld
+\end_inset
+
+
+\begin_inset Formula $x_{j}\text{ es }U_{j}$
+\end_inset
+
+
+\begin_inset Quotes crd
+\end_inset
+
+, donde 
+\begin_inset Formula $U_{j}\coloneqq\int_{x\in U_{j}}\frac{1}{x}$
+\end_inset
+
+.
+ Una 
+\series bold
+regla OR
+\series default
+ es una de la forma
+\begin_inset Formula 
+\begin{multline*}
+\text{IF }(x_{t_{11}}\text{ es }A_{11}\text{ and }\dots\text{ and }x_{t_{1s_{1}}}\text{ es }A_{1s_{1}})\text{ or }\dots\text{ or }\\
+(x_{t_{m1}}\text{ es }A_{m1}\text{ and }\dots\text{ and }x_{t_{ms_{m}}}\text{ es }A_{ms_{m}})\text{ THEN }B,
+\end{multline*}
+
+\end_inset
+
+y equivale a 
+\begin_inset Formula $m$
+\end_inset
+
+ reglas
+\begin_inset Formula 
+\[
+\text{IF }x_{t_{i1}}\text{ es }A_{i1}\text{ and }\dots\text{ and }x_{t_{is_{i}}}\text{ es }A_{is_{i}}\text{ THEN }B.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+función de agregación
+\series default
+ es una que toma una familia finita de conjuntos borrosos sobre 
+\begin_inset Formula $V$
+\end_inset
+
+ y devuelve otro.
+ Las más comunes son la unión y la intersección, normalmente con las normas
+ del máximo y el mínimo.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+motor de inferencia borrosa
+\series default
+ es un sistema que toma como entrada conjuntos borrosos 
+\begin_inset Formula $A'_{i}$
+\end_inset
+
+ sobre los 
+\begin_inset Formula $U_{i}$
+\end_inset
+
+, aplica modus ponens entre los elementos y cada una de las reglas de una
+ base de reglas y aplica una función de agregación a los resultados.
+ Aunque es preferible que la base de reglas sea consistente, puede haber
+ reglas inconsistentes y los resultados se agregan, lo que no es posible
+ en un sistema de inferencia clásico.
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $D\subseteq\mathbb{R}$
+\end_inset
+
+, un 
+\series bold
+fuzzificador
+\series default
+ es una función 
+\begin_inset Formula $f:D\to(D\to[0,1])$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall x\in D,f(x)(x)=\max_{y\in D}f(x)(y)$
+\end_inset
+
+, y un 
+\series bold
+defuzzificador
+\series default
+ es una función 
+\begin_inset Formula $g:(D\to[0,1])\to D$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+sistema de inferencia borroso
+\series default
+ (
+\series bold
+SIB
+\series default
+) está formado por una base de reglas borrosas 
+\begin_inset Formula $(U=U_{1}\times\dots\times U_{n})\to V$
+\end_inset
+
+ con cada 
+\begin_inset Formula $U_{i},V\subseteq\mathbb{R}$
+\end_inset
+
+, fuzzificadores sobre cada 
+\begin_inset Formula $U_{i}$
+\end_inset
+
+ y un defuzzificador sobre 
+\begin_inset Formula $V$
+\end_inset
+
+, y tiene asociada una función 
+\begin_inset Formula $U\to V$
+\end_inset
+
+ que asigna a cada 
+\begin_inset Formula $x\in U$
+\end_inset
+
+ el resultado de pasar cada 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ por su fuzzificador, aplicar el motor de inferencia a los resultados y
+ pasar el conjunto borroso devuelto por el defuzzificador.
+\end_layout
+
+\begin_layout Standard
+Un fuzzificador debe ayudar a eliminar el ruido de las variables de entrada,
+ si existe, y a simplificar los cálculos implicados en el motor de inferencia.
+ Algunos fuzzificadores:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Unitario:
+\series default
+ 
+\begin_inset Formula $f(x)(y)=\delta_{xy}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Triangular:
+\series default
+ Para un 
+\begin_inset Formula $b>0$
+\end_inset
+
+, 
+\begin_inset Formula $f(x)(y)=\max\left\{ 0,1-\frac{|y-x|}{b}\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Gaussiano:
+\series default
+ Para un 
+\begin_inset Formula $b>0$
+\end_inset
+
+, 
+\begin_inset Formula $f(x)(y)=\text{e}^{-\left(\frac{x-y}{b}\right)^{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El fuzzificador unitario simplifica mucho los cálculos ya que 
+\begin_inset Formula $\text{DOF}(A,f(x))=A(x)$
+\end_inset
+
+.
+ Los fuzzificadores triangulares y gaussianos sólo simplifican los cálculos
+ si las funciones de pertenencia en los antecedentes son triangulares o
+ gaussianas respectivamente, pero permiten eliminar ruido en la entrada.
+\end_layout
+
+\begin_layout Standard
+Un defuzzificador debería ser continuo; 
+\series bold
+creíble
+\series default
+ o 
+\series bold
+intuitivamente plausible
+\series default
+, con una salida que represente intuitivamente el conjunto de entrada, y
+ con poca complejidad computacional, especialmente en controladores borrosos
+ ya que operan en tiempo real.
+ Algunos defuzzificadores:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Centro de gravedad
+\series default
+ o 
+\series bold
+centroide:
+\series default
+
+\begin_inset Formula 
+\[
+g(B)=\frac{\int_{V}yB(y)\dif y}{\int_{V}B(y)\dif y},
+\]
+
+\end_inset
+
+cambiando las integrales por sumatorios si el denominador es 0.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Media ponderada de los centros:
+\series default
+ En vez de agregar y luego defuzzificar, se defuzzifica cada resultado 
+\begin_inset Formula $B_{k}$
+\end_inset
+
+ por centro de gravedad obteniendo centros 
+\begin_inset Formula $y_{k}$
+\end_inset
+
+ y el resultado es
+\begin_inset Formula 
+\[
+\frac{\sum_{k}y_{k}B_{k}(y_{k})}{\sum_{k}B_{k}(y_{k})}.
+\]
+
+\end_inset
+
+Es el más usado ya que es continuo y creíble y el cálculo es sencillo cuando
+ las funciones son simétricas, aunque también se puede aplicar a funciones
+ no simétricas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Máximo:
+\series default
+ Si 
+\begin_inset Formula $\text{hgt}(B)\coloneqq\{y\in V\mid B(y)=\sup_{y\in V}B(y)\}\neq\emptyset$
+\end_inset
+
+, se puede tomar:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Máximo más pequeño:
+\series default
+ 
+\begin_inset Formula $\inf\text{hgt}(B)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Máximo más grande:
+\series default
+ 
+\begin_inset Formula $\sup\text{hgt}(B)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Media de los máximos:
+\series default
+ 
+\begin_inset Formula 
+\[
+\frac{\int_{\text{hgt}B}y\dif y}{\int_{\text{hgt}B}\dif y},
+\]
+
+\end_inset
+
+cambiando las integrales por sumatorios si el denominador es 0.
+\end_layout
+
+\begin_layout Standard
+Es creíble y computacionalmente simple, pero no continuo, y si 
+\begin_inset Formula $B$
+\end_inset
+
+ es no convexo, 
+\begin_inset Formula $B(f(B))$
+\end_inset
+
+ puede ser pequeño.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, dado un SIB con reglas
+\begin_inset Formula 
+\[
+\text{IF }x_{1}\text{ es }A_{k1}\text{ and }\dots\text{ and }x_{n}\text{ es }A_{kn}\text{ THEN }y\text{ es }B_{k},
+\]
+
+\end_inset
+
+fuzzificador unitario, t-norma producto, implicación de Larsen y defuzzificador
+ media de los centros, si cada 
+\begin_inset Formula $B_{k}$
+\end_inset
+
+ es normalizado con centro 
+\begin_inset Formula $y_{k}$
+\end_inset
+
+, la función asociada al SIB es
+\begin_inset Formula 
+\[
+f(x)\coloneqq\frac{\sum_{k}y_{k}\prod_{i}A_{ki}(x_{i})}{\sum_{k}\prod_{i}A_{ki}(x_{i})}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema universal de aproximación:
+\series default
+ Para 
+\begin_inset Formula $U\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ compacto, 
+\begin_inset Formula $g:U\to\mathbb{R}$
+\end_inset
+
+ continua y 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, existe un SIB del tipo del teorema anterior con los 
+\begin_inset Formula $A_{ki}$
+\end_inset
+
+ y 
+\begin_inset Formula $B_{k}$
+\end_inset
+
+ de la forma
+\begin_inset Formula 
+\begin{align*}
+A_{ki}(x) & =a_{ki}\text{e}^{-\left(\frac{x-\overline{x}_{ki}}{\sigma_{ki}}\right)^{2}}, & B_{k}(y) & =\text{e}^{-(y-\overline{y})^{2}},
+\end{align*}
+
+\end_inset
+
+para la que la función asociada 
+\begin_inset Formula $f:U\to\mathbb{R}$
+\end_inset
+
+ cumple 
+\begin_inset Formula $\Vert f-g\Vert_{\infty}<\varepsilon$
+\end_inset
+
+, y se dice entonces que un SIB de este tipo es un 
+\series bold
+aproximador universal
+\series default
+.
+ Otros aproximadores universales son las redes neuronales y los controladores
+ convencionales.
+\end_layout
+
+\end_body
+\end_document
