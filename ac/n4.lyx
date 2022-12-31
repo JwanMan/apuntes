@@ -549,1176 +549,6 @@ Demostración:
 \end_layout
 
 \begin_layout Section
-Grupos abelianos
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{reminder}{GyA}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Llamamos 
-\series bold
-orden
-\series default
- de [un grupo] 
-\begin_inset Formula $G$
-\end_inset
-
- al cardinal del conjunto.
- [...]
-\end_layout
-
-\begin_layout Standard
-Si 
-\begin_inset Formula $A$
-\end_inset
-
- es un anillo, 
-\begin_inset Formula $(A,+)$
-\end_inset
-
- es su 
-\series bold
-grupo aditivo
-\series default
-, que es abeliano, y 
-\begin_inset Formula $(A^{*},\cdot)$
-\end_inset
-
- es su 
-\series bold
-grupo de unidades
-\series default
-, que es abeliano cuando el anillo es conmutativo.
- [...]
-\end_layout
-
-\begin_layout Standard
-Llamamos 
-\series bold
-orden
-\series default
- de 
-\begin_inset Formula $a\in G$
-\end_inset
-
- al orden de 
-\begin_inset Formula $\langle a\rangle$
-\end_inset
-
-, 
-\begin_inset Formula $|a|\coloneqq|\langle a\rangle|$
-\end_inset
-
-, y escribimos 
-\begin_inset Formula $\langle a\rangle_{n}$
-\end_inset
-
- para referirnos a 
-\begin_inset Formula $\langle a\rangle$
-\end_inset
-
- indicando que tiene orden 
-\begin_inset Formula $n$
-\end_inset
-
-.
- El orden de 
-\begin_inset Formula $a$
-\end_inset
-
- divide al de 
-\begin_inset Formula $G$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Sea 
-\begin_inset Formula $f:\mathbb{Z}\to G$
-\end_inset
-
- el homomorfismo dado por 
-\begin_inset Formula $f(n)\coloneqq a^{n}$
-\end_inset
-
-, 
-\begin_inset Formula $\ker f=n\mathbb{Z}$
-\end_inset
-
- para algún 
-\begin_inset Formula $n\geq0$
-\end_inset
-
-.
- Si 
-\begin_inset Formula $n=0$
-\end_inset
-
-, 
-\begin_inset Formula $f$
-\end_inset
-
- es inyectivo y 
-\begin_inset Formula $(\mathbb{Z},+)\cong\langle a\rangle$
-\end_inset
-
-, y en otro caso 
-\begin_inset Formula $\mathbb{Z}_{n}\cong\langle a\rangle$
-\end_inset
-
-, con lo que 
-\begin_inset Formula $n=|a|$
-\end_inset
-
- y 
-\begin_inset Formula $a^{n}=1\iff|a|\mid n$
-\end_inset
-
-.
- De aquí, 
-\begin_inset Formula $a^{k}=a^{l}\iff k\equiv l\bmod n$
-\end_inset
-
-, con lo que 
-\begin_inset Formula $|a|$
-\end_inset
-
- es el menor entero positivo con 
-\begin_inset Formula $a^{n}=1$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Si 
-\begin_inset Formula $a$
-\end_inset
-
- tiene orden finito y 
-\begin_inset Formula $n>0$
-\end_inset
-
-, 
-\begin_inset Formula 
-\[
-|a^{n}|=\frac{|a|}{\text{mcd}\{|a|,n\}}.
-\]
-
-\end_inset
-
-Si 
-\begin_inset Formula $G=\langle a\rangle$
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Enumerate
-Si 
-\begin_inset Formula $G$
-\end_inset
-
- tiene orden infinito, 
-\begin_inset Formula $G\cong(\mathbb{Z},+)\cong C_{\infty}$
-\end_inset
-
- y los subgrupos de 
-\begin_inset Formula $G$
-\end_inset
-
- son los 
-\begin_inset Formula $\langle a^{n}\rangle$
-\end_inset
-
- con 
-\begin_inset Formula $n\in\mathbb{N}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Si 
-\begin_inset Formula $|G|=n$
-\end_inset
-
-, 
-\begin_inset Formula $G\cong(\mathbb{Z}_{n},+)\cong C_{n}$
-\end_inset
-
- y los subgrupos de 
-\begin_inset Formula $G$
-\end_inset
-
- son exactamente uno de orden 
-\begin_inset Formula $d$
-\end_inset
-
- por cada 
-\begin_inset Formula $d\mid n$
-\end_inset
-
-, 
-\begin_inset Formula $\langle a^{n/d}\rangle_{d}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Todos los subgrupos y grupos cociente de 
-\begin_inset Formula $G$
-\end_inset
-
- son cíclicos.
-\end_layout
-
-\begin_layout Standard
-Así, si 
-\begin_inset Formula $p\in\mathbb{N}$
-\end_inset
-
- es primo, todos los grupos de orden 
-\begin_inset Formula $p$
-\end_inset
-
- son isomorfos a 
-\begin_inset Formula $(\mathbb{Z}_{p},+)$
-\end_inset
-
-.
- Si 
-\begin_inset Formula $G=\langle g_{1},\dots,g_{n}\rangle$
-\end_inset
-
- y 
-\begin_inset Formula $N\unlhd G$
-\end_inset
-
-, 
-\begin_inset Formula $G/N=\langle g_{1}N,\dots,g_{n}N\rangle$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Teorema chino de los restos para grupos:
-\end_layout
-
-\begin_layout Enumerate
-Si 
-\begin_inset Formula $G$
-\end_inset
-
- y 
-\begin_inset Formula $H$
-\end_inset
-
- son subgrupos cíclicos de órdenes respectivos 
-\begin_inset Formula $n$
-\end_inset
-
- y 
-\begin_inset Formula $m$
-\end_inset
-
-, 
-\begin_inset Formula $G\times H$
-\end_inset
-
- es cíclico si y sólo si 
-\begin_inset Formula $n$
-\end_inset
-
- y 
-\begin_inset Formula $m$
-\end_inset
-
- son coprimos.
- [...]
-\end_layout
-
-\begin_layout Enumerate
-Si 
-\begin_inset Formula $g,h\in G$
-\end_inset
-
- tienen órdenes respectivos 
-\begin_inset Formula $n$
-\end_inset
-
- y 
-\begin_inset Formula $m$
-\end_inset
-
- coprimos y 
-\begin_inset Formula $gh=hg$
-\end_inset
-
-, entonces 
-\begin_inset Formula $\langle g,h\rangle$
-\end_inset
-
- es cíclico de orden 
-\begin_inset Formula $nm$
-\end_inset
-
-.
- [...]
-\end_layout
-
-\begin_layout Standard
-Dados un grupo 
-\begin_inset Formula $G$
-\end_inset
-
- y 
-\begin_inset Formula $a\in G$
-\end_inset
-
-, llamamos 
-\series bold
-conjugado
-\series default
- de 
-\begin_inset Formula $g\in G$
-\end_inset
-
- por 
-\begin_inset Formula $a$
-\end_inset
-
- a 
-\begin_inset Formula $g^{a}\coloneqq a^{-1}ga$
-\end_inset
-
-, y conjugado de 
-\begin_inset Formula $X\subseteq G$
-\end_inset
-
- por 
-\begin_inset Formula $a$
-\end_inset
-
- a 
-\begin_inset Formula $X^{a}\coloneqq\{x^{a}\}_{x\in X}$
-\end_inset
-
-.
- Dos elementos 
-\begin_inset Formula $x,y\in G$
-\end_inset
-
- o conjuntos 
-\begin_inset Formula $x,y\subseteq G$
-\end_inset
-
- son 
-\series bold
-conjugados
-\series default
- en 
-\begin_inset Formula $G$
-\end_inset
-
- si existe 
-\begin_inset Formula $a\in G$
-\end_inset
-
- con 
-\begin_inset Formula $x^{a}=y$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Si 
-\begin_inset Formula $a\in G$
-\end_inset
-
-, llamamos 
-\series bold
-automorfismo interno
-\series default
- definido por 
-\begin_inset Formula $a$
-\end_inset
-
- al automorfismo 
-\begin_inset Formula $\iota_{a}:G\to G$
-\end_inset
-
- dado por 
-\begin_inset Formula $\iota_{a}(x)\coloneqq x^{a}$
-\end_inset
-
-.
- Su inverso es 
-\begin_inset Formula $\iota_{a^{-1}}$
-\end_inset
-
-.
- El conjugado por 
-\begin_inset Formula $a$
-\end_inset
-
- de un subgrupo de 
-\begin_inset Formula $G$
-\end_inset
-
- es otro subgrupo de 
-\begin_inset Formula $G$
-\end_inset
-
- del mismo orden.
- [...]
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\forall g,a,b\in G,g^{ab}=(g^{a})^{b}$
-\end_inset
-
-, y [...] la relación de ser conjugados es de equivalencia.
- Las clases de equivalencia se llaman 
-\series bold
-clases de conjugación
-\series default
- de 
-\begin_inset Formula $G$
-\end_inset
-
-, y llamamos 
-\begin_inset Formula $a^{G}\coloneqq[a]=\{a^{g}\}_{g\in G}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Sea 
-\begin_inset Formula $X$
-\end_inset
-
- un conjunto.
- Una 
-\series bold
-acción por la izquierda
-\series default
- de 
-\begin_inset Formula $G$
-\end_inset
-
- en 
-\begin_inset Formula $X$
-\end_inset
-
- es una función 
-\begin_inset Formula $\cdot:G\times X\to X$
-\end_inset
-
- tal que 
-\begin_inset Formula $\forall x\in X,(\forall g,h\in G,(gh)\cdot x=g\cdot(h\cdot x)\land1\cdot x=x)$
-\end_inset
-
-, y una 
-\series bold
-acción por la derecha
-\series default
- de 
-\begin_inset Formula $G$
-\end_inset
-
- en 
-\begin_inset Formula $X$
-\end_inset
-
- es una función 
-\begin_inset Formula $\cdot:X\times G\to X$
-\end_inset
-
- tal que 
-\begin_inset Formula $\forall x\in X,(\forall g,h\in G,x\cdot(gh)=(x\cdot g)\cdot h\land x\cdot1=x)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Si 
-\begin_inset Formula $\cdot:G\times X\to X$
-\end_inset
-
- es una acción por la izquierda de 
-\begin_inset Formula $G$
-\end_inset
-
- en 
-\begin_inset Formula $X$
-\end_inset
-
- y 
-\begin_inset Formula $x\in X$
-\end_inset
-
-, llamamos 
-\series bold
-órbita
-\series default
- de 
-\begin_inset Formula $x$
-\end_inset
-
- en 
-\begin_inset Formula $G$
-\end_inset
-
- a 
-\begin_inset Formula $G\cdot x\coloneqq\{g\cdot x\}_{g\in G}$
-\end_inset
-
- y 
-\series bold
-estabilizador
-\series default
- de 
-\begin_inset Formula $x$
-\end_inset
-
- en 
-\begin_inset Formula $G$
-\end_inset
-
- a 
-\begin_inset Formula $\text{Estab}_{G}(x)\coloneqq\{g\in G\mid g\cdot x=x\}$
-\end_inset
-
-.
- Si 
-\begin_inset Formula $\cdot:X\times G\to X$
-\end_inset
-
- es una acción por la derecha de 
-\begin_inset Formula $G$
-\end_inset
-
- en 
-\begin_inset Formula $X$
-\end_inset
-
- y 
-\begin_inset Formula $x\in X$
-\end_inset
-
-, llamamos órbita de 
-\begin_inset Formula $x$
-\end_inset
-
- en 
-\begin_inset Formula $G$
-\end_inset
-
- a 
-\begin_inset Formula $x\cdot G\coloneqq\{x\cdot g\}_{g\in G}$
-\end_inset
-
- y estabilizador de 
-\begin_inset Formula $x$
-\end_inset
-
- en 
-\begin_inset Formula $G$
-\end_inset
-
- a 
-\begin_inset Formula $\text{Estab}_{G}(x)\coloneqq\{g\in G\mid x\cdot g=x\}$
-\end_inset
-
-.
- Las órbitas forman una partición de 
-\begin_inset Formula $G$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Llamamos 
-\series bold
-acción por traslación a la izquierda
-\series default
- a la acción por la izquierda de 
-\begin_inset Formula $G$
-\end_inset
-
- en 
-\begin_inset Formula $G/H$
-\end_inset
-
- dada por 
-\begin_inset Formula $g\cdot xH=gxH$
-\end_inset
-
-.
- Entonces 
-\begin_inset Formula $G\cdot xH=G/H$
-\end_inset
-
- y 
-\begin_inset Formula 
-\[
-\text{Estab}_{G}(xH)=[...]=H^{x^{-1}}.
-\]
-
-\end_inset
-
-Análogamente llamamos 
-\series bold
-acción por traslación a la derecha
-\series default
- a la acción por la derecha de 
-\begin_inset Formula $G$
-\end_inset
-
- en 
-\begin_inset Formula $H\backslash G$
-\end_inset
-
- dada por 
-\begin_inset Formula $Hx\cdot g=Hxg$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Cuando 
-\begin_inset Formula $H=1$
-\end_inset
-
-, la acción de traslación es de 
-\begin_inset Formula $G$
-\end_inset
-
- en 
-\begin_inset Formula $G$
-\end_inset
-
-, con 
-\begin_inset Formula $G\cdot x=G$
-\end_inset
-
- y 
-\begin_inset Formula $\text{Estab}_{G}(x)=1$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-La 
-\series bold
-acción por conjugación
-\series default
- de 
-\begin_inset Formula $G$
-\end_inset
-
- en 
-\begin_inset Formula $G$
-\end_inset
-
- es la acción por la derecha 
-\begin_inset Formula $x\cdot g\coloneqq x^{g}$
-\end_inset
-
-.
- Entonces 
-\begin_inset Formula $x\cdot G=x^{G}$
-\end_inset
-
- y 
-\begin_inset Formula $\text{Estab}_{G}(x)=C_{G}(x)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Si 
-\begin_inset Formula $S$
-\end_inset
-
- es el conjunto de subgrupos de 
-\begin_inset Formula $G$
-\end_inset
-
-, la 
-\series bold
-acción por conjugación de 
-\begin_inset Formula $G$
-\end_inset
-
- en sus subgrupos
-\series default
- es la acción por la derecha de 
-\begin_inset Formula $G$
-\end_inset
-
- en 
-\begin_inset Formula $S$
-\end_inset
-
- 
-\begin_inset Formula $H\cdot g=H^{g}$
-\end_inset
-
-.
- [...]
-\end_layout
-
-\begin_layout Enumerate
-Si 
-\begin_inset Formula $n\in\mathbb{N}$
-\end_inset
-
- y 
-\begin_inset Formula $X$
-\end_inset
-
- es un conjunto, 
-\begin_inset Formula $\cdot:S_{n}\times X^{n}\to X^{n}$
-\end_inset
-
- dada por 
-\begin_inset Formula $\sigma\cdot(x_{1},\dots,x_{n})\coloneqq(x_{\sigma(1)},\dots,x_{\sigma(n)})$
-\end_inset
-
- es una acción por la izquierda.
-\end_layout
-
-\begin_layout Enumerate
-Sean 
-\begin_inset Formula $\cdot:G\times X\to X$
-\end_inset
-
- una acción por la izquierda, 
-\begin_inset Formula $H\leq G$
-\end_inset
-
- e 
-\begin_inset Formula $Y\subseteq X$
-\end_inset
-
-, si 
-\begin_inset Formula $\forall h\in H,y\in Y,h\cdot y\in Y$
-\end_inset
-
-, 
-\begin_inset Formula $\cdot|_{H\times Y}$
-\end_inset
-
- es una acción por la izquierda de 
-\begin_inset Formula $H$
-\end_inset
-
- en 
-\begin_inset Formula $Y$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Sean 
-\begin_inset Formula $G$
-\end_inset
-
- un grupo actuando sobre un conjunto 
-\begin_inset Formula $X$
-\end_inset
-
-, 
-\begin_inset Formula $x\in X$
-\end_inset
-
- y 
-\begin_inset Formula $g\in G$
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $\text{Estab}_{G}(x)\leq G$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $[G:\text{Estab}_{G}(x)]=|G\cdot x|$
-\end_inset
-
-.
- En particular, si 
-\begin_inset Formula $G$
-\end_inset
-
- es finito, 
-\begin_inset Formula $|G\cdot x|\mid|G|$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Si la acción es por la izquierda, 
-\begin_inset Formula $\text{Estab}_{G}(g\cdot x)=\text{Estab}_{G}(x)^{g^{-1}}$
-\end_inset
-
-, y si es por la derecha, 
-\begin_inset Formula $\text{Estab}_{G}(x\cdot g)=\text{Estab}_{G}(x)^{g}$
-\end_inset
-
-.
- En particular, si 
-\begin_inset Formula $x,g\in G$
-\end_inset
-
- y 
-\begin_inset Formula $H\leq G$
-\end_inset
-
-, 
-\begin_inset Formula $C_{G}(x^{g})=C_{G}(x)^{g}$
-\end_inset
-
- y 
-\begin_inset Formula $N_{G}(H^{g})=N_{G}(H)^{g}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Si 
-\begin_inset Formula $R$
-\end_inset
-
- es un conjunto irredundante de representantes de las órbitas, 
-\begin_inset Formula $|X|=\sum_{r\in R}|G\cdot r|=\sum_{r\in R}[G:\text{Estab}_{G}(r)]$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Así, si 
-\begin_inset Formula $G$
-\end_inset
-
- es un grupo y 
-\begin_inset Formula $a\in G$
-\end_inset
-
-, 
-\begin_inset Formula $|a^{G}|=[G:C_{G}(a)]$
-\end_inset
-
-, y en particular 
-\begin_inset Formula $a^{G}$
-\end_inset
-
- es unipuntual si y sólo si 
-\begin_inset Formula $a\in Z(G)$
-\end_inset
-
-.
- 
-\series bold
-Ecuación de clases:
-\series default
- Si 
-\begin_inset Formula $G$
-\end_inset
-
- es finito y 
-\begin_inset Formula $X\subseteq G$
-\end_inset
-
- contiene exactamente un elemento de cada clase de conjugación con al menos
- dos elementos, entonces 
-\begin_inset Formula $|G|=|Z(G)|+\sum_{x\in X}[G:C_{G}(x)]$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Dado un número primo 
-\begin_inset Formula $p$
-\end_inset
-
-, un 
-\series bold
-
-\begin_inset Formula $p$
-\end_inset
-
--grupo
-\series default
- es un grupo en que todo elemento tiene orden potencia de 
-\begin_inset Formula $p$
-\end_inset
-
-, y un grupo finito es un 
-\begin_inset Formula $p$
-\end_inset
-
--grupo si y sólo si su orden es potencia de 
-\begin_inset Formula $p$
-\end_inset
-
-.
- [...]
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Teorema de Cauchy:
-\series default
- Si 
-\begin_inset Formula $G$
-\end_inset
-
- es un grupo finito con orden múltiplo de un primo 
-\begin_inset Formula $p$
-\end_inset
-
-, 
-\begin_inset Formula $G$
-\end_inset
-
- tiene un elemento de orden 
-\begin_inset Formula $p$
-\end_inset
-
-.
- [...]
-\end_layout
-
-\begin_layout Standard
-Dados un grupo finito 
-\begin_inset Formula $G$
-\end_inset
-
- y un número primo 
-\begin_inset Formula $p$
-\end_inset
-
-, 
-\begin_inset Formula $H\leq G$
-\end_inset
-
- es un 
-\series bold
-
-\begin_inset Formula $p$
-\end_inset
-
--subgrupo de Sylow
-\series default
- de 
-\begin_inset Formula $G$
-\end_inset
-
- si es un 
-\begin_inset Formula $p$
-\end_inset
-
--grupo y 
-\begin_inset Formula $[G:H]$
-\end_inset
-
- es coprimo con 
-\begin_inset Formula $p$
-\end_inset
-
-, si y sólo si es un 
-\begin_inset Formula $p$
-\end_inset
-
--grupo y 
-\begin_inset Formula $|H|$
-\end_inset
-
- es la mayor potencia de 
-\begin_inset Formula $p$
-\end_inset
-
- que divide a 
-\begin_inset Formula $|G|$
-\end_inset
-
-.
- Llamamos 
-\begin_inset Formula $s_{p}(G)$
-\end_inset
-
- al número de 
-\begin_inset Formula $p$
-\end_inset
-
--subgrupos de Sylow de 
-\begin_inset Formula $G$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Teoremas de Sylow:
-\series default
- Sean 
-\begin_inset Formula $p$
-\end_inset
-
- un número primo y 
-\begin_inset Formula $G$
-\end_inset
-
- un grupo finito de orden 
-\begin_inset Formula $n\coloneqq p^{k}m$
-\end_inset
-
- para ciertos 
-\begin_inset Formula $k,m\in\mathbb{N}$
-\end_inset
-
- con 
-\begin_inset Formula $p\nmid m$
-\end_inset
-
-.
- Entonces:
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $G$
-\end_inset
-
- tiene al menos un 
-\begin_inset Formula $p$
-\end_inset
-
--subgrupo de Sylow, que tendrá orden 
-\begin_inset Formula $p^{k}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Si 
-\begin_inset Formula $P$
-\end_inset
-
- es un 
-\begin_inset Formula $p$
-\end_inset
-
--subgrupo de Sylow de 
-\begin_inset Formula $G$
-\end_inset
-
- y 
-\begin_inset Formula $Q$
-\end_inset
-
- es un 
-\begin_inset Formula $p$
-\end_inset
-
--subgrupo de 
-\begin_inset Formula $G$
-\end_inset
-
-, existe 
-\begin_inset Formula $g\in G$
-\end_inset
-
- tal que 
-\begin_inset Formula $Q\subseteq P^{g}$
-\end_inset
-
-.
- En particular, todos los 
-\begin_inset Formula $p$
-\end_inset
-
--subgrupos de Sylow de 
-\begin_inset Formula $G$
-\end_inset
-
- son conjugados en 
-\begin_inset Formula $G$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $s_{p}(G)\mid m$
-\end_inset
-
- y 
-\begin_inset Formula $s_{p}(G)\equiv1\bmod p$
-\end_inset
-
-.
- [...]
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{reminder}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
 Submódulos de torsión
 \end_layout
 
@@ -1776,10 +606,13 @@ submódulo de torsión
 \end_inset
 
  a 
-\begin_inset Formula $t(M)\coloneqq\{x\in M\mid x\text{ es de torsión}\}\leq_{A}M$
+\begin_inset Formula 
+\[
+t(M)\coloneqq\{x\in M\mid x\text{ es de torsión}\}\leq_{A}M.
+\]
+
 \end_inset
 
-.
  En efecto, para 
 \begin_inset Formula $a\in A$
 \end_inset
@@ -1841,10 +674,13 @@ subgrupo de
 \end_inset
 
  a 
-\begin_inset Formula $M(p)\coloneqq\{x\in M\mid x\text{ es de }p\text{-torsión}\}\leq_{A}M$
+\begin_inset Formula 
+\[
+M(p)\coloneqq\{x\in M\mid x\text{ es de }p\text{-torsión}\}\leq_{A}M.
+\]
+
 \end_inset
 
-.
  En efecto, para 
 \begin_inset Formula $a\in A$
 \end_inset
@@ -2148,7 +984,7 @@ de
 .
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Standard
 Si 
 \begin_inset Formula $G$
 \end_inset
@@ -2173,73 +1009,115 @@ Si
 .
 \end_layout
 
-\begin_layout Enumerate
-Sean 
-\begin_inset Formula $K$
-\end_inset
-
- un cuerpo y 
-\begin_inset Formula $M_{(V,f)}$
-\end_inset
-
- el 
-\begin_inset Formula $K[X]$
-\end_inset
-
--módulo asociado a un par 
-\begin_inset Formula $(V,f)$
-\end_inset
-
- de un espacio vectorial y un 
-\begin_inset Formula $K$
-\end_inset
-
--endomorfismo 
-\begin_inset Formula $V\to V$
-\end_inset
-
-, 
-\begin_inset Formula $M_{(V,f)}$
-\end_inset
-
- es de torsión finitamente generado si y sólo si 
-\begin_inset Formula $_{K}V$
-\end_inset
-
- es de dimensión finita, y si 
-\begin_inset Formula $p\in K[X]$
-\end_inset
-
- es irreducible, 
-\begin_inset Formula $M_{(V,f)}$
-\end_inset
-
- es finitamente generado de 
-\begin_inset Formula $p$
-\end_inset
-
--torsión si y sólo si 
-\begin_inset Formula $_{K}V$
-\end_inset
-
- es de dimensión finita y 
-\begin_inset Formula $p(f)^{m}=0\in\text{End}_{K}(V)$
-\end_inset
-
- para cierto 
-\begin_inset Formula $m>0$
-\end_inset
-
-.
-\begin_inset Foot
+\begin_layout Standard
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-¿Qué será 
-\begin_inset Formula $p(f)^{m}$
+
+
+\backslash
+begin{exinfo}
+\end_layout
+
 \end_inset
 
-?
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $p\in{\cal P}$
+\end_inset
+
+, 
+\begin_inset Formula $n\in\mathbb{N}^{*}$
+\end_inset
+
+ y 
+\begin_inset Formula $_{A}M\coloneqq\frac{A}{(p^{n})}$
+\end_inset
+
+, para 
+\begin_inset Formula $k\in\{0,\dots,n-1\}$
+\end_inset
+
+ es 
+\begin_inset Formula $\text{ann}_{M}(p^{k})=\frac{(p^{n-k})}{(p^{n})}$
+\end_inset
+
+ y para 
+\begin_inset Formula $k\geq n$
+\end_inset
+
+ es 
+\begin_inset Formula $\text{ann}_{M}(p^{k})=M$
+\end_inset
+
+, y 
+\begin_inset Formula $\text{ann}_{M}(p)$
+\end_inset
+
+ es un 
+\begin_inset Formula $\frac{A}{(p)}$
+\end_inset
+
+-espacio vectorial de dimensión 1.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $Q$
+\end_inset
+
+ es el cuerpo de fracciones de 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $N\leq_{A}Q$
+\end_inset
+
+ es no nulo, 
+\begin_inset Formula $\frac{Q}{N}$
+\end_inset
+
+ es un 
+\begin_inset Formula $A$
+\end_inset
+
+-módulo de torsión.
+\end_layout
+
+\begin_layout Standard
+Dado un 
+\begin_inset Formula $A$
+\end_inset
+
+-homomorfismo 
+\begin_inset Formula $f:M\to N$
+\end_inset
+
+, 
+\begin_inset Formula $f(t(M))\subseteq t(N)$
+\end_inset
+
+, y la inclusión puede ser estricta incluso cuando 
+\begin_inset Formula $f$
+\end_inset
+
+ es un monomorfismo o un epimorfismo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{exinfo}
 \end_layout
 
 \end_inset
@@ -2248,7 +1126,7 @@ status open
 \end_layout
 
 \begin_layout Section
-Parte libre de torsión de un módulo finitamente generado
+Parte libre de torsión
 \end_layout
 
 \begin_layout Standard
@@ -2706,6 +1584,134 @@ Si
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{exinfo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ la clase de 
+\begin_inset Formula $A$
+\end_inset
+
+-módulos de torsión y 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+ la de 
+\begin_inset Formula $A$
+\end_inset
+
+-módulos libres de torsión:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $N\leq_{A}M$
+\end_inset
+
+ y tanto 
+\begin_inset Formula $N$
+\end_inset
+
+ como 
+\begin_inset Formula $\frac{N}{M}$
+\end_inset
+
+ están en una de las clases, entonces 
+\begin_inset Formula $M$
+\end_inset
+
+ también.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $N\leq_{A}M\in{\cal T}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $N,\frac{N}{M}\in{\cal T}$
+\end_inset
+
+, pero esto no se cumple para 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $K,N\leq_{A}M$
+\end_inset
+
+ y 
+\begin_inset Formula $K+N$
+\end_inset
+
+ está en una de las clases, 
+\begin_inset Formula $K$
+\end_inset
+
+ y 
+\begin_inset Formula $N$
+\end_inset
+
+ están también en la misma.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $K,N\leq_{A}M$
+\end_inset
+
+ con 
+\begin_inset Formula $K,N\in{\cal T}$
+\end_inset
+
+ entonces 
+\begin_inset Formula $K+N\in{\cal T}$
+\end_inset
+
+, pero esto no se cumple para 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{exinfo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Módulos finitamente generados de 
 \begin_inset Formula $p$
@@ -2814,7 +1820,7 @@ La existencia es por el lema de Zorn.
 status open
 
 \begin_layout Plain Layout
-TODO
+TODO ejercicio de Saorín.
 \end_layout
 
 \end_inset
@@ -2841,7 +1847,7 @@ Si
 status open
 
 \begin_layout Plain Layout
-TODO
+TODO ejercicio de Saorín.
 \end_layout
 
 \end_inset
@@ -2879,7 +1885,7 @@ Si
 status open
 
 \begin_layout Plain Layout
-TODO
+TODO ejercicio de Saorín.
 \end_layout
 
 \end_inset
@@ -3493,7 +2499,10 @@ descomposición indescomponible
 \end_inset
 
 .
- 
+\end_layout
+
+\begin_layout Standard
+
 \series bold
 Demostración:
 \series default
@@ -3899,455 +2908,6 @@ Existen enteros
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-Teoremas de clasificación de endomorfismos de espacios vectoriales:
-\series default
- Sean 
-\begin_inset Formula $V$
-\end_inset
-
- un 
-\begin_inset Formula $K$
-\end_inset
-
--espacio vectorial de dimensión finita y 
-\begin_inset Formula $f:V\to V$
-\end_inset
-
- un 
-\begin_inset Formula $K$
-\end_inset
-
--endomorfismo:
-\end_layout
-
-\begin_layout Enumerate
-Existen 
-\begin_inset Formula $p_{1},\dots,p_{k}\in K[X]$
-\end_inset
-
- mónicos irreducibles distintos y 
-\begin_inset Formula $n_{ij}\in\mathbb{N}^{*}$
-\end_inset
-
- para 
-\begin_inset Formula $i\in\{1,\dots,k\}$
-\end_inset
-
- y 
-\begin_inset Formula $j\in\{1,\dots,r_{i}\}$
-\end_inset
-
-, unívocamente determinados, y vectores 
-\begin_inset Formula $v_{ij}\in V$
-\end_inset
-
-, tales que 
-\begin_inset Formula $\bigoplus_{i=1}^{k}\bigoplus_{j=1}^{r_{i}}K\{f^{s}(v_{ij})\}_{s\geq0}$
-\end_inset
-
- es una descomposición de 
-\begin_inset Formula $V$
-\end_inset
-
- en suma directa interna de subespacios vectoriales 
-\begin_inset Formula $f$
-\end_inset
-
--invariantes y cada 
-\begin_inset Formula $p_{i}(f)^{n_{ij}}(v_{ij})=0\neq p_{i}(f)^{n_{ij}-1}(v_{ij})$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Sean 
-\begin_inset Formula $M$
-\end_inset
-
- el 
-\begin_inset Formula $K[X]$
-\end_inset
-
--módulo asociado a 
-\begin_inset Formula $(V,f)$
-\end_inset
-
-, 
-\begin_inset Formula $W\leq V$
-\end_inset
-
- y 
-\begin_inset Formula $N$
-\end_inset
-
- el 
-\begin_inset Formula $K[X]$
-\end_inset
-
--submódulo de 
-\begin_inset Formula $M$
-\end_inset
-
- asociado a 
-\begin_inset Formula $(W,f|_{W})$
-\end_inset
-
-, basta ver que 
-\begin_inset Formula $N\cong\frac{K[X]}{(p_{i}^{n_{ij}})}$
-\end_inset
-
- si y sólo si existe 
-\begin_inset Formula $v\in V$
-\end_inset
-
- tal que 
-\begin_inset Formula $W=K\{f^{s}(v)_{s\geq0}\}$
-\end_inset
-
- y 
-\begin_inset Formula $p_{i}(f)^{n_{ij}}(v)=0\neq p_{i}(f)^{n_{ij}-1}(v)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Argument item:1
-status open
-
-\begin_layout Plain Layout
-\begin_inset Formula $\implies]$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-Sean 
-\begin_inset Formula $\phi:\frac{K[X]}{(p_{i}^{n_{ij}})}\to N$
-\end_inset
-
- el isomorfismo y 
-\begin_inset Formula $v\coloneqq\phi(\overline{1})$
-\end_inset
-
-, 
-\begin_inset Formula $p_{i}^{n_{ij}}\overline{1}=0$
-\end_inset
-
- y por tanto 
-\begin_inset Formula $0=p_{i}^{n_{ij}}\phi(\overline{1})=p_{i}^{n_{ij}}v=p_{i}(f)^{n_{ij}}(v)$
-\end_inset
-
- por la definición del 
-\begin_inset Formula $K[X]$
-\end_inset
-
--módulo, pero 
-\begin_inset Formula $p_{i}^{n_{ij}-1}\overline{1}\neq0$
-\end_inset
-
- y por tanto 
-\begin_inset Formula $p_{i}(f)^{n_{ij}-1}(v_{ij})\neq0$
-\end_inset
-
-.
- Finalmente, como 
-\begin_inset Formula $\frac{K[X]}{(p_{i}^{n_{ij}})}=K\{\overline{1},X\overline{1},\dots,X^{s}\overline{1},\dots\}$
-\end_inset
-
-, 
-\begin_inset Formula $M=K\{f^{s}(v)\}_{s\geq0}$
-\end_inset
-
- ya que 
-\begin_inset Formula $\phi(X^{s}\overline{1})=X^{s}\phi(\overline{1})=f^{s}(v)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Argument item:1
-status open
-
-\begin_layout Plain Layout
-\begin_inset Formula $\impliedby]$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-Por la hipótesis y la definición de 
-\begin_inset Formula $N$
-\end_inset
-
-, 
-\begin_inset Formula $N=(v)$
-\end_inset
-
-, pero 
-\begin_inset Formula $v$
-\end_inset
-
- es anulado por 
-\begin_inset Formula $p_{i}(f)^{n_{ij}}$
-\end_inset
-
- y por tanto hay un epimorfismo 
-\begin_inset Formula $\psi:\frac{K[X]}{(p_{i}^{n_{ij}})}\twoheadrightarrow K[X]v=N$
-\end_inset
-
- con 
-\begin_inset Formula $\ker\psi\trianglelefteq\frac{K[X]}{(p_{i}^{n_{ij}})}$
-\end_inset
-
-, pero los únicos ideales de 
-\begin_inset Formula $\frac{K[X]}{(p_{i}^{n_{ij}})}$
-\end_inset
-
- son 
-\begin_inset Formula $(\overline{p_{i}}^{k})$
-\end_inset
-
- con 
-\begin_inset Formula $k\in\{0,\dots,n_{ij}\}$
-\end_inset
-
-, y como 
-\begin_inset Formula $p_{i}(f)^{n_{ij}-1}(v)\neq0$
-\end_inset
-
-, 
-\begin_inset Formula $\overline{p_{i}}^{n_{ij}-1}\notin\ker\psi$
-\end_inset
-
-, con lo que 
-\begin_inset Formula $\ker\psi=0$
-\end_inset
-
- y 
-\begin_inset Formula $\psi$
-\end_inset
-
- es un isomorfismo.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Existen polinomios mónicos no constantes 
-\begin_inset Formula $d_{1}\mid\dots\mid d_{t}$
-\end_inset
-
- unívocamente determinados y vectores 
-\begin_inset Formula $v_{j}\in V$
-\end_inset
-
- tales que 
-\begin_inset Formula $\bigoplus_{i=1}^{t}\text{span}\{f^{s}(v_{j})\}_{s\in\mathbb{N}_{\text{gr}(d_{j})}}$
-\end_inset
-
- es una descomposición de 
-\begin_inset Formula $V$
-\end_inset
-
- en subespacios 
-\begin_inset Formula $f$
-\end_inset
-
--invariantes y cada 
-\begin_inset Formula $d_{j}(f)(v_{j})=0$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Sean 
-\begin_inset Formula $M$
-\end_inset
-
- el 
-\begin_inset Formula $K[X]$
-\end_inset
-
--módulo asociado a 
-\begin_inset Formula $(V,f)$
-\end_inset
-
-, 
-\begin_inset Formula $W\leq V$
-\end_inset
-
- y 
-\begin_inset Formula $N$
-\end_inset
-
- el 
-\begin_inset Formula $K[X]$
-\end_inset
-
--submódulo de 
-\begin_inset Formula $M$
-\end_inset
-
- asociado a 
-\begin_inset Formula $(W,f|_{W})$
-\end_inset
-
-, basta ver que 
-\begin_inset Formula $N\cong\frac{K[X]}{(d_{j})}$
-\end_inset
-
- si y sólo si existe 
-\begin_inset Formula $v\in V$
-\end_inset
-
- tal que 
-\begin_inset Formula $\{f^{s}(v)\}{}_{s\in\mathbb{N}_{\text{gr}(d_{j})}}$
-\end_inset
-
- es base de 
-\begin_inset Formula $W$
-\end_inset
-
- como 
-\begin_inset Formula $K$
-\end_inset
-
--espacio vectorial y 
-\begin_inset Formula $d_{j}(f)(v)=0$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Argument item:1
-status open
-
-\begin_layout Plain Layout
-\begin_inset Formula $\implies]$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-Sean 
-\begin_inset Formula $\phi:\frac{K[X]}{(p_{i}^{n_{ij}})}\to N$
-\end_inset
-
- el isomorfismo y 
-\begin_inset Formula $v\coloneqq\phi(\overline{1})$
-\end_inset
-
-, 
-\begin_inset Formula $d_{j}\overline{1}=0$
-\end_inset
-
- y por tanto 
-\begin_inset Formula $0=d_{j}\phi(\overline{1})=d_{j}v=d_{j}(f)(v)$
-\end_inset
-
-, y como 
-\begin_inset Formula $\frac{K[X]}{(d_{j})}=K\{\overline{1},X\overline{1},\dots,X^{\text{gr}d_{j}-1}\overline{1}\}$
-\end_inset
-
- con 
-\begin_inset Formula $(X^{s}\overline{1})_{s\in\mathbb{N}_{\text{gr}(d_{j})}}$
-\end_inset
-
- linealmente independiente, 
-\begin_inset Formula $N=K\{f^{s}(v)\}_{s\in\mathbb{N}_{\text{gr}(d_{j})}}$
-\end_inset
-
- con 
-\begin_inset Formula $(f^{s}(v))_{s\in\mathbb{N}_{\text{gr}(d_{j})}}$
-\end_inset
-
- linealmente independiente.
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Argument item:1
-status open
-
-\begin_layout Plain Layout
-\begin_inset Formula $\impliedby]$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Formula $v$
-\end_inset
-
- es anulado por 
-\begin_inset Formula $p_{i}(f)^{n_{ij}}$
-\end_inset
-
- y por tanto hay un epimorfismo 
-\begin_inset Formula $\psi:\frac{K[X]}{(d_{j})}\twoheadrightarrow K[X]v=K\{f^{s}(v)\}_{s\in\mathbb{N}}=K\{f^{s}(v)\}_{s\in\mathbb{N}_{\text{gr}(d_{j})}}=N$
-\end_inset
-
-, pero si 
-\begin_inset Formula $p\in K[X]$
-\end_inset
-
- con 
-\begin_inset Formula $\text{gr}p<\text{gr}d_{j}$
-\end_inset
-
- cumple 
-\begin_inset Formula $\psi(\overline{p})=p(f)(v)=\sum_{i}p_{i}f^{i}(v)=0$
-\end_inset
-
-, como los 
-\begin_inset Formula $f^{i}(v)$
-\end_inset
-
- son linealmente independiente, cada 
-\begin_inset Formula $p_{i}=0$
-\end_inset
-
- y 
-\begin_inset Formula $p=0$
-\end_inset
-
-, y como cada elemento de 
-\begin_inset Formula $\frac{K[X]}{(d_{j})}$
-\end_inset
-
- tiene un representante de grado menor que el de 
-\begin_inset Formula $d_{j}$
-\end_inset
-
-, 
-\begin_inset Formula $\ker\psi=0$
-\end_inset
-
- y 
-\begin_inset Formula $\psi$
-\end_inset
-
- es un isomorfismo.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -4520,36 +3080,36 @@ end{reminder}
 \end_layout
 
 \begin_layout Section
-Determinación de descomposiciones de módulos de torsión finitamente generados
-\end_layout
-
-\begin_layout Standard
-En esta sección, salvo que se indique lo contrario, 
-\begin_inset Formula $M$
-\end_inset
-
- es un 
-\begin_inset Formula $A$
-\end_inset
-
--módulo finitamente generado de torsión y 
-\begin_inset Formula $\{p_{1},\dots,p_{k}\}\coloneqq\{p\in{\cal P}\mid M(p)\neq0\}$
-\end_inset
-
- son sus 
-\series bold
-divisores irreducibles
-\series default
-.
- 
+Módulos de torsión finitamente generados
 \end_layout
 
 \begin_layout Standard
 Si 
+\begin_inset Formula $_{A}M$
+\end_inset
+
+ es finitamente generado de torsión, llamamos 
+\series bold
+divisores irreducibles
+\series default
+ de 
+\begin_inset Formula $M$
+\end_inset
+
+ a los 
+\begin_inset Formula $p\in{\cal P}$
+\end_inset
+
+ con 
+\begin_inset Formula $M(p)=0$
+\end_inset
+
+.
+ Si además 
 \begin_inset Formula $M\neq0$
 \end_inset
 
- tiene factores invariantes 
+ y sus factores invariantes son 
 \begin_inset Formula $d_{1}\mid\dots\mid d_{t}$
 \end_inset
 
@@ -4767,27 +3327,136 @@ Así, si
 
 \begin_layout Standard
 Sean 
-\begin_inset Formula $V\in_{K}\text{Vect}$
+\begin_inset Formula $_{A}M\neq0$
 \end_inset
 
- de dimensión finita y 
-\begin_inset Formula $f\in\text{End}_{K}(V)$
+ finitamente generado de torsión, 
+\begin_inset Formula $p$
 \end_inset
 
- con polinomio característico 
-\begin_inset Formula $\varphi\in K[X]$
+ un divisor irreducible de 
+\begin_inset Formula $M$
+\end_inset
+
+ y 
+\begin_inset Formula $M(p)\cong\bigoplus_{j=0}^{r}\frac{A}{(p^{n_{j}})}$
+\end_inset
+
+ con 
+\begin_inset Formula $0<n_{1}\leq\dots\leq n_{r}$
 \end_inset
 
 :
 \end_layout
 
 \begin_layout Enumerate
+\begin_inset Formula $0\neq\text{ann}_{M}(p_{i})\subseteq\text{ann}_{M}(p_{i}^{2})\subseteq\dots\subseteq\text{ann}_{M}(p_{i}^{s})\subseteq\dots$
+\end_inset
 
-\series bold
-Teorema de Cayley-Hamilton:
-\series default
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\{s\in\mathbb{N}^{*}\mid\text{ann}_{M}(p^{s})=\text{ann}_{M}(p^{s+1})\}=\{s\in\mathbb{N}^{*}\mid s\geq n_{r}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\supseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $s\geq n_{r}$
+\end_inset
+
+, 
+\begin_inset Formula $M(p)\subseteq\text{ann}_{M}(p^{n_{r}})\subseteq\text{ann}_{M}(p^{s})\subseteq M(p)$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{ann}_{M}(p^{s})=\text{ann}_{M}(p^{s+1})=M(p)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\subseteq]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $X$
+\end_inset
+
+ el conjunto de la izquierda, queremos ver que si 
+\begin_inset Formula $s\in X$
+\end_inset
+
+ entonces 
+\begin_inset Formula $s+1\in X$
+\end_inset
+
+, de modo que si fuera 
+\begin_inset Formula $s<n_{r}$
+\end_inset
+
+, por inducción sería 
+\begin_inset Formula $\text{ann}_{M}(p^{s})=\text{ann}_{M}(p^{n_{r}})=M(p)\#$
+\end_inset
+
+.
+ Sabemos que 
+\begin_inset Formula $\text{ann}_{M}(p^{s+1})\subseteq\text{ann}_{M}(p^{s+2})$
+\end_inset
+
+, y si 
+\begin_inset Formula $x\in\text{ann}_{M}(p^{s+2})$
+\end_inset
+
+, 
+\begin_inset Formula $p^{s+1}(px)=0$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $px\in\text{ann}_{M}(p^{s+1})=\text{ann}_{M}(p^{s})$
+\end_inset
+
+, luego 
+\begin_inset Formula $p^{s+1}x=p^{s}(px)=0$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in\text{ann}_{M}(p^{s+1})$
+\end_inset
+
+.
  
-\begin_inset Formula $\varphi_{f}(f)=0$
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $M(p)=\text{ann}_{M}(p^{n_{r}})$
 \end_inset
 
 .
@@ -4796,93 +3465,58 @@ Teorema de Cayley-Hamilton:
 \begin_deeper
 \begin_layout Standard
 Sean 
-\begin_inset Formula $C\in{\cal M}_{n}(K)$
+\begin_inset Formula $(q_{i}^{m_{ij}})_{1\leq i\leq k}^{1\leq j\leq r_{i}}$
 \end_inset
 
- la matriz asociada a 
-\begin_inset Formula $f$
+ los divisores elementales de 
+\begin_inset Formula $M$
 \end_inset
 
- bajo cualquier base de 
-\begin_inset Formula $V$
+ con 
+\begin_inset Formula $p=q_{1}$
 \end_inset
 
- e 
-\begin_inset Formula $I\coloneqq I_{n}$
+ y por tanto 
+\begin_inset Formula $r=r_{1}$
 \end_inset
 
-, queremos ver que 
-\begin_inset Formula $\varphi=\det(XI-C)$
+ y 
+\begin_inset Formula $n_{j}=m_{1j}$
 \end_inset
 
- cumple 
-\begin_inset Formula $\sum_{i=0}^{n}\varphi_{i}C^{i}=0$
+, hay un isomorfismo 
+\begin_inset Formula $\phi:\bigoplus_{i=1}^{k}\bigoplus_{j=1}^{m_{ir_{i}}}\frac{A}{(q_{i}^{m_{ij}})}\to M$
 \end_inset
 
-.
- Por la prueba de la fórmula de la matriz inversa, para toda matriz 
-\begin_inset Formula $A$
-\end_inset
-
- es 
-\begin_inset Formula $A\cdot\text{adj}(A)^{\intercal}=|A|I$
-\end_inset
-
-, por lo que viendo 
-\begin_inset Formula $XI-C\in{\cal M}_{n}(K[X])$
-\end_inset
-
- es 
-\begin_inset Formula $(XI-C)\text{adj}(XI-C)^{\intercal}=\varphi I$
-\end_inset
-
-.
- Como las entradas de 
-\begin_inset Formula $\text{adj}(XI-C)^{\intercal}$
-\end_inset
-
- son polinomios de grado máximo 
-\begin_inset Formula $n-1$
-\end_inset
-
-, podemos escribir 
-\begin_inset Formula $\text{adj}(XI-C)^{t}\eqqcolon\sum_{i=0}^{n-1}B_{i}X^{i}$
-\end_inset
-
- con cada 
-\begin_inset Formula $B_{i}\in{\cal M}_{n}(K)$
-\end_inset
-
- y entonces 
-\begin_inset Formula $(XI-C)\sum_{i=0}^{n-1}B_{i}X^{i}=\sum_{i=0}^{n}\varphi_{i}I$
-\end_inset
-
-.
- Viendo esta igualdad en 
-\begin_inset Formula ${\cal M}_{n}(K)[X]$
-\end_inset
-
-, igualando coeficientes,
+, pero 
 \begin_inset Formula 
-\begin{align*}
-B_{n-1} & =\varphi_{n}I, & B_{n-2}-CB_{n-1} & =\varphi_{n-1}I, &  & \cdots, & B_{0}-B_{1}C & =\varphi_{1}I, & -B_{0}C & =\varphi_{0}I,
-\end{align*}
+\[
+X\coloneqq\text{ann}_{\bigoplus_{i=1}^{k}\bigoplus_{j=1}^{m_{ir_{i}}}\frac{A}{(q_{i}^{m_{ij}})}}(p^{n_{r}})=\bigoplus_{j=1}^{n_{r}}\frac{A}{(p^{n_{j}})}
+\]
 
 \end_inset
 
-y multiplicando la primera igualdad por 
-\begin_inset Formula $C^{n}$
+ ya que, si 
+\begin_inset Formula $i\neq1$
 \end_inset
 
-, la segunda por 
-\begin_inset Formula $C^{n-1}$
+, 
+\begin_inset Formula $\text{ann}_{\frac{A}{(q_{i}^{s})}}(p^{n_{j}})=0$
 \end_inset
 
-, etc.,
+ al ser 
+\begin_inset Formula $p^{n_{j}}+(q_{i}^{s})$
+\end_inset
+
+ una unidad de 
+\begin_inset Formula $\frac{A}{(p_{h}^{s})}$
+\end_inset
+
+, de modo que 
 \begin_inset Formula 
-\begin{align*}
-C^{n}B_{n-1} & =\varphi_{n}I, & C^{n-1}B_{n-2}-C^{n}B_{n-1} & =\varphi_{n-1}I, &  & \dots,
-\end{align*}
+\[
+\text{ann}_{M}(p^{n_{r}})=\phi(X)=\phi\left(\bigoplus_{j=1}^{n_{r}}\frac{A}{(p^{n_{j}})}\right)=M(p).
+\]
 
 \end_inset
 
@@ -4890,5 +3524,1750 @@ C^{n}B_{n-1} & =\varphi_{n}I, & C^{n-1}B_{n-2}-C^{n}B_{n-1} & =\varphi_{n-1}I, &
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $_{A}M\neq0$
+\end_inset
+
+ finitamente generado de torsión, 
+\begin_inset Formula $p\in{\cal P}$
+\end_inset
+
+ un divisor irreducible de 
+\begin_inset Formula $M$
+\end_inset
+
+ y, para 
+\begin_inset Formula $h\in\mathbb{N}^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $\mu_{h}$
+\end_inset
+
+ el número de divisores elementales de 
+\begin_inset Formula $M$
+\end_inset
+
+ iguales a 
+\begin_inset Formula $p^{h}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $h\in\mathbb{N}^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{\text{ann}_{M}(p^{h})}{\text{ann}_{M}(p^{h-1})}$
+\end_inset
+
+ es un 
+\begin_inset Formula $\frac{A}{(p)}$
+\end_inset
+
+-espacio vectorial.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Como 
+\begin_inset Formula $p$
+\end_inset
+
+ es primo en un DIP, 
+\begin_inset Formula $(p)$
+\end_inset
+
+ es maximal, luego 
+\begin_inset Formula $\frac{A}{(p)}$
+\end_inset
+
+ es un cuerpo, y el resultado se sigue de que 
+\begin_inset Formula $p$
+\end_inset
+
+ anula a 
+\begin_inset Formula $\frac{\text{ann}_{M}(p^{h})}{\text{ann}_{M}(p^{h-1})}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $h\in\mathbb{N}^{*}$
+\end_inset
+
+, si 
+\begin_inset Formula $\delta_{h}\coloneqq\dim_{\frac{A}{(p)}}\frac{\text{ann}_{M}(p^{h})}{\text{ann}_{M}(p^{h-1})}$
+\end_inset
+
+, 
+\begin_inset Formula $\mu_{h}=\delta_{h}-\delta_{h+1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sea 
+\begin_inset Formula $n\coloneqq\min\{s>0\mid\text{ann}_{M}(p^{s})=\text{ann}_{M}(p^{s+1})\}$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $h>n$
+\end_inset
+
+, 
+\begin_inset Formula $\mu_{h}=0$
+\end_inset
+
+ y, como 
+\begin_inset Formula $\text{ann}_{M}(p^{s-1})=\text{ann}_{M}(p^{s})=\text{ann}_{M}(p^{s+1})$
+\end_inset
+
+, 
+\begin_inset Formula $\delta_{h}=\delta_{h+1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea ahora 
+\begin_inset Formula $h\leq n$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\{p=p_{1},\dots,p_{k}\}$
+\end_inset
+
+ son los divisores irreducibles (distintos) de 
+\begin_inset Formula $M$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\text{ann}_{M}(p^{h})=\bigoplus_{i=1}^{k}\text{ann}_{M(p_{i})}(p^{h})$
+\end_inset
+
+.
+ En efecto, si 
+\begin_inset Formula $x\in\text{ann}_{M(p_{i})}(p^{h})$
+\end_inset
+
+, 
+\begin_inset Formula $p^{h}x=0$
+\end_inset
+
+ en 
+\begin_inset Formula $M(p_{i})$
+\end_inset
+
+ y por tanto en 
+\begin_inset Formula $M$
+\end_inset
+
+, y si 
+\begin_inset Formula $x\in\text{ann}_{M}(p^{h})$
+\end_inset
+
+, si 
+\begin_inset Formula $x\eqqcolon x_{1}+\dots+x_{k}$
+\end_inset
+
+ con cada 
+\begin_inset Formula $x_{i}\in M(p_{i})$
+\end_inset
+
+, entonces 
+\begin_inset Formula $0=p^{h}x=p^{h}x_{1}+\dots+p^{h}x_{k}$
+\end_inset
+
+ y cada 
+\begin_inset Formula $p^{h}x_{i}=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $x\in\bigoplus_{i=1}^{k}\text{ann}_{M(p_{i})}(p^{h})$
+\end_inset
+
+.
+ Pero para 
+\begin_inset Formula $i>1$
+\end_inset
+
+, si 
+\begin_inset Formula $x\in\text{ann}_{M(p_{i})}(p^{h})$
+\end_inset
+
+, 
+\begin_inset Formula $p^{h}x=0$
+\end_inset
+
+, 
+\begin_inset Formula $x\in M(p)$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in M(p)\cap M(p_{i})=0$
+\end_inset
+
+, luego 
+\begin_inset Formula $\text{ann}_{M(p_{i})}(p^{h})=0$
+\end_inset
+
+ y queda 
+\begin_inset Formula $\text{ann}_{M}(p^{h})=\text{ann}_{M(p)}(p^{h})$
+\end_inset
+
+, con lo que podemos suponer 
+\begin_inset Formula $M=M(p)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $h\in\{1,\dots,n\}$
+\end_inset
+
+, como
+\begin_inset Formula 
+\[
+M\cong\bigoplus_{i=1}^{n}\left(\frac{A}{(p^{i})}\right)^{\mu_{i}}\eqqcolon M'\oplus\left(\frac{A}{(p^{h})}\right)^{\mu_{h}}\oplus\dots\oplus\left(\frac{A}{(p^{n})}\right)^{\mu_{n}},
+\]
+
+\end_inset
+
+se tiene
+\begin_inset Formula 
+\begin{align*}
+\text{ann}_{M}(p^{n-h}) & =M'\oplus\left(\frac{A}{(p^{h})}\right)^{\mu_{h}}\oplus\left(\frac{(p)}{(p^{h+1})}\right)^{\mu_{h+1}}\oplus\dots\oplus\left(\frac{(p^{n-h})}{(p^{n})}\right)^{\mu_{n}},\\
+\text{ann}_{M}(p^{n-h-1}) & =M'\oplus\left(\frac{(p)}{(p^{h})}\right)^{\mu_{h}}\oplus\left(\frac{(p^{2})}{(p^{h+1})}\right)^{\mu_{h+1}}\oplus\dots\oplus\left(\frac{(p^{n-h+1})}{(p^{n})}\right)^{\mu_{n}}.
+\end{align*}
+
+\end_inset
+
+El sumando directo 
+\begin_inset Formula $M''$
+\end_inset
+
+ se cancela en 
+\begin_inset Formula $\frac{\text{ann}_{M}(p^{n-h})}{\text{ann}_{M}(p^{n-h-1})}$
+\end_inset
+
+ y cada 
+\begin_inset Formula 
+\[
+\frac{\left(\frac{(p^{i})}{(p^{h+i})}\right)^{\mu_{h+i}}}{\left(\frac{(p^{i+1})}{(p^{h+i})}\right)^{\mu_{h+i}}}\cong\left(\frac{(p^{i})}{(p^{i+1})}\right)^{\mu_{h+i}}\cong\left(\frac{A}{(p)}\right)^{\mu_{h+i}},
+\]
+
+\end_inset
+
+con lo que 
+\begin_inset Formula $\frac{\text{ann}_{M}(p^{n-h})}{\text{ann}_{M}(p^{n-h-1})}\cong\left(\frac{A}{(p)}\right)^{\mu_{h}+\mu_{h+1}+\dots+\mu_{n}}$
+\end_inset
+
+ y 
+\begin_inset Formula $\delta_{h}=\sum_{i=h}^{n}\mu_{i}$
+\end_inset
+
+, de donde se obtiene 
+\begin_inset Formula $\mu_{h}=\delta_{h}-\delta_{h+1}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $A$
+\end_inset
+
+ un anillo arbitrario, 
+\begin_inset Formula $0=M_{0}\subseteq M_{1}\subseteq\dots\subseteq M_{n}$
+\end_inset
+
+ una cadena de 
+\begin_inset Formula $A$
+\end_inset
+
+-módulos y, para 
+\begin_inset Formula $i\in\{1,\dots,n\}$
+\end_inset
+
+, 
+\begin_inset Formula $X_{i}\subseteq M_{i}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\frac{M_{i}}{M_{i-1}}=(\overline{X_{i}})$
+\end_inset
+
+, entonces 
+\begin_inset Formula $M_{n}=(\bigcup_{i=1}^{n}X_{i})$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Si 
+\begin_inset Formula $n=0$
+\end_inset
+
+ es obvio.
+ Si 
+\begin_inset Formula $n=1$
+\end_inset
+
+, la proyección canónica 
+\begin_inset Formula $M_{1}\to\frac{M_{1}}{M_{0}}$
+\end_inset
+
+ es un isomorfismo y ya estaría.
+ Si 
+\begin_inset Formula $n>1$
+\end_inset
+
+, probado esto para 
+\begin_inset Formula $n-1$
+\end_inset
+
+, para 
+\begin_inset Formula $x\in M_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\overline{x}\in\frac{M_{n}}{M_{n-1}}$
+\end_inset
+
+ se escribe como 
+\begin_inset Formula $\overline{x}=\sum_{y\in X_{n}}a_{y}\overline{y}$
+\end_inset
+
+ con los 
+\begin_inset Formula $a_{y}\in A$
+\end_inset
+
+ casi todos nulos, de modo que 
+\begin_inset Formula $x'\coloneqq x-\sum_{y\in X_{n}}a_{y}y\in M_{n-1}$
+\end_inset
+
+ y, como 
+\begin_inset Formula $x'\in(\bigcup_{i=1}^{n-1}X_{i})$
+\end_inset
+
+, 
+\begin_inset Formula $x\in(\bigcup_{i=1}^{n}X_{i})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $_{A}M$
+\end_inset
+
+ es finitamente generado de torsión, 
+\begin_inset Formula $p$
+\end_inset
+
+ es un divisor irreducible de 
+\begin_inset Formula $M$
+\end_inset
+
+, 
+\begin_inset Formula $n\coloneqq\min\{s\in\mathbb{N}^{*}\mid\text{ann}_{M}(p^{s})=\text{ann}_{M}(p^{s+1})\}$
+\end_inset
+
+ y 
+\begin_inset Formula $(F_{h})_{h=1}^{n}$
+\end_inset
+
+ es una familia de subconjuntos de 
+\begin_inset Formula $M(p)$
+\end_inset
+
+ tal que cada 
+\begin_inset Formula $F_{h}\subseteq\text{ann}_{M}(p^{h})$
+\end_inset
+
+ y cada 
+\begin_inset Formula $F_{h}\cup pF_{h+1}\cup\dots\cup p^{n-h}F_{n}$
+\end_inset
+
+ es una unión disjunta que induce una base de 
+\begin_inset Formula $\frac{\text{ann}_{M}(p^{h})}{\text{ann}_{M}(p^{h-1})}$
+\end_inset
+
+ como 
+\begin_inset Formula $\frac{A}{(p)}$
+\end_inset
+
+-espacio vectorial:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall x\in\bigcup_{i=1}^{n}F_{h},Ax\cong\frac{A}{(p^{h})}\iff x\in F_{h}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $Ax\cong\frac{A}{(p^{h})}$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $\text{ann}_{A}(x)=p^{h}$
+\end_inset
+
+.
+ Ahora bien, si 
+\begin_inset Formula $x\in F_{h}\subseteq\text{ann}_{M}(p^{h})$
+\end_inset
+
+, 
+\begin_inset Formula $p^{h}\in\text{ann}_{A}(x)$
+\end_inset
+
+ y 
+\begin_inset Formula $(p^{h})\subseteq\text{ann}_{A}(x)$
+\end_inset
+
+, pero si 
+\begin_inset Formula $a\in\text{ann}_{A}(x)$
+\end_inset
+
+, tomando 
+\begin_inset Formula $a\eqqcolon p^{s}b$
+\end_inset
+
+ con 
+\begin_inset Formula $s\in\mathbb{N}$
+\end_inset
+
+ y 
+\begin_inset Formula $b\nmid p$
+\end_inset
+
+, si fuera 
+\begin_inset Formula $s<h$
+\end_inset
+
+, 
+\begin_inset Formula $\overline{p^{s}x}\in p^{s}F_{h}$
+\end_inset
+
+ es elemento de una base de 
+\begin_inset Formula $\frac{\text{ann}_{M}(p^{h-s})}{\text{ann}_{M}(p^{h-s-1})}$
+\end_inset
+
+, y como 
+\begin_inset Formula $ax=0$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $\overline{bp^{s}x}=\overline{ax}=0$
+\end_inset
+
+, se tiene 
+\begin_inset Formula $\overline{b}=0$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in(p)\#$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $s\geq h$
+\end_inset
+
+, 
+\begin_inset Formula $a\in(p^{h})$
+\end_inset
+
+ y 
+\begin_inset Formula $\text{ann}_{A}(x)\subseteq(p^{h})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $M(p)=\bigoplus_{h=1}^{n}\bigoplus_{x\in F_{h}}Ax$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $0=\text{ann}_{M}(p^{0})\subseteq\text{ann}_{M}(p^{1})\subseteq\dots\subseteq\text{ann}_{M}(p^{n})=M(p)$
+\end_inset
+
+, y si 
+\begin_inset Formula $X_{h}\coloneqq F_{h}\cup pF_{h+1}\cup\dots\cup p^{n-h}F_{n}$
+\end_inset
+
+, cada 
+\begin_inset Formula $\overline{X_{h}}$
+\end_inset
+
+ genera 
+\begin_inset Formula $\frac{\text{ann}_{M}(p^{h})}{\text{ann}_{M}(p^{h-1})}$
+\end_inset
+
+ y 
+\begin_inset Formula $X\coloneqq\bigcup_{h=1}^{n}X_{h}$
+\end_inset
+
+ genera 
+\begin_inset Formula $M(p)$
+\end_inset
+
+, pero 
+\begin_inset Formula $X\subseteq(\bigcup_{i=1}^{n}F_{i})=\sum_{i=1}^{n}\sum_{x\in F_{i}}Ax$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $M(p)=\sum_{h=1}^{n}\sum_{x\in F_{h}}Ax$
+\end_inset
+
+.
+ Para ver que la suma es directa, si 
+\begin_inset Formula $n=1$
+\end_inset
+
+, 
+\begin_inset Formula $M(p)=\text{ann}_{M}(p)$
+\end_inset
+
+ es un espacio vectorial con base 
+\begin_inset Formula $F_{1}$
+\end_inset
+
+ ya que la proyección canónica 
+\begin_inset Formula $\text{ann}_{M}(p)\to\frac{\text{ann}_{M}(p)}{\text{ann}_{M}(1)}$
+\end_inset
+
+ es un isomorfismo.
+ Si 
+\begin_inset Formula $n>1$
+\end_inset
+
+, probado esto para 
+\begin_inset Formula $n-1$
+\end_inset
+
+, sea 
+\begin_inset Formula $\sum_{h=1}^{n}\sum_{x\in F_{h}}a_{x}x=0$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{x\in F_{n}}a_{x}x=-\sum_{h=1}^{n-1}\sum_{x\in F_{h}}a_{x}x\in(\bigcup_{h=1}^{n-1}F_{h})\subseteq\text{ann}_{M}(p^{n-1})$
+\end_inset
+
+, pero 
+\begin_inset Formula $F_{n}$
+\end_inset
+
+ induce una base del 
+\begin_inset Formula $\frac{A}{(p)}$
+\end_inset
+
+-espacio vectorial 
+\begin_inset Formula $\frac{\text{ann}_{M}(p^{n})}{\text{ann}_{M}(p^{n-1})}$
+\end_inset
+
+ y, como 
+\begin_inset Formula $\sum_{x\in F_{n}}\overline{a_{x}}\overline{x}=0\in\frac{\text{ann}_{M}(p^{n})}{\text{ann}_{M}(p^{n-1})}$
+\end_inset
+
+, cada 
+\begin_inset Formula $a_{x}\in(p)$
+\end_inset
+
+ y, llamando 
+\begin_inset Formula $a_{x}\coloneqq pa'_{x}$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{x\in F_{n}}a'_{x}(px)+\sum_{x\in\bigcup_{h=1}^{n-1}F_{h}}a_{x}x=0$
+\end_inset
+
+, pero llamando 
+\begin_inset Formula $F'_{h}\coloneqq F_{h}$
+\end_inset
+
+ para 
+\begin_inset Formula $h<n-1$
+\end_inset
+
+ y 
+\begin_inset Formula $F'_{n-1}\coloneqq F_{n-1}\cup pF_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $(F'_{h})_{h=1}^{n-1}$
+\end_inset
+
+ cumple respecto a 
+\begin_inset Formula $\text{ann}_{M}(p^{n-1})$
+\end_inset
+
+ las mismas propiedades de 
+\begin_inset Formula $(F_{h})_{h=1}^{n}$
+\end_inset
+
+ para 
+\begin_inset Formula $M(p)$
+\end_inset
+
+, y por hipótesis de inducción los submódulos 
+\begin_inset Formula $\{Apx\}_{x\in F_{n}}\cup\bigcup_{h=1}^{n-1}\{Ax\}_{x\in F_{h}}$
+\end_inset
+
+ son independientes, con lo que los 
+\begin_inset Formula $a_{x}$
+\end_inset
+
+ son todos nulos.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $|F_{h}|$
+\end_inset
+
+ es el número de divisores elementales de 
+\begin_inset Formula $M$
+\end_inset
+
+ iguales a 
+\begin_inset Formula $p^{h}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $M(p)\cong\bigoplus_{h=1}^{n}\bigoplus_{x\in F_{h}}\frac{A}{(p^{h})}=\bigoplus_{h=1}^{n}\left(\frac{A}{(p^{h})}\right)^{|F_{h}|}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Podemos encontrar tal familia tomando una base 
+\begin_inset Formula $(\overline{x_{i}})_{i}$
+\end_inset
+
+ de 
+\begin_inset Formula $\frac{\text{ann}_{M}(p^{h})}{\text{ann}_{M}(p^{h-1})}$
+\end_inset
+
+, haciendo 
+\begin_inset Formula $F_{n}\coloneqq\{x_{i}\}_{i}$
+\end_inset
+
+ y, para 
+\begin_inset Formula $h$
+\end_inset
+
+ de 
+\begin_inset Formula $n-1$
+\end_inset
+
+ hasta 1, completando el conjunto linealmente independiente de 
+\begin_inset Formula $\frac{\text{ann}_{M}(p^{h})}{\text{ann}_{M}(p^{h-1})}$
+\end_inset
+
+ inducido por 
+\begin_inset Formula $pF_{h+1}\cup p^{2}F_{h+2}\cup\dots\cup p^{n-h}F_{n}$
+\end_inset
+
+ con vectores 
+\begin_inset Formula $(\overline{x_{i}})_{i}$
+\end_inset
+
+ para formar una base y haciendo 
+\begin_inset Formula $F_{h}\coloneqq\{x_{i}\}_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para 
+\begin_inset Formula $h=n$
+\end_inset
+
+, la 
+\begin_inset Formula $F_{n}$
+\end_inset
+
+ definida cumple las propiedades.
+ Si 
+\begin_inset Formula $h<n$
+\end_inset
+
+ y 
+\begin_inset Formula $F_{h+1},\dots,F_{n}$
+\end_inset
+
+ cumplen las propiedades, 
+\begin_inset Formula $pF_{h+1}\cup\dots\cup p^{n-h}F_{n}$
+\end_inset
+
+ es una unión disjunta ya que, si hubiera 
+\begin_inset Formula $i,j\in\{h+1,\dots,n\}$
+\end_inset
+
+ con 
+\begin_inset Formula $i<j$
+\end_inset
+
+ y 
+\begin_inset Formula $p^{i-h}F_{i}\cap p^{j-h}F_{j}\neq\emptyset$
+\end_inset
+
+, sean 
+\begin_inset Formula $x\in F_{i}$
+\end_inset
+
+ e 
+\begin_inset Formula $y\in F_{j}$
+\end_inset
+
+ con 
+\begin_inset Formula $p^{i-h}x=p^{j-h}y$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $p^{i-h}(x-p^{j-i}y)=0$
+\end_inset
+
+, entonces 
+\begin_inset Formula $x-p^{j-i}y\in\text{ann}_{M}(p^{j-h})\subseteq\text{ann}_{M}(p^{j-1})$
+\end_inset
+
+, pero 
+\begin_inset Formula $x$
+\end_inset
+
+ y 
+\begin_inset Formula $p^{j-i}y$
+\end_inset
+
+ son elementos de una base de 
+\begin_inset Formula $\frac{\text{ann}_{M}(p^{j})}{\text{ann}_{M}(p^{j-1})}\#$
+\end_inset
+
+.
+ Además, 
+\begin_inset Formula $\phi:\frac{\text{ann}_{M}(p^{h+1})}{\text{ann}_{M}(p^{h})}\rightarrowtail\frac{\text{ann}_{M}(p^{h})}{\text{ann}_{M}(p^{h-1})}$
+\end_inset
+
+ dado por 
+\begin_inset Formula $\phi(\overline{z})\coloneqq p\overline{z}$
+\end_inset
+
+ es un monomorfismo ya que 
+\begin_inset Formula $p\overline{z}=0\iff pz\in\text{ann}_{M}(p^{h-1})\iff z\in\text{ann}_{M}(p^{h})\iff\overline{z}=0$
+\end_inset
+
+, y como 
+\begin_inset Formula $F_{h+1}\cup\dots\cup p^{n-h-1}F_{n}$
+\end_inset
+
+ induce una base de 
+\begin_inset Formula $\frac{\text{ann}_{M}(p^{h+1})}{\text{ann}_{M}(p^{h})}$
+\end_inset
+
+, 
+\begin_inset Formula $pF_{h+1}\cup\dots\cup p^{n-h}F_{n}$
+\end_inset
+
+ induce una familia linealmente independiente en 
+\begin_inset Formula $\frac{\text{ann}_{M}(p^{h})}{\text{ann}_{M}(p^{h-1})}$
+\end_inset
+
+.
+ Completamos esta familia para formar una base y ahora la unión sigue siendo
+ disjunta por inducir una base.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Descomposiciones en dominios euclídeos
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{reminder}{GyA}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado un dominio 
+\begin_inset Formula $D\neq0$
+\end_inset
+
+, una función 
+\begin_inset Formula $\delta:D\setminus\{0\}\to\mathbb{N}$
+\end_inset
+
+ es 
+\series bold
+euclídea
+\series default
+ si cumple:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall a,b\in D\setminus\{0\},(a\mid b\implies\delta(a)\leq\delta(b))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall a\in D,b\in D\setminus\{0\},\exists q,r\in D\mid(a=bq+r\land(r=0\lor\delta(r)<\delta(b)))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+dominio euclídeo
+\series default
+ es uno que admite una función euclídea.
+\end_layout
+
+\begin_layout Enumerate
+El valor absoluto es una función euclídea en 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+El cuadrado del módulo complejo es una función euclídea en 
+\begin_inset Formula $\mathbb{Z}[i]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\delta$
+\end_inset
+
+ una función euclídea en 
+\begin_inset Formula $D$
+\end_inset
+
+, 
+\begin_inset Formula $I$
+\end_inset
+
+ un ideal de 
+\begin_inset Formula $D$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in I\setminus\{0\}$
+\end_inset
+
+, entonces 
+\begin_inset Formula 
+\[
+I=(a)\iff\forall x\in I\setminus\{0\},\delta(a)\leq\delta(x).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+[...] Todo dominio euclídeo es DIP.
+ Si 
+\begin_inset Formula $\delta$
+\end_inset
+
+ es una función euclídea en 
+\begin_inset Formula $D$
+\end_inset
+
+, un elemento 
+\begin_inset Formula $a\in D$
+\end_inset
+
+ es una unidad si y sólo si 
+\begin_inset Formula $\delta(a)=\delta(1)$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $\forall x\in D\setminus\{0\},\delta(a)\leq\delta(x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{reminder}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, sean 
+\begin_inset Formula $A$
+\end_inset
+
+ un dominio euclídeo, 
+\begin_inset Formula $C\in{\cal M}_{m\times n}(A)$
+\end_inset
+
+ y 
+\begin_inset Formula $A^{r}\oplus\bigoplus_{i=1}^{t}\frac{A}{(d_{i})}$
+\end_inset
+
+ la descomposición invariante externa de 
+\begin_inset Formula $M(C)$
+\end_inset
+
+, 
+\begin_inset Formula $C$
+\end_inset
+
+ es equivalente a
+\begin_inset Formula 
+\[
+\begin{pmatrix}\boxed{I_{m-r-t}}\\
+ & d_{1}\\
+ &  & \ddots\\
+ &  &  & d_{t}\\
+ &  &  &  & \phantom{0}
+\end{pmatrix}\in{\cal M}_{m\times n}(A),
+\]
+
+\end_inset
+
+llamada 
+\series bold
+forma normal
+\series default
+ de 
+\begin_inset Formula $C$
+\end_inset
+
+ y a la que se puede llegar desde 
+\begin_inset Formula $C$
+\end_inset
+
+ por transformaciones elementales.
+ 
+\series bold
+Demostración:
+\series default
+ Primero vemos que 
+\begin_inset Formula $C$
+\end_inset
+
+ se puede llevar a una matriz 
+\begin_inset Formula $D$
+\end_inset
+
+ de la forma dada con 
+\begin_inset Formula $d_{1}\mid\dots\mid d_{t}$
+\end_inset
+
+ y luego que 
+\begin_inset Formula $M(D)$
+\end_inset
+
+ tiene la descomposición invariante indicada, y el resultado se obtiene
+ de que 
+\begin_inset Formula $M(C)\cong M(D)$
+\end_inset
+
+ y de la unicidad de la descomposición invariante.
+ Para lo primero, si 
+\begin_inset Formula $C=0$
+\end_inset
+
+, 
+\begin_inset Formula $m=0$
+\end_inset
+
+ o 
+\begin_inset Formula $n=0$
+\end_inset
+
+ no hay que hacer nada.
+ En otro caso, sean 
+\begin_inset Formula ${\cal C}\subseteq{\cal M}_{m\times n}(A)$
+\end_inset
+
+ el conjunto de matrices alcanzables desde 
+\begin_inset Formula $C$
+\end_inset
+
+ por transformaciones elementales en filas y columnas, 
+\begin_inset Formula $\delta:A\setminus\{0\}\to\mathbb{N}$
+\end_inset
+
+ una función euclídea y 
+\begin_inset Formula $X\in{\cal C}$
+\end_inset
+
+ e índices 
+\begin_inset Formula $i,j$
+\end_inset
+
+ con 
+\begin_inset Formula $\delta_{0}\coloneqq\delta(X_{ij})$
+\end_inset
+
+ mínimo, por intercambio de filas 1 e 
+\begin_inset Formula $i$
+\end_inset
+
+ y de columnas 1 y 
+\begin_inset Formula $j$
+\end_inset
+
+ podemos suponer 
+\begin_inset Formula $i=j=1$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $j\in\{2,\dots,n\}$
+\end_inset
+
+, si fuera 
+\begin_inset Formula $X_{11}\nmid X_{1j}$
+\end_inset
+
+ sería 
+\begin_inset Formula $X_{1j}\eqqcolon qX_{11}+r$
+\end_inset
+
+ con 
+\begin_inset Formula $r\neq0$
+\end_inset
+
+ y 
+\begin_inset Formula $\delta(r)<\delta(X_{11})$
+\end_inset
+
+, pero restando a la columna 
+\begin_inset Formula $j$
+\end_inset
+
+ la primera por 
+\begin_inset Formula $q_{1j}$
+\end_inset
+
+ quedaría una matriz 
+\begin_inset Formula $X'$
+\end_inset
+
+ con 
+\begin_inset Formula $\delta(X'_{1j})<\delta(X_{11})=\delta_{0}\#$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $X_{11}\mid X_{1j}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $j$
+\end_inset
+
+ y, análogamente, 
+\begin_inset Formula $X_{11}\mid X_{1i}$
+\end_inset
+
+ para todo 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Si ahora definimos 
+\begin_inset Formula $q_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ de modo que cada 
+\begin_inset Formula $X_{i1}=q_{i}X_{11}$
+\end_inset
+
+ y cada 
+\begin_inset Formula $X_{1j}=s_{j}X_{11}$
+\end_inset
+
+, restando a la fila 
+\begin_inset Formula $i$
+\end_inset
+
+ la primera por 
+\begin_inset Formula $q_{i}$
+\end_inset
+
+ y a la columna 
+\begin_inset Formula $j$
+\end_inset
+
+ la primera por 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ queda una matriz
+\begin_inset Formula 
+\[
+Y=\left(\begin{array}{c|c}
+X_{11} & 0\\
+\hline 0 & B
+\end{array}\right),
+\]
+
+\end_inset
+
+pero para 
+\begin_inset Formula $i,j\geq2$
+\end_inset
+
+, si fuera 
+\begin_inset Formula $X_{11}\nmid Y_{ij}$
+\end_inset
+
+, sumando a la primera fila la 
+\begin_inset Formula $i$
+\end_inset
+
+-ésima quedaría una matriz 
+\begin_inset Formula $Z$
+\end_inset
+
+ con 
+\begin_inset Formula $Z_{11}=X_{11}$
+\end_inset
+
+ y 
+\begin_inset Formula $Z_{i1}=Y_{ij}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $Z_{i1}=qZ_{11}+r$
+\end_inset
+
+ con 
+\begin_inset Formula $r\neq0$
+\end_inset
+
+ y 
+\begin_inset Formula $\delta(r)<\delta(Z_{11})=\delta(X_{11})=\delta_{0}$
+\end_inset
+
+ y, restando a la 
+\begin_inset Formula $i$
+\end_inset
+
+-ésima fila la primera por 
+\begin_inset Formula $q$
+\end_inset
+
+, se obtendría una matriz 
+\begin_inset Formula $Z'$
+\end_inset
+
+ con 
+\begin_inset Formula $\delta(Z'_{i1})<\delta_{0}\#$
+\end_inset
+
+.
+ Por tanto 
+\begin_inset Formula $X_{11}$
+\end_inset
+
+ divide a todo elemento de 
+\begin_inset Formula $B$
+\end_inset
+
+, y si 
+\begin_inset Formula $B\eqqcolon XB'$
+\end_inset
+
+, por inducción 
+\begin_inset Formula $B'$
+\end_inset
+
+ es semejante a una matriz de la forma original y por tanto 
+\begin_inset Formula $B$
+\end_inset
+
+ también lo es e 
+\begin_inset Formula $Y_{11}\mid Y_{22}\mid\dots$
+\end_inset
+
+, pero como los 
+\begin_inset Formula $Y_{ii}$
+\end_inset
+
+ nulos están al final de la 
+\begin_inset Quotes cld
+\end_inset
+
+diagonal
+\begin_inset Quotes crd
+\end_inset
+
+ y los invertibles están al principio, si hay digamos 
+\begin_inset Formula $k$
+\end_inset
+
+ invertibles, multiplicando 
+\begin_inset Formula $Y$
+\end_inset
+
+ por 
+\begin_inset Formula $\text{diag}(Y_{11}^{-1},\dots,Y_{kk}^{-1},1,\dots,1)$
+\end_inset
+
+ se obtiene la matriz 
+\begin_inset Formula $D$
+\end_inset
+
+.
+ Para la segunda parte, sean 
+\begin_inset Formula $s\coloneqq m-r-t$
+\end_inset
+
+, 
+\begin_inset Formula $(e_{i})_{i=1}^{n}$
+\end_inset
+
+ la base canónica de 
+\begin_inset Formula $A^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $(f_{i})_{i=1}^{m}$
+\end_inset
+
+ la de 
+\begin_inset Formula $A^{m}$
+\end_inset
+
+, 
+\begin_inset Formula $f_{D}\coloneqq(v\mapsto Dv):A^{n}\to A^{m}$
+\end_inset
+
+ lleva a cada 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+ a 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ para 
+\begin_inset Formula $i\in\{1,\dots,s\}$
+\end_inset
+
+, a cada 
+\begin_inset Formula $e_{s+i}$
+\end_inset
+
+ a 
+\begin_inset Formula $d_{i}f_{s+i}$
+\end_inset
+
+ para 
+\begin_inset Formula $i\in\{1,\dots,t\}$
+\end_inset
+
+ y al resto de elementos de la base canónica a 0, luego descomponiendo 
+\begin_inset Formula $A^{n}=A^{s}\oplus A^{t}\oplus A^{n-s-t}$
+\end_inset
+
+ y 
+\begin_inset Formula $A^{m}=A^{s}\oplus A^{t}\oplus A^{r}$
+\end_inset
+
+ se puede descomponer 
+\begin_inset Formula $f_{D}=1_{A^{s}}\oplus\left(\bigoplus_{i=1}^{t}(a\mapsto d_{i}a)\right)\oplus0$
+\end_inset
+
+ con 
+\begin_inset Formula $0:A^{n-s-t}\to A^{r}$
+\end_inset
+
+ y 
+\begin_inset Formula 
+\[
+\frac{A}{M(D)}=\frac{A}{\text{Im}f_{D}}\cong\frac{A^{s}}{A^{s}}\oplus\left(\bigoplus_{i=1}^{t}\frac{A}{(d_{i})}\right)\oplus\frac{A^{r}}{0}\cong A^{r}\oplus\bigoplus_{i=1}^{t}\frac{A}{(d_{i})}
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $d_{1}\mid\dots\mid d_{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es un dominio euclídeo:
+\end_layout
+
+\begin_layout Enumerate
+La forma normal de 
+\begin_inset Formula $P\in\text{GL}_{k}(A)$
+\end_inset
+
+ es 
+\begin_inset Formula $I_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Es de la forma 
+\begin_inset Formula $\text{diag}(1,\dots,1,d_{1},\dots,d_{t},0,\dots,0)$
+\end_inset
+
+ con los 
+\begin_inset Formula $d_{i}$
+\end_inset
+
+ no invertibles, pero es invertible y una matriz diagonal invertible debe
+ tener todos los elementos de la diagonal invertibles.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $C,D\in{\cal M}_{m\times n}(A)$
+\end_inset
+
+ son equivalentes, es posible llegar de 
+\begin_inset Formula $C$
+\end_inset
+
+ a 
+\begin_inset Formula $D$
+\end_inset
+
+ por transformaciones elementales en filas y columnas.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Existen matrices invertibles 
+\begin_inset Formula $P$
+\end_inset
+
+ y 
+\begin_inset Formula $Q$
+\end_inset
+
+ con 
+\begin_inset Formula $D=PCQ$
+\end_inset
+
+, pero desde 
+\begin_inset Formula $P$
+\end_inset
+
+ o 
+\begin_inset Formula $Q$
+\end_inset
+
+ se puede llegar a su forma normal, que es la identidad, por transformaciones
+ elementales, de modo que 
+\begin_inset Formula $P$
+\end_inset
+
+ y 
+\begin_inset Formula $Q$
+\end_inset
+
+ son productos de matrices elementales.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Presentaciones de grupos abelianos finitamente generados
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+presentación
+\series default
+ de un grupo abeliano finitamente generado 
+\begin_inset Formula $M$
+\end_inset
+
+ es una expresión 
+\begin_inset Formula 
+\[
+(x_{1},\dots,x_{m}/\rho_{1},\dots,\rho_{n}),
+\]
+
+\end_inset
+
+ donde los 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ son variables o 
+\series bold
+generadores
+\series default
+ y los 
+\begin_inset Formula $\rho_{j}=\sum_{i=1}^{m}c_{ij}x_{i}$
+\end_inset
+
+ son 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+-combinaciones lineales de dichas variables o 
+\series bold
+relatores
+\series default
+, de forma que 
+\begin_inset Formula $M\cong\frac{F}{N}$
+\end_inset
+
+ siendo 
+\begin_inset Formula $F$
+\end_inset
+
+ el grupo abeliano libre con base 
+\begin_inset Formula $\{x_{1},\dots,x_{n}\}$
+\end_inset
+
+ y 
+\begin_inset Formula $N$
+\end_inset
+
+ su subgrupo generado por los 
+\begin_inset Formula $\rho_{j}$
+\end_inset
+
+, o equivalentemente, 
+\begin_inset Formula $M\cong M(C)$
+\end_inset
+
+ para 
+\begin_inset Formula $C=(c_{ij})\in{\cal M}_{m\times n}(\mathbb{Z})$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Existe un único homomorfismo 
+\begin_inset Formula $f:\mathbb{Z}^{n}\to F$
+\end_inset
+
+ que lleva cada 
+\begin_inset Formula $e_{j}$
+\end_inset
+
+ de la base canónica de 
+\begin_inset Formula $\mathbb{Z}^{n}$
+\end_inset
+
+ a 
+\begin_inset Formula $\rho_{j}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\text{Im}f=N$
+\end_inset
+
+, y un único isomorfismo 
+\begin_inset Formula $\phi:F\to\mathbb{Z}^{m}$
+\end_inset
+
+ que lleva cada 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ al elemento 
+\begin_inset Formula $\hat{e}_{i}$
+\end_inset
+
+ de la base canónica de 
+\begin_inset Formula $\mathbb{Z}^{m}$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\phi\circ f$
+\end_inset
+
+ lleva cada 
+\begin_inset Formula $e_{j}$
+\end_inset
+
+ a 
+\begin_inset Formula $(c_{1j},\dots,c_{mj})$
+\end_inset
+
+ y por tanto cada 
+\begin_inset Formula $v\in\mathbb{Z}^{n}$
+\end_inset
+
+ a 
+\begin_inset Formula $Cv$
+\end_inset
+
+ y 
+\begin_inset Formula $M(C)=\frac{\mathbb{Z}^{m}}{\text{Im}(\phi\circ f)}=\frac{\phi(F)}{\phi(N)}\cong\frac{F}{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para encontrar la estructura de un grupo abeliano finitamente generado a
+ partir de su presentación por generadores y relatores:
+\end_layout
+
+\begin_layout Enumerate
+Usar transformaciones elementales sobre la matriz 
+\begin_inset Formula $C$
+\end_inset
+
+ asociada a la presentación hasta llegar a su forma normal 
+\begin_inset Formula $D=PCQ$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Obtener el rango libre de torsión de 
+\begin_inset Formula $D$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Obtener los factores invariantes 
+\begin_inset Formula $d_{j}$
+\end_inset
+
+ de 
+\begin_inset Formula $D$
+\end_inset
+
+ y usar el teorema chino de los restos para factorizar cada 
+\begin_inset Formula $\mathbb{Z}_{d_{j}}$
+\end_inset
+
+ en producto finito de grupos abelianos de la forma 
+\begin_inset Formula $\mathbb{Z}_{p_{i}^{n_{ij}}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Una vez obtenida de aquí la descomposición primaria externa, convertirla
+ trivialmente en descomposición primaria interna de 
+\begin_inset Formula $M(D)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Multiplicar cada sumando directo en esta descomposición por 
+\begin_inset Formula $P^{-1}$
+\end_inset
+
+, obteniendo una descomposición directa interna de 
+\begin_inset Formula $M(P^{-1}D)=M(CQ)=M(C)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{exinfo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+determinante
+\series default
+ del endomorfismo 
+\begin_inset Formula $g:\mathbb{Z}^{n}\to\mathbb{Z}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\det g$
+\end_inset
+
+, a 
+\begin_inset Formula $\det M_{{\cal BB}}(g)$
+\end_inset
+
+ para cualquier base 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ de 
+\begin_inset Formula $\mathbb{Z}^{n}$
+\end_inset
+
+, que no depende de la base elegida, y entonces 
+\begin_inset Formula $\frac{\mathbb{Z}^{n}}{\text{Im}g}$
+\end_inset
+
+ es finito si y sólo si 
+\begin_inset Formula $\det g\neq0$
+\end_inset
+
+, en cuyo caso su orden es el valor absoluto de 
+\begin_inset Formula $\det g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{exinfo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
