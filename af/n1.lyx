@@ -9243,7 +9243,898 @@ método de Galerkin
 \end_layout
 
 \begin_layout Section
-Bases hilbertianas
+Redes
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+conjunto dirigido
+\series default
+ es un par 
+\begin_inset Formula $(D,\geq)$
+\end_inset
+
+ formado por un conjunto 
+\begin_inset Formula $D$
+\end_inset
+
+ y una relación 
+\begin_inset Formula $\geq$
+\end_inset
+
+ transitiva reflexiva y tal que 
+\begin_inset Formula $\forall i,j\in D,\exists k\in D:k\geq i,j$
+\end_inset
+
+.
+ Una 
+\series bold
+red
+\series default
+ en un conjunto 
+\begin_inset Formula $Y$
+\end_inset
+
+ es una función 
+\begin_inset Formula $\phi:D\to Y$
+\end_inset
+
+ donde 
+\begin_inset Formula $(D,\geq)$
+\end_inset
+
+ es un conjunto dirigido, que escribimos como 
+\begin_inset Formula $\phi\eqqcolon\{\omega_{i}\}_{i\in D}$
+\end_inset
+
+ con 
+\begin_inset Formula $\omega_{i}\coloneqq\phi(i)$
+\end_inset
+
+.
+ Todo conjunto totalmente ordenado es dirigido, y en particular 
+\begin_inset Formula $(\mathbb{N},\geq)$
+\end_inset
+
+ lo es y así las sucesiones son redes.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio topológico, la red 
+\begin_inset Formula $\{x_{i}\}_{i\in D}\subseteq X$
+\end_inset
+
+ 
+\series bold
+converge
+\series default
+ a 
+\begin_inset Formula $z\in T$
+\end_inset
+
+ (con 
+\series bold
+convergencia de Moore-Smith
+\series default
+) si 
+\begin_inset Formula $\forall V\in{\cal E}(z),\exists i_{0}\in D:\forall i\geq i_{0},x_{i}\in V$
+\end_inset
+
+, y 
+\begin_inset Formula $s\in X$
+\end_inset
+
+ es 
+\series bold
+de aglomeración
+\series default
+ de 
+\begin_inset Formula $(x_{i})_{i\in D}$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall V\in{\cal E}(s),\forall j\in D,\exists i\geq j:x_{i}\in V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es un espacio normado, una red 
+\begin_inset Formula $\{x_{i}\}_{i\in D}\subseteq X$
+\end_inset
+
+ es 
+\series bold
+de Cauchy
+\series default
+ o satisface la 
+\series bold
+condición de Cauchy
+\series default
+ si 
+\begin_inset Formula 
+\[
+\forall\varepsilon>0,\exists i_{0}\in D:\forall i,j\geq i_{0},\Vert x_{i}-x_{j}\Vert<\varepsilon.
+\]
+
+\end_inset
+
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es de Banach, toda red de Cauchy es convergente.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+subred
+\series default
+ de la red 
+\begin_inset Formula $\phi:D\to Y$
+\end_inset
+
+ es una red 
+\begin_inset Formula $\phi\circ\rho:J\to Y$
+\end_inset
+
+ para cierta 
+\begin_inset Formula $\rho:J\to D$
+\end_inset
+
+ que cumple que 
+\begin_inset Formula $\forall i_{0}\in D,\exists j_{0}\in J:\forall j\geq j_{0},\rho(j)\geq i_{0}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $D$
+\end_inset
+
+ es un conjunto dirigido, 
+\begin_inset Formula $J\subseteq D$
+\end_inset
+
+ es 
+\series bold
+cofinal
+\series default
+ en 
+\begin_inset Formula $D$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall i\in D,\exists j\in J:j\geq i$
+\end_inset
+
+, y entonces, si 
+\begin_inset Formula $(\omega_{i})_{i\in D}$
+\end_inset
+
+ es una red, 
+\begin_inset Formula $(\omega_{i})_{i\in J}$
+\end_inset
+
+ es una subred suya.
+ Si una red converge en un espacio topológico, toda subred suya converge
+ al mismo punto.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $X$
+\end_inset
+
+ un espacio topológico:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X$
+\end_inset
+
+ es de Hausdorff si y sólo si toda red 
+\begin_inset Formula $\{x_{i}\}_{i\in D}\subseteq X$
+\end_inset
+
+ convergente converge a un único 
+\begin_inset Formula $z\in X$
+\end_inset
+
+, en cuyo caso 
+\begin_inset Formula $z$
+\end_inset
+
+ es el 
+\series bold
+límite
+\series default
+ de la red, 
+\begin_inset Formula $\lim_{i\in D}x_{i}=z$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\begin_inset Formula $s\in X$
+\end_inset
+
+ es de aglomeración de una red en 
+\begin_inset Formula $X$
+\end_inset
+
+ si y sólo si esta admite una subred convergente a 
+\begin_inset Formula $s$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+ es cerrado si y sólo si toda red convergente en 
+\begin_inset Formula $A$
+\end_inset
+
+ tiene límite en 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $s\in X$
+\end_inset
+
+ y 
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+, 
+\begin_inset Formula $s\in\overline{A}$
+\end_inset
+
+ si y sólo si es límite de una red en 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $Y$
+\end_inset
+
+ es otro espacio topológico, 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ es continua en 
+\begin_inset Formula $a\in Y$
+\end_inset
+
+ si y sólo si lleva redes en 
+\begin_inset Formula $X$
+\end_inset
+
+ convergentes a 
+\begin_inset Formula $a$
+\end_inset
+
+ a redes en 
+\begin_inset Formula $Y$
+\end_inset
+
+ convergentes a 
+\begin_inset Formula $f(a)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+ es compacto si y sólo si toda red en 
+\begin_inset Formula $A$
+\end_inset
+
+ posee una subred convergente a un punto de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio métrico, 
+\begin_inset Formula $s\in X$
+\end_inset
+
+ es de aglomeración de una sucesión si y sólo si esta posee una subsucesión
+ convergente a 
+\begin_inset Formula $s$
+\end_inset
+
+, pero esto no es cierto en espacios topológicos arbitrarios.
+ Sean 
+\begin_inset Formula $X\coloneqq\mathbb{N}\times\mathbb{N}$
+\end_inset
+
+ y 
+\begin_inset Formula 
+\[
+{\cal T}\coloneqq\{\{x\}\}_{x\in X\setminus0}\cup\{V\subseteq X\mid(0,0)\in V\land\exists n_{0}\in\mathbb{N}:\forall n\geq n_{0},\{m\in\mathbb{N}\mid(n,m)\notin V\}\text{ es finito}\},
+\]
+
+\end_inset
+
+
+\begin_inset Formula $(X,{\cal T})$
+\end_inset
+
+ es un espacio de Hausdorff en el que ninguna sucesión converge a 
+\begin_inset Formula $(0,0)$
+\end_inset
+
+ pero la sucesión resultante de enumerar 
+\begin_inset Formula $A$
+\end_inset
+
+ según el proceso diagonal de Cantor tiene a 
+\begin_inset Formula $(0,0)$
+\end_inset
+
+ como punto de aglomeración.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $Y\coloneqq[0,1]^{\mathbb{R}}$
+\end_inset
+
+ con la topología producto y, para 
+\begin_inset Formula $y\in Y$
+\end_inset
+
+, 
+\begin_inset Formula $\text{sop}(y)\coloneqq\{\gamma\in\mathbb{R}\mid y_{\gamma}\neq0\}$
+\end_inset
+
+, 
+\begin_inset Formula $D\coloneqq\{y\in Y\mid\text{sop}(x_{\gamma})_{\gamma\in\mathbb{R}}\text{ contable}\}$
+\end_inset
+
+ es denso en 
+\begin_inset Formula $Y$
+\end_inset
+
+ y cerrado por sucesiones, y de hecho, toda sucesión en 
+\begin_inset Formula $D$
+\end_inset
+
+ tiene una subsucesión convergente a un punto de 
+\begin_inset Formula $D$
+\end_inset
+
+, pero 
+\begin_inset Formula $D$
+\end_inset
+
+ no es cerrado ni compacto.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Familias sumables
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $I\neq\emptyset$
+\end_inset
+
+, llamamos 
+\begin_inset Formula ${\cal P}_{0}(I)\coloneqq\{J\subseteq I\mid J\text{ finito}\}$
+\end_inset
+
+, que es un conjunto dirigido por 
+\begin_inset Formula $\supseteq$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es un espacio normado e 
+\begin_inset Formula $I\neq\emptyset$
+\end_inset
+
+, 
+\begin_inset Formula $\{x_{i}\}_{i\in I}\subseteq X$
+\end_inset
+
+ es 
+\series bold
+sumable
+\series default
+ con 
+\series bold
+suma
+\series default
+ 
+\begin_inset Formula $s\in X$
+\end_inset
+
+ si 
+\begin_inset Formula $(\sum_{i\in J}x_{i})_{J\in{\cal P}_{0}(I)}$
+\end_inset
+
+ converge a 
+\begin_inset Formula $s$
+\end_inset
+
+, y es 
+\series bold
+absolutamente sumable
+\series default
+ si 
+\begin_inset Formula $(\Vert x_{i}\Vert)_{i\in I}$
+\end_inset
+
+ es sumable en 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es un espacio normado, 
+\begin_inset Formula $I\neq\emptyset$
+\end_inset
+
+ y 
+\begin_inset Formula $\{x_{i}\}_{i\in I}\subseteq X$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(\sum_{i\in J}x_{i})_{J\in{\cal P}_{0}(I)}$
+\end_inset
+
+ es de Cauchy si y sólo si 
+\begin_inset Formula 
+\[
+\forall\varepsilon>0,\exists J_{0}\in{\cal P}_{0}(I):\forall J\in{\cal P}_{0}(I\setminus J_{0}),\left\Vert \sum_{i\in J}x_{i}\right\Vert <\varepsilon,
+\]
+
+\end_inset
+
+y entonces 
+\begin_inset Formula $\{i\in I\mid x_{i}\neq0\}$
+\end_inset
+
+ es contable y 
+\begin_inset Formula $\sup_{J\in{\cal P}_{0}(I)}\left\Vert \sum_{i\in J}x_{i}\right\Vert <\infty$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(x_{i})_{i\in I}$
+\end_inset
+
+ es absolutamente sumable si y sólo si 
+\begin_inset Formula $\sup_{J\in{\cal P}_{0}(I)}\sum_{i\in J}\Vert x_{i}\Vert<\infty$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es de Banach, toda familia absolutamente sumable es sumable.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X$
+\end_inset
+
+ es de Banach si y sólo si toda familia sumable es absolutamente sumable.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es un espacio de Banach, llamamos
+\begin_inset Formula 
+\[
+C(S)\coloneqq\sup\left\{ C\in[0,1)\;\middle|\;\forall n\in\mathbb{N},\forall z\in X^{n},\exists S\subseteq\mathbb{N}_{n}:C\sum_{j\in\mathbb{N}_{n}}\Vert z_{j}\Vert\leq\left\Vert \sum_{j\in S}z_{j}\right\Vert \right\} ,
+\]
+
+\end_inset
+
+y 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+ tiene la 
+\series bold
+propiedad S
+\series default
+ si 
+\begin_inset Formula $C(S)>0$
+\end_inset
+
+.
+ Por ejemplo 
+\begin_inset Formula $\Vert\cdot\Vert_{2}$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ tiene la propiedad S y 
+\begin_inset Formula $C(S)\in[\frac{1}{2n\sqrt{n}},\frac{1}{\sqrt{n}}]$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es de dimensión finita y 
+\begin_inset Formula $\{x_{i}\}_{i\in I}\subseteq X$
+\end_inset
+
+ no es vacía:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(x_{i})_{i\in I}$
+\end_inset
+
+ es absolutamente sumable si y sólo si es sumable.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $I=(\mathbb{N},\geq)$
+\end_inset
+
+, 
+\begin_inset Formula $(x_{n})_{n\in\mathbb{N}}$
+\end_inset
+
+ es sumable si y sólo si 
+\begin_inset Formula $\sum_{n}x_{n}$
+\end_inset
+
+ es absolutamente convergente, si y sólo si 
+\begin_inset Formula $\sup_{n\in\mathbb{N}}\sum_{i=1}^{n}\Vert x_{i}\Vert<\infty$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de reordenación de Riemann:
+\series default
+ Si la serie real 
+\begin_inset Formula $\sum_{n}x_{n}$
+\end_inset
+
+ es convergente pero no absolutamente convergente, para 
+\begin_inset Formula $x\in[-\infty,\infty]$
+\end_inset
+
+, existe 
+\begin_inset Formula $\pi:\mathbb{N}\to\mathbb{N}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $x=\sum_{n=1}^{\infty}x_{\pi(n)}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio de Banach y 
+\begin_inset Formula $\{x_{n}\}_{n}\subseteq X$
+\end_inset
+
+ es una sucesión, 
+\begin_inset Formula $\sum_{n}x_{n}$
+\end_inset
+
+ es 
+\series bold
+incondicionalmente convergente
+\series default
+ si para 
+\begin_inset Formula $\pi:\mathbb{N}\to\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{n}x_{\pi(n)}$
+\end_inset
+
+ converge.
+ Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es de Banach, esto ocurre si y sólo si 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ es sumable, en cuyo caso todas las 
+\begin_inset Formula $\sum_{n}x_{\pi(n)}$
+\end_inset
+
+ convergen al mismo número.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+,un espacio de Banach 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es de dimensión finita si y sólo si tiene la propiedad 
+\begin_inset Formula $S$
+\end_inset
+
+, si y sólo si
+\begin_inset Formula 
+\[
+\forall\varepsilon>0,\exists\delta>0:\forall\{z_{j}\}_{j\in\mathbb{N}_{n}}\subseteq X,\left(\sup_{S\subseteq\mathbb{N}_{n}}\left\Vert \sum_{j\in S}z_{j}\right\Vert <\delta\implies\sum_{j\in J}\Vert z_{j}\Vert<\varepsilon\right),
+\]
+
+\end_inset
+
+si y sólo si toda serie sumable en 
+\begin_inset Formula $X$
+\end_inset
+
+ es absolutamente convergente.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Bases hilbertiana
 \end_layout
 
 \begin_layout Standard
@@ -9749,7 +10640,7 @@ Segundo teorema de Riesz-Fischer:
 \end_inset
 
  es de dimensión infinita, 
-\begin_inset Formula $\dim H=\mathbb{N}$
+\begin_inset Formula $\dim H=\aleph_{0}\coloneqq|\mathbb{N}|$
 \end_inset
 
  si y sólo si 
@@ -10762,6 +11653,244 @@ Teorema de Stieltjes:
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+El espacio de Bergman
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\begin_inset Formula $D(a,r)\coloneqq B(a,r)\subseteq\mathbb{C}$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\Omega\subseteq\mathbb{C}$
+\end_inset
+
+ es abierto, 
+\begin_inset Formula ${\cal H}(\Omega)$
+\end_inset
+
+ es el conjunto de las funciones holomorfas en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, y para 
+\begin_inset Formula $f\in{\cal H}(\Omega)$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{D(a,r)}\subseteq\Omega$
+\end_inset
+
+, la serie 
+\begin_inset Formula $\sum_{n\in\mathbb{N}}a_{n}(z-a)^{n}$
+\end_inset
+
+ con 
+\begin_inset Formula $z\in D(a,r)$
+\end_inset
+
+ converge uniformemente a 
+\begin_inset Formula $f$
+\end_inset
+
+ en compactos de 
+\begin_inset Formula $D(a,r)$
+\end_inset
+
+ para ciertos 
+\begin_inset Formula $a_{n}\in\mathbb{C}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\Omega\subseteq\mathbb{C}$
+\end_inset
+
+ es abierto, llamamos 
+\begin_inset Formula ${\cal T}_{\text{K}}$
+\end_inset
+
+ a la topología en 
+\begin_inset Formula ${\cal H}(\Omega)$
+\end_inset
+
+ de convergencia uniforme sobre compactos, y 
+\series bold
+espacio de Bergman
+\series default
+ en el abierto 
+\begin_inset Formula $\Omega\subseteq\mathbb{C}$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+A^{2}(\Omega)\coloneqq\left\{ f\in{\cal H}(\Omega)\;\middle|\;\int_{\Omega}|f|^{2}<\infty\right\} ,
+\]
+
+\end_inset
+
+un subespacio cerrado y separable de 
+\begin_inset Formula $L^{2}(\Omega)$
+\end_inset
+
+ que es pues un espacio de Hilbert numerable con 
+\begin_inset Formula $\langle\cdot,\cdot\rangle_{2}$
+\end_inset
+
+, y en el que la topología inducida por 
+\begin_inset Formula $L^{2}(\Omega)$
+\end_inset
+
+ es más fina que la inducida por 
+\begin_inset Formula ${\cal T}_{\text{K}}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\Omega\subseteq\mathbb{C}$
+\end_inset
+
+ es abierto, 
+\begin_inset Formula $(\omega_{n})_{n}$
+\end_inset
+
+ es base hilbertiana de 
+\begin_inset Formula $A^{2}(\Omega)$
+\end_inset
+
+ y 
+\begin_inset Formula $f\in A^{2}(\Omega)$
+\end_inset
+
+, el desarrollo en serie de Fourier de 
+\begin_inset Formula $f$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{n}\langle f,\omega_{n}\rangle\omega_{n}$
+\end_inset
+
+, converge uniformemente a 
+\begin_inset Formula $f$
+\end_inset
+
+ en compactos de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\psi_{n}(z)\coloneqq(z-a)^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $(\frac{\psi_{n}}{\Vert\psi_{n}\Vert})_{n}$
+\end_inset
+
+ es una base hilbertiana de 
+\begin_inset Formula $A^{2}(D(a,r))$
+\end_inset
+
+, y el desarrollo en serie de potencias es el desarrollo en serie de Fourier
+ sobre esta base.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $\Omega\subsetneq\mathbb{C}$
+\end_inset
+
+ es un abierto simplemente conexo y 
+\begin_inset Formula $f:\Omega\to D(0,1)$
+\end_inset
+
+ es un isomorfismo,
+\begin_inset Formula 
+\[
+\left(z\mapsto\sqrt{\frac{n}{\pi}}(f(z))^{n-1}\dot{f}(z)\right)_{n}
+\]
+
+\end_inset
+
+es base hilbertiana de 
+\begin_inset Formula $A^{2}(\Omega)$
+\end_inset
+
+, y en particular para 
+\begin_inset Formula $R>0$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\left(z\mapsto\sqrt{\frac{n}{\pi}}R^{-n}z^{n-1}\right)_{n}
+\]
+
+\end_inset
+
+ es base hilbertiana de 
+\begin_inset Formula $A^{2}(D(0,R))$
+\end_inset
+
+.
 \begin_inset Note Note
 status open
 
