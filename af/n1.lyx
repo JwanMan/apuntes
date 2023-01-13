@@ -7143,6 +7143,222 @@ En particular, dado un espacio vectorial
 .
 \end_layout
 
+\begin_layout Standard
+Dado un espacio medible 
+\begin_inset Formula $(\Omega,\Sigma)$
+\end_inset
+
+ con medidas 
+\begin_inset Formula $\mu$
+\end_inset
+
+ y 
+\begin_inset Formula $\nu$
+\end_inset
+
+, 
+\begin_inset Formula $\nu$
+\end_inset
+
+ es 
+\series bold
+absolutamente continua
+\series default
+ respecto de 
+\begin_inset Formula $\mu$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall A\in\Sigma,(\mu(A)=0\implies\nu(A)=0)$
+\end_inset
+
+, y es 
+\series bold
+finita
+\series default
+ si 
+\begin_inset Formula $\nu(\Omega)<\infty$
+\end_inset
+
+.
+ 
+\series bold
+Teorema de Radon-Nicodym:
+\series default
+ Si 
+\begin_inset Formula $(\Omega,\Sigma)$
+\end_inset
+
+ es un espacio medible con medidas finitas 
+\begin_inset Formula $\mu$
+\end_inset
+
+ y 
+\begin_inset Formula $\nu$
+\end_inset
+
+ siendo 
+\begin_inset Formula $\nu$
+\end_inset
+
+ absolutamente continua respecto de 
+\begin_inset Formula $\mu$
+\end_inset
+
+, existe 
+\begin_inset Formula $g:\Omega\to[0,+\infty]$
+\end_inset
+
+ 
+\begin_inset Formula $\mu$
+\end_inset
+
+-integrable tal que
+\begin_inset Formula 
+\[
+\forall A\in\Sigma,\nu(A)=\int_{A}g\dif\mu.
+\]
+
+\end_inset
+
+
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $\sigma\coloneqq\mu+\nu$
+\end_inset
+
+ es una medida finita en 
+\begin_inset Formula $X$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall A\in\Sigma,(\sigma(A)=0\iff\mu(A)=0)$
+\end_inset
+
+, y la función lineal entre espacios de Hilbert 
+\begin_inset Formula $T:L^{2}(\Omega,\Sigma,\sigma)\to\mathbb{R}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+Tu\coloneqq\int_{\Omega}u\dif\mu
+\]
+
+\end_inset
+
+está bien definida y es continua porque, si 
+\begin_inset Formula $\Vert u\Vert_{L^{2}(\Omega,\Sigma,\sigma)}=1$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+|Tu| & =\left|\int_{\Omega}u\dif\mu\right|\leq\int_{\Omega}|u|\dif\mu\leq\sqrt{\int_{\Omega}|u|^{2}\dif\mu}+\sqrt{\int_{\Omega}\dif\mu}\leq\\
+ & \leq\sqrt{\int_{\Omega}|u|^{2}\dif\mu+\int_{\Omega}|u|^{2}\dif\nu}+\sqrt{\int_{\Omega}\dif\mu+\int_{\Omega}\dif\nu}=1+\sqrt{\sigma(X)}.
+\end{align*}
+
+\end_inset
+
+Por el teorema de representación de Riesz, existe 
+\begin_inset Formula $f\in L^{2}(\Omega,\Sigma,\sigma)$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $u\in L^{2}(\Omega,\Sigma,\sigma)$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+Tu=\int_{\Omega}u\dif\mu=\int_{\Omega}uf\dif\sigma,
+\]
+
+\end_inset
+
+pero esta igualdad se da para cuando 
+\begin_inset Formula $u=\chi_{A}$
+\end_inset
+
+ para cualquier 
+\begin_inset Formula $A\in{\cal F}$
+\end_inset
+
+ y por linealidad para cualquier función 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+-medible simple, y por el teorema de convergencia dominada también se da
+ para cualquier función 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+-medible no negativa en casi todo punto.
+ Además, para 
+\begin_inset Formula $A\in\Sigma$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\mu(A)=\int_{\Omega}\chi_{A}f\dif\sigma=\int_{A}f\dif\sigma,
+\]
+
+\end_inset
+
+de modo que 
+\begin_inset Formula $f$
+\end_inset
+
+ es 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+-medible y, haciendo 
+\begin_inset Formula $A=\{x\mid f(x)\leq0\}$
+\end_inset
+
+ o 
+\begin_inset Formula $A=\{x\mid f(x)>1\}$
+\end_inset
+
+, vemos que 
+\begin_inset Formula $f(\omega)\in(0,1]$
+\end_inset
+
+ para casi todo 
+\begin_inset Formula $\omega\in\Omega$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $\frac{1}{g}$
+\end_inset
+
+ es 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+-medible no negativa en casi todo punto y, en casi todo punto, 
+\begin_inset Formula $\frac{1}{f}f=1$
+\end_inset
+
+, con lo que para 
+\begin_inset Formula $A\in\Sigma$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\int_{A}\frac{1}{f}\dif\mu=\int_{A}\dif\sigma\implies\nu(A)=\sigma(A)-\mu(A)=\int_{A}\left(\frac{1}{f}-1\right)\dif\mu\eqqcolon\int_{A}g\dif\mu.
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Problemas variacionales cuadráticos
 \end_layout
