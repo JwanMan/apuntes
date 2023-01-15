@@ -1,0 +1,6992 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\input{../defs}
+\usepackage{commath}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Los 
+\series bold
+principios fundamentales del análisis funcional
+\series default
+ son el teorema de Hahn-Banach, el teorema de la acotación uniforme y el
+ teorema de la gráfica cerrada.
+\end_layout
+
+\begin_layout Section
+Teorema de Hahn-Banach
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Tychonoff:
+\series default
+ Si 
+\begin_inset Formula $(X_{i})_{i\in I}$
+\end_inset
+
+ son espacios topológicos compactos, 
+\begin_inset Formula $\prod_{i\in I}X_{i}$
+\end_inset
+
+ es compacto con la topología producto.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de extensión de Hann-Banach:
+\series default
+ Sean 
+\begin_inset Formula $Y\leq_{\mathbb{K}}X$
+\end_inset
+
+, 
+\begin_inset Formula $p:X\to\mathbb{R}$
+\end_inset
+
+ subaditiva y positivamente homogénea y 
+\begin_inset Formula $f:Y\to\mathbb{K}$
+\end_inset
+
+ lineal con 
+\begin_inset Formula $f\leq p|_{Y}$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ se extiende a 
+\begin_inset Formula $\hat{f}:X\to\mathbb{R}$
+\end_inset
+
+ lineal con 
+\begin_inset Formula $\hat{f}\leq p$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+Demostración
+\series default
+ para 
+\begin_inset Formula $Y$
+\end_inset
+
+ de codimensión 1
+\series bold
+:
+\series default
+ Sea 
+\begin_inset Formula $x_{0}\in X\setminus Y$
+\end_inset
+
+, entonces 
+\begin_inset Formula $X=Y\oplus\text{span}\{x_{0}\}$
+\end_inset
+
+ y toda extensión lineal 
+\begin_inset Formula $\hat{f}:X\to\mathbb{R}$
+\end_inset
+
+ se escribe como 
+\begin_inset Formula $\hat{f}(y+ax_{0})=f(y)+a\hat{f}(x_{0})$
+\end_inset
+
+ para cada 
+\begin_inset Formula $y+ax_{0}\in X$
+\end_inset
+
+ con 
+\begin_inset Formula $y\in Y$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in\mathbb{R}$
+\end_inset
+
+, y queremos ver que existe 
+\begin_inset Formula $\alpha\in\mathbb{R}$
+\end_inset
+
+ tal que si 
+\begin_inset Formula $\hat{f}(x_{0})=\alpha$
+\end_inset
+
+ entonces 
+\begin_inset Formula $\hat{f}\leq p$
+\end_inset
+
+.
+ Para 
+\begin_inset Formula $a=0$
+\end_inset
+
+ esto siempre se cumple; para 
+\begin_inset Formula $a>0$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{multline*}
+\forall y\in Y,\hat{f}(y+ax_{0})=f(y)+a\alpha\leq p(y+ax_{0})\iff\forall y\in Y,f\left(\frac{y}{a}\right)+\alpha\leq p\left(\frac{y}{a}+x_{0}\right)\iff\\
+\iff\forall z\in Y,\alpha\leq-f(z)+p(z+x_{0}),
+\end{multline*}
+
+\end_inset
+
+y para 
+\begin_inset Formula $a<0$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{multline*}
+\forall y\in Y,\hat{f}(y+ax_{0})=f(y)+a\alpha\leq p(y+ax_{0})\iff\forall y\in Y,f\left(-\frac{y}{a}\right)-\alpha\leq p\left(-\frac{y}{a}-x_{0}\right)\iff\\
+\iff\forall w\in Y,\alpha\geq f(w)-p(w-x_{0}),
+\end{multline*}
+
+\end_inset
+
+con lo que la condición equivale a que 
+\begin_inset Formula $\forall z,w\in Y,f(w)-p(w-x_{0})\leq\alpha\leq-f(z)+p(z+x_{0})$
+\end_inset
+
+, pero siempre existe tal 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ ya que, para 
+\begin_inset Formula $z,w\in Y$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+f(z)+f(w)=f(z+w)\leq p(z+w)=p(z+x_{0}+w-x_{0})\leq p(z+x_{0})+p(w-x_{0}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El teorema de Tychonoff equivale al axioma de elección y es estrictamente
+ más fuerte que el teorema de Tychonoff para espacios compactos separados,
+ el cual implica el teorema de extensión de Hann-Banach.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Hann-Banach (
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+) y Sobczyk (
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+):
+\series default
+ Sean 
+\begin_inset Formula $Y\leq_{\mathbb{K}}X$
+\end_inset
+
+, 
+\begin_inset Formula $p:X\to\mathbb{K}$
+\end_inset
+
+ una seminorma y 
+\begin_inset Formula $f:Y\to\mathbb{K}$
+\end_inset
+
+ lineal con 
+\begin_inset Formula $|f|\leq p|_{Y}$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ se extiende a una 
+\begin_inset Formula $\hat{f}:X\to\mathbb{K}$
+\end_inset
+
+ lineal con 
+\begin_inset Formula $|\hat{f}|\leq p$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio normado e 
+\begin_inset Formula $Y\leq X$
+\end_inset
+
+, toda 
+\begin_inset Formula $f\in Y^{*}$
+\end_inset
+
+ se extiende a una 
+\begin_inset Formula $\hat{f}\in X^{*}$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert\hat{f}\Vert=\Vert f\Vert$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ 
+\begin_inset Formula $p:X\to\mathbb{R}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $p(x)\coloneqq\Vert f\Vert\Vert x\Vert$
+\end_inset
+
+ es subaditiva y positivamente homogénea con 
+\begin_inset Formula $|f(x)|\leq\Vert f\Vert\Vert x\Vert=p(x)$
+\end_inset
+
+, luego 
+\begin_inset Formula $f$
+\end_inset
+
+ se extiende a 
+\begin_inset Formula $\hat{f}:X\to\mathbb{R}$
+\end_inset
+
+ lineal con 
+\begin_inset Formula $|\hat{f}|\leq p$
+\end_inset
+
+ y, para 
+\begin_inset Formula $x\in S_{X}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert\hat{f}(x)\Vert\leq\Vert f\Vert$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $\Vert f\Vert\leq\Vert\hat{f}\Vert\leq\Vert f\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+teorema de Hann-Banach
+\series default
+ es el anterior cuando 
+\begin_inset Formula $X$
+\end_inset
+
+ es real y separable.
+ 
+\series bold
+Demostración
+\series default
+ sin usar cosas de esta sección no probadas
+\series bold
+:
+\series default
+ Sean 
+\begin_inset Formula $\{x_{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+ denso en 
+\begin_inset Formula $X$
+\end_inset
+
+ y, para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $X_{n}\coloneqq\text{span}\{Y\cup\{x_{k}\}_{k\in\mathbb{N}_{n}}\}$
+\end_inset
+
+, o 
+\begin_inset Formula $X_{n}=X_{n+1}$
+\end_inset
+
+ o es un subespacio de 
+\begin_inset Formula $X_{n+1}$
+\end_inset
+
+ de codimensión 1, y por inducción en lo anterior para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ existe 
+\begin_inset Formula $f_{n}\in X_{n}^{*}$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert f_{n}\Vert=\Vert f\Vert$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{n}=f_{n+1}|_{X_{n}^{*}}$
+\end_inset
+
+, de modo que si 
+\begin_inset Formula $Z\coloneqq\bigcup_{n}X_{n}$
+\end_inset
+
+, existe 
+\begin_inset Formula $F\in Z^{*}$
+\end_inset
+
+ con 
+\begin_inset Formula $f=F|_{Y}$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert F\Vert=\Vert f\Vert$
+\end_inset
+
+, pero para 
+\begin_inset Formula $y\in X$
+\end_inset
+
+ existe 
+\begin_inset Formula $\{z_{n}\}_{n}\subseteq Z$
+\end_inset
+
+ convergente a 
+\begin_inset Formula $y$
+\end_inset
+
+ y, por continuidad de 
+\begin_inset Formula $F$
+\end_inset
+
+, existe 
+\begin_inset Formula $\hat{f}(y)\coloneqq\lim_{n}F(y_{n})$
+\end_inset
+
+, con 
+\begin_inset Formula $\hat{f}(y)$
+\end_inset
+
+ independiente de la sucesión elegida, con lo que podemos definir 
+\begin_inset Formula $\hat{f}:X\to\mathbb{R}$
+\end_inset
+
+ de esta forma y claramente es lineal y continua con 
+\begin_inset Formula $\Vert\hat{f}\Vert=\Vert F\Vert=\Vert f\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea entonces 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio normado:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall x\in X\setminus0,\exists f\in X^{*}:(\Vert f\Vert=1\land f(x)=\Vert x\Vert)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall x\in X,\Vert x\Vert=\max_{f\in B_{X^{*}}}|f(x)|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $Y\leq X$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ con 
+\begin_inset Formula $\delta\coloneqq d(x,Y)>0$
+\end_inset
+
+, 
+\begin_inset Formula $\exists f\in X^{*}:(f(Y)=0\land f(x)=1\land\Vert f\Vert=\delta^{-1})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\forall Y\leq X,\overline{Y}=\bigcap_{\begin{subarray}{c}
+f\in X^{*}\\
+Y\subseteq\ker f
+\end{subarray}}\ker f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\forall S\subseteq X,\overline{\text{span}S}\coloneqq\bigcap_{\begin{subarray}{c}
+f\in X^{*}\\
+S\subseteq\ker f
+\end{subarray}}\ker f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $S\subseteq X$
+\end_inset
+
+ es total si y sólo si 
+\begin_inset Formula $\forall f\in X^{*},(f(S)=0\implies f=0)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $x_{1},\dots,x_{n}\in X$
+\end_inset
+
+ son linealmente independientes, existen 
+\begin_inset Formula $f_{1},\dots,f_{n}\in X^{*}$
+\end_inset
+
+ con cada 
+\begin_inset Formula $f_{i}(x_{j})=\delta_{ij}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Todo subespacio de 
+\begin_inset Formula $X$
+\end_inset
+
+ de dimensión finita posee un complementario topológico.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $Y\leq X$
+\end_inset
+
+, la 
+\series bold
+restricción
+\series default
+ 
+\begin_inset Formula $\psi:X^{*}\to Y^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $f\mapsto f|_{Y}$
+\end_inset
+
+, es lineal, continua, suprayectiva y abierta.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $Y\leq X$
+\end_inset
+
+ y 
+\begin_inset Formula $X^{*}$
+\end_inset
+
+ es separable, 
+\begin_inset Formula $Y^{*}$
+\end_inset
+
+ también.
+\end_layout
+
+\begin_layout Subsection
+Versión geométrica
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, sean 
+\begin_inset Formula $E$
+\end_inset
+
+ un e.l.c.
+ y 
+\begin_inset Formula $F\leq E$
+\end_inset
+
+, toda 
+\begin_inset Formula $u\in F'$
+\end_inset
+
+ se extiende a una 
+\begin_inset Formula $f\in E'$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así 
+\begin_inset Formula $E$
+\end_inset
+
+ es un e.l.c.:
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $F\leq E$
+\end_inset
+
+, la restricción 
+\begin_inset Formula $E'\to F'$
+\end_inset
+
+, 
+\begin_inset Formula $f\mapsto f|_{F}$
+\end_inset
+
+, es suprayectiva.
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $x\in E\setminus0$
+\end_inset
+
+ existe 
+\begin_inset Formula $f\in E'$
+\end_inset
+
+ con 
+\begin_inset Formula $f(x)\neq0$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\{x_{1},\dots,x_{n}\}\subseteq E$
+\end_inset
+
+ linealmente independiente, existen 
+\begin_inset Formula $f_{1},\dots,f_{n}\in E'$
+\end_inset
+
+ con cada 
+\begin_inset Formula $f_{i}(x_{j})=\delta_{ij}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-e.v.t., 
+\begin_inset Formula $f\in E'\setminus0$
+\end_inset
+
+ y 
+\begin_inset Formula $A\subseteq E$
+\end_inset
+
+ es un abierto convexo no vacío, 
+\begin_inset Formula $f(A)\subseteq\mathbb{R}$
+\end_inset
+
+ es un intervalo abierto.
+ 
+\series bold
+Demostración:
+\series default
+ Si fuera 
+\begin_inset Formula $f(A)=\{p\}$
+\end_inset
+
+ para cierto 
+\begin_inset Formula $p\in\mathbb{R}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $A\subseteq\ker(f-p)$
+\end_inset
+
+, pero como 
+\begin_inset Formula $f\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $\ker(f-p)<E$
+\end_inset
+
+ y por tanto tiene interior vacío, luego 
+\begin_inset Formula $A=\emptyset\#$
+\end_inset
+
+.
+ Para ver que es un intervalo, sean 
+\begin_inset Formula $x,y\in A$
+\end_inset
+
+ con 
+\begin_inset Formula $f(x)<f(y)$
+\end_inset
+
+, por convexidad, si 
+\begin_inset Formula $\psi:\mathbb{R}\to E$
+\end_inset
+
+ viene dada por 
+\begin_inset Formula $\psi(t)\coloneqq(1-t)x+ty$
+\end_inset
+
+, 
+\begin_inset Formula $\psi([0,1])\subseteq A$
+\end_inset
+
+, pero 
+\begin_inset Formula $\psi$
+\end_inset
+
+ es continua y por tanto también lo es 
+\begin_inset Formula $f\circ\psi:\mathbb{R}\to\mathbb{R}$
+\end_inset
+
+, y para 
+\begin_inset Formula $z\in[f(x),f(y)]$
+\end_inset
+
+, por el teorema de Bolzano existe 
+\begin_inset Formula $t\in[0,1]$
+\end_inset
+
+ con 
+\begin_inset Formula $z=f(\psi(t))\in f(A)$
+\end_inset
+
+.
+ Ahora bien, como 
+\begin_inset Formula $A$
+\end_inset
+
+ es abierto, 
+\begin_inset Formula $A-x$
+\end_inset
+
+ es entorno del 0 y por tanto absorbente, y dada la función lineal 
+\begin_inset Formula $\phi(t)\coloneqq\psi(t)-x=t(y-x)$
+\end_inset
+
+, existe 
+\begin_inset Formula $\rho_{0}>0$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $\rho>\rho_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\phi(-1)\in\rho(A-x)$
+\end_inset
+
+, luego 
+\begin_inset Formula $\phi(-\frac{1}{\rho}),\phi(\frac{2}{\rho})\in A-x$
+\end_inset
+
+ y 
+\begin_inset Formula $\psi((-\frac{1}{\rho},1))=\phi((-\frac{1}{\rho},1))+x\subseteq A$
+\end_inset
+
+ y, como 
+\begin_inset Formula $f\circ\psi:\mathbb{R}\to\mathbb{R}$
+\end_inset
+
+ es afín no degenerada y por tanto un homeomorfismo, 
+\begin_inset Formula $f(\psi((-\frac{1}{\rho},1)))\subseteq f(A)$
+\end_inset
+
+ es un entorno abierto de 
+\begin_inset Formula $x$
+\end_inset
+
+, pero análogamente hay un entorno abierto de 
+\begin_inset Formula $y$
+\end_inset
+
+, y como 
+\begin_inset Formula $f(A)$
+\end_inset
+
+ tiene al menos dos puntos distintos, queda que 
+\begin_inset Formula $f(A)$
+\end_inset
+
+ es abierta.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\psi([0,1])\subseteq A$
+\end_inset
+
+ y 
+\begin_inset Formula $\psi|_{[0,1]}:[0,1]\to\psi([0,1])$
+\end_inset
+
+ es un homeomorfismo, luego 
+\begin_inset Formula $f\circ\psi:[0,1]\to\mathbb{R}$
+\end_inset
+
+ es continua y, para 
+\begin_inset Formula $z\in(f(x),f(y))$
+\end_inset
+
+, por el teorema de Bolzano existe 
+\begin_inset Formula $t\in[0,1]$
+\end_inset
+
+ con 
+\begin_inset Formula $z=f(\psi(t))\in f(A)$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $A$
+\end_inset
+
+ es abierto, 
+\begin_inset Formula $A-x$
+\end_inset
+
+ es un entorno del 0, luego es absorbente y existe 
+\begin_inset Formula $\rho_{0}>0$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $\rho>\rho_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\psi(-1)\in\rho(A-x)$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\psi(-\frac{1}{\rho})\in A$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $(-\frac{1}{\rho_{0}},1)\subseteq A$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un espacio vectorial, un 
+\series bold
+hiperplano
+\series default
+ de 
+\begin_inset Formula $E$
+\end_inset
+
+ es un subespacio propio de 
+\begin_inset Formula $E$
+\end_inset
+
+ y una 
+\series bold
+variedad afín
+\series default
+ de 
+\begin_inset Formula $E$
+\end_inset
+
+ es un conjunto 
+\begin_inset Formula $x_{0}+F$
+\end_inset
+
+ con 
+\begin_inset Formula $x_{0}\in E$
+\end_inset
+
+ y 
+\begin_inset Formula $F\leq E$
+\end_inset
+
+, que se llama 
+\series bold
+hiperplano afín
+\series default
+ de 
+\begin_inset Formula $E$
+\end_inset
+
+ si 
+\begin_inset Formula $F$
+\end_inset
+
+ es un hiperplano de 
+\begin_inset Formula $E$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un e.v.t., 
+\begin_inset Formula $M\subseteq E$
+\end_inset
+
+ es un hiperplano afín si y sólo si existen 
+\begin_inset Formula $f:E\to\mathbb{K}$
+\end_inset
+
+ lineal y 
+\begin_inset Formula $a\in\mathbb{K}$
+\end_inset
+
+ con 
+\begin_inset Formula $M=\{x\in X\mid f(x)=a\}$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $M$
+\end_inset
+
+ es cerrado si y sólo si 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Mazur:
+\series default
+ Sean 
+\begin_inset Formula $E$
+\end_inset
+
+ un e.v.t., 
+\begin_inset Formula $M\subseteq E$
+\end_inset
+
+ una variedad afín y 
+\begin_inset Formula $A\subseteq E$
+\end_inset
+
+ un abierto convexo no vacío disjunto de 
+\begin_inset Formula $M$
+\end_inset
+
+, existe un hiperplano afín cerrado de 
+\begin_inset Formula $E$
+\end_inset
+
+ disjunto de 
+\begin_inset Formula $A$
+\end_inset
+
+ que contiene a 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ 
+\series bold
+Demostración:
+\series default
+ Podemos suponer por traslación que 
+\begin_inset Formula $0\in A$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $A$
+\end_inset
+
+ es absorbente y tiene asociado un funcional de Minkowski 
+\begin_inset Formula $p$
+\end_inset
+
+ tal que 
+\begin_inset Formula $A=\{x\in E\mid p(x)<1\}$
+\end_inset
+
+ y, como 
+\begin_inset Formula $A$
+\end_inset
+
+ es abierto, 
+\begin_inset Formula $p$
+\end_inset
+
+ es continua.
+ Sean entonces 
+\begin_inset Formula $x_{0}\in E$
+\end_inset
+
+ y 
+\begin_inset Formula $F\leq E$
+\end_inset
+
+ con 
+\begin_inset Formula $M=x_{0}+F$
+\end_inset
+
+, 
+\begin_inset Formula $x_{0}\notin F$
+\end_inset
+
+ ya que de serlo sería 
+\begin_inset Formula $M=F\ni0$
+\end_inset
+
+, luego 
+\begin_inset Formula $F\cap\text{span}\{x_{0}\}=0$
+\end_inset
+
+ y podemos definir 
+\begin_inset Formula $u:F\oplus\text{span}\{x_{0}\}\to\mathbb{K}$
+\end_inset
+
+ como 
+\begin_inset Formula $u(y+\lambda x_{0})\coloneqq\lambda$
+\end_inset
+
+ para 
+\begin_inset Formula $y\in F$
+\end_inset
+
+ y 
+\begin_inset Formula $\lambda\in\mathbb{K}$
+\end_inset
+
+, que es lineal.
+ Ahora bien, para 
+\begin_inset Formula $\lambda\neq0$
+\end_inset
+
+ es 
+\begin_inset Formula $|u(y+\lambda x_{0})|=|\lambda|\leq|\lambda|p(\tfrac{y}{\lambda}+x_{0})\leq p(y+\lambda x_{0})$
+\end_inset
+
+, donde en la primera desigualdad usamos que 
+\begin_inset Formula $\frac{y}{\lambda}+x_{0}\in M\subseteq A^{\complement}$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $p(\frac{y}{\lambda}+x_{0})\geq1$
+\end_inset
+
+, y para 
+\begin_inset Formula $\lambda=0$
+\end_inset
+
+, 
+\begin_inset Formula $|u(y)|=0\leq p(y)$
+\end_inset
+
+, de modo que 
+\begin_inset Formula $|u|\leq p|_{F\oplus\text{span}\{x_{0}\}}$
+\end_inset
+
+ y, por el teorema de Sobczyk, 
+\begin_inset Formula $u$
+\end_inset
+
+ se extiende a una 
+\begin_inset Formula $f:E\to\mathbb{K}$
+\end_inset
+
+ lineal con 
+\begin_inset Formula $|f|\leq p$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua y, si 
+\begin_inset Formula $H\coloneqq\{x\in E\mid f(x)=1\}$
+\end_inset
+
+, 
+\begin_inset Formula $f(E)=1$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $E\subseteq H$
+\end_inset
+
+ y, para 
+\begin_inset Formula $x\in H$
+\end_inset
+
+, 
+\begin_inset Formula $f(x)=1\leq p(x)$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $x\notin A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $E$
+\end_inset
+
+ un 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-e.v.t., 
+\begin_inset Formula $f\in E'$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha\in\mathbb{R}$
+\end_inset
+
+, llamamos 
+\series bold
+semiespacios abiertos
+\series default
+ determinados por 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ a 
+\begin_inset Formula $\{x\in E\mid f(x)<\alpha\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\{x\in E\mid f(x)>\alpha\}$
+\end_inset
+
+, y 
+\series bold
+semiespacios cerrados
+\series default
+ determinados por 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ a 
+\begin_inset Formula $\{x\in E\mid f(x)\leq\alpha\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\{x\in E\mid f(x)\geq\alpha\}$
+\end_inset
+
+, y 
+\begin_inset Formula $H\coloneqq\{x\in E\mid f(x)=\alpha\}$
+\end_inset
+
+ 
+\series bold
+separa
+\series default
+ 
+\begin_inset Formula $A,B\subseteq E$
+\end_inset
+
+ si cada uno está en un semiespacio cerrado distinto de 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, en cuyo caso 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ están 
+\series bold
+separados
+\series default
+, y 
+\series bold
+separa estrictamente
+\series default
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ si cada uno está en un semiespacio abierto distinto de 
+\begin_inset Formula $f$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, en cuyo caso 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ están estrictamente separados.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teoremas de separación:
+\end_layout
+
+\begin_layout Enumerate
+En un 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-e.v.t.
+ todo par de abiertos convexos disjuntos no vacíos está separado.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sean 
+\begin_inset Formula $E$
+\end_inset
+
+ el 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-e.v.t.
+ y 
+\begin_inset Formula $A,B\subseteq E$
+\end_inset
+
+ tales conjuntos, 
+\begin_inset Formula $A-B$
+\end_inset
+
+ es un abierto no vacío que no contiene al 0, con lo que el teorema de Mizur
+ nos da un hiperplano cerrado 
+\begin_inset Formula $H=\{x\in E\mid f(x)=\beta\}$
+\end_inset
+
+, con 
+\begin_inset Formula $f\in E'$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta\in\mathbb{R}$
+\end_inset
+
+, que contiene al 0 y es disjunto de 
+\begin_inset Formula $A-B$
+\end_inset
+
+.
+ 
+\begin_inset Formula $f(A-B)\subseteq\mathbb{R}$
+\end_inset
+
+ es convexo.
+ Como 
+\begin_inset Formula $\beta=f(0)=0$
+\end_inset
+
+, 
+\begin_inset Formula $0\notin f(A-B)$
+\end_inset
+
+, pero 
+\begin_inset Formula $f(A-B)$
+\end_inset
+
+ es un intervalo, luego 
+\begin_inset Formula $f(A-B)\subseteq\mathbb{R}^{+}$
+\end_inset
+
+ o 
+\begin_inset Formula $f(A-B)\subseteq\mathbb{R}^{-}$
+\end_inset
+
+.
+ Si, por ejemplo, 
+\begin_inset Formula $f(A-B)\subseteq\mathbb{R}^{-}$
+\end_inset
+
+, para 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in B$
+\end_inset
+
+, 
+\begin_inset Formula $f(a)<f(b)$
+\end_inset
+
+, luego existe 
+\begin_inset Formula $\alpha\in[\sup_{a\in A}f(a),\inf_{b\in B}f(b)]$
+\end_inset
+
+, y como 
+\begin_inset Formula $f(A)$
+\end_inset
+
+ y 
+\begin_inset Formula $f(B)$
+\end_inset
+
+ son intervalos abiertos, para 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in B$
+\end_inset
+
+, 
+\begin_inset Formula $f(a)<\alpha<f(b)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-e.l.c.
+ y 
+\begin_inset Formula $K,F\subseteq E$
+\end_inset
+
+ son convexos disjuntos no vacíos con 
+\begin_inset Formula $K$
+\end_inset
+
+ compacto y 
+\begin_inset Formula $F$
+\end_inset
+
+ cerrado, existen 
+\begin_inset Formula $f\in E'$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha\in\mathbb{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ con 
+\begin_inset Formula $f(y)\leq\alpha-\varepsilon<\alpha<f(z)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $y\in K$
+\end_inset
+
+ y 
+\begin_inset Formula $z\in F$
+\end_inset
+
+ y tales que 
+\begin_inset Formula $f|_{K}$
+\end_inset
+
+ alcanza 
+\begin_inset Formula $\alpha-\varepsilon$
+\end_inset
+
+, y en particular 
+\begin_inset Formula $K$
+\end_inset
+
+ y 
+\begin_inset Formula $F$
+\end_inset
+
+ están estrictamente separados.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Como 
+\begin_inset Formula $K-F$
+\end_inset
+
+ es cerrado y no contiene al 0, 
+\begin_inset Formula $E\setminus(K-F)\in{\cal E}(0)$
+\end_inset
+
+, luego existe 
+\begin_inset Formula $W\in{\cal E}(0)$
+\end_inset
+
+ con 
+\begin_inset Formula $W+W\subseteq E\setminus(K-F)$
+\end_inset
+
+ que podemos tomar absolutamente conexo y, si 
+\begin_inset Formula $k\in K$
+\end_inset
+
+, 
+\begin_inset Formula $f\in F$
+\end_inset
+
+ y 
+\begin_inset Formula $u,v\in W$
+\end_inset
+
+, 
+\begin_inset Formula $k-f\in K-F$
+\end_inset
+
+ y 
+\begin_inset Formula $u-v\in W+W\subseteq E\setminus(K-F)$
+\end_inset
+
+, luego 
+\begin_inset Formula $k-f\neq u-v$
+\end_inset
+
+ y 
+\begin_inset Formula $k+v\neq f+u$
+\end_inset
+
+, y 
+\begin_inset Formula $K+W$
+\end_inset
+
+ y 
+\begin_inset Formula $F+W$
+\end_inset
+
+ son abiertos disjuntos.
+ Es fácil ver que la suma de conexos es conexa, luego 
+\begin_inset Formula $K+W$
+\end_inset
+
+ y 
+\begin_inset Formula $F+W$
+\end_inset
+
+ son conexos y, por el primer teorema de separación, existen 
+\begin_inset Formula $f\in E'$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha\in\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $f(k)<\alpha<f(z)$
+\end_inset
+
+ para 
+\begin_inset Formula $k\in K$
+\end_inset
+
+ y 
+\begin_inset Formula $z\in F$
+\end_inset
+
+, pero como 
+\begin_inset Formula $f(K)$
+\end_inset
+
+ es compacto, 
+\begin_inset Formula $\max f(K)<\alpha$
+\end_inset
+
+ y basta tomar 
+\begin_inset Formula $\varepsilon\coloneqq\alpha-\max f(K)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Con esto, si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-e.l.c.
+ y 
+\begin_inset Formula $K,F\subseteq E$
+\end_inset
+
+ son convexos disjuntos, 
+\begin_inset Formula $A$
+\end_inset
+
+ es compacto, 
+\begin_inset Formula $B$
+\end_inset
+
+ es cerrado y uno de los dos es absolutamente convexo, existe 
+\begin_inset Formula $u\in E'$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\sup_{x\in A}|u(x)|<\inf_{y\in B}|u(y)|$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un e.l.c.
+ y 
+\begin_inset Formula $A\subseteq E$
+\end_inset
+
+, 
+\begin_inset Formula $\overline{\text{co}(A)}$
+\end_inset
+
+ es la intersección de todos los semiespacios cerrados de 
+\begin_inset Formula $E$
+\end_inset
+
+ que contienen a 
+\begin_inset Formula $A$
+\end_inset
+
+, y en particular todo conjunto convexo y cerrado es la intersección de
+ los semiespacios cerrados que lo contienen.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así, si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un espacio vectorial con topologías 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ localmente convexas Hausdorff y 
+\begin_inset Formula $(E,{\cal S})'=(E,{\cal T})'$
+\end_inset
+
+, 
+\begin_inset Formula $(E,{\cal S})$
+\end_inset
+
+ y 
+\begin_inset Formula $(E,{\cal T})$
+\end_inset
+
+ tienen los mismos convexos cerrados.
+ Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un e.l.c.
+ entonces 
+\begin_inset Formula $(E,{\cal T})'=(E,\sigma(E,E'))'$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un e.l.c.:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $F\leq E$
+\end_inset
+
+, 
+\begin_inset Formula $\overline{F}=\{x\in E\mid\forall f\in E',(f|_{F}=0\implies f(x)=0)\}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $S\subseteq E$
+\end_inset
+
+ es total si y sólo si 
+\begin_inset Formula $\{f\in E'\mid f|_{S}=0\}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Normas convexas
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+bidual
+\series default
+ del espacio normado 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ al dual del dual de 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $X^{**}$
+\end_inset
+
+, con la norma dual, que es un espacio de Banach.
+\end_layout
+
+\begin_layout Standard
+La función 
+\begin_inset Formula $\hat{}:X\to X^{**}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\hat{x}(f)\coloneqq f(x)$
+\end_inset
+
+ es una isometría, con lo que 
+\begin_inset Formula $\overline{\text{Im}\hat{}}$
+\end_inset
+
+ es un modelo para la compleción de 
+\begin_inset Formula $X$
+\end_inset
+
+ identificando cada 
+\begin_inset Formula $x$
+\end_inset
+
+ con 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $Y\leq X$
+\end_inset
+
+ cerrado, 
+\begin_inset Formula $Q:X\to\frac{X}{Y}$
+\end_inset
+
+ la aplicación cociente e 
+\begin_inset Formula $Y'\coloneqq\{f\in X^{*}\mid f(Y)=0\}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\alpha:\frac{X^{*}}{Y'}\to Y^{*}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\alpha(\overline{f})\coloneqq f|_{Y}$
+\end_inset
+
+ es un isomorfismo isométrico.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\beta:\left(\frac{X}{Y}\right)^{*}\to Y'$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\beta(\overline{g})\coloneqq g\circ Q$
+\end_inset
+
+ es un isomorfismo isométrico.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una norma 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ en 
+\begin_inset Formula $X$
+\end_inset
+
+ es 
+\series bold
+estrictamente convexa
+\series default
+ si 
+\begin_inset Formula $\forall x,y\in S_{X},\left(x\neq y\implies\left\Vert \frac{x+y}{2}\right\Vert <1\right)$
+\end_inset
+
+.
+ 
+\series bold
+Teorema de Taylor-Foguel:
+\series default
+ Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio normado, 
+\begin_inset Formula $X^{*}$
+\end_inset
+
+ es estrictamente convexo si y sólo si para 
+\begin_inset Formula $Y\leq X$
+\end_inset
+
+ e 
+\begin_inset Formula $f\in Y^{*}$
+\end_inset
+
+ existe una única extensión 
+\begin_inset Formula $\hat{f}\in X^{*}$
+\end_inset
+
+ de 
+\begin_inset Formula $f$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert\hat{f}\Vert=\Vert f\Vert$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $p\in(1,\infty)$
+\end_inset
+
+ y 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, en 
+\begin_inset Formula $(\mathbb{K}^{n},\Vert\cdot\Vert_{p})$
+\end_inset
+
+ y 
+\begin_inset Formula $(\ell^{p},\Vert\cdot\Vert_{p})$
+\end_inset
+
+ las normas duales son estrictamente convexas, mientras que esto no ocurre
+ cuando 
+\begin_inset Formula $p=1$
+\end_inset
+
+ o 
+\begin_inset Formula $p=\infty$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las extensiones de Hann-Banach pueden ser infinitas; por ejemplo, si 
+\begin_inset Formula $Y$
+\end_inset
+
+ es el subespacio de 
+\begin_inset Formula $({\cal C}([0,1]),\Vert\cdot\Vert_{\infty})$
+\end_inset
+
+ de las funciones constantes y 
+\begin_inset Formula $g\in Y^{*}$
+\end_inset
+
+ viene dada por 
+\begin_inset Formula $g(y)\coloneqq y(0)$
+\end_inset
+
+, para 
+\begin_inset Formula $t\in[0,1]$
+\end_inset
+
+, 
+\begin_inset Formula $f_{t}\in X^{*}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f_{t}(x)\coloneqq x(t)$
+\end_inset
+
+ es una extensión lineal de 
+\begin_inset Formula $g$
+\end_inset
+
+ que conserva la norma.
+\end_layout
+
+\begin_layout Subsection
+Límites de Banach
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $c$
+\end_inset
+
+ es el espacio de las sucesiones convergentes, existe 
+\begin_inset Formula $L\in(\ell^{\infty})^{*}$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert L\Vert=1$
+\end_inset
+
+ y 
+\begin_inset Formula $L(x)=\lim_{n}x_{n}$
+\end_inset
+
+ para 
+\begin_inset Formula $x\in c$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $x\in X$
+\end_inset
+
+, 
+\begin_inset Formula $L(x)=L((x_{2},x_{3},\dots,x_{n},\dots))$
+\end_inset
+
+ y, si cada 
+\begin_inset Formula $x_{n}\geq0$
+\end_inset
+
+, 
+\begin_inset Formula $L(x)\geq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Espacios vectoriales ordenados
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+espacio vectorial ordenado
+\series default
+ es un conjunto preordenado 
+\begin_inset Formula $(X,\apprle)$
+\end_inset
+
+ donde 
+\begin_inset Formula $X$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-espacio vectorial y, para 
+\begin_inset Formula $\alpha\in\mathbb{R}^{\geq0}$
+\end_inset
+
+ y 
+\begin_inset Formula $x,y,z\in X$
+\end_inset
+
+ con 
+\begin_inset Formula $x\leq y$
+\end_inset
+
+, 
+\begin_inset Formula $x+z\leq y+z$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha x\leq\alpha y$
+\end_inset
+
+.
+ Un 
+\series bold
+cono
+\series default
+ en un 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-espacio vectorial 
+\begin_inset Formula $X$
+\end_inset
+
+ es un 
+\begin_inset Formula $P\subseteq X$
+\end_inset
+
+ tal que, para 
+\begin_inset Formula $\alpha\in\mathbb{R}^{\geq0}$
+\end_inset
+
+ y 
+\begin_inset Formula $x,y\in P$
+\end_inset
+
+, 
+\begin_inset Formula $x+y\in P$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha x\in P$
+\end_inset
+
+ y 
+\begin_inset Formula $P\cap(-P)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $(X,\apprle)$
+\end_inset
+
+ es un espacio vectorial ordenado, 
+\begin_inset Formula $\{x\in X\mid x\geq0\}$
+\end_inset
+
+ es un cono si y sólo si 
+\begin_inset Formula $\apprle$
+\end_inset
+
+ es antisimétrica, y si 
+\begin_inset Formula $P\subseteq_{\mathbb{R}}X$
+\end_inset
+
+ es un cono, 
+\begin_inset Formula $x\leq y\iff y-x\in P$
+\end_inset
+
+ define un orden parcial en 
+\begin_inset Formula $P$
+\end_inset
+
+ tal que 
+\begin_inset Formula $(X,\leq)$
+\end_inset
+
+ es un espacio vectorial ordenado.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $(X,\apprle)$
+\end_inset
+
+ es un espacio vectorial ordenado, 
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+ es 
+\series bold
+cofinal
+\series default
+ si 
+\begin_inset Formula $\forall x\geq0,\exists a\in A:a\apprge x$
+\end_inset
+
+, y 
+\begin_inset Formula $e\in X$
+\end_inset
+
+ es 
+\series bold
+unidad de orden
+\series default
+ si 
+\begin_inset Formula $\forall x\in X,\exists n\in\mathbb{N}:-ne\apprle x\apprle ne$
+\end_inset
+
+, en cuyo caso 
+\begin_inset Formula $\{ne\}_{n\in\mathbb{N}}$
+\end_inset
+
+ es cofinal.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $K$
+\end_inset
+
+ es un espacio compacto, en el espacio vectorial ordenado 
+\begin_inset Formula $(C(K),\leq)$
+\end_inset
+
+ de funciones continuas 
+\begin_inset Formula $K\to\mathbb{R}$
+\end_inset
+
+ con el orden 
+\begin_inset Formula $f\leq g\iff\forall x\in K,f(x)\leq f(x)$
+\end_inset
+
+, todas las funciones que no se anulan son unidades de orden.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(C(\mathbb{R}),\leq)$
+\end_inset
+
+ no tiene unidades de orden.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $(X,\apprle)$
+\end_inset
+
+ e 
+\begin_inset Formula $(Y,\lessapprox)$
+\end_inset
+
+ son espacios vectoriales ordenados, 
+\begin_inset Formula $T:X\to Y$
+\end_inset
+
+ lineal es 
+\series bold
+positiva
+\series default
+ si 
+\begin_inset Formula $\forall x\apprge0,Tx\gtrapprox0$
+\end_inset
+
+.
+ Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $(X,\apprle)$
+\end_inset
+
+ es un espacio vectorial ordenado, 
+\begin_inset Formula $Y\leq X$
+\end_inset
+
+ cofinal y 
+\begin_inset Formula $f:Y\to\mathbb{R}$
+\end_inset
+
+ lineal positiva, 
+\begin_inset Formula $f$
+\end_inset
+
+ se extiende a una 
+\begin_inset Formula $\hat{f}:X\to\mathbb{R}$
+\end_inset
+
+ lineal positiva.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con esto, si 
+\begin_inset Formula $e$
+\end_inset
+
+ es una unidad de orden de 
+\begin_inset Formula $(X,\leq)$
+\end_inset
+
+ e 
+\begin_inset Formula $Y\leq X$
+\end_inset
+
+ con 
+\begin_inset Formula $e\in Y$
+\end_inset
+
+, toda función lineal positiva 
+\begin_inset Formula $Y\to\mathbb{R}$
+\end_inset
+
+ se extiende a una función 
+\begin_inset Formula $X\to\mathbb{R}$
+\end_inset
+
+ lineal positiva.
+\end_layout
+
+\begin_layout Section
+Propiedad de extensión
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Helly:
+\series default
+ En 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+, la intersección de 
+\begin_inset Formula $m>n$
+\end_inset
+
+ conjuntos convexos es no vacía si y sólo si la intersección de cada 
+\begin_inset Formula $n+1$
+\end_inset
+
+ de ellos es no vacía.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dados un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio normado 
+\begin_inset Formula $X$
+\end_inset
+
+ y familias 
+\begin_inset Formula $\{x_{i}\}_{i\in I}\subseteq X$
+\end_inset
+
+ y 
+\begin_inset Formula $\{r_{i}\}_{i\in I}\subseteq\mathbb{R}^{+}$
+\end_inset
+
+, la familia de bolas cerradas 
+\begin_inset Formula $(\overline{B(x_{i},r_{i})})_{i\in I}$
+\end_inset
+
+ tiene la 
+\series bold
+propiedad de intersección débil
+\series default
+ si 
+\begin_inset Formula $\forall f\in B_{X^{*}},\bigcap_{i\in I}B(f(x_{i}),r_{i})\neq\emptyset$
+\end_inset
+
+, si y sólo si para 
+\begin_inset Formula $J\subseteq I$
+\end_inset
+
+ finito y 
+\begin_inset Formula $\{a_{j}\}_{j\in J}\subseteq\mathbb{K}$
+\end_inset
+
+ con 
+\begin_inset Formula $\sum_{j\in J}a_{j}=0$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\left\Vert \sum_{j\in J}a_{j}x_{j}\right\Vert \leq\sum_{j\in J}|a_{j}|r_{j}.
+\]
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\mathbb{K}=\mathbb{R}$
+\end_inset
+
+, esto equivale a que las bolas se corten dos a dos.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\mathbb{K}=\mathbb{C}$
+\end_inset
+
+, la segunda definición se puede restringir sólo a los 
+\begin_inset Formula $J\subseteq I$
+\end_inset
+
+ con 
+\begin_inset Formula $|J|=3$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio normado 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ cumple:
+\end_layout
+
+\begin_layout Enumerate
+La 
+\series bold
+propiedad de extensión
+\series default
+, si para cada 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio normado 
+\begin_inset Formula $Y$
+\end_inset
+
+, 
+\begin_inset Formula $Y_{0}\leq Y$
+\end_inset
+
+ y 
+\begin_inset Formula $T_{0}\in{\cal L}(Y_{0},X)$
+\end_inset
+
+, 
+\begin_inset Formula $T_{0}$
+\end_inset
+
+ se extiende a una 
+\begin_inset Formula $T\in{\cal L}(Y,X)$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert T\Vert=\Vert T_{0}\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+La 
+\series bold
+propiedad de extensión 
+\begin_inset Quotes cld
+\end_inset
+
+inmediata
+\begin_inset Quotes crd
+\end_inset
+
+
+\series default
+, si cumple la de extensión pero considerando sólo el caso en que 
+\begin_inset Formula $Y_{0}$
+\end_inset
+
+ es de codimensión 1 en 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+La 
+\series bold
+propiedad de intersección
+\series default
+ si toda familia de bolas cerradas de 
+\begin_inset Formula $X$
+\end_inset
+
+ que cumple la propiedad de intersección débil tiene intersección no vacía.
+\end_layout
+
+\begin_layout Enumerate
+La 
+\series bold
+propiedad de intersección binaria
+\series default
+ si toda familia de bolas cerradas de 
+\begin_inset Formula $X$
+\end_inset
+
+ que se cortan dos a dos tiene intersección no vacía.
+\end_layout
+
+\begin_layout Enumerate
+La 
+\series bold
+propiedad de proyección
+\series default
+ si para todo 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio normado que contiene a 
+\begin_inset Formula $X$
+\end_inset
+
+ como subespacio existe 
+\begin_inset Formula $P\in{\cal L}(Y,X)$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert P\Vert=1$
+\end_inset
+
+ suprayectiva e idempotente, que llamamos una 
+\series bold
+proyección
+\series default
+ de 
+\begin_inset Formula $Y$
+\end_inset
+
+ sobre 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $X$
+\end_inset
+
+ cumple la propiedad de extensión si y sólo si cumple la propiedad de extensión
+ inmediata, en cuyo caso 
+\begin_inset Formula $X$
+\end_inset
+
+ es de Banach.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un espacio compacto 
+\begin_inset Formula $K$
+\end_inset
+
+ es 
+\series bold
+stoniano
+\series default
+ si la clausura de cada abierto de 
+\begin_inset Formula $K$
+\end_inset
+
+ es un abierto.
+ 
+\end_layout
+
+\begin_layout Standard
+Dado un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio de Banach 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Las propiedades de extensión, intersección y proyección son equivalentes.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Teorema de Nachbin-Goodner-Kelly-Hasumi:
+\series default
+ Estas propiedades equivalen a que 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ sea isométricamente isomorfo a 
+\begin_inset Formula $({\cal C}(K,\mathbb{K}),\Vert\cdot\Vert_{\infty})$
+\end_inset
+
+ para algún compacto stoniano 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\mathbb{K}=\mathbb{R}$
+\end_inset
+
+, estas equivalen a la propiedad de intersección binaria.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\mathbb{K}=\mathbb{C}$
+\end_inset
+
+, estas equivalen a la propiedad de intersección pero limitando las subfamilias
+ de las familias de bolas a que sean de cardinal 3.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Teorema de la acotación uniforme
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $X$
+\end_inset
+
+ un espacio topológico, 
+\begin_inset Formula $S\subseteq X$
+\end_inset
+
+ es 
+\series bold
+denso en ninguna parte
+\series default
+ o 
+\series bold
+raro
+\series default
+ si su clausura tiene interior vacío, 
+\begin_inset Formula $\mathring{\overline{S}}=\emptyset$
+\end_inset
+
+, 
+\series bold
+de primera categoría
+\series default
+ si es unión numerable de conjuntos raros, 
+\series bold
+de segunda categoría
+\series default
+ en otro caso y 
+\series bold
+
+\begin_inset Formula $G_{\delta}$
+\end_inset
+
+
+\series default
+ si es intersección numerable de abiertos.
+ 
+\begin_inset Formula $T$
+\end_inset
+
+ es de segunda categoría en sí mismo si y sólo si la intersección numerable
+ de abiertos densos en no vacía.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un espacio topológico es 
+\series bold
+de Baire
+\series default
+ si la intersección numerable de abiertos densos es densa, en cuyo caso
+ es de segunda categoría en sí mismo.
+ 
+\series bold
+Teorema de Baire:
+\series default
+ Todo espacio métrico completo es de Baire.
+ 
+\series bold
+Demostración:
+\series default
+ Sean 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ un espacio métrico, 
+\begin_inset Formula $(G_{n})_{n}$
+\end_inset
+
+ una sucesión de abiertos densos y 
+\begin_inset Formula $V\subseteq M$
+\end_inset
+
+ abierto arbitrario, queremos definir una sucesión de bolas 
+\begin_inset Formula $(\overline{B(x_{n},r_{n})})_{n}$
+\end_inset
+
+ cada una contenida en 
+\begin_inset Formula $V\cap G_{n}\cap\overline{B(x_{n-1},r_{n-1})}$
+\end_inset
+
+ y con 
+\begin_inset Formula $r_{n}<\frac{1}{2^{n}}$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $G_{0}$
+\end_inset
+
+ es denso, 
+\begin_inset Formula $V\cap G_{0}\neq\emptyset$
+\end_inset
+
+ y existen 
+\begin_inset Formula $x_{0}\in M$
+\end_inset
+
+ y 
+\begin_inset Formula $r_{0}\in(0,1)$
+\end_inset
+
+ con 
+\begin_inset Formula $\overline{B(x_{0},r_{0})}\subseteq V\cap G_{0}$
+\end_inset
+
+, y para 
+\begin_inset Formula $n>0$
+\end_inset
+
+, como 
+\begin_inset Formula $G_{n}$
+\end_inset
+
+ es denso, por inducción existen 
+\begin_inset Formula $x_{n}\in M$
+\end_inset
+
+ y 
+\begin_inset Formula $r_{n}\in(0,\frac{1}{2^{n}})$
+\end_inset
+
+ con 
+\begin_inset Formula $\overline{B(x_{n},r_{n})}\subseteq V\cap B(x_{n-1},r_{n-1})\cap G_{n}$
+\end_inset
+
+.
+ Entonces 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ es de Cauchy por ser 
+\begin_inset Formula $x_{m}\in B(x_{n},r_{n})$
+\end_inset
+
+ para 
+\begin_inset Formula $m\geq n$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{n}r_{n}=0$
+\end_inset
+
+, luego existe 
+\begin_inset Formula $L\coloneqq\lim_{n}x_{n}\in V\cap\bigcap_{n}G_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\bigcap_{n}G_{n}$
+\end_inset
+
+ es denso.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ no es completo esto no se cumple; por ejemplo, en 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ con la métrica inducida por la de 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+, para cada 
+\begin_inset Formula $q\in\mathbb{Q}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{Q}\setminus\{q\}$
+\end_inset
+
+ es denso, pero la intersección numerable 
+\begin_inset Formula $\bigcap_{q\in\mathbb{Q}}\mathbb{Q}\setminus\{q\}=\emptyset$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Con esto, si 
+\begin_inset Formula $X$
+\end_inset
+
+ es de Banach, su dimensión algebraica es finita o no numerable.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de la acotación uniforme:
+\series default
+ Sean 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+ espacios normados, 
+\begin_inset Formula $\{A_{i}\}_{i\in I}\subseteq{\cal L}(X,Y)$
+\end_inset
+
+ y 
+\begin_inset Formula $B\coloneqq\{x\in X\mid\sup_{i\in I}\Vert A_{i}(x)\Vert<\infty\}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $B$
+\end_inset
+
+ es de segunda categoría, 
+\begin_inset Formula $\sup_{i\in I}\Vert A_{i}\Vert<\infty$
+\end_inset
+
+ y 
+\begin_inset Formula $B=\emptyset$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es de Banach, bien 
+\begin_inset Formula $\sup_{i\in I}\Vert A_{i}\Vert<\infty$
+\end_inset
+
+ o 
+\begin_inset Formula $B^{\complement}$
+\end_inset
+
+ es 
+\begin_inset Formula $G_{\delta}$
+\end_inset
+
+ denso en 
+\begin_inset Formula $X$
+\end_inset
+
+, de modo que o 
+\begin_inset Formula $\sup_{i\in I}\Vert A_{i}\Vert<\infty$
+\end_inset
+
+ o 
+\begin_inset Formula $B$
+\end_inset
+
+ es de primera categoría en 
+\begin_inset Formula $X$
+\end_inset
+
+, pero no ambas.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La completitud es necesaria para la segunda parte del teorema, pues 
+\begin_inset Formula $\{f_{n}\}_{n}\subseteq(c_{00},\Vert\cdot\Vert_{\infty})^{*}$
+\end_inset
+
+ dada por 
+\begin_inset Formula $f_{n}(x)\coloneqq\sum_{i=1}^{n}x_{i}$
+\end_inset
+
+ es puntualmente acotada pero cada 
+\begin_inset Formula $\Vert f_{n}\Vert=n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio de Banach, 
+\begin_inset Formula $Y$
+\end_inset
+
+ un espacio completo y 
+\begin_inset Formula $\{T_{n}\}_{n}\subseteq{\cal L}(X,Y)$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ existe 
+\begin_inset Formula $T(x)\coloneqq\lim_{n}T_{n}(x)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Teorema de Banach-Steinhaus:
+\series default
+ 
+\begin_inset Formula $T$
+\end_inset
+
+ es lineal y continua con
+\begin_inset Formula 
+\[
+\Vert T\Vert\leq\liminf_{n}\Vert T_{n}\Vert\leq\sup_{n}\Vert T_{n}\Vert<\infty.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Es lineal por serlo el límite.
+ 
+\begin_inset Formula $(T_{n}x)_{n}$
+\end_inset
+
+ es acotada para 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ y, por el teorema de la acotación uniforme, 
+\begin_inset Formula $\sup_{n}\Vert T_{n}\Vert<\infty$
+\end_inset
+
+, y si 
+\begin_inset Formula $x\in B_{X}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert Tx\Vert=\lim_{n}\Vert T_{n}x\Vert\leq\liminf_{n}\Vert T_{n}\Vert\leq\sup_{n}\Vert T_{n}\Vert$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $(T_{n})_{n}$
+\end_inset
+
+ converge uniformemente a 
+\begin_inset Formula $T$
+\end_inset
+
+ en los subconjuntos compactos de 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+ espacios normados:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+ es acotado si y sólo si para 
+\begin_inset Formula $f\in X^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $f(A)$
+\end_inset
+
+ es acotado.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es de Banach, 
+\begin_inset Formula $A\subseteq X^{*}$
+\end_inset
+
+ es acotado si y sólo si 
+\begin_inset Formula $\{f(x)\}_{f\in A}$
+\end_inset
+
+ es acotado.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $T:X\to Y$
+\end_inset
+
+ es lineal, 
+\begin_inset Formula $T$
+\end_inset
+
+ es continua si y sólo si 
+\begin_inset Formula $\forall g\in Y^{*},g\circ T\in X^{*}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Funciones holomorfas vectoriales
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\Omega\subseteq\mathbb{C}$
+\end_inset
+
+ abierto y 
+\begin_inset Formula $(_{\mathbb{C}}X,\Vert\cdot\Vert)$
+\end_inset
+
+ de Banach, 
+\begin_inset Formula $f:\Omega\to X$
+\end_inset
+
+ es 
+\series bold
+débilmente holomorfa
+\series default
+ en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ si para 
+\begin_inset Formula $g\in X^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $g\circ f:\Omega\to\mathbb{C}$
+\end_inset
+
+ es holomorfa, y es 
+\series bold
+holomorfa
+\series default
+ en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ si 
+\begin_inset Formula 
+\[
+\forall a\in\Omega,\exists f'(a)\coloneqq\lim_{z\to a}\frac{f(z)-f(a)}{z-a}.
+\]
+
+\end_inset
+
+
+\series bold
+Teorema de Dunford:
+\series default
+ 
+\begin_inset Formula $f$
+\end_inset
+
+ es holomorfa si y sólo si es débilmente holomorfa.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Liouville:
+\series default
+ Si 
+\begin_inset Formula $(_{\mathbb{C}}X,\Vert\cdot\Vert)$
+\end_inset
+
+ es de Banach y 
+\begin_inset Formula $f:\mathbb{C}\to X$
+\end_inset
+
+ es holomorfa con 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ acotada para cada 
+\begin_inset Formula $g\in X^{*}$
+\end_inset
+
+, entonces 
+\begin_inset Formula $f$
+\end_inset
+
+ es constante.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{reminder}{FVC}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Toda curva 
+\begin_inset Formula $\gamma:[a,b]\to\mathbb{C}^{*}$
+\end_inset
+
+ tiene argumentos continuos, y si 
+\begin_inset Formula $\theta$
+\end_inset
+
+ y 
+\begin_inset Formula $\theta'$
+\end_inset
+
+ son argumentos continuos de 
+\begin_inset Formula $\gamma$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\theta(b)-\theta(a)=\theta'(b)-\theta'(a)$
+\end_inset
+
+.
+ [...] Sean 
+\begin_inset Formula $\gamma:[a,b]\to\mathbb{C}$
+\end_inset
+
+ una curva, 
+\begin_inset Formula $z\notin\gamma^{*}$
+\end_inset
+
+[
+\begin_inset Formula $\coloneqq\text{Im}\gamma$
+\end_inset
+
+] y 
+\begin_inset Formula $\theta$
+\end_inset
+
+ un argumento de 
+\begin_inset Formula $\gamma-z$
+\end_inset
+
+, llamamos [...] 
+\series bold
+índice
+\series default
+ de 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ respecto de 
+\begin_inset Formula $z$
+\end_inset
+
+ a
+\begin_inset Formula 
+\[
+\text{Ind}_{\gamma}(z):=\frac{\theta(b)-\theta(a)}{2\pi}.
+\]
+
+\end_inset
+
+[...] Una 
+\series bold
+cadena
+\series default
+ es una expresión de la forma 
+\begin_inset Formula $\Gamma\coloneqq m_{1}\gamma_{1}+\dots+m_{q}\gamma_{q}$
+\end_inset
+
+ donde los 
+\begin_inset Formula $m_{i}$
+\end_inset
+
+ son enteros y los 
+\begin_inset Formula $\gamma_{i}$
+\end_inset
+
+ son caminos.
+ Llamamos 
+\series bold
+soporte
+\series default
+ de 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ a 
+\begin_inset Formula $\Gamma^{*}\coloneqq\bigcup_{k}\gamma_{k}^{*}$
+\end_inset
+
+ [...].
+ Un 
+\series bold
+ciclo
+\series default
+ es una cadena formada por caminos cerrados, y llamamos 
+\series bold
+índice
+\series default
+ de 
+\begin_inset Formula $z\notin\Gamma^{*}$
+\end_inset
+
+ respecto al ciclo 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{Ind}_{\Gamma}(z)\coloneqq\sum_{k}m_{k}\text{Ind}_{\gamma_{k}}(z)$
+\end_inset
+
+.
+ [...] Dado un abierto 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, un ciclo 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ es 
+\series bold
+nulhomólogo
+\series default
+ respecto de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall z\in\mathbb{C}\setminus\Omega,\text{Ind}_{\Gamma}(z)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{reminder}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, sean 
+\begin_inset Formula $\Omega\subseteq\mathbb{C}$
+\end_inset
+
+ abierto, 
+\begin_inset Formula $_{\mathbb{C}}X$
+\end_inset
+
+ de Banach y 
+\begin_inset Formula $f:\Omega\to X$
+\end_inset
+
+ holomorfa:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Teorema de Cauchy:
+\series default
+ Sea 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ un ciclo 
+\begin_inset Formula $\Omega$
+\end_inset
+
+-nulhomólogo,
+\begin_inset Formula 
+\[
+\int_{\Gamma}f=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Fórmula de Cauchy:
+\series default
+ Para 
+\begin_inset Formula $z\in\mathbb{C}\setminus\text{Im}\Gamma$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+f(z)\text{Ind}_{\Gamma}(z)=\frac{1}{2\pi\text{i}}\int_{\Gamma}\frac{f(w)}{w-z}\dif w.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $a\in\Omega$
+\end_inset
+
+, existe 
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $a\in\Omega$
+\end_inset
+
+, si 
+\begin_inset Formula $\Gamma:[0,2\pi]\to\mathbb{C}$
+\end_inset
+
+ viene dado por 
+\begin_inset Formula $\Gamma(\theta)=a+\rho\text{e}^{\text{i}\theta}$
+\end_inset
+
+ y, para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+a_{n}\coloneqq\frac{f^{(n)}(a)}{n!}=\frac{1}{2\pi\text{i}}\int_{\Gamma}\frac{f(w)}{(w-a)^{n+1}}\dif w\in X,
+\]
+
+\end_inset
+
+existe 
+\begin_inset Formula $\rho>0$
+\end_inset
+
+ con 
+\begin_inset Formula $\overline{B(a,\rho)}\subseteq\Omega$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f(z)=\sum_{n}a_{n}(z-a)^{n}$
+\end_inset
+
+, y la serie converge uniforme y absolutamente en compactos de 
+\begin_inset Formula $B(a,\rho)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Métodos de sumabilidad
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A\in\mathbb{K}^{\mathbb{N}\times\mathbb{N}}$
+\end_inset
+
+, la sucesión 
+\begin_inset Formula $(x_{m})_{m}$
+\end_inset
+
+ en 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+ es 
+\series bold
+
+\begin_inset Formula $A$
+\end_inset
+
+-convergente
+\series default
+ a 
+\begin_inset Formula $z\in\mathbb{K}$
+\end_inset
+
+ si para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{m}A_{nm}x_{m}$
+\end_inset
+
+ converge a un cierto 
+\begin_inset Formula $y_{n}$
+\end_inset
+
+ e 
+\begin_inset Formula $(y_{n})_{n}$
+\end_inset
+
+ converge a 
+\begin_inset Formula $z$
+\end_inset
+
+, y 
+\begin_inset Formula $A$
+\end_inset
+
+ es un 
+\series bold
+método de sumabilidad permanente
+\series default
+ si para 
+\begin_inset Formula $\{x_{m}\}_{m}\subseteq\mathbb{K}$
+\end_inset
+
+ convergente, 
+\begin_inset Formula $(\sum_{m}A_{nm}x_{m})_{n}$
+\end_inset
+
+ es convergente y 
+\begin_inset Formula $\lim_{n}y_{n}=\lim_{m}x_{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\series bold
+sucesión de medias de Césaro
+\series default
+ de una sucesión 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\left(\frac{x_{1}+\dots+x_{n}}{n}\right)_{n},
+\]
+
+\end_inset
+
+y 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+ es 
+\series bold
+convergente Césaro
+\series default
+ si su sucesión de medias de Césaro converge.
+ Toda sucesión convergente es convergente Césaro, pero el recíproco no se
+ cumple.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así, la 
+\series bold
+matriz de Césaro
+\series default
+,
+\begin_inset Formula 
+\[
+\left(\frac{1}{i}\chi_{\{j\leq i\}}\right)_{i,j\geq1}=\begin{pmatrix}1\\
+\frac{1}{2} & \frac{1}{2}\\
+\frac{1}{3} & \frac{1}{3} & \frac{1}{3}\\
+\vdots & \vdots & \vdots & \ddots
+\end{pmatrix}\in\mathbb{K}^{\mathbb{N}\times\mathbb{N}},
+\]
+
+\end_inset
+
+es un método de sumabilidad permanente.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Toeplitsz:
+\series default
+ 
+\begin_inset Formula $A\in\mathbb{K}^{\mathbb{N}\times\mathbb{N}}$
+\end_inset
+
+ es un método de sumabilidad permanente si y sólo si 
+\begin_inset Formula $\sup_{n}\sum_{m}|A_{nm}|<\infty$
+\end_inset
+
+, 
+\begin_inset Formula $\forall m\in\mathbb{N},\lim_{n}A_{nm}=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\lim_{n}\sum_{m}A_{nm}=1$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Convergencia puntual de series de Fourier de funciones continuas
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $X\coloneqq\{f\in{\cal C}([-\pi,\pi])\mid f(\pi)=f(-\pi)\}$
+\end_inset
+
+; para 
+\begin_inset Formula $k\in\mathbb{Z}$
+\end_inset
+
+ y 
+\begin_inset Formula $f\in L^{2}([-\pi,\pi])$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\hat{f}(k)\coloneqq\sum_{k=-n}^{n}\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)\text{e}^{-\text{i}kt}\dif t
+\]
+
+\end_inset
+
+el 
+\begin_inset Formula $k$
+\end_inset
+
+-ésimo coeficiente de Fourier de 
+\begin_inset Formula $f$
+\end_inset
+
+ y, para 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $s_{n}:L^{2}([-\pi,\pi])\to\mathbb{R}$
+\end_inset
+
+ dada por
+\begin_inset Formula 
+\[
+s_{n}(f)(x)\coloneqq\sum_{k=-n}^{n}\hat{f}(k)\text{e}^{\text{i}kx},
+\]
+
+\end_inset
+
+entonces:
+\end_layout
+
+\begin_layout Enumerate
+Como 
+\series bold
+teorema
+\series default
+, existe 
+\begin_inset Formula $F$
+\end_inset
+
+ 
+\begin_inset Formula $G_{\delta}$
+\end_inset
+
+ denso en 
+\begin_inset Formula $X$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $f\in F$
+\end_inset
+
+, 
+\begin_inset Formula $\{x\in[-\pi,\pi]\mid\sup_{n}|s_{n}(f)(x)|\}$
+\end_inset
+
+ es 
+\begin_inset Formula $G_{\delta}$
+\end_inset
+
+ no numerable y denso en 
+\begin_inset Formula $[-\pi,\pi]$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $f\in X$
+\end_inset
+
+ de clase 
+\begin_inset Formula ${\cal C}^{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in[-\pi,\pi]$
+\end_inset
+
+, 
+\begin_inset Formula $\lim_{n}s_{n}(f)(x)=f(x)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Para todo 
+\begin_inset Formula $f\in L^{2}([-\pi,\pi])$
+\end_inset
+
+ y casi todo 
+\begin_inset Formula $x\in[-\pi,\pi]$
+\end_inset
+
+, 
+\begin_inset Formula $\lim_{n}s_{n}(f)(x)=f(x)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Teorema de la aplicación abierta
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio normado, 
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+ es 
+\series bold
+CS-compacto
+\series default
+ si para 
+\begin_inset Formula $\{x_{n}\}_{n}\subseteq A$
+\end_inset
+
+ y 
+\begin_inset Formula $\{\lambda_{n}\}_{n}\subseteq[0,1]$
+\end_inset
+
+ con 
+\begin_inset Formula $\sum_{n}\lambda_{n}=1$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{n}\lambda_{n}x_{n}$
+\end_inset
+
+ converge a un punto de 
+\begin_inset Formula $A$
+\end_inset
+
+, y es 
+\series bold
+CS-cerrado
+\series default
+ si para 
+\begin_inset Formula $\{x_{n}\}_{n}\subseteq A$
+\end_inset
+
+ y 
+\begin_inset Formula $\{\lambda_{n}\}_{n}\subseteq[0,1]$
+\end_inset
+
+ con 
+\begin_inset Formula $\sum_{n}\lambda_{n}=1$
+\end_inset
+
+, si 
+\begin_inset Formula $\sum_{n}\lambda_{n}x_{n}$
+\end_inset
+
+ converge, lo hace un punto de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio normado:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es de Banach, 
+\begin_inset Formula $B_{X}$
+\end_inset
+
+ es CS-compacta.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Todo cerrado convexo es CS-cerrado.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Todo CS-compacto es CS-cerrado y acotado, y el recíproco se cumple si 
+\begin_inset Formula $X$
+\end_inset
+
+ es de Banach.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+ es CS-cerrado, 
+\begin_inset Formula $\mathring{A}=\mathring{\overline{A}}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+ espacios normados y 
+\begin_inset Formula $T\in{\cal L}(X,Y)$
+\end_inset
+
+, si 
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+ es CS-compacto, 
+\begin_inset Formula $T(A)$
+\end_inset
+
+ también.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de la aplicación abierta:
+\series default
+ Sean 
+\begin_inset Formula $X$
+\end_inset
+
+ un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio de Banach, 
+\begin_inset Formula $Y$
+\end_inset
+
+ un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio normado y 
+\begin_inset Formula $T\in{\cal L}(X,Y)$
+\end_inset
+
+, si 
+\begin_inset Formula $\text{Im}T$
+\end_inset
+
+ es de segunda categoría en 
+\begin_inset Formula $Y$
+\end_inset
+
+, 
+\begin_inset Formula $T$
+\end_inset
+
+ es suprayectiva y abierta e 
+\begin_inset Formula $Y$
+\end_inset
+
+ es un espacio de Banach.
+ 
+\series bold
+Demostración:
+\series default
+ Como 
+\begin_inset Formula $B_{X}$
+\end_inset
+
+ es CS-compacto, 
+\begin_inset Formula $T(B_{X})$
+\end_inset
+
+ también y por tanto es CS-cerrado, y si fuera raro, como el producto por
+ un 
+\begin_inset Formula $n>0$
+\end_inset
+
+ es un homeomorfismo, 
+\begin_inset Formula $nT(B_{X})$
+\end_inset
+
+ sería raro y 
+\begin_inset Formula $T(X)=T(\bigcup_{n\in\mathbb{N}^{*}}nB_{X})=\bigcup_{n\in\mathbb{N}^{*}}nT(B_{X})$
+\end_inset
+
+ sería de primera categoría
+\begin_inset Formula $\#$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $\mathring{\overbrace{T(B_{X})}}=\mathring{\overline{T(B_{X})}}\neq\emptyset$
+\end_inset
+
+ y existen 
+\begin_inset Formula $y_{0}\in Y$
+\end_inset
+
+ y 
+\begin_inset Formula $r>0$
+\end_inset
+
+ con 
+\begin_inset Formula $B(y_{0},r)\subseteq T(B_{X})$
+\end_inset
+
+, pero una bola cerrada en el origen es simétrica y 
+\begin_inset Formula $T$
+\end_inset
+
+ conserva simetrías, luego 
+\begin_inset Formula $B(-y_{0},r)\subseteq T(B_{X})$
+\end_inset
+
+ y 
+\begin_inset Formula $B(0,r)\subseteq\frac{1}{2}B_{Y}(-y_{0},r)+\frac{1}{2}B_{Y}(y_{0},r)\subseteq\frac{1}{2}T(B_{X})+\frac{1}{2}T(B_{X})\subseteq T(B_{X})$
+\end_inset
+
+.
+ Así, si 
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+ es abierto, para 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ existe 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ con 
+\begin_inset Formula $\overline{B(x,\delta)}=x+\delta B_{X}\subseteq A$
+\end_inset
+
+ y 
+\begin_inset Formula $B(Tx,\delta r)=Tx+\delta B(0,r)\subseteq Tx+\delta T(B_{X})=T(x+\delta B_{X})\subseteq T(A)$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $T$
+\end_inset
+
+ es abierta, y para 
+\begin_inset Formula $y\in Y$
+\end_inset
+
+, 
+\begin_inset Formula $y\in B(0,2\Vert y\Vert)=\frac{2\Vert y\Vert}{r}B(0,r)\subseteq T(\frac{2}{r}\Vert y\Vert B_{X})\subseteq T(X)$
+\end_inset
+
+ y 
+\begin_inset Formula $T$
+\end_inset
+
+ es suprayectiva.
+ Finalmente, sea 
+\begin_inset Formula $\{y_{n}\}_{n}\subseteq Y$
+\end_inset
+
+ con 
+\begin_inset Formula $\sum_{n}\Vert y_{n}\Vert<\infty$
+\end_inset
+
+, existe 
+\begin_inset Formula $\{x_{n}\}_{n}\subseteq X$
+\end_inset
+
+ con cada 
+\begin_inset Formula $Tx_{n}=y_{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert x_{n}\Vert\leq\frac{2}{r}\Vert y_{n}\Vert$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $\sum_{n}\Vert x_{n}\Vert<\infty$
+\end_inset
+
+ y, por ser 
+\begin_inset Formula $X$
+\end_inset
+
+ completo, existe 
+\begin_inset Formula $x'\coloneqq\sum_{n}x_{n}$
+\end_inset
+
+, y por la continuidad de 
+\begin_inset Formula $T$
+\end_inset
+
+, 
+\begin_inset Formula $Tx'=\sum_{n}y_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Entonces, si 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+ son de Banach, 
+\begin_inset Formula $T\in{\cal L}(X,Y)$
+\end_inset
+
+ es suprayectiva si y sólo si es abierta.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para esto último hace falta que 
+\begin_inset Formula $Y$
+\end_inset
+
+ sea completo; la identidad 
+\begin_inset Formula $I\in{\cal L}({\cal C}^{1}([0,1]),|\cdot|),({\cal C}^{1}([0,1]),\Vert\cdot\Vert_{\infty}))$
+\end_inset
+
+ con 
+\begin_inset Formula $|x|\coloneqq\Vert x\Vert_{\infty}+\Vert x'\Vert_{\infty}$
+\end_inset
+
+, el dominio es completo e 
+\begin_inset Formula $I$
+\end_inset
+
+ es suprayectiva pero no abierta.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+También hace falta que 
+\begin_inset Formula $X$
+\end_inset
+
+ sea completo; si 
+\begin_inset Formula $(e_{i})_{i\in I}$
+\end_inset
+
+ es una base algebraica no numerable de 
+\begin_inset Formula $\ell^{p}$
+\end_inset
+
+ y 
+\begin_inset Formula $X$
+\end_inset
+
+ es 
+\begin_inset Formula $\ell^{p}$
+\end_inset
+
+ con la norma 
+\begin_inset Formula $\left|\sum_{i}a_{i}e_{i}\right|\coloneqq\sum_{i}|a_{i}|$
+\end_inset
+
+, donde la suma es finita, la identidad 
+\begin_inset Formula $I\in{\cal L}(X,\ell^{p})$
+\end_inset
+
+ es suprayectiva pero no abierta.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema del homomorfismo de Banach:
+\series default
+ Sean 
+\begin_inset Formula $X$
+\end_inset
+
+ un espacio de Banach e 
+\begin_inset Formula $Y$
+\end_inset
+
+ un espacio normado, 
+\begin_inset Formula $T\in{\cal L}(X,Y)$
+\end_inset
+
+ es un 
+\series bold
+homomorfismo topológico
+\series default
+ si la restricción a la imagen 
+\begin_inset Formula $T:X\to\text{Im}T$
+\end_inset
+
+ es abierta, si y sólo si 
+\begin_inset Formula $\text{Im}T$
+\end_inset
+
+ es completo.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{reminder}{TS}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ y 
+\begin_inset Formula ${\cal T}'$
+\end_inset
+
+ son 
+\series bold
+comparables
+\series default
+ si 
+\begin_inset Formula ${\cal T}\subseteq{\cal T}'$
+\end_inset
+
+ o 
+\begin_inset Formula ${\cal T}'\subseteq{\cal T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{reminder}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+ son espacios de Banach y 
+\begin_inset Formula $T:X\to Y$
+\end_inset
+
+ es un isomorfismo algebraico continuo o abierto, 
+\begin_inset Formula $T$
+\end_inset
+
+ es un isomorfismo topológico.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Dos normas completas en 
+\begin_inset Formula $X$
+\end_inset
+
+ que definen topologías comparables son equivalentes.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si un espacio de Banach 
+\begin_inset Formula $X$
+\end_inset
+
+ es suma directa interna 
+\begin_inset Formula $M\oplus N$
+\end_inset
+
+ con 
+\begin_inset Formula $M$
+\end_inset
+
+ y 
+\begin_inset Formula $N$
+\end_inset
+
+ cerrados, entonces 
+\begin_inset Formula $X$
+\end_inset
+
+ es suma directa topológica de 
+\begin_inset Formula $M$
+\end_inset
+
+ y 
+\begin_inset Formula $N$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Técnica de perturbaciones
+\end_layout
+
+\begin_layout Standard
+El problema de Cauchy
+\begin_inset Formula 
+\[
+\left\{ \begin{array}{rl}
+a_{n}(t)x^{(n)}(t)+\dots+a_{1}(t)\dot{x}(t)+a_{0}x(t) & =y(t),\\
+x(a),\dot{x}(a),\dots,x^{(n-1)}(a) & =0
+\end{array}\right.
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $a_{i},y\in{\cal C}([a,b])$
+\end_inset
+
+ tiene solución única 
+\begin_inset Formula $x\in{\cal C}^{(n)}([a,b])$
+\end_inset
+
+ y sus soluciones dependen continuamente del término independiente.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Teorema de la gráfica cerrada
+\end_layout
+
+\begin_layout Standard
+Una función 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ entre espacios topológicos Hausdorff tiene 
+\series bold
+gráfica cerrada
+\series default
+ si 
+\begin_inset Formula $\text{Graf}f\coloneqq\{(x,f(x))\}_{x\in X}$
+\end_inset
+
+ es cerrado en 
+\begin_inset Formula $X\times Y$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $f$
+\end_inset
+
+ es continua, tiene gráfica cerrada.
+ El recíproco no es cierto; si 
+\begin_inset Formula $X$
+\end_inset
+
+ tiene dos topologías Hausdorff 
+\begin_inset Formula ${\cal T}\prec{\cal S}$
+\end_inset
+
+, 
+\begin_inset Formula $1_{X}:(X,{\cal T})\to(X,{\cal S})$
+\end_inset
+
+ no es continua pero tiene gráfica cerrada.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de la gráfica cerrada:
+\series default
+ Sean 
+\begin_inset Formula $X$
+\end_inset
+
+ e 
+\begin_inset Formula $Y$
+\end_inset
+
+ espacios de Banach, 
+\begin_inset Formula $T:X\to Y$
+\end_inset
+
+ lineal es continua si y sólo si tiene gráfica cerrada.
+ 
+\series bold
+Demostración:
+\series default
+ Como 
+\begin_inset Formula $x\mapsto(x,Tx)$
+\end_inset
+
+ es lineal, 
+\begin_inset Formula $\text{Graf}T$
+\end_inset
+
+ es un espacio vectorial, las proyecciones canónicas 
+\begin_inset Formula $P_{1}:\text{Graf}T\to X$
+\end_inset
+
+ y 
+\begin_inset Formula $P_{2}:\text{Graf}T\to Y$
+\end_inset
+
+ son lineales y continuas en 
+\begin_inset Formula $X\times Y$
+\end_inset
+
+ con la topología producto generada por 
+\begin_inset Formula $\Vert\cdot\Vert_{1}$
+\end_inset
+
+, y como 
+\begin_inset Formula $P_{1}$
+\end_inset
+
+ es biyectiva y por tanto un isomorfismo algebraico, si 
+\begin_inset Formula $\text{Graf}T$
+\end_inset
+
+ es cerrada, es completa al serlo 
+\begin_inset Formula $X\times Y$
+\end_inset
+
+ y 
+\begin_inset Formula $P_{1}$
+\end_inset
+
+ es un isomorfismo topológico, con lo que 
+\begin_inset Formula $T=P_{2}\circ P_{1}^{-1}$
+\end_inset
+
+ es continua.
+\end_layout
+
+\begin_layout Standard
+Aquí hace falta que 
+\begin_inset Formula $X$
+\end_inset
+
+ sea completo; la derivada 
+\begin_inset Formula $T:({\cal C}^{1}([0,1]),\Vert\cdot\Vert_{\infty})\to({\cal C}([0,1]),\Vert\cdot\Vert_{\infty})$
+\end_inset
+
+ es lineal con gráfica cerrada pero no continua.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+También hace falta que 
+\begin_inset Formula $Y$
+\end_inset
+
+ sea completo; si 
+\begin_inset Formula $(e_{i})_{i\in I}$
+\end_inset
+
+ es una base algebraica no numerable de 
+\begin_inset Formula $\ell^{p}$
+\end_inset
+
+ con cada 
+\begin_inset Formula $\Vert e_{i}\Vert=1$
+\end_inset
+
+ y 
+\begin_inset Formula $X$
+\end_inset
+
+ es 
+\begin_inset Formula $\ell^{p}$
+\end_inset
+
+ con la norma 
+\begin_inset Formula $\left|\sum_{i}a_{i}e_{i}\right|\coloneqq\sum_{i}|a_{i}|$
+\end_inset
+
+ siendo la suma finita, la identidad 
+\begin_inset Formula $\ell^{p}\to X$
+\end_inset
+
+ tiene gráfica cerrada pero no es continua.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Separación de puntos
+\end_layout
+
+\begin_layout Standard
+Un conjunto de funciones 
+\begin_inset Formula $F\subseteq B^{A}$
+\end_inset
+
+ 
+\series bold
+separa
+\series default
+ los puntos de 
+\begin_inset Formula $A$
+\end_inset
+
+ si 
+\begin_inset Formula $\forall x,y\in A,(x\neq y\implies\exists f\in F:f(x)\neq f(y))$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es de Banach con las normas 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert\cdot\Vert'$
+\end_inset
+
+ y 
+\begin_inset Formula $F\subseteq(X,\Vert\cdot\Vert)^{*}\cap(X,\Vert\cdot\Vert')^{*}$
+\end_inset
+
+ separa los puntos de 
+\begin_inset Formula $X$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert\cdot\Vert'$
+\end_inset
+
+ son equivalentes, y en particular 
+\begin_inset Formula $(X,\Vert\cdot\Vert)^{*}=(X,\Vert\cdot\Vert')^{*}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dos normas completas en el mismo espacio vectorial producen el mismo dual
+ topológico si y sólo si son equivalentes.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Bases de Schauder
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+base de Schauder
+\series default
+ en un espacio normado 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es una sucesión 
+\begin_inset Formula $\{x_{n}\}_{n}\subseteq S_{X}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall x\in X,\exists!\{\lambda_{n}\}_{n}\subseteq\mathbb{K}:x=\sum_{n}\lambda_{n}x_{n}$
+\end_inset
+
+.
+ La sucesión 
+\begin_inset Formula $(e_{n})_{n}$
+\end_inset
+
+ de vectores que valen 1 en la coordenada 
+\begin_inset Formula $n$
+\end_inset
+
+-ésima y 0 en el resto es base de Schauder de 
+\begin_inset Formula $c_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $\ell^{p}$
+\end_inset
+
+ para 
+\begin_inset Formula $p\in[1,\infty)$
+\end_inset
+
+, y 
+\begin_inset Formula $({\cal C}([0,1]),\Vert\cdot\Vert_{\infty})$
+\end_inset
+
+ y 
+\begin_inset Formula $(L^{p}([0,1]),\Vert\cdot\Vert_{p})$
+\end_inset
+
+ también admiten bases de Schauder.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Todo espacio normado con base de Schauder es separable, pero el recíproco
+ no se cumple.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de las bases de Schauder de Banach:
+\series default
+ Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio de Banach con base de Schauder 
+\begin_inset Formula $(x_{n})_{n}$
+\end_inset
+
+, las 
+\series bold
+funciones coordenada
+\series default
+ 
+\begin_inset Formula $f_{n}:X\to\mathbb{K}$
+\end_inset
+
+ dadas por 
+\begin_inset Formula $f_{n}(\sum_{n}\lambda_{n}x_{n})\coloneqq\lambda_{n}$
+\end_inset
+
+ son continuas, y de hecho existe 
+\begin_inset Formula $M>0$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert f_{n}\Vert\leq M$
+\end_inset
+
+ para cada 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Pares duales
+\end_layout
+
+\begin_layout Standard
+Un 
+\series bold
+par dual
+\series default
+ es un par 
+\begin_inset Formula $\langle F,G\rangle$
+\end_inset
+
+ de 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacios vectoriales con una función bilineal 
+\begin_inset Formula $\langle\cdot,\cdot\rangle:F\times G\to\mathbb{K}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall y\in G,(\langle\cdot,y\rangle=0\implies y=0)$
+\end_inset
+
+ y 
+\begin_inset Formula $\forall x\in G,(\langle x,\cdot\rangle=0\implies x=0)$
+\end_inset
+
+.
+ Llamamos 
+\series bold
+topología débil de 
+\begin_inset Formula $F$
+\end_inset
+
+ inducida por 
+\begin_inset Formula $G$
+\end_inset
+
+
+\series default
+, 
+\begin_inset Formula $\sigma(F,G)$
+\end_inset
+
+, a la topología más gruesa en 
+\begin_inset Formula $F$
+\end_inset
+
+ para la que las 
+\begin_inset Formula $\{\langle\cdot,y\rangle\}_{y\in G}$
+\end_inset
+
+ son continuas, generada por la familia de seminormas 
+\begin_inset Formula $\{|\langle\cdot,y\rangle|\}_{y\in G}$
+\end_inset
+
+, y 
+\series bold
+topología débil de 
+\begin_inset Formula $G$
+\end_inset
+
+ inducida por 
+\begin_inset Formula $F$
+\end_inset
+
+
+\series default
+, 
+\begin_inset Formula $\sigma(G,F)$
+\end_inset
+
+, a la topología más gruesa en 
+\begin_inset Formula $F$
+\end_inset
+
+ para la que las 
+\begin_inset Formula $\{\langle x,\cdot\rangle\}_{x\in F}$
+\end_inset
+
+ son continuas, generada por la familia de seminormas 
+\begin_inset Formula $\{|\langle f,\cdot\rangle|\}_{x\in F}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un espacio vectorial y 
+\begin_inset Formula $E^{*}$
+\end_inset
+
+ su dual algebraico, 
+\begin_inset Formula $\langle E,E^{*}\rangle$
+\end_inset
+
+ es un par dual con la 
+\series bold
+aplicación bilineal natural
+\series default
+ 
+\begin_inset Formula $\langle x,f\rangle\coloneqq f(x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un e.l.c., 
+\begin_inset Formula $\langle E,E'\rangle$
+\end_inset
+
+ es un par dual con la aplicación bilineal natural, el 
+\series bold
+par dual canónico
+\series default
+, y llamamos 
+\series bold
+topología débil de 
+\begin_inset Formula $E$
+\end_inset
+
+
+\series default
+ a 
+\begin_inset Formula $\sigma(E,E')$
+\end_inset
+
+ y 
+\series bold
+topología débil* de 
+\begin_inset Formula $E'$
+\end_inset
+
+
+\series default
+ a 
+\begin_inset Formula $\sigma(E',E)$
+\end_inset
+
+, que es Hausdorff e inducida por 
+\begin_inset Formula ${\cal T}_{\text{p}}(E)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $I$
+\end_inset
+
+ es un conjunto, 
+\begin_inset Formula $\langle\mathbb{K}^{I},\mathbb{K}^{(I)}\rangle$
+\end_inset
+
+ es un par dual con 
+\begin_inset Formula $\langle(\lambda_{i})_{i\in I},(\xi_{i})_{i\in I}\rangle=\sum_{i\in I}\lambda_{i}\xi_{i}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $K$
+\end_inset
+
+ es compacto, 
+\begin_inset Formula $E\coloneqq(C(K),\Vert\cdot\Vert_{\infty})$
+\end_inset
+
+ y 
+\begin_inset Formula $F\coloneqq\text{span}\{f\mapsto f(x)\}_{x\in K}\leq(C(K),\Vert\cdot\Vert_{\infty})^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $\langle E,F\rangle$
+\end_inset
+
+ es un par dual con la aplicación bilineal natural, y 
+\begin_inset Formula $\sigma(E,F)={\cal T}_{\text{p}}(K)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\langle F,G\rangle$
+\end_inset
+
+ es un par dual, una forma lineal 
+\begin_inset Formula $f:F\to\mathbb{K}$
+\end_inset
+
+ es 
+\begin_inset Formula $\sigma(F,G)$
+\end_inset
+
+-continua si y sólo si existe 
+\begin_inset Formula $y\in G$
+\end_inset
+
+, necesariamente único, con 
+\begin_inset Formula $f=\langle\cdot,y\rangle$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un e.l.c., 
+\begin_inset Formula $(E,\sigma(E,E'))'=E'$
+\end_inset
+
+ e, identificando 
+\begin_inset Formula $x\in E$
+\end_inset
+
+ con 
+\begin_inset Formula $\hat{x}\in E''$
+\end_inset
+
+ dada por 
+\begin_inset Formula $\hat{x}(f)\coloneqq f(x)$
+\end_inset
+
+, 
+\begin_inset Formula $(E',\sigma(E',E))'=E$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\langle F,G\rangle$
+\end_inset
+
+ es un par dual con función bilineal 
+\begin_inset Formula $\langle\cdot,\cdot\rangle$
+\end_inset
+
+ y 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+, 
+\begin_inset Formula $\langle\cdot,\cdot\rangle$
+\end_inset
+
+ induce un par dual en 
+\begin_inset Formula $\langle F,H\rangle$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $G=\overline{H}$
+\end_inset
+
+ en 
+\begin_inset Formula $\sigma(G,F)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un e.l.c., 
+\begin_inset Formula $E'$
+\end_inset
+
+ es 
+\begin_inset Formula $\sigma(E^{*},E)$
+\end_inset
+
+-denso en el dual algebraico 
+\begin_inset Formula $E^{*}$
+\end_inset
+
+, con lo que las formas lineales se aproximan por formas lineales continuas.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado un par dual 
+\begin_inset Formula $\langle F,G\rangle$
+\end_inset
+
+, llamamos 
+\series bold
+polar
+\series default
+ (
+\series bold
+absoluta
+\series default
+) de 
+\begin_inset Formula $A\subseteq F$
+\end_inset
+
+ a 
+\begin_inset Formula $A^{\circ}\coloneqq\{y\in G\mid\sup_{x\in A}|\langle x,y\rangle|\leq1\}$
+\end_inset
+
+ y 
+\series bold
+bipolar
+\series default
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+ a 
+\begin_inset Formula $A^{\circ\circ}\subseteq F$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es un espacio normado, 
+\begin_inset Formula $B_{X}^{\circ}=B_{X^{*}}$
+\end_inset
+
+ y 
+\begin_inset Formula $B_{X}^{\circ\circ}=B_{X}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $\langle F,G\rangle$
+\end_inset
+
+ es un par dual y 
+\begin_inset Formula $M\leq F$
+\end_inset
+
+, 
+\begin_inset Formula $M^{\circ}=\{y\in G\mid\langle M,y\rangle=0\}\eqqcolon M^{\bot}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\langle F,G\rangle$
+\end_inset
+
+ un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-par dual, 
+\begin_inset Formula $A,B,A_{i}\subseteq F$
+\end_inset
+
+ para 
+\begin_inset Formula $i\in I$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha\in\mathbb{K}^{*}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A^{\circ}$
+\end_inset
+
+ es absolutamente convexo y cerrado en 
+\begin_inset Formula $\sigma(G,F)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $B\subseteq A\implies A^{\circ}\subseteq B^{\circ}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(\alpha A)^{\circ}=\alpha^{-1}A^{\circ}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A\subseteq A^{\circ\circ}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A^{\circ}\subseteq A^{\circ\circ\circ}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(\bigcup_{i\in I}A_{i})^{\circ}=\bigcap_{i\in I}A_{i}^{\circ}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema del bipolar:
+\series default
+ Si 
+\begin_inset Formula $\langle F,G\rangle$
+\end_inset
+
+ es un par dual y 
+\begin_inset Formula $A\subseteq F$
+\end_inset
+
+, 
+\begin_inset Formula $A^{\circ\circ}=\overline{\Gamma(A)}$
+\end_inset
+
+ en 
+\begin_inset Formula $\sigma(F,G)$
+\end_inset
+
+ (la envoltura absolutamente convexa cerrada).
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un e.l.c., 
+\begin_inset Formula $M\subseteq E'$
+\end_inset
+
+ es 
+\series bold
+equicontinuo
+\series default
+ si 
+\begin_inset Formula $\forall\varepsilon>0,\exists U\in{\cal E}(0_{E}):\forall f\in M,\forall x\in U,|f(x)|<\varepsilon$
+\end_inset
+
+, y una 
+\series bold
+familia fundamental de equicontinuos
+\series default
+ es un 
+\begin_inset Formula ${\cal E}\subseteq{\cal P}(E')$
+\end_inset
+
+ con los elementos equicontinuos tal que para 
+\begin_inset Formula $M\subseteq E'$
+\end_inset
+
+ equicontinuo existe 
+\begin_inset Formula $N\in{\cal E}$
+\end_inset
+
+ que contiene a 
+\begin_inset Formula $M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $(E,{\cal T})$
+\end_inset
+
+ es un e.l.c.:
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $U\in{\cal E}(0)$
+\end_inset
+
+, 
+\begin_inset Formula $U^{\circ}\subseteq E'$
+\end_inset
+
+ es equicontinuo, y si 
+\begin_inset Formula $M\subseteq E'$
+\end_inset
+
+ es equicontinuo, 
+\begin_inset Formula $M^{\circ}\in{\cal E}(0)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula ${\cal U}$
+\end_inset
+
+ es base de entornos de 0 en 
+\begin_inset Formula $E$
+\end_inset
+
+, 
+\begin_inset Formula $\{U^{\circ}\}_{U\in{\cal U}}$
+\end_inset
+
+ es una familia fundamental de equicontinuos.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ es una familia fundamental de equicontinuos, 
+\begin_inset Formula $\{M^{\circ}\}_{M\in{\cal E}}$
+\end_inset
+
+ es una base de entornos de 0.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ es la topología de convergencia uniforme sobre los equicontinuos de 
+\begin_inset Formula $E'$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $\langle F,G\rangle$
+\end_inset
+
+ un par dual y 
+\begin_inset Formula ${\cal S}\subseteq{\cal P}(G)$
+\end_inset
+
+ una familia de subconjuntos 
+\begin_inset Formula $\sigma(F,G)$
+\end_inset
+
+-cerrados absolutamente convexos, en 
+\begin_inset Formula $\sigma(F,G)$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\left(\bigcap{\cal S}\right)^{\circ}=\overline{\Gamma\left(\bigcup_{S\in{\cal S}}S^{\circ}\right)}.
+\]
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Alaoglu-Bourbaki:
+\series default
+ Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un e.l.c., todo equicontinuo 
+\begin_inset Formula $H$
+\end_inset
+
+ de 
+\begin_inset Formula $E'$
+\end_inset
+
+ es relativamente compacto en 
+\begin_inset Formula $\sigma(E',E)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así, si 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es un espacio normado, 
+\begin_inset Formula $B_{X^{*}}$
+\end_inset
+
+ es compacta en 
+\begin_inset Formula $\sigma(X^{*},X)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Lema de aproximación:
+\series default
+ Sean 
+\begin_inset Formula $E$
+\end_inset
+
+ es un e.l.c., 
+\begin_inset Formula $S\subseteq E$
+\end_inset
+
+ cerrado y absolutamente convexo y 
+\begin_inset Formula $f:E\to\mathbb{K}$
+\end_inset
+
+ lineal, 
+\begin_inset Formula $f|_{S}$
+\end_inset
+
+ es continua si y sólo si 
+\begin_inset Formula $\forall\varepsilon>0,\exists g\in E':\sup_{x\in S}|g(x)-f(x)|<\varepsilon$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de completitud de Grothendieck:
+\series default
+ Sean 
+\begin_inset Formula $E$
+\end_inset
+
+ un e.l.c.
+ y 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ el conjunto de los equicontinuos de 
+\begin_inset Formula $E'$
+\end_inset
+
+, 
+\begin_inset Formula $\hat{E}\coloneqq\{x\in(E')^{*}\mid\forall M\in{\cal E},x|_{M}\text{ continuo en }\sigma(E',E)\}$
+\end_inset
+
+ con la topología de convergencia uniforme sobre 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ es un modelo para la compleción de 
+\begin_inset Formula $E$
+\end_inset
+
+, es decir, 
+\begin_inset Formula $E$
+\end_inset
+
+ es denso en 
+\begin_inset Formula $\hat{E}$
+\end_inset
+
+ y 
+\begin_inset Formula $\hat{E}$
+\end_inset
+
+ es completo.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así:
+\end_layout
+
+\begin_layout Enumerate
+Un e.l.c.
+ 
+\begin_inset Formula $E$
+\end_inset
+
+ es completo si y sólo si toda 
+\begin_inset Formula $y:E'\to\mathbb{K}$
+\end_inset
+
+ lineal 
+\begin_inset Formula $\sigma(E',E)$
+\end_inset
+
+-continua sobre los equicontinuos de 
+\begin_inset Formula $E'$
+\end_inset
+
+ es 
+\begin_inset Formula $\sigma(E',E)$
+\end_inset
+
+-continua en 
+\begin_inset Formula $E'$
+\end_inset
+
+, si y sólo si está en 
+\begin_inset Formula $E$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ normado es de Banach si y sólo si toda 
+\begin_inset Formula $x:X^{*}\to\mathbb{K}$
+\end_inset
+
+ lineal 
+\begin_inset Formula $\sigma(X^{*},X)$
+\end_inset
+
+-continua en 
+\begin_inset Formula $B_{X^{*}}$
+\end_inset
+
+ es 
+\begin_inset Formula $\sigma(X^{*},X)$
+\end_inset
+
+-continua en 
+\begin_inset Formula $X^{*}$
+\end_inset
+
+, si y sólo si está en 
+\begin_inset Formula $E$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es normado, 
+\begin_inset Formula $K\coloneqq(B_{X^{*}},\sigma(X^{*},X))$
+\end_inset
+
+ e 
+\begin_inset Formula $\iota:X\hookrightarrow C(K)$
+\end_inset
+
+ es la identificación estándar en el bidual:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\iota:(X,\Vert\cdot\Vert)\hookrightarrow(C(K),\Vert\cdot\Vert_{\infty})$
+\end_inset
+
+ e 
+\begin_inset Formula $\iota:(X,\Vert\cdot\Vert)\hookrightarrow(C(K),{\cal T}_{\text{p}}(K))$
+\end_inset
+
+ son isomorfismos isométricos sobre su imagen.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es de Banach, 
+\begin_inset Formula $(X,\sigma(X,X^{*}))$
+\end_inset
+
+ se identifica con un subespacio cerrado de 
+\begin_inset Formula $(C(K),{\cal T}_{\text{p}}(K))$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Espacios reflexivos
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es un espacio normado y 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ la topología asociada a 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\sigma(X,X^{*})$
+\end_inset
+
+ es más gruesa que 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma(X^{*},X)$
+\end_inset
+
+ es más gruesa que la asociada a la norma dual.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\sigma(X,X^{*})$
+\end_inset
+
+ es metrizable si y sólo si 
+\begin_inset Formula $X$
+\end_inset
+
+ es dimensión finita, en cuyo caso es igual a 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+ convexo es cerrado en 
+\begin_inset Formula $\sigma(X,X^{*})$
+\end_inset
+
+ si y sólo si lo es en 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un espacio de Banach es 
+\series bold
+reflexivo
+\series default
+ si la identificación estándar 
+\begin_inset Formula $\hat{}:X\to X^{**}$
+\end_inset
+
+ es suprayectiva.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $p\in(1,\infty)$
+\end_inset
+
+ y 
+\begin_inset Formula $(\Omega,\Sigma,\mu)$
+\end_inset
+
+ es un espacio de medida, 
+\begin_inset Formula $(L^{p}(\mu),\Vert\cdot\Vert_{p})$
+\end_inset
+
+ es reflexivo.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(c_{0},\Vert\cdot\Vert_{\infty})$
+\end_inset
+
+ no es reflexivo.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Goldstine:
+\series default
+ Sea 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ normado, 
+\begin_inset Formula $B_{X}$
+\end_inset
+
+ es denso en 
+\begin_inset Formula $(B_{X^{**}},\sigma(X^{**},X^{*}))$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de caracterización de la reflexividad:
+\series default
+ Un espacio de Banach 
+\begin_inset Formula $X$
+\end_inset
+
+ es reflexivo si y sólo si 
+\begin_inset Formula $B_{X}$
+\end_inset
+
+ es compacta en 
+\begin_inset Formula $\sigma(X,X^{*})$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio de Banach:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X$
+\end_inset
+
+ es separable si y sólo si 
+\begin_inset Formula $(B_{X^{*}},\sigma(X^{*},X))$
+\end_inset
+
+ es metrizable.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X^{*}$
+\end_inset
+
+ es separable si y solo si 
+\begin_inset Formula $(B_{X},\sigma(X,X^{*}))$
+\end_inset
+
+ es metrizable.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $X^{*}$
+\end_inset
+
+es separable, 
+\begin_inset Formula $X$
+\end_inset
+
+ es separable.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio reflexivo:
+\end_layout
+
+\begin_layout Enumerate
+Todo subespacio cerrado es reflexivo.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X$
+\end_inset
+
+ es separable si y sólo si lo es 
+\begin_inset Formula $X^{*}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un espacio de Banach 
+\begin_inset Formula $X$
+\end_inset
+
+ es reflexivo si y sólo si lo es 
+\begin_inset Formula $X^{*}$
+\end_inset
+
+ con la norma dual.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ejemplos:
+\end_layout
+
+\begin_layout Enumerate
+Todo espacio de dimensión finita es reflexivo.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\ell^{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\ell^{\infty}$
+\end_inset
+
+ son reflexivos.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Ni 
+\begin_inset Formula $({\cal C}([a,b]),\Vert\cdot\Vert_{\infty})$
+\end_inset
+
+ ni su dual son reflexivos.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Ni 
+\begin_inset Formula $L^{1}([a,b])$
+\end_inset
+
+ ni 
+\begin_inset Formula $L^{\infty}([a,b])$
+\end_inset
+
+ son reflexivos.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un espacio normado 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es 
+\series bold
+uniformemente convexo
+\series default
+ si 
+\begin_inset Formula 
+\[
+\forall\varepsilon>0,\exists\delta>0:\forall x,y\in B_{X},\left(\Vert x-y\Vert\geq\varepsilon\implies\left\Vert \frac{x+y}{2}\right\Vert \leq1-\delta\right),
+\]
+
+\end_inset
+
+si y sólo si 
+\begin_inset Formula 
+\[
+\forall\{x_{n}\}_{n},\{y_{n}\}_{n}\subseteq B_{X},\left(\lim_{n}\left\Vert \frac{x_{n}+y_{n}}{2}\right\Vert =1\implies\lim_{n}\Vert x_{n}-y_{n}\Vert=0\right),
+\]
+
+\end_inset
+
+en cuyo caso 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+ es 
+\series bold
+uniformemente convexa
+\series default
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Toda norma uniformemente convexa es estrictamente convexa.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Todo espacio prehilbertiano es uniformemente convexo.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En un espacio normado 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+, 
+\begin_inset Formula $f:X\to\mathbb{R}$
+\end_inset
+
+ es 
+\series bold
+uniformemente diferenciable Fréchet
+\series default
+ en 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ si existe 
+\begin_inset Formula $\lim_{t\to0}\sup_{h\in B_{X}}\frac{f(x+th)-f(x)}{t}$
+\end_inset
+
+.
+
+\series bold
+ Primer teorema de Šmulian:
+\series default
+ Un espacio de Banach 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es uniformemente convexo si y sólo si para 
+\begin_inset Formula $f\in B_{X^{*}}$
+\end_inset
+
+, la norma dual es uniformemente diferenciable Fréchet en todo 
+\begin_inset Formula $B_{X^{*}}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Milman:
+\series default
+ Todo espacio de Banach con norma uniformemente convexa es reflexivo.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio de Banach y 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, un 
+\series bold
+
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+-árbol diádico
+\series default
+ con 
+\series bold
+raíz
+\series default
+ 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ de longitud 
+\begin_inset Formula $N\in\mathbb{N}\cup\{\infty\}$
+\end_inset
+
+ es una familia 
+\begin_inset Formula $\{x_{s}\}_{s\in\bigcup_{i=0}^{n}\{\pm1\}^{n}}\subseteq X$
+\end_inset
+
+ tal que 
+\begin_inset Formula $x_{\emptyset}=x$
+\end_inset
+
+ y, para 
+\begin_inset Formula $s\in\bigcup_{i=0}^{n-1}\{\pm1\}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $x_{s}=\frac{x_{s(-1)}+x_{s1}}{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $\Vert x_{s(-1)}-x_{s1}\Vert\geq\varepsilon$
+\end_inset
+
+.
+ Un espacio de Banach 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es 
+\series bold
+superreflexivo
+\series default
+ si para 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ existe 
+\begin_inset Formula $N\in\mathbb{N}$
+\end_inset
+
+ tal que todo 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+-árbol diádico contenido en 
+\begin_inset Formula $B_{X}$
+\end_inset
+
+ tiene longitud máxima 
+\begin_inset Formula $N$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $X$
+\end_inset
+
+ admite una norma uniformemente convexa equivalente a 
+\begin_inset Formula $\Vert\cdot\Vert$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $p\in(1,\infty)$
+\end_inset
+
+ y 
+\begin_inset Formula $(\Omega,\Sigma,\mu)$
+\end_inset
+
+ es un espacio de medida, 
+\begin_inset Formula $L^{p}(\Omega,\Sigma,\mu)$
+\end_inset
+
+ es uniformemente convexo y reflexivo, y si 
+\begin_inset Formula $q\in(1,\infty)$
+\end_inset
+
+ es tal que 
+\begin_inset Formula $\frac{1}{p}+\frac{1}{q}=1$
+\end_inset
+
+, 
+\begin_inset Formula $\Phi:L^{q}(\mu)\to L^{p}(\mu)^{*}$
+\end_inset
+
+ dado por
+\begin_inset Formula 
+\[
+\Phi(g)(f)\coloneqq\int_{\Omega}fg\dif\mu
+\]
+
+\end_inset
+
+ es un isomorfismo isométrico.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Propiedad de Schur:
+\series default
+ En 
+\begin_inset Formula $\ell^{1}$
+\end_inset
+
+, las sucesiones convergentes en la topología asociada a la norma y en 
+\begin_inset Formula $\sigma(\ell^{1},\ell^{\infty})$
+\end_inset
+
+ son las mismas, pese a que son topologías distintas.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Segundo teorema de Šmulian:
+\series default
+ Si 
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
+\end_inset
+
+ es normado, un subespacio de 
+\begin_inset Formula $(X,\sigma(X,X^{*}))$
+\end_inset
+
+ es compacto si y sólo si es compacto por sucesiones.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un subconjunto de 
+\begin_inset Formula $(\ell^{1},\Vert\cdot\Vert_{1})$
+\end_inset
+
+ es débilmente compacto (compacto con la topología débil) si y sólo si es
+ compacto.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

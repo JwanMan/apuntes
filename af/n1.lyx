@@ -120,117 +120,900 @@ lineal conjugada
 \end_layout
 
 \begin_layout Section
-Espacios de Banach
+Espacios vectoriales topológicos
 \end_layout
 
 \begin_layout Standard
-Dados un 
+Un 
+\series bold
+espacio vectorial topológico
+\series default
+ (
+\series bold
+e.v.t.
+\series default
+) es un espacio topológico 
+\begin_inset Formula $(E,{\cal T})$
+\end_inset
+
+ donde 
+\begin_inset Formula $E$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial y 
+\begin_inset Formula $s:E\times E\to E$
+\end_inset
+
+ y 
+\begin_inset Formula $p:\mathbb{K}\times E\to E$
+\end_inset
+
+ dadas por 
+\begin_inset Formula $s(x,y)\coloneqq x+y$
+\end_inset
+
+ y 
+\begin_inset Formula $p(\alpha,x)\coloneqq\alpha x$
+\end_inset
+
+ son continuas en la topología producto, y entonces 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ es una 
+\series bold
+topología vectorial
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Dados 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacios vectoriales 
+\begin_inset Formula $E$
+\end_inset
+
+ y 
+\begin_inset Formula $F$
+\end_inset
+
+, un 
+\series bold
+operador
+\series default
+ es una función lineal de 
+\begin_inset Formula $E$
+\end_inset
+
+ a 
+\begin_inset Formula $F$
+\end_inset
+
+, y llamamos 
+\series bold
+dual algebraico
+\series default
+ de 
+\begin_inset Formula $E$
+\end_inset
+
+ al conjunto de funciones de 
+\begin_inset Formula $E$
+\end_inset
+
+ a 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+, llamadas 
+\series bold
+formas lineales
+\series default
+ de 
+\begin_inset Formula $E$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $E$
+\end_inset
+
+ y 
+\begin_inset Formula $F$
+\end_inset
+
+ son 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-e.v.t.s, 
+\begin_inset Formula ${\cal L}(E,F)$
+\end_inset
+
+ es el conjunto de operadores continuos de 
+\begin_inset Formula $E$
+\end_inset
+
+ a 
+\begin_inset Formula $F$
+\end_inset
+
+, y llamamos 
+\series bold
+dual topológico
+\series default
+ de 
+\begin_inset Formula $E$
+\end_inset
+
+ a 
+\begin_inset Formula $E'\coloneqq{\cal L}(E,\mathbb{K})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sremember{TEM}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+base de entornos
+\series default
+ de 
+\begin_inset Formula $p\in X$
+\end_inset
+
+ es una subfamilia 
+\begin_inset Formula ${\cal B}(p)\subseteq{\cal E}(p)$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\forall V\in{\cal E}(p),\exists U\in{\cal B}(p):U\subseteq V$
+\end_inset
+
+.
+ [...] Un espacio topológico [...] satisface el 
+\series bold
+primer axioma de numerabilidad
+\series default
+, o es 
+\series bold
+1AN
+\series default
+, si todo punto posee una base de entornos numerable [...].
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eremember
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-e.v.t.:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $s_{a}:E\to E$
+\end_inset
+
+ con 
+\begin_inset Formula $y\in E$
+\end_inset
+
+ y 
+\begin_inset Formula $p_{\lambda}:E\to E$
+\end_inset
+
+ con 
+\begin_inset Formula $\lambda\in\mathbb{K}^{*}$
+\end_inset
+
+ dados por 
+\begin_inset Formula $s_{a}(x)\coloneqq x+a$
+\end_inset
+
+ y 
+\begin_inset Formula $p_{\lambda}(x)\coloneqq\lambda x$
+\end_inset
+
+ son homeomorfismos.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $s_{a}$
+\end_inset
+
+ es la composición de 
+\begin_inset Formula $x\mapsto(x,a)$
+\end_inset
+
+ con la suma, por lo que es continua, y análogamente lo es 
+\begin_inset Formula $p_{\lambda}$
+\end_inset
+
+, pero la inversa de 
+\begin_inset Formula $s_{a}$
+\end_inset
+
+ es 
+\begin_inset Formula $s_{-a}$
+\end_inset
+
+ y la de 
+\begin_inset Formula $p_{\lambda}$
+\end_inset
+
+ es 
+\begin_inset Formula $p_{\lambda^{-1}}$
+\end_inset
+
+, que también son continuas.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+La suma de un abierto y un subconjunto cualquiera de 
+\begin_inset Formula $E$
+\end_inset
+
+ es abierta en 
+\begin_inset Formula $E$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sean 
+\begin_inset Formula $G\subseteq E$
+\end_inset
+
+ abierto y 
+\begin_inset Formula $A\subseteq E$
+\end_inset
+
+.
+ Todo 
+\begin_inset Formula $p\in G+A$
+\end_inset
+
+ es de la forma 
+\begin_inset Formula $p=g+a$
+\end_inset
+
+ con 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ y 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, pero entonces 
+\begin_inset Formula $G+a\subseteq G+A$
+\end_inset
+
+ es un entorno de 
+\begin_inset Formula $g+a$
+\end_inset
+
+ por el homeomorfismo 
+\begin_inset Formula $s_{a}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+La suma de un cerrado y un compacto de 
+\begin_inset Formula $E$
+\end_inset
+
+ es cerrada en 
+\begin_inset Formula $E$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sean 
+\begin_inset Formula $F$
+\end_inset
+
+ el cerrado y 
+\begin_inset Formula $K$
+\end_inset
+
+ el compacto, tomamos una sucesión convergente arbitraria en 
+\begin_inset Formula $F+K$
+\end_inset
+
+, 
+\begin_inset Formula $(x_{n}+y_{n})_{n}$
+\end_inset
+
+ con cada 
+\begin_inset Formula $x_{n}\in F$
+\end_inset
+
+ y cada 
+\begin_inset Formula $y_{n}\in K$
+\end_inset
+
+, y 
+\begin_inset Formula $z\coloneqq\lim_{n}(x_{n}+y_{n})$
+\end_inset
+
+.
+ Como 
+\begin_inset Formula $K$
+\end_inset
+
+ es compacto, existe una subsucesión 
+\begin_inset Formula $(x_{n_{k}})_{k}$
+\end_inset
+
+ convergente a un 
+\begin_inset Formula $x\in K$
+\end_inset
+
+, luego 
+\begin_inset Formula $(y_{n_{k}})_{k}$
+\end_inset
+
+ converge a 
+\begin_inset Formula $z-x\in F$
+\end_inset
+
+ y por tanto 
+\begin_inset Formula $z=(z-x)+x\in F+K$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Un subespacio vectorial de 
+\begin_inset Formula $X$
+\end_inset
+
+ es propio si y sólo si su interior es vacío.
+\begin_inset Note Comment
+status open
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sea 
+\begin_inset Formula $Y<X$
+\end_inset
+
+ un subespacio vectorial propio y 
+\begin_inset Formula $p\in X\setminus Y$
+\end_inset
+
+, para 
+\begin_inset Formula $y\in Y$
+\end_inset
+
+, por continuidad de la suma y el producto, 
+\begin_inset Formula $\lim_{h\to0}(y+hp)=y$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $(y+\frac{p}{n})_{n\in\mathbb{N}^{*}}$
+\end_inset
+
+ es una sucesión de elementos de 
+\begin_inset Formula $X\setminus Y$
+\end_inset
+
+ que converge a 
+\begin_inset Formula $y$
+\end_inset
+
+, 
+\begin_inset Formula $y\notin\mathring{Y}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathring{Y}=\emptyset$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+El contrarrecíproco es trivial.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $F\subseteq E$
+\end_inset
+
+ es un subespacio vectorial también lo es 
+\begin_inset Formula $\overline{F}$
+\end_inset
+
+.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Dados 
+\begin_inset Formula $a\in\mathbb{K}$
+\end_inset
+
+ y 
+\begin_inset Formula $x,y\in\overline{F}$
+\end_inset
+
+, 
+\begin_inset Formula $x$
+\end_inset
+
+ e 
+\begin_inset Formula $y$
+\end_inset
+
+ son límites de sucesiones respectivas 
+\begin_inset Formula $\{x_{n}\}_{n},\{y_{n}\}_{n}\subseteq F$
+\end_inset
+
+, con lo que 
+\begin_inset Formula $x+y=\lim_{n}(x_{n}+y_{n})\in\overline{F}$
+\end_inset
+
+ y 
+\begin_inset Formula $ax=\lim_{n}ax_{n}\in\overline{F}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $F$
+\end_inset
+
+ es otro e.v.t.
+ y 
+\begin_inset Formula $T:E\to F$
+\end_inset
+
+ es lineal, 
+\begin_inset Formula $T$
+\end_inset
+
+ es continua si y sólo si lo es en 0, y si 
+\begin_inset Formula $F=\mathbb{K}$
+\end_inset
+
+ con la topología usual, 
+\begin_inset Formula $T$
+\end_inset
+
+ es continua si y sólo si 
+\begin_inset Formula $\ker T\leq E$
+\end_inset
+
+ es cerrado.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A\subseteq E$
+\end_inset
+
+ es 
+\series bold
+equilibrado
+\series default
+ si 
+\begin_inset Formula $\forall\alpha\in\mathbb{K},(|\alpha|\leq1\implies\alpha A\subseteq A)$
+\end_inset
+
+, es 
+\series bold
+absorbente
+\series default
+ si 
+\begin_inset Formula $\forall x\in E,\exists\rho_{0}>0:\forall\rho\in\mathbb{K},(|\rho|\geq\rho_{0}\implies x\in\rho A)$
+\end_inset
+
+, y es 
+\series bold
+total
+\series default
+ si 
+\begin_inset Formula $\overline{\text{span}A}=E$
+\end_inset
+
+.
+ Los entornos de 0 son absorbentes.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-e.v.t.
+ y 
+\begin_inset Formula ${\cal U}$
+\end_inset
+
+ una base de entornos de 0:
+\end_layout
+
+\begin_layout Enumerate
+Para 
+\begin_inset Formula $x\in E$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha\in\mathbb{K}^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $x+\alpha{\cal U}$
+\end_inset
+
+ es base de entornos de 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall M\subseteq E,\overline{M}=\bigcap_{U\in{\cal U}}(M+U)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall U\in{\cal U},\exists V\in{\cal U}:V+V\subseteq U$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall U\in{\cal U},\exists V\in{\cal U}:\forall\alpha\in\mathbb{K},(|\alpha|\leq1\implies\alpha V\subseteq U)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Todo 
+\begin_inset Formula $U\in{\cal U}$
+\end_inset
+
+ es absorbente.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\tilde{{\cal U}}\coloneqq\left\{ \bigcup_{|\alpha|\leq1}\alpha U\right\} _{U\in{\cal U}}$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{{\cal U}}\coloneqq\{\overline{U}\}_{U\in{\cal U}}$
+\end_inset
+
+ son bases de entornos de 0, con lo que toda e.v.t.
+ tiene una base de entornos del 0 formada por conjuntos absorbentes, equilibrado
+s y cerrados.
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+base de filtro
+\series default
+ en un conjunto 
+\begin_inset Formula $S$
+\end_inset
+
+ es un 
+\begin_inset Formula ${\cal U}\subseteq{\cal P}(S)$
+\end_inset
+
+ no vacío tal que 
+\begin_inset Formula $\forall U,V\in{\cal U},\exists W\in{\cal U}:W\subseteq U\cap V$
+\end_inset
+
+, y se puede definir una topología en 
+\begin_inset Formula $S$
+\end_inset
+
+ tomando una base de filtros sobre cada punto, que actuará como base de
+ entornos.
+\end_layout
+
+\begin_layout Section
+Espacios localmente convexos
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $E$
+\end_inset
+
+ un espacio vectorial y 
+\begin_inset Formula ${\cal U}$
+\end_inset
+
+ una base de filtro en 
+\begin_inset Formula $E$
+\end_inset
+
+ formada por conjuntos absorbentes y equilibrados y tal que 
+\begin_inset Formula $\bigcap{\cal U}=0$
+\end_inset
+
+ y 
+\begin_inset Formula $\forall U\in{\cal U},\exists V\in{\cal U}:V+V\subseteq U$
+\end_inset
+
+, existe una única topología vectorial sobre 
+\begin_inset Formula $E$
+\end_inset
+
+ tal que para 
+\begin_inset Formula $x\in E$
+\end_inset
+
+, 
+\begin_inset Formula $\{x+U\}_{U\in{\cal U}}$
+\end_inset
+
+ es base de entornos de 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado un 
 \begin_inset Formula $\mathbb{K}$
 \end_inset
 
 -espacio vectorial 
-\begin_inset Formula $X$
+\begin_inset Formula $E$
+\end_inset
+
+, 
+\begin_inset Formula $q:E\to\mathbb{R}$
+\end_inset
+
+ es 
+\series bold
+subaditiva
+\series default
+ si 
+\begin_inset Formula $\forall x,y\in E,q(x+y)\leq q(x)+q(y)$
+\end_inset
+
+, 
+\series bold
+positivamente homogénea
+\series default
+ si 
+\begin_inset Formula $\forall\lambda\in\mathbb{R}^{+},\forall x\in E,q(\lambda x)=\lambda q(x)$
 \end_inset
 
  y 
-\begin_inset Formula $A\subseteq X$
-\end_inset
-
-, llamamos 
-\begin_inset Formula $\text{span}A$
-\end_inset
-
- al menor subespacio vectorial de 
-\begin_inset Formula $X$
-\end_inset
-
- que contiene a 
-\begin_inset Formula $A$
-\end_inset
-
-, y decimos que una 
-\begin_inset Formula $q:X\to\mathbb{R}$
-\end_inset
-
- es:
-\end_layout
-
-\begin_layout Enumerate
-
 \series bold
-Subaditiva
+absolutamente homogénea
 \series default
  si 
-\begin_inset Formula $\forall x,y\in X,q(x+y)\leq q(x)+q(y)$
+\begin_inset Formula $\forall\lambda\in\mathbb{K},\forall x\in E,q(\lambda x)=|\lambda|q(x)$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Positivamente homogénea
-\series default
- si 
-\begin_inset Formula $\forall a\in\mathbb{K}\cap\mathbb{R}^{+},\forall x\in X,q(ax)=aq(x)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Absolutamente homogénea
-\series default
- si 
-\begin_inset Formula $\forall a\in\mathbb{K},\forall x\in X,q(ax)=|a|q(x)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Una 
+ Una 
 \series bold
 seminorma
 \series default
- si es subaditiva y absolutamente homogénea.
-\end_layout
-
-\begin_layout Enumerate
-Una 
-\series bold
-norma
-\series default
- si es una seminorma con 
-\begin_inset Formula $q^{-1}(0)=0$
+ es una función 
+\begin_inset Formula $E\to\mathbb{R}$
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Standard
-Toda norma es definida positiva
+ subaditiva y absolutamente homogénea.
+ Las seminormas son no negativas
 \begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
 , pues si 
-\begin_inset Formula $x\in X\setminus0$
+\begin_inset Formula $q:E\to\mathbb{R}$
+\end_inset
+
+ es una seminorma y 
+\begin_inset Formula $x\in X$
 \end_inset
 
 , 
-\begin_inset Formula $q(x)=|-1|q(x)=q(-x)\neq0$
-\end_inset
-
-, pero 
-\begin_inset Formula $0=q(0)=q(x-x)\leq q(x)+q(-x)=2q(x)$
-\end_inset
-
- y 
-\begin_inset Formula $q(x)>0$
+\begin_inset Formula $0=0q(x)=q(0x)=q(0)=q(x-x)\leq q(x)+q(-x)=q(x)+|-1|q(x)=2q(x)$
 \end_inset
 
 
@@ -242,7 +1025,927 @@ status open
 \end_layout
 
 \begin_layout Standard
+Sean 
+\begin_inset Formula $E$
+\end_inset
+
+ un espacio vectorial y 
+\begin_inset Formula ${\cal P}\subseteq\mathbb{R}^{E}$
+\end_inset
+
+ una familia de seminormas con 
+\begin_inset Formula $\bigcap_{p\in{\cal P}}\{x\in E\mid p(x)=0\}=0$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+{\cal U}\coloneqq\left\{ \bigcap_{p\in{\cal F}}\{x\in E\mid p(x)<\varepsilon\}\right\} _{{\cal F}\subseteq{\cal P}\text{ finito},\varepsilon>0}
+\]
+
+\end_inset
+
+es una base de filtro formada por conjuntos convexos, absorbentes y equilibrados
+, con intersección vacía y tal que para 
+\begin_inset Formula $U\in{\cal U}$
+\end_inset
+
+ existe 
+\begin_inset Formula $V\in{\cal V}$
+\end_inset
+
+ con 
+\begin_inset Formula $V+V\subseteq U$
+\end_inset
+
+, y llamamos 
+\series bold
+topología asociada a 
+\begin_inset Formula ${\cal P}$
+\end_inset
+
+
+\series default
+ a la única topología vectorial sobre 
+\begin_inset Formula $E$
+\end_inset
+
+ que tiene a 
+\begin_inset Formula ${\cal U}$
+\end_inset
+
+ como base de entornos de 0.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial, 
+\begin_inset Formula $A\subseteq E$
+\end_inset
+
+ es 
+\series bold
+absolutamente convexo
+\series default
+ si es convexo y equilibrado, si y sólo si 
+\begin_inset Formula $\forall x,y\in A,\forall\alpha,\beta\in\mathbb{K},(|\alpha|+|\beta|\leq1\implies\alpha x+\beta y\in A)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La intersección de conjuntos absolutamente convexos es absolutamente convexa,
+ y llamamos 
+\series bold
+envoltura absolutamente convexa
+\series default
+ de 
+\begin_inset Formula $A\subseteq E$
+\end_inset
+
+, 
+\begin_inset Formula $\Gamma(A)$
+\end_inset
+
+ a la intersección de todos los conjuntos absolutamente convexos que contienen
+ a 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La intersección de conjuntos convexos es convexa, y llamamos 
+\series bold
+envoltura convexa
+\series default
+ de 
+\begin_inset Formula $A\subseteq E$
+\end_inset
+
+, 
+\begin_inset Formula $\text{co}A$
+\end_inset
+
+, a la intersección de todos los convexos que contienen a 
+\begin_inset Formula $A$
+\end_inset
+
+, que es absolutamente convexa si 
+\begin_inset Formula $A$
+\end_inset
+
+ es equilibrado.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Un 
+\series bold
+espacio localmente convexo
+\series default
+ es un e.v.t.
+ 
+\begin_inset Formula $(E,{\cal T})$
+\end_inset
+
+ con una base de entornos de 0 formada por conjuntos convexos, y entonces
+ 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ es 
+\series bold
+localmente convexa
+\series default
+.
+ Todo e.l.c.
+ tiene una base de entornos del origen formada por conjuntos absolutamente
+ convexos y cerrados.
+ Un 
+\series bold
+espacio de Fréchet
+\series default
+ es un e.l.c.
+ metrizable y completo.
+\end_layout
+
+\begin_layout Standard
+Dados un espacio vectorial 
+\begin_inset Formula $E$
+\end_inset
+
+ y 
+\begin_inset Formula $A\subseteq E$
+\end_inset
+
+ absorbente, llamamos 
+\series bold
+funcional de Minkowski
+\series default
+ asociado a 
+\begin_inset Formula $A$
+\end_inset
+
+ a 
+\begin_inset Formula $p_{A}:E\to\mathbb{R}$
+\end_inset
+
+ como 
+\begin_inset Formula $p_{A}(x)\coloneqq\inf\{t>0\mid x\in tA\}$
+\end_inset
+
+, y entonces:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $p_{A}$
+\end_inset
+
+ es no negativa y positivamente homogénea.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es convexo, 
+\begin_inset Formula $p_{A}$
+\end_inset
+
+ es subaditiva y 
+\begin_inset Formula $\{x\in E\mid p_{A}(x)<1\}\subseteq A\subseteq\{x\in E\mid p_{A}(x)\leq1\}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ es absolutamente convexo, 
+\begin_inset Formula $p_{A}$
+\end_inset
+
+ es una seminorma.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Toda seminorma 
+\begin_inset Formula $p:E\to\mathbb{R}$
+\end_inset
+
+ es el funcional de Minkowski asociado a 
+\begin_inset Formula $\{x\in E\mid p(x)\leq1\}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un e.v.t.
+ y 
+\begin_inset Formula $C\subseteq E$
+\end_inset
+
+ es convexo y absorbente, 
+\begin_inset Formula $0\in\mathring{C}$
+\end_inset
+
+ si y sólo si el funcional de Minkowski 
+\begin_inset Formula $p_{C}$
+\end_inset
+
+ es continuo en 
+\begin_inset Formula $E$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $\mathring{C}=\{x\in E\mid p_{C}(x)<1\}$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{C}=\{x\in E\mid p_{C}(x)\leq1\}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una seminorma 
+\begin_inset Formula $p:E\to\mathbb{R}$
+\end_inset
+
+ es continua si y sólo si 
+\begin_inset Formula $\{x\in E\mid p(x)<1\}$
+\end_inset
+
+ es abierta, si y sólo si 
+\begin_inset Formula $0\in\mathring{\overbrace{\{x\in E\mid p(x)<1\}}}$
+\end_inset
+
+, si y sólo si 
+\begin_inset Formula $p$
+\end_inset
+
+ es continua en 0, si y sólo si existe una seminorma continua 
+\begin_inset Formula $q:E\to\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $p\leq q$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, un e.v.t.
+ 
+\begin_inset Formula $(E,{\cal T})$
+\end_inset
+
+ es localmente convexo si y sólo si 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ está asociada a una familia de seminormas.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dados dos e.l.c.
+ 
+\begin_inset Formula $E$
+\end_inset
+
+ y 
+\begin_inset Formula $F$
+\end_inset
+
+, 
+\begin_inset Formula $T:E\to F$
+\end_inset
+
+ lineal es continua si y sólo si lo es en 0, si y sólo si para toda seminorma
+ continua 
+\begin_inset Formula $q:F\to\mathbb{R}$
+\end_inset
+
+ existe una seminorma continua 
+\begin_inset Formula $p:E\to\mathbb{R}$
+\end_inset
+
+ con 
+\begin_inset Formula $q\circ T\leq p$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un e.v.t., 
+\begin_inset Formula $E'\neq0$
+\end_inset
+
+ si y sólo si existe 
+\begin_inset Formula $U\in{\cal E}(0_{E})$
+\end_inset
+
+ convexo distinto de 
+\begin_inset Formula $E$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Ejemplos de espacios localmente convexos
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $Z$
+\end_inset
+
+ es un conjunto y 
+\begin_inset Formula $\mathbb{K}^{Z}$
+\end_inset
+
+ es un 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+-espacio vectorial, 
+\begin_inset Formula $\{f\mapsto|f(z)|\}_{z\in Z}$
+\end_inset
+
+ es una familia de seminormas en 
+\begin_inset Formula $\mathbb{K}^{Z}$
+\end_inset
+
+ que define la 
+\series bold
+topología de convergencia puntual
+\series default
+, 
+\begin_inset Formula ${\cal T}_{\text{p}}$
+\end_inset
+
+, sobre 
+\begin_inset Formula $\mathbb{K}^{Z}$
+\end_inset
+
+, en que una base de entornos en un 
+\begin_inset Formula $f:Z\to\mathbb{K}$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\left\{ \{g\in\mathbb{K}^{Z}\mid\forall z\in F,|f(z)-g(z)|<\varepsilon\}\right\} _{F\subseteq Z\text{ finito},\varepsilon>0}.
+\]
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio topológico, llamamos 
+\begin_inset Formula $C(X)$
+\end_inset
+
+ al subespacio de 
+\begin_inset Formula $(\mathbb{K}^{X},{\cal T}_{\text{p}})$
+\end_inset
+
+ de las funciones continuas y 
+\begin_inset Formula $C_{\text{b}}(X)$
+\end_inset
+
+ al subespacio de 
+\begin_inset Formula $(\mathbb{K}^{X},{\cal T}_{\text{p}})$
+\end_inset
+
+ de las funciones continuas y acotadas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $X$
+\end_inset
+
+ es 
+\series bold
+completamente regular
+\series default
+ si para todo cerrado 
+\begin_inset Formula $A\subseteq X$
+\end_inset
+
+ y 
+\begin_inset Formula $x\in X\setminus A$
+\end_inset
+
+ existe 
+\begin_inset Formula $f:X\to\mathbb{R}$
+\end_inset
+
+ continua con 
+\begin_inset Formula $f(A)=0$
+\end_inset
+
+ y 
+\begin_inset Formula $f(x)=1$
+\end_inset
+
+, y entonces, si 
+\begin_inset Formula ${\cal K}$
+\end_inset
+
+ es la familia de los compactos de 
+\begin_inset Formula $X$
+\end_inset
+
+, la familia de seminormas 
+\begin_inset Formula $\{f\mapsto\max_{x\in K}|f(x)|\}_{K\in{\cal K}}$
+\end_inset
+
+ en 
+\begin_inset Formula $C(X)$
+\end_inset
+
+ tiene asociada una topología 
+\begin_inset Formula ${\cal T}_{\text{K}}$
+\end_inset
+
+, la 
+\series bold
+topología de convergencia uniforme sobre compactos
+\series default
+, en que una base de entornos de 
+\begin_inset Formula $f\in C(X)$
+\end_inset
+
+ es
+\begin_inset Formula 
+\[
+\left\{ \{g\in C(X)\mid\forall x\in K,|f(x)-g(x)|<\varepsilon\}\right\} _{K\in{\cal K},\varepsilon>0}.
+\]
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+sucesión exhaustiva de compactos
+\series default
+ de un espacio topológico 
+\begin_inset Formula $X$
+\end_inset
+
+ es una sucesión 
+\begin_inset Formula $(K_{n})_{n}$
+\end_inset
+
+ de compactos con unión 
+\begin_inset Formula $X$
+\end_inset
+
+ y tal que cada 
+\begin_inset Formula $K_{n}\subseteq\mathring{K}_{n+1}$
+\end_inset
+
+.
+ Todo abierto 
+\begin_inset Formula $\Omega\subseteq\mathbb{K}^{k}$
+\end_inset
+
+ es completamente regular y admite una sucesión exhaustiva de compactos
+ 
+\begin_inset Formula $(K_{n})_{n}$
+\end_inset
+
+, y entonces 
+\begin_inset Formula ${\cal T}_{\text{K}}$
+\end_inset
+
+ es la topología asociada a la familia 
+\begin_inset Formula $\{f\mapsto\max_{x\in K_{n}}|f(x)|\}_{n}$
+\end_inset
+
+ y está asociada a la métrica
+\begin_inset Formula 
+\[
+d(f,g)\coloneqq\sum_{n}\frac{1}{2^{n}}\frac{p_{K_{n}}(f-g)}{1+p_{K_{n}}(f-g)},
+\]
+
+\end_inset
+
+con lo que 
+\begin_inset Formula $(C(\Omega),{\cal T}_{\text{K}})$
+\end_inset
+
+ es un espacio de Fréchet.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Teorema de Weierstrass:
+\series default
+ Si 
+\begin_inset Formula $\Omega\subseteq\mathbb{C}$
+\end_inset
+
+ es abierto, el límite de una sucesión de funciones holomorfas en 
+\begin_inset Formula $({\cal C}(\Omega),{\cal T}_{\text{K}})$
+\end_inset
+
+ es holomorfa, y en particular 
+\begin_inset Formula $({\cal H}(\Omega),{\cal T}_{\text{K}})$
+\end_inset
+
+ es un espacio de Fréchet.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{reminder}{FVV2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Llamamos 
+\series bold
+soporte
+\series default
+ de una función 
+\begin_inset Formula $g:\Omega\rightarrow\mathbb{C}$
+\end_inset
+
+ a 
+\begin_inset Formula $\text{sop}(g)\coloneqq\overline{\{g\neq0\}}$
+\end_inset
+
+[...].
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{reminder}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ abierto:
+\end_layout
+
+\begin_layout Enumerate
+El conjunto de funciones 
+\begin_inset Formula $f:\Omega\to\mathbb{R}$
+\end_inset
+
+ 
+\begin_inset Formula $m$
+\end_inset
+
+ veces diferenciables con 
+\begin_inset Formula $\dif^{(m)}f$
+\end_inset
+
+ continua, 
+\begin_inset Formula ${\cal E}^{m}(\Omega)\coloneqq{\cal C}^{m}(\Omega)$
+\end_inset
+
+, es un espacio de Fréchet con la 
+\series bold
+topología de convergencia uniforme sobre compactos de las funciones y sus
+ derivadas hasta el grado 
+\begin_inset Formula $m$
+\end_inset
+
+
+\series default
+, dada por la familia de seminormas
+\begin_inset Formula 
+\[
+\left\{ p_{K}^{m}(f)\coloneqq\sup_{\begin{subarray}{c}
+\alpha\in\mathbb{N}^{n}\\
+|\alpha|\coloneqq\alpha_{1}+\dots+\alpha_{n}\leq m
+\end{subarray}}\sup_{x\in K}|D^{\alpha}f(x)|\right\} _{K\subseteq\Omega\text{ compacto}},
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula 
+\[
+D^{\alpha}f(x)\coloneqq\frac{\partial^{|\alpha|}f}{\partial x_{1}^{\alpha_{1}}\cdots\partial x_{n}^{\alpha_{n}}}.
+\]
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula ${\cal E}(\Omega)\coloneqq{\cal C}^{\infty}(\Omega)\coloneqq\bigcap_{m}{\cal C}^{m}(\Omega)$
+\end_inset
+
+ es un e.l.c.
+ metrizable con la 
+\series bold
+topología de convergencia uniforme sobre compactos de las funciones y todas
+ sus derivadas
+\series default
+, dada por la familia de seminormas 
+\begin_inset Formula $\{p_{K}^{m}\}_{K\subseteq\Omega\text{ compacto},m\in\mathbb{N}}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si para 
+\begin_inset Formula $K\subseteq\Omega$
+\end_inset
+
+ compacto, 
+\begin_inset Formula ${\cal D}_{K}(\Omega)\coloneqq\{f\in{\cal C}^{\infty}(\Omega)\mid\text{sop}f\subseteq K\}$
+\end_inset
+
+, llamamos 
+\series bold
+base de distribuciones
+\series default
+ a 
+\begin_inset Formula ${\cal D}(\Omega)\coloneqq\bigcup_{K\subseteq\Omega\text{ compacto}}{\cal D}_{K}(\Omega)\neq0$
+\end_inset
+
+ con la topología más fina que hace continuas las inclusiones 
+\begin_inset Formula ${\cal D}_{K}(\Omega)\hookrightarrow{\cal D}(\Omega)$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Espacios normados
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+norma
+\series default
+ es una seminorma 
+\begin_inset Formula $q$
+\end_inset
+
+ con 
+\begin_inset Formula $q^{-1}(0)=0$
+\end_inset
+
+.
+ Un 
 \series bold
 espacio normado
 \series default
@@ -263,128 +1966,39 @@ espacio normado
 \begin_inset Formula $(X,\Vert\cdot\Vert)$
 \end_inset
 
- es un espacio métrico con la distancia 
+ es un e.l.c.
+ metrizable con la distancia 
 \begin_inset Formula $(x,y)\mapsto\Vert x-y\Vert$
 \end_inset
 
-, y llamamos 
-\begin_inset Formula $B_{X}\coloneqq B[0,1]=\overline{B(0,1)}=\{x\in X\mid\Vert x\Vert\leq1\}$
-\end_inset
-
- y conjunto de 
-\series bold
-vectores unitarios
-\series default
- a 
-\begin_inset Formula $S_{X}\coloneqq\partial B(0,1)=\{x\in X\mid\Vert x\Vert=1\}$
-\end_inset
-
 .
- La norma es uniformemente continua en este espacio métrico
+ 
 \begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-, pues para 
-\begin_inset Formula $\varepsilon>0$
-\end_inset
 
-, si 
-\begin_inset Formula $x,y\in X$
-\end_inset
-
- cumplen 
-\begin_inset Formula $\Vert x-y\Vert<\varepsilon$
-\end_inset
-
-, por subaditividad es 
-\begin_inset Formula $\Vert x\Vert\leq\Vert x-y\Vert+\Vert y\Vert$
-\end_inset
-
- y por tanto 
-\begin_inset Formula $\left|\Vert x\Vert-\Vert y\Vert\right|=\Vert x\Vert-\Vert y\Vert\leq\Vert x-y\Vert<\varepsilon$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-.
- Un vector es 
 \series bold
-unitario
+Demostración:
 \series default
- si tiene norma 1.
- Un 
-\series bold
-espacio de Banach
-\series default
- es un espacio normado completo.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{samepage}
-\end_layout
-
+ Claramente es una distancia y 
+\begin_inset Formula $\{B(0,\frac{1}{n})\}_{n\in\mathbb{N}}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Sea 
-\begin_inset Formula $(X,\Vert\cdot\Vert)$
-\end_inset
-
- un 
-\begin_inset Formula $\mathbb{K}$
-\end_inset
-
--espacio normado:
-\end_layout
-
-\begin_layout Enumerate
-Todo subespacio vectorial de 
-\begin_inset Formula $X$
-\end_inset
-
- es normado con la norma inducida.
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $s:X\times X\to X$
-\end_inset
-
- y 
-\begin_inset Formula $p:\mathbb{K}\times X\to X$
-\end_inset
-
- dadas por 
-\begin_inset Formula $s(x,y)\coloneqq x+y$
-\end_inset
-
- y 
-\begin_inset Formula $p(a,x)\coloneqq ax$
-\end_inset
-
- son continuas.
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-Sea 
+ es una base de entornos convexos del 0.
+ Sean 
 \begin_inset Formula $A\subseteq X$
 \end_inset
 
- abierto, queremos ver que 
+ abierto, 
+\begin_inset Formula $s:X\times X\to X$
+\end_inset
+
+ la suma y 
+\begin_inset Formula $p:\mathbb{K}\times X\to X$
+\end_inset
+
+ el producto, queremos ver que 
 \begin_inset Formula $s^{-1}(A)$
 \end_inset
 
@@ -392,7 +2006,7 @@ Sea
 \begin_inset Formula $p^{-1}(A)$
 \end_inset
 
- son abiertos con la topología producto.
+ son abiertos.
  Sean 
 \begin_inset Formula $(x,y)\in s^{-1}(A)$
 \end_inset
@@ -468,332 +2082,170 @@ con lo que
 
 \end_layout
 
-\begin_layout Enumerate
-\begin_inset Formula $s_{y}:X\to X$
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, un e.l.c.
+ 
+\begin_inset Formula $(E,{\cal T})$
 \end_inset
 
- con 
-\begin_inset Formula $y\in X$
+ es metrizable si y sólo si es 1AN, si y sólo si 
+\begin_inset Formula ${\cal T}$
 \end_inset
 
- y 
-\begin_inset Formula $p_{a}:X\to X$
-\end_inset
-
- con 
-\begin_inset Formula $a\in\mathbb{K}^{*}$
-\end_inset
-
- dados por 
-\begin_inset Formula $s_{y}(x)\coloneqq x+y$
-\end_inset
-
- y 
-\begin_inset Formula $p_{a}(x)\coloneqq ax$
-\end_inset
-
- son homeomorfismos.
-\begin_inset Note Comment
+ es asociada a una familia numerable de seminormas continuas.
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-\begin_inset Formula $s_{y}$
+nproof
+\end_layout
+
 \end_inset
 
- es la composición de 
-\begin_inset Formula $x\mapsto(x,y)$
-\end_inset
 
- con la suma, por lo que es continua, y análogamente lo es 
-\begin_inset Formula $p_{a}$
-\end_inset
+\end_layout
 
-, pero la inversa de 
-\begin_inset Formula $s_{y}$
+\begin_layout Standard
+Un e.l.c.
+ 
+\begin_inset Formula $(E,{\cal T})$
 \end_inset
 
  es 
-\begin_inset Formula $s_{-y}$
+\series bold
+normable
+\series default
+ si 
+\begin_inset Formula ${\cal T}$
 \end_inset
 
- y la de 
-\begin_inset Formula $p_{a}$
+ es la topología asociada a una norma en 
+\begin_inset Formula $E$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $E$
+\end_inset
+
+ es un e.l.c., 
+\begin_inset Formula $A\subseteq E$
 \end_inset
 
  es 
-\begin_inset Formula $p_{a^{-1}}$
+\series bold
+acotado
+\series default
+ si 
+\begin_inset Formula $\forall U\in{\cal E}(0),\exists\rho>0:A\subseteq\rho U$
 \end_inset
 
-, que también son continuas.
-\end_layout
-
+, si y sólo si para toda seminorma 
+\begin_inset Formula $p:E\to\mathbb{R}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Enumerate
-La suma de un abierto y un subconjunto cualquiera de 
-\begin_inset Formula $X$
-\end_inset
-
- es abierta en 
-\begin_inset Formula $X$
+ continua es 
+\begin_inset Formula $\sup\{p(x)\}_{x\in A}<\infty$
 \end_inset
 
 .
+ 
+\series bold
+Teorema de Kolmogoroff:
+\series default
+ Un e.l.c.
+ es normable si y sólo si 
+\begin_inset Formula $0_{E}$
+\end_inset
+
+ tiene un entorno acotado.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $X$
+\end_inset
+
+ es un espacio normado, llamamos 
+\begin_inset Formula $B_{X}\coloneqq B[0,1]=\overline{B(0,1)}=\{x\in X\mid\Vert x\Vert\leq1\}$
+\end_inset
+
+, que es equilibrado y absorbente, y conjunto de 
+\series bold
+vectores unitarios
+\series default
+ a 
+\begin_inset Formula $S_{X}\coloneqq\partial B(0,1)=\{x\in X\mid\Vert x\Vert=1\}$
+\end_inset
+
+.
+ La norma es uniformemente continua
 \begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-Sean 
-\begin_inset Formula $G\subseteq X$
+, pues para 
+\begin_inset Formula $\varepsilon>0$
 \end_inset
 
- abierto y 
-\begin_inset Formula $A\subseteq X$
+, si 
+\begin_inset Formula $x,y\in X$
 \end_inset
 
-.
- Todo 
-\begin_inset Formula $p\in G+A$
+ cumplen 
+\begin_inset Formula $\Vert x-y\Vert<\varepsilon$
 \end_inset
 
- es de la forma 
-\begin_inset Formula $p=g+a$
-\end_inset
-
- con 
-\begin_inset Formula $g\in G$
-\end_inset
-
- y 
-\begin_inset Formula $a\in A$
-\end_inset
-
-, pero entonces 
-\begin_inset Formula $G+a\subseteq G+A$
-\end_inset
-
- es un entorno de 
-\begin_inset Formula $g+a$
-\end_inset
-
- por el homeomorfismo 
-\begin_inset Formula $s_{a}$
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-La suma de un cerrado y un compacto de 
-\begin_inset Formula $X$
-\end_inset
-
- es cerrada en 
-\begin_inset Formula $X$
-\end_inset
-
-.
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-Sean 
-\begin_inset Formula $F$
-\end_inset
-
- el cerrado y 
-\begin_inset Formula $K$
-\end_inset
-
- el compacto, tomamos una sucesión convergente arbitraria en 
-\begin_inset Formula $F+K$
-\end_inset
-
-, 
-\begin_inset Formula $(x_{n}+y_{n})_{n}$
-\end_inset
-
- con cada 
-\begin_inset Formula $x_{n}\in F$
-\end_inset
-
- y cada 
-\begin_inset Formula $y_{n}\in K$
-\end_inset
-
-, y 
-\begin_inset Formula $z\coloneqq\lim_{n}(x_{n}+y_{n})$
-\end_inset
-
-.
- Como 
-\begin_inset Formula $K$
-\end_inset
-
- es compacto, existe una subsucesión 
-\begin_inset Formula $(x_{n_{k}})_{k}$
-\end_inset
-
- convergente a un 
-\begin_inset Formula $x\in K$
-\end_inset
-
-, luego 
-\begin_inset Formula $(y_{n_{k}})_{k}$
-\end_inset
-
- converge a 
-\begin_inset Formula $z-x\in F$
+, por subaditividad es 
+\begin_inset Formula $\Vert x\Vert\leq\Vert x-y\Vert+\Vert y\Vert$
 \end_inset
 
  y por tanto 
-\begin_inset Formula $z=(z-x)+x\in F+K$
+\begin_inset Formula $\left|\Vert x\Vert-\Vert y\Vert\right|=\Vert x\Vert-\Vert y\Vert\leq\Vert x-y\Vert<\varepsilon$
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 .
+ Todo subespacio vectorial de un espacio normado es normado con la norma
+ inducida.
 \end_layout
 
-\end_inset
-
-
+\begin_layout Standard
+Un 
+\series bold
+espacio de Banach
+\series default
+ es un espacio normado completo.
 \end_layout
 
-\begin_layout Enumerate
-Si 
-\begin_inset Formula $Y\subseteq X$
-\end_inset
-
- es un subespacio vectorial también lo es 
-\begin_inset Formula $\overline{Y}$
-\end_inset
-
-.
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-Dados 
-\begin_inset Formula $a\in\mathbb{K}$
-\end_inset
-
- y 
-\begin_inset Formula $x,y\in\overline{Y}$
-\end_inset
-
-, 
-\begin_inset Formula $x$
-\end_inset
-
- e 
-\begin_inset Formula $y$
-\end_inset
-
- son límites de sucesiones respectivas 
-\begin_inset Formula $\{x_{n}\}_{n},\{y_{n}\}_{n}\subseteq Y$
-\end_inset
-
-, con lo que 
-\begin_inset Formula $x+y=\lim_{n}(x_{n}+y_{n})\in\overline{Y}$
-\end_inset
-
- y 
-\begin_inset Formula $ax=\lim_{n}ax_{n}\in\overline{Y}$
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Un subespacio vectorial de 
-\begin_inset Formula $X$
-\end_inset
-
- es propio si y sólo si su interior es vacío.
-\begin_inset Note Comment
-status open
-
-\begin_layout Enumerate
-\begin_inset Argument item:1
-status open
-
-\begin_layout Plain Layout
-\begin_inset Formula $\implies]$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
+\begin_layout Standard
 Sea 
-\begin_inset Formula $Y<X$
+\begin_inset Formula $(X,\Vert\cdot\Vert)$
 \end_inset
 
- un subespacio vectorial propio y 
-\begin_inset Formula $p\in X\setminus Y$
+ un 
+\begin_inset Formula $\mathbb{K}$
 \end_inset
 
-, para 
-\begin_inset Formula $y\in Y$
-\end_inset
-
-, 
-\begin_inset Formula $(y+\frac{p}{n})_{n\in\mathbb{N}^{*}}$
-\end_inset
-
- es una sucesión de elementos de 
-\begin_inset Formula $X\setminus Y$
-\end_inset
-
- que converge a 
-\begin_inset Formula $y$
-\end_inset
-
-, con lo que 
-\begin_inset Formula $y\notin\text{int}Y$
-\end_inset
-
- e 
-\begin_inset Formula $\text{int}Y=\emptyset$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-\begin_inset Argument item:1
-status open
-
-\begin_layout Plain Layout
-\begin_inset Formula $\impliedby]$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-El contrarrecíproco es trivial.
-\end_layout
-
-\end_deeper
-\end_inset
-
-
+-espacio normado:
 \end_layout
 
 \begin_layout Enumerate
@@ -993,90 +2445,25 @@ Toda sucesión de Cauchy en
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{samepage}
-\end_layout
-
-\end_inset
-
-
+\begin_layout Section
+Operadores
 \end_layout
 
 \begin_layout Standard
-Dado un espacio normado 
-\begin_inset Formula $X$
-\end_inset
-
-, 
-\begin_inset Formula $A\subseteq X$
-\end_inset
-
- es 
+Un operador entre espacios normados se dice 
 \series bold
 acotado
 \series default
- si 
-\begin_inset Formula $\{\Vert x\Vert\}_{x\in A}$
+ si es continuo, y si 
+\begin_inset Formula $X$
 \end_inset
 
- está acotado superiormente.
-\end_layout
-
-\begin_layout Standard
-Dados dos 
+ es un 
 \begin_inset Formula $\mathbb{K}$
 \end_inset
 
--espacios normados 
-\begin_inset Formula $X$
-\end_inset
-
- e 
-\begin_inset Formula $Y$
-\end_inset
-
-, un 
-\series bold
-operador
-\series default
- de 
-\begin_inset Formula $X$
-\end_inset
-
- a 
-\begin_inset Formula $Y$
-\end_inset
-
- es una función lineal de 
-\begin_inset Formula $X$
-\end_inset
-
- a 
-\begin_inset Formula $Y$
-\end_inset
-
-, y se llama 
-\series bold
-acotado
-\series default
- si es continuo.
- Llamamos 
-\begin_inset Formula ${\cal L}(X,Y)$
-\end_inset
-
- al conjunto de operadores acotados de 
-\begin_inset Formula $X$
-\end_inset
-
- a 
-\begin_inset Formula $Y$
+-espacio normado, llamamos 
+\begin_inset Formula $X^{*}\coloneqq X'={\cal L}(X,\mathbb{K})$
 \end_inset
 
 .
@@ -1298,6 +2685,19 @@ tomando
 \end_inset
 
  también lo es.
+ Si 
+\begin_inset Formula $Y=\mathbb{K}$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal L}(X,Y)=X^{*}$
+\end_inset
+
+ y esta norma se llama 
+\series bold
+norma dual
+\series default
+.
 \begin_inset Note Comment
 status open
 
@@ -1678,45 +3078,8 @@ Sean
 
 \end_layout
 
-\begin_layout Standard
-Una 
-\series bold
-forma lineal
-\series default
- en 
-\begin_inset Formula $X$
-\end_inset
-
- es una función lineal 
-\begin_inset Formula $X\to\mathbb{K}$
-\end_inset
-
-.
- Llamamos 
-\series bold
-dual algebraico
-\series default
- de 
-\begin_inset Formula $X$
-\end_inset
-
- al conjunto de formas lineales de 
-\begin_inset Formula $X$
-\end_inset
-
- y 
-\series bold
-dual topológico
-\series default
- de 
-\begin_inset Formula $X$
-\end_inset
-
- a 
-\begin_inset Formula $X^{*}\coloneqq{\cal L}(X,\mathbb{K})$
-\end_inset
-
-.
+\begin_layout Section
+Isomorfismos topológicos
 \end_layout
 
 \begin_layout Standard
@@ -2259,6 +3622,10 @@ luego
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Espacios cociente
 \end_layout
 
 \begin_layout Standard
@@ -3152,10 +4519,6 @@ Para la otra cota,
 
 \end_layout
 
-\begin_layout Standard
-Así:
-\end_layout
-
 \begin_layout Enumerate
 Todos los espacios normados de igual dimensión finta son topológicamente
  isomorfos.
@@ -3511,6 +4874,28 @@ end{samepage}
 \end_layout
 
 \begin_layout Standard
+Para 
+\begin_inset Formula $\Omega\subseteq\mathbb{C}$
+\end_inset
+
+ abierto, 
+\begin_inset Formula $({\cal H}(\Omega),{\cal T}_{\text{K}})$
+\end_inset
+
+ es un espacio de Fréchet que no es de Banach.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Dado un espacio normado 
 \begin_inset Formula $X$
 \end_inset
@@ -3743,54 +5128,6 @@ end{reminder}
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{reminder}{FVV2}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Llamamos 
-\series bold
-soporte
-\series default
- de una función 
-\begin_inset Formula $g:\Omega\rightarrow\mathbb{C}$
-\end_inset
-
- a 
-\begin_inset Formula $\text{sop}(g)\coloneqq\overline{\{g\neq0\}}$
-\end_inset
-
-[...].
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{reminder}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Para 
 \begin_inset Formula $S\neq\emptyset$
 \end_inset
@@ -3815,7 +5152,11 @@ espacio de las funciones acotadas
 \begin_inset Formula $\ell^{\infty}(S)\coloneqq(\{f\in\mathbb{K}^{S}\mid\Vert f\Vert_{\infty}<\infty\},\Vert\cdot\Vert_{\infty})$
 \end_inset
 
-.
+ y 
+\series bold
+topología de convergencia uniforme
+\series default
+ a la topología asociada a esta norma.
  
 \begin_inset Note Note
 status open
@@ -3840,7 +5181,7 @@ Si además
 
 \begin_layout Enumerate
 El espacio 
-\begin_inset Formula $C_{b}(S)$
+\begin_inset Formula $C_{\text{b}}(S)$
 \end_inset
 
  de funciones 
@@ -3887,7 +5228,7 @@ se anula en el infinito
 \end_inset
 
  continuas que se anulan en el infinito es un subespacio cerrado de 
-\begin_inset Formula $C_{b}(S)$
+\begin_inset Formula $C_{\text{c}}(S)$
 \end_inset
 
 .
@@ -3909,7 +5250,7 @@ Si
 \end_inset
 
  es localmente compacto y Hausdorff, el espacio 
-\begin_inset Formula $C_{c}(S)$
+\begin_inset Formula $C_{\text{c}}(S)$
 \end_inset
 
  de funciones 
@@ -4216,7 +5557,7 @@ Si
 \end_inset
 
  con la medida de Lebesgue inducida, 
-\begin_inset Formula $C_{c}(\Omega)$
+\begin_inset Formula $C_{\text{c}}(\Omega)$
 \end_inset
 
  es denso en 
@@ -4229,6 +5570,22 @@ status open
 
 \begin_layout Plain Layout
 nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{samepage}
 \end_layout
 
 \end_inset
@@ -4318,6 +5675,22 @@ nproof
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{samepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 La suma de subespacios cerrados puede no ser un subespacio cerrado.
 \begin_inset Note Note
 status open
@@ -4368,7 +5741,7 @@ Para
 \end_inset
 
  compacto, 
-\begin_inset Formula ${\cal D}_{K}^{m}(\Omega)\coloneqq(\{f\in{\cal C}^{m}(\Omega)\mid\text{sop}f\subseteq K\},\Vert\cdot\Vert_{m})$
+\begin_inset Formula $({\cal D}_{K}^{m}(\Omega)\coloneqq\{f\in{\cal C}^{m}(\Omega)\mid\text{sop}f\subseteq K\},\Vert\cdot\Vert_{m})$
 \end_inset
 
  es un espacio de Banach.
