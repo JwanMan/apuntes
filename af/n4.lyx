@@ -3395,11 +3395,184 @@ Teorema de Dunford:
 \end_inset
 
  es holomorfa si y sólo si es débilmente holomorfa.
-\begin_inset Note Note
+\begin_inset Note Comment
+status open
+
+\begin_layout Itemize
+\begin_inset Argument item:1
 status open
 
 \begin_layout Plain Layout
-nproof
+\begin_inset Formula $\implies]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Para 
+\begin_inset Formula $g\in X^{*}$
+\end_inset
+
+ y 
+\begin_inset Formula $z_{0}\in\Omega$
+\end_inset
+
+, por linealidad y continuidad de 
+\begin_inset Formula $g$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+(g\circ f)'(z_{0})=\lim_{z\to z_{0}}\frac{g(f(z))-g(f(z_{0}))}{z-z_{0}}=\lim_{z\to z_{0}}g\left(\frac{f(z)-f(z_{0})}{z-z_{0}}\right)=g(f'(z_{0})).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\impliedby]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sean 
+\begin_inset Formula $z_{0}\in\Omega$
+\end_inset
+
+ y, para 
+\begin_inset Formula $z,w\in\Omega\setminus\{z_{0}\}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+G(z,w)\coloneqq\frac{f(z)-f(z_{0})}{z-z_{0}}-\frac{f(w)-f(z_{0})}{w-z_{0}},
+\]
+
+\end_inset
+
+queremos ver que existen 
+\begin_inset Formula $V\in{\cal E}(z_{0})$
+\end_inset
+
+ y 
+\begin_inset Formula $M>0$
+\end_inset
+
+ con 
+\begin_inset Formula $\Vert G(z,w)\Vert\leq M|z-w|$
+\end_inset
+
+, de modo que se cumple la condición de Cauchy y existe 
+\begin_inset Formula $\lim_{z\to z_{0}}\frac{f(z)-f(z_{0})}{z-z_{0}}$
+\end_inset
+
+.
+ Sean 
+\begin_inset Formula $r>0$
+\end_inset
+
+ tal que 
+\begin_inset Formula $B(z_{0},r)\subseteq\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $g\in X^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $g\circ f\in{\cal H}(\Omega)$
+\end_inset
+
+ y para 
+\begin_inset Formula $z\in B(z_{0},r)$
+\end_inset
+
+ se tiene la fórmula de Cauchy
+\begin_inset Formula 
+\[
+(g\circ f)(z)=\frac{1}{2\pi\text{i}}\int_{\Gamma}\frac{g(f(s))}{s-z}\dif s,
+\]
+
+\end_inset
+
+donde 
+\begin_inset Formula $\Gamma:[0,2\pi]\to\mathbb{C}$
+\end_inset
+
+ es la curva 
+\begin_inset Formula $\Gamma(\theta)\coloneqq z_{0}+r\text{e}^{\text{i}\theta}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\Gamma([0,2\pi])$
+\end_inset
+
+ es compacto y por tanto, para todo 
+\begin_inset Formula $g\in X^{*}$
+\end_inset
+
+, como 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ es continua, 
+\begin_inset Formula $g(f(\Gamma([0,2\pi])))$
+\end_inset
+
+ es compacto y en particular es acotado, de modo que 
+\begin_inset Formula $f(\Gamma([0,2\pi]))$
+\end_inset
+
+ es acotado y existe 
+\begin_inset Formula $\alpha\coloneqq\sup_{\theta\in[0,2\pi]}|f(\Gamma(\theta))|$
+\end_inset
+
+.
+ Además, para 
+\begin_inset Formula $z,w\in B(x_{0},\frac{r}{2})$
+\end_inset
+
+, por un corolario del teorema de Hann-Banach, existe 
+\begin_inset Formula $g\in S_{X^{*}}$
+\end_inset
+
+ con 
+\begin_inset Formula $g(G(z,w))=\Vert G(z,w)\Vert$
+\end_inset
+
+, pero
+\begin_inset Formula 
+\begin{multline*}
+g(G(z,w))=\frac{g(f(z))-g(f(z_{0}))}{z-z_{0}}-\frac{g(f(w))-g(f(z_{0}))}{w-z_{0}}=\\
+=\frac{1}{2\pi\text{i}}\int_{\Gamma}\left(\frac{\frac{g(f(s))}{s-z}-\frac{g(f(s))}{s-z_{0}}}{z-z_{0}}-\frac{\frac{g(f(s))}{s-w}-\frac{g(f(s))}{s-z_{0}}}{w-z_{0}}\right)\dif s=\\
+=\frac{1}{2\pi\text{i}}\int_{\Gamma}\left(\frac{g(f(s))}{(s-z)(s-z_{0})}-\frac{g(f(s))}{(s-w)(s-z_{0})}\right)\dif s=\frac{1}{2\pi\text{i}}\int_{\Gamma}\frac{g(f(s))(z-w)}{(s-z)(s-w)(s-z_{0})}\dif s,
+\end{multline*}
+
+\end_inset
+
+con lo que
+\begin_inset Formula 
+\[
+\Vert G(z,w)\Vert=|g(G(z,w))|\leq\frac{1}{2\pi}\frac{\sup_{\theta\in[0,2\pi]}g(f(\theta))|z-w|}{\frac{r}{2}\frac{r}{2}r}2\pi r=\frac{4}{r^{2}}\alpha|z-w|.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3433,11 +3606,44 @@ Teorema de Liouville:
 \end_inset
 
  es constante.
-\begin_inset Note Note
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
-nproof
+Como 
+\begin_inset Formula $f$
+\end_inset
+
+ es débilmente holomorfa, para 
+\begin_inset Formula $g\in X^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $g\circ f$
+\end_inset
+
+ es holomorfa acotada y, por el teorema de Liouville entre espacios complejos,
+ es constante y 
+\begin_inset Formula $g(f(\Omega))$
+\end_inset
+
+ es unipuntual, pero como 
+\begin_inset Formula $X^{*}$
+\end_inset
+
+ separa los puntos de 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $f(\Omega)$
+\end_inset
+
+ es unipuntual y 
+\begin_inset Formula $f$
+\end_inset
+
+ es constante.
 \end_layout
 
 \end_inset
