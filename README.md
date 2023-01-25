@@ -14,7 +14,7 @@ Las asignaturas de matemáticas de las que se incluyen apuntes son las siguiente
   <tbody>
     <tr>
       <th>Curso matemáticas</th><th>Asignatura</th><th>¿Completo?</th><th>¿Revisado?</th><th>Curso PCEO</th>
-	</tr>
+    </tr>
     <tr>
 	  <th rowspan="4">1</th>
 	  <td>Funciones de Una Variable Real (<kbd>fuvr1</kbd>, <kbd>fuvr2</kbd>)</td><td>Sí</td><td>Sí</td>
@@ -65,10 +65,11 @@ Las asignaturas de informática de las que se incluyen apuntes son las siguiente
   <tbody>
     <tr>
       <th>Curso informática</th><th>Asignatura</th><th>¿Completo?</th><th>¿Revisado?</th><th>Curso PCEO</th>
-	</tr>
+    </tr>
 	<tr>
 	  <th rowspan="6">1</th>
 	  <td>Fundamentos Lógicos de la Informática (<kbd>fli</kbd>)</td><td>Sí</td><td>Sí</td>
+	  <th />
 	</tr>
 	<tr>
 	  <td>Introducción a la Programación (<kbd>ip</kbd>)</td><td>Sí</td><td>Sí</td>
