@@ -17,45 +17,45 @@ Las asignaturas de matemáticas de las que se incluyen apuntes son las siguiente
 	</tr>
     <tr>
 	  <th rowspan="4">1</th>
-	  <td>Funciones de Una Variable Real (`fuvr1`, `fuvr2`)</td><td>Sí</td><td>Sí</td>
+	  <td>Funciones de Una Variable Real (<kbd>fuvr1</kbd>, <kbd>fuvr2</kbd>)</td><td>Sí</td><td>Sí</td>
 	  <th rowspan="4">1</th>
 	</tr>
-	<tr><td>Álgebra Lineal y Geometría (`algl`, `gae`)</td><td>Sí</td><td>Sí</td></tr>
-	<tr><td>Conjuntos y Números (`cyn`)</td><td>Sí</td><td>Sí</td></tr>
-	<tr><td>Topología de Espacios Métricos  (`tem`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Álgebra Lineal y Geometría (<kbd>algl</kbd>, <kbd>gae</kbd>)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Conjuntos y Números (<kbd>cyn</kbd>)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Topología de Espacios Métricos  (<kbd>tem</kbd>)</td><td>Sí</td><td>Sí</td></tr>
 	<tr>
 	  <th rowspan="7">2</th>
-	  <td>Funciones de Varias Variables I (`fvv1`)</td><td>Sí</td><td>Sí</td>
+	  <td>Funciones de Varias Variables I (<kbd>fvv1</kbd>)</td><td>Sí</td><td>Sí</td>
 	  <th rowspan="4">2</th>
 	</tr>
-	<tr><td>Funciones de Varias Variables II (`fvv2`)</td><td>Sí</td><td>Sí</td></tr>
-	<tr><td>Funciones de Varias Variables III (`fvv3`)</td><td>Sí</td><td>Sí</td></tr>
-	<tr><td>Ampliación de Álgebra Lineal  y Geometría (`aalg`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Funciones de Varias Variables II (<kbd>fvv2</kbd>)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Funciones de Varias Variables III (<kbd>fvv3</kbd>)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Ampliación de Álgebra Lineal  y Geometría (<kbd>aalg</kbd>)</td><td>Sí</td><td>Sí</td></tr>
 	<tr>
-	  <td>Optimización lineal (`ol`)</td><td>Sólo PDF</td><td>Sólo parte A</td>
+	  <td>Optimización lineal (<kbd>ol</kbd>)</td><td>Sólo PDF</td><td>Sólo parte A</td>
 	  <th rowspan="4">3</th>
 	</tr>
-	<tr><td>Análisis Numérico Matricial (`anm`)</td><td>Sí</td><td>Sí</td></tr>
-	<tr><td>Topología de Superficies (`ts`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Análisis Numérico Matricial (<kbd>anm</kbd>)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Topología de Superficies (<kbd>ts</kbd>)</td><td>Sí</td><td>Sí</td></tr>
 	<tr>
 	  <th rowspan="7">3</th>
-	  <td>Funciones de Variable Compleja (`fvc`)</td><td>Falta tema 1</td><td>Sí</td></tr>
+	  <td>Funciones de Variable Compleja (<kbd>fvc</kbd>)</td><td>Falta tema 1</td><td>Sí</td></tr>
 	</tr>
 	<tr>
-	  <td>Grupos y Anillos (`ga`)</td><td>Sí</td><td>Sí</td>
+	  <td>Grupos y Anillos (<kbd>ga</kbd>)</td><td>Sí</td><td>Sí</td>
 	  <th rowspan="6">4</th>
 	</tr>
-	<tr><td>Geometría de Curvas y Superficies (`gcs`)</td><td>Sí</td><td>Sí</td></tr>
-	<tr><td>Métodos Numéricos de las Ecuaciones Diferenciales (`mne`)</td><td>Sí</td><td>No</td></tr>
-	<tr><td>Grafos y Optimización Discreta (`graf`)</td><td>Sí</td><td>Sí</td></tr>
-	<tr><td>Geometría Global de Superficies (`ggs`)</td><td>Sí</td><td>Sí</td></tr>
-	<tr><td>Ecuaciones Algebraicas (`ealg`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Geometría de Curvas y Superficies (<kbd>gcs</kbd>)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Métodos Numéricos de las Ecuaciones Diferenciales (<kbd>mne</kbd>)</td><td>Sí</td><td>No</td></tr>
+	<tr><td>Grafos y Optimización Discreta (<kbd>graf</kbd>)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Geometría Global de Superficies (<kbd>ggs</kbd>)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Ecuaciones Algebraicas (<kbd>ealg</kbd>)</td><td>Sí</td><td>Sí</td></tr>
 	<tr>
 	  <th rowspan="2">4</th>
-	  <td>Análisis Funcional (`af`)</td><td>Sí</td><td>Hasta 2.9</td>
+	  <td>Análisis Funcional (<kbd>af</kbd>)</td><td>Sí</td><td>Hasta 2.9</td>
 	  <th rowspan="2">5</th>
 	</tr>
-    <tr><td>Álgebra Conmutativa (`ac`)</td><td>Sí</td><td>Hasta 3.8</td></tr>
+    <tr><td>Álgebra Conmutativa (<kbd>ac</kbd>)</td><td>Sí</td><td>Hasta 3.8</td></tr>
   </tbody>
 </table>
 
@@ -68,48 +68,48 @@ Las asignaturas de informática de las que se incluyen apuntes son las siguiente
 	</tr>
 	<tr>
 	  <th rowspan="6">1</th>
-	  <td>Fundamentos Lógicos de la Informática (`fli`)</td><td>Sí</td><td>Sí</td>
+	  <td>Fundamentos Lógicos de la Informática (<kbd>fli</kbd>)</td><td>Sí</td><td>Sí</td>
 	</tr>
 	<tr>
-	  <td>Introducción a la Programación (`ip`)</td><td>Sí</td><td>Sí</td>
+	  <td>Introducción a la Programación (<kbd>ip</kbd>)</td><td>Sí</td><td>Sí</td>
   	  <th rowspan="5">1</td>
 	</tr>
-	<tr><td>Fundamentos de Computadores (`fc`)</td><td>Sí</td><td>Sí</td></tr>
-	<tr><td>Fundamentos Físicos de la Informática (`ffi`)</td><td>Sí</td><td>Sí</td></tr>
-	<tr><td>Tecnología de la Programación (`tp`)</td><td>Sí</td><td>Sí</td></tr>
-	<tr><td>Estructura y Tecnología de Computadores (`etc`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Fundamentos de Computadores (<kbd>fc</kbd>)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Fundamentos Físicos de la Informática (<kbd>ffi</kbd>)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Tecnología de la Programación (<kbd>tp</kbd>)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Estructura y Tecnología de Computadores (<kbd>etc</kbd>)</td><td>Sí</td><td>Sí</td></tr>
 	<tr>
 	  <th rowspan="6">2</th>
-	  <td>Algoritmos y Estructuras de Datos I (`aed1`)</td><td>Sí</td><td>Sí</td>
+	  <td>Algoritmos y Estructuras de Datos I (<kbd>aed1</kbd>)</td><td>Sí</td><td>Sí</td>
 	  <th rowspan="4">2</th>
 	</tr>
-	<tr><td>Programación Orientada a Objetos (`poo`)</td><td>Sí</td><td>Sí</td></tr>
-	<tr><td>Introducción a los Sistemas Operativos (`iso`)</td><td>Sí</td><td>Sí</td></tr>
-	<tr><td>Programación Concurrente y Distribuida (`pcd`)</td><td>Sólo último tema</td><td>No</td></tr>
+	<tr><td>Programación Orientada a Objetos (<kbd>poo</kbd>)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Introducción a los Sistemas Operativos (<kbd>iso</kbd>)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Programación Concurrente y Distribuida (<kbd>pcd</kbd>)</td><td>Sólo último tema</td><td>No</td></tr>
 	<tr>
-	  <td>Compiladores (`cc`)</td><td>Sí</td><td>Sí</td>
+	  <td>Compiladores (<kbd>cc</kbd>)</td><td>Sí</td><td>Sí</td>
 	  <th rowspan="3">3</th>
 	</tr>
-	<tr><td>Bases de Datos (`bd`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Bases de Datos (<kbd>bd</kbd>)</td><td>Sí</td><td>Sí</td></tr>
 	<tr>
 	  <th rowspan="6">3</th>
-	  <td>Servicios Telemáticos (`st`)</td><td>Sí</td><td>Sí</td>
+	  <td>Servicios Telemáticos (<kbd>st</kbd>)</td><td>Sí</td><td>Sí</td>
 	</tr>
 	<tr>
-	  <td>Tecnologías de Desarrollo de Software (`tds`)</td><td>Sí</td><td>Sí</td>
+	  <td>Tecnologías de Desarrollo de Software (<kbd>tds</kbd>)</td><td>Sí</td><td>Sí</td>
 	  <th rowspan="5">4</th>
 	</tr>
-	<tr><td>Sistemas Inteligentes (`si`)</td><td>Sí</td><td>Sí</td></tr>
-	<tr><td>Arquitectura y Organización de Computadores (`aoc`)</td><td>Sí</td><td>Sí</td></tr>
-	<tr><td>Procesos de Desarrollo de Software (`pds`)</td><td>Sí</td><td>Sí</td></tr>
-	<tr><td>Gestión de Procesos de Desarrollo de Software (`gdps`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Sistemas Inteligentes (<kbd>si</kbd>)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Arquitectura y Organización de Computadores (<kbd>aoc</kbd>)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Procesos de Desarrollo de Software (<kbd>pds</kbd>)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Gestión de Procesos de Desarrollo de Software (<kbd>gdps</kbd>)</td><td>Sí</td><td>Sí</td></tr>
 	<tr>
 	  <th rowspan="3">4</th>
-	  <td>Programación para la IA (`pia`)</td><td>Sí</td><td>Sí</td>
+	  <td>Programación para la IA (<kbd>pia</kbd>)</td><td>Sí</td><td>Sí</td>
 	  <th rowspan="3">5</th>
 	</tr>
-	<tr><td>Desarrollo de Sistemas Inteligentes (`dsi`)</td><td>Sí</td><td>No</td></tr>
-	<tr><td>Modelos de Computación (`mc`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Desarrollo de Sistemas Inteligentes (<kbd>dsi</kbd>)</td><td>Sí</td><td>No</td></tr>
+	<tr><td>Modelos de Computación (<kbd>mc</kbd>)</td><td>Sí</td><td>Sí</td></tr>
   </tbody>
 </table>
 
@@ -168,7 +168,7 @@ Además, agadezco a quien quiera hacerse cargo o ayudar a avanzar en alguno de l
 siguientes ítems:
 
 * Completar los apuntes de las asignaturas de matemáticas o informáticas con apuntes
-  inexistentes o incompletos.  Actualmente estas son:
+  inexistentes o incompletos.  Actualmente las asignaturas que faltan son:
    - Las que no están en el PCEO, salvo Fundamentos Lógicos de la Informática.
    - Las de menciones de informática distintas a la Mención de Computación.
    - Introducción al Método Matemático.
@@ -192,8 +192,8 @@ siguientes ítems:
 * Restructurar los apuntes de asignaturas en que los contenidos hayan cambiado por
   un cambio de profesor o plan de estudios.
 * Restructurar los apuntes de las asignaturas de primero de matemáticas que se han
-  fusionado, como "Álgebra lineal" con "Geometría Afín y Euclídea" o "Funciones
-  de Una Variable Real I" con "Funciones de Una Variable Real II".
+  fusionado, como Álgebra lineal con Geometría Afín y Euclídea o Funciones
+  de Una Variable Real I con Funciones de Una Variable Real II.
 * Mejorar el estilo de los tres últimos capítulos de "Optimización Lineal", mal
   expresados por falta de tiempo.
 * Averiguar qué contenido entra realmente en "Análisis Funcional" y comentar el
@@ -204,4 +204,4 @@ siguientes ítems:
   ficheros fuente con el fin de mejorar la accesibilidad.
 * Arreglar o notificarme otros problemas de accesibilidad.
 
-Toda contribución no trivial que mejore alguno de dichos ítems se añadirá a los créditos.
+Lógicamente toda contribución no trivial se añadirá a los créditos de los apuntes.
