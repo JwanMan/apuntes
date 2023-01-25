@@ -8,63 +8,110 @@ teoría para un examen o de referencia al hacer ejercicios. Por supuesto, no son
 un sustituto de ir entendiendo los contenidos y practicar con ejercicios. Estos
 apuntes no están afiliados de ningún modo a la Universidad de Murcia.
 
-Por el momento, las asignaturas de matemáticas de las que se incluyen apuntes
-son las siguientes:
+Las asignaturas de matemáticas de las que se incluyen apuntes son las siguientes:
 
-Se incluyen las siguientes asignaturas:
-* De matemáticas:
-  * `algl`: Álgebra Lineal.
-  * `cyn`: Conjuntos y Números.
-  * `fuvr1`: Funciones de Una Variable Real I.
-  * `fuvr2`: Funciones de Una Variable Real II.
-  * `gae`: Geometría Afín y Euclídea.
-  * `tem`: Topología de Espacios Métricos.
-  * `epe`: Elementos de Probabilidad y Estadística (sólo PDF).
-  * `aalg`: Ampliación de Álgebra y Geometría.
-  * `fvv1`: Funciones de Varias Variables I.
-  * `fvv2`: Funciones de Varias Variables II.
-  * `fvv3`: Funciones de Varias Variables III (sólo PDF).
-  * `edo`: Ecuaciones Diferenciales Ordinarias (sólo PDF).
-  * `anm`: Análisis Numérico Matricial.
-  * `cn`: Cálculo Numérico (sólo PDF).
-  * `ol`: Optimización Lineal (sólo PDF).
-  * `ga`: Grupos y Anillos.
-  * `ts`: Topología de Superficies.
-  * `fvc`: Funciones de Variable Compleja (falta la primera parte).
-  * `gcs`: Geometría de Curvas y Superficies.
-  * `ggs`: Geometría Global de Superficies.
-  * `graf`: Grafos y Optimización Discreta.
-  * `mne`: Métodos Numéricos de las Ecuaciones Diferenciales.
-  * `ealg`: Ecuaciones algebraicas.
-* De informática:
-  * `fc`: Fundamentos de Computadores.
-  * `ip`: Introducción a la Programación.
-  * `fli`: Fundamentos Lógicos de la Informática.
-  * `etc`: Estructura y Tecnología de Computadores.
-  * `ffi`: Fundamentos Físicos de la Informática.
-  * `tp`: Tecnología de la Programación.
-  * `iso`: Introducción a los Sistemas Operativos.
-  * `poo`: Programación Orientada a Objetos.
-  * `aed1`: Algoritmos y Estructuras de Datos I.
-  * `aed2`: Algoritmos y Estructuras de Datos II (sólo PDF).
-  * `pcd`: Programación Concurrente y Distribuida (sólo PDF).
-  * `rc`: Redes de Comunicaciones (sólo PDF).
-  * `aec`: Ampliación y Estructura de Computadores (sólo PDF).
-  * `bd`: Bases de Datos.
-  * `cc`: Compiladores.
-  * `ar`: Ampliación de Redes (sólo PDF).
-  * `st`: Servicios Telemáticos.
-  * `aoc`: Arquitectura y Organización de Computadores.
-  * `si`: Sistemas Inteligentes.
-  * `tds`: Tecnologías de Desarrollo de Software.
-  * `pds`: Procesos de Desarrollo de Software.
-  * `gpds`: Gestión de Proyectos de Desarrollo de Software.
-* En progreso:
-  * `ac`: Álgebra Conmutativa.
-  * `af`: Análisis Funcional.
-  * `dsi`: Desarrollo de Sistemas Inteligentes.
-  * `mc`: Modelos de Computación.
-  * `pia`: Programación para la IA.
+<table>
+  <tbody>
+    <tr>
+      <th>Curso matemáticas</th><th>Asignatura</th><th>¿Completo?</th><th>¿Revisado?</th><th>Curso PCEO</th>
+	</tr>
+    <tr>
+	  <th rowspan="4">1</th>
+	  <td>Funciones de Una Variable Real (`fuvr1`, `fuvr2`)</td><td>Sí</td><td>Sí</td>
+	  <th rowspan="4">1</th>
+	</tr>
+	<tr><td>Álgebra Lineal y Geometría (`algl`, `gae`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Conjuntos y Números (`cyn`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Topología de Espacios Métricos  (`tem`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr>
+	  <th rowspan="7">2</th>
+	  <td>Funciones de Varias Variables I (`fvv1`)</td><td>Sí</td><td>Sí</td>
+	  <th rowspan="4">2</th>
+	</tr>
+	<tr><td>Funciones de Varias Variables II (`fvv2`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Funciones de Varias Variables III (`fvv3`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Ampliación de Álgebra Lineal  y Geometría (`aalg`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr>
+	  <td>Optimización lineal (`ol`)</td><td>Sólo PDF</td><td>Sólo parte A</td>
+	  <th rowspan="4">3</th>
+	</tr>
+	<tr><td>Análisis Numérico Matricial (`anm`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Topología de Superficies (`ts`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr>
+	  <th rowspan="7">3</th>
+	  <td>Funciones de Variable Compleja (`fvc`)</td><td>Falta tema 1</td><td>Sí</td></tr>
+	</tr>
+	<tr>
+	  <td>Grupos y Anillos (`ga`)</td><td>Sí</td><td>Sí</td>
+	  <th rowspan="6">4</th>
+	</tr>
+	<tr><td>Geometría de Curvas y Superficies (`gcs`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Métodos Numéricos de las Ecuaciones Diferenciales (`mne`)</td><td>Sí</td><td>No</td></tr>
+	<tr><td>Grafos y Optimización Discreta (`graf`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Geometría Global de Superficies (`ggs`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Ecuaciones Algebraicas (`ealg`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr>
+	  <th rowspan="2">4</th>
+	  <td>Análisis Funcional (`af`)</td><td>Sí</td><td>Hasta 2.9</td>
+	  <th rowspan="2">5</th>
+	</tr>
+    <tr><td>Álgebra Conmutativa (`ac`)</td><td>Sí</td><td>Hasta 3.8</td></tr>
+  </tbody>
+</table>
+
+Las asignaturas de informática de las que se incluyen apuntes son las siguientes:
+
+<table>
+  <tbody>
+    <tr>
+      <th>Curso informática</th><th>Asignatura</th><th>¿Completo?</th><th>¿Revisado?</th><th>Curso PCEO</th>
+	</tr>
+	<tr>
+	  <th rowspan="6">1</th>
+	  <td>Fundamentos Lógicos de la Informática (`fli`)</td><td>Sí</td><td>Sí</td>
+	</tr>
+	<tr>
+	  <td>Introducción a la Programación (`ip`)</td><td>Sí</td><td>Sí</td>
+  	  <th rowspan="5">1</td>
+	</tr>
+	<tr><td>Fundamentos de Computadores (`fc`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Fundamentos Físicos de la Informática (`ffi`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Tecnología de la Programación (`tp`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Estructura y Tecnología de Computadores (`etc`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr>
+	  <th rowspan="6">2</th>
+	  <td>Algoritmos y Estructuras de Datos I (`aed1`)</td><td>Sí</td><td>Sí</td>
+	  <th rowspan="4">2</th>
+	</tr>
+	<tr><td>Programación Orientada a Objetos (`poo`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Introducción a los Sistemas Operativos (`iso`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Programación Concurrente y Distribuida (`pcd`)</td><td>Sólo último tema</td><td>No</td></tr>
+	<tr>
+	  <td>Compiladores (`cc`)</td><td>Sí</td><td>Sí</td>
+	  <th rowspan="3">3</th>
+	</tr>
+	<tr><td>Bases de Datos (`bd`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr>
+	  <th rowspan="6">3</th>
+	  <td>Servicios Telemáticos (`st`)</td><td>Sí</td><td>Sí</td>
+	</tr>
+	<tr>
+	  <td>Tecnologías de Desarrollo de Software (`tds`)</td><td>Sí</td><td>Sí</td>
+	  <th rowspan="5">4</th>
+	</tr>
+	<tr><td>Sistemas Inteligentes (`si`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Arquitectura y Organización de Computadores (`aoc`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Procesos de Desarrollo de Software (`pds`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr><td>Gestión de Procesos de Desarrollo de Software (`gdps`)</td><td>Sí</td><td>Sí</td></tr>
+	<tr>
+	  <th rowspan="3">4</th>
+	  <td>Programación para la IA (`pia`)</td><td>Sí</td><td>Sí</td>
+	  <th rowspan="3">5</th>
+	</tr>
+	<tr><td>Desarrollo de Sistemas Inteligentes (`dsi`)</td><td>Sí</td><td>No</td></tr>
+	<tr><td>Modelos de Computación (`mc`)</td><td>Sí</td><td>Sí</td></tr>
+  </tbody>
+</table>
 
 ## Venta benéfica
 Si está en Murcia, puede comprar versiones impresas de los apuntes (ver imagen)
@@ -75,7 +122,7 @@ que trabajan con los residentes del campo de refugiados de Eleonas, Grecia, para
 mejorar los estándares de vida y el bienestar comunitario de estas personas que
 han perdido todo a causa de la guerra.
 
-## Descargar
+## Instalación
 Necesitaremos instalar [LyX](https://www.lyx.org/) para ver los documentos,
 [Git](https://git-scm.com) para descargarlos o contribuir a ellos (aunque esto 
 también se puede hacer con la interfaz gráfica de GitHub) y puede que también
@@ -105,8 +152,6 @@ echo cyn >> .git/info/sparse-checkout
 git pull origin master
 ```
 
-## Compilar
-
 En cada directorio, el fichero `n.lyx` es el fichero principal con los apuntes
 de la asignatura. Podemos compilarlos con la interfaz gráfica
 (`Archivo > Exportar`) o mediante la orden `lyx -e <formato> n.lyx`, donde
@@ -114,18 +159,49 @@ de la asignatura. Podemos compilarlos con la interfaz gráfica
 
 ## Contribuciones
 
-Quien quiera puede contribuir mediante _Issues_ y _Pull Requests_. Por ejemplo,
-interesan especialmente las contribuciones en los siguientes aspectos:
+Se ruega que quien encuentre fallos de redacción o de contenido me lo notifique o,
+preferiblemente, lo arregle.  Esto se puede hacer mediante _Issues_ y _Pull Requests_
+de Github o enviándome un mensaje, como puede ser un correo electrónico con
+`git send-email` a la dirección que aparece al inicio de los apuntes.
 
-* Las asignaturas de Autómatas y Lenguajes Formales (`alf`), Ampliación de
-  Sistemas Operativos (`aso`) y Funciones de Variable Compleja (`fvc`), de las
-  que no hay apuntes aquí o están incompletos.
-* Los tres últimos capítulos de Optimización Lineal (`ol`), de los que cada uno
-  está peor expresado que el anterior.
-* Los problemas de accesibilidad planteados por las asignaturas que están sólo
-  en PDF, especialmente las que son versiones escaneadas (no conservo los
-  ficheros fuente), pues estos son problemáticos para quienes dependan de
-  lectores de pantalla. Por supuesto, si alguien sabe de otros problemas de
-  accesibilidad que se den en estos apuntes, agradecería que me informara.
-* Fallos y erratas. Las contribuciones en este aspecto son sencillas y siempre
-  son bienvenidas.
+Además, agadezco a quien quiera hacerse cargo o ayudar a avanzar en alguno de los
+siguientes ítems:
+
+* Completar los apuntes de las asignaturas de matemáticas o informáticas con apuntes
+  inexistentes o incompletos.  Actualmente estas son:
+   - Las que no están en el PCEO, salvo Fundamentos Lógicos de la Informática.
+   - Las de menciones de informática distintas a la Mención de Computación.
+   - Introducción al Método Matemático.
+   - Elementos de Probabilidad y Estadística.
+   - Ecuaciones Diferenciales Ordinarias.
+   - Cálculo Numérico de Una Variable.
+   - Ecuaciones en Derivadas Parciales y Series de Fourier.
+   - Teoría de la Probabilidad.
+   - Ampliación de Probabilidad y Procesos Estocásticos.
+   - Inferencia Estadística.
+   - Laboratorio de Modelización.
+   - Algoritmos y Estructuras de Datos II.
+   - Redes de Computadores.
+   - Autómatas y Lenguajes Formales.
+   - Ampliación de Estructura de Computadores.
+   - Ampliación de Sistemas Operativos.
+   - Ampliación de Redes.
+   - Compresión Multimedia.
+   - Aprendizaje Computacional.
+   - Visión Artificial.
+* Restructurar los apuntes de asignaturas en que los contenidos hayan cambiado por
+  un cambio de profesor o plan de estudios.
+* Restructurar los apuntes de las asignaturas de primero de matemáticas que se han
+  fusionado, como "Álgebra lineal" con "Geometría Afín y Euclídea" o "Funciones
+  de Una Variable Real I" con "Funciones de Una Variable Real II".
+* Mejorar el estilo de los tres últimos capítulos de "Optimización Lineal", mal
+  expresados por falta de tiempo.
+* Averiguar qué contenido entra realmente en "Análisis Funcional" y comentar el
+  resto.
+* Añadir las demostraciones de "Álgebra Conmutativa" que se dejaron como ejercicio
+  y no están ya hechas.  Estas aparecen en los apuntes como notas LyX.
+* Transcribir los apuntes que sólo están disponibles en PDF por pérdida de los
+  ficheros fuente con el fin de mejorar la accesibilidad.
+* Arreglar o notificarme otros problemas de accesibilidad.
+
+Toda contribución no trivial que mejore alguno de dichos ítems se añadirá a los créditos.
