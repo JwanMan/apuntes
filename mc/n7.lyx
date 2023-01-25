@@ -135,31 +135,6 @@ Los problemas en esta clase se consideran tratables, y el resto intratables.
 
 \begin_layout Standard
 Una 
-\begin_inset Formula $\text{MT}$
-\end_inset
-
- 
-\series bold
-computa
-\series default
- una función 
-\begin_inset Formula $f:D\subseteq\Sigma^{*}\to\Sigma^{*}$
-\end_inset
-
- si decide 
-\begin_inset Formula $D$
-\end_inset
-
- y, para 
-\begin_inset Formula $w\in D$
-\end_inset
-
-, termina conteniendo solo 
-\begin_inset Formula $f(w)$
-\end_inset
-
- en su cinta.
- Una 
 \series bold
 función polinómica
 \series default
@@ -219,10 +194,15 @@ representación interna
 
  Las formas que hemos usado para representar autómatas, grafos, etc.
  son razonables, pero no lo es la representación unaria de números, pues
- es exponencialmente más larga que una representación en base 2 o más.
+ es exponencialmente más larga que una representación en base 2 o más que
+ sí es razonable.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 \begin_inset Float algorithm
 wide false
 sideways false
@@ -362,7 +342,7 @@ Suma
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Float algorithm
 wide false
 sideways false
@@ -506,7 +486,7 @@ Resta saturada
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Float algorithm
 wide false
 sideways false
@@ -648,7 +628,7 @@ Producto
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Float algorithm
 wide false
 sideways false
@@ -844,6 +824,11 @@ Cociente entero
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float algorithm
 wide false
@@ -886,7 +871,7 @@ in L(G)$, rechaza en otro caso.}
 \backslash
 SSi{$w=
 \backslash
-lambda$}{
+epsilon$}{
 \end_layout
 
 \begin_layout Plain Layout
@@ -897,7 +882,7 @@ lSSi{$S
 \backslash
 to
 \backslash
-lambda
+epsilon
 \backslash
 in{
 \backslash
@@ -922,7 +907,17 @@ $T
 \backslash
 gets
 \backslash
-emptyset$
+{((i,j),
+\backslash
+emptyset)
+\backslash
+}_{1
+\backslash
+leq i
+\backslash
+leq j
+\backslash
+leq n}$
 \end_layout
 
 \begin_layout Plain Layout
@@ -931,15 +926,7 @@ emptyset$
 \backslash
 tcp*{{
 \backslash
-rm Para $
-\backslash
-{(i,j)
-\backslash
-}_{1
-\backslash
-leq i<j
-\backslash
-leq n}$, $T(i,j)$ contiene las variables que generan $w_i
+rm $T(i,j)$ contiene las variables que generan $w_i
 \backslash
 cdots w_j$.}}
 \end_layout
@@ -1105,11 +1092,18 @@ Algoritmo CYK de programación dinámica para establecer si una cadena está
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 Están en 
 \begin_inset Formula ${\cal P}$
 \end_inset
 
 :
+\end_layout
+
+\begin_layout Enumerate
+La suma, resta saturada, producto, cociente entero y resto de números naturales.
 \end_layout
 
 \begin_layout Enumerate
@@ -1135,6 +1129,10 @@ Una forma de comprobarlo es usar el algoritmo de Euclides para ver que
 
 .
  La operación más cara en un paso es el módulo, 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 \begin_inset Formula $O(n^{3})$
 \end_inset
 
@@ -1148,7 +1146,12 @@ noprefix "false"
 
 \end_inset
 
-, y basta ver que el número de pasos es polinómico respecto al tamaño de
+,
+\end_layout
+
+\end_inset
+
+ y basta ver que el número de pasos es polinómico respecto al tamaño de
  la entrada, para lo que vemos que, excluyendo el primer paso, cada 2 pasos
  
 \begin_inset Formula $x$
@@ -1238,7 +1241,7 @@ Se añade el nodo
 \end_inset
 
 .
- Se acepta si y sólo si 
+ Se acepta si y sólo si al final 
 \begin_inset Formula $t$
 \end_inset
 
@@ -1348,22 +1351,21 @@ noprefix "false"
 
 \end_deeper
 \begin_layout Standard
-Dados 
-\begin_inset Formula $L_{1},L_{2}\in{\cal P}$
+\begin_inset Formula ${\cal P}$
 \end_inset
 
-, 
-\begin_inset Formula $L_{1}\cup L_{2},L_{1}\cap L_{2},\overline{L_{1}},L_{1}L_{2},L_{1}^{*}\in{\cal P}$
-\end_inset
-
-.
+ es cerrada para unión, intersección, complemento, concatenación y clausura.
  
 \series bold
 Demostración:
 \series default
  La unión, intersección y clausura son triviales.
- Respecto a la concatenación, para cada partición de la entrada en 2 partes,
- posiblemente vacías, se decide 
+ Respecto a la concatenación 
+\begin_inset Formula $L_{1}L_{2}$
+\end_inset
+
+, para cada partición de la entrada en 2 partes, posiblemente vacías, se
+ decide 
 \begin_inset Formula $L_{1}$
 \end_inset
 
@@ -1372,8 +1374,12 @@ Demostración:
 \end_inset
 
  en la segunda.
- Para ver que 
-\begin_inset Formula $L_{1}^{*}\in{\cal P}$
+ Para ver que, si 
+\begin_inset Formula $L\in{\cal P}$
+\end_inset
+
+, 
+\begin_inset Formula $L^{*}\in{\cal P}$
 \end_inset
 
 , hacemos lo siguiente: Para una entrada 
@@ -1398,7 +1404,7 @@ Demostración:
 \end_inset
 
  indica si 
-\begin_inset Formula $w_{i}\cdots w_{j}\in L_{1}^{*}$
+\begin_inset Formula $w_{i}\cdots w_{j}\in L^{*}$
 \end_inset
 
 .
@@ -1423,7 +1429,7 @@ Demostración:
 \end_inset
 
 , si 
-\begin_inset Formula $w_{i}\cdots w_{j}\in L_{1}$
+\begin_inset Formula $w_{i}\cdots w_{j}\in L$
 \end_inset
 
 , se marca 
@@ -1473,7 +1479,7 @@ Demostración:
 \end_inset
 
  ejecuciones de la máquina que decide 
-\begin_inset Formula $L_{1}$
+\begin_inset Formula $L$
 \end_inset
 
 .
@@ -1562,7 +1568,7 @@ verificador
 \end_inset
 
  tal que 
-\begin_inset Formula $L=\{w\mid \exists c\mid V\text{ acepta }\langle w,c\rangle\}$
+\begin_inset Formula $L=\{w\mid\exists c:V\text{ acepta }\langle w,c\rangle\}$
 \end_inset
 
 .
@@ -1599,7 +1605,7 @@ status open
 \end_inset
 
 Sea 
-\begin_inset Formula $M$
+\begin_inset Formula ${\cal M}$
 \end_inset
 
  una 
@@ -1615,26 +1621,22 @@ Sea
 \end_inset
 
 , simula 
-\begin_inset Formula $M$
+\begin_inset Formula ${\cal M}$
 \end_inset
 
  tratando 
 \begin_inset Formula $c$
 \end_inset
 
- como una secuencia con la opción que hace 
-\begin_inset Formula $M$
+ como una secuencia con la opción que toma 
+\begin_inset Formula ${\cal M}$
 \end_inset
 
- en cada paso para aceptar 
-\begin_inset Formula $w$
+ en cada paso, y que acepta o rechaza según lo haga 
+\begin_inset Formula ${\cal M}$
 \end_inset
 
-, y que acepta o rechaza según lo haga 
-\begin_inset Formula $M$
-\end_inset
-
- con esta configuración.
+ con estas elecciones.
 \end_layout
 
 \begin_layout Itemize
@@ -1723,20 +1725,11 @@ end{samepage}
 \end_layout
 
 \begin_layout Standard
-Sean 
-\begin_inset Formula $L_{1},L_{2}\in{\cal NP}$
-\end_inset
-
-, 
-\begin_inset Formula $L_{1}\cup L_{2},L_{1}\cap L_{2},L_{1}L_{2},L_{1}^{*}\in{\cal NP}$
-\end_inset
-
-.
- Se desconoce si 
 \begin_inset Formula ${\cal NP}$
 \end_inset
 
- es cerrada para el complemento o no.
+ es cerrada para la unión, intersección, concatenación y clausura.
+ Se desconoce si es cerrada para el complemento o no.
  
 \begin_inset Formula ${\cal P}$
 \end_inset

@@ -111,8 +111,7 @@ Cambridge
 \lang spanish
  probaron, de forma independiente, que no.
  Para ello tuvieron que definir formalmente este tipo de procesos, llamados
- algoritmos.
- Church a partir de su 
+ algoritmos, Church a partir de su 
 \series bold
 cálculo
 \series default
@@ -312,35 +311,23 @@ posición de la cabeza de lectura/escritura
 
 .
  Podemos representar una configuración 
-\begin_inset Formula $(c_{0}\cdots c_{n}\text{BB}\cdots\text{B}\cdots,q,k)$
+\begin_inset Formula $(c,q,p)$
 \end_inset
 
-, donde 
-\begin_inset Formula $k\leq n$
-\end_inset
-
- y solo se da 
-\begin_inset Formula $c_{n}=\text{B}$
-\end_inset
-
- si 
-\begin_inset Formula $c_{j}=\text{B}$
-\end_inset
-
- para todo 
-\begin_inset Formula $c_{j}\geq k$
-\end_inset
-
-, como 
+ como 
 \begin_inset Quotes cld
 \end_inset
 
 
-\begin_inset Formula $c_{0}\cdots c_{k-1}qc_{k}\cdots c_{n}$
+\begin_inset Formula $c_{0}\cdots c_{p-1}qc_{p}\cdots c_{n}$
 \end_inset
 
 
 \begin_inset Quotes crd
+\end_inset
+
+, donde 
+\begin_inset Formula $n\ge\max(\{n\mid c_{n}\neq\text{B}\}\cup\{p-1\})$
 \end_inset
 
 .
@@ -356,19 +343,7 @@ configuración inicial
 \end_inset
 
  es 
-\begin_inset Formula $(c,q_{0},0)$
-\end_inset
-
- con 
-\begin_inset Formula $c_{0},\dots,c_{|w|-1}=w$
-\end_inset
-
- y 
-\begin_inset Formula $c_{k}=\text{B}$
-\end_inset
-
- para 
-\begin_inset Formula $k\geq|w|$
+\begin_inset Formula $q_{0}w$
 \end_inset
 
 .
@@ -448,7 +423,7 @@ rechaza
 \begin_inset Formula $w$
 \end_inset
 
-, o bien no termina.
+, y puede no terminar.
 \end_layout
 
 \begin_layout Standard
@@ -556,11 +531,11 @@ Ejecutar una u otra instrucción según el símbolo leído y los
 \begin_inset Formula $n$
 \end_inset
 
- anteriores para cierto 
+ anteriores para 
 \begin_inset Formula $n$
 \end_inset
 
-.
+ fijo.
 \end_layout
 
 \begin_deeper
@@ -586,7 +561,7 @@ Se mueve
 \begin_inset Formula $\overline{x_{1}x_{2}}$
 \end_inset
 
-, etc., hasta llegar a la posición inicial en el estado 
+, etc., hasta llegar al estado 
 \begin_inset Formula $\overline{x_{1}\cdots x_{n}}$
 \end_inset
 
@@ -600,7 +575,7 @@ Ejecutar una instrucción mientras el símbolo leído cumpla una condición.
 
 \begin_deeper
 \begin_layout Standard
-Para estos símbolos, pasar a la instrucción, que termina volviendo a la
+Para estos símbolos, pasar a la instrucción, que al terminar vuelve a la
  comprobación.
  Para el resto, pasar a la siguiente.
 \end_layout
@@ -629,7 +604,7 @@ Se añade un nuevo estado inicial
 \begin_inset Formula $\$$
 \end_inset
 
- y, en bucle, se mueve a la derecha y se escribe el símbolo en la posición
+ y, en bucle, se mueve a la derecha y se escribe el símbolo de la posición
  anterior, hasta que este sea B.
  Entonces se va moviendo a la izquierda hasta encontrar 
 \begin_inset Formula $\$$
@@ -644,7 +619,7 @@ Se añade un nuevo estado inicial
 \begin_inset Formula $\$$
 \end_inset
 
- al principio, de modo que detectar el límite izquierdo de la cinta es detectar
+ al principio, con lo que detectar el límite izquierdo de la cinta es detectar
  
 \begin_inset Formula $\$$
 \end_inset
@@ -684,12 +659,8 @@ Se usan
  estados en ciclo.
  Mientras no se lea B, se pasa al estado siguiente si se lee el símbolo
  o al mismo en otro caso, y se mueve a la derecha.
- En el último estado, antes de hacer esto, si se detecta el símbolo se hace
- la acción a realizar cada 
-\begin_inset Formula $n$
-\end_inset
-
- apariciones.
+ En el último estado, antes de hacer esto, se detecta si está el símbolo
+ y se actúa en consecuencia.
 \end_layout
 
 \end_deeper
@@ -838,7 +809,7 @@ menos expresivo
 \begin_inset Formula $\text{MOD}_{1}$
 \end_inset
 
-; 
+, en cuyo caso es 
 \series bold
 equivalente
 \series default
@@ -851,10 +822,6 @@ equivalente
 \end_inset
 
 , si 
-\begin_inset Formula $\text{MOD}_{1}\preceq\text{MOD}_{2}$
-\end_inset
-
- y 
 \begin_inset Formula $\text{MOD}_{2}\preceq\text{MOD}_{1}$
 \end_inset
 
@@ -870,15 +837,7 @@ estrictamente menos expresivo
 \begin_inset Formula $\text{MOD}_{1}\prec\text{MOD}_{2}$
 \end_inset
 
-, si 
-\begin_inset Formula $\text{MOD}_{1}\preceq\text{MOD}_{2}$
-\end_inset
-
- pero 
-\begin_inset Formula $\text{MOD}_{2}\npreceq\text{MOD}_{1}$
-\end_inset
-
-.
+, en otro caso.
 \end_layout
 
 \begin_layout Standard
@@ -944,7 +903,6 @@ stay
 
 \begin_deeper
 \begin_layout Standard
-Claramente 
 \begin_inset Formula $\text{MT}\subseteq\text{SMT}$
 \end_inset
 
@@ -956,7 +914,7 @@ Claramente
 \begin_inset Formula $\text{MT}$
 \end_inset
 
- sustituyendo una transición con S con una que primero se mueve a la derecha
+ cambiando cada transición con S por una que primero se mueve a la derecha
  y luego a la izquierda.
 \end_layout
 
@@ -1136,43 +1094,11 @@ máquinas de Turing multicinta
 \end_inset
 
  es 
-\begin_inset Formula $(q_{0},w\text{B}\cdots,(\text{B}\cdots)^{k-1})$
+\begin_inset Formula $(q_{0},(w\text{B}\cdots,0),(\text{B}\cdots,0)^{k-1})$
 \end_inset
 
 .
- Definiendo 
-\begin_inset Formula $\nu:(\Gamma^{\mathbb{N}}\times\mathbb{N})\times(\Gamma\times\{\text{L},\text{R}\})\to\Gamma^{\mathbb{N}}\times\mathbb{N}$
-\end_inset
-
- de forma que, para 
-\begin_inset Formula $a,b\in\Gamma$
-\end_inset
-
-, 
-\begin_inset Formula $n\in\mathbb{N}$
-\end_inset
-
-, 
-\begin_inset Formula $u\in\Gamma^{n}$
-\end_inset
-
- y 
-\begin_inset Formula $v\in\Gamma^{\mathbb{N}}$
-\end_inset
-
-, 
-\begin_inset Formula $\nu((uav,n),(b,\text{R}))=(ubv,n+1)$
-\end_inset
-
- y, si 
-\begin_inset Formula $n>0$
-\end_inset
-
-, 
-\begin_inset Formula $\nu((uav,n),(b,\text{L}))=(ubv,n-1)$
-\end_inset
-
-, una configuración 
+ Una configuración 
 \begin_inset Formula $(q,(u_{1},n_{1}),\dots,(u_{k},n_{k}))$
 \end_inset
 
@@ -1180,16 +1106,44 @@ máquinas de Turing multicinta
 \begin_inset Formula $(r,(v_{1},m_{1}),\dots,(v_{k},m_{k}))$
 \end_inset
 
- dada por 
-\begin_inset Formula $\delta(q,u_{1n_{1}},u_{2n_{2}},\dots,u_{kn_{k}})=(r,t_{1},\dots,t_{k})$
+ si, siendo 
+\begin_inset Formula $\delta(q,u_{1n_{1}},\dots,u_{kn_{k}})=(r,(c_{1},d_{1}),\dots,(c_{k},d_{k}))$
+\end_inset
+
+, para 
+\begin_inset Formula $i\in\{1,\dots,k\}$
+\end_inset
+
+, 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ es como 
+\begin_inset Formula $u_{i}$
+\end_inset
+
+ pero cambiando el término 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+-ésimo por 
+\begin_inset Formula $c$
+\end_inset
+
+ y, bien 
+\begin_inset Formula $d_{i}=\text{L}$
 \end_inset
 
  y 
-\begin_inset Formula $(v_{i},m_{i})=\nu((u_{i},n_{i}),t_{i})$
+\begin_inset Formula $m_{i}=n_{i}-1$
 \end_inset
 
- para cada 
-\begin_inset Formula $i$
+, bien 
+\begin_inset Formula $d_{i}=\text{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $m_{i}=n_{i}+1$
 \end_inset
 
 .
@@ -1261,7 +1215,7 @@ Claramente una
 \end_inset
 
  por 
-\begin_inset Formula $\#w(\#\dot{\text{B}})^{k-1}$
+\begin_inset Formula $\#\dot{w}_{1}w_{2}\cdots w_{|w|}(\#\dot{\text{B}})^{k-1}$
 \end_inset
 
 , vuelve al principio y pasa a 
@@ -1325,7 +1279,7 @@ Si
 \end_inset
 
  por 
-\begin_inset Formula $a_{i}$
+\begin_inset Formula $s_{i}$
 \end_inset
 
 .
@@ -1344,6 +1298,22 @@ Si
 
  y cambiarlo por 
 \begin_inset Formula $\dot{x}$
+\end_inset
+
+, o si 
+\begin_inset Formula $x=\#$
+\end_inset
+
+, rechazar si 
+\begin_inset Formula $d_{i}=\text{L}$
+\end_inset
+
+ o insertar antes 
+\begin_inset Formula $\dot{\text{B}}$
+\end_inset
+
+ desplazando el resto a la derecha si 
+\begin_inset Formula $d_{i}=\text{R}$
 \end_inset
 
 .
@@ -1473,8 +1443,8 @@ Toda
 \begin_inset Formula $(Q,\Sigma,\Gamma,\delta,q_{0},q_{\text{F}})$
 \end_inset
 
- e intentamos convertirla en una 3-MT, que guardará la entrada en la cinta
- 1, simulará la 
+ y la convertimos en una 3-MT, que guardará la entrada en la cinta 1, simulará
+ la 
 \begin_inset Formula $\text{MTND}$
 \end_inset
 
@@ -1500,7 +1470,7 @@ Escribir
 \begin_inset Formula $c\gets\text{FALSE}$
 \end_inset
 
-en el estado del 3-MT.
+ en el estado.
 \end_layout
 
 \begin_layout Enumerate
@@ -1510,7 +1480,7 @@ name "enu:begin-step"
 
 \end_inset
 
-Copiar la cinta 1 en la cinta 2, escribiendo 
+Copiar la cinta 1 en la 2, escribiendo 
 \begin_inset Formula $\#$
 \end_inset
 
@@ -1578,7 +1548,7 @@ noprefix "false"
 \begin_inset Formula $i>|\delta(q,a)|$
 \end_inset
 
-, escribir B y moverse a la izquierda en la cinta 3 e ir al paso 
+, escribir B, moverse a la izquierda en la cinta 3 e ir al paso 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "enu:next-step"
@@ -1725,7 +1695,7 @@ Kurt Gödel
 tesis de Church-Turing
 \series default
 , que afirma que esta definición de algoritmo se corresponde con la noción
- intuitiva, o la máquina de Turing es el modelo de computación más expresivo
+ intuitiva, o que la máquina de Turing es el modelo de computación más expresivo
  posible y todos los modelos suficientemente expresivos son equivalentes
  a este.
 \end_layout
@@ -1744,12 +1714,12 @@ máquinas con infinitos registros
 \series bold
 lenguaje S
 \series default
- (simple), todas equivalentes a las máquinas de Turing.
+ (simple), todas equivalentes a MT.
  Un lenguaje de programación es 
 \series bold
 Turing completo
 \series default
- si es equivalente a las máquinas de Turing.
+ si es equivalente a MT.
 \end_layout
 
 \begin_layout Section
@@ -1820,7 +1790,6 @@ Si se lee B, rechazar (longitud 0).
 
 \begin_layout Enumerate
 Si solo hay un 0, se acepta.
- Se vuelve al principio.
 \end_layout
 
 \begin_layout Enumerate
@@ -1879,7 +1848,7 @@ Se va leyendo la cadena de izquierda a derecha y, si hay una
 \begin_inset Formula $c$
 \end_inset
 
-, aceptando si no hay ninguno, se vuelve al principio de la cinta, se marca
+, aceptando si no hay ninguna, se vuelve al principio de la cinta, se marca
  con 
 \begin_inset Formula $\#$
 \end_inset
@@ -2112,8 +2081,7 @@ Tomamos una
 \begin_inset Formula $\text{MTND}$
 \end_inset
 
- que al inicio, de forma no determinista, se quede donde está ejecute una
- 
+ que al inicio, de forma no determinista, ejecute una 
 \begin_inset Formula $\text{MT}$
 \end_inset
 
@@ -2121,7 +2089,7 @@ Tomamos una
 \begin_inset Formula $L_{1}$
 \end_inset
 
- o una que ejecute 
+ o una que enumere 
 \begin_inset Formula $L_{2}$
 \end_inset
 
@@ -2154,11 +2122,7 @@ Sean
 \begin_inset Formula ${\cal M}_{2}$
 \end_inset
 
- una 
-\begin_inset Formula $\text{MT}$
-\end_inset
-
- que enumera 
+ una que enumera 
 \begin_inset Formula $L_{2}$
 \end_inset
 
@@ -2171,7 +2135,7 @@ Sean
 \end_inset
 
  a la vez sobre dos copias de la entrada (alternándolas), aceptando cuando
- ambas hayan aceptado y rechazando si una termina.
+ ambas hayan aceptado y rechazando si una rechaza.
 \end_layout
 
 \end_deeper
@@ -2200,11 +2164,11 @@ Similar al caso decidible pero haciendo todas las simulaciones en paralelo:
 
 \begin_deeper
 \begin_layout Standard
-\begin_inset Formula $L_{1}^{*}=\{\lambda\}\cup(L_{1}\setminus\{\lambda\})^{*}$
+\begin_inset Formula $L_{1}^{*}=\{\epsilon\}\cup(L_{1}\setminus\{\epsilon\})^{*}$
 \end_inset
 
 , por lo que si la entrada es 
-\begin_inset Formula $\lambda$
+\begin_inset Formula $\epsilon$
 \end_inset
 
  aceptamos y, en otro caso, hacemos como en el caso anterior pero iterando
@@ -2228,8 +2192,8 @@ Algoritmos
 \end_layout
 
 \begin_layout Standard
-Las máquinas de Turing y mecanismos generales no solo permiten reconocer
- cadenas, sino ejecutar algoritmos en general.
+Las máquinas de Turing no solo permiten reconocer cadenas, sino ejecutar
+ algoritmos en general.
  La entrada siempre es una cadena, por lo que para que otro tipo de objeto
  actúe de entrada hay que representarla como una cadena y la máquina de
  Turing debe decodificar esta representación.
@@ -2245,7 +2209,7 @@ Las máquinas de Turing y mecanismos generales no solo permiten reconocer
 \begin_inset Formula $O$
 \end_inset
 
-, y dados objetos 
+ en cierta representación, y dados objetos 
 \begin_inset Formula $O_{1},\dots,O_{n}$
 \end_inset
 
@@ -2257,7 +2221,7 @@ Las máquinas de Turing y mecanismos generales no solo permiten reconocer
 \begin_inset Formula $(O_{1},\dots,O_{n})$
 \end_inset
 
-, en cierta representación.
+.
  La 
 \begin_inset Formula $\text{MT}$
 \end_inset

@@ -196,7 +196,7 @@ PDA
 
 \series default
 ) es una tupla 
-\begin_inset Formula $(Q,\Sigma,\Gamma,\delta,A_{0},q_{0},F)$
+\begin_inset Formula $(Q,\Sigma,\Gamma,\delta,A_{0},q_{0})$
 \end_inset
 
  similar a un PDA pero sin 
@@ -371,7 +371,8 @@ Podemos suponer que una transición añade o elimina más de un elemento de
 \begin_inset Formula $\delta:Q\times\Sigma_{\epsilon}\times\Gamma^{*})\to{\cal P}(Q\times\Gamma^{*})$
 \end_inset
 
-), lo que equivale a añadir algunos estados intermedios en la transición.
+), lo que equivale a tener varios estados intermedios en la transición para
+ primero quitar elementos y luego añadir.
 \end_layout
 
 \begin_layout Standard
@@ -544,31 +545,31 @@ GLC
 \begin_inset Formula $(V,\Sigma,{\cal R},S)$
 \end_inset
 
-, donde 
-\begin_inset Formula $\Sigma$
-\end_inset
-
- es un alfabeto de 
+ formada por un 
 \series bold
-símbolos terminales
+alfabeto de variables
 \series default
-, 
+ 
 \begin_inset Formula $V$
 \end_inset
 
- es un alfabeto de 
+, un alfabeto de 
 \series bold
-variables
+símbolos terminales
 \series default
+ 
+\begin_inset Formula $\Sigma$
+\end_inset
+
  disjunto de 
 \begin_inset Formula $V$
 \end_inset
 
-, 
+, un conjunto finito 
 \begin_inset Formula ${\cal R}$
 \end_inset
 
- es un conjunto finito de 
+ de 
 \series bold
 reglas de producción
 \series default
@@ -580,14 +581,14 @@ reglas de producción
 \begin_inset Formula $S\to w$
 \end_inset
 
-, y 
-\begin_inset Formula $S\in V$
-\end_inset
-
- es la 
+, y una 
 \series bold
 variable inicial
 \series default
+ 
+\begin_inset Formula $S\in V$
+\end_inset
+
 .
  Se puede representar con una línea por cada variable 
 \begin_inset Formula $T\in V$
@@ -602,7 +603,7 @@ variable inicial
 \end_inset
 
 , donde 
-\begin_inset Formula $\{w_{1},\dots,w_{n}\}=\{w\mid(T,w)\in V\}$
+\begin_inset Formula $\{w_{1},\dots,w_{n}\}=\{w\mid(T,w)\in{\cal R}\}$
 \end_inset
 
 .
@@ -625,22 +626,6 @@ Dadas
 \begin_inset Formula $(R\to x)\in{\cal R}$
 \end_inset
 
-, y 
-\begin_inset Formula $v\Rightarrow^{*}w$
-\end_inset
-
- si 
-\begin_inset Formula $v=w$
-\end_inset
-
- o existe 
-\begin_inset Formula $x\in(V\cup\Sigma)^{*}$
-\end_inset
-
- tal que 
-\begin_inset Formula $v\Rightarrow x\Rightarrow^{*}w$
-\end_inset
-
 .
  Una 
 \series bold
@@ -656,6 +641,18 @@ derivación
 
 , 
 \begin_inset Formula $v_{i}\Rightarrow v_{i+1}$
+\end_inset
+
+, y escribimos 
+\begin_inset Formula $v\Rightarrow w$
+\end_inset
+
+ si existe una derivación que empieza por 
+\begin_inset Formula $v$
+\end_inset
+
+ y termina por 
+\begin_inset Formula $w$
 \end_inset
 
 .
@@ -709,8 +706,8 @@ Dada una GLC
 \begin_inset Formula $uRv\Rightarrow uxv$
 \end_inset
 
- en la derivación de 
-\begin_inset Formula $S$
+ en la derivación 
+\begin_inset Formula $S\Rightarrow^{*}w$
 \end_inset
 
 , aristas de 
@@ -726,7 +723,7 @@ Dada una GLC
 \series bold
 derivación por la izquierda
 \series default
- es una derivación en la que, en cada paso 
+ es una en la que, en cada paso 
 \begin_inset Formula $uRv\Rightarrow uxv$
 \end_inset
 
@@ -805,7 +802,7 @@ Para{$A
 \backslash
 to
 \backslash
-lambda
+epsilon
 \backslash
 in{
 \backslash
@@ -818,7 +815,7 @@ cal R}$}{
 \backslash
 to
 \backslash
-varepsilon$ de ${
+epsilon$ de ${
 \backslash
 cal R}$
 \backslash
@@ -859,16 +856,11 @@ cal R}$ para cada $w'$ resultante de
 
 \begin_layout Plain Layout
 
-		excepción de que si habíamos eliminado $B
+		excepción de que no añadimos $B
 \backslash
 to
 \backslash
-lambda$ no la
-\end_layout
-
-\begin_layout Plain Layout
-
-		volvemos a añadir
+epsilon$
 \backslash
 ;
 \end_layout
@@ -1234,17 +1226,21 @@ in F$}{%
 
 \begin_layout Plain Layout
 
-	añadir $(q_{
+	añadir $q
 \backslash
-text a},
-\backslash
-epsilon)$ a $
-\backslash
-delta(q,
+to^{
 \backslash
 epsilon,
 \backslash
-epsilon)$}
+epsilon
+\backslash
+to
+\backslash
+epsilon}q_{
+\backslash
+text a}$ a $
+\backslash
+delta$}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1275,17 +1271,21 @@ Gamma$}{%
 
 \begin_layout Plain Layout
 
-	añadir $(q_{
+	añadir $q_{
 \backslash
-text a},
+text a}
 \backslash
-epsilon)$ a $
+to^{
 \backslash
-delta(q_{
+epsilon,x
 \backslash
-text a},
+to
 \backslash
-epsilon,x)$}
+epsilon}q_{
+\backslash
+text a}$ a $
+\backslash
+delta$}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1532,19 +1532,23 @@ epsilon
 
 \begin_layout Plain Layout
 
-                (r,u)
+                p
+\backslash
+to^{q,
+\backslash
+epsilon
+\backslash
+to u}r,s
+\backslash
+to^{b,u
+\backslash
+to
+\backslash
+epsilon}q
 \backslash
 in
 \backslash
-delta(p,a,
-\backslash
-epsilon);(q,
-\backslash
-epsilon)
-\backslash
-in
-\backslash
-delta(s,b,u)%
+delta%
 \end_layout
 
 \begin_layout Plain Layout
@@ -1624,18 +1628,10 @@ Nótese que sólo probamos
 \end_inset
 
  equivale al PDAD 
-\begin_inset Formula $(Q,\Sigma,\{\$\},\delta',\$,q_{0},F)$
+\begin_inset Formula $(Q,\Sigma,\{\$\},\{(q,a,\epsilon,\delta(q,a),\epsilon)\}_{q\in Q}^{a\in\Sigma},\$,q_{0},F)$
 \end_inset
 
- con
-\begin_inset Formula 
-\begin{align*}
-\delta'(q,a\in\Sigma,\epsilon) & =\{(\delta(q,a),\epsilon)\}; & \delta'(q,a,x) & =\emptyset.
-\end{align*}
-
-\end_inset
-
-(En esta notación se usa la primera expresión aplicable, por columnas.)
+.
 \end_layout
 
 \begin_layout Description
@@ -1646,7 +1642,21 @@ Nótese que sólo probamos
 \begin_inset Formula $L=\{0^{n}c1^{n}\}_{n\in\mathbb{N}}$
 \end_inset
 
- no es un lenguaje regular.
+ es reconocido por el PDAD 
+\size small
+de la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pdad"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\size default
+, pero no es regular.
  Si lo fuera, tendría una 
 \emph on
 \lang english
@@ -1686,17 +1696,17 @@ pumping length
 \end_inset
 
 .
- Sin embargo, 
-\begin_inset Formula $L$
-\end_inset
-
-, es reconocido por el 
-\size small
-PDAD
 \end_layout
 
 \begin_deeper
 \begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \align center
 \begin_inset ERT
 status open
@@ -1734,6 +1744,33 @@ end{tikzpicture}
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:pdad"
+
+\end_inset
+
+PDAD de 
+\begin_inset Formula $\{0^{n}c1^{n}\}_{n\in\mathbb{N}}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Description
 \begin_inset Formula $2\subseteq3]$
@@ -1760,10 +1797,9 @@ end{tikzpicture}
 
  con
 \begin_inset Formula 
-\begin{align*}
-\delta'(q_{\text{s}},\epsilon,\epsilon) & =\{(q_{0},A_{0})\}; & \delta'(q\in F,\epsilon,\epsilon) & =\delta(q,\epsilon,\epsilon)\cup\{(q_{\text{e}},\epsilon)\};\\
-\delta'(q_{\text{e}},\epsilon,x) & =\{(q_{\text{e}},\epsilon)\}; & \delta'(q\in Q,a,x) & =\delta(q,a,x); & \delta'(q,a,x) & =\emptyset.
-\end{align*}
+\[
+\delta'\coloneqq\delta\cup\{(q_{\text{s}},\epsilon,\epsilon,q_{0},A_{0})\}\cup\{(q,\epsilon,a,q_{\text{e}},\epsilon)\}_{q\in F\cup\{q_{\text{e}}\}}^{a\in\Gamma}.
+\]
 
 \end_inset
 
@@ -1922,10 +1958,9 @@ En efecto, si
 
  con
 \begin_inset Formula 
-\begin{align*}
-\delta'(q_{\text{s}},\epsilon,\epsilon) & =\{(q_{0},A_{0})\}; & \delta'(q\in Q,a,x\in\Sigma\cup\{\epsilon\}) & =\delta(q,a,x);\\
-\delta'(q\in Q,\epsilon,\$) & =\{(q_{\text{e}},\epsilon)\}; & \delta'(q,a,x) & =\emptyset.
-\end{align*}
+\[
+\delta'\coloneqq\delta\cup\{(q_{\text{s}},\epsilon,\epsilon,q_{0},A_{0})\}\cup\{(q,\epsilon,\$,q_{\text{e}},\epsilon)\}_{q\in Q}.
+\]
 
 \end_inset
 
@@ -2056,7 +2091,7 @@ noprefix "false"
 
 , luego para que siempre que se acepte una cadena, se pueda aceptar con
  la pila vacía, y finalmente para que todas las transiciones añadan o eliminen
- un elemento de la pila pero no ambos, usando estados intermedios.
+ un elemento de la pila pero no ambos.
  Entonces queremos ver que, para 
 \begin_inset Formula $p,q\in Q$
 \end_inset
@@ -2385,10 +2420,9 @@ Si la secuencia de acciones tiene 0 pasos, debe ser de la forma
 
  con
 \begin_inset Formula 
-\begin{align*}
-\delta(s,\epsilon,A_{0}) & =(l,A_{0}S); & \delta(l,\epsilon,x\in V) & =\{(l,w^{\text{R}})\}_{(x,w)\in{\cal R}};\\
-\delta(l,a,a) & =(l,\epsilon); & \delta(l,\epsilon,A_{0}) & =(e,\epsilon); & \delta(q,a,x) & =\emptyset
-\end{align*}
+\[
+\delta\coloneqq\{(s,\epsilon,A_{0},l,A_{0}S),(\ell,\epsilon,A_{0},e,\epsilon)\}\cup\{(\ell,a,a,\ell,\epsilon)\}_{a\in\Sigma}\cup\{(\ell,\epsilon,x,l,w^{\text{R}})\}_{(x,w)\in{\cal R}}
+\]
 
 \end_inset
 
@@ -2586,15 +2620,16 @@ Sean
 \series bold
 Lema del bombeo
 \series default
- (
+ o 
 \series bold
 \emph on
 \lang english
 pumping lemma
-\series default
 \emph default
 \lang spanish
-): Si 
+:
+\series default
+ Si 
 \begin_inset Formula $L\in{\cal CF}$
 \end_inset
 
@@ -2647,11 +2682,11 @@ Demostración:
 \begin_inset Formula $b\coloneqq\max_{(A\to v)\in{\cal R}}|v|$
 \end_inset
 
-, en cualquier árbol de derivación por 
+, en cualquier árbol de derivación de 
 \begin_inset Formula $G$
 \end_inset
 
-, ningún nodo tiene más de 
+ ningún nodo tiene más de 
 \begin_inset Formula $b$
 \end_inset
 
@@ -2700,7 +2735,7 @@ Demostración:
 \begin_inset Formula $w$
 \end_inset
 
- con número de nodos mínimo, cuya altura sera al menos 
+ con número de nodos mínimo, cuya altura será al menos 
 \begin_inset Formula $|V|+1$
 \end_inset
 
@@ -2834,7 +2869,7 @@ Demostración:
 \end_inset
 
  una descomposición en las condiciones de dicho lema.
- Si o 
+ Si 
 \begin_inset Formula $v$
 \end_inset
 
@@ -2859,7 +2894,7 @@ Demostración:
 \end_inset
 
  contienen cada una un sólo tipo de símbolo y, como al menos una de las
- 2 no es vacía y hay un tipo de símbolo no contenido en ninguna, 
+ 2 no es vacía, hay un tipo de símbolo no contenido en ninguna, luego 
 \begin_inset Formula $uv^{2}xy^{2}z\in L$
 \end_inset
 
@@ -2871,23 +2906,15 @@ Demostración:
 \end_layout
 
 \begin_layout Standard
-Dados 
-\begin_inset Formula $L_{1},L_{2}\in{\cal CF}$
+\begin_inset Formula ${\cal CF}$
 \end_inset
 
-:
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $L_{1}\cup L_{2}\in{\cal CF}$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Dadas gramáticas 
+ es cerrado para la unión, concatenación y clausura.
+ 
+\series bold
+Demostración:
+\series default
+ Dadas gramáticas 
 \begin_inset Formula $(V_{1},\Sigma_{1},{\cal R}_{1},S_{1})$
 \end_inset
 
@@ -2937,19 +2964,7 @@ Dadas gramáticas
 \end_inset
 
 .
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-\begin_inset Formula $L_{1}L_{2}\in{\cal CF}$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-La gramática 
+ 
 \begin_inset Formula $G\coloneqq(V_{1}\sqcup V_{2}\sqcup\{S\},\Sigma_{1}\cup\Sigma_{2},{\cal R}_{1}\cup{\cal R}_{2}\cup\{S\to S_{1}S_{2}\},S)$
 \end_inset
 
@@ -3011,19 +3026,7 @@ La gramática
 \end_inset
 
 .
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-\begin_inset Formula $L_{1}^{*}\in{\cal CF}$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-La gramática 
+ Finalmente, 
 \begin_inset Formula $G\coloneqq(V_{1}\sqcup\{S\},\Sigma_{1},{\cal R}_{1}\cup\{S\to S_{1}S,S\to\epsilon\},S)$
 \end_inset
 
@@ -3104,17 +3107,16 @@ La gramática
 .
 \end_layout
 
-\end_deeper
-\begin_layout Enumerate
-En general 
-\begin_inset Formula $L_{1}\cap L_{2}\notin{\cal CF}$
+\begin_layout Standard
+\begin_inset Formula ${\cal CF}$
 \end_inset
 
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
+ no es cerrado para la intersección, el complemento y la diferencia.
+ 
+\series bold
+Demostración:
+\series default
+ 
 \begin_inset Formula $L_{1}\coloneqq\{a^{n}b^{n}c^{m}\}_{n,m\in\mathbb{N}}$
 \end_inset
 
@@ -3153,49 +3155,18 @@ B & \to bBc\mid\epsilon
 \end_inset
 
 .
-\end_layout
+ Si fuera cerrado para la diferencia, lo sería para el complemento ya que
+ 
+\begin_inset Formula $\overline{L}=\Sigma^{*}\setminus L$
+\end_inset
 
-\end_deeper
-\begin_layout Enumerate
-En general 
-\begin_inset Formula $\overline{L_{1}}\notin{\cal CF}$
+, y entonces lo sería para la intersección ya que 
+\begin_inset Formula $L_{1}\cap L_{2}=\overline{\overline{L_{1}}\cup\overline{L_{2}}}$
 \end_inset
 
 .
 \end_layout
 
-\begin_deeper
-\begin_layout Standard
-Si lo fuera, sería siempre 
-\begin_inset Formula $L_{1}\cap L_{2}=\overline{\overline{L_{1}}\cup\overline{L_{2}}}\in{\cal CF}\#$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-En general 
-\begin_inset Formula $L_{1}\setminus L_{2}\notin{\cal CF}$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Si lo fuera, como 
-\begin_inset Formula $\Sigma^{*}\in{\cal CF}$
-\end_inset
-
- sería siempre 
-\begin_inset Formula $\overline{L_{1}}=\Sigma^{*}\setminus L_{1}\in{\cal CF}$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
 \begin_layout Standard
 Los autómatas de pila no son un buen modelo de computación, pues un ordenador
  puede reconocer si una cadena está en 

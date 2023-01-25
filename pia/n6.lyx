@@ -363,7 +363,7 @@ take _ []         = []
 
 \begin_layout Plain Layout
 
-take (n+1) (x:xs) = x : take (n-1) xs
+take n (x:xs) = x : take (n-1) xs
 \end_layout
 
 \begin_layout Plain Layout
@@ -378,7 +378,7 @@ drop _ []          = []
 
 \begin_layout Plain Layout
 
-drop (n+1) (_:xs)  = drop n xs
+drop n (_:xs)  = drop (n-1) xs
 \end_layout
 
 \begin_layout Plain Layout
@@ -387,7 +387,7 @@ drop (n+1) (_:xs)  = drop n xs
 
 \begin_layout Plain Layout
 
-takeWhile :: (a -> Bool) -> [a] -> [a]
+takeWhile, dropWhile :: (a -> Bool) -> [a] -> [a]
 \end_layout
 
 \begin_layout Plain Layout
@@ -398,15 +398,6 @@ takeWhile p (x:xs) | p x = x : takeWhile p xs
 \begin_layout Plain Layout
 
 takeWhile _ _            = []
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-dropWhile :: (a -> Bool) -> [a] -> [a]
 \end_layout
 
 \begin_layout Plain Layout
@@ -445,11 +436,7 @@ n xs
  devuelve el 
 \family typewriter
 \emph on
-
-\begin_inset Formula $\text{\emph{\texttt{n}}}$
-\end_inset
-
-
+n
 \family default
 \emph default
 -ésimo elemento de 
@@ -482,7 +469,7 @@ status open
 
 \begin_layout Plain Layout
 
-(_:xs) !! (n+1) = xs !! n
+(_:xs) !! n = xs !! (n-1)
 \end_layout
 
 \end_inset
@@ -553,7 +540,7 @@ unzip xs = (map fst xs, map snd xs)
 \family typewriter
 foldl 
 \emph on
-f z xs
+f a xs
 \family default
 \emph default
  aplica la función 
@@ -565,7 +552,7 @@ f
  de dos parámetros a 
 \family typewriter
 \emph on
-z
+a
 \family default
 \emph default
  y al primer elemento de 
@@ -584,7 +571,7 @@ xs
 \family typewriter
 foldr 
 \emph on
-f a xs
+f z xs
 \family default
 \emph default
  aplica 
@@ -629,12 +616,12 @@ foldl :: (a -> b -> a) -> a -> [b] -> a
 
 \begin_layout Plain Layout
 
-foldl f z []     = z
+foldl f a []     = a
 \end_layout
 
 \begin_layout Plain Layout
 
-foldl f z (x:xs) = foldl f (f z x) xs
+foldl f a (x:xs) = foldl f (f a x) xs
 \end_layout
 
 \begin_layout Plain Layout
@@ -1076,20 +1063,6 @@ concatMap, iterate, repeat, replicate, cycle, splitAt, takeWhile, dropWhile,
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO instance (Show a) => Show [a], instance (Read a) => Read [a], instance
- Show Char, instance Read Char
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Secuencias aritméticas en punto flotante
 \end_layout
@@ -1127,12 +1100,12 @@ instance Enum Float where
 
 \begin_layout Plain Layout
 
-	toEnum = fromIntegral
+    toEnum = fromIntegral
 \end_layout
 
 \begin_layout Plain Layout
 
-	fromEnum = fromInteger .
+    fromEnum = fromInteger .
  truncate
 \end_layout
 
@@ -1173,7 +1146,7 @@ instance Enum Float where
 
 \begin_layout Plain Layout
 
-                | otherwise = (>= b + (n'-n)/2)
+                | otherwise = (>= b + (a'-a)/2)
 \end_layout
 
 \begin_layout Plain Layout

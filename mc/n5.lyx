@@ -81,48 +81,6 @@
 \begin_body
 
 \begin_layout Standard
-Un 
-\series bold
-oráculo
-\series default
- para un lenguaje 
-\begin_inset Formula $L$
-\end_inset
-
- es una caja negra que decide 
-\begin_inset Formula $L$
-\end_inset
-
-.
- Un lenguaje 
-\begin_inset Formula $A$
-\end_inset
-
- se 
-\series bold
-reduce
-\series default
- a un lenguaje 
-\begin_inset Formula $B$
-\end_inset
-
- si existe una 
-\begin_inset Formula $\text{MT}$
-\end_inset
-
- que decide 
-\begin_inset Formula $A$
-\end_inset
-
- usando un oráculo de 
-\begin_inset Formula $B$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
 Una 
 \series bold
 reducción
@@ -144,26 +102,38 @@ reducción
 \end_inset
 
 .
- Una función 
+ Una MT 
+\begin_inset Formula ${\cal M}$
+\end_inset
+
+ 
+\series bold
+computa
+\series default
+ una función 
 \begin_inset Formula $f:\Sigma_{1}^{*}\to\Sigma_{2}^{*}$
+\end_inset
+
+ si siempre termina y, para 
+\begin_inset Formula $w\in\Sigma_{1}^{*}$
+\end_inset
+
+, 
+\begin_inset Formula ${\cal M}$
+\end_inset
+
+ termina conteniendo en su cinta únicamente 
+\begin_inset Formula $f(w)$
+\end_inset
+
+, y entonces 
+\begin_inset Formula $f$
 \end_inset
 
  es 
 \series bold
 computable
 \series default
- si existe una 
-\begin_inset Formula $\text{MT}$
-\end_inset
-
- que siempre termina y que, para una entrada 
-\begin_inset Formula $w\in\Sigma_{1}^{*}$
-\end_inset
-
-, termina conteniendo en su cinta únicamente 
-\begin_inset Formula $f(w)$
-\end_inset
-
 .
  Una 
 \series bold
@@ -208,6 +178,46 @@ reducir
 \end_inset
 
 , y esta relación es claramente transitiva.
+\end_layout
+
+\begin_layout Standard
+Equivalentemente, un 
+\series bold
+oráculo
+\series default
+ para un lenguaje 
+\begin_inset Formula $L$
+\end_inset
+
+ es una caja negra que decide 
+\begin_inset Formula $L$
+\end_inset
+
+, y un lenguaje 
+\begin_inset Formula $A$
+\end_inset
+
+ 
+\series bold
+se reduce
+\series default
+ a un lenguaje 
+\begin_inset Formula $B$
+\end_inset
+
+ si existe una 
+\begin_inset Formula $\text{MT}$
+\end_inset
+
+ con un oráculo de 
+\begin_inset Formula $B$
+\end_inset
+
+ que decide 
+\begin_inset Formula $A$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -327,7 +337,7 @@ Problema de la parada.
  
 \begin_inset Formula 
 \[
-\text{HALT}^{\text{MT}}\coloneqq\{\langle{\cal M},w\rangle\mid {\cal M}\text{ es una MT que para con entrada }w\}\notin{\cal DEC}.
+\text{HALT}^{\text{MT}}\coloneqq\{\langle{\cal M},w\rangle\mid{\cal M}\text{ es una MT que para con entrada }w\}\notin{\cal DEC}.
 \]
 
 \end_inset
@@ -341,7 +351,7 @@ Sea
 \begin_inset Formula ${\cal M}'$
 \end_inset
 
- es una 
+ una 
 \begin_inset Formula $\text{MT}$
 \end_inset
 
@@ -380,7 +390,7 @@ mapping
 
 \end_deeper
 \begin_layout Enumerate
-\begin_inset Formula $\text{EMPTY}^{\text{MT}}\coloneqq\{\langle{\cal M}\rangle\mid {\cal M}\text{ es una MT que no acepta ninguna cadena}\}\notin{\cal DEC}$
+\begin_inset Formula $\text{EMPTY}^{\text{MT}}\coloneqq\{\langle{\cal M}\rangle\mid{\cal M}\text{ es una MT que no acepta ninguna cadena}\}\notin{\cal DEC}$
 \end_inset
 
 .
@@ -454,7 +464,7 @@ mapping
 
 \end_deeper
 \begin_layout Enumerate
-\begin_inset Formula $\text{Pass}\coloneqq\{\langle{\cal M},w,q\rangle\mid {\cal M}\text{ es una MT que, con entrada }w\text{, pasa por el estado \ensuremath{q}}\}\notin{\cal DEC}$
+\begin_inset Formula $\text{Pass}\coloneqq\{\langle{\cal M},w,q\rangle\mid{\cal M}\text{ es una MT que, con entrada }w\text{, pasa por el estado \ensuremath{q}}\}\notin{\cal DEC}$
 \end_inset
 
 .
@@ -512,7 +522,6 @@ mapping
 
 \end_deeper
 \begin_layout Standard
-Un lenguaje 
 \begin_inset Formula $L\in{\cal RE}$
 \end_inset
 
@@ -674,7 +683,7 @@ Teorema de Rice:
  no trivial,
 \begin_inset Formula 
 \[
-{\cal L}_{P}\coloneqq\{\langle{\cal M}\rangle\mid {\cal M}\text{ es una MT con }L(M)\in P\}\notin{\cal DEC}.
+{\cal L}_{P}\coloneqq\{\langle{\cal M}\rangle\mid{\cal M}\text{ es una MT con }L(M)\in P\}\notin{\cal DEC}.
 \]
 
 \end_inset
@@ -713,7 +722,7 @@ Demostración:
 \end_inset
 
 .
- Si, por ejemplo, 
+ Si 
 \begin_inset Formula $L_{2}=\emptyset$
 \end_inset
 
@@ -808,7 +817,7 @@ mapping
 \begin_inset Formula $L_{1}=\emptyset$
 \end_inset
 
- esto permite probar que 
+ por este argumento 
 \begin_inset Formula ${\cal RE}\setminus{\cal L}_{P}\notin{\cal DEC}$
 \end_inset
 

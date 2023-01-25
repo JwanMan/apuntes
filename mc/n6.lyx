@@ -170,7 +170,7 @@ límite superior asintótico
 
 \begin_layout Standard
 Para 
-\begin_inset Formula $t:\mathbb{N}\to\mathbb{R}^{+}$
+\begin_inset Formula $t:\mathbb{N}\to\mathbb{R}^{\geq0}$
 \end_inset
 
 , llamamos 
@@ -190,8 +190,7 @@ clase de complejidad
 \end_inset
 
 .
- Nótese que esta magnitud se refiere al lenguaje o problema, no a un algoritmo
- concreto.
+ Esta magnitud se refiere al lenguaje o problema, no a un algoritmo concreto.
  En general, la clase de complejidad de un problema depende del modelo de
  computación usado, aun para modelos equivalentes.
  Este orden no difiere mucho entre modelos deterministas, pero sí entre
@@ -252,7 +251,7 @@ Demostración:
  y luego para aplicarla, actualizando el contenido de las celdas y las posicione
 s de los cursores.
  Cada cinta tiene tamaño como mucho 
-\begin_inset Formula $O(t(n))$
+\begin_inset Formula $O(\max\{t(n),n\})=O(t(n))$
 \end_inset
 
 , pues en cada transición se añade como mucho un caracter en cada cinta,
@@ -265,11 +264,7 @@ s de los cursores.
 \end_inset
 
  de estos, el tiempo total es 
-\begin_inset Formula $O(t(n)^{2}+n)=O(t(n)^{2})$
-\end_inset
-
-, usando que 
-\begin_inset Formula $t(n)\geq n$
+\begin_inset Formula $O(t(n)^{2})$
 \end_inset
 
 .
@@ -383,16 +378,7 @@ backtracking
 \lang spanish
  y para evitar la interferencia entre una simulación y la siguiente, por
  lo que el total de transiciones es como mucho 
-\begin_inset Formula $O(n+mc^{m})=O(n+f(n)c^{f(n)})$
-\end_inset
-
-, usando que 
-\begin_inset Formula $n\leq f(n)$
-\end_inset
-
-.
- Entonces el total es 
-\begin_inset Formula $O(f(n)c^{f(n)})=O(2^{\log_{2}f(n)+f(n)\log_{2}c})=2^{O(\log_{2}f(n)+f(n)\log_{2}c})=2^{O(f(n))}$
+\begin_inset Formula $O(n+mc^{m})=O(n+f(n)c^{f(n)})=O(f(n)c^{f(n)})=O(2^{\log_{2}f(n)+f(n)\log_{2}c})=2^{O(\log_{2}f(n)+f(n)\log_{2}c)}=2^{O(f(n))}$
 \end_inset
 
 , y por el teorema anterior, al simular esto en un 
@@ -419,16 +405,7 @@ Nótese que
 \begin_inset Formula $3^{n}\neq O(2^{n})$
 \end_inset
 
- pero 
-\begin_inset Formula $3^{n}=2^{\log_{2}3^{n}}=2^{n\log_{2}3}=2^{O(n)}$
-\end_inset
-
-.
- En efecto, claramente 
-\begin_inset Formula $n\log_{2}3\in O(n)$
-\end_inset
-
-, pero para cualesquiera 
+ porque para cualesquiera 
 \begin_inset Formula $c,n_{0}\in\mathbb{N}$
 \end_inset
 
@@ -442,6 +419,10 @@ Nótese que
 
 , sin más que tomar 
 \begin_inset Formula $n>\log_{\frac{3}{2}}c$
+\end_inset
+
+, pero 
+\begin_inset Formula $3^{n}=2^{\log_{2}3^{n}}=2^{n\log_{2}3}=2^{O(n)}$
 \end_inset
 
 .

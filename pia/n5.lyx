@@ -153,7 +153,12 @@ Cuando se indica
 ...
 
 \family default
- en código significa que no se puede definir en Haskell.
+ en código significa que no se puede definir en Haskell, y cuando se indica
+ con 
+\family typewriter
+,,,
+\family default
+ significa que sería demasiado engorroso.
  Si se define que un tipo es de una clase, también lo es de sus superclases,
  y si no se da la definición de la instancia de superclase es porque no
  se puede definir en Haskell.
@@ -186,27 +191,31 @@ newtype
 \family typewriter
 (a,b)
 \family default
- y 
+, 
 \family typewriter
 (a,b,c)
+\family default
+ y 
+\family typewriter
+[a]
 \family default
  implementan 
 \family typewriter
 Eq
 \family default
-, 
+ y 
 \family typewriter
 Ord
 \family default
- y 
+ como se indica, las tres primeras implementan también 
 \family typewriter
 Bounded
 \family default
- como se indica, y 
+ y 
 \family typewriter
 ()
 \family default
- también implementa 
+ implementa también 
 \family typewriter
 Enum
 \family default
@@ -232,6 +241,10 @@ class Eq a where  {-# MINIMAL (==) | (/=) #-}
 \begin_layout Plain Layout
 
     (==), (/=) :: a -> a -> Bool
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -454,7 +467,7 @@ a
 b
 \family default
 \emph default
-, 
+ según la definición por defecto, 
 \family typewriter
 \emph on
 a
@@ -519,12 +532,7 @@ class Bounded a where
 
 \begin_layout Plain Layout
 
-    minBound :: a
-\end_layout
-
-\begin_layout Plain Layout
-
-    maxBound :: a
+    minBound, maxBound :: a
 \end_layout
 
 \end_inset
@@ -1145,17 +1153,12 @@ until :: (a -> Bool) -> (a -> a) -> a -> a
 
 \begin_layout Plain Layout
 
-until p f x  -- until p f aplica f hasta que se cumple p
+until p f x | p x       = x
 \end_layout
 
 \begin_layout Plain Layout
 
-    | p x       = x
-\end_layout
-
-\begin_layout Plain Layout
-
-    | otherwise = until p f (f x)
+            | otherwise = until p f (f x)
 \end_layout
 
 \end_inset
@@ -1404,22 +1407,17 @@ class (Real a, Enum a) => Integral a where
 
 \begin_layout Plain Layout
 
-    divMod n d = if signum r == - signum d
+    divMod n d = let (q, r) = quotRem n d in
 \end_layout
 
 \begin_layout Plain Layout
 
-                 then (q-1, r+d)
+                   if signum r == - signum d then (q-1, r+d)
 \end_layout
 
 \begin_layout Plain Layout
 
-                 else (q, r)
-\end_layout
-
-\begin_layout Plain Layout
-
-                 where (q, r) = quotRem n d
+                   else (q, r)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1442,19 +1440,9 @@ class (Real a, Enum a) => Integral a where
     n `mod` d = r where (q, r) = divMod n d
 \end_layout
 
-\end_inset
-
+\begin_layout Plain Layout
 
 \end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\begin_inset listings
-inline false
-status open
 
 \begin_layout Plain Layout
 
@@ -1612,11 +1600,6 @@ odd = not .
 \begin_layout Plain Layout
 
 gcd, lcm :: (Integral a) => a -> a -> a
-\end_layout
-
-\begin_layout Plain Layout
-
-gcd 0 0 = undefined
 \end_layout
 
 \begin_layout Plain Layout
@@ -1792,29 +1775,162 @@ type String = [Char]
 
 \end_layout
 
+\begin_layout Section
+Lectura y escritura
+\end_layout
+
 \begin_layout Standard
-\begin_inset Note Note
+\begin_inset listings
+inline false
 status open
 
 \begin_layout Plain Layout
-Complex, read
+
+instance Show Int where ,,,
 \end_layout
 
 \begin_layout Plain Layout
-Eq a => Eq [a]
+
+instance Read Int where ,,,
 \end_layout
 
 \begin_layout Plain Layout
-Ord a => Ord [a]
+
+instance Show Integer where ,,,
 \end_layout
 
 \begin_layout Plain Layout
-putStr
+
+instance Read Integer where ,,,
+\end_layout
+
+\begin_layout Plain Layout
+
+instance Show Float where ,,,
+\end_layout
+
+\begin_layout Plain Layout
+
+instance Read Float where ,,,
+\end_layout
+
+\begin_layout Plain Layout
+
+instance Show Double where ,,,
+\end_layout
+
+\begin_layout Plain Layout
+
+instance Read Double where ,,,
+\end_layout
+
+\begin_layout Plain Layout
+
+instance Show () where show _ = 
+\begin_inset Quotes cld
+\end_inset
+
+()
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+instance Read () where ,,,
+\end_layout
+
+\begin_layout Plain Layout
+
+instance Show Char where ,,,
+\end_layout
+
+\begin_layout Plain Layout
+
+instance Read Char where ,,,
+\end_layout
+
+\begin_layout Plain Layout
+
+instance (Show a) => Show [a] where showsPrec _ = showList
+\end_layout
+
+\begin_layout Plain Layout
+
+instance (Read a) => Read [a] where readsPrec _ = readList
+\end_layout
+
+\begin_layout Plain Layout
+
+instance (Show a, Show b) => Show (a, b) where ,,,
+\end_layout
+
+\begin_layout Plain Layout
+
+instance (Read a, Read b) => Read (a, b) where ,,,
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+Int
+\family default
+ e 
+\family typewriter
+Integer
+\family default
+ se muestran como 
+\family typewriter
+<integer>
+\family default
+ en decimal, 
+\family typewriter
+Float
+\family default
+ y 
+\family typewriter
+Double
+\family default
+ como 
+\family typewriter
+<float>
+\family default
+ y 
+\family typewriter
+Char
+\family default
+ como 
+\family typewriter
+<char>
+\family default
+ en 
+\family typewriter
+showsPrec
+\family default
+ y 
+\family typewriter
+readsPrec
+\family default
+ y como 
+\family typewriter
+<string>
+\family default
+ en 
+\family typewriter
+showList
+\family default
+ y 
+\family typewriter
+readList
+\family default
+.
 \end_layout
 
 \end_body

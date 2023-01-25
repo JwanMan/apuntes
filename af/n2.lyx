@@ -131,7 +131,7 @@ forma hermitiana
 \begin_inset Formula $x,y,z\in H$
 \end_inset
 
- se tiene 
+, 
 \begin_inset Formula $\langle ax+by,z\rangle=a\langle x,z\rangle+b\langle y,z\rangle$
 \end_inset
 
@@ -160,7 +160,8 @@ producto escalar
 \series bold
 espacio prehilbertiano
 \series default
- es par formado por un espacio vectorial y un producto escalar sobre este.
+ es un par formado por un espacio vectorial y un producto escalar sobre
+ este.
 \end_layout
 
 \begin_layout Standard
@@ -256,17 +257,21 @@ Para
 \end_inset
 
 .
-\end_layout
+\begin_inset Note Comment
+status open
 
-\begin_deeper
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula $\Vert x+y\Vert^{2}=\langle x+y,x+y\rangle=\langle x,x\rangle+\langle x,y\rangle+\overline{\langle x,y\rangle}+\langle y,y\rangle$
 \end_inset
 
 .
 \end_layout
 
-\end_deeper
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 
 \series bold
@@ -305,11 +310,7 @@ Si
 \begin_inset Formula $H$
 \end_inset
 
- se define sobre 
-\begin_inset Formula $\mathbb{R}$
-\end_inset
-
-, 
+ es real, 
 \begin_inset Formula $\langle x,y\rangle=\frac{1}{4}(\Vert x+y\Vert^{2}-\Vert x-y\Vert^{2})$
 \end_inset
 
@@ -369,15 +370,11 @@ status open
 
 \end_inset
 
-En general 
-\begin_inset Formula $\langle x,y+z\rangle=\overline{\langle y+z,x\rangle}=\overline{\langle y,x\rangle}+\overline{\langle z,x\rangle}=\langle x,y\rangle+\langle x,z\rangle$
-\end_inset
 
-, de donde
 \begin_inset Formula 
 \begin{multline*}
 \Vert x+y\Vert^{2}+\Vert x-y\Vert^{2}=\langle x+y,x+y\rangle+\langle x-y,x-y\rangle=\\
-=\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle+\langle x,x\rangle-\langle x,y\rangle-\langle y,x\rangle+\langle y,y\rangle=2(\Vert x\Vert^{2}+\Vert y\Vert^{2}).
+=\langle x,x\rangle\cancel{+\langle x,y\rangle+\langle y,x\rangle}+\langle y,y\rangle+\langle x,x\rangle\cancel{-\langle x,y\rangle-\langle y,x\rangle}+\langle y,y\rangle=2(\Vert x\Vert^{2}+\Vert y\Vert^{2}).
 \end{multline*}
 
 \end_inset
@@ -456,7 +453,8 @@ y por tanto
 
 \end_inset
 
-donde en la segunda igualdad hemos usado la primera igualdad con 
+donde en la segunda igualdad hemos usado la primera igualdad al revés con
+ 
 \begin_inset Formula $z=0$
 \end_inset
 
@@ -466,7 +464,7 @@ donde en la segunda igualdad hemos usado la primera igualdad con
 
 .
  Usando esto y que 
-\begin_inset Formula $\langle-x,y\rangle$
+\begin_inset Formula $\langle-x,y\rangle=-\langle x,y\rangle$
 \end_inset
 
  es fácil ver que 
@@ -532,7 +530,7 @@ equivalentes
 \end_inset
 
  con 
-\begin_inset Formula $\langle x,y\rangle_{1}=\langle T(x),T(y)\rangle_{2}$
+\begin_inset Formula $\langle x,y\rangle_{1}=\langle Tx,Ty\rangle_{2}$
 \end_inset
 
  para todo 
@@ -573,8 +571,7 @@ ortogonales
 \begin_inset Formula $\langle x,y\rangle=0$
 \end_inset
 
-.
- Decimos que 
+; 
 \begin_inset Formula $x\in H$
 \end_inset
 
@@ -595,7 +592,7 @@ ortogonal
 \end_inset
 
 , y llamamos 
-\begin_inset Formula $M^{\bot}\coloneqq\{x\in H:x\bot M\}$
+\begin_inset Formula $M^{\bot}\coloneqq\{x\in H\mid x\bot M\}$
 \end_inset
 
 .
@@ -620,7 +617,6 @@ ortonormal
 \end_inset
 
 .
- Entonces:
 \end_layout
 
 \begin_layout Enumerate
@@ -898,11 +894,7 @@ nproof
 \begin_inset Formula $L^{2}([a,b])$
 \end_inset
 
- con la medida de Lebesgue, y entonces 
-\begin_inset Formula $C([a,b])$
-\end_inset
-
- es denso en 
+ con la medida de Lebesgue, que es denso en 
 \begin_inset Formula $L^{2}([a,b])$
 \end_inset
 
@@ -1178,11 +1170,7 @@ luego
 \end_inset
 
 .
- Si hubiera 
-\begin_inset Formula $z\in Y$
-\end_inset
-
- con 
+ Si fuera 
 \begin_inset Formula $\langle x-y,z\rangle\neq0$
 \end_inset
 
@@ -1365,7 +1353,7 @@ determinante de Gram
  a
 \begin_inset Formula 
 \[
-G(x_{1},\dots,G_{n})\coloneqq\det(\langle x_{j},x_{i}\rangle)_{1\leq i\leq n}^{1\leq j\leq n}.
+G(x_{1},\dots,x_{n})\coloneqq\det(\langle x_{j},x_{i}\rangle)_{1\leq i\leq n}^{1\leq j\leq n}.
 \]
 
 \end_inset
@@ -1626,11 +1614,11 @@ Teorema de la proyección
 \series bold
 Teorema de la proyección:
 \series default
- Si 
+ Sean 
 \begin_inset Formula $H$
 \end_inset
 
- es un espacio de Hilbert con un subespacio cerrado 
+ un espacio de Hilbert con un subespacio cerrado 
 \begin_inset Formula $M$
 \end_inset
 
@@ -1805,11 +1793,7 @@ Por la definición de producto escalar,
 \begin_inset Formula $\Vert P_{M}(x)\Vert,\Vert P_{M^{\bot}}(x)\Vert\leq\Vert x\Vert=1$
 \end_inset
 
-, lo que prueba la continuidad y por tanto que 
-\begin_inset Formula $M$
-\end_inset
-
- es topológica.
+, lo que prueba la continuidad y por tanto que la suma directa es topológica.
  Además, si 
 \begin_inset Formula $M\neq0$
 \end_inset
@@ -1855,11 +1839,11 @@ Para
 \end_inset
 
 , 
-\begin_inset Formula $\langle P_{M}(x),y\rangle=\langle x,P_{M}(y)\rangle$
+\begin_inset Formula $\langle P_{M}x,y\rangle=\langle x,P_{M}y\rangle$
 \end_inset
 
  y 
-\begin_inset Formula $\langle P_{M^{\bot}}(x),y\rangle=\langle x,P_{M^{\bot}}(y)\rangle$
+\begin_inset Formula $\langle P_{M^{\bot}}x,y\rangle=\langle x,P_{M^{\bot}}y\rangle$
 \end_inset
 
 .
@@ -2248,31 +2232,10 @@ nproof
 \end_inset
 
  es un espacio de Hilbert con el producto escalar 
-\begin_inset Formula $\langle f,g\rangle^{*}\coloneqq\langle T(g),T(f)\rangle$
+\begin_inset Formula $\langle f,g\rangle^{*}\coloneqq\langle Tg,Tf\rangle$
 \end_inset
 
 .
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-nproof
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $J:H\to H^{**}$
-\end_inset
-
- dada por 
-\begin_inset Formula $J(x)(f)\coloneqq f(x)$
-\end_inset
-
- es un isomorfismo algebraico isométrico.
 \begin_inset Note Note
 status open
 
@@ -2372,8 +2335,8 @@ Si
 \begin_inset Formula $B$
 \end_inset
 
- es bilineal o sesquilineal, es acotada si y sólo si es continua, y para
- todo 
+ es bilineal o sesquilineal sobre un espacio normado, es acotada si y sólo
+ si es continua, y para todo 
 \begin_inset Formula $x$
 \end_inset
 
@@ -2421,7 +2384,7 @@ Teorema de Lax-Milgram:
 \end_inset
 
  tal que 
-\begin_inset Formula $\forall x,y\in H,B(x,y)=\langle x,T(y)\rangle$
+\begin_inset Formula $\forall x,y\in H,B(x,y)=\langle x,Ty\rangle$
 \end_inset
 
 .
@@ -2514,21 +2477,21 @@ Y\coloneqq\{y\in H\mid\exists z\in H:\langle\cdot,y\rangle=B(\cdot,z)\},
 ,
 \begin_inset Formula 
 \[
-c\Vert S(y)\Vert^{2}\leq B(S(y),S(y))=\langle S(y),y\rangle\in\mathbb{R}^{+},
+c\Vert Sy\Vert^{2}\leq B(Sy,Sy)=\langle Sy,y\rangle\in\mathbb{R}^{+},
 \]
 
 \end_inset
 
 pero por la desigualdad de Cauchy-Schwartz, 
-\begin_inset Formula $\langle S(y),y\rangle^{2}=|\langle S(y),y\rangle|^{2}\leq\Vert S(y)\Vert^{2}\Vert y\Vert^{2}$
+\begin_inset Formula $\langle Sy,y\rangle^{2}=|\langle Sy,y\rangle|^{2}\leq\Vert Sy\Vert^{2}\Vert y\Vert^{2}$
 \end_inset
 
 , luego 
-\begin_inset Formula $c\Vert S(y)\Vert^{2}\leq\langle S(y),y\rangle\leq\Vert S(y)\Vert\Vert y\Vert=\Vert S(y)\Vert$
+\begin_inset Formula $c\Vert Sy\Vert^{2}\leq\langle Sy,y\rangle\leq\Vert Sy\Vert\Vert y\Vert=\Vert Sy\Vert$
 \end_inset
 
  y 
-\begin_inset Formula $\Vert S(y)\Vert\leq\frac{1}{c}$
+\begin_inset Formula $\Vert Sy\Vert\leq\frac{1}{c}$
 \end_inset
 
 , con lo que 
@@ -2540,8 +2503,8 @@ pero por la desigualdad de Cauchy-Schwartz,
 \begin_inset Formula $\{y_{n}\}_{n}\subseteq Y$
 \end_inset
 
- y existe 
-\begin_inset Formula $\lim_{n}y_{n}\eqqcolon y\in H$
+ tiene límite 
+\begin_inset Formula $y\in H$
 \end_inset
 
 , por continuidad de 
@@ -2555,7 +2518,7 @@ pero por la desigualdad de Cauchy-Schwartz,
 ,
 \begin_inset Formula 
 \[
-\langle x,y\rangle=\lim_{n}\langle x,y_{n}\rangle=\lim_{n}B(x,S(y_{n}))=B(x,S(y)),
+\langle x,y\rangle=\lim_{n}\langle x,y_{n}\rangle=\lim_{n}B(x,Sy_{n})=B(x,Sy),
 \]
 
 \end_inset
@@ -2623,11 +2586,11 @@ luego
 \end_inset
 
  con 
-\begin_inset Formula $B(\cdot z)=\langle\cdot,w\rangle$
+\begin_inset Formula $B(\cdot,z)=\langle\cdot,w\rangle$
 \end_inset
 
  y por tanto 
-\begin_inset Formula $z=S(w)$
+\begin_inset Formula $z=Sw$
 \end_inset
 
 , luego 
@@ -2636,7 +2599,7 @@ luego
 
  es suprayectiva.
  Si 
-\begin_inset Formula $S(y)=0$
+\begin_inset Formula $Sy=0$
 \end_inset
 
 , para 
@@ -2644,7 +2607,7 @@ luego
 \end_inset
 
 , 
-\begin_inset Formula $\langle x,y\rangle=B(x,S(y))=0$
+\begin_inset Formula $\langle x,y\rangle=B(x,Sy)=0$
 \end_inset
 
  y por tanto 
@@ -2665,7 +2628,7 @@ luego
 \end_inset
 
  cumple 
-\begin_inset Formula $\langle x,T(y)\rangle=B(x,y)$
+\begin_inset Formula $\langle x,Ty\rangle\equiv B(x,y)$
 \end_inset
 
 .
@@ -2674,7 +2637,7 @@ luego
 \end_inset
 
 , 
-\begin_inset Formula $\Vert T(y)\Vert^{2}=\langle T(y),T(y)\rangle=B(T(y),y)\leq M\Vert T(y)\Vert\Vert y\Vert=M\Vert T(y)\Vert$
+\begin_inset Formula $\Vert Ty\Vert^{2}=\langle Ty,Ty\rangle=B(Ty,y)\leq M\Vert Ty\Vert\Vert y\Vert=M\Vert Ty\Vert$
 \end_inset
 
 , siendo 
@@ -2722,7 +2685,7 @@ En particular, dado un espacio vectorial
 \end_inset
 
  de espacios de Hilbert con 
-\begin_inset Formula $\langle x,y\rangle_{1}=\langle x,T(y)\rangle_{2}$
+\begin_inset Formula $\langle x,y\rangle_{1}=\langle x,Ty\rangle_{2}$
 \end_inset
 
 .
@@ -2838,7 +2801,7 @@ está bien definida y es continua porque, si
 \begin_inset Formula $\Vert u\Vert_{L^{2}(\Omega,\Sigma,\sigma)}=1$
 \end_inset
 
-,
+, usando la desigualdad de Cauchy-Schwartz,
 \begin_inset Formula 
 \begin{align*}
 |Tu| & =\left|\int_{\Omega}u\dif\mu\right|\leq\int_{\Omega}|u|\dif\mu\leq\sqrt{\int_{\Omega}|u|^{2}\dif\mu}+\sqrt{\int_{\Omega}\dif\mu}\leq\\
@@ -2858,16 +2821,16 @@ Por el teorema de representación de Riesz, existe
 ,
 \begin_inset Formula 
 \[
-Tu=\int_{\Omega}u\dif\mu=\int_{\Omega}uf\dif\sigma,
+\int_{\Omega}u\dif\mu=Tu=\int_{\Omega}uf\dif\sigma,
 \]
 
 \end_inset
 
-pero esta igualdad se da para cuando 
+pero esta igualdad se da cuando 
 \begin_inset Formula $u=\chi_{A}$
 \end_inset
 
- para cualquier 
+ para todo 
 \begin_inset Formula $A\in{\cal F}$
 \end_inset
 
@@ -2906,7 +2869,7 @@ de modo que
 \end_inset
 
  o 
-\begin_inset Formula $A=\{x\mid f(x)>1\}$
+\begin_inset Formula $A=\{f(x)>1\}$
 \end_inset
 
 , vemos que 
@@ -2917,8 +2880,8 @@ de modo que
 \begin_inset Formula $\omega\in\Omega$
 \end_inset
 
-, de modo que 
-\begin_inset Formula $\frac{1}{g}$
+, con lo que 
+\begin_inset Formula $\frac{1}{f}$
 \end_inset
 
  es 
@@ -2970,14 +2933,10 @@ Teorema principal de los problemas variacionales cuadráticos:
 \end_inset
 
 -forma bilineal simétrica, acotada y fuertemente positiva, 
-\begin_inset Formula $b$
+\begin_inset Formula $b\in H^{*}$
 \end_inset
 
- una 
-\begin_inset Formula $H$
-\end_inset
-
--forma lineal continua y 
+ y 
 \begin_inset Formula $F:H\to\mathbb{R}$
 \end_inset
 
@@ -2993,20 +2952,15 @@ entonces:
 \end_layout
 
 \begin_layout Enumerate
-Para 
-\begin_inset Formula $w\in H$
-\end_inset
-
-, 
 \begin_inset Formula $F$
 \end_inset
 
  alcanza su mínimo en 
-\begin_inset Formula $w$
+\begin_inset Formula $w\in H$
 \end_inset
 
  si y sólo si 
-\begin_inset Formula $\forall y\in H,B(w,y)=b(y)$
+\begin_inset Formula $B(w,\cdot)=b$
 \end_inset
 
 .
@@ -3127,20 +3081,16 @@ Como
 \begin_inset Formula $H$
 \end_inset
 
-, y como existen 
+, y que es equivalente al de 
+\begin_inset Formula $H$
+\end_inset
+
+ ya que existen 
 \begin_inset Formula $c,M>0$
 \end_inset
 
  con 
 \begin_inset Formula $c\Vert x\Vert^{2}\leq B(x,x)\leq M\Vert x\Vert^{2}$
-\end_inset
-
-, el producto escalar 
-\begin_inset Formula $B$
-\end_inset
-
- es equivalente al de 
-\begin_inset Formula $H$
 \end_inset
 
 , luego 
@@ -3274,15 +3224,11 @@ sucesión de Dirac
 \begin_inset Formula $(K_{m}:\mathbb{R}^{n}\to\mathbb{R}^{\geq0})_{m}$
 \end_inset
 
- de funciones continuas con
-\begin_inset Formula 
-\[
-\int_{\mathbb{R}^{n}}K_{n}=1
-\]
-
+ de funciones continuas con integral 1 en 
+\begin_inset Formula $\mathbb{R}^{n}$
 \end_inset
 
-y tal que
+ y tal que
 \begin_inset Formula 
 \[
 \forall\varepsilon,\delta>0,\exists n_{0}:\forall n\geq n_{0},\int_{\mathbb{R}^{n}\setminus B(0,\delta)}K_{n}(x)\dif x<\varepsilon.
@@ -3430,7 +3376,7 @@ teorema
 \end_inset
 
  es denso en 
-\begin_inset Formula $(C_{c}(G),\Vert\cdot\Vert_{\infty})$
+\begin_inset Formula $(C_{\text{c}}(G),\Vert\cdot\Vert_{\infty})$
 \end_inset
 
  y en 
@@ -3479,7 +3425,7 @@ entonces
 \begin_inset Formula $f=0$
 \end_inset
 
- en casi todo punto, y en particular, si 
+ en casi todo punto y en particular, si 
 \begin_inset Formula $f$
 \end_inset
 
@@ -3539,7 +3485,7 @@ armónica
 problema de Dirichlet
 \series default
  consiste en encontrar 
-\begin_inset Formula $u\in{\cal D}^{2}(\overline{B_{X}})$
+\begin_inset Formula $u\in{\cal D}^{2}(B_{X})$
 \end_inset
 
  armónica con 
@@ -3643,7 +3589,7 @@ problema generalizado de valores frontera
  y
 \begin_inset Formula 
 \[
-\forall v\in{\cal D}(G),\int_{G}\sum_{j=1}^{n}\frac{\partial u}{\partial x_{j}}\frac{\partial v}{\partial x_{j}}\dif x\int_{G}fv.
+\forall v\in{\cal D}(G),\int_{G}\sum_{j}\partial_{j}u\partial_{j}v\dif x=\int_{G}fv.
 \]
 
 \end_inset
@@ -3712,7 +3658,7 @@ Si
  dada por
 \begin_inset Formula 
 \[
-F(u)\coloneqq\frac{1}{2}\int_{G}\sum_{j=1}^{n}(\partial_{j}u(x))^{2}\dif x-\int_{G}fu,
+F(u)\coloneqq\frac{1}{2}\int_{G}\sum_{j}(\partial_{j}u(x))^{2}\dif x-\int_{G}fu,
 \]
 
 \end_inset
@@ -3814,7 +3760,7 @@ y para
 \end_inset
 
  llamamos 
-\begin_inset Formula $D^{\alpha}u\coloneqq\partial_{1}^{\alpha_{1}}\cdots\partial_{n}^{\alpha_{n}}u$
+\begin_inset Formula $\text{D}^{\alpha}u\coloneqq\partial_{1}^{\alpha_{1}}\cdots\partial_{n}^{\alpha_{n}}u$
 \end_inset
 
 .
@@ -3841,7 +3787,7 @@ espacio de Sobolev
  a
 \begin_inset Formula 
 \[
-W^{k,p}(G)\coloneqq\{u\in L^{p}(G)\mid\forall\alpha\in\mathbb{N}^{n},(|\alpha|\leq k\implies\exists D^{\alpha}f\in L^{p}(G))\}.
+W^{k,p}(G)\coloneqq\{u\in L^{p}(G)\mid\forall\alpha\in\mathbb{N}^{n},(|\alpha|\leq k\implies\exists\text{D}^{\alpha}f\in L^{p}(G))\}.
 \]
 
 \end_inset
@@ -3867,9 +3813,39 @@ Si
 \end_inset
 
  como 
-\begin_inset Formula $f\sim g\iff\{x\in G\mid f(x)\neq g(x)\}\text{ es de medida nula}$
+\begin_inset Formula $f\sim g$
 \end_inset
 
+ si y sólo si 
+\begin_inset Formula $\{f(x)\neq g(x)\}$
+\end_inset
+
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+es de medida nula
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
 , y 
 \begin_inset Formula $\langle\cdot,\cdot\rangle_{1,2}:W^{1}(G)/\sim\to\mathbb{R}$
 \end_inset
@@ -3951,7 +3927,7 @@ Si
 \begin_inset Formula $G\subseteq\mathbb{R}^{n}$
 \end_inset
 
- es un abierto acotado no vacío y 
+ es abierto acotado no vacío y 
 \begin_inset Formula $u\in W^{1}(G)$
 \end_inset
 
@@ -4022,7 +3998,7 @@ Desigualdad de Poincaré-Friedrichs:
 ,
 \begin_inset Formula 
 \[
-C\int_{G}u^{2}\leq\int_{G}\sum_{j=1}^{n}(\partial_{j}u)^{2}.
+C\int_{G}u^{2}\leq\int_{G}\sum_{j}(\partial_{j}u)^{2}.
 \]
 
 \end_inset
@@ -4086,7 +4062,7 @@ Para
 \begin_inset Formula $u\in H_{0}^{1}(G)$
 \end_inset
 
-,existe una sucesión 
+, existe una sucesión 
 \begin_inset Formula $\{u_{m}\}_{m}\subseteq{\cal D}(G)$
 \end_inset
 
@@ -4141,25 +4117,25 @@ Principio de Dirichlet:
  dada por 
 \begin_inset Formula 
 \[
-F(u)\coloneqq\frac{1}{2}\int_{G}\sum_{j=1}^{n}(\partial_{j}u)^{2}-\int_{G}fu
+F(u)\coloneqq\frac{1}{2}\int_{G}\sum_{j}(\partial_{j}u)^{2}-\int_{G}fu
 \]
 
 \end_inset
 
 alcanza su mínimo en un único punto, que es el único 
-\begin_inset Formula $u\in\text{Dom}f$
+\begin_inset Formula $u\in\text{Dom}F$
 \end_inset
 
  tal que
 \begin_inset Formula 
 \[
-\forall v\in H_{0}^{1}(G),\int_{G}\sum_{j=1}^{n}(\partial_{j}u)(\partial_{j}v)=\int_{G}fv
+\forall v\in H_{0}^{1}(G),\int_{G}\sum_{j}(\partial_{j}u)(\partial_{j}v)=\int_{G}fv
 \]
 
 \end_inset
 
-y la única solución en 
-\begin_inset Formula $\text{Dom}f$
+y es la única solución en 
+\begin_inset Formula $\text{Dom}F$
 \end_inset
 
  del problema de valores frontera para la ecuación de Poisson 
@@ -4231,13 +4207,12 @@ y
 \begin_inset Formula $b_{0}$
 \end_inset
 
- es lineal y es acotada por la desigualdad de Cauchy-Schwartz, y como además
- 
+ es lineal y es acotada por la desigualdad de Cauchy-Schwartz, y como 
 \begin_inset Formula $B$
 \end_inset
 
  es bilineal y acotada, 
-\begin_inset Formula $b_{0}$
+\begin_inset Formula $b$
 \end_inset
 
  es lineal acotada y se dan las condiciones del teorema principal de los
@@ -4336,7 +4311,7 @@ operador diferencial lineal de coeficientes constantes
  es uno de la forma
 \begin_inset Formula 
 \[
-L\coloneqq\sum_{|\alpha|\leq k}a_{\alpha}\left(\frac{\partial}{\partial x}\right)^{\alpha}\coloneqq\sum_{|\alpha|\leq k}a_{\alpha}\frac{\partial^{|\alpha|}}{\partial x_{1}^{\alpha_{1}}\cdots\partial x_{n}^{\alpha_{n}}},
+L\coloneqq\sum_{|\alpha|\leq k}a_{\alpha}\text{D}^{\alpha},
 \]
 
 \end_inset
@@ -4348,7 +4323,7 @@ operador adjunto
  es
 \begin_inset Formula 
 \[
-L^{*}\coloneqq\sum_{|\alpha|\leq k}(-1)^{|\alpha|}\overline{a_{\alpha}}\left(\frac{\partial}{\partial x}\right)^{\alpha}.
+L^{*}\coloneqq\sum_{|\alpha|\leq k}(-1)^{|\alpha|}\overline{a_{\alpha}}\text{D}^{\alpha}.
 \]
 
 \end_inset
@@ -4366,7 +4341,7 @@ Si
 \end_inset
 
  y una de las dos tiene soporte compacto, entonces 
-\begin_inset Formula $\langle L\psi,\varphi\rangle=\langle\psi,L^{*}\varphi\rangle$
+\begin_inset Formula $\langle L\varphi,\psi\rangle=\langle\varphi,L^{*}\psi\rangle$
 \end_inset
 
 .
@@ -4602,8 +4577,8 @@ Demostración:
 ,
 \begin_inset Formula 
 \begin{align*}
-\psi(x)^{2} & =\left(\int_{m}^{x_{1}}\frac{\partial\psi}{\partial x_{1}}(t,x_{2},\dots,x_{n})\dif t\right)^{2}\leq\left(\int_{m}^{x_{1}}\left|\frac{\partial\psi}{\partial x_{1}}(t,x_{2},\dots,x_{n})\right|\cdot1\dif t\right)\leq\\
- & \leq\int_{m}^{x_{1}}\dif t\int_{m}^{x_{1}}\left|\frac{\partial\psi}{\partial x_{1}}(t,x_{2},\dots,x_{n})\right|^{2}\dif t\leq d\int_{m}^{x_{1}}\left|\frac{\partial\psi}{\partial x_{1}}(t,x_{2},\dots,x_{n})\right|^{2},
+\psi(x)^{2} & =\left(\int_{m}^{x_{1}}\frac{\partial\psi}{\partial x_{1}}(t,x_{2},\dots,x_{n})\dif t\right)^{2}\leq\left(\int_{m}^{x_{1}}\left|\frac{\partial\psi}{\partial x_{1}}(t,x_{2},\dots,x_{n})\right|\cdot1\dif t\right)^{2}\leq\\
+ & \leq\int_{m}^{x_{1}}\dif t\int_{m}^{x_{1}}\left|\frac{\partial\psi}{\partial x_{1}}(t,x_{2},\dots,x_{n})\right|^{2}\dif t\leq d\int_{m}^{x_{1}}\left|\frac{\partial\psi}{\partial x_{1}}(t,x_{2},\dots,x_{n})\right|^{2}\dif t,
 \end{align*}
 
 \end_inset
@@ -4694,7 +4669,7 @@ donde
 \end_inset
 
  para todo 
-\begin_inset Formula $C$
+\begin_inset Formula $\psi$
 \end_inset
 
 , de modo que 
@@ -4968,7 +4943,23 @@ Dados
 \end_inset
 
 , 
-\begin_inset Formula $c\Vert u\Vert\leq\Vert b\Vert$
+\begin_inset Formula $\Vert u\Vert\leq\frac{\Vert b\Vert}{c}$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert u-u_{n}\Vert\leq\frac{d}{c}d(u,M_{n})$
+\end_inset
+
+ y, si 
+\begin_inset Formula $\beta$
+\end_inset
+
+ es cota inferior de 
+\begin_inset Formula $J(H)$
+\end_inset
+
+, 
+\begin_inset Formula $\Vert u-u_{n}\Vert^{2}\leq\frac{2}{c}(J(u_{n})-\beta)$
 \end_inset
 
 .
@@ -4982,42 +4973,6 @@ nproof
 \end_inset
 
 
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Razón de convergencia:
-\series default
- 
-\begin_inset Formula $\Vert u-u_{n}\Vert\leq\frac{d}{c}d(u,M_{n})$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Estimación del error:
-\series default
- Si 
-\begin_inset Formula $\beta\leq J(x)$
-\end_inset
-
- para todo 
-\begin_inset Formula $x\in H$
-\end_inset
-
-, para 
-\begin_inset Formula $n\in\mathbb{N}$
-\end_inset
-
- es 
-\begin_inset Formula $\frac{c}{2}\Vert u-u_{n}\Vert^{2}\leq J(u_{n})-\beta$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
@@ -5628,26 +5583,6 @@ Así, si
 
 \begin_layout Section
 Aproximaciones por polinomios
-\end_layout
-
-\begin_layout Standard
-Si 
-\begin_inset Formula $I\subseteq\mathbb{R}$
-\end_inset
-
- es un intervalo cerrado, llamamos 
-\begin_inset Formula ${\cal C}(I)$
-\end_inset
-
- al conjunto de funciones 
-\begin_inset Formula $I\to\mathbb{R}$
-\end_inset
-
- continuas en el interior de 
-\begin_inset Formula $I$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard

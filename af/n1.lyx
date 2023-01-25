@@ -82,8 +82,7 @@
 \begin_body
 
 \begin_layout Standard
-Salvo que se indique lo contrario, al hablar de espacios vectoriales entenderemo
-s que lo son sobre 
+Salvo que se indique lo contrario, los espacios vectoriales son sobre 
 \begin_inset Formula $\mathbb{R}$
 \end_inset
 
@@ -212,7 +211,7 @@ dual algebraico
 \begin_inset Formula $\mathbb{K}$
 \end_inset
 
-, llamadas 
+, las 
 \series bold
 formas lineales
 \series default
@@ -258,6 +257,39 @@ dual topológico
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+Dados e.l.t.s 
+\begin_inset Formula $E$
+\end_inset
+
+ y 
+\begin_inset Formula $F$
+\end_inset
+
+, 
+\begin_inset Formula $T:E\to F$
+\end_inset
+
+ es un 
+\series bold
+isomorfismo topológico
+\series default
+ si es un isomorfismo y un homeomorfismo, y entonces 
+\begin_inset Formula $E$
+\end_inset
+
+ y 
+\begin_inset Formula $F$
+\end_inset
+
+ son 
+\series bold
+topológicamente isomorfos
+\series default
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -678,10 +710,10 @@ Si
 \end_inset
 
  es continua si y sólo si lo es en 0, y si 
-\begin_inset Formula $F=\mathbb{K}$
+\begin_inset Formula $T$
 \end_inset
 
- con la topología usual, 
+ es una forma lineal, 
 \begin_inset Formula $T$
 \end_inset
 
@@ -1229,7 +1261,7 @@ funcional de Minkowski
 \begin_inset Formula $p_{A}:E\to\mathbb{R}$
 \end_inset
 
- como 
+ dada por 
 \begin_inset Formula $p_{A}(x)\coloneqq\inf\{t>0\mid x\in tA\}$
 \end_inset
 
@@ -1253,7 +1285,7 @@ Si
 \end_inset
 
  es subaditiva y 
-\begin_inset Formula $\{x\in E\mid p_{A}(x)<1\}\subseteq A\subseteq\{x\in E\mid p_{A}(x)\leq1\}$
+\begin_inset Formula $\{p_{A}(x)<1\}\subseteq A\subseteq\{p_{A}(x)\leq1\}$
 \end_inset
 
 .
@@ -1336,11 +1368,11 @@ Si
 \end_inset
 
 , y entonces 
-\begin_inset Formula $\mathring{C}=\{x\in E\mid p_{C}(x)<1\}$
+\begin_inset Formula $\mathring{C}=\{p_{C}(x)<1\}$
 \end_inset
 
  y 
-\begin_inset Formula $\overline{C}=\{x\in E\mid p_{C}(x)\leq1\}$
+\begin_inset Formula $\overline{C}=\{p_{C}(x)\leq1\}$
 \end_inset
 
 .
@@ -1366,7 +1398,7 @@ Una seminorma
 \end_inset
 
  es abierta, si y sólo si 
-\begin_inset Formula $0\in\mathring{\overbrace{\{x\in E\mid p(x)<1\}}}$
+\begin_inset Formula $0\in\mathring{\overbrace{\{p(x)<1\}}}$
 \end_inset
 
 , si y sólo si 
@@ -1435,8 +1467,7 @@ Dados dos e.l.c.
 \begin_inset Formula $T:E\to F$
 \end_inset
 
- lineal es continua si y sólo si lo es en 0, si y sólo si para toda seminorma
- continua 
+ lineal es continua si y sólo si para toda seminorma continua 
 \begin_inset Formula $q:F\to\mathbb{R}$
 \end_inset
 
@@ -1483,6 +1514,33 @@ teorema
 \end_inset
 
 .
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nproof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\series bold
+teorema
+\series default
+, un e.l.c.
+ 
+\begin_inset Formula $(E,{\cal T})$
+\end_inset
+
+ es metrizable si y sólo si es 1AN, si y sólo si 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ es asociada a una familia numerable de seminormas continuas.
 \begin_inset Note Note
 status open
 
@@ -1574,11 +1632,7 @@ Si
 \begin_inset Formula $C_{\text{b}}(X)$
 \end_inset
 
- al subespacio de 
-\begin_inset Formula $(\mathbb{K}^{X},{\cal T}_{\text{p}})$
-\end_inset
-
- de las funciones continuas y acotadas.
+ al de las funciones continuas y acotadas.
 \end_layout
 
 \begin_layout Standard
@@ -1705,7 +1759,7 @@ d(f,g)\coloneqq\sum_{n}\frac{1}{2^{n}}\frac{p_{K_{n}}(f-g)}{1+p_{K_{n}}(f-g)},
 
 \end_inset
 
-con lo que 
+y 
 \begin_inset Formula $(C(\Omega),{\cal T}_{\text{K}})$
 \end_inset
 
@@ -1818,7 +1872,7 @@ El conjunto de funciones
 \end_inset
 
  veces diferenciables con 
-\begin_inset Formula $\dif^{(m)}f$
+\begin_inset Formula $\dif^{\kern1pt{}m}\kern-2pt{}f$
 \end_inset
 
  continua, 
@@ -1840,7 +1894,7 @@ topología de convergencia uniforme sobre compactos de las funciones y sus
 \left\{ p_{K}^{m}(f)\coloneqq\sup_{\begin{subarray}{c}
 \alpha\in\mathbb{N}^{n}\\
 |\alpha|\coloneqq\alpha_{1}+\dots+\alpha_{n}\leq m
-\end{subarray}}\sup_{x\in K}|D^{\alpha}f(x)|\right\} _{K\subseteq\Omega\text{ compacto}},
+\end{subarray}}\sup_{x\in K}|\text{D}^{\alpha}f(x)|\right\} _{K\subseteq\Omega\text{ compacto}},
 \]
 
 \end_inset
@@ -1848,7 +1902,7 @@ topología de convergencia uniforme sobre compactos de las funciones y sus
 donde 
 \begin_inset Formula 
 \[
-D^{\alpha}f(x)\coloneqq\frac{\partial^{|\alpha|}f}{\partial x_{1}^{\alpha_{1}}\cdots\partial x_{n}^{\alpha_{n}}}.
+\text{D}^{\alpha}f(x)\coloneqq\frac{\partial^{|\alpha|}f}{\partial x_{1}^{\alpha_{1}}\cdots\partial x_{n}^{\alpha_{n}}}.
 \]
 
 \end_inset
@@ -2083,33 +2137,6 @@ con lo que
 \end_layout
 
 \begin_layout Standard
-Como 
-\series bold
-teorema
-\series default
-, un e.l.c.
- 
-\begin_inset Formula $(E,{\cal T})$
-\end_inset
-
- es metrizable si y sólo si es 1AN, si y sólo si 
-\begin_inset Formula ${\cal T}$
-\end_inset
-
- es asociada a una familia numerable de seminormas continuas.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-nproof
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Un e.l.c.
  
 \begin_inset Formula $(E,{\cal T})$
@@ -2234,10 +2261,7 @@ Un
 espacio de Banach
 \series default
  es un espacio normado completo.
-\end_layout
-
-\begin_layout Standard
-Sea 
+ Sea 
 \begin_inset Formula $(X,\Vert\cdot\Vert)$
 \end_inset
 
@@ -2253,11 +2277,7 @@ Sea
 \end_inset
 
  es completo si y sólo si toda sucesión 
-\begin_inset Formula $(y_{n})_{n}$
-\end_inset
-
- en 
-\begin_inset Formula $X$
+\begin_inset Formula $\{y_{n}\}_{n}\subseteq X$
 \end_inset
 
  con 
@@ -2450,7 +2470,7 @@ Operadores
 \end_layout
 
 \begin_layout Standard
-Un operador entre espacios normados se dice 
+Un operador entre espacios normados es 
 \series bold
 acotado
 \series default
@@ -2462,7 +2482,7 @@ acotado
 \begin_inset Formula $\mathbb{K}$
 \end_inset
 
--espacio normado, llamamos 
+-espacio normado, 
 \begin_inset Formula $X^{*}\coloneqq X'={\cal L}(X,\mathbb{K})$
 \end_inset
 
@@ -2684,16 +2704,12 @@ tomando
 \begin_inset Formula $({\cal L}(X,Y),\Vert\cdot\Vert)$
 \end_inset
 
- también lo es.
- Si 
-\begin_inset Formula $Y=\mathbb{K}$
+ también.
+ En 
+\begin_inset Formula $X^{*}$
 \end_inset
 
-, 
-\begin_inset Formula ${\cal L}(X,Y)=X^{*}$
-\end_inset
-
- y esta norma se llama 
+ esta norma se llama 
 \series bold
 norma dual
 \series default
@@ -3083,25 +3099,13 @@ Isomorfismos topológicos
 \end_layout
 
 \begin_layout Standard
-Dados dos espacios normados 
-\begin_inset Formula $X$
+Una función 
+\begin_inset Formula $T$
 \end_inset
 
- e 
-\begin_inset Formula $Y$
-\end_inset
-
-, una función 
-\begin_inset Formula $T:X\to Y$
-\end_inset
-
- es un 
-\series bold
-isomorfismo topológico
-\series default
- si es un isomorfismo y un homeomorfismo, si y sólo si es lineal, suprayectiva
- y 
-\begin_inset Formula $\exists m,M>0:\forall x\in X,m\Vert x\Vert\leq\Vert T(x)\Vert\leq M\Vert x\Vert$
+ entre espacios normados es un isomorfismo topológico si y sólo si es lineal,
+ suprayectiva y 
+\begin_inset Formula $\exists m,M>0:\forall x,m\Vert x\Vert\leq\Vert T(x)\Vert\leq M\Vert x\Vert$
 \end_inset
 
 .
@@ -3176,27 +3180,15 @@ Para
 \end_layout
 
 \begin_layout Standard
-Dos espacios normados 
-\begin_inset Formula $X$
-\end_inset
-
- e 
-\begin_inset Formula $Y$
-\end_inset
-
- son 
-\series bold
-topológicamente isomorfos
-\series default
- si existe un isomorfismo topológico entre ellos, y son 
+Dos espacios normados son 
 \series bold
 isométricamente isomorfos
 \series default
- si este se puede tomar 
+ si entre ellos hay un isomorfismo topológico 
 \series bold
 isométrico
 \series default
-, que conserve distancias o, equivalentemente, normas.
+, es decir, que conserve distancias o, equivalentemente, normas.
  Dos normas 
 \begin_inset Formula $\Vert\cdot\Vert,|\cdot|:X\to\mathbb{R}$
 \end_inset
@@ -3864,7 +3856,7 @@ Finalmente, si
 \end_layout
 
 \begin_layout Enumerate
-La aplicación cociente 
+La proyección 
 \begin_inset Formula $X\to X/Y$
 \end_inset
 
@@ -4167,12 +4159,8 @@ Desigualdad de Hölder:
 \begin_inset Formula $a_{1},\dots,a_{n},b_{1},\dots,b_{n}>0$
 \end_inset
 
-, 
-\begin_inset Formula $p>1$
-\end_inset
-
  y 
-\begin_inset Formula $q>1$
+\begin_inset Formula $p,q>1$
 \end_inset
 
  con 
@@ -4613,9 +4601,18 @@ Por isomorfismo podemos suponer que el dominio es
 \series bold
 Teorema de Bolzano-Weierstrass:
 \series default
- En espacio normados de dimensión finita, los conjuntos cerrados y acotados
- son compactos, pues esto ocurre en 
+ En espacios normados de dimensión finita, los cerrados acotados son compactos
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+, pues esto ocurre en 
 \begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 .
@@ -4637,15 +4634,15 @@ El teorema se suele enunciar como que toda sucesión en un cerrado acotado
 \series bold
 Lema de Riesz:
 \series default
- Dados un subespacio normado 
+ Dados un espacio normado 
 \begin_inset Formula $X$
 \end_inset
 
-, un subespacio cerrado 
-\begin_inset Formula $Y\subsetneq X$
+, 
+\begin_inset Formula $Y<X$
 \end_inset
 
- y 
+ cerrado y 
 \begin_inset Formula $\varepsilon\in(0,1)$
 \end_inset
 
@@ -4839,7 +4836,7 @@ Teorema de Riesz:
 \end_inset
 
  tuviera dimensión infinita, habría una sucesión 
-\begin_inset Formula $\{y_{n}\}_{n}\in S_{X}\subseteq B_{X}$
+\begin_inset Formula $\{y_{n}\}_{n}\subseteq S_{X}\subseteq B_{X}$
 \end_inset
 
  con 
@@ -4950,7 +4947,7 @@ Sean
 \begin_inset Formula $T:X\to Y$
 \end_inset
 
- una aplicación lineal con imagen de dimensión finita, 
+ lineal con imagen de dimensión finita, 
 \begin_inset Formula $T$
 \end_inset
 
@@ -5180,15 +5177,10 @@ Si además
 \end_layout
 
 \begin_layout Enumerate
-El espacio 
 \begin_inset Formula $C_{\text{b}}(S)$
 \end_inset
 
- de funciones 
-\begin_inset Formula $S\to\mathbb{K}$
-\end_inset
-
- continuas y acotadas es un subespacio cerrado de 
+ es un subespacio cerrado de 
 \begin_inset Formula $\ell^{\infty}(S)$
 \end_inset
 
@@ -5206,8 +5198,7 @@ nproof
 \end_layout
 
 \begin_layout Enumerate
-Una función 
-\begin_inset Formula $S\to\mathbb{K}$
+\begin_inset Formula $f:S\to\mathbb{K}$
 \end_inset
 
  
@@ -5228,7 +5219,7 @@ se anula en el infinito
 \end_inset
 
  continuas que se anulan en el infinito es un subespacio cerrado de 
-\begin_inset Formula $C_{\text{c}}(S)$
+\begin_inset Formula $C_{\text{b}}(S)$
 \end_inset
 
 .
@@ -5286,7 +5277,7 @@ Llamando
 \begin_inset Formula $\ell^{\infty}$
 \end_inset
 
- es no separable.
+ no es separable.
 \begin_inset Note Note
 status open
 
@@ -5312,7 +5303,7 @@ nproof
 \end_inset
 
  con 
-\begin_inset Formula $c_{0}\subsetneq c\subsetneq\ell^{\infty}$
+\begin_inset Formula $c_{0}<c<\ell^{\infty}$
 \end_inset
 
 .
@@ -5736,11 +5727,6 @@ entonces:
 \end_layout
 
 \begin_layout Enumerate
-Para 
-\begin_inset Formula $K\subseteq\Omega$
-\end_inset
-
- compacto, 
 \begin_inset Formula $({\cal D}_{K}^{m}(\Omega)\coloneqq\{f\in{\cal C}^{m}(\Omega)\mid\text{sop}f\subseteq K\},\Vert\cdot\Vert_{m})$
 \end_inset
 
@@ -5761,11 +5747,7 @@ nproof
 \begin_inset Formula ${\cal D}^{m}(\Omega)\coloneqq(\{f\in{\cal C}^{m}(\Omega)\mid\text{sop}f\text{ compacto}\},\Vert\cdot\Vert_{m})$
 \end_inset
 
- es un espacio normado, y en particular lo es 
-\begin_inset Formula $(C_{c}(\Omega),\Vert\cdot\Vert_{\infty})={\cal D}^{0}(\Omega)$
-\end_inset
-
-.
+ es un espacio normado.
 \begin_inset Note Note
 status open
 
@@ -5779,11 +5761,7 @@ nproof
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula ${\cal D}(\Omega)\coloneqq\{f\in{\cal C}^{\infty}(\Omega)\mid\text{sop}f\text{ compacto}\}$
-\end_inset
-
- es un subespacio de 
-\begin_inset Formula ${\cal D}^{m}(\Omega)$
+\begin_inset Formula ${\cal D}(\Omega)\coloneqq\{f\in{\cal C}^{\infty}(\Omega)\mid\text{sop}f\text{ compacto}\}<\text{\ensuremath{{\cal D}}}^{m}(\Omega)$
 \end_inset
 
 .
@@ -5828,7 +5806,7 @@ Sean
 
 \end_inset
 
-entonces para 
+para 
 \begin_inset Formula $p\in[1,\infty]$
 \end_inset
 
@@ -5837,7 +5815,7 @@ entonces para
 espacio de Hardy
 \series default
  
-\begin_inset Formula $H^{p}(D)\coloneqq(\{f\in{\cal H}(D):\Vert f\Vert_{H_{p}}<\infty)$
+\begin_inset Formula $H^{p}(D)\coloneqq(\{f\in{\cal H}(D)\mid\Vert f\Vert_{H_{p}}<\infty\},\Vert\cdot\Vert_{H_{p}})$
 \end_inset
 
  es un espacio de Banach.
@@ -6270,7 +6248,11 @@ Si
 \end_inset
 
 , pero esto no es cierto en espacios topológicos arbitrarios.
- Sean 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Sean 
 \begin_inset Formula $X\coloneqq\mathbb{N}\times\mathbb{N}$
 \end_inset
 
@@ -6311,7 +6293,7 @@ nproof
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Sean 
 \begin_inset Formula $Y\coloneqq[0,1]^{\mathbb{R}}$
 \end_inset
@@ -6350,6 +6332,11 @@ status open
 
 \begin_layout Plain Layout
 nproof
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -6427,15 +6414,11 @@ Si
 \begin_inset Formula $(X,\Vert\cdot\Vert)$
 \end_inset
 
- es un espacio normado, 
-\begin_inset Formula $I\neq\emptyset$
-\end_inset
-
- y 
+ es un espacio normado y 
 \begin_inset Formula $\{x_{i}\}_{i\in I}\subseteq X$
 \end_inset
 
-:
+ es no vacía:
 \end_layout
 
 \begin_layout Enumerate
@@ -6493,28 +6476,11 @@ nproof
 \end_layout
 
 \begin_layout Enumerate
-Si 
 \begin_inset Formula $X$
 \end_inset
 
- es de Banach, toda familia absolutamente sumable es sumable.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-nproof
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $X$
-\end_inset
-
- es de Banach si y sólo si toda familia sumable es absolutamente sumable.
+ es de Banach si y sólo si toda familia sumable es absolutamente sumable,
+ y entonces toda familia absolutamente sumable es sumable.
 \begin_inset Note Note
 status open
 
@@ -6557,7 +6523,11 @@ propiedad S
 \end_inset
 
 .
- Por ejemplo 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Por ejemplo 
 \begin_inset Formula $\Vert\cdot\Vert_{2}$
 \end_inset
 
@@ -6582,42 +6552,18 @@ nproof
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 Si 
 \begin_inset Formula $(X,\Vert\cdot\Vert)$
 \end_inset
 
- es de dimensión finita y 
-\begin_inset Formula $\{x_{i}\}_{i\in I}\subseteq X$
-\end_inset
-
- no es vacía:
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $(x_{i})_{i\in I}$
-\end_inset
-
- es absolutamente sumable si y sólo si es sumable.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-nproof
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Si 
-\begin_inset Formula $I=(\mathbb{N},\geq)$
-\end_inset
-
-, 
-\begin_inset Formula $(x_{n})_{n\in\mathbb{N}}$
+ es de dimensión finita, 
+\begin_inset Formula $\{x_{n}\}_{n\in\mathbb{N}}\subseteq X$
 \end_inset
 
  es sumable si y sólo si 
@@ -6625,7 +6571,7 @@ Si
 \end_inset
 
  es absolutamente convergente, si y sólo si 
-\begin_inset Formula $\sup_{n\in\mathbb{N}}\sum_{i=1}^{n}\Vert x_{i}\Vert<\infty$
+\begin_inset Formula $\sup_{n}\sum_{i\in\mathbb{N}_{n}}\Vert x_{i}\Vert<\infty$
 \end_inset
 
 .
@@ -6654,7 +6600,7 @@ Teorema de reordenación de Riemann:
 \begin_inset Formula $x\in[-\infty,\infty]$
 \end_inset
 
-, existe 
+, existe una biyección 
 \begin_inset Formula $\pi:\mathbb{N}\to\mathbb{N}$
 \end_inset
 
@@ -6700,12 +6646,7 @@ incondicionalmente convergente
 \begin_inset Formula $\sum_{n}x_{\pi(n)}$
 \end_inset
 
- converge.
- Si 
-\begin_inset Formula $X$
-\end_inset
-
- es de Banach, esto ocurre si y sólo si 
+ converge, si y sólo si 
 \begin_inset Formula $(x_{n})_{n}$
 \end_inset
 
@@ -6742,7 +6683,7 @@ teorema
 , si y sólo si
 \begin_inset Formula 
 \[
-\forall\varepsilon>0,\exists\delta>0:\forall\{z_{j}\}_{j\in\mathbb{N}_{n}}\subseteq X,\left(\sup_{S\subseteq\mathbb{N}_{n}}\left\Vert \sum_{j\in S}z_{j}\right\Vert <\delta\implies\sum_{j\in J}\Vert z_{j}\Vert<\varepsilon\right),
+\forall\varepsilon>0,\exists\delta>0:\forall\{z_{j}\}_{j\in\mathbb{N}_{n}}\subseteq X,\left(\sup_{S\subseteq\mathbb{N}_{n}}\left\Vert \sum_{j\in S}z_{j}\right\Vert <\delta\implies\sum_{j\in\mathbb{N}_{n}}\Vert z_{j}\Vert<\varepsilon\right),
 \]
 
 \end_inset
@@ -6753,7 +6694,7 @@ si y sólo si toda serie sumable en
 
  es absolutamente convergente.
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 nproof

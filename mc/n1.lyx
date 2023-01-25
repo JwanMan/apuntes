@@ -103,7 +103,7 @@ cadena
 \end_inset
 
  es un elemento de 
-\begin_inset Formula $\Sigma^{*}\coloneqq \bigcup_{n\in\mathbb{N}}\Sigma^{n}$
+\begin_inset Formula $\Sigma^{*}\coloneqq\bigcup_{n\in\mathbb{N}}\Sigma^{n}$
 \end_inset
 
 , que solemos escribir como 
@@ -136,7 +136,11 @@ concatenación
 \begin_inset Formula $\Sigma^{*}$
 \end_inset
 
- es un monoide con la concatenación de cadenas.
+ es un monoide con la concatenación de cadenas, y llamamos 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ a su elemento neutro.
  Dada 
 \begin_inset Formula $u=u_{1}\cdots u_{n}\in\Sigma^{*}$
 \end_inset
@@ -902,7 +906,7 @@ Para dibujar un NFA
 \begin_inset Formula $q\in Q$
 \end_inset
 
- con su etiqueta dentro, o un círculo doble si 
+ con su etiqueta dentro, o un doble círculo si 
 \begin_inset Formula $q\in F$
 \end_inset
 
@@ -966,7 +970,7 @@ También podemos representar un NFA con una tabla con un estado por fila,
 \begin_inset Formula $\epsilon$
 \end_inset
 
- cuyas celdas contienen los valores de la función de transición.
+, cuyas celdas contienen los valores de la función de transición.
 \end_layout
 
 \begin_layout Section
@@ -2154,7 +2158,7 @@ Demostración:
 
  es final.
  Finalmente, 
-\begin_inset Formula $L\cap M=\overline{\overline{L}\cap\overline{M}}$
+\begin_inset Formula $L\cap M=\overline{\overline{L}\cup\overline{M}}$
 \end_inset
 
  y 
@@ -2248,7 +2252,7 @@ Demostración:
 \end_inset
 
  con 
-\begin_inset Formula $|w|\geq p$
+\begin_inset Formula $n\coloneqq|w|\geq p$
 \end_inset
 
  y 
@@ -2259,7 +2263,8 @@ Demostración:
 \begin_inset Formula $q_{i+1}=\delta(q_{i},w_{i+1})$
 \end_inset
 
-, como 
+.
+ Como 
 \begin_inset Formula $\{q_{0},\dots,q_{p}\}\subseteq Q$
 \end_inset
 
@@ -2293,7 +2298,7 @@ Demostración:
 \end_inset
 
 , 
-\begin_inset Formula $|y|\geq0$
+\begin_inset Formula $|y|>0$
 \end_inset
 
 , 
@@ -2388,8 +2393,8 @@ pumping length
 \end_layout
 
 \begin_layout Standard
-Los autómatas sencillos son demasiado sencillos como para teorizar sobre
- lo computable o no computable debido a su falta de memoria.
+Los autómatas finitos son demasiado sencillos  para teorizar sobre lo computable
+ o no computable debido a su falta de memoria.
 \end_layout
 
 \end_body

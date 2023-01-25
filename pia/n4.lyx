@@ -745,7 +745,7 @@ ghci
 \series bold
 sesión
 \series default
- es la secuencia de iteraciones entre el usuario y este programa.
+ es la secuencia de interacciones entre el usuario y este programa.
  Las definiciones también se pueden guardar en ficheros, generalmente con
  extensión 
 \family typewriter
@@ -1220,8 +1220,12 @@ El tipo
 \emph on
 fuente
 \emph default
- -> 
+ ->
 \emph on
+
+\begin_inset space ~
+\end_inset
+
 resultado
 \family default
 \emph default
@@ -1259,8 +1263,8 @@ estricta
 \series bold
 iguales
 \series default
- si devuelven los mismos resultados para los mismos argumentos, y el compilador
- es libre de cambiar una función por otra igual.
+ si devuelven los mismos resultados para los mismos argumentos, y entonces
+ el compilador es libre de cambiar una por otra.
  Normalmente las funciones están currificadas, pues esto reduce el número
  de paréntesis y permite aplicar una función de varios argumentos a menos
  argumentos para obtener otra función que puede ser útil por sí misma.
@@ -1421,7 +1425,7 @@ tuplas
 \series bold
 listas
 \series default
-, secuencias finitas de elementos del mismo tipo escrito entre corchetes,
+, secuencias finitas de elementos del mismo tipo, escrito entre corchetes,
  y el 
 \series bold
 tipo unidad
@@ -1456,7 +1460,7 @@ atype /=
 \begin_inset Quotes crd
 \end_inset
 
- type 
+ type) 
 \begin_inset Quotes cld
 \end_inset
 
@@ -1563,7 +1567,12 @@ data
 \begin_inset Quotes crd
 \end_inset
 
- constrs [deriving]
+ constrs
+\end_layout
+
+\begin_layout Plain Layout
+
+           [deriving]
 \end_layout
 
 \begin_layout Plain Layout
@@ -1581,7 +1590,12 @@ constrs = constr *(
 
 \begin_layout Plain Layout
 
-constr = conid *atype / (btype / 
+constr = conid *atype
+\end_layout
+
+\begin_layout Plain Layout
+
+       / (btype / 
 \begin_inset Quotes cld
 \end_inset
 
@@ -1619,11 +1633,23 @@ constr
 \family typewriter
 atype
 \family default
+ o 
+\family typewriter
+btype
+\family default
  etiquetado con el 
 \family typewriter
 conid
 \family default
-, o bien a un tipo unipuntual con ese nombre, y el tipo 
+ o 
+\family typewriter
+conop
+\family default
+, o bien a un tipo unipuntual con nombre 
+\family typewriter
+conid
+\family default
+, y el tipo 
 \family typewriter
 simpletype
 \family default
@@ -1741,7 +1767,7 @@ Cada
 var
 \family default
  define un campo del tipo producto, y por cada una se crea una función del
- tipo definido al tipo de la variable que devuelve el valor en esa posición
+ tipo definido al tipo de la variable, que devuelve el valor en esa posición
  si la variable es de la variante 
 \family typewriter
 con
@@ -1755,8 +1781,8 @@ con
 \series bold
 tipo recursivo
 \series default
- es uno que se tiene al mismo en la parte derecha de la definición, consiguiendo
- valores recursivos.
+ es uno que se tiene a sí mismo en la parte derecha de la definición, consiguien
+do valores recursivos.
 \end_layout
 
 \begin_layout Standard
@@ -2002,7 +2028,12 @@ inst = gtycon /
 \begin_inset Quotes crd
 \end_inset
 
- / 
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     / 
 \begin_inset Quotes cld
 \end_inset
 
@@ -2026,7 +2057,7 @@ inst = gtycon /
 \begin_inset Quotes crd
 \end_inset
 
- /
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -2130,7 +2161,7 @@ varid
 \family typewriter
 conid
 \family default
- y debe aparecer alguna vez en el tipo.
+ y debe aparecer alguna vez en el tipo asignado.
  Una 
 \series bold
 declaración de instancia
@@ -2147,8 +2178,11 @@ inst
 \family typewriter
 qconid
 \family default
- y da las definiciones de los vínculos establecidos por la clase cuando
- el tipo 
+ y da las definiciones, llamadas 
+\series bold
+métodos
+\series default
+, de los vínculos establecidos por la clase cuando el tipo 
 \family typewriter
 varid
 \family default
@@ -2156,10 +2190,6 @@ varid
 \family typewriter
 inst
 \family default
-, llamadas 
-\series bold
-métodos
-\series default
 .
  Los nombres de métodos son miembros de una única clase, lo que evita conflictos
  entre nombres.
@@ -2302,7 +2332,7 @@ qconid
 .
  Esto es necesario cuando en la definición de una función se quieren usar
  funciones definidas en una clase, y de hecho el tipo de estas funciones
- tiene una restricción en su contexto.
+ en el entorno global tiene una restricción en su contexto.
 \end_layout
 
 \begin_layout Standard
@@ -2313,8 +2343,12 @@ class
 ...
 
 \family typewriter
- => 
+ =>
 \emph on
+
+\begin_inset space ~
+\end_inset
+
 Foo a
 \family default
 \emph default
@@ -2450,10 +2484,10 @@ Haskell tiene
 disciplina de tipos
 \series default
 , consistente en que toda expresión bien formada tiene un tipo deducible
- a partir de sus subexpresiones y el contexto, y las expresiones a las que
- no se puede asignar un tipo están mal formadas.
+ a partir de sus subexpresiones y los tipos de los vínculos en el contexto,
+ y las expresiones a las que no se puede asignar un tipo están mal formadas.
  Esto permite detectar errores antes de la evaluación y fuerza al programador
- se plantearse tipos apropiados para los valores, ayudando a diseñar programas
+ a plantearse tipos apropiados para los valores, ayudando a diseñar programas
  claros y bien estructurados.
 \end_layout
 
@@ -2656,114 +2690,7 @@ lexp qop infixexp
 (qop) lexp infixexp
 \family default
 , aunque realmente distintos operadores tienen distinta precedencia del
- 0 al 9 y asociatividad.
- El operador 
-\family typewriter
--
-\family default
- es el único unario, y representa la negación.
-\end_layout
-
-\begin_layout Standard
-Una 
-\series bold
-sección
-\series default
- es un operador con una expresión delante o detrás:
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-aexp /= 
-\begin_inset Quotes cld
-\end_inset
-
-(
-\begin_inset Quotes cld
-\end_inset
-
- infixexp qop 
-\begin_inset Quotes cld
-\end_inset
-
-)
-\begin_inset Quotes crd
-\end_inset
-
- / 
-\begin_inset Quotes cld
-\end_inset
-
-(
-\begin_inset Quotes cld
-\end_inset
-
- !
-\begin_inset Quotes crd
-\end_inset
-
--
-\begin_inset Quotes crd
-\end_inset
-
- qop infixexp 
-\begin_inset Quotes cld
-\end_inset
-
-)
-\begin_inset Quotes crd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-(
-\emph on
-infixexp qop
-\emph default
-)
-\family default
- equivale a 
-\family typewriter
-
-\backslash
-y -> 
-\emph on
-infixexp qop
-\emph default
- y
-\family default
- y 
-\family typewriter
-(
-\emph on
-qop infixexp
-\emph default
-)
-\family default
- a 
-\family typewriter
-
-\backslash
-x -> x 
-\emph on
-qop infixexp
-\family default
-\emph default
-.
+ 0 al 9 y asociatividad por la izquierda o la derecha.
 \end_layout
 
 \begin_layout Standard
@@ -2949,7 +2876,7 @@ La primera sintaxis indica una tupla, la segunda una lista de un tamaño
 \family typewriter
 ()
 \family default
- el tipo unidad, 
+ el único elemento del tipo unidad, 
 \family typewriter
 []
 \family default
@@ -2958,8 +2885,8 @@ La primera sintaxis indica una tupla, la segunda una lista de un tamaño
 qconid
 \family default
  es un constructor de tipo, que actúa como una función currificada que recibe
- tantos parámetros como aparezcan en la definición y del tipo correcto y
- devuelve un elemento del tipo definido.
+ tantos parámetros como aparezcan en su definición y del tipo correcto y
+ devuelve un elemento del tipo correspondiente.
  Finalmente, 
 \family typewriter
 (:) :: a -> [a] -> [a]
@@ -2997,6 +2924,141 @@ an
 :[]
 \family default
 .
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+sección
+\series default
+ es un operador con una expresión delante o detrás:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+aexp /= 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ infixexp qop 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+ / 
+\begin_inset Quotes cld
+\end_inset
+
+(
+\begin_inset Quotes cld
+\end_inset
+
+ !
+\begin_inset Quotes crd
+\end_inset
+
+-
+\begin_inset Quotes crd
+\end_inset
+
+ qop infixexp 
+\begin_inset Quotes cld
+\end_inset
+
+)
+\begin_inset Quotes crd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sloppypar}
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+(
+\emph on
+infixexp qop
+\emph default
+)
+\family default
+ equivale a 
+\family typewriter
+
+\backslash
+y ->
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+infixexp qop
+\emph default
+ y
+\family default
+ y 
+\family typewriter
+(
+\emph on
+qop infixexp
+\emph default
+)
+\family default
+ a 
+\family typewriter
+
+\backslash
+x ->
+\begin_inset space ~
+\end_inset
+
+x 
+\emph on
+qop infixexp
+\family default
+\emph default
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sloppypar}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -3060,7 +3122,7 @@ _
 \begin_inset Quotes crd
 \end_inset
 
- / gcon /
+ / gcon
 \end_layout
 
 \begin_layout Plain Layout
@@ -3113,7 +3175,7 @@ _
 \begin_inset Quotes crd
 \end_inset
 
- /
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -3542,7 +3604,7 @@ True
 \family typewriter
 gdpat
 \family default
- en el mismo contexto y devuelve su valor, o bien devuelve 
+ en el contexto extendido y devuelve su valor, o bien devuelve 
 \begin_inset Formula $\bot$
 \end_inset
 
@@ -3557,14 +3619,22 @@ alt
 \family default
  de la forma 
 \family typewriter
--> 
+->
+\begin_inset space ~
+\end_inset
+
+
 \emph on
 exp
 \family default
 \emph default
  equivale a 
 \family typewriter
-| True -> 
+| True ->
+\begin_inset space ~
+\end_inset
+
+
 \emph on
 exp
 \family default
@@ -3628,11 +3698,19 @@ case
 \emph on
 condition
 \emph default
- of { True -> 
+ of { True ->
+\begin_inset space ~
+\end_inset
+
+
 \emph on
 when-true
 \emph default
-; False -> 
+; False ->
+\begin_inset space ~
+\end_inset
+
+
 \emph on
 when-false
 \emph default
@@ -3724,20 +3802,37 @@ t
 \begin_inset Formula $_{1}$
 \end_inset
 
- -> 
-\family default
+ ->
 \emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\family default
 ...
 
 \family typewriter
 \emph on
- -> t
+ ->
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\emph on
+t
 \begin_inset Formula $_{n}$
 \end_inset
 
 
 \emph default
- -> 
+ ->
+\begin_inset space ~
+\end_inset
+
+
 \emph on
 r
 \family default
@@ -3777,6 +3872,12 @@ t
 \family default
 \emph default
 .
+ Los 
+\begin_inset Formula $\text{\emph{\texttt{t}}}_{i}$
+\end_inset
+
+ y el contexto son los más generales posibles para que los patrones y la
+ expresión sean legales, salvo que se asigne un tipo más restringido.
 \end_layout
 
 \begin_layout Section
@@ -4021,7 +4122,35 @@ z
 z
 \family default
 \emph default
- sin incluirlo.
+ sin incluirlo, y 
+\family typewriter
+[
+\emph on
+x
+\emph default
+..
+\emph on
+z
+\emph default
+]
+\family default
+ equivale a 
+\family typewriter
+[
+\emph on
+x
+\emph default
+,
+\emph on
+x
+\emph default
++1..
+\emph on
+z
+\emph default
+]
+\family default
+.
 \end_layout
 
 \begin_layout Standard
@@ -4163,7 +4292,7 @@ Q
 \emph default
 ]
 \family default
-, para cada elemento de la lista 
+ evalúa, para cada elemento de la lista 
 \family typewriter
 \emph on
 f
@@ -4175,7 +4304,7 @@ f
 p
 \family default
 \emph default
-, evalúa 
+, 
 \family typewriter
 [
 \emph on
@@ -4187,8 +4316,8 @@ Q
 \emph default
 ]
 \family default
- en un entorno extendido por los vínculos del encaje, y concatena los resultados
-, y 
+, en un entorno extendido por los vínculos del encaje, y concatena los resultado
+s, y 
 \family typewriter
 [
 \emph on
@@ -4381,7 +4510,11 @@ rest
 \emph on
 exp
 \emph default
- >> do { 
+ >>
+\begin_inset space ~
+\end_inset
+
+do { 
 \emph on
 rest
 \emph default
@@ -4414,7 +4547,11 @@ exp
 \emph on
 pat
 \emph default
- -> do { 
+ ->
+\begin_inset space ~
+\end_inset
+
+do { 
 \emph on
 rest
 \emph default
@@ -4439,8 +4576,8 @@ definición
 asignación de tipo
 \series default
  opcional, que indica el tipo de la variable, y una serie de ecuaciones.
- La asignación del tipo debe corresponder o al tipo inferido o a una restricción
-, no se puede dar más de una asignación a la misma variable y, si se asigna
+ La asignación del tipo debe corresponder o al tipo inferido o a una restricción.
+ No se puede dar más de una asignación a la misma variable y, si se asigna
  un tipo más restringido, no se puede usar la variable como si tuviera el
  tipo más general.
 \end_layout
@@ -4818,7 +4955,12 @@ export = qvar / qconid [
 \begin_inset Quotes crd
 \end_inset
 
- / 
+
+\end_layout
+
+\begin_layout Plain Layout
+
+       / 
 \begin_inset Quotes cld
 \end_inset
 
@@ -4915,6 +5057,95 @@ module
 
 cname = var / con
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Haskell organiza los elementos en módulos, uno por fichero, cada uno con
+ un nombre único y un contexto global formado por los vínculos establecidos
+ en el módulo y los que se importan de otros.
+ 
+\end_layout
+
+\begin_layout Standard
+Una 
+\series bold
+entidad
+\series default
+ es un vínculo importado o exportado por un módulo, con un nombre (que no
+ incluye el nombre del módulo) y un valor.
+\end_layout
+
+\begin_layout Standard
+Se exportan las entidades indicadas por 
+\family typewriter
+exports
+\family default
+: 
+\family typewriter
+\emph on
+qvar
+\family default
+\emph default
+ para una variable, 
+\family typewriter
+\emph on
+qconid
+\family default
+\emph default
+ para un tipo o clase, 
+\family typewriter
+\emph on
+qconid
+\emph default
+(..)
+\family default
+ para el tipo y todos sus constructores o la clase y todos sus métodos;
+ 
+\family typewriter
+\emph on
+qconid
+\emph default
+(
+\emph on
+cname
+\emph default
+, 
+\family default
+...
+\family typewriter
+)
+\family default
+ para el tipo y los constructores indicados, y 
+\family typewriter
+\emph on
+qconid
+\emph default
+(
+\emph on
+qvar
+\emph default
+, 
+\family default
+...
+\family typewriter
+)
+\family default
+ para el tipo y los métodos indicados.
+ Si no hay un 
+\family typewriter
+exports
+\family default
+, se exportan todos los vínculos definidos en el módulo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
 
 \begin_layout Plain Layout
 
@@ -5136,85 +5367,6 @@ import = var / qconid[
 \end_layout
 
 \begin_layout Standard
-Haskell organiza los elementos en módulos, uno por fichero, cada uno con
- un nombre único y un contexto global formado por los vínculos establecidos
- en el módulo y los que se importan de otros.
- 
-\end_layout
-
-\begin_layout Standard
-Una 
-\series bold
-entidad
-\series default
- es un vínculo importado o exportado por un módulo, con un nombre que no
- incluye el nombre del módulo y un valor.
-\end_layout
-
-\begin_layout Standard
-Se exportan las entidades indicadas por 
-\family typewriter
-exports
-\family default
-: 
-\family typewriter
-\emph on
-qvar
-\family default
-\emph default
- para una variable, 
-\family typewriter
-\emph on
-qconid
-\family default
-\emph default
- para un tipo o clase, 
-\family typewriter
-\emph on
-qconid
-\emph default
-(..)
-\family default
- para el tipo y todos sus constructores o la clase y todos sus métodos;
- 
-\family typewriter
-\emph on
-qconid
-\emph default
-(
-\emph on
-cname
-\emph default
-, 
-\family default
-...
-\family typewriter
-)
-\family default
- para el tipo y los constructores indicados, y 
-\family typewriter
-\emph on
-qconid
-\emph default
-(
-\emph on
-qvar
-\emph default
-, 
-\family default
-...
-\family typewriter
-)
-\family default
- para el tipo y los métodos indicados.
- Si no hay un 
-\family typewriter
-exports
-\family default
-, se exportan todos los vínculos definidos en el módulo.
-\end_layout
-
-\begin_layout Standard
 Una 
 \family typewriter
 impdecl
@@ -5264,12 +5416,12 @@ entidad
 módulo
 \family default
 \emph default
- es el nombre del módulo del que se importa o el que se indica después de
+ es el nombre del módulo del que se importa o el que se indica detrás de
  
 \family typewriter
 as
 \family default
- si aparece.
+ si este aparece.
 \end_layout
 
 \begin_layout Standard

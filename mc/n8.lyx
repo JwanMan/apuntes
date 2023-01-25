@@ -223,7 +223,11 @@ status open
 
 \end_inset
 
-Obvio.
+Por la existencia de lenguajes 
+\begin_inset Formula ${\cal NP}$
+\end_inset
+
+-completos, que vamos a ver.
 \end_layout
 
 \begin_layout Itemize
@@ -299,7 +303,7 @@ variable
 \series bold
 proposición atómica
 \series default
- dada por una secuencia de letras, una 
+ (dada por una secuencia de letras), una 
 \series bold
 conjunción
 \series default
@@ -404,11 +408,11 @@ Una proposición es
 \series bold
 satisfacible
 \series default
- si existe una asignación de valores que le asigna el valor de verdad verdadero.
+ si existe una asignación de valores que le asigna verdadero.
  Definimos
 \begin_inset Formula 
 \[
-\text{SAT}\coloneqq\text{SAT}_{0}\coloneqq\text{SAT}_{\text{LP}}\coloneqq\{\langle\Phi\rangle\mid \Phi\text{ es una fórmula booleana satisfacible}\}.
+\text{SAT}\coloneqq\text{SAT}_{0}\coloneqq\text{SAT}_{\text{LP}}\coloneqq\{\langle\Phi\rangle\mid\Phi\text{ es una fórmula booleana satisfacible}\}.
 \]
 
 \end_inset
@@ -417,7 +421,7 @@ satisfacible
 \end_layout
 
 \begin_layout Standard
-Sea 
+Sean 
 \begin_inset Formula $N=(Q,\Sigma,\Gamma,\delta,q_{0},q_{\text{f}})$
 \end_inset
 
@@ -425,7 +429,7 @@ Sea
 \begin_inset Formula $\text{MNTD}$
 \end_inset
 
- en tiempo polinómico, sean 
+ en tiempo polinómico y 
 \begin_inset Formula $m,c,k\in\mathbb{N}^{*}$
 \end_inset
 
@@ -496,7 +500,7 @@ ventana
 \end_inset
 
 , donde 
-\begin_inset Formula $a_{p0}\coloneqq a_{p,t(n)+1}\coloneqq\#\notin Q\sqcup\Gamma$
+\begin_inset Formula $a_{p0}\coloneqq a_{p,t(n)+2}\coloneqq\#\notin Q\sqcup\Gamma$
 \end_inset
 
 .
@@ -586,7 +590,7 @@ Demostración:
 \begin_inset Formula $q_{\text{f}}$
 \end_inset
 
- se puede seguir hasta completar las 
+ se pueda seguir hasta completar las 
 \begin_inset Formula $t(n)$
 \end_inset
 
@@ -676,8 +680,7 @@ s\neq t
 Finalmente queremos ver que, si una fila es una configuración válida, la
  siguiente también lo es y se sigue de ella.
  Si esto es así, todas las ventanas entre las dos filas serán legales.
- Ahora bien, las ventanas legales son las que tienen las siguientes formas,
- donde 
+ Ahora bien, las ventanas legales son las siguientes, donde 
 \begin_inset Formula $a,b,c,d\in\Gamma$
 \end_inset
 
@@ -734,9 +737,9 @@ Con esto es claro que, si todas las ventanas entre dos filas son legales,
 \begin_inset Quotes crd
 \end_inset
 
- a los lados se conservan y, si una fila tiene un único estado, la siguiente
- tendrá uno único que estará a la izquierda o a la derecha, la transición
- estará en 
+ a los lados se conservan y, si una fila tiene una única celda de estado,
+ la siguiente tendrá una única que estará a la izquierda o a la derecha,
+ la transición estará en 
 \begin_inset Formula $\delta$
 \end_inset
 
@@ -803,15 +806,7 @@ Si
 \begin_inset Formula $t(n)=O(n^{k})$
 \end_inset
 
-, esta fórmula tiene 
-\begin_inset Formula $O(n^{2k})$
-\end_inset
-
- variables (
-\begin_inset Formula $C$
-\end_inset
-
- por celda), 
+, 
 \begin_inset Formula $\Phi_{\text{start}}$
 \end_inset
 
@@ -844,12 +839,11 @@ Si
 \end_inset
 
  tiene 
-\begin_inset Formula $O(2^{nk})$
+\begin_inset Formula $O(n^{2k})$
 \end_inset
 
  (hasta 6 por ventana legal y ventana, el número de ventanas legales es
- fijo y hay menos ventanas que celdas).
- Por tanto 
+ fijo y hay menos ventanas que celdas), por lo que 
 \begin_inset Formula $\Phi$
 \end_inset
 
@@ -857,7 +851,7 @@ Si
 \begin_inset Formula $O(n^{2k})$
 \end_inset
 
-, y para 
+ y, para 
 \begin_inset Formula $N$
 \end_inset
 
@@ -889,7 +883,7 @@ La cual hay que saberse pese a que es incorrecta porque hacen preguntas
 \begin_inset Formula $n$
 \end_inset
 
- esto es imposible; añade una columa llena de 
+ esto es imposible; añade una columna llena de 
 \begin_inset Formula $\#$
 \end_inset
 
@@ -916,11 +910,7 @@ La cual hay que saberse pese a que es incorrecta porque hacen preguntas
 
 \begin_layout Standard
 Este teorema lo descubrieron Stephen Cook y Leonid Levin en los 70, siendo
- 
-\begin_inset Formula $\text{SAT}$
-\end_inset
-
- el primer lenguaje que se descubrió 
+ la primera vez que se descubre que un lenguaje es 
 \begin_inset Formula ${\cal NP}$
 \end_inset
 
@@ -975,7 +965,7 @@ Llamando
 \end_inset
 
 -completos.
- Sin embargo 
+ Sin embargo, 
 \begin_inset Formula $\text{SAT}_{\text{2-CNF}}$
 \end_inset
 
@@ -1020,6 +1010,13 @@ Entscheidungsproblem
 \emph default
 \lang spanish
  en 1936.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1271,10 +1268,10 @@ Veamos que
 \begin_inset Formula 
 \begin{align*}
 V\coloneqq & \{a_{i}\}_{i=0}^{m}\cup\{b_{ij}\}_{i\in\{1,\dots,m\}}^{j\in\{1,\dots,3n+3\}}\cup\{c_{j}\}_{j=1}^{n},\\
-E\coloneqq & \{(a_{i-1},b_{i1}),(a_{i-1},b_{i,3n+3}),(b_{i1},a_{i}),(b_{i1},a_{i,3n+3})\}_{i=1}^{m}\cup\\
+E\coloneqq & \{(a_{i-1},b_{i1}),(a_{i-1},b_{i,3n+3}),(b_{i1},a_{i}),(b_{i,3n+3},a_{i})\}_{i=1}^{m}\cup\\
  & \cup\{(b_{ij},b_{i,j+1}),(b_{i,j+1},b_{ij})\}_{i\in\{1,\dots,m\}}^{j\in\{1,\dots,3n+2\}}\cup\\
  & \cup\{(b_{i,3j},c_{j}),(c_{j},b_{i,3j+1})\}_{i\in\{1,\dots m\},j\in\{1,\dots,n\}}^{p_{i}\text{ aparece en }k_{j}}\cup\\
- & \cup\{(b_{i,3j+1},c_{j}),(c_{j},b_{i,3j})\}_{i\in\{1,\dots,m\},j\in\{1,\dots,n\}}^{\neg p_{1}\text{ aparece en }k_{j}}.
+ & \cup\{(b_{i,3j+1},c_{j}),(c_{j},b_{i,3j})\}_{i\in\{1,\dots,m\},j\in\{1,\dots,n\}}^{\neg p_{i}\text{ aparece en }k_{j}}.
 \end{align*}
 
 \end_inset
@@ -1323,7 +1320,7 @@ Tomamos una asignación de valores que haga verdadera a
 \begin_inset Formula $k_{j}$
 \end_inset
 
- que tenga valor verdadero.
+ que valga verdadero.
  Para construir el camino, primero, para 
 \begin_inset Formula $i$
 \end_inset
@@ -1415,11 +1412,6 @@ Para
 \end_inset
 
 , y en el segundo le asignamos falso.
- Veamos que esta asignación hace verdadera a 
-\begin_inset Formula $\Phi$
-\end_inset
-
-.
  Para 
 \begin_inset Formula $j\in\{1,\dots,n\}$
 \end_inset
@@ -1432,7 +1424,7 @@ Para
 \begin_inset Formula $b_{i,3j}$
 \end_inset
 
-, la queremos ver que el siguiente es 
+, queremos ver que el siguiente es 
 \begin_inset Formula $b_{i,3j+1}$
 \end_inset
 
@@ -1744,6 +1736,10 @@ El ciclo hamiltoniano debe contener el subcamino
 \begin_inset Formula $b$
 \end_inset
 
+ en 
+\begin_inset Formula $G$
+\end_inset
+
  que pasa por todos los nodos en 
 \begin_inset Formula $V$
 \end_inset
@@ -1990,7 +1986,7 @@ Si
 \begin_inset Formula $(u_{k},1)$
 \end_inset
 
- y 
+ y luego 
 \begin_inset Formula $(u_{k},2)$
 \end_inset
 
@@ -2154,7 +2150,7 @@ Traveling Salesman Problem
 
 .
  Dado un grafo no dirigido 
-\begin_inset Formula $G=VE$
+\begin_inset Formula $G=(V,E)$
 \end_inset
 
 , definimos un grafo no dirigido con pesos 
@@ -2503,7 +2499,7 @@ Para cada
 \end_inset
 
  verdadera.
- Ahora bien, para cada cláusula 
+ Para cada cláusula 
 \begin_inset Formula $k_{j}$
 \end_inset
 
@@ -2658,7 +2654,7 @@ Para ver que es
 \end_inset
 
  distintas y cláusulas 
-\begin_inset Formula $(l_{11}\land l_{12}\land l_{13})\land\dots\land(l_{n1}\land l_{n2}\land l_{n3})$
+\begin_inset Formula $(l_{11}\lor l_{12}\lor l_{13})\land\dots\land(l_{n1}\lor l_{n2}\lor l_{n3})$
 \end_inset
 
 , definimos un grafo no dirigido 

@@ -469,7 +469,7 @@ sequence_ = foldr (>>) (return ())
 
 \begin_layout Plain Layout
 
-mapM_ :: Monad m => (a -> m b) -> [a] -> m [b]
+mapM_ :: Monad m => (a -> m b) -> [a] -> m ()
 \end_layout
 
 \begin_layout Plain Layout
@@ -602,12 +602,17 @@ putStr, putStrLn :: String -> IO ()
 
 \begin_layout Plain Layout
 
-putStr s = map_ putChar s
+putStr s = mapM_ putChar s
 \end_layout
 
 \begin_layout Plain Layout
 
-putStrLn s = putStr s >> putStr 
+putStrLn s = do putStr s
+\end_layout
+
+\begin_layout Plain Layout
+
+                putStr 
 \begin_inset Quotes cld
 \end_inset
 
@@ -645,9 +650,12 @@ getLine :: IO String
 
 \begin_layout Plain Layout
 
-getLine = getChar >>= 
-\backslash
-c -> if c == '
+getLine = do c <- getChar
+\end_layout
+
+\begin_layout Plain Layout
+
+             if c == '
 \backslash
 n' then return 
 \begin_inset Quotes cld
@@ -662,9 +670,12 @@ n' then return
 
 \begin_layout Plain Layout
 
-                            else getLine >>= 
-\backslash
-s -> return (c:s)
+             else do s <- getLine
+\end_layout
+
+\begin_layout Plain Layout
+
+                  return (c:s)
 \end_layout
 
 \end_inset
@@ -706,17 +717,22 @@ interact :: (String -> String) -> IO ()
 
 \begin_layout Plain Layout
 
-interact f = hSetBuffering stdin NoBuffering >>=
+interact f = do hSetBuffering stdin NoBuffering
 \end_layout
 
 \begin_layout Plain Layout
 
-             hSetBuffering stdout NoBuffering >>=
+                hSetBuffering stdout NoBuffering
 \end_layout
 
 \begin_layout Plain Layout
 
-             s <- getContents >>= putStr (f s)
+                s <- getContents
+\end_layout
+
+\begin_layout Plain Layout
+
+                putStr (f s)
 \end_layout
 
 \begin_layout Plain Layout
@@ -724,13 +740,6 @@ interact f = hSetBuffering stdin NoBuffering >>=
         where hSetBuffering = ...
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -802,7 +811,7 @@ Un programa en Haskell es una colección de módulos de los que uno es el
 \family typewriter
 main :: IO ()
 \family default
-, que se ejecuta al ejecutar el programa.
+, que se ejecuta al iniciar el programa.
 \end_layout
 
 \end_body
